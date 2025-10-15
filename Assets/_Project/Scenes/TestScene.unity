@@ -652,8 +652,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1793134024}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &669360862
@@ -671,7 +670,8 @@ MonoBehaviour:
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 17122135}
   inputActions: {fileID: -944628639613478452, guid: f7fd3a36e5fb31942bd2db093259b645, type: 3}
 --- !u!1 &1086462932
 GameObject:
@@ -4147,7 +4147,7 @@ Transform:
   m_Children:
   - {fileID: 17122136}
   - {fileID: 386772474}
-  m_Father: {fileID: 669360861}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -4156,3 +4156,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 669360861}
+  - {fileID: 1793134024}
