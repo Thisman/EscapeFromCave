@@ -6,8 +6,8 @@ using VContainer;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField, Min(0f)] private float moveSpeed = 5f;
     [SerializeField] private Rigidbody2D body;
+    [SerializeField] private PlayerController _playerController;
 
     private IInputService _inputService;
     private InputAction _moveAction;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (!body)
             return;
 
-        body.linearVelocity = _movement * moveSpeed;
+        body.linearVelocity = _movement * _playerController.GetPlayerStats().Speed;
     }
 
     private void SubscribeToInput()
