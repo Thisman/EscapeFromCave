@@ -16,7 +16,6 @@ MonoBehaviour:
   Info:
     DisplayName: Object_Default
     Description: Default Object For Test
-    Icon: {fileID: -2108055075359774045, guid: c677824552fd5f443b6a0a5fafd3132b, type: 3}
     Type: 1
     RequiresCondition: 1
     InteractionDistance: 0
@@ -26,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9d44c26181729c4991ed92ff64e65a5, type: 2}
   TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}
   Effects:
-  - {fileID: 11400000, guid: 1a480238632062a46a55bf0e9b64361f, type: 2}
+  - {fileID: 11400000, guid: b0b9c81f6356e0a499ee85d0e8bb1517, type: 2}
