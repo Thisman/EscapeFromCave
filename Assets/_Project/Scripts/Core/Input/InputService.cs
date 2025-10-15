@@ -39,7 +39,7 @@ public class InputService : IInputService
         switch (mode)
         {
             case GameMode.Gameplay:
-                EnableOnly("Player", "Interact");
+                EnableOnly("PlayerMove", "PlayerInteraction");
                 break;
             case GameMode.Inventory:
             case GameMode.Dialog:
