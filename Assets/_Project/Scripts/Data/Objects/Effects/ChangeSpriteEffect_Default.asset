@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93bffcdab9ce346aba720d9d0fb34a, type: 3}
   m_Name: ChangeSpriteEffect_Default
   m_EditorClassIdentifier: Assembly-CSharp::ChangeSpriteEffect
-  newSprite: {fileID: 0}
+  newSprite: {fileID: 5456959532574919170, guid: 0ab2459e7973ae44d9e348d717416051, type: 3}
   delay: 0
   includeInactive: 0
