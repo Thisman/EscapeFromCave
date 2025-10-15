@@ -18,8 +18,8 @@ public class InputRouter : MonoBehaviour
         switch (mode)
         {
             case GameMode.Gameplay:
-                _actions.FindActionMap("Player").Enable();
-                _actions.FindActionMap("Interact").Enable();
+                _actions.FindActionMap("PlayerMove").Enable();
+                _actions.FindActionMap("PlayerInteraction").Enable();
                 break;
             case GameMode.Inventory:
             case GameMode.Dialog:
