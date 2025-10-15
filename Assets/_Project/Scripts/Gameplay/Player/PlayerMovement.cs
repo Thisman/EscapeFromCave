@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         _movement = Vector2.zero;
 
         if (body)
-            body.velocity = Vector2.zero;
+            body.linearVelocity = Vector2.zero;
     }
 
     private void FixedUpdate()
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (!body)
             return;
 
-        body.velocity = _movement * moveSpeed;
+        body.linearVelocity = _movement * moveSpeed;
     }
 
     private void SubscribeToInput()
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (_moveAction != null || _inputService == null)
             return;
 
-        _moveAction = _inputService.Actions.FindAction("PlayerMove", throwIfNotFound: true);
+        _moveAction = _inputService.Actions.FindAction("Move", throwIfNotFound: true);
         _moveAction.performed += OnMovePerformed;
         _moveAction.canceled += OnMoveCanceled;
     }
