@@ -1,31 +1,15 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
+using VContainer;
 
-public enum GameMode { Gameplay, Inventory, Dialog, Paused }
-
-public class InputRouter : MonoBehaviour
+public class InputRouter
 {
-    [SerializeField] private InputActionAsset _actions;
+    private readonly IInputService _input;
 
-    void Start() => SetMode(GameMode.Gameplay);
+    [Inject]
+    public InputRouter(IInputService input) => _input = input;
 
-    public void SetMode(GameMode mode)
-    {
-        _actions.bindingMask = null;
-
-        foreach (var m in _actions.actionMaps) m.Disable();
-
-        switch (mode)
-        {
-            case GameMode.Gameplay:
-                _actions.FindActionMap("PlayerMove").Enable();
-                _actions.FindActionMap("PlayerInteraction").Enable();
-                break;
-            case GameMode.Inventory:
-            case GameMode.Dialog:
-            case GameMode.Paused:
-                _actions.FindActionMap("UI").Enable();
-                break;
-        }
-    }
+    public void EnterGameplay() => _input.SetMode(GameMode.Gameplay);
+    public void EnterInventory() => _input.SetMode(GameMode.Inventory);
+    public void EnterDialog() => _input.SetMode(GameMode.Dialog);
+    public void Pause() => _input.SetMode(GameMode.Paused);
+    public void Cutscene() => _input.SetMode(GameMode.Cutscene);
 }
