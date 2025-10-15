@@ -2,9 +2,9 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour
+public class InteractionController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private InteractableDefinition definition; // ScriptableObject (см. п.2)
+    [SerializeField] private InteractableDefinition definition;
     private CooldownState _cooldown;
 
     public InteractableInfo GetInfo() => definition.Info;
