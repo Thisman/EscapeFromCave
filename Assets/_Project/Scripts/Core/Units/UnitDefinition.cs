@@ -14,23 +14,19 @@ namespace Game.Data
     [CreateAssetMenu(menuName = "RPG/Unit Definition", fileName = "UD_NewUnit")]
     public class UnitDefinition : ScriptableObject
     {
-        [Header("Общее")]
+        [Header("РћР±С‰РµРµ")]
         public string UnitName;
         public UnitType Type = UnitType.Neutral;
 
-        [Header("Уровни и статы")]
-        [Tooltip("Описание статов на каждом уровне (в порядке возрастания).")]
+        [Header("РЈСЂРѕРІРЅРё Рё СЃС‚Р°С‚С‹")]
+        [Tooltip("РћРїРёСЃР°РЅРёРµ СЃС‚Р°С‚РѕРІ РЅР° РєР°Р¶РґРѕРј СѓСЂРѕРІРЅРµ (РІ РїРѕСЂСЏРґРєРµ РІРѕР·СЂР°СЃС‚Р°РЅРёСЏ).")]
         public List<UnitStatsLevel> Levels = new();
 
-        /// <summary>
-        /// Возвращает статы по конкретному уровню.
-        /// Если запрошенный уровень превышает список — берём последний.
-        /// </summary>
         public UnitStatsLevel GetStatsForLevel(int level)
         {
             if (Levels == null || Levels.Count == 0)
             {
-                Debug.LogWarning($"{name}: нет данных уровней!");
+                Debug.LogWarning($"{name}: РЅРµС‚ РґР°РЅРЅС‹С… СѓСЂРѕРІРЅРµР№!");
                 return null;
             }
 
@@ -38,10 +34,6 @@ namespace Game.Data
             return Levels[index];
         }
 
-        /// <summary>
-        /// Возвращает требуемый XP для апгрейда уровня.
-        /// Если уровень последний — возвращает 0.
-        /// </summary>
         public int GetXPForNextLevel(int level)
         {
             var stats = GetStatsForLevel(level);
