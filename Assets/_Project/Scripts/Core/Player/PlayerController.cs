@@ -1,4 +1,3 @@
-using Game.Data;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,7 +6,7 @@ public class PlayerController : MonoBehaviour
     
     private UnitModel _unitModel;
 
-    public void Start()
+    public void Awake()
     {
         _unitModel = new UnitModel(_unitDefinition, 0, 0);
     }

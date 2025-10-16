@@ -1,4 +1,3 @@
-using Game.Data;
 using UnityEngine;
 
 public class ObjectController : MonoBehaviour
@@ -7,13 +6,14 @@ public class ObjectController : MonoBehaviour
 
     private ObjectModel _objectModel;
 
-    private void Start()
+    public void Awake()
     {
         _objectModel = new ObjectModel(_interactableDefinition);
     }
 
     public ObjectModel GetObjectModel()
     {
+        Debug.Log(_objectModel);
         return _objectModel;
     }
 }

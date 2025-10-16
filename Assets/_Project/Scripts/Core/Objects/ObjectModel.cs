@@ -1,4 +1,3 @@
-using Game.Data;
 using System;
 using UnityEngine;
 
@@ -9,5 +8,10 @@ public class ObjectModel
     public ObjectModel(InteractableDefinitionSO definition)
     {
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
+    }
+
+    public InteractableInfo GetInfo()
+    {
+        return Definition.Info;
     }
 }

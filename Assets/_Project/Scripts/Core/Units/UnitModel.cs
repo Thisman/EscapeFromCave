@@ -1,5 +1,4 @@
 using System;
-using Game.Data;
 
 public class UnitStatsModel
 {
