@@ -13,7 +13,6 @@ public class ObjectController : MonoBehaviour
 
     public ObjectModel GetObjectModel()
     {
-        Debug.Log(_objectModel);
         return _objectModel;
     }
 }
