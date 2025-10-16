@@ -9,7 +9,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = _playerController.GetPlayerModel().Definition.Sprite;
+        _spriteRenderer.sprite = _playerController.GetPlayerModel().Definition.Icon;
     }
 
     private void Update()

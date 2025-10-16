@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class SquadModel
 {
-    public UnitDefinitionSO Definition { get; private set; }
+    public UnitDefinitionSO UnitDefinition { get; private set; }
 
     [SerializeField, Min(0)]
     private int _count;
@@ -18,7 +18,7 @@ public class SquadModel
     {
         if (!definition) throw new ArgumentNullException(nameof(definition));
         if (initialCount < 0) throw new ArgumentOutOfRangeException(nameof(initialCount));
-        Definition = definition;
+        UnitDefinition = definition;
         _count = initialCount;
     }
 
@@ -51,7 +51,7 @@ public class SquadModel
     public void MergeFrom(SquadModel source)
     {
         if (source == null) throw new ArgumentNullException(nameof(source));
-        if (source.Definition != Definition)
+        if (source.UnitDefinition != UnitDefinition)
             throw new InvalidOperationException("Cannot merge squads of different unit types.");
 
         if (source._count <= 0) return;
@@ -68,7 +68,7 @@ public class SquadModel
         if (_count < amount) throw new InvalidOperationException("Not enough units to split.");
 
         _count -= amount;
-        var newSquad = new SquadModel(Definition, amount);
+        var newSquad = new SquadModel(UnitDefinition, amount);
 
         Changed?.Invoke(this);
         newSquad.Changed?.Invoke(newSquad);

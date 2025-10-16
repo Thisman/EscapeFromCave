@@ -15,7 +15,7 @@ public class UnitDefinitionSO : ScriptableObject
     [Header("Общее")]
     public string UnitName;
     public UnitType Type = UnitType.Neutral;
-    public Sprite Sprite;
+    public Sprite Icon;
 
     [Header("Уровни и статы")]
     [Tooltip("Описание статов на каждом уровне (в порядке возрастания).")]

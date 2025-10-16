@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Ally_Test_Knight
+  m_Name: Ally_Test_Mage
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  UnitName: Ally_Test_Archer
+  UnitName: Ally_Test_Mage
   Type: 1
-  Icon: {fileID: 2783893222895161197, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  Icon: {fileID: 8086551292566691165, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   Levels:
   - LevelIndex: 0
     XPToNext: 100

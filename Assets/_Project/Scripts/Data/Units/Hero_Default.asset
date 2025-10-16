@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.UnitDefinition
   UnitName: DefaultPlayer
   Type: 0
-  Sprite: {fileID: -5918137915363136097, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   Levels:
   - LevelIndex: 0
     XPToNext: 0

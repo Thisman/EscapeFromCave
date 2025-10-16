@@ -23,6 +23,8 @@ public class ArmyModel
 
     public SquadModel GetSlot(int index) => IsValid(index) ? _slots[index] : null;
 
+    public SquadModel[] GetAllSlots() => _slots.ToArray();
+
     public bool SetSlot(int index, SquadModel squad)
     {
         if (!IsValid(index)) return false;
@@ -77,7 +79,7 @@ public class ArmyModel
         for (int i = 0; i < _slots.Count && left > 0; i++)
         {
             var s = _slots[i];
-            if (s == null || s.Definition != def || s.IsEmpty) continue;
+            if (s == null || s.UnitDefinition != def || s.IsEmpty) continue;
 
             int took = s.RemoveUpTo(left);
             left -= took;
@@ -93,7 +95,7 @@ public class ArmyModel
         if (!def) return 0;
         int sum = 0;
         for (int i = 0; i < _slots.Count; i++)
-            if (_slots[i] != null && _slots[i].Definition == def)
+            if (_slots[i] != null && _slots[i].UnitDefinition == def)
                 sum += _slots[i].Count;
         return sum;
     }
@@ -128,7 +130,7 @@ public class ArmyModel
             return true;
         }
 
-        if (from.Definition != to.Definition) return false;
+        if (from.UnitDefinition != to.UnitDefinition) return false;
 
         to.MergeFrom(from);
         _slots[fromIndex] = null;
@@ -141,7 +143,7 @@ public class ArmyModel
         for (int i = 0; i < _slots.Count; i++)
         {
             var s = _slots[i];
-            if (s != null && s.Definition == def) return s;
+            if (s != null && s.UnitDefinition == def) return s;
         }
         return null;
     }

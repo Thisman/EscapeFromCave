@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Ally_Test_Knight
+  m_Name: Ally_Test_Archer
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   UnitName: Ally_Test_Archer
   Type: 1
-  Icon: {fileID: 2783893222895161197, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   Levels:
   - LevelIndex: 0
     XPToNext: 100
-    Health: 50
-    Damage: 15
-    Defense: 10
-    Initiative: 1
+    Health: 30
+    Damage: 18
+    Defense: 5
+    Initiative: 2
     Speed: 0
   - LevelIndex: 0
     XPToNext: 250
-    Health: 75
-    Damage: 18
-    Defense: 11
-    Initiative: 1
+    Health: 50
+    Damage: 24
+    Defense: 5
+    Initiative: 2
     Speed: 0
   - LevelIndex: 0
     XPToNext: 500
-    Health: 100
-    Damage: 25
-    Defense: 13
-    Initiative: 1
+    Health: 65
+    Damage: 28
+    Defense: 6
+    Initiative: 2
     Speed: 0
