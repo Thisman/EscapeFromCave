@@ -16,4 +16,9 @@ public class PlayerController : MonoBehaviour
     {
         return _unitModel.GetStats();
     }
+
+    public UnitModel GetPlayerModel()
+    {
+        return _unitModel;
+    }
 }

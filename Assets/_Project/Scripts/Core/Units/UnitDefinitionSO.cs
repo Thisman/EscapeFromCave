@@ -17,6 +17,7 @@ namespace Game.Data
         [Header("Общее")]
         public string UnitName;
         public UnitType Type = UnitType.Neutral;
+        public Sprite Sprite;
 
         [Header("Уровни и статы")]
         [Tooltip("Описание статов на каждом уровне (в порядке возрастания).")]

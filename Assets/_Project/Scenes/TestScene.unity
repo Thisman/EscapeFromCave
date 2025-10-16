@@ -291,6 +291,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 408016866}
   _rigidbody: {fileID: 17122138}
   _movementThreshold: 0.01
+  _playerController: {fileID: 17122140}
 --- !u!1 &114852529
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +568,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -575,7 +576,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &519420028
@@ -677,10 +678,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.01704918
-    y: 0
-    width: 0.9652459
-    height: 1
+    x: 0
+    y: 0.012499999
+    width: 1
+    height: 0.9747869
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

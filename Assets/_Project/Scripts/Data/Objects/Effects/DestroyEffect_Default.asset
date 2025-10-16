@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c85678b87793c47ae59811f4f335a2, type: 3}
   m_Name: DestroyEffect_Default
   m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
-  delay: 2
-  includeInactive: 0
+  delay: 1
+  includeInactive: 1

@@ -1,3 +1,4 @@
+using Game.Data;
 using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
@@ -5,6 +6,12 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private float _movementThreshold = 0.01f;
+    [SerializeField] private PlayerController _playerController;
+
+    private void Start()
+    {
+        _spriteRenderer.sprite = _playerController.GetPlayerModel().Definition.Sprite;
+    }
 
     private void Update()
     {
