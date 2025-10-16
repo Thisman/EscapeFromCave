@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private InteractableDefinition definition;
+    [SerializeField] private InteractableDefinitionSO definition;
     private CooldownState _cooldown;
 
     public InteractableInfo GetInfo() => definition.Info;

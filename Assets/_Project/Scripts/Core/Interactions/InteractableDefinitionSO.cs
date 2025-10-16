@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Interactable")]
-public sealed class InteractableDefinition : ScriptableObject
+public sealed class InteractableDefinitionSO : ScriptableObject
 {
     public string Id;
     public InteractableInfo Info;
