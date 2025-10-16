@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using VContainer;
 
 public class PlayerArmyController : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
+    [Inject] private IGameSession _gameSession;
 
     public ArmyModel Army { get; private set; }
     public event Action ArmyChanged;
@@ -13,10 +15,11 @@ public class PlayerArmyController : MonoBehaviour
     private void Awake()
     {
         Army = new ArmyModel(_maxSlots);
-        for(int i = 0; i < Debug_HeroArmy.Length; i++)
+        for (int i = 0; i < _gameSession.Army.Count; i++)
         {
-            if (Debug_HeroArmy[i] != null)
-                Army.TryAddUnits(Debug_HeroArmy[i], 10);
+            var def = _gameSession.Army[i];
+            if (def != null)
+                TryAddUnits(def, 10);
         }
 
         Army.Changed += () => ArmyChanged?.Invoke();

@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PreStartSceneManager : MonoBehaviour
 {
     [SerializeField] private CarouselUI _heroCarouselUI;
     [SerializeField] private CarouselUI[] _squadCarouselsUI;
     [SerializeField] private Button _startButton;
+
+    [Inject] IGameSession _gameSession;
 
     private void OnEnable()
     {
@@ -19,26 +24,30 @@ public class PreStartSceneManager : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
-        GetSelectedHero();
-        GetSelectedArmy();
+        UnitDefinitionSO selectedHero = GetSelectedHero();
+        List<UnitDefinitionSO> selectedSquads = GetSelectedArmy();
+
+        _gameSession.SetSelection(selectedHero, selectedSquads);
+        SceneManager.LoadScene("Cave_1");
     }
 
-    private void GetSelectedHero()
+    private UnitDefinitionSO GetSelectedHero()
     {
         GameObject selectedObject = _heroCarouselUI.GetCurrentObject();
         if (selectedObject == null)
-            return;
+            return null;
 
         HeroCarouselItemView heroItemView = selectedObject.GetComponent<HeroCarouselItemView>();
         if (heroItemView == null)
-            return;
+            return null;
 
-        UnitDefinitionSO heroDefinition = heroItemView.Definition;
-        Debug.Log($"Hero {heroDefinition.UnitName}");
+        return heroItemView.Definition;
     }
 
-    private void GetSelectedArmy()
+    private List<UnitDefinitionSO> GetSelectedArmy()
     {
+        List<UnitDefinitionSO> selectedSquads = new();
+
         for(int i = 0; i < _squadCarouselsUI.Length; i++)
         {
             GameObject selectedObject = _squadCarouselsUI[i].GetCurrentObject();
@@ -47,8 +56,10 @@ public class PreStartSceneManager : MonoBehaviour
             SquadCarouselItemView itemView = selectedObject.GetComponent<SquadCarouselItemView>();
             if (itemView == null)
                 continue;
-            UnitDefinitionSO definition = itemView.Definition;
-            Debug.Log($"Squad {i}: {definition.UnitName}");
+
+            selectedSquads.Add(itemView.Definition);
         }
+
+        return selectedSquads;
     }
 }

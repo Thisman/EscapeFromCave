@@ -1,23 +1,29 @@
 using UnityEngine;
+using VContainer;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private UnitDefinitionSO _unitDefinition;
-    
     private UnitModel _unitModel;
+    [Inject] private IGameSession _gameSession;
 
-    public void Awake()
+    private void Awake()
     {
-        _unitModel = new UnitModel(_unitDefinition, 0, 0);
+        _unitModel = new UnitModel(_gameSession.Hero);
     }
 
     public UnitStatsModel GetPlayerStats()
     {
+        if (_unitModel == null)
+            return null;
+
         return _unitModel.GetStats();
     }
 
     public UnitModel GetPlayerModel()
     {
+        if (_unitModel == null)
+            return null;
+
         return _unitModel;
     }
 }

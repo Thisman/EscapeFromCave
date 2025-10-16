@@ -1,15 +1,17 @@
 using UnityEngine;
+using VContainer;
 
 public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private float _movementThreshold = 0.01f;
-    [SerializeField] private PlayerController _playerController;
 
-    private void Start()
+    [Inject] private IGameSession _gameSession;
+
+    private void Awake()
     {
-        _spriteRenderer.sprite = _playerController.GetPlayerModel().Definition.Icon;
+        _spriteRenderer.sprite = _gameSession.Hero.Icon;
     }
 
     private void Update()
