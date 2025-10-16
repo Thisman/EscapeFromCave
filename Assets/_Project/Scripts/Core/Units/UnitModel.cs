@@ -28,14 +28,14 @@ public class UnitStatsModel
 
 public class UnitModel
 {
-    public UnitDefinition Definition { get; }
+    public UnitDefinitionSO Definition { get; }
     public int Level => _level;
     public int Experience => _experience;
 
     private int _level;
     private int _experience;
 
-    public UnitModel(UnitDefinition definition, int startingLevel = 0, int startingExperience = 0)
+    public UnitModel(UnitDefinitionSO definition, int startingLevel = 0, int startingExperience = 0)
     {
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
 

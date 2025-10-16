@@ -2,15 +2,18 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour, IInteractable
+public class ObjectInteraction : MonoBehaviour, IInteractable
 {
-    [SerializeField] private InteractableDefinitionSO definition;
+    [SerializeField] private ObjectController _objectController;
     private CooldownState _cooldown;
 
-    public InteractableInfo GetInfo() => definition.Info;
+    public InteractableInfo GetInfo() => _objectController.GetObjectModel().Definition.Info;
 
     public bool TryInteract(InteractionContext ctx)
     {
+        InteractableDefinitionSO definition = _objectController.GetObjectModel().Definition;
+
+        if (definition == null) return false;
         if (!_cooldown.Ready(ctx.Time)) return false;
         if (!definition.Conditions.All(c => c.IsMet(ctx))) return false;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private UnitDefinition _unitDefinition;
+    [SerializeField] private UnitDefinitionSO _unitDefinition;
     
     private UnitModel _unitModel;
 

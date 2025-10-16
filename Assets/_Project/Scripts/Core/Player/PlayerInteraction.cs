@@ -4,7 +4,7 @@ using VContainer;
 using System.Linq;
 
 [RequireComponent(typeof(Collider2D))]
-public sealed class PlayerInteract2D : MonoBehaviour
+public sealed class PlayerInteraction : MonoBehaviour
 {
     [Header("Interaction Settings")]
     [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
@@ -85,7 +85,7 @@ public sealed class PlayerInteract2D : MonoBehaviour
             _currentTarget = target;
         }
 
-        // Очистим ссылки для удобства
+        // РћС‡РёСЃС‚РёРј СЃСЃС‹Р»РєРё РґР»СЏ СѓРґРѕР±СЃС‚РІР°
         for (int i = 0; i < _hits.Length - 1; i++)
             _hits[i] = null;
     }
@@ -117,8 +117,8 @@ public sealed class PlayerInteract2D : MonoBehaviour
 #if UNITY_EDITOR
         string targetName = _currentTarget.GetInfo().DisplayName;
         Debug.Log(success
-            ? $"[PlayerInteract2D] Успешно: {targetName}"
-            : $"[PlayerInteract2D] Не удалось: {targetName}");
+            ? $"[PlayerInteract2D] РЈСЃРїРµС€РЅРѕ: {targetName}"
+            : $"[PlayerInteract2D] РќРµ СѓРґР°Р»РѕСЃСЊ: {targetName}");
 #endif
     }
 

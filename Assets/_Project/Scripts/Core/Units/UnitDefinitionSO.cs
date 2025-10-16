@@ -12,7 +12,7 @@ namespace Game.Data
     }
 
     [CreateAssetMenu(menuName = "RPG/Unit Definition", fileName = "UD_NewUnit")]
-    public class UnitDefinition : ScriptableObject
+    public class UnitDefinitionSO : ScriptableObject
     {
         [Header("Общее")]
         public string UnitName;
