@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
@@ -20,9 +20,6 @@ public class ChangeSpriteEffect : EffectSO
     {
         if (newSprite == null)
         {
-#if UNITY_EDITOR
-            Debug.LogWarning("[ChangeSpriteEffectSO] Не задан спрайт для замены!");
-#endif
             return;
         }
 
@@ -40,9 +37,6 @@ public class ChangeSpriteEffect : EffectSO
             var renderer = target.GetComponentInChildren<SpriteRenderer>();
             if (renderer == null)
             {
-#if UNITY_EDITOR
-                Debug.LogWarning($"[ChangeSpriteEffectSO] У объекта '{target.name}' нет SpriteRenderer!");
-#endif
                 continue;
             }
 
@@ -64,10 +58,6 @@ public class ChangeSpriteEffect : EffectSO
     private void ApplySprite(SpriteRenderer renderer)
     {
         renderer.sprite = newSprite;
-
-#if UNITY_EDITOR
-        Debug.Log($"[ChangeSpriteEffectSO] Спрайт заменён у '{renderer.gameObject.name}' → '{newSprite.name}'");
-#endif
     }
 
     private IEnumerator DelayedChange(SpriteRenderer renderer, float delay)

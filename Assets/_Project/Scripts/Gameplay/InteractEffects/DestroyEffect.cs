@@ -5,11 +5,11 @@ using UnityEngine;
 public class DestroyEffect : EffectSO
 {
     [Header("Destroy Settings")]
-    [Tooltip("Задержка перед удалением, в секундах.")]
+    [Tooltip("Р—Р°РґРµСЂР¶РєР° РїРµСЂРµРґ СѓРґР°Р»РµРЅРёРµРј, РІ СЃРµРєСѓРЅРґР°С….")]
     [Min(0f)]
     public float delay = 0f;
 
-    [Tooltip("Если true — уничтожать сразу, даже если объект неактивен.")]
+    [Tooltip("Р•СЃР»Рё true вЂ” СѓРЅРёС‡С‚РѕР¶Р°С‚СЊ СЃСЂР°Р·Сѓ, РґР°Р¶Рµ РµСЃР»Рё РѕР±СЉРµРєС‚ РЅРµР°РєС‚РёРІРµРЅ.")]
     public bool includeInactive = false;
 
     public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
@@ -22,7 +22,7 @@ public class DestroyEffect : EffectSO
             if (target == null)
                 continue;
 
-            // Можно добавить проверку на includeInactive
+            // РњРѕР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ РїСЂРѕРІРµСЂРєСѓ РЅР° includeInactive
             if (!includeInactive && !target.activeInHierarchy)
                 continue;
 
@@ -32,13 +32,9 @@ public class DestroyEffect : EffectSO
             }
             else
             {
-                // уничтожаем с задержкой
+                // СѓРЅРёС‡С‚РѕР¶Р°РµРј СЃ Р·Р°РґРµСЂР¶РєРѕР№
                 Destroy(target, delay);
             }
-
-#if UNITY_EDITOR
-            Debug.Log($"[DestroyEffectSO] Уничтожен объект '{target.name}' (delay = {delay:0.00}s)");
-#endif
         }
     }
 }

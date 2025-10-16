@@ -112,14 +112,7 @@ public sealed class PlayerInteraction : MonoBehaviour
             Time = Time.time
         };
 
-        bool success = _currentTarget.TryInteract(ctxData);
-
-#if UNITY_EDITOR
-        string targetName = _currentTarget.GetInfo().DisplayName;
-        Debug.Log(success
-            ? $"[PlayerInteract2D] Успешно: {targetName}"
-            : $"[PlayerInteract2D] Не удалось: {targetName}");
-#endif
+        _currentTarget.TryInteract(ctxData);
     }
 
     private void OnDrawGizmosSelected()

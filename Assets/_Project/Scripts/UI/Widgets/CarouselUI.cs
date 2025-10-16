@@ -33,6 +33,14 @@ public class CarouselUI : MonoBehaviour
         _nextButton.onClick.RemoveListener(Next);
     }
 
+    public GameObject GetCurrentObject()
+    {
+        if (_items.Length == 0)
+            return null;
+
+        return _items[_currentIndex]?.gameObject;
+    }
+
     private void Prev()
     {
         int newIndex = _currentIndex - 1;

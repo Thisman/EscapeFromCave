@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Hero_Default
+  m_Name: Hero_Default_2
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.UnitDefinition
-  UnitName: Hero_Default
+  UnitName: Hero_Default_2
   Type: 0
-  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  Icon: {fileID: -8582895898453060978, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   Levels:
   - LevelIndex: 0
     XPToNext: 0
