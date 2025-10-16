@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c85678b87793c47ae59811f4f335a2, type: 3}
-  m_Name: Chest_Test_DestroyEffect
+  m_Name: Ogr_Test_DestroyEffect
   m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
-  delay: 1
+  delay: 0
   includeInactive: 1

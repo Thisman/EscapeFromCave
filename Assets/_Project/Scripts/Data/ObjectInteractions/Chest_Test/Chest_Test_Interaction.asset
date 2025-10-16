@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a3b59e15624dc43b57abbbb63b5824, type: 3}
-  m_Name: Chest_Test_Interactions
+  m_Name: Chest_Test_Interaction
   m_EditorClassIdentifier: Assembly-CSharp::InteractableDefinitionSO
   Id: Chest_Test
   Info:
