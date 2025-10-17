@@ -12,6 +12,7 @@ public class PreStartSceneManager : MonoBehaviour
 
     [Inject] IGameSession _gameSession;
     [Inject] GameFlowService _gameFlowService;
+    [Inject] SceneLoader _sceneLoader;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class PreStartSceneManager : MonoBehaviour
         List<UnitDefinitionSO> selectedSquads = GetSelectedArmy();
 
         _gameSession.SetSelection(selectedHero, selectedSquads);
-        SceneManager.LoadScene("Cave_1");
+        _sceneLoader.LoadScene("Cave_1");
     }
 
     private UnitDefinitionSO GetSelectedHero()

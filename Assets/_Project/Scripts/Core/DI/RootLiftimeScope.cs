@@ -11,6 +11,8 @@ public sealed class RootLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder b)
     {
+        b.Register<SceneLoader>(Lifetime.Singleton);
+
         b.Register<GameSession>(Lifetime.Singleton).As<IGameSession>();
         b.Register<GameFlowService>(Lifetime.Singleton);
 
