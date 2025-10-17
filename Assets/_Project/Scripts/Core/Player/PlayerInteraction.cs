@@ -14,24 +14,23 @@ public sealed class PlayerInteraction : MonoBehaviour
     [SerializeField, Min(1)] private int maxCandidates = 16;
     [SerializeField] private bool drawGizmos = true;
 
-    private IInputService _inputService;
+    [Inject] private IInputService _inputService;
+    [Inject] private SceneLoader _sceneLoader;
     private InputAction _interactAction;
 
     private Collider2D[] _hits;
     private IInteractable _currentTarget;
     private GameObject _actor;
 
-    [Inject]
-    public void Construct(IInputService inputService)
-    {
-        _inputService = inputService;
-        SubscribeToInput();
-    }
-
     private void Awake()
     {
         _actor = gameObject;
         _hits = new Collider2D[maxCandidates];
+    }
+
+    public void Start()
+    {
+        SubscribeToInput();
     }
 
     private void OnEnable()
@@ -109,7 +108,8 @@ public sealed class PlayerInteraction : MonoBehaviour
             Actor = _actor,
             Target = (_currentTarget as MonoBehaviour)?.gameObject,
             Point = transform.position,
-            Time = Time.time
+            Time = Time.time,
+            SceneLoader = _sceneLoader,
         };
 
         _currentTarget.TryInteract(ctxData);

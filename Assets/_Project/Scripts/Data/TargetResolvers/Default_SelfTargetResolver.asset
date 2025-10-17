@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6389009df57efbf488d930cf1f6ab3db, type: 3}
-  m_Name: Ogr_Test_SequenceEffect
-  m_EditorClassIdentifier: Assembly-CSharp::SequenceEffect
-  Children:
-  - {fileID: 11400000, guid: d7c09c19cf4d75a49b19a3156e372994, type: 2}
+  m_Script: {fileID: 11500000, guid: 59172d6b9f8fd0e409726c4b1eb45e44, type: 3}
+  m_Name: Default_SelfTargetResolver
+  m_EditorClassIdentifier: Assembly-CSharp::SelfResolver

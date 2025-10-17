@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class PreStartSceneManager : MonoBehaviour
 {

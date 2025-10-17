@@ -7,4 +7,5 @@ public sealed class InteractionContext
     public Vector3 Point;
     public object Payload;
     public float Time;
+    public SceneLoader SceneLoader;
 }
