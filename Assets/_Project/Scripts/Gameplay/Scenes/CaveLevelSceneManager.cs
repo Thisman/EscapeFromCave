@@ -3,7 +3,7 @@ using UnityEngine.Rendering.VirtualTexturing;
 using VContainer;
 using VContainer.Unity;
 
-public class CaveSceneManager : MonoBehaviour
+public class CaveLevelSceneManager : MonoBehaviour
 {
     public void Awake()
     {

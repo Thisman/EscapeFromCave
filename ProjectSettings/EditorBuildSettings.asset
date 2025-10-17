@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/PreStartScene.unity
     guid: a54365eff6227274fbeb6c09d95198ad
   - enabled: 1
-    path: Assets/_Project/Scenes/Cave_1.unity
-    guid: 6a4b93414571f434db1db192f20c5c3a
-  - enabled: 1
     path: Assets/_Project/Scenes/Battle.unity
     guid: 0ba7a7d9c30ab1e4bb5e1c155e46b668
+  - enabled: 1
+    path: Assets/_Project/Scenes/Cave_Level_1.unity
+    guid: 6a4b93414571f434db1db192f20c5c3a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

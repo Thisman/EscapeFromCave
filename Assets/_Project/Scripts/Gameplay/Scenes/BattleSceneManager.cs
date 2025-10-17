@@ -20,6 +20,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private async void OnLeaveBattleButtonClicked()
     {
-        await _sceneLoader.UnloadAdditiveAsync("Battle", "Cave_1");
+        await _sceneLoader.UnloadAdditiveAsync("Battle", "Cave_Level_1");
     }
 }

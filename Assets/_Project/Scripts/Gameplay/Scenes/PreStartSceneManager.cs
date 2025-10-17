@@ -34,7 +34,7 @@ public class PreStartSceneManager : MonoBehaviour
         List<UnitDefinitionSO> selectedSquads = GetSelectedArmy();
 
         _gameSession.SetSelection(selectedHero, selectedSquads);
-        _sceneLoader.LoadScene("Cave_1");
+        _sceneLoader.LoadScene("Cave_Level_1");
     }
 
     private UnitDefinitionSO GetSelectedHero()
