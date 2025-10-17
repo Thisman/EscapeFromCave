@@ -43,7 +43,7 @@ public class PreStartSceneManager : MonoBehaviour
         if (selectedObject == null)
             return null;
 
-        HeroCarouselItemView heroItemView = selectedObject.GetComponent<HeroCarouselItemView>();
+        HeroCarouselItemView heroItemView = selectedObject.GetComponentInChildren<HeroCarouselItemView>();
         if (heroItemView == null)
             return null;
 
@@ -59,7 +59,7 @@ public class PreStartSceneManager : MonoBehaviour
             GameObject selectedObject = _squadCarouselsUI[i].GetCurrentObject();
             if (selectedObject == null)
                 continue;
-            SquadCarouselItemView itemView = selectedObject.GetComponent<SquadCarouselItemView>();
+            SquadCarouselItemView itemView = selectedObject.GetComponentInChildren<SquadCarouselItemView>();
             if (itemView == null)
                 continue;
 

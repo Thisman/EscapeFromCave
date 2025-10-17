@@ -348,7 +348,6 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 183965673}
   - {fileID: 1348623016}
-  inputActions: {fileID: -944628639613478452, guid: f7fd3a36e5fb31942bd2db093259b645, type: 3}
 --- !u!1 &1086462932
 GameObject:
   m_ObjectHideFlags: 0
@@ -22715,19 +22714,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.004416404
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.36759374
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.31790742
+      value: 0.99151766
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.32240024
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23683,7 +23682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 64, y: 32}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1627437442
@@ -23699,7 +23698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23742,7 +23741,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 16
+  m_Spacing: 32
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
