@@ -18,7 +18,7 @@ MonoBehaviour:
     Description: Default chest for test
     Type: 0
     RequiresCondition: 1
-    InteractionDistance: 0
+    InteractionDistance: 1.6
     HighlightColor: {r: 0, g: 0, b: 0, a: 0}
   Icon: {fileID: -769894619084422448, guid: 0ab2459e7973ae44d9e348d717416051, type: 3}
   Cooldown: 0

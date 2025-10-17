@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 183965674}
   - component: {fileID: 183965675}
+  - component: {fileID: 183965676}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -168,6 +169,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b48b1f7d7af1439480e4036c73b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CaveSceneManager
+--- !u!114 &183965676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183965673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8933eb81bb470984aae58ecf7defd029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableHintSystem
+  player: {fileID: 1348623014}
+  hintPrefab: {fileID: 1135258129533068811, guid: 64d51ee758ea5fc46bb4137d7cfe7c36, type: 3}
+  worldOffset: {x: 0, y: 0.8, z: 0}
+  updatesPerSecond: 10
+  rescanInterval: 0.5
 --- !u!1 &386772473
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +269,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000832d6907b13b1f5025a44fc4
+  m_ApplyToSortingLayers: 00000000832d6907b13b1f5025a44fc49ff53a1b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -22664,6 +22682,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1793134024}
     m_Modifications:
+    - target: {fileID: 111835086825581585, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
+      propertyPath: interactRadius
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 256761772204218236, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: _playerArmyController
       value: 
@@ -22714,7 +22736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.004416404
+      value: 0.028391168
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -22722,7 +22744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99151766
+      value: 0.94328773
       objectReference: {fileID: 0}
     - target: {fileID: 6537599208479065317, guid: 2b3b677e3e42ed34c93e80419cf2526a, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

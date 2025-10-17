@@ -48,5 +48,8 @@ TagManager:
   - name: Walls
     uniqueID: 3293553701
     locked: 0
+  - name: Hints
+    uniqueID: 456848799
+    locked: 0
   m_RenderingLayers:
   - Default
