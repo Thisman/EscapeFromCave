@@ -1,13 +1,22 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer;
 using VContainer.Unity;
 
 [DefaultExecutionOrder(-1000)]
 public sealed class RootLifetimeScope : LifetimeScope
 {
+    [Header("References")]
+    [SerializeField] private InputActionAsset inputActions;
+
     protected override void Configure(IContainerBuilder b)
     {
         b.Register<GameSession>(Lifetime.Singleton).As<IGameSession>();
+        b.Register<GameFlowService>(Lifetime.Singleton);
+
+        b.RegisterInstance(inputActions).As<InputActionAsset>();
+        b.Register<InputService>(Lifetime.Singleton).As<IInputService>();
+        b.Register<InputRouter>(Lifetime.Singleton);
     }
 
     protected override void Awake()

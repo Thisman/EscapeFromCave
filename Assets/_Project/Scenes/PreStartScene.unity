@@ -3000,6 +3000,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 788646638}
+  inputActions: {fileID: -944628639613478452, guid: f7fd3a36e5fb31942bd2db093259b645, type: 3}
 --- !u!4 &1217272346
 Transform:
   m_ObjectHideFlags: 0

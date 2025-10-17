@@ -11,6 +11,12 @@ public class PreStartSceneManager : MonoBehaviour
     [SerializeField] private Button _startButton;
 
     [Inject] IGameSession _gameSession;
+    [Inject] GameFlowService _gameFlowService;
+
+    private void Start()
+    {
+        _gameFlowService.EnterGameplay();
+    }
 
     private void OnEnable()
     {

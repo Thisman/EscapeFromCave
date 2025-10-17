@@ -1,19 +1,12 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using VContainer;
 
 public class InputService : IInputService
 {
-    private readonly InputActionAsset _actions;
+    [Inject] private readonly InputActionAsset _actions;
 
     public InputActionAsset Actions => _actions;
-    public GameMode CurrentMode { get; private set; } = GameMode.Gameplay;
-
-    public InputService(InputActionAsset actions)
-    {
-        _actions = actions;
-
-        SetMode(GameMode.Gameplay);
-    }
 
     public void EnableOnly(params string[] maps)
     {
@@ -33,7 +26,6 @@ public class InputService : IInputService
 
     public void SetMode(GameMode mode)
     {
-        CurrentMode = mode;
         ClearBindingMask();
 
         switch (mode)
@@ -41,14 +33,13 @@ public class InputService : IInputService
             case GameMode.Gameplay:
                 EnableOnly("PlayerMove", "PlayerInteraction");
                 break;
+            case GameMode.Battle:
+                EnableOnly("Battle");
+                break;
             case GameMode.Inventory:
             case GameMode.Dialog:
             case GameMode.Paused:
                 EnableOnly("UI");
-                break;
-            case GameMode.Cutscene:
-                // Ничего или минимум (Skip)
-                EnableOnly("UI"); // если нужен Skip через Submit/Cancel
                 break;
         }
     }
