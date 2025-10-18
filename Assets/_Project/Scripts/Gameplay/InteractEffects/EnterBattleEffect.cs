@@ -1,12 +1,18 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/EnterBattle")]
-public sealed class EnterBattleEffect : EffectSO
+public sealed class EnterBattleEffect : EffectSO, IAsyncEffect
 {
-    public override async void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        SceneLoader _sceneLoader = ctx.SceneLoader;
-        await _sceneLoader.LoadAdditiveAsync("Battle", true);
+        _ = ApplyAsync(ctx, targets);
+    }
+
+    public async Task ApplyAsync(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    {
+        SceneLoader sceneLoader = ctx.SceneLoader;
+        await sceneLoader.LoadAdditiveAsync("Battle", true);
     }
 }
