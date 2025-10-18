@@ -1,0 +1,58 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build game and publish release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      BUILD_PLATFORM: StandaloneWindows64
+      BUILD_PATH: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Unity
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/unity3d
+            ~/.local/share/unity3d
+          key: unity-${{ runner.os }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
+
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        with:
+          targetPlatform: ${{ env.BUILD_PLATFORM }}
+          allowDirtyBuild: true
+
+      - name: Archive build
+        id: archive
+        run: |
+          VERSION=$(sed -n 's/^bundleVersion: //p' ProjectSettings/ProjectSettings.asset)
+          if [ -z "$VERSION" ]; then
+            VERSION="${GITHUB_RUN_NUMBER}"
+          fi
+          RELEASE_NAME="EscapeFromCave-${VERSION}-${{ env.BUILD_PLATFORM }}"
+          ZIP_PATH="${RELEASE_NAME}.zip"
+          echo "release_name=${RELEASE_NAME}" >> "$GITHUB_OUTPUT"
+          echo "zip_path=${ZIP_PATH}" >> "$GITHUB_OUTPUT"
+          cd build/${{ env.BUILD_PLATFORM }}
+          zip -r "../../${ZIP_PATH}" .
+        shell: bash
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.archive.outputs.release_name }}
+          name: ${{ steps.archive.outputs.release_name }}
+          artifacts: ${{ steps.archive.outputs.zip_path }}
+          artifactContentType: application/zip
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
