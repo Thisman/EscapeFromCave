@@ -6,8 +6,18 @@ public class BattleSceneManager : MonoBehaviour
 {
     [SerializeField] private Button _leaveBattleButton;
 
+    [System.Serializable]
+    public class PanelLayer
+    {
+        public string Name;
+        public GameObject[] Elements;
+    }
+
+    public PanelLayer[] layers;
+
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private StateMachine<BattleStateContext> _stateMachine;
+    [Inject] private PanelController _panelController;
 
     private TacticState _tacticState;
     private FightState _fightState;
@@ -15,6 +25,8 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
+        RegisterLayers();
+
         string sceneName = gameObject.scene.name;
         if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
         {
@@ -69,5 +81,24 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         _stateMachine.SetState<TacticState>();
+    }
+
+    private void RegisterLayers()
+    {
+        if (_panelController == null || layers == null)
+        {
+            return;
+        }
+
+        for (var i = 0; i < layers.Length; i++)
+        {
+            var layer = layers[i];
+            if (layer == null || string.IsNullOrEmpty(layer.Name))
+            {
+                continue;
+            }
+
+            _panelController.Register(layer.Name, layer.Elements);
+        }
     }
 }
