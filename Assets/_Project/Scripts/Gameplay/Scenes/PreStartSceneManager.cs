@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class PreStartSceneManager : MonoBehaviour
 {
-    [SerializeField] private CarouselWidget _heroCarouselUI;
-    [SerializeField] private CarouselWidget[] _squadCarouselsUI;
+    [SerializeField] private CarouselWidget _heroCarouselWidget;
+    [SerializeField] private CarouselWidget[] _squadCarouselsWidget;
     [SerializeField] private Button _startButton;
 
     [Inject] IGameSession _gameSession;
@@ -39,7 +39,7 @@ public class PreStartSceneManager : MonoBehaviour
 
     private UnitDefinitionSO GetSelectedHero()
     {
-        GameObject selectedObject = _heroCarouselUI.GetCurrentObject();
+        GameObject selectedObject = _heroCarouselWidget.GetCurrentObject();
         if (selectedObject == null)
             return null;
 
@@ -54,9 +54,9 @@ public class PreStartSceneManager : MonoBehaviour
     {
         List<UnitDefinitionSO> selectedSquads = new();
 
-        for(int i = 0; i < _squadCarouselsUI.Length; i++)
+        for(int i = 0; i < _squadCarouselsWidget.Length; i++)
         {
-            GameObject selectedObject = _squadCarouselsUI[i].GetCurrentObject();
+            GameObject selectedObject = _squadCarouselsWidget[i].GetCurrentObject();
             if (selectedObject == null)
                 continue;
             SquadCarouselItemView itemView = selectedObject.GetComponentInChildren<SquadCarouselItemView>();
