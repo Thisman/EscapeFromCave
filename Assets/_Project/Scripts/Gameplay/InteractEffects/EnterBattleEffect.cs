@@ -32,8 +32,8 @@ public sealed class EnterBattleEffect : EffectSO, IAsyncEffect
             return;
         }
 
-        var payload = new BattleSceneData(hero, army, enemyModel);
-        await sceneLoader.LoadAdditiveWithDataAsync<BattleSceneData, object>("Battle", payload, true);
+        var payload = new BattleSceneLoadingPayload(hero, army, enemyModel);
+        await sceneLoader.LoadAdditiveWithDataAsync<BattleSceneLoadingPayload, object>("Battle", payload, true);
     }
 
     private static UnitModel TryGetEnemyModel(IReadOnlyList<GameObject> targets)

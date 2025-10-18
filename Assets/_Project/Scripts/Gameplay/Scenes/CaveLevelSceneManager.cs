@@ -5,7 +5,7 @@ using VContainer.Unity;
 
 public class CaveLevelSceneManager : MonoBehaviour
 {
-    public void Awake()
+    public void Start()
     {
     }
 }

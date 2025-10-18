@@ -11,7 +11,7 @@ public class BattleSceneManager : MonoBehaviour
     private void Start()
     {
         string sceneName = gameObject.scene.name;
-        if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneData>(sceneName, out var data))
+        if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
         {
             string heroName = data.Hero?.Definition ? data.Hero.Definition.name : "<null>";
             string enemyName = data.Enemy?.Definition ? data.Enemy.Definition.name : "<null>";
