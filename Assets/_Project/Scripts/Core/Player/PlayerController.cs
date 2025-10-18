@@ -4,6 +4,7 @@ using VContainer;
 public class PlayerController : MonoBehaviour
 {
     private UnitModel _unitModel;
+
     [Inject] private IGameSession _gameSession;
 
     private void Awake()

@@ -6,18 +6,15 @@ using System.Linq;
 [RequireComponent(typeof(Collider2D))]
 public sealed class PlayerInteraction : MonoBehaviour
 {
-    [Header("Interaction Settings")]
     [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
     [SerializeField] private LayerMask interactableMask = ~0;
-
-    [Header("Performance / Debug")]
     [SerializeField, Min(1)] private int maxCandidates = 16;
     [SerializeField] private bool drawGizmos = true;
 
     [Inject] private IInputService _inputService;
     [Inject] private SceneLoader _sceneLoader;
-    private InputAction _interactAction;
 
+    private InputAction _interactAction;
     private Collider2D[] _hits;
     private IInteractable _currentTarget;
     private GameObject _actor;

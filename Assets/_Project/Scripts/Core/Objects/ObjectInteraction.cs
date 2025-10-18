@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectInteraction : MonoBehaviour, IInteractable
 {
     [SerializeField] private ObjectController _objectController;
+
     private CooldownState _cooldown;
 
     public InteractableInfo GetInfo() => _objectController.GetObjectModel().Definition.Info;

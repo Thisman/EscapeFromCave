@@ -9,21 +9,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private PlayerController _playerController;
 
-    private IInputService _inputService;
+    [Inject] private IInputService _inputService;
+
     private InputAction _moveAction;
     private Vector2 _movement;
-
-    [Inject]
-    public void Construct(IInputService inputService)
-    {
-        _inputService = inputService;
-        SubscribeToInput();
-    }
 
     private void Awake()
     {
         if (!body)
             body = GetComponent<Rigidbody2D>();
+    }
+
+    public void Start()
+    {
+        SubscribeToInput();
     }
 
     private void OnEnable()

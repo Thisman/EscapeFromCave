@@ -6,10 +6,10 @@ public class SquadModel
 {
     public UnitDefinitionSO UnitDefinition { get; private set; }
 
-    [SerializeField, Min(0)]
-    private int _count;
+    [SerializeField, Min(0)] private int _count;
 
     public int Count => _count;
+
     public bool IsEmpty => _count <= 0;
 
     public event Action<SquadModel> Changed;

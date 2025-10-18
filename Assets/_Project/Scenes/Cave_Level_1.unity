@@ -181,11 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8933eb81bb470984aae58ecf7defd029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableHintSystem
-  player: {fileID: 1348623014}
-  hintPrefab: {fileID: 1135258129533068811, guid: 64d51ee758ea5fc46bb4137d7cfe7c36, type: 3}
-  worldOffset: {x: 0, y: 0.8, z: 0}
-  updatesPerSecond: 10
-  rescanInterval: 0.5
+  _player: {fileID: 1348623014}
+  _hintPrefab: {fileID: 1135258129533068811, guid: 64d51ee758ea5fc46bb4137d7cfe7c36, type: 3}
+  _worldOffset: {x: 0, y: 1, z: 0}
+  _updatesPerSecond: 10
+  _rescanInterval: 0.5
 --- !u!1 &386772473
 GameObject:
   m_ObjectHideFlags: 0

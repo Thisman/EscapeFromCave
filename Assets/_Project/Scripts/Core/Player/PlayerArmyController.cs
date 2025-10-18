@@ -5,6 +5,7 @@ using VContainer;
 public class PlayerArmyController : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
+
     [Inject] private IGameSession _gameSession;
 
     public ArmyModel Army { get; private set; }

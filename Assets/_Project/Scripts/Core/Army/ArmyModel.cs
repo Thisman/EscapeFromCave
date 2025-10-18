@@ -9,6 +9,7 @@ public class ArmyModel
     [SerializeField] private List<SquadModel> _slots;
 
     public int MaxSlots => _maxSlots;
+
     public IReadOnlyList<SquadModel> Slots => _slots;
 
     public event Action Changed;
