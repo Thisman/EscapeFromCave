@@ -8,7 +8,7 @@ public sealed class SquadItemView : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _countText;
 
-    public void Bind(SquadModel squad)
+    public void Bind(SquadViewModel squad)
     {
         if (squad == null)
         {
@@ -18,9 +18,9 @@ public sealed class SquadItemView : MonoBehaviour
         }
 
         if (_icon)
-            _icon.sprite = squad.UnitDefinition != null ? squad.UnitDefinition.Icon : null;
+            _icon.sprite = squad.Icon;
 
         if (_countText)
-            _countText.text = squad.Count.ToString();
+            _countText.text = squad.Count > 0 ? squad.Count.ToString() : string.Empty;
     }
 }

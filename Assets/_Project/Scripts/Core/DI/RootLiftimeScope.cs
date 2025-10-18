@@ -11,14 +11,9 @@ public sealed class RootLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder b)
     {
-        b.Register<SceneLoader>(Lifetime.Singleton);
-
-        b.Register<GameSession>(Lifetime.Singleton).As<IGameSession>();
-        b.Register<GameFlowService>(Lifetime.Singleton);
-
-        b.RegisterInstance(inputActions).As<InputActionAsset>();
-        b.Register<InputService>(Lifetime.Singleton).As<IInputService>();
-        b.Register<InputRouter>(Lifetime.Singleton);
+        GameServicesModule.Register(b);
+        InteractionModule.Register(b);
+        InputModule.Register(b, inputActions);
     }
 
     protected override void Awake()

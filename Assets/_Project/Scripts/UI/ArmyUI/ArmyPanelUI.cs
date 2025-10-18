@@ -1,38 +1,51 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using VContainer;
 
 public sealed class ArmyPanelUI : MonoBehaviour
 {
     [Header("Bindings")]
-    [SerializeField] private PlayerArmyController _playerArmyController; 
+    [SerializeField] private PlayerArmyController _playerArmyController;
     [SerializeField] private RectTransform _content;
     [SerializeField] private SquadItemView _itemPrefab;
 
+    [Inject] private GameFlowService _gameFlowService;
+
     private readonly List<SquadItemView> _items = new();
+    private ArmyPanelPresenter _presenter;
+    private bool _flowSubscribed;
 
     private void Awake()
     {
         if (_content == null)
             _content = (RectTransform)transform;
-    }
 
-    private void Start()
-    {
-        Rebuild();
+        _presenter = new ArmyPanelPresenter(_playerArmyController);
+        _presenter.Updated += OnPresenterUpdated;
     }
 
     private void OnEnable()
     {
-        _playerArmyController.ArmyChanged += Rebuild;
+        SubscribeToFlow();
+        _presenter?.RequestRefresh();
     }
 
     private void OnDisable()
     {
-        _playerArmyController.ArmyChanged -= Rebuild;
+        UnsubscribeFromFlow();
     }
 
-    public void Rebuild()
+    private void OnDestroy()
+    {
+        if (_presenter != null)
+        {
+            _presenter.Updated -= OnPresenterUpdated;
+            _presenter.Dispose();
+            _presenter = null;
+        }
+    }
+
+    private void OnPresenterUpdated(IReadOnlyList<SquadViewModel> squads)
     {
         if (_playerArmyController == null)
         {
@@ -41,29 +54,24 @@ public sealed class ArmyPanelUI : MonoBehaviour
             return;
         }
 
-        var squads = _playerArmyController.GetSquads();
-        EnsureCapacity(squads.Count());
+        ApplyViewModels(squads);
+    }
 
-        for (int i = 0; i < squads.Count(); i++)
+    private void ApplyViewModels(IReadOnlyList<SquadViewModel> squads)
+    {
+        int count = squads?.Count ?? 0;
+        EnsureCapacity(count);
+
+        int i = 0;
+        for (; i < count; i++)
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
             view.Bind(squads[i]);
         }
 
-        for (int i = squads.Count(); i < _items.Count; i++)
+        for (; i < _items.Count; i++)
             _items[i].gameObject.SetActive(false);
-    }
-
-    public void RefreshValues()
-    {
-        if (_playerArmyController == null) return;
-
-        var squads = _playerArmyController.GetSquads();
-        int visible = Mathf.Min(squads.Count(), _items.Count);
-        for (int i = 0; i < visible; i++)
-            if (_items[i].isActiveAndEnabled)
-                _items[i].Bind(squads[i]);
     }
 
     private void EnsureCapacity(int needed)
@@ -80,5 +88,33 @@ public sealed class ArmyPanelUI : MonoBehaviour
     {
         for (int i = 0; i < _items.Count; i++)
             _items[i].gameObject.SetActive(false);
+    }
+
+    private void SubscribeToFlow()
+    {
+        if (_gameFlowService == null || _flowSubscribed)
+            return;
+
+        _gameFlowService.ModeChanged += HandleModeChanged;
+        _flowSubscribed = true;
+    }
+
+    private void UnsubscribeFromFlow()
+    {
+        if (!_flowSubscribed || _gameFlowService == null)
+            return;
+
+        _gameFlowService.ModeChanged -= HandleModeChanged;
+        _flowSubscribed = false;
+    }
+
+    private void HandleModeChanged(GameMode mode)
+    {
+        bool shouldBeVisible = mode == GameMode.Inventory || mode == GameMode.Gameplay;
+        if (_content != null && _content.gameObject != gameObject)
+            _content.gameObject.SetActive(shouldBeVisible);
+
+        if (shouldBeVisible)
+            _presenter?.RequestRefresh();
     }
 }
