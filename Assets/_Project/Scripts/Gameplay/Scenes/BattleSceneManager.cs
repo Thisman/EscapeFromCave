@@ -8,6 +8,7 @@ public class BattleSceneManager : MonoBehaviour
 
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private StateMachine<BattleStateContext> _stateMachine;
+    [Inject] private PanelController _panelController;
 
     private TacticState _tacticState;
     private FightState _fightState;
@@ -49,9 +50,9 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeStateMachine()
     {
-        _tacticState ??= new TacticState();
-        _fightState ??= new FightState();
-        _finishState ??= new FinishState();
+        _tacticState ??= new TacticState(_panelController);
+        _fightState ??= new FightState(_panelController);
+        _finishState ??= new FinishState(_panelController);
 
         if (!_stateMachine.IsStateRegistered<TacticState>())
         {
