@@ -1,17 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
+using System;
 
 public class BattleSceneManager : MonoBehaviour
 {
     [SerializeField] private Button _leaveBattleButton;
+    [SerializeField] private Button _startBattleButton;
+    [SerializeField] private Button _finishBattleButton;
+
+    [SerializeField] private LayerRegistration[] _layers;
 
     [Inject] private SceneLoader _sceneLoader;
-    [Inject] private StateMachine<BattleStateContext> _stateMachine;
+    [Inject] private PanelController _panelController;
 
-    private TacticState _tacticState;
-    private FightState _fightState;
-    private FinishState _finishState;
+    [Inject] private StateMachine<BattleStateContext> _stateMachine;
+    [Inject] private TacticState _tacticState;
+    [Inject] private FinishState _finishState;
+    [Inject] private BattleRoundState _battleRoundState;
 
     private void Start()
     {
@@ -29,38 +35,39 @@ public class BattleSceneManager : MonoBehaviour
             Debug.LogWarning("[BattleSceneManager] Unable to retrieve battle scene data payload");
         }
 
+        RegisterLayers();
         InitializeStateMachine();
     }
 
     private void OnEnable()
     {
-        _leaveBattleButton.onClick.AddListener(OnLeaveBattleButtonClicked);
+        _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<BattleRoundState>());
+        _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
+        _finishBattleButton.onClick.AddListener(OnLeaveBattleButtonClicked);
     }
 
     private void OnDisable()
     {
-        _leaveBattleButton.onClick.RemoveListener(OnLeaveBattleButtonClicked);
+        _leaveBattleButton.onClick.RemoveAllListeners();
+        _startBattleButton.onClick.RemoveAllListeners();
+        _finishBattleButton.onClick.RemoveAllListeners();
     }
 
     private async void OnLeaveBattleButtonClicked()
     {
-        await _sceneLoader.CloseAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
+        await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
     }
 
     private void InitializeStateMachine()
     {
-        _tacticState ??= new TacticState();
-        _fightState ??= new FightState();
-        _finishState ??= new FinishState();
-
         if (!_stateMachine.IsStateRegistered<TacticState>())
         {
             _stateMachine.RegisterState(_tacticState);
         }
 
-        if (!_stateMachine.IsStateRegistered<FightState>())
+        if (!_stateMachine.IsStateRegistered<BattleRoundState>())
         {
-            _stateMachine.RegisterState(_fightState);
+            _stateMachine.RegisterState(_battleRoundState);
         }
 
         if (!_stateMachine.IsStateRegistered<FinishState>())
@@ -69,5 +76,39 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         _stateMachine.SetState<TacticState>();
+    }
+
+    private void RegisterLayers()
+    {
+        if (_panelController == null || _layers == null)
+        {
+            return;
+        }
+
+        foreach (var layer in _layers)
+        {
+            if (layer == null)
+            {
+                continue;
+            }
+
+            var layerName = layer.LayerName;
+            if (string.IsNullOrEmpty(layerName))
+            {
+                continue;
+            }
+
+            _panelController.Register(layerName, layer.Elements);
+        }
+    }
+
+    [Serializable]
+    private class LayerRegistration
+    {
+        [SerializeField] private string _layerName;
+        [SerializeField] private GameObject[] _elements;
+
+        public string LayerName => _layerName;
+        public GameObject[] Elements => _elements;
     }
 }

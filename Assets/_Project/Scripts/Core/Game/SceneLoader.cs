@@ -8,24 +8,7 @@ public sealed class SceneLoader
 {
     private readonly Dictionary<string, SceneSession> _sessions = new();
 
-    public async Task LoadAdditiveAsync(string sceneName, bool setActive = true)
-    {
-        var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        while (!op.isDone)
-            await Task.Yield();
-
-        var loaded = SceneManager.GetSceneByName(sceneName);
-        if (setActive)
-        {
-            SetActiveSceneExclusive(loaded);
-        }
-        else
-        {
-            SceneUtils.SetSceneActiveObjects(sceneName, false);
-        }
-    }
-
-    public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload, bool setActive = true)
+    public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload)
     {
         if (string.IsNullOrEmpty(sceneName))
             throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
@@ -41,7 +24,7 @@ public sealed class SceneLoader
 
         try
         {
-            await LoadAdditiveAsync(sceneName, setActive).ConfigureAwait(false);
+            await LoadAdditiveAsync(sceneName).ConfigureAwait(false);
             var result = await session.CompletionSource.Task.ConfigureAwait(false);
 
             if (result == null)
@@ -58,18 +41,28 @@ public sealed class SceneLoader
         }
     }
 
-    public bool TryGetScenePayload<TPayload>(string sceneName, out TPayload payload)
+    public async Task LoadAdditiveAsync(string sceneName)
     {
-        if (_sessions.TryGetValue(sceneName, out var session) && session.TryGetPayload(out payload))
-        {
-            return true;
-        }
+        var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        while (!op.isDone)
+            await Task.Yield();
 
-        payload = default;
-        return false;
+        var loaded = SceneManager.GetSceneByName(sceneName);
+        SceneManager.SetActiveScene(loaded);
+
+        var count = SceneManager.sceneCount;
+        for (int i = 0; i < count; i++)
+        {
+            var s = SceneManager.GetSceneAt(i);
+            if (s.name != sceneName)
+            {
+                Debug.Log(s.name);
+                ActivateTargetScene(s, false);
+            }
+        }
     }
 
-    public async Task CloseAdditiveWithDataAsync(string sceneName, object closeData, string returnToScene = null)
+    public async Task UnloadAdditiveWithDataAsync(string sceneName, object closeData, string returnToScene = null)
     {
         if (string.IsNullOrEmpty(sceneName))
             throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
@@ -96,23 +89,20 @@ public sealed class SceneLoader
             var parentScene = SceneManager.GetSceneByName(returnToScene);
             if (parentScene.isLoaded)
             {
-                SetActiveSceneExclusive(parentScene);
+                ActivateTargetScene(parentScene, true);
             }
         }
     }
 
-    public async Task LoadSingleAsync(string sceneName)
+    public bool TryGetScenePayload<TPayload>(string sceneName, out TPayload payload)
     {
-        var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-        while (!op.isDone)
-            await Task.Yield();
-
-        // На всякий случай принудительно активируем корневые объекты новой активной сцены
-        var active = SceneManager.GetActiveScene();
-        if (active.IsValid() && active.name == sceneName)
+        if (_sessions.TryGetValue(sceneName, out var session) && session.TryGetPayload(out payload))
         {
-            SceneUtils.SetSceneActiveObjects(sceneName, true);
+            return true;
         }
+
+        payload = default;
+        return false;
     }
 
     public void LoadScene(string sceneName)
@@ -125,19 +115,16 @@ public sealed class SceneLoader
         }
     }
 
-    private void SetActiveSceneExclusive(Scene sceneToActivate)
+    private void ActivateTargetScene(Scene sceneToActivate, bool isActive)
     {
         if (!sceneToActivate.IsValid() || !sceneToActivate.isLoaded)
             return;
 
-        SceneManager.SetActiveScene(sceneToActivate);
-
-        var count = SceneManager.sceneCount;
-        for (int i = 0; i < count; i++)
+        if (isActive)
         {
-            var s = SceneManager.GetSceneAt(i);
-            bool isActive = s == sceneToActivate;
-            SceneUtils.SetSceneActiveObjects(s.name, isActive);
+            SceneManager.SetActiveScene(sceneToActivate);
         }
+
+        SceneUtils.SetSceneActiveObjects(sceneToActivate.name, isActive);
     }
 }
