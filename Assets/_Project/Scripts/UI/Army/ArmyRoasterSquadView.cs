@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public sealed class SquadItemView : MonoBehaviour
+public sealed class ArmyRoasterSquadView : MonoBehaviour
 {
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _countText;

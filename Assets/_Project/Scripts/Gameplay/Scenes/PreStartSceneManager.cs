@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class PreStartSceneManager : MonoBehaviour
 {
-    [SerializeField] private CarouselUI _heroCarouselUI;
-    [SerializeField] private CarouselUI[] _squadCarouselsUI;
+    [SerializeField] private CarouselWidget _heroCarouselUI;
+    [SerializeField] private CarouselWidget[] _squadCarouselsUI;
     [SerializeField] private Button _startButton;
 
     [Inject] IGameSession _gameSession;

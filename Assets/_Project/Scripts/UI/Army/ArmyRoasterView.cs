@@ -2,14 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public sealed class ArmyPanelUI : MonoBehaviour
+public sealed class ArmyRoasterView : MonoBehaviour
 {
-    [Header("Bindings")]
     [SerializeField] private PlayerArmyController _playerArmyController; 
     [SerializeField] private RectTransform _content;
-    [SerializeField] private SquadItemView _itemPrefab;
+    [SerializeField] private ArmyRoasterSquadView _itemPrefab;
 
-    private readonly List<SquadItemView> _items = new();
+    private readonly List<ArmyRoasterSquadView> _items = new();
 
     private void Awake()
     {

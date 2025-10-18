@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CarouselUI : MonoBehaviour
+public class CarouselWidget : MonoBehaviour
 {
-    [Header("UI References")]
     [SerializeField] private RectTransform _content;
     [SerializeField] private Button _prevButton;
     [SerializeField] private Button _nextButton;
 
-    [Header("Settings")]
     [SerializeField] private bool _loop = false;
 
     private int _currentIndex = 0;
