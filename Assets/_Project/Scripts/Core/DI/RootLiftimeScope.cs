@@ -15,6 +15,7 @@ public sealed class RootLifetimeScope : LifetimeScope
 
         b.Register<GameSession>(Lifetime.Singleton).As<IGameSession>();
         b.Register<GameFlowService>(Lifetime.Singleton);
+        b.Register<PanelController>(Lifetime.Singleton);
 
         b.RegisterInstance(inputActions).As<InputActionAsset>();
         b.Register<InputService>(Lifetime.Singleton).As<IInputService>();
