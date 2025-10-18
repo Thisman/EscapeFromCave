@@ -10,7 +10,7 @@ public class ObjectModel : IReadOnlyObjectModel
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
     }
 
-    public InteractableInfo GetInfo()
+    public InteractableInfoDefinition GetInfo()
     {
         return Definition.Info;
     }

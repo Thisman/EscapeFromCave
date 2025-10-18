@@ -4,12 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DestroyEffect", menuName = "Gameplay/Effects/Destroy", order = 0)]
 public class DestroyEffect : EffectSO
 {
-    [Header("Destroy Settings")]
-    [Tooltip("Задержка перед удалением, в секундах.")]
-    [Min(0f)]
-    public float delay = 0f;
+    [Min(0f)] public float delay = 0f;
 
-    [Tooltip("Если true — уничтожать сразу, даже если объект неактивен.")]
     public bool includeInactive = false;
 
     public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)

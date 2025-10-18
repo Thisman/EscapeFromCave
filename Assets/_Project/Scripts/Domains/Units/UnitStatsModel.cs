@@ -10,11 +10,8 @@ public class UnitStatsModel
     public float Speed { get; }
     public int XPToNext { get; }
 
-    public UnitStatsModel(int level, UnitStatsLevelDifinition stats)
+    public UnitStatsModel(int level, UnitStatsLevelDefinition stats)
     {
-        if (stats == null)
-            throw new ArgumentNullException(nameof(stats));
-
         Level = level;
         Health = stats.Health;
         Damage = stats.Damage;

@@ -11,7 +11,7 @@ public class UnitModel : IReadOnlyUnitModel
 
     public UnitModel(UnitDefinitionSO definition, int startingLevel = 0, int startingExperience = 0)
     {
-        Definition = definition ?? throw new ArgumentNullException(nameof(definition));
+        Definition = definition != null ? definition : throw new ArgumentNullException(nameof(definition));
 
         _level = Math.Max(0, startingLevel);
         _experience = 0;
@@ -23,7 +23,7 @@ public class UnitModel : IReadOnlyUnitModel
     public UnitStatsModel GetStats()
     {
         var statsLevel = Definition.GetStatsForLevel(_level);
-        return statsLevel != null ? new UnitStatsModel(_level, statsLevel) : null;
+        return new UnitStatsModel(_level, statsLevel);
     }
 
     public bool AddExperience(int amount)

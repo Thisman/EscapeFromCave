@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum UnitType
@@ -10,23 +11,20 @@ public enum UnitType
 }
 
 [CreateAssetMenu(menuName = "RPG/Unit Definition", fileName = "UD_NewUnit")]
-public class UnitDefinitionSO : ScriptableObject
+public sealed class UnitDefinitionSO : ScriptableObject
 {
-    [Header("Общее")]
     public string UnitName;
     public UnitType Type = UnitType.Neutral;
     public Sprite Icon;
 
-    [Header("Уровни и статы")]
-    [Tooltip("Описание статов на каждом уровне (в порядке возрастания).")]
-    public List<UnitStatsLevelDifinition> Levels = new();
+    public List<UnitStatsLevelDefinition> Levels = new();
 
-    public UnitStatsLevelDifinition GetStatsForLevel(int level)
+    public UnitStatsLevelDefinition GetStatsForLevel(int level)
     {
         if (Levels == null || Levels.Count == 0)
         {
             Debug.LogWarning($"{name}: нет данных уровней!");
-            return null;
+            return new UnitStatsLevelDefinition();
         }
 
         int index = Mathf.Clamp(level - 1, 0, Levels.Count - 1);
@@ -36,24 +34,21 @@ public class UnitDefinitionSO : ScriptableObject
     public int GetXPForNextLevel(int level)
     {
         var stats = GetStatsForLevel(level);
-        return stats?.XPToNext ?? 0;
+        return stats.XPToNext;
     }
 }
 
-[System.Serializable]
-public class UnitStatsLevelDifinition
+[Serializable]
+public struct UnitStatsLevelDefinition
 {
-    [Min(1)] public int LevelIndex = 1;
+    [Min(0)] public int LevelIndex;
 
-    [Tooltip("Сколько опыта нужно для перехода на следующий уровень.")]
-    [Min(0)] public int XPToNext = 0;
+    [Min(0)] public int XPToNext;
 
-    [Header("Характеристики на этом уровне")]
-    [Min(1)] public int Health = 100;
-    [Min(0)] public int Damage = 10;
-    [Min(0)] public int Defense = 5;
-    [Min(0)] public int Initiative = 5;
+    [Min(0)] public int Health;
+    [Min(0)] public int Damage;
+    [Min(0)] public int Defense;
+    [Min(0)] public int Initiative;
 
-    [Tooltip("Используется только для героя. Для обычных юнитов можно оставить 0.")]
-    [Min(0)] public float Speed = 0;
+    [Min(0)] public float Speed;
 }
