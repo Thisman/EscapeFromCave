@@ -6,14 +6,18 @@ using System;
 public class BattleSceneManager : MonoBehaviour
 {
     [SerializeField] private Button _leaveBattleButton;
+    [SerializeField] private Button _startBattleButton;
+    [SerializeField] private Button _finishBattleButton;
+
     [SerializeField] private LayerRegistration[] _layers;
 
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private PanelController _panelController;
+
     [Inject] private StateMachine<BattleStateContext> _stateMachine;
     [Inject] private TacticState _tacticState;
-    [Inject] private BattleRoundState _fightState;
     [Inject] private FinishState _finishState;
-    [Inject] private PanelController _panelController;
+    [Inject] private BattleRoundState _battleRoundState;
 
     private void Start()
     {
@@ -37,17 +41,21 @@ public class BattleSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _leaveBattleButton.onClick.AddListener(OnLeaveBattleButtonClicked);
+        _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<BattleRoundState>());
+        _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
+        _finishBattleButton.onClick.AddListener(OnLeaveBattleButtonClicked);
     }
 
     private void OnDisable()
     {
-        _leaveBattleButton.onClick.RemoveListener(OnLeaveBattleButtonClicked);
+        _leaveBattleButton.onClick.RemoveAllListeners();
+        _startBattleButton.onClick.RemoveAllListeners();
+        _finishBattleButton.onClick.RemoveAllListeners();
     }
 
     private async void OnLeaveBattleButtonClicked()
     {
-        await _sceneLoader.CloseAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
+        await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
     }
 
     private void InitializeStateMachine()
@@ -59,7 +67,7 @@ public class BattleSceneManager : MonoBehaviour
 
         if (!_stateMachine.IsStateRegistered<BattleRoundState>())
         {
-            _stateMachine.RegisterState(_fightState);
+            _stateMachine.RegisterState(_battleRoundState);
         }
 
         if (!_stateMachine.IsStateRegistered<FinishState>())
