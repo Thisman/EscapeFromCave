@@ -6,18 +6,6 @@ using UnityEngine.SceneManagement;
 
 public sealed class SceneLoader
 {
-    private sealed class SceneSession
-    {
-        public SceneSession(object payload)
-        {
-            Payload = payload;
-            CompletionSource = new TaskCompletionSource<object>(TaskCreationOptions.RunContinuationsAsynchronously);
-        }
-
-        public object Payload { get; }
-        public TaskCompletionSource<object> CompletionSource { get; }
-    }
-
     private readonly Dictionary<string, SceneSession> _sessions = new();
 
     public async Task LoadAdditiveAsync(string sceneName, bool setActive = true)
@@ -37,10 +25,13 @@ public sealed class SceneLoader
         }
     }
 
-    public async Task<TCloseData> LoadAdditiveWithDataAsync<TCloseData>(string sceneName, object payload, bool setActive = true)
+    public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload, bool setActive = true)
     {
         if (string.IsNullOrEmpty(sceneName))
             throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
+
+        if (payload == null)
+            throw new ArgumentNullException(nameof(payload));
 
         if (_sessions.ContainsKey(sceneName))
             throw new InvalidOperationException($"Scene '{sceneName}' is already loaded with a data session");
@@ -69,9 +60,8 @@ public sealed class SceneLoader
 
     public bool TryGetScenePayload<TPayload>(string sceneName, out TPayload payload)
     {
-        if (_sessions.TryGetValue(sceneName, out var session) && session.Payload is TPayload typed)
+        if (_sessions.TryGetValue(sceneName, out var session) && session.TryGetPayload(out payload))
         {
-            payload = typed;
             return true;
         }
 

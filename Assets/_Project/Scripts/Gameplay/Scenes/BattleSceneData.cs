@@ -1,5 +1,5 @@
 using System;
-public sealed class BattleSceneData
+public sealed class BattleSceneData : ISceneLoadingPayload<BattleSceneData>
 {
     public UnitModel Hero { get; }
     public ArmyModel Army { get; }
@@ -10,5 +10,10 @@ public sealed class BattleSceneData
         Hero = hero ?? throw new ArgumentNullException(nameof(hero));
         Army = army ?? throw new ArgumentNullException(nameof(army));
         Enemy = enemy ?? throw new ArgumentNullException(nameof(enemy));
+    }
+
+    public BattleSceneData GetData()
+    {
+        return this;
     }
 }
