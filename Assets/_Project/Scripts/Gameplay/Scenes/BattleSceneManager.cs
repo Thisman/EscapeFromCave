@@ -8,6 +8,17 @@ public class BattleSceneManager : MonoBehaviour
 
     [Inject] private SceneLoader _sceneLoader;
 
+    private BattleStateContext _battleStateContext;
+    private StateMachine<BattleStateContext> _stateMachine;
+    private TacticState _tacticState;
+    private FightState _fightState;
+    private FinishState _finishState;
+
+    private void Awake()
+    {
+        InitializeStateMachine();
+    }
+
     private void Start()
     {
         string sceneName = gameObject.scene.name;
@@ -36,5 +47,16 @@ public class BattleSceneManager : MonoBehaviour
     private async void OnLeaveBattleButtonClicked()
     {
         await _sceneLoader.CloseAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
+    }
+
+    private void InitializeStateMachine()
+    {
+        _battleStateContext = new BattleStateContext();
+        _tacticState = new TacticState();
+        _fightState = new FightState();
+        _finishState = new FinishState();
+
+        _stateMachine = new StateMachine<BattleStateContext>(_battleStateContext);
+        _stateMachine.SetState(_tacticState);
     }
 }
