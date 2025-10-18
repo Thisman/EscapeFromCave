@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
 
 public sealed class SceneLoader
 {
+    private readonly Dictionary<string, SceneSession> _sessions = new();
+
     public async Task LoadAdditiveAsync(string sceneName, bool setActive = true)
     {
         var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -19,6 +23,62 @@ public sealed class SceneLoader
         {
             SceneUtils.SetSceneActiveObjects(sceneName, false);
         }
+    }
+
+    public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload, bool setActive = true)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+            throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
+
+        if (payload == null)
+            throw new ArgumentNullException(nameof(payload));
+
+        if (_sessions.ContainsKey(sceneName))
+            throw new InvalidOperationException($"Scene '{sceneName}' is already loaded with a data session");
+
+        var session = new SceneSession(payload);
+        _sessions.Add(sceneName, session);
+
+        try
+        {
+            await LoadAdditiveAsync(sceneName, setActive).ConfigureAwait(false);
+            var result = await session.CompletionSource.Task.ConfigureAwait(false);
+
+            if (result == null)
+                return default;
+
+            if (result is TCloseData typed)
+                return typed;
+
+            throw new InvalidCastException($"Unable to cast close data for scene '{sceneName}' to {typeof(TCloseData)}");
+        }
+        finally
+        {
+            _sessions.Remove(sceneName);
+        }
+    }
+
+    public bool TryGetScenePayload<TPayload>(string sceneName, out TPayload payload)
+    {
+        if (_sessions.TryGetValue(sceneName, out var session) && session.TryGetPayload(out payload))
+        {
+            return true;
+        }
+
+        payload = default;
+        return false;
+    }
+
+    public async Task CloseAdditiveWithDataAsync(string sceneName, object closeData, string returnToScene = null)
+    {
+        if (string.IsNullOrEmpty(sceneName))
+            throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
+
+        if (!_sessions.TryGetValue(sceneName, out var session))
+            throw new InvalidOperationException($"Scene '{sceneName}' was not loaded with a data session");
+
+        await UnloadAdditiveAsync(sceneName, returnToScene).ConfigureAwait(false);
+        session.CompletionSource.TrySetResult(closeData);
     }
 
     public async Task UnloadAdditiveAsync(string sceneName, string returnToScene = null)
@@ -40,6 +100,7 @@ public sealed class SceneLoader
             }
         }
     }
+
     public async Task LoadSingleAsync(string sceneName)
     {
         var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
