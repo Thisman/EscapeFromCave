@@ -2,32 +2,10 @@ name: Build and Release
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch: {}  # позволяет вручную запускать job для получения .alf
+    branches:
+      - main
 
 jobs:
-  # 1) Ручной job для генерации .alf (делается один раз или при перевыпуске лицензии)
-  request-license:
-    name: Request Unity .alf (manual)
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate activation request (.alf)
-        uses: game-ci/unity-request-activation-file@v2
-        # Можно не указывать версию — экшен прочитает ее из ProjectSettings/ProjectVersion.txt,
-        # но если хочешь зафиксировать:
-        # with:
-        #   unityVersion: 2022.3.40f1
-
-      - name: Upload .alf artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: unity-activation-file
-          path: ./*.alf
-          if-no-files-found: error
-          retention-days: 7
-
-  # 2) Обычный билд-джоб (на push) — требует заранее добавленный секрет UNITY_LICENSE
   build:
     name: Build game and publish release
     runs-on: ubuntu-latest
@@ -37,21 +15,9 @@ jobs:
       BUILD_PLATFORM: StandaloneWindows64
       BUILD_PATH: build
     steps:
-      - name: Check UNITY_LICENSE secret is set
-        run: |
-          if [ -z "${{ secrets.UNITY_LICENSE }}" ]; then
-            echo "::error::UNITY_LICENSE secret is not set. Do this:"
-            echo "1) Run the 'Request Unity .alf (manual)' job (Actions -> Run workflow)."
-            echo "2) Download the .alf artifact."
-            echo "3) Upload it to https://license.unity3d.com/manual (choose Unity Personal) and get .ulf."
-            echo "4) Paste the entire .ulf text into repository secret named UNITY_LICENSE."
-            exit 1
-          fi
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Кэш директорий Unity (аккаунт/пакеты) — ускоряет повторные сборки
       - name: Cache Unity
         uses: actions/cache@v4
         with:
@@ -60,22 +26,16 @@ jobs:
             ~/.local/share/unity3d
           key: unity-${{ runner.os }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}
 
-      # Сборка с использованием лицензии из секрета
       - name: Build project
         uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          # projectPath по умолчанию "."
           targetPlatform: ${{ env.BUILD_PLATFORM }}
           allowDirtyBuild: true
-          # Если нужен IL2CPP на Windows, раскомментируй:
-          # buildMethod: BuildScript.PerformBuild
-          # (или добавь scriptingBackend через Editor script)
 
       - name: Archive build
         id: archive
-        shell: bash
         run: |
           VERSION=$(sed -n 's/^bundleVersion: //p' ProjectSettings/ProjectSettings.asset)
           if [ -z "$VERSION" ]; then
@@ -85,8 +45,9 @@ jobs:
           ZIP_PATH="${RELEASE_NAME}.zip"
           echo "release_name=${RELEASE_NAME}" >> "$GITHUB_OUTPUT"
           echo "zip_path=${ZIP_PATH}" >> "$GITHUB_OUTPUT"
-          cd "${{ env.BUILD_PATH }}/${{ env.BUILD_PLATFORM }}"
+          cd build/${{ env.BUILD_PLATFORM }}
           zip -r "../../${ZIP_PATH}" .
+        shell: bash
 
       - name: Create GitHub release
         uses: ncipollo/release-action@v1
