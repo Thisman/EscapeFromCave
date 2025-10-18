@@ -19,6 +19,7 @@ public sealed class RootLifetimeScope : LifetimeScope
         b.RegisterInstance(inputActions).As<InputActionAsset>();
         b.Register<InputService>(Lifetime.Singleton).As<IInputService>();
         b.Register<InputRouter>(Lifetime.Singleton);
+        b.Register<PanelController>(Lifetime.Singleton);
     }
 
     protected override void Awake()
