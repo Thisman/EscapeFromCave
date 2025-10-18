@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ObjectModel
+public class ObjectModel : IReadOnlyObjectModel
 {
     public InteractableDefinitionSO Definition { get; }
 

@@ -1,52 +1,62 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ArmyModel
+public class ArmyModel : IReadOnlyArmyModel
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
     [SerializeField] private List<SquadModel> _slots;
+    private IReadOnlyList<IReadOnlySquadModel> _readOnlySlots;
 
     public int MaxSlots => _maxSlots;
 
-    public IReadOnlyList<SquadModel> Slots => _slots;
+    public IReadOnlyList<IReadOnlySquadModel> Slots => _readOnlySlots;
 
-    public event Action Changed;
+    public event Action<IReadOnlyArmyModel> Changed;
 
     public ArmyModel(int maxSlots = 3)
     {
         _maxSlots = Math.Max(1, maxSlots);
         _slots = new List<SquadModel>(_maxSlots);
+        _readOnlySlots = new ReadOnlySquadList(_slots);
         for (int i = 0; i < _maxSlots; i++)
             _slots.Add(null);
     }
 
-    public SquadModel GetSlot(int index) => IsValid(index) ? _slots[index] : null;
+    public IReadOnlySquadModel GetSlot(int index) => IsValid(index) ? _slots[index] : null;
 
-    public SquadModel[] GetAllSlots() => _slots.ToArray();
+    public IReadOnlyList<IReadOnlySquadModel> GetAllSlots() => _readOnlySlots;
 
     public bool SetSlot(int index, SquadModel squad)
     {
         if (!IsValid(index)) return false;
-        _slots[index] = (squad != null && squad.IsEmpty) ? null : squad;
-        Changed?.Invoke();
+        var normalized = (squad != null && squad.IsEmpty) ? null : squad;
+        bool changed = AssignSlot(index, normalized);
+        if (changed)
+            Changed?.Invoke(this);
         return true;
     }
 
     public bool ClearSlot(int index)
     {
         if (!IsValid(index)) return false;
-        _slots[index] = null;
-        Changed?.Invoke();
+        bool changed = AssignSlot(index, null);
+        if (changed)
+            Changed?.Invoke(this);
         return true;
     }
 
     public bool SwapSlots(int a, int b)
     {
         if (!IsValid(a) || !IsValid(b) || a == b) return false;
-        (_slots[a], _slots[b]) = (_slots[b], _slots[a]);
-        Changed?.Invoke();
+        var slotA = _slots[a];
+        var slotB = _slots[b];
+        bool changed = AssignSlot(a, slotB);
+        changed |= AssignSlot(b, slotA);
+        if (changed)
+            Changed?.Invoke(this);
         return true;
     }
 
@@ -58,7 +68,6 @@ public class ArmyModel
         if (squad != null)
         {
             var ok = squad.TryAdd(amount);
-            if (ok) Changed?.Invoke();
             return ok;
         }
 
@@ -66,8 +75,8 @@ public class ArmyModel
         if (emptyIndex >= 0)
         {
             var newSquad = new SquadModel(def, amount);
-            _slots[emptyIndex] = newSquad;
-            Changed?.Invoke();
+            AssignSlot(emptyIndex, newSquad);
+            Changed?.Invoke(this);
             return true;
         }
         return false;
@@ -77,6 +86,7 @@ public class ArmyModel
     {
         if (!def || amount <= 0) return 0;
         int left = amount;
+        bool structuralChange = false;
         for (int i = 0; i < _slots.Count && left > 0; i++)
         {
             var s = _slots[i];
@@ -84,10 +94,12 @@ public class ArmyModel
 
             int took = s.RemoveUpTo(left);
             left -= took;
-            if (s.IsEmpty) _slots[i] = null;
+            if (s.IsEmpty)
+                structuralChange |= AssignSlot(i, null);
         }
         int removed = amount - left;
-        if (removed > 0) Changed?.Invoke();
+        if (removed > 0 && structuralChange)
+            Changed?.Invoke(this);
         return removed;
     }
 
@@ -111,8 +123,8 @@ public class ArmyModel
         if (empty < 0) return false;
 
         var newSquad = s.Split(amount);
-        _slots[empty] = newSquad;
-        Changed?.Invoke();
+        AssignSlot(empty, newSquad);
+        Changed?.Invoke(this);
         return true;
     }
 
@@ -125,17 +137,17 @@ public class ArmyModel
 
         if (to == null)
         {
-            _slots[toIndex] = from;
-            _slots[fromIndex] = null;
-            Changed?.Invoke();
+            AssignSlot(toIndex, from);
+            AssignSlot(fromIndex, null);
+            Changed?.Invoke(this);
             return true;
         }
 
         if (from.UnitDefinition != to.UnitDefinition) return false;
 
         to.MergeFrom(from);
-        _slots[fromIndex] = null;
-        Changed?.Invoke();
+        AssignSlot(fromIndex, null);
+        Changed?.Invoke(this);
         return true;
     }
 
@@ -157,4 +169,47 @@ public class ArmyModel
     }
 
     private bool IsValid(int i) => i >= 0 && i < _slots.Count;
+    private sealed class ReadOnlySquadList : IReadOnlyList<IReadOnlySquadModel>
+    {
+        private readonly List<SquadModel> _source;
+
+        public ReadOnlySquadList(List<SquadModel> source)
+        {
+            _source = source ?? throw new ArgumentNullException(nameof(source));
+        }
+
+        public IReadOnlySquadModel this[int index] => _source[index];
+
+        public int Count => _source.Count;
+
+        public IEnumerator<IReadOnlySquadModel> GetEnumerator()
+        {
+            for (int i = 0; i < _source.Count; i++)
+                yield return _source[i];
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
+    private bool AssignSlot(int index, SquadModel squad)
+    {
+        var current = _slots[index];
+        if (ReferenceEquals(current, squad))
+            return false;
+
+        if (current != null)
+            current.Changed -= OnSquadChanged;
+
+        _slots[index] = squad;
+
+        if (squad != null)
+            squad.Changed += OnSquadChanged;
+
+        return true;
+    }
+
+    private void OnSquadChanged(IReadOnlySquadModel squad)
+    {
+        Changed?.Invoke(this);
+    }
 }

@@ -25,7 +25,7 @@ public class UnitStatsModel
     }
 }
 
-public class UnitModel
+public class UnitModel : IReadOnlyUnitModel
 {
     public UnitDefinitionSO Definition { get; }
     public int Level => _level;
