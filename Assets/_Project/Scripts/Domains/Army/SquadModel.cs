@@ -2,23 +2,24 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class SquadModel
+public class SquadModel : IReadOnlySquadModel
 {
-    public UnitDefinitionSO UnitDefinition { get; private set; }
-
+    [SerializeField] private UnitDefinitionSO _unitDefinition;
     [SerializeField, Min(0)] private int _count;
+
+    public UnitDefinitionSO UnitDefinition => _unitDefinition;
 
     public int Count => _count;
 
     public bool IsEmpty => _count <= 0;
 
-    public event Action<SquadModel> Changed;
+    public event Action<IReadOnlySquadModel> Changed;
 
     public SquadModel(UnitDefinitionSO definition, int initialCount = 0)
     {
         if (!definition) throw new ArgumentNullException(nameof(definition));
         if (initialCount < 0) throw new ArgumentOutOfRangeException(nameof(initialCount));
-        UnitDefinition = definition;
+        _unitDefinition = definition;
         _count = initialCount;
     }
 
@@ -26,7 +27,7 @@ public class SquadModel
     {
         if (amount <= 0) return false;
         _count += amount;
-        Changed?.Invoke(this);
+        NotifyChanged();
         return true;
     }
 
@@ -35,7 +36,7 @@ public class SquadModel
         if (amount <= 0) return false;
         if (_count < amount) return false;
         _count -= amount;
-        Changed?.Invoke(this);
+        NotifyChanged();
         return true;
     }
 
@@ -44,7 +45,7 @@ public class SquadModel
         if (amount <= 0 || _count <= 0) return 0;
         int take = Math.Min(amount, _count);
         _count -= take;
-        if (take > 0) Changed?.Invoke(this);
+        if (take > 0) NotifyChanged();
         return take;
     }
 
@@ -58,8 +59,8 @@ public class SquadModel
         _count += source._count;
         source._count = 0;
 
-        Changed?.Invoke(this);
-        source.Changed?.Invoke(source);
+        NotifyChanged();
+        source.NotifyChanged();
     }
 
     public SquadModel Split(int amount)
@@ -70,8 +71,8 @@ public class SquadModel
         _count -= amount;
         var newSquad = new SquadModel(UnitDefinition, amount);
 
-        Changed?.Invoke(this);
-        newSquad.Changed?.Invoke(newSquad);
+        NotifyChanged();
+        newSquad.NotifyChanged();
         return newSquad;
     }
 
@@ -79,6 +80,11 @@ public class SquadModel
     {
         if (_count == 0) return;
         _count = 0;
+        NotifyChanged();
+    }
+
+    private void NotifyChanged()
+    {
         Changed?.Invoke(this);
     }
 }

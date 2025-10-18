@@ -5,15 +5,10 @@ using System.Collections;
 [CreateAssetMenu(menuName = "Gameplay/Effects/ChangeSprite")]
 public class ChangeSpriteEffect : EffectSO
 {
-    [Header("Sprite Change Settings")]
-    [Tooltip("Какой спрайт будет установлен после задержки.")]
     public Sprite newSprite;
 
-    [Tooltip("Задержка перед изменением спрайта, в секундах.")]
-    [Min(0f)]
-    public float delay = 0f;
+    [Min(0f)] public float delay = 0f;
 
-    [Tooltip("Если true — попытаться изменить спрайт даже у неактивных объектов.")]
     public bool includeInactive = false;
 
     public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)

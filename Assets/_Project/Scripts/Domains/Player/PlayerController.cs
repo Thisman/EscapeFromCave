@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         return _unitModel.GetStats();
     }
 
-    public UnitModel GetPlayerModel()
+    public IReadOnlyUnitModel GetPlayerModel()
     {
         if (_unitModel == null)
             return null;

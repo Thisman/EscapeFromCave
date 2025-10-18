@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ObjectModel
+public class ObjectModel : IReadOnlyObjectModel
 {
     public InteractableDefinitionSO Definition { get; }
 
@@ -10,7 +10,7 @@ public class ObjectModel
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
     }
 
-    public InteractableInfo GetInfo()
+    public InteractableInfoDefinition GetInfo()
     {
         return Definition.Info;
     }

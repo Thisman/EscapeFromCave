@@ -8,7 +8,7 @@ public class ObjectInteraction : MonoBehaviour, IInteractable
 
     private CooldownState _cooldown;
 
-    public InteractableInfo GetInfo() => _objectController.GetObjectModel().Definition.Info;
+    public InteractableInfoDefinition GetInfo() => _objectController.GetObjectModel().Definition.Info;
 
     public bool TryInteract(InteractionContext ctx)
     {

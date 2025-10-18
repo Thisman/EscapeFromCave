@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public sealed class ArmyRoasterView : MonoBehaviour
@@ -23,12 +22,17 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerArmyController.ArmyChanged += Rebuild;
+        _playerArmyController.ArmyChanged += OnArmyChanged;
     }
 
     private void OnDisable()
     {
-        _playerArmyController.ArmyChanged -= Rebuild;
+        _playerArmyController.ArmyChanged -= OnArmyChanged;
+    }
+
+    private void OnArmyChanged(IReadOnlyArmyModel army)
+    {
+        Rebuild();
     }
 
     public void Rebuild()
@@ -41,16 +45,17 @@ public sealed class ArmyRoasterView : MonoBehaviour
         }
 
         var squads = _playerArmyController.GetSquads();
-        EnsureCapacity(squads.Count());
+        int count = squads.Count;
+        EnsureCapacity(count);
 
-        for (int i = 0; i < squads.Count(); i++)
+        for (int i = 0; i < count; i++)
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
             view.Bind(squads[i]);
         }
 
-        for (int i = squads.Count(); i < _items.Count; i++)
+        for (int i = count; i < _items.Count; i++)
             _items[i].gameObject.SetActive(false);
     }
 
@@ -59,7 +64,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
         if (_playerArmyController == null) return;
 
         var squads = _playerArmyController.GetSquads();
-        int visible = Mathf.Min(squads.Count(), _items.Count);
+        int visible = Mathf.Min(squads.Count, _items.Count);
         for (int i = 0; i < visible; i++)
             if (_items[i].isActiveAndEnabled)
                 _items[i].Bind(squads[i]);

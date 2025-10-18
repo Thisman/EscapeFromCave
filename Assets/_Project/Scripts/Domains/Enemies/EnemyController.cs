@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
         return _unitModel.GetStats();
     }
 
-    public UnitModel GetEnemyModel()
+    public IReadOnlyUnitModel GetEnemyModel()
     {
         return _unitModel;
     }

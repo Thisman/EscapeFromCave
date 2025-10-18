@@ -11,7 +11,7 @@ public class ObjectController : MonoBehaviour
         _objectModel = new ObjectModel(_interactableDefinition);
     }
 
-    public ObjectModel GetObjectModel()
+    public IReadOnlyObjectModel GetObjectModel()
     {
         return _objectModel;
     }

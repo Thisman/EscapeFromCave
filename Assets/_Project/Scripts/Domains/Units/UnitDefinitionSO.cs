@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public enum UnitType
@@ -10,23 +11,20 @@ public enum UnitType
 }
 
 [CreateAssetMenu(menuName = "RPG/Unit Definition", fileName = "UD_NewUnit")]
-public class UnitDefinitionSO : ScriptableObject
+public sealed class UnitDefinitionSO : ScriptableObject
 {
-    [Header("Общее")]
     public string UnitName;
     public UnitType Type = UnitType.Neutral;
     public Sprite Icon;
 
-    [Header("Уровни и статы")]
-    [Tooltip("Описание статов на каждом уровне (в порядке возрастания).")]
-    public List<UnitStatsLevel> Levels = new();
+    public List<UnitStatsLevelDefinition> Levels = new();
 
-    public UnitStatsLevel GetStatsForLevel(int level)
+    public UnitStatsLevelDefinition GetStatsForLevel(int level)
     {
         if (Levels == null || Levels.Count == 0)
         {
             Debug.LogWarning($"{name}: нет данных уровней!");
-            return null;
+            return new UnitStatsLevelDefinition();
         }
 
         int index = Mathf.Clamp(level - 1, 0, Levels.Count - 1);
@@ -36,6 +34,21 @@ public class UnitDefinitionSO : ScriptableObject
     public int GetXPForNextLevel(int level)
     {
         var stats = GetStatsForLevel(level);
-        return stats?.XPToNext ?? 0;
+        return stats.XPToNext;
     }
+}
+
+[Serializable]
+public struct UnitStatsLevelDefinition
+{
+    [Min(0)] public int LevelIndex;
+
+    [Min(0)] public int XPToNext;
+
+    [Min(0)] public int Health;
+    [Min(0)] public int Damage;
+    [Min(0)] public int Defense;
+    [Min(0)] public int Initiative;
+
+    [Min(0)] public float Speed;
 }

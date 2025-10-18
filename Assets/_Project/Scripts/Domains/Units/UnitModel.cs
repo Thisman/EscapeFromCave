@@ -1,31 +1,6 @@
 using System;
 
-public class UnitStatsModel
-{
-    public int Level { get; }
-    public int Health { get; }
-    public int Damage { get; }
-    public int Defense { get; }
-    public int Initiative { get; }
-    public float Speed { get; }
-    public int XPToNext { get; }
-
-    public UnitStatsModel(int level, UnitStatsLevel stats)
-    {
-        if (stats == null)
-            throw new ArgumentNullException(nameof(stats));
-
-        Level = level;
-        Health = stats.Health;
-        Damage = stats.Damage;
-        Defense = stats.Defense;
-        Initiative = stats.Initiative;
-        Speed = stats.Speed;
-        XPToNext = stats.XPToNext;
-    }
-}
-
-public class UnitModel
+public class UnitModel : IReadOnlyUnitModel
 {
     public UnitDefinitionSO Definition { get; }
     public int Level => _level;
@@ -36,7 +11,7 @@ public class UnitModel
 
     public UnitModel(UnitDefinitionSO definition, int startingLevel = 0, int startingExperience = 0)
     {
-        Definition = definition ?? throw new ArgumentNullException(nameof(definition));
+        Definition = definition != null ? definition : throw new ArgumentNullException(nameof(definition));
 
         _level = Math.Max(0, startingLevel);
         _experience = 0;
@@ -48,7 +23,7 @@ public class UnitModel
     public UnitStatsModel GetStats()
     {
         var statsLevel = Definition.GetStatsForLevel(_level);
-        return statsLevel != null ? new UnitStatsModel(_level, statsLevel) : null;
+        return new UnitStatsModel(_level, statsLevel);
     }
 
     public bool AddExperience(int amount)

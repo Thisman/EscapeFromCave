@@ -8,7 +8,7 @@ public sealed class ArmyRoasterSquadView : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _countText;
 
-    public void Bind(SquadModel squad)
+    public void Bind(IReadOnlySquadModel squad)
     {
         if (squad == null)
         {
