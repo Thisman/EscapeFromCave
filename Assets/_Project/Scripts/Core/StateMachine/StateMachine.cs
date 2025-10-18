@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 public class StateMachine<TContext>
 {
+    private readonly Dictionary<Type, IState<TContext>> _states = new Dictionary<Type, IState<TContext>>();
     private readonly TContext _context;
     private IState<TContext> _currentState;
 
@@ -16,11 +18,35 @@ public class StateMachine<TContext>
 
     public TContext Context => _context;
 
-    public void SetState(IState<TContext> newState)
+    public void RegisterState<TState>(TState state) where TState : class, IState<TContext>
     {
-        if (newState == null)
+        if (state == null)
         {
-            throw new ArgumentNullException(nameof(newState));
+            throw new ArgumentNullException(nameof(state));
+        }
+
+        var stateType = typeof(TState);
+
+        if (_states.ContainsKey(stateType))
+        {
+            throw new InvalidOperationException($"State '{stateType.Name}' is already registered.");
+        }
+
+        _states[stateType] = state;
+    }
+
+    public bool IsStateRegistered<TState>() where TState : class, IState<TContext>
+    {
+        return _states.ContainsKey(typeof(TState));
+    }
+
+    public void SetState<TState>() where TState : class, IState<TContext>
+    {
+        var stateType = typeof(TState);
+
+        if (!_states.TryGetValue(stateType, out var newState))
+        {
+            throw new InvalidOperationException($"State '{stateType.Name}' is not registered.");
         }
 
         if (ReferenceEquals(_currentState, newState))
