@@ -14,15 +14,7 @@ public sealed class SceneLoader
         while (!op.isDone)
             await Task.Yield();
 
-        var loaded = SceneManager.GetSceneByName(sceneName);
-        if (setActive)
-        {
-            SetActiveSceneExclusive(loaded);
-        }
-        else
-        {
-            SceneUtils.SetSceneActiveObjects(sceneName, false);
-        }
+        SceneManager.GetSceneByName(sceneName);
     }
 
     public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload, bool setActive = true)
@@ -98,20 +90,6 @@ public sealed class SceneLoader
             {
                 SetActiveSceneExclusive(parentScene);
             }
-        }
-    }
-
-    public async Task LoadSingleAsync(string sceneName)
-    {
-        var op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-        while (!op.isDone)
-            await Task.Yield();
-
-        // На всякий случай принудительно активируем корневые объекты новой активной сцены
-        var active = SceneManager.GetActiveScene();
-        if (active.IsValid() && active.name == sceneName)
-        {
-            SceneUtils.SetSceneActiveObjects(sceneName, true);
         }
     }
 

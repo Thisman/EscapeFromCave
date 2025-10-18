@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
+using System;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -10,14 +11,12 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private StateMachine<BattleStateContext> _stateMachine;
     [Inject] private TacticState _tacticState;
-    [Inject] private FightState _fightState;
+    [Inject] private BattleRoundState _fightState;
     [Inject] private FinishState _finishState;
     [Inject] private PanelController _panelController;
 
     private void Start()
     {
-        RegisterLayers();
-
         string sceneName = gameObject.scene.name;
         if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
         {
@@ -32,6 +31,7 @@ public class BattleSceneManager : MonoBehaviour
             Debug.LogWarning("[BattleSceneManager] Unable to retrieve battle scene data payload");
         }
 
+        RegisterLayers();
         InitializeStateMachine();
     }
 
@@ -57,7 +57,7 @@ public class BattleSceneManager : MonoBehaviour
             _stateMachine.RegisterState(_tacticState);
         }
 
-        if (!_stateMachine.IsStateRegistered<FightState>())
+        if (!_stateMachine.IsStateRegistered<BattleRoundState>())
         {
             _stateMachine.RegisterState(_fightState);
         }
@@ -94,7 +94,7 @@ public class BattleSceneManager : MonoBehaviour
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     private class LayerRegistration
     {
         [SerializeField] private string _layerName;

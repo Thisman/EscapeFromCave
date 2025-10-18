@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class FinishState : State<BattleStateContext>
 {
     private readonly PanelController _panelController;
@@ -9,6 +11,7 @@ public class FinishState : State<BattleStateContext>
 
     public override void Enter(BattleStateContext context)
     {
+        Debug.Log("Entering Finish State");
         _panelController?.Show(nameof(FinishState));
     }
 }
