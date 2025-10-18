@@ -61,9 +61,9 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeStateMachine()
     {
-        _tacticState ??= new TacticState();
+        _tacticState ??= new TacticState(_panelController);
         _fightState ??= new FightState();
-        _finishState ??= new FinishState();
+        _finishState ??= new FinishState(_panelController);
 
         if (!_stateMachine.IsStateRegistered<TacticState>())
         {
