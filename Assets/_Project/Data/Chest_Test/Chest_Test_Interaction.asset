@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a3b59e15624dc43b57abbbb63b5824, type: 3}
   m_Name: Chest_Test_Interaction
   m_EditorClassIdentifier: Assembly-CSharp::InteractableDefinitionSO
-  Cooldown: 0
+  Cooldown: 10
   Type: 0
   InteractionDistance: 1.5
   Effects:
-  - {fileID: 11400000, guid: b0b9c81f6356e0a499ee85d0e8bb1517, type: 2}
+  - {fileID: 11400000, guid: 4828e7057cc31b24da1c35cbec855ea0, type: 2}
+  - {fileID: 11400000, guid: 66e31a523f48cf04d8be681ac37feb03, type: 2}
+  - {fileID: 11400000, guid: b24ff1777b801ac449d637fc6ca9b485, type: 2}
   Conditions: []
   TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}

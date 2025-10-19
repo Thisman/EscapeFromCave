@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a3b59e15624dc43b57abbbb63b5824, type: 3}
   m_Name: Ogr_Test_Interaction
   m_EditorClassIdentifier: Assembly-CSharp::InteractableDefinitionSO
-  Cooldown: 0
+  Cooldown: 10
   Type: 0
   InteractionDistance: 1.5
   Effects:
-  - {fileID: 11400000, guid: 88b641f83e2de2c45b026122b73ddde8, type: 2}
+  - {fileID: 11400000, guid: b2718067fb20bcc49bf058f5ebbab317, type: 2}
+  - {fileID: 11400000, guid: 87244d7e58f249f40aac809cd04f89d8, type: 2}
+  - {fileID: 11400000, guid: 9753b397b5c37ce48900e28240fe672c, type: 2}
   Conditions: []
   TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}

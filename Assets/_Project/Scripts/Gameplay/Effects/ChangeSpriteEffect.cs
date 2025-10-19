@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using System.Threading.Tasks;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/ChangeSprite")]
 public class ChangeSpriteEffect : EffectSO
@@ -11,15 +12,15 @@ public class ChangeSpriteEffect : EffectSO
 
     public bool includeInactive = false;
 
-    public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (newSprite == null)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         if (targets == null || targets.Count == 0)
-            return;
+            return Task.CompletedTask;
 
         foreach (var target in targets)
         {
@@ -48,6 +49,8 @@ public class ChangeSpriteEffect : EffectSO
                     ApplySprite(renderer); // fallback
             }
         }
+
+        return Task.CompletedTask;
     }
 
     private void ApplySprite(SpriteRenderer renderer)

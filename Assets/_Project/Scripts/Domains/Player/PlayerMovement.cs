@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private PlayerController _playerController;
 
-    [Inject] private IInputService _inputService;
+    [Inject] private InputService _inputService;
 
     private InputAction _moveAction;
     private Vector2 _movement;

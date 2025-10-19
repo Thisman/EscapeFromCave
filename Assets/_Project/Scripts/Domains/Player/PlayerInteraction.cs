@@ -10,9 +10,8 @@ public sealed class PlayerInteraction : MonoBehaviour
     [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
     [SerializeField] private LayerMask interactableMask = ~0;
     [SerializeField, Min(1)] private int maxCandidates = 16;
-    [SerializeField] private bool drawGizmos = true;
 
-    [Inject] private IInputService _inputService;
+    [Inject] private InputService _inputService;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private DialogController _dialogController;
 
@@ -130,10 +129,11 @@ public sealed class PlayerInteraction : MonoBehaviour
         return interactable != null;
     }
 
-    private void OnInteractPressed(InputAction.CallbackContext _)
+    private async void OnInteractPressed(InputAction.CallbackContext _)
     {
-        if (_currentTarget == null)
+        if (_currentTarget == null || !_currentTarget.gameObject.activeSelf)
         {
+            _currentTarget = null;
             Debug.LogWarning($"[PlayerInteraction] Interact input received for '{name}', but no interaction target is selected.");
             return;
         }
@@ -153,15 +153,6 @@ public sealed class PlayerInteraction : MonoBehaviour
             Debug.LogWarning($"[PlayerInteraction] SceneLoader was not injected for '{name}'. Scene-based interactions may fail.");
         }
 
-        _currentTarget.TryInteract(ctxData);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (!drawGizmos)
-            return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRadius);
+        await _currentTarget.TryInteract(ctxData);
     }
 }

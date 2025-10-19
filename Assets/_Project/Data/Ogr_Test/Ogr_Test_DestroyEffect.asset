@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ogr_Test_DestroyEffect
   m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
   delay: 0
-  includeInactive: 1
+  includeInactive: 0

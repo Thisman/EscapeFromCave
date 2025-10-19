@@ -1,44 +1,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class GameSession : IGameSession
+public sealed class GameSession
 {
-    private UnitDefinitionSO _hero;
+    private UnitDefinitionSO _heroDifinition;
 
-    private readonly List<UnitDefinitionSO> _army = new();
+    private readonly List<UnitDefinitionSO> _armyDefinition = new();
 
-    public UnitDefinitionSO Hero => _hero;
+    public UnitDefinitionSO HeroDefinition => _heroDifinition;
 
-    public IReadOnlyList<UnitDefinitionSO> Army => _army;
+    public IReadOnlyList<UnitDefinitionSO> ArmyDefinition => _armyDefinition;
 
-    public bool HasSelection => _hero != null && _army.Count > 0;
-
-    public void SetSelection(UnitDefinitionSO hero, List<UnitDefinitionSO> army)
+    public void SetSelection(UnitDefinitionSO heroDefinition, List<UnitDefinitionSO> armyDefinition)
     {
-        if (hero == null)
+        if (heroDefinition == null)
         {
             Debug.LogWarning("[GameSession] Setting hero selection with a null hero reference.");
         }
 
-        _hero = hero;
-        _army.Clear();
-        if (army != null)
+        _heroDifinition = heroDefinition;
+        _armyDefinition.Clear();
+        if (armyDefinition != null)
         {
-            _army.AddRange(army);
+            _armyDefinition.AddRange(armyDefinition);
         }
 
-        if (army == null || army.Count == 0)
+        if (armyDefinition == null || armyDefinition.Count == 0)
         {
             Debug.LogWarning("[GameSession] Army selection is empty.");
         }
 
-        Debug.Log($"[GameSession] Selection updated. Hero: {_hero?.name ?? "<null>"}, Army size: {_army.Count}.");
+        Debug.Log($"[GameSession] Selection updated. Hero: {_heroDifinition?.name ?? "<null>"}, Army size: {_armyDefinition.Count}.");
     }
 
     public void Clear()
     {
-        _hero = null;
-        _army.Clear();
+        _heroDifinition = null;
+        _armyDefinition.Clear();
         Debug.Log("[GameSession] Selection cleared.");
     }
 }

@@ -5,11 +5,11 @@ public class PlayerController : MonoBehaviour
 {
     private UnitModel _unitModel;
 
-    [Inject] private IGameSession _gameSession;
+    [Inject] private readonly GameSession _gameSession;
 
     private void Awake()
     {
-        _unitModel = new UnitModel(_gameSession.Hero);
+        _unitModel = new UnitModel(_gameSession.HeroDefinition);
     }
 
     public UnitStatsModel GetPlayerStats()

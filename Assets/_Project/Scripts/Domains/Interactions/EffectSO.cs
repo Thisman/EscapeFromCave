@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class EffectSO : ScriptableObject
 {
-    public abstract void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets);
+    public abstract Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets);
 }

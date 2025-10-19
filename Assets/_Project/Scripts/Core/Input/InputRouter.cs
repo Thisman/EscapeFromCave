@@ -3,10 +3,10 @@ using VContainer;
 
 public class InputRouter
 {
-    private readonly IInputService _input;
+    private readonly InputService _input;
 
     [Inject]
-    public InputRouter(IInputService input)
+    public InputRouter(InputService input)
     {
         _input = input;
 
@@ -20,11 +20,7 @@ public class InputRouter
 
     public void EnterGameplay() => SetMode(GameMode.Gameplay);
 
-    public void EnterInventory() => SetMode(GameMode.Inventory);
-
-    public void EnterDialog() => SetMode(GameMode.Dialog);
-
-    public void Pause() => SetMode(GameMode.Paused);
+    public void EnterMenu() => SetMode(GameMode.Menu);
 
     private void SetMode(GameMode mode)
     {

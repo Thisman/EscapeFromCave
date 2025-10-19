@@ -7,7 +7,7 @@ public class PlayerArmyController : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
 
-    [Inject] private IGameSession _gameSession;
+    [Inject] private GameSession _gameSession;
 
     private ArmyModel _army;
 
@@ -17,9 +17,9 @@ public class PlayerArmyController : MonoBehaviour
     private void Start()
     {
         _army = new ArmyModel(_maxSlots);
-        for (int i = 0; i < _gameSession.Army.Count; i++)
+        for (int i = 0; i < _gameSession.ArmyDefinition.Count; i++)
         {
-            var def = _gameSession.Army[i];
+            var def = _gameSession.ArmyDefinition[i];
             if (def != null)
                 TryAddUnits(def, 10);
         }

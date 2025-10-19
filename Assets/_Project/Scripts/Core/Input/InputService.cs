@@ -2,7 +2,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using VContainer;
 
-public class InputService : IInputService
+public class InputService
 {
     [Inject] private readonly InputActionAsset _actions;
 
@@ -36,10 +36,8 @@ public class InputService : IInputService
             case GameMode.Battle:
                 EnableOnly("Battle");
                 break;
-            case GameMode.Inventory:
-            case GameMode.Dialog:
-            case GameMode.Paused:
-                EnableOnly("UI");
+            case GameMode.Menu:
+                EnableOnly("Menu");
                 break;
         }
     }

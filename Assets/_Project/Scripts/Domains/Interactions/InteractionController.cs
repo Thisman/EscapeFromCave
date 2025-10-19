@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class InteractionController : MonoBehaviour
 
     private CooldownState _cooldown;
 
-    public bool TryInteract(InteractionContext ctx)
+    public async Task<bool> TryInteract(InteractionContext ctx)
     {
         if (Definition == null)
         {
@@ -45,6 +46,8 @@ public class InteractionController : MonoBehaviour
             Debug.LogWarning($"[InteractionController] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
         }
 
+        _cooldown.Start(ctx.Time, Definition.Cooldown);
+
         foreach (var eff in Definition.Effects)
         {
             if (eff == null)
@@ -53,10 +56,9 @@ public class InteractionController : MonoBehaviour
                 continue;
             }
 
-            eff.Apply(ctx, targets);
+            await eff.Apply(ctx, targets);
         }
 
-        _cooldown.Start(ctx.Time, Definition.Cooldown);
         Debug.Log($"[InteractionController] Interaction '{Definition.name}' executed by '{ctx.Actor?.name ?? "<null>"}' on '{name}'. Targets affected: {targetCount}.");
         return true;
     }

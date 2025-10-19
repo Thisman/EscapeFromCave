@@ -7,11 +7,11 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private float _movementThreshold = 0.01f;
 
-    [Inject] private IGameSession _gameSession;
+    [Inject] private GameSession _gameSession;
 
     private void Start()
     {
-        _spriteRenderer.sprite = _gameSession.Hero.Icon;
+        _spriteRenderer.sprite = _gameSession.HeroDefinition.Icon;
     }
 
     private void Update()

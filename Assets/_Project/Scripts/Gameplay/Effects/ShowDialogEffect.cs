@@ -3,19 +3,14 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Dialog")]
-public sealed class ShowDialogEffect : EffectSO, IAsyncEffect
+public sealed class ShowDialogEffect : EffectSO
 {
     [TextArea]
     public string Message;
 
     [SerializeField, Min(0f)] private float _displayDuration = 2f;
 
-    public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
-    {
-        _ = ApplyAsync(ctx, targets);
-    }
-
-    public async Task ApplyAsync(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override async Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (ctx == null)
         {

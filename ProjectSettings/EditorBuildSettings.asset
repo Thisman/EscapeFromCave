@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/PreStartScene.unity
+    path: Assets/_Project/Scenes/RootScene.unity
+    guid: fdf8d8aa97760a64892269f149f4bf10
+  - enabled: 1
+    path: Assets/_Project/Scenes/MainMenuScene.unity
+    guid: 57a8718dc305a39469954d5fd945b850
+  - enabled: 1
+    path: Assets/_Project/Scenes/PreparationScene.unity
     guid: a54365eff6227274fbeb6c09d95198ad
   - enabled: 1
-    path: Assets/_Project/Scenes/Battle.unity
-    guid: 0ba7a7d9c30ab1e4bb5e1c155e46b668
-  - enabled: 1
-    path: Assets/_Project/Scenes/Cave_Level_1.unity
+    path: Assets/_Project/Scenes/Dangeon_Level_TestScene.unity
     guid: 6a4b93414571f434db1db192f20c5c3a
+  - enabled: 1
+    path: Assets/_Project/Scenes/GameMenuScene.unity
+    guid: b5096dab52dcb2f4489568ad1a9ac52d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

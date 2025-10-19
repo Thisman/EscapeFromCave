@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DestroyEffect", menuName = "Gameplay/Effects/Destroy", order = 0)]
@@ -8,10 +9,10 @@ public class DestroyEffect : EffectSO
 
     public bool includeInactive = false;
 
-    public override void Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (targets == null || targets.Count == 0)
-            return;
+            return Task.CompletedTask;
 
         foreach (var target in targets)
         {
@@ -32,5 +33,7 @@ public class DestroyEffect : EffectSO
                 Destroy(target, delay);
             }
         }
+
+        return Task.CompletedTask;
     }
 }
