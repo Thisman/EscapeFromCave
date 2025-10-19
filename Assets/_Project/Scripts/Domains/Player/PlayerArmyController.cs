@@ -1,30 +1,28 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using VContainer;
 
 public class PlayerArmyController : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
-
-    [Inject] private GameSession _gameSession;
 
     private ArmyModel _army;
 
     public IReadOnlyArmyModel Army => _army;
     public event Action<IReadOnlyArmyModel> ArmyChanged;
 
-    private void Start()
+    public int MaxSlots => Mathf.Max(1, _maxSlots);
+
+    public void Initialize(ArmyModel armyModel)
     {
-        _army = new ArmyModel(_maxSlots);
-        for (int i = 0; i < _gameSession.ArmyDefinition.Count; i++)
+        if (_army != null)
         {
-            var def = _gameSession.ArmyDefinition[i];
-            if (def != null)
-                TryAddUnits(def, 10);
+            _army.Changed -= HandleArmyChanged;
         }
 
-        _army.Changed += army => ArmyChanged?.Invoke(army);
+        _army = armyModel ?? throw new ArgumentNullException(nameof(armyModel));
+        _army.Changed += HandleArmyChanged;
+        HandleArmyChanged(_army);
     }
 
     public bool TryAddUnits(UnitDefinitionSO def, int amount) => _army.TryAddUnits(def, amount);
@@ -38,4 +36,17 @@ public class PlayerArmyController : MonoBehaviour
     public bool SetSlot(int index, SquadModel squad) => _army.SetSlot(index, squad);
     public bool ClearSlot(int index) => _army.ClearSlot(index);
     public bool SwapSlots(int a, int b) => _army.SwapSlots(a, b);
+
+    private void OnDestroy()
+    {
+        if (_army != null)
+        {
+            _army.Changed -= HandleArmyChanged;
+        }
+    }
+
+    private void HandleArmyChanged(IReadOnlyArmyModel army)
+    {
+        ArmyChanged?.Invoke(army);
+    }
 }

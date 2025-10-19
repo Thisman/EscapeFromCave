@@ -1,15 +1,13 @@
+using System;
 using UnityEngine;
-using VContainer;
 
 public class PlayerController : MonoBehaviour
 {
     private UnitModel _unitModel;
 
-    [Inject] private readonly GameSession _gameSession;
-
-    private void Awake()
+    public void Initialize(UnitModel unitModel)
     {
-        _unitModel = new UnitModel(_gameSession.HeroDefinition);
+        _unitModel = unitModel ?? throw new ArgumentNullException(nameof(unitModel));
     }
 
     public UnitStatsModel GetPlayerStats()

@@ -3,13 +3,13 @@ using UnityEngine;
 
 public sealed class InteractableHintSystem : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
     [SerializeField] private GameObject _hintPrefab;
     [SerializeField] private Vector3 _worldOffset = new(0, 1.0f, 0);
 
     [SerializeField, Range(2f, 30f)] private float _updatesPerSecond = 10f;
     [SerializeField, Min(0.1f)] private float _rescanInterval = 0.5f;
 
+    private Transform _player;
     private readonly Dictionary<InteractionController, GameObject> _active = new();
     private readonly Stack<GameObject> _pool = new();
     private readonly List<InteractionController> _toRelease = new();
@@ -18,7 +18,7 @@ public sealed class InteractableHintSystem : MonoBehaviour
     private float _updateAccum;
     private float _rescanAccum;
 
-    private void Awake()
+    private void Start()
     {
         if (!_player)
         {
