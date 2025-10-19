@@ -1,9 +1,8 @@
 public class BattleStateContext
 {
-    public BattleSceneLoadingPayload Payload { get; private set; }
+    public BattleSceneLoadingPayload Payload { get; set; }
 
-    public void SetPayload(BattleSceneLoadingPayload payload)
-    {
-        Payload = payload;
-    }
+    public PanelController PanelController { get; set; }
+
+    public BattleGridController BattleGridController { get; set; }
 }

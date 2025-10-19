@@ -56,7 +56,6 @@ public sealed class SceneLoader
             var s = SceneManager.GetSceneAt(i);
             if (s.name != sceneName)
             {
-                Debug.Log(s.name);
                 ActivateTargetScene(s, false);
             }
         }
