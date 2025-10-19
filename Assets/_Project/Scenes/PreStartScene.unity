@@ -6735,10 +6735,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.36807817
     y: 0
-    width: 1
-    height: 1
+    width: 0.5779226
+    height: 0.66800535
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -9902,7 +9902,7 @@ MonoBehaviour:
   _content: {fileID: 589810868}
   _prevButton: {fileID: 1808812497}
   _nextButton: {fileID: 155982885}
-  _loop: 0
+  _loop: 1
 --- !u!1 &2051334652
 GameObject:
   m_ObjectHideFlags: 0
