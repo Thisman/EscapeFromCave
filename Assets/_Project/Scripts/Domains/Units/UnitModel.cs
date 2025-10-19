@@ -3,10 +3,13 @@ using System;
 public class UnitModel : IReadOnlyUnitModel
 {
     public UnitDefinitionSO Definition { get; }
+
     public int Level => _level;
+
     public int Experience => _experience;
 
     private int _level;
+
     private int _experience;
 
     public UnitModel(UnitDefinitionSO definition, int startingLevel = 0, int startingExperience = 0)

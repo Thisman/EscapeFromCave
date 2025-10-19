@@ -16,7 +16,7 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private InputAction _interactAction;
     private Collider2D[] _hits;
-    private IInteractable _currentTarget;
+    private InteractionController _currentTarget;
     private GameObject _actor;
 
     private void Awake()
@@ -68,12 +68,13 @@ public sealed class PlayerInteraction : MonoBehaviour
         Vector2 center = transform.position;
         _hits = Physics2D.OverlapCircleAll(center, interactRadius, interactableMask);
 
-        IInteractable target = null;
         var collider = _hits.FirstOrDefault();
         if (collider == null)
             return;
 
-        if (!TryGetInteractable(collider, out target))
+        Debug.Log(collider);
+
+        if (!TryGetInteractable(collider, out InteractionController target))
             return;
 
         if (!ReferenceEquals(target, _currentTarget))
@@ -86,12 +87,12 @@ public sealed class PlayerInteraction : MonoBehaviour
             _hits[i] = null;
     }
 
-    private static bool TryGetInteractable(Collider2D col, out IInteractable interactable)
+    private static bool TryGetInteractable(Collider2D col, out InteractionController interactable)
     {
         if (col.TryGetComponent(out interactable))
             return true;
 
-        interactable = col.GetComponentInParent<IInteractable>();
+        interactable = col.GetComponentInParent<InteractionController>();
         return interactable != null;
     }
 

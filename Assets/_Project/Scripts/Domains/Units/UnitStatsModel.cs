@@ -1,16 +1,22 @@
 using System;
 
-public class UnitStatsModel
+public class UnitStatsModel: IReadOnlyUnitStatsModel
 {
     public int Level { get; }
+
     public int Health { get; }
+
     public int Damage { get; }
+
     public int Defense { get; }
+
     public int Initiative { get; }
+
     public float Speed { get; }
+
     public int XPToNext { get; }
 
-    public UnitStatsModel(int level, UnitStatsLevelDefinition stats)
+    public UnitStatsModel(int level, UnitLevelDefintion stats)
     {
         Level = level;
         Health = stats.Health;

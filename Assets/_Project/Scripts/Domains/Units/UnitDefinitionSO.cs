@@ -10,21 +10,23 @@ public enum UnitType
     Neutral
 }
 
-[CreateAssetMenu(menuName = "RPG/Unit Definition", fileName = "UD_NewUnit")]
+[CreateAssetMenu(menuName = "RPG/Unit")]
 public sealed class UnitDefinitionSO : ScriptableObject
 {
-    public string UnitName;
-    public UnitType Type = UnitType.Neutral;
     public Sprite Icon;
 
-    public List<UnitStatsLevelDefinition> Levels = new();
+    public string UnitName;
 
-    public UnitStatsLevelDefinition GetStatsForLevel(int level)
+    public UnitType Type = UnitType.Neutral;
+
+    public List<UnitLevelDefintion> Levels = new();
+
+    public UnitLevelDefintion GetStatsForLevel(int level)
     {
         if (Levels == null || Levels.Count == 0)
         {
             Debug.LogWarning($"{name}: нет данных уровней!");
-            return new UnitStatsLevelDefinition();
+            return new UnitLevelDefintion();
         }
 
         int index = Mathf.Clamp(level - 1, 0, Levels.Count - 1);
@@ -39,7 +41,7 @@ public sealed class UnitDefinitionSO : ScriptableObject
 }
 
 [Serializable]
-public struct UnitStatsLevelDefinition
+public struct UnitLevelDefintion
 {
     [Min(0)] public int LevelIndex;
 

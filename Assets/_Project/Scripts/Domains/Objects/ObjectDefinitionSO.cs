@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ObjectDefinitionSO", menuName = "Scriptable Objects/ObjectDefinitionSO")]
+[CreateAssetMenu(menuName = "RPG/Object")]
 public class ObjectDefinitionSO : ScriptableObject
 {
     public Sprite Icon;

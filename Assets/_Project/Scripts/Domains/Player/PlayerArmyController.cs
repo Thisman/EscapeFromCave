@@ -14,9 +14,7 @@ public class PlayerArmyController : MonoBehaviour
     public IReadOnlyArmyModel Army => _army;
     public event Action<IReadOnlyArmyModel> ArmyChanged;
 
-    public UnitDefinitionSO[] Debug_HeroArmy;
-
-    private void Awake()
+    private void Start()
     {
         _army = new ArmyModel(_maxSlots);
         for (int i = 0; i < _gameSession.Army.Count; i++)

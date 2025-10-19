@@ -1537,7 +1537,7 @@ MonoBehaviour:
   - _layerName: TacticState
     _elements:
     - {fileID: 989250928}
-  - _layerName: BattleRoundState
+  - _layerName: RoundState
     _elements:
     - {fileID: 1447759368}
   - _layerName: FinishState
@@ -1827,9 +1827,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.06710098
+    x: 0.0514658
     y: 0
-    width: 0.8651466
+    width: 0.8964169
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1947,7 +1947,7 @@ GameObject:
   - component: {fileID: 1447759370}
   - component: {fileID: 1447759369}
   m_Layer: 5
-  m_Name: BattleControls
+  m_Name: RoundControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

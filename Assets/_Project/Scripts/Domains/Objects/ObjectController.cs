@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
-    [SerializeField] private InteractableDefinitionSO _interactableDefinition;
+    [SerializeField] private ObjectDefinitionSO _interactableDefinition;
 
     private ObjectModel _objectModel;
 

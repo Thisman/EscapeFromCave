@@ -1,5 +1,4 @@
 public interface IReadOnlyObjectModel
 {
-    InteractableDefinitionSO Definition { get; }
-    InteractableInfoDefinition GetInfo();
+    ObjectDefinitionSO Definition { get; }
 }

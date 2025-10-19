@@ -5796,7 +5796,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1872786722}
+  - {fileID: 1790972347}
   m_Father: {fileID: 863812533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5930,7 +5930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8768e89a5df66428b02b5480a39c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroCarouselItemView
-  Definition: {fileID: 11400000, guid: daf1dfd758b39b449be5e2330c50bd5e, type: 2}
+  Definition: {fileID: 11400000, guid: e36c4cfac3fb4874c919ac9c3209e863, type: 2}
   icon: {fileID: 429222522}
 --- !u!1 &496519837
 GameObject:
@@ -6221,7 +6221,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1790972347}
+  - {fileID: 1872786722}
   m_Father: {fileID: 863812533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -6735,10 +6735,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.36807817
+    x: 0
     y: 0
-    width: 0.5779226
-    height: 0.66800535
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -8923,7 +8923,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 545750058}
+  m_Father: {fileID: 200177801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8980,7 +8980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8768e89a5df66428b02b5480a39c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroCarouselItemView
-  Definition: {fileID: 11400000, guid: b2fdad292daf8ef40aeb9afebcb9e2a0, type: 2}
+  Definition: {fileID: 11400000, guid: 44fd73135adf4c247b3578df9a2df3bb, type: 2}
   icon: {fileID: 1790972348}
 --- !u!1 &1796238858
 GameObject:
@@ -9597,7 +9597,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 200177801}
+  m_Father: {fileID: 545750058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9654,7 +9654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8768e89a5df66428b02b5480a39c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroCarouselItemView
-  Definition: {fileID: 11400000, guid: d586a5677304334459f88591a433d537, type: 2}
+  Definition: {fileID: 11400000, guid: 486fe6bc614693443a69138b57988e8d, type: 2}
   icon: {fileID: 1872786723}
 --- !u!1 &1921229687
 GameObject:

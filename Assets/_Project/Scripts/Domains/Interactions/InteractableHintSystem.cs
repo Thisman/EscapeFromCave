@@ -10,11 +10,11 @@ public sealed class InteractableHintSystem : MonoBehaviour
     [SerializeField, Range(2f, 30f)] private float _updatesPerSecond = 10f;
     [SerializeField, Min(0.1f)] private float _rescanInterval = 0.5f;
 
-    private readonly Dictionary<ObjectInteraction, GameObject> _active = new();
+    private readonly Dictionary<InteractionController, GameObject> _active = new();
     private readonly Stack<GameObject> _pool = new();
-    private readonly List<ObjectInteraction> _toRelease = new();
+    private readonly List<InteractionController> _toRelease = new();
 
-    private readonly List<ObjectInteraction> _interactables = new(128);
+    private readonly List<InteractionController> _interactables = new(128);
     private float _updateAccum;
     private float _rescanAccum;
 
@@ -54,8 +54,7 @@ public sealed class InteractableHintSystem : MonoBehaviour
                 continue;
             }
 
-            var info = oi.GetInfo();
-            float r = Mathf.Max(0f, info.InteractionDistance);
+            float r = Mathf.Max(0f, oi.Definition.InteractionDistance);
 
             Vector2 opos = oi.transform.position;
             bool inRange = (opos - ppos).sqrMagnitude <= r * r;
@@ -70,7 +69,7 @@ public sealed class InteractableHintSystem : MonoBehaviour
         foreach (var dead in _toRelease) Hide(dead);
     }
 
-    private void ShowOrUpdate(ObjectInteraction oi)
+    private void ShowOrUpdate(InteractionController oi)
     {
         if (!_active.TryGetValue(oi, out var go) || !go)
         {
@@ -82,7 +81,7 @@ public sealed class InteractableHintSystem : MonoBehaviour
         go.transform.position = oi.transform.position + _worldOffset;
     }
 
-    private void Hide(ObjectInteraction oi)
+    private void Hide(InteractionController oi)
     {
         if (!_active.TryGetValue(oi, out var go)) return;
         _active.Remove(oi);
@@ -93,7 +92,7 @@ public sealed class InteractableHintSystem : MonoBehaviour
     {
         _interactables.Clear();
 #if UNITY_2022_2_OR_NEWER
-        var found = FindObjectsByType<ObjectInteraction>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        var found = FindObjectsByType<InteractionController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         _interactables.AddRange(found);
 #else
         _interactables.AddRange(FindObjectsOfType<ObjectInteraction>());

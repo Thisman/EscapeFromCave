@@ -9,7 +9,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     [Inject] private IGameSession _gameSession;
 
-    private void Awake()
+    private void Start()
     {
         _spriteRenderer.sprite = _gameSession.Hero.Icon;
     }

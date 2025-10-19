@@ -16,7 +16,7 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PanelController _panelController;
 
-    [Inject] private StateMachine<BattleStateContext> _stateMachine;
+    [Inject] private StateMachine<BattleContext> _stateMachine;
 
     private void Start()
     {
@@ -27,9 +27,9 @@ public class BattleSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<BattleRoundState>());
+        _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<RoundState>());
         _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
-        _finishBattleButton.onClick.AddListener(() => _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1"));
+        _finishBattleButton.onClick.AddListener(async () => await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1"));
     }
 
     private void OnDisable()
@@ -65,9 +65,9 @@ public class BattleSceneManager : MonoBehaviour
             _stateMachine.RegisterState(new TacticState());
         }
 
-        if (!_stateMachine.IsStateRegistered<BattleRoundState>())
+        if (!_stateMachine.IsStateRegistered<RoundState>())
         {
-            _stateMachine.RegisterState(new BattleRoundState());
+            _stateMachine.RegisterState(new RoundState());
         }
 
         if (!_stateMachine.IsStateRegistered<FinishState>())

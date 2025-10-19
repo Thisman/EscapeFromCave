@@ -3,15 +3,10 @@ using UnityEngine;
 
 public class ObjectModel : IReadOnlyObjectModel
 {
-    public InteractableDefinitionSO Definition { get; }
+    public ObjectDefinitionSO Definition { get; }
 
-    public ObjectModel(InteractableDefinitionSO definition)
+    public ObjectModel(ObjectDefinitionSO definition)
     {
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
-    }
-
-    public InteractableInfoDefinition GetInfo()
-    {
-        return Definition.Info;
     }
 }

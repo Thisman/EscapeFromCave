@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8094905874385528566}
   - component: {fileID: 1441713272741139372}
   m_Layer: 3
-  m_Name: Sprite
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,9 +100,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5152780243409416346}
   - component: {fileID: 898734409522956830}
-  - component: {fileID: 6813068628317573114}
-  - component: {fileID: 3897992988474775199}
-  - component: {fileID: 5637226660933922853}
+  - component: {fileID: 6686827022643196945}
+  - component: {fileID: 3070156410181719332}
+  - component: {fileID: 2754881610265278224}
   m_Layer: 3
   m_Name: Chest_Test
   m_TagString: Interactable
@@ -172,7 +172,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6813068628317573114
+--- !u!114 &6686827022643196945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,21 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed083f313c025f4fa85f664c9e91bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectController
-  _interactableDefinition: {fileID: 11400000, guid: ac99895d43a3e3c4e91d44d267560b4e, type: 2}
---- !u!114 &3897992988474775199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966561004512954225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453c33872448daa4c8f2657384123587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  _objectController: {fileID: 6813068628317573114}
---- !u!114 &5637226660933922853
+  _interactableDefinition: {fileID: 11400000, guid: bc8dfa842cbb20b4290893da1397e020, type: 2}
+--- !u!114 &3070156410181719332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,4 +198,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectAnimationController
   _spriteRenderer: {fileID: 1441713272741139372}
-  _objectController: {fileID: 6813068628317573114}
+  _objectController: {fileID: 6686827022643196945}
+--- !u!114 &2754881610265278224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966561004512954225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cc7fd1ea077f14ea1554601264c7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionController
+  Definition: {fileID: 11400000, guid: ac99895d43a3e3c4e91d44d267560b4e, type: 2}

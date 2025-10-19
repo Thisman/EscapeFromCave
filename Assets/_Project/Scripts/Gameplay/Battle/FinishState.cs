@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class FinishState : State<BattleStateContext>
+public class FinishState : State<BattleContext>
 {
-    public override void Enter(BattleStateContext context)
+    public override void Enter(BattleContext context)
     {
         context.PanelController?.Show(nameof(FinishState));
     }

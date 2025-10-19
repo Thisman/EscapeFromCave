@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 924268818871909311}
   - component: {fileID: 256761772204218236}
   - component: {fileID: 2391190990913583504}
-  - component: {fileID: 111835086825581585}
   - component: {fileID: 7449524510762236503}
   - component: {fileID: 3053841887805359421}
-  m_Layer: 0
+  - component: {fileID: 111835086825581585}
+  m_Layer: 3
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46840a3d3334fd64eab5c3e2600583f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _unitDefinition: {fileID: 0}
 --- !u!114 &2391190990913583504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,24 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   body: {fileID: 3059376207732831744}
   _playerController: {fileID: 256761772204218236}
---- !u!114 &111835086825581585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289799640210538645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9846f98e0997e834686692bae482eaa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  interactRadius: 1
-  interactableMask:
-    serializedVersion: 2
-    m_Bits: 8
-  maxCandidates: 5
-  drawGizmos: 1
 --- !u!114 &7449524510762236503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +154,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 3973284301998383859}
   _rigidbody: {fileID: 3059376207732831744}
   _movementThreshold: 0.01
-  _playerController: {fileID: 256761772204218236}
 --- !u!114 &3053841887805359421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,10 +167,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerArmyController
   _maxSlots: 3
-  Debug_HeroArmy:
-  - {fileID: 11400000, guid: 249dae6d1a42c814088eb5a6cb46512e, type: 2}
-  - {fileID: 11400000, guid: e38535a0c7981f3468cd9c1997444feb, type: 2}
-  - {fileID: 11400000, guid: eddbe0c7994b9a8438ec95cba4e4f0dc, type: 2}
+--- !u!114 &111835086825581585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289799640210538645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9846f98e0997e834686692bae482eaa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactRadius: 1.5
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 8
+  maxCandidates: 5
+  drawGizmos: 1
 --- !u!1 &3311557376893098696
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3324166012043790004}
   - component: {fileID: 3973284301998383859}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +288,7 @@ GameObject:
   - component: {fileID: 7573454522778772045}
   - component: {fileID: 3693635643065317037}
   - component: {fileID: 650458376065429653}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -343,10 +337,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.006706908
+    x: 0.38371333
     y: 0
-    width: 0.98606455
-    height: 1
+    width: 0.5466522
+    height: 0.6098191
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
