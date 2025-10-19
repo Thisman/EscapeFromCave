@@ -13,6 +13,7 @@ public class BattleSceneManager : MonoBehaviour
 
     [SerializeField] private LayerRegistration[] _layers;
 
+    [Inject] GameFlowService _gameFlowService;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PanelController _panelController;
 
@@ -36,6 +37,7 @@ public class BattleSceneManager : MonoBehaviour
             Debug.LogWarning("[BattleSceneManager] BattleGridController reference is missing.");
         }
 
+        _gameFlowService.EnterBattle();
         InitializeScenePayload();
         RegisterLayers();
         InitializeStateMachine();
@@ -86,6 +88,7 @@ public class BattleSceneManager : MonoBehaviour
         _leaveBattleButton?.onClick.RemoveAllListeners();
         _startBattleButton?.onClick.RemoveAllListeners();
         _finishBattleButton?.onClick.RemoveAllListeners();
+        _gameFlowService.EnterGameplay();
     }
 
     private void InitializeScenePayload()
