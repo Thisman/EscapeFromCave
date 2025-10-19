@@ -42,7 +42,9 @@ public static class BattleTurnQueueCalculator
 
         var queue = new Queue<BattleUnitModel>(rankedUnits.Count);
         foreach (var item in rankedUnits)
+        {
             queue.Enqueue(item.Unit);
+        }
 
         return queue;
     }

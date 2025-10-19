@@ -69,7 +69,24 @@ public class RoundState : State<BattleContext>
             while (!cancellationToken.IsCancellationRequested)
             {
                 var units = BuildBattleUnits(context);
-                BattleTurnQueueCalculator.CreateQueue(units);
+                var queue = BattleTurnQueueCalculator.CreateQueue(units);
+
+                while (!cancellationToken.IsCancellationRequested && queue.Count > 0)
+                {
+                    var currentUnit = queue.Peek();
+                    var definition = currentUnit?.UnitModel?.Definition;
+                    var unitName = definition?.UnitName ?? "Unknown";
+                    var unitType = definition?.Type.ToString() ?? "Unknown";
+
+                    Debug.Log($"Processing turn: {unitName} ({unitType})");
+                    Debug.Log("Waiting for queue...");
+
+                    await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken).ConfigureAwait(false);
+
+                    Debug.Log("Turn finished");
+
+                    queue.Dequeue();
+                }
 
                 await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
             }
