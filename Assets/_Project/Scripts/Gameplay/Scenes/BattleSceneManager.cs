@@ -1,7 +1,8 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
-using System;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private Button _finishBattleButton;
 
     [SerializeField] private LayerRegistration[] _layers;
+    [SerializeField] private BattleUnitsPlacementController _unitsPlacementController;
 
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PanelController _panelController;
@@ -28,6 +30,19 @@ public class BattleSceneManager : MonoBehaviour
             string heroName = data.Hero?.Definition ? data.Hero.Definition.name : "<null>";
             string enemyName = data.Enemy?.Definition ? data.Enemy.Definition.name : "<null>";
             Debug.Log($"[BattleSceneManager] Hero: {heroName}, Army slots: {data.Army?.MaxSlots ?? 0}, Enemy: {enemyName}");
+
+            if (_unitsPlacementController != null)
+            {
+                var enemies = new List<IReadOnlyUnitModel>();
+                if (data.Enemy != null)
+                    enemies.Add(data.Enemy);
+
+                _unitsPlacementController.Arrange(data.Hero, data.Army, enemies);
+            }
+            else
+            {
+                Debug.LogWarning("[BattleSceneManager] UnitsPlacementController is not assigned");
+            }
         }
         else
         {
