@@ -6,6 +6,8 @@ public class BattleGridModel
 {
     public const int SlotsPerSide = 6;
 
+    private const int SlotsPerRow = SlotsPerSide / 2;
+
     private readonly GameObject[] _friendlySlots;
     private readonly GameObject[] _enemySlots;
 
@@ -25,9 +27,57 @@ public class BattleGridModel
 
     public GameObject GetEnemyUnit(int index) => GetUnit(_enemyUnits, index);
 
-    public GameObject GetFriendlySlot(int index) => GetUnit(_friendlySlots, index);
+    public GameObject GetFriendlySlot(int index) => GetSlot(_friendlySlots, index);
 
-    public GameObject GetEnemySlot(int index) => GetUnit(_enemySlots, index);
+    public GameObject GetEnemySlot(int index) => GetSlot(_enemySlots, index);
+
+    public IReadOnlyList<GameObject> GetFriendlyBackSlots() => GetRowSlots(_friendlySlots, false);
+
+    public IReadOnlyList<GameObject> GetFriendlyFrontSlots() => GetRowSlots(_friendlySlots, true);
+
+    public IReadOnlyList<GameObject> GetEnemyBackSlots() => GetRowSlots(_enemySlots, false);
+
+    public IReadOnlyList<GameObject> GetEnemyFrontSlots() => GetRowSlots(_enemySlots, true);
+
+    public bool TryPlaceFriendlyRandomBack(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_friendlySlots, _friendlyUnits, _enemyUnits, 0, SlotsPerRow, unit, keepWorldPosition);
+    }
+
+    public bool TryPlaceFriendlyRandomFront(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_friendlySlots, _friendlyUnits, _enemyUnits, SlotsPerRow, SlotsPerRow, unit, keepWorldPosition);
+    }
+
+    public bool TryPlaceFriendlyRandom(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_friendlySlots, _friendlyUnits, _enemyUnits, 0, SlotsPerSide, unit, keepWorldPosition);
+    }
+
+    public bool TryPlaceEnemyRandomBack(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_enemySlots, _enemyUnits, _friendlyUnits, 0, SlotsPerRow, unit, keepWorldPosition);
+    }
+
+    public bool TryPlaceEnemyRandomFront(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_enemySlots, _enemyUnits, _friendlyUnits, SlotsPerRow, SlotsPerRow, unit, keepWorldPosition);
+    }
+
+    public bool TryPlaceEnemyRandom(GameObject unit, bool keepWorldPosition = false)
+    {
+        return TryPlaceUnitAtRandom(_enemySlots, _enemyUnits, _friendlyUnits, 0, SlotsPerSide, unit, keepWorldPosition);
+    }
+
+    public GameObject FindFriendlySlot(GameObject unit)
+    {
+        return FindSlotContainingUnit(_friendlySlots, _friendlyUnits, unit);
+    }
+
+    public GameObject FindEnemySlot(GameObject unit)
+    {
+        return FindSlotContainingUnit(_enemySlots, _enemyUnits, unit);
+    }
 
     public bool TryPlaceFriendly(int index, GameObject unit, bool keepWorldPosition = false)
     {
@@ -89,6 +139,19 @@ public class BattleGridModel
     private static GameObject GetUnit(IReadOnlyList<GameObject> units, int index)
     {
         return IsValidIndex(index) ? units[index] : null;
+    }
+
+    private static GameObject GetSlot(IReadOnlyList<GameObject> slots, int index)
+    {
+        return IsValidIndex(index) ? slots[index] : null;
+    }
+
+    private static IReadOnlyList<GameObject> GetRowSlots(GameObject[] slots, bool isFrontRow)
+    {
+        var result = new GameObject[SlotsPerRow];
+        int startIndex = isFrontRow ? SlotsPerRow : 0;
+        Array.Copy(slots, startIndex, result, 0, SlotsPerRow);
+        return result;
     }
 
     private static bool TryPlaceUnit(GameObject[] slots, GameObject[] units, GameObject[] oppositeUnits, int index, GameObject unit, bool keepWorldPosition)
@@ -174,6 +237,39 @@ public class BattleGridModel
             AttachToSlot(unitB, slotA.transform, keepWorldPosition);
 
         return true;
+    }
+
+    private static bool TryPlaceUnitAtRandom(GameObject[] slots, GameObject[] units, GameObject[] oppositeUnits, int startIndex, int length, GameObject unit, bool keepWorldPosition)
+    {
+        if (unit == null)
+            return false;
+
+        var candidates = new List<int>();
+        int endIndex = Mathf.Min(startIndex + length, SlotsPerSide);
+        for (int i = startIndex; i < endIndex; i++)
+        {
+            if (slots[i] == null)
+                continue;
+
+            var occupant = units[i];
+            if (occupant == null || occupant == unit)
+                candidates.Add(i);
+        }
+
+        if (candidates.Count == 0)
+            return false;
+
+        int randomIndex = candidates[UnityEngine.Random.Range(0, candidates.Count)];
+        return TryPlaceUnit(slots, units, oppositeUnits, randomIndex, unit, keepWorldPosition);
+    }
+
+    private static GameObject FindSlotContainingUnit(GameObject[] slots, GameObject[] units, GameObject unit)
+    {
+        if (unit == null)
+            return null;
+
+        int index = Array.IndexOf(units, unit);
+        return index >= 0 ? slots[index] : null;
     }
 
     private static void AttachToSlot(GameObject unit, Transform parent, bool keepWorldPosition)
