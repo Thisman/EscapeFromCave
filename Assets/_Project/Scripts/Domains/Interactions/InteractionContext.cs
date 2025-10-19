@@ -13,4 +13,6 @@ public sealed class InteractionContext
     public float Time;
 
     public SceneLoader SceneLoader;
+
+    public DialogController DialogController;
 }
