@@ -75,7 +75,7 @@ public class BattleGridController : MonoBehaviour
         foreach (var enemy in shuffled)
         {
             var unitObject = CreateUnitInstance(enemy?.Definition?.UnitName ?? "Enemy");
-            InitializePresenter(unitObject, enemy);
+            InitializePresenter(unitObject, enemy, false);
             if (!_battleGridModel.TryPlaceEnemyRandom(unitObject))
             {
                 Debug.LogWarning("[BattleUnitsPlacementController] Failed to place enemy unit due to lack of free enemy slots.");
@@ -90,7 +90,7 @@ public class BattleGridController : MonoBehaviour
             return;
 
         var heroObject = CreateUnitInstance(hero.Definition != null ? hero.Definition.UnitName : "Hero");
-        InitializePresenter(heroObject, hero);
+        InitializePresenter(heroObject, hero, true);
         if (!_battleGridModel.TryPlaceFriendlyRandomBack(heroObject))
         {
             Debug.LogWarning("[BattleUnitsPlacementController] Failed to place hero on the back row.");
@@ -120,7 +120,7 @@ public class BattleGridController : MonoBehaviour
         foreach (var squad in shuffled)
         {
             var unitObject = CreateUnitInstance(squad.UnitDefinition != null ? squad.UnitDefinition.UnitName : "Squad");
-            InitializePresenter(unitObject, squad);
+            InitializePresenter(unitObject, squad, true);
             if (!_battleGridModel.TryPlaceFriendlyRandomFront(unitObject))
             {
                 Debug.LogWarning("[BattleUnitsPlacementController] Failed to place squad on the front row.");
@@ -140,12 +140,70 @@ public class BattleGridController : MonoBehaviour
         return instance;
     }
 
-    private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit)
+    private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit, bool isFriendlySlot)
     {
+        if (instance == null)
+            throw new ArgumentNullException(nameof(instance));
+
+        var controller = instance.GetComponent<BattleUnitController>();
+        if (controller == null)
+        {
+            Debug.LogWarning("[BattleGridController] Missing BattleUnitController component on instantiated unit prefab.");
+            return;
+        }
+
+        if (unit == null)
+        {
+            Debug.LogWarning("[BattleGridController] Cannot initialize battle unit presenter with a null unit model.");
+            return;
+        }
+
+        UnitModel runtimeModel = unit as UnitModel;
+        if (runtimeModel == null)
+        {
+            if (unit.Definition == null)
+            {
+                Debug.LogWarning("[BattleGridController] Unit model definition is missing.");
+                return;
+            }
+
+            runtimeModel = new UnitModel(unit.Definition, unit.Level, unit.Experience);
+        }
+
+        controller.UnitModel = runtimeModel;
+
+        var animationController = instance.GetComponent<BattleUnitAnimationController>();
+        animationController?.SetFriendlyOrientation(isFriendlySlot);
     }
 
-    private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad)
+    private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad, bool isFriendlySlot)
     {
+        if (instance == null)
+            throw new ArgumentNullException(nameof(instance));
+
+        var controller = instance.GetComponent<BattleUnitController>();
+        if (controller == null)
+        {
+            Debug.LogWarning("[BattleGridController] Missing BattleUnitController component on instantiated squad prefab.");
+            return;
+        }
+
+        if (squad == null)
+        {
+            Debug.LogWarning("[BattleGridController] Cannot initialize battle unit presenter with a null squad model.");
+            return;
+        }
+
+        if (squad.UnitDefinition == null)
+        {
+            Debug.LogWarning("[BattleGridController] Squad model definition is missing.");
+            return;
+        }
+
+        controller.UnitModel = new UnitModel(squad.UnitDefinition);
+
+        var animationController = instance.GetComponent<BattleUnitAnimationController>();
+        animationController?.SetFriendlyOrientation(isFriendlySlot);
     }
 
     private void DestroyUnitInstance(GameObject instance)
