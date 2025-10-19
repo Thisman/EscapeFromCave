@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,18 +11,53 @@ public class InteractionController : MonoBehaviour
 
     public bool TryInteract(InteractionContext ctx)
     {
-        if (Definition == null) return false;
-        if (!_cooldown.Ready(ctx.Time)) return false;
-        if (Definition.Conditions.Length != 0)
+        if (Definition == null)
         {
-            if (!Definition.Conditions.All(c => c.IsMet(ctx))) return false;
+            Debug.LogWarning($"[InteractionController] '{name}' does not have an interaction definition assigned. Actor: {ctx.Actor?.name ?? "<null>"}.");
+            return false;
         }
 
-        var targets = Definition.TargetResolver.Resolve(ctx);
+        if (!_cooldown.Ready(ctx.Time))
+        {
+            Debug.LogWarning($"[InteractionController] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
+            return false;
+        }
 
-        foreach (var eff in Definition.Effects) eff.Apply(ctx, targets);
+        if (Definition.Conditions.Length != 0)
+        {
+            if (!Definition.Conditions.All(c => c.IsMet(ctx)))
+            {
+                Debug.LogWarning($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor?.name ?? "<null>"}' on '{name}'.");
+                return false;
+            }
+        }
+
+        if (Definition.TargetResolver == null)
+        {
+            Debug.LogError($"[InteractionController] Definition '{Definition.name}' on '{name}' is missing a target resolver.");
+            return false;
+        }
+
+        IReadOnlyList<GameObject> targets = Definition.TargetResolver.Resolve(ctx);
+        int targetCount = targets?.Count ?? 0;
+        if (targetCount == 0)
+        {
+            Debug.LogWarning($"[InteractionController] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
+        }
+
+        foreach (var eff in Definition.Effects)
+        {
+            if (eff == null)
+            {
+                Debug.LogWarning($"[InteractionController] '{Definition.name}' has a null effect reference on '{name}'.");
+                continue;
+            }
+
+            eff.Apply(ctx, targets);
+        }
 
         _cooldown.Start(ctx.Time, Definition.Cooldown);
+        Debug.Log($"[InteractionController] Interaction '{Definition.name}' executed by '{ctx.Actor?.name ?? "<null>"}' on '{name}'. Targets affected: {targetCount}.");
         return true;
     }
 }
