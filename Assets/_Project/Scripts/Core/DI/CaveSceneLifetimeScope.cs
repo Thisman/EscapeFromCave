@@ -2,7 +2,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class GameLifetimeScope : LifetimeScope
+public class CaveSceneLiftimeScope : LifetimeScope
 {
     [SerializeField] private DialogController dialogController;
 
