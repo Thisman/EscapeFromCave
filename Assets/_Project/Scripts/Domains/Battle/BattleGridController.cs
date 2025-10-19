@@ -4,14 +4,25 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class BattleUnitsPlacementController : MonoBehaviour
+public class BattleGridController : MonoBehaviour
 {
     [SerializeField] private GameObject _unitPrefab;
+    [SerializeField] private GameObject[] _friendlySlots;
+    [SerializeField] private GameObject[] _enemySlots;
 
     [Inject] private IObjectResolver _resolver;
     [Inject] private BattleGridModel _battleGridModel;
 
     private readonly List<GameObject> _spawnedUnits = new();
+
+    public void Start()
+    {
+        ValidateSlots(_friendlySlots, nameof(_friendlySlots));
+        ValidateSlots(_enemySlots, nameof(_enemySlots));
+
+
+        _battleGridModel = new BattleGridModel(_friendlySlots, _enemySlots);
+    }
 
     public void Arrange(IReadOnlyUnitModel hero, IReadOnlyArmyModel army, IReadOnlyList<IReadOnlyUnitModel> enemies)
     {
@@ -131,20 +142,10 @@ public class BattleUnitsPlacementController : MonoBehaviour
 
     private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit)
     {
-        if (instance == null)
-            return;
-
-        var presenter = instance.GetComponent<BattleUnitPresenter>();
-        presenter?.Initialize(unit);
     }
 
     private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad)
     {
-        if (instance == null)
-            return;
-
-        var presenter = instance.GetComponent<BattleUnitPresenter>();
-        presenter?.Initialize(squad);
     }
 
     private void DestroyUnitInstance(GameObject instance)
@@ -162,6 +163,21 @@ public class BattleUnitsPlacementController : MonoBehaviour
         {
             int j = UnityEngine.Random.Range(0, i + 1);
             (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
+
+    private static void ValidateSlots(GameObject[] slots, string fieldName)
+    {
+        if (slots == null)
+            throw new InvalidOperationException($"{fieldName} must be assigned with exactly {BattleGridModel.SlotsPerSide} slots.");
+
+        if (slots.Length != BattleGridModel.SlotsPerSide)
+            throw new InvalidOperationException($"{fieldName} must contain exactly {BattleGridModel.SlotsPerSide} elements.");
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+                throw new InvalidOperationException($"{fieldName}[{i}] is not assigned.");
         }
     }
 }

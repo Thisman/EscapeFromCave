@@ -1,17 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TacticState : State<BattleStateContext>
 {
-    private readonly PanelController _panelController;
-
-    public TacticState(PanelController panelController)
-    {
-        _panelController = panelController;
-    }
-
     public override void Enter(BattleStateContext context)
     {
-        Debug.Log("Entering Tactic State");
-        _panelController?.Show(nameof(TacticState));
+        context.PanelController?.Show(nameof(TacticState));
+        var enemies = new List<IReadOnlyUnitModel>();
+        if (context.Payload.Enemy != null)
+            enemies.Add(context.Payload.Enemy);
+
+        context.BattleGridController?.Arrange(context.Payload.Hero, context.Payload.Army, enemies);
     }
 }

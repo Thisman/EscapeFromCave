@@ -9,47 +9,18 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private Button _leaveBattleButton;
     [SerializeField] private Button _startBattleButton;
     [SerializeField] private Button _finishBattleButton;
+    [SerializeField] private BattleGridController _battleGridContainer;
 
     [SerializeField] private LayerRegistration[] _layers;
-    [SerializeField] private BattleUnitsPlacementController _unitsPlacementController;
 
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private PanelController _panelController;
 
     [Inject] private StateMachine<BattleStateContext> _stateMachine;
-    [Inject] private TacticState _tacticState;
-    [Inject] private FinishState _finishState;
-    [Inject] private BattleRoundState _battleRoundState;
 
     private void Start()
     {
-        string sceneName = gameObject.scene.name;
-        if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
-        {
-            _stateMachine.Context.SetPayload(data);
-            string heroName = data.Hero?.Definition ? data.Hero.Definition.name : "<null>";
-            string enemyName = data.Enemy?.Definition ? data.Enemy.Definition.name : "<null>";
-            Debug.Log($"[BattleSceneManager] Hero: {heroName}, Army slots: {data.Army?.MaxSlots ?? 0}, Enemy: {enemyName}");
-
-            if (_unitsPlacementController != null)
-            {
-                var enemies = new List<IReadOnlyUnitModel>();
-                if (data.Enemy != null)
-                    enemies.Add(data.Enemy);
-
-                _unitsPlacementController.Arrange(data.Hero, data.Army, enemies);
-            }
-            else
-            {
-                Debug.LogWarning("[BattleSceneManager] UnitsPlacementController is not assigned");
-            }
-        }
-        else
-        {
-            _stateMachine.Context.SetPayload(null);
-            Debug.LogWarning("[BattleSceneManager] Unable to retrieve battle scene data payload");
-        }
-
+        InitializeScenePayload();
         RegisterLayers();
         InitializeStateMachine();
     }
@@ -58,7 +29,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<BattleRoundState>());
         _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
-        _finishBattleButton.onClick.AddListener(OnLeaveBattleButtonClicked);
+        _finishBattleButton.onClick.AddListener(() => _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1"));
     }
 
     private void OnDisable()
@@ -68,26 +39,40 @@ public class BattleSceneManager : MonoBehaviour
         _finishBattleButton.onClick.RemoveAllListeners();
     }
 
-    private async void OnLeaveBattleButtonClicked()
+    private void InitializeScenePayload()
     {
-        await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1");
+        string sceneName = gameObject.scene.name;
+        _stateMachine.Context.PanelController = _panelController;
+        _stateMachine.Context.BattleGridController = _battleGridContainer;
+        if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
+        {
+            _stateMachine.Context.Payload = data;
+            string heroName = data.Hero?.Definition ? data.Hero.Definition.name : "<null>";
+            string enemyName = data.Enemy?.Definition ? data.Enemy.Definition.name : "<null>";
+            Debug.Log($"[BattleSceneManager] Hero: {heroName}, Army slots: {data.Army?.MaxSlots ?? 0}, Enemy: {enemyName}");
+        }
+        else
+        {
+            _stateMachine.Context.Payload = null;
+            Debug.LogWarning("[BattleSceneManager] Unable to retrieve battle scene data payload");
+        }
     }
 
     private void InitializeStateMachine()
     {
         if (!_stateMachine.IsStateRegistered<TacticState>())
         {
-            _stateMachine.RegisterState(_tacticState);
+            _stateMachine.RegisterState(new TacticState());
         }
 
         if (!_stateMachine.IsStateRegistered<BattleRoundState>())
         {
-            _stateMachine.RegisterState(_battleRoundState);
+            _stateMachine.RegisterState(new BattleRoundState());
         }
 
         if (!_stateMachine.IsStateRegistered<FinishState>())
         {
-            _stateMachine.RegisterState(_finishState);
+            _stateMachine.RegisterState(new FinishState());
         }
 
         _stateMachine.SetState<TacticState>();
