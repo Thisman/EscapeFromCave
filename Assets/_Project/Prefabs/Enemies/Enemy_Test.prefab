@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4541626881315363255}
   - component: {fileID: 1049952634387665156}
-  - component: {fileID: 7313307994834713773}
   - component: {fileID: 3056197257081342125}
+  - component: {fileID: 7313307994834713773}
   - component: {fileID: 474594336830045401}
   - component: {fileID: 7572437619478834006}
   m_Layer: 3
@@ -83,19 +83,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7313307994834713773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999093162817123816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65cde0d93930414eac7689067abde4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  _unitDefinition: {fileID: 11400000, guid: c478cbe4b6296064f92f089771da4418, type: 2}
 --- !u!114 &3056197257081342125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +97,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationController
   _spriteRenderer: {fileID: 5439797107561190270}
   _enemyController: {fileID: 7313307994834713773}
+--- !u!114 &7313307994834713773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999093162817123816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65cde0d93930414eac7689067abde4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  _unitDefinition: {fileID: 11400000, guid: c478cbe4b6296064f92f089771da4418, type: 2}
 --- !u!114 &474594336830045401
 MonoBehaviour:
   m_ObjectHideFlags: 0

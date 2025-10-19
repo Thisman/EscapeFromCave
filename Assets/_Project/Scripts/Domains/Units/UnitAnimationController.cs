@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAnimationController : MonoBehaviour
+public class UnitAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private EnemyController _enemyController;
