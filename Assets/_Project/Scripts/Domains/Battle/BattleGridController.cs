@@ -142,10 +142,62 @@ public class BattleGridController : MonoBehaviour
 
     private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit)
     {
+        if (instance == null)
+            throw new ArgumentNullException(nameof(instance));
+
+        var controller = instance.GetComponent<BattleUnitController>();
+        if (controller == null)
+        {
+            Debug.LogWarning("[BattleGridController] Missing BattleUnitController component on instantiated unit prefab.");
+            return;
+        }
+
+        if (unit == null)
+        {
+            Debug.LogWarning("[BattleGridController] Cannot initialize battle unit presenter with a null unit model.");
+            return;
+        }
+
+        UnitModel runtimeModel = unit as UnitModel;
+        if (runtimeModel == null)
+        {
+            if (unit.Definition == null)
+            {
+                Debug.LogWarning("[BattleGridController] Unit model definition is missing.");
+                return;
+            }
+
+            runtimeModel = new UnitModel(unit.Definition, unit.Level, unit.Experience);
+        }
+
+        controller.UnitModel = runtimeModel;
     }
 
     private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad)
     {
+        if (instance == null)
+            throw new ArgumentNullException(nameof(instance));
+
+        var controller = instance.GetComponent<BattleUnitController>();
+        if (controller == null)
+        {
+            Debug.LogWarning("[BattleGridController] Missing BattleUnitController component on instantiated squad prefab.");
+            return;
+        }
+
+        if (squad == null)
+        {
+            Debug.LogWarning("[BattleGridController] Cannot initialize battle unit presenter with a null squad model.");
+            return;
+        }
+
+        if (squad.UnitDefinition == null)
+        {
+            Debug.LogWarning("[BattleGridController] Squad model definition is missing.");
+            return;
+        }
+
+        controller.UnitModel = new UnitModel(squad.UnitDefinition);
     }
 
     private void DestroyUnitInstance(GameObject instance)
