@@ -75,7 +75,7 @@ public class BattleGridController : MonoBehaviour
         foreach (var enemy in shuffled)
         {
             var unitObject = CreateUnitInstance(enemy?.Definition?.UnitName ?? "Enemy");
-            InitializePresenter(unitObject, enemy);
+            InitializePresenter(unitObject, enemy, false);
             if (!_battleGridModel.TryPlaceEnemyRandom(unitObject))
             {
                 Debug.LogWarning("[BattleUnitsPlacementController] Failed to place enemy unit due to lack of free enemy slots.");
@@ -90,7 +90,7 @@ public class BattleGridController : MonoBehaviour
             return;
 
         var heroObject = CreateUnitInstance(hero.Definition != null ? hero.Definition.UnitName : "Hero");
-        InitializePresenter(heroObject, hero);
+        InitializePresenter(heroObject, hero, true);
         if (!_battleGridModel.TryPlaceFriendlyRandomBack(heroObject))
         {
             Debug.LogWarning("[BattleUnitsPlacementController] Failed to place hero on the back row.");
@@ -120,7 +120,7 @@ public class BattleGridController : MonoBehaviour
         foreach (var squad in shuffled)
         {
             var unitObject = CreateUnitInstance(squad.UnitDefinition != null ? squad.UnitDefinition.UnitName : "Squad");
-            InitializePresenter(unitObject, squad);
+            InitializePresenter(unitObject, squad, true);
             if (!_battleGridModel.TryPlaceFriendlyRandomFront(unitObject))
             {
                 Debug.LogWarning("[BattleUnitsPlacementController] Failed to place squad on the front row.");
@@ -140,7 +140,7 @@ public class BattleGridController : MonoBehaviour
         return instance;
     }
 
-    private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit)
+    private static void InitializePresenter(GameObject instance, IReadOnlyUnitModel unit, bool isFriendlySlot)
     {
         if (instance == null)
             throw new ArgumentNullException(nameof(instance));
@@ -171,9 +171,12 @@ public class BattleGridController : MonoBehaviour
         }
 
         controller.UnitModel = runtimeModel;
+
+        var animationController = instance.GetComponent<BattleUnitAnimationController>();
+        animationController?.SetFriendlyOrientation(isFriendlySlot);
     }
 
-    private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad)
+    private static void InitializePresenter(GameObject instance, IReadOnlySquadModel squad, bool isFriendlySlot)
     {
         if (instance == null)
             throw new ArgumentNullException(nameof(instance));
@@ -198,6 +201,9 @@ public class BattleGridController : MonoBehaviour
         }
 
         controller.UnitModel = new UnitModel(squad.UnitDefinition);
+
+        var animationController = instance.GetComponent<BattleUnitAnimationController>();
+        animationController?.SetFriendlyOrientation(isFriendlySlot);
     }
 
     private void DestroyUnitInstance(GameObject instance)
