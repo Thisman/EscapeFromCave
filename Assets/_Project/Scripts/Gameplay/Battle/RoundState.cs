@@ -8,6 +8,7 @@ public class RoundState : State<BattleContext>
 {
     private CancellationTokenSource _queueLoopCancellation;
     private Task _queueLoopTask;
+    private bool _isSubscribedToApplicationQuit;
 
     public override void Enter(BattleContext context)
     {
@@ -25,12 +26,24 @@ public class RoundState : State<BattleContext>
     {
         StopQueueLoop();
 
+        if (!_isSubscribedToApplicationQuit)
+        {
+            Application.quitting += OnApplicationQuitting;
+            _isSubscribedToApplicationQuit = true;
+        }
+
         _queueLoopCancellation = new CancellationTokenSource();
         _queueLoopTask = RunQueueLoopAsync(context, _queueLoopCancellation.Token);
     }
 
     private void StopQueueLoop()
     {
+        if (_isSubscribedToApplicationQuit)
+        {
+            Application.quitting -= OnApplicationQuitting;
+            _isSubscribedToApplicationQuit = false;
+        }
+
         if (_queueLoopCancellation == null)
             return;
 
@@ -66,12 +79,12 @@ public class RoundState : State<BattleContext>
     {
         try
         {
-            while (!cancellationToken.IsCancellationRequested)
+            while (!cancellationToken.IsCancellationRequested && Application.isPlaying)
             {
                 var units = BuildBattleUnits(context);
                 var queue = BattleTurnQueueCalculator.CreateQueue(units);
 
-                while (!cancellationToken.IsCancellationRequested && queue.Count > 0)
+                while (!cancellationToken.IsCancellationRequested && Application.isPlaying && queue.Count > 0)
                 {
                     var currentUnit = queue.Peek();
                     var definition = currentUnit?.UnitModel?.Definition;
@@ -87,6 +100,9 @@ public class RoundState : State<BattleContext>
 
                     queue.Dequeue();
                 }
+
+                if (!Application.isPlaying)
+                    break;
 
                 await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).ConfigureAwait(false);
             }
@@ -104,6 +120,7 @@ public class RoundState : State<BattleContext>
         var units = new List<BattleUnitModel>();
 
         AddUnitIfPresent(context.Payload.Hero, units);
+        AddArmyUnits(context.Payload.Army, units);
         AddUnitIfPresent(context.Payload.Enemy, units);
 
         return units.ToArray();
@@ -115,5 +132,36 @@ public class RoundState : State<BattleContext>
             return;
 
         units.Add(new BattleUnitModel(unit));
+    }
+
+    private static void AddArmyUnits(IReadOnlyArmyModel army, List<BattleUnitModel> units)
+    {
+        if (army == null)
+            return;
+
+        var slots = army.GetAllSlots();
+        if (slots == null)
+            return;
+
+        foreach (var squad in slots)
+        {
+            if (squad == null || squad.IsEmpty)
+                continue;
+
+            var definition = squad.UnitDefinition;
+            if (definition == null)
+                continue;
+
+            for (int i = 0; i < squad.Count; i++)
+            {
+                var unitModel = new UnitModel(definition);
+                units.Add(new BattleUnitModel(unitModel));
+            }
+        }
+    }
+
+    private void OnApplicationQuitting()
+    {
+        StopQueueLoop();
     }
 }
