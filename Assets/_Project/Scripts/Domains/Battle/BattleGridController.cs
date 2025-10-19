@@ -11,7 +11,7 @@ public class BattleGridController : MonoBehaviour
     [SerializeField] private GameObject[] _enemySlots;
 
     [Inject] private IObjectResolver _resolver;
-    [Inject] private BattleGridModel _battleGridModel;
+    private BattleGridModel _battleGridModel;
 
     private readonly List<GameObject> _spawnedUnits = new();
 
