@@ -20,6 +20,22 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
+        if (_stateMachine == null)
+        {
+            Debug.LogError("[BattleSceneManager] State machine dependency is missing. Battle flow cannot start.");
+            return;
+        }
+
+        if (_panelController == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] PanelController was not injected. UI layers will not be registered.");
+        }
+
+        if (_battleGridContainer == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] BattleGridController reference is missing.");
+        }
+
         InitializeScenePayload();
         RegisterLayers();
         InitializeStateMachine();
@@ -27,16 +43,49 @@ public class BattleSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<RoundState>());
-        _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
-        _finishBattleButton.onClick.AddListener(async () => await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1"));
+        if (_stateMachine == null)
+        {
+            Debug.LogError("[BattleSceneManager] Cannot wire button callbacks because state machine is null.");
+            return;
+        }
+
+        if (_startBattleButton == null)
+        {
+            Debug.LogError("[BattleSceneManager] Start battle button is not assigned.");
+        }
+        else
+        {
+            _startBattleButton.onClick.AddListener(() => _stateMachine.SetState<RoundState>());
+        }
+
+        if (_leaveBattleButton == null)
+        {
+            Debug.LogError("[BattleSceneManager] Leave battle button is not assigned.");
+        }
+        else
+        {
+            _leaveBattleButton.onClick.AddListener(() => _stateMachine.SetState<FinishState>());
+        }
+
+        if (_finishBattleButton == null)
+        {
+            Debug.LogError("[BattleSceneManager] Finish battle button is not assigned.");
+        }
+        else if (_sceneLoader == null)
+        {
+            Debug.LogError("[BattleSceneManager] SceneLoader is null. Cannot register finish battle handler.");
+        }
+        else
+        {
+            _finishBattleButton.onClick.AddListener(async () => await _sceneLoader.UnloadAdditiveWithDataAsync("Battle", null, "Cave_Level_1"));
+        }
     }
 
     private void OnDisable()
     {
-        _leaveBattleButton.onClick.RemoveAllListeners();
-        _startBattleButton.onClick.RemoveAllListeners();
-        _finishBattleButton.onClick.RemoveAllListeners();
+        _leaveBattleButton?.onClick.RemoveAllListeners();
+        _startBattleButton?.onClick.RemoveAllListeners();
+        _finishBattleButton?.onClick.RemoveAllListeners();
     }
 
     private void InitializeScenePayload()
@@ -44,7 +93,14 @@ public class BattleSceneManager : MonoBehaviour
         string sceneName = gameObject.scene.name;
         _stateMachine.Context.PanelController = _panelController;
         _stateMachine.Context.BattleGridController = _battleGridContainer;
-        if (_sceneLoader != null && _sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
+        if (_sceneLoader == null)
+        {
+            Debug.LogError("[BattleSceneManager] SceneLoader was not injected. Unable to acquire payload.");
+            _stateMachine.Context.Payload = null;
+            return;
+        }
+
+        if (_sceneLoader.TryGetScenePayload<BattleSceneLoadingPayload>(sceneName, out var data))
         {
             _stateMachine.Context.Payload = data;
             string heroName = data.Hero?.Definition ? data.Hero.Definition.name : "<null>";
@@ -80,8 +136,15 @@ public class BattleSceneManager : MonoBehaviour
 
     private void RegisterLayers()
     {
-        if (_panelController == null || _layers == null)
+        if (_panelController == null)
         {
+            Debug.LogWarning("[BattleSceneManager] PanelController is null. Skipping UI layer registration.");
+            return;
+        }
+
+        if (_layers == null || _layers.Length == 0)
+        {
+            Debug.LogWarning("[BattleSceneManager] No UI layers configured for registration.");
             return;
         }
 
@@ -89,16 +152,25 @@ public class BattleSceneManager : MonoBehaviour
         {
             if (layer == null)
             {
+                Debug.LogWarning("[BattleSceneManager] Encountered null layer registration entry.");
                 continue;
             }
 
             var layerName = layer.LayerName;
             if (string.IsNullOrEmpty(layerName))
             {
+                Debug.LogWarning("[BattleSceneManager] Layer registration is missing a layer name.");
+                continue;
+            }
+
+            if (layer.Elements == null || layer.Elements.Length == 0)
+            {
+                Debug.LogWarning($"[BattleSceneManager] Layer '{layerName}' has no elements to register.");
                 continue;
             }
 
             _panelController.Register(layerName, layer.Elements);
+            Debug.Log($"[BattleSceneManager] Registered UI layer '{layerName}' with {layer.Elements.Length} elements.");
         }
     }
 
