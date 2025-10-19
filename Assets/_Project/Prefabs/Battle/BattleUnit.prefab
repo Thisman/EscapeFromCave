@@ -99,8 +99,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9208095950091771653}
+  - component: {fileID: -4319711394075330428}
+  - component: {fileID: -1383928835160528842}
   m_Layer: 0
-  m_Name: UnitInBattle
+  m_Name: BattleUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,3 +124,29 @@ Transform:
   - {fileID: 7990039342689074780}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4319711394075330428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868423402593421840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0328e4a0c6679dd4298b971b6748e51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitController
+--- !u!114 &-1383928835160528842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868423402593421840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f53c4128f507bb4f85d0d203eb7ceb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimationController
+  _spriteRenderer: {fileID: 2561317246823813132}
+  _battleUnitController: {fileID: -4319711394075330428}
