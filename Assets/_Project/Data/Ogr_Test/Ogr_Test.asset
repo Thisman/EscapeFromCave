@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
   m_Name: Ogr_Test
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  UnitName: Ogr_Test
-  Type: 1
   Icon: {fileID: -3398425601533472082, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: Ogr_Test
+  Type: 2
   Levels:
   - LevelIndex: 0
     XPToNext: 0
