@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class PlayerLightController : MonoBehaviour
 {
-    [SerializeField] private Light2D _light;
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D _light;
     [Header("Heartbeat settings")]
     [SerializeField, Min(0f)] private float _beatsPerMinute = 60f;
     [SerializeField] private float _radiusOffset = 0.5f;
