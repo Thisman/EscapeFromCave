@@ -3,7 +3,8 @@ using UnityEngine;
 
 public sealed class ArmyRoasterView : MonoBehaviour
 {
-    [SerializeField] private PlayerArmyController _playerArmyController; 
+    public PlayerArmyController PlayerArmyController; 
+    
     [SerializeField] private RectTransform _content;
     [SerializeField] private ArmyRoasterSquadView _itemPrefab;
 
@@ -15,19 +16,14 @@ public sealed class ArmyRoasterView : MonoBehaviour
             _content = (RectTransform)transform;
     }
 
-    private void Start()
-    {
-        Rebuild();
-    }
-
     private void OnEnable()
     {
-        _playerArmyController.ArmyChanged += OnArmyChanged;
+        PlayerArmyController.ArmyChanged += OnArmyChanged;
     }
 
     private void OnDisable()
     {
-        _playerArmyController.ArmyChanged -= OnArmyChanged;
+        PlayerArmyController.ArmyChanged -= OnArmyChanged;
     }
 
     private void OnArmyChanged(IReadOnlyArmyModel army)
@@ -37,14 +33,14 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     public void Rebuild()
     {
-        if (_playerArmyController == null)
+        if (PlayerArmyController == null)
         {
             Debug.LogWarning("[ArmyPanelUI] PlayerArmyController не назначен");
             ClearAll();
             return;
         }
 
-        var squads = _playerArmyController.GetSquads();
+        var squads = PlayerArmyController.GetSquads();
         int count = squads.Count;
         EnsureCapacity(count);
 
@@ -61,9 +57,9 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     public void RefreshValues()
     {
-        if (_playerArmyController == null) return;
+        if (PlayerArmyController == null) return;
 
-        var squads = _playerArmyController.GetSquads();
+        var squads = PlayerArmyController.GetSquads();
         int visible = Mathf.Min(squads.Count, _items.Count);
         for (int i = 0; i < visible; i++)
             if (_items[i].isActiveAndEnabled)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using VContainer;
 using VContainer.Unity;
 
@@ -6,6 +7,10 @@ public class DangeonSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
+    [SerializeField] private ArmyRoasterView _armyRoasterView;
+
+    [SerializeField] private GameObject _debugCamera;
+    [SerializeField] private Light2D _globalLight2D;
 
     [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly GameSession _gameSession;
@@ -13,28 +18,34 @@ public class DangeonSceneManager : MonoBehaviour
 
     public void Start()
     {
+        _debugCamera.SetActive(false);
+        _globalLight2D.intensity = 0f;
         _inputRouter.EnterGameplay();
-        InitializePlayer();
+        PlayerController playerController = InitializePlayer();
+        PlayerArmyController playerArmyController = InitializeArmy(playerController);
+
+        _armyRoasterView.PlayerArmyController = playerArmyController;
+        _armyRoasterView.Rebuild();
     }
 
-    private void InitializePlayer()
+    private PlayerController InitializePlayer()
     {
         if (_playerPrefab == null)
         {
             Debug.LogError("[DangeonSceneManager] Player prefab is not assigned. Unable to spawn player.");
-            return;
+            return null;
         }
 
         if (_gameSession.HeroDefinition == null)
         {
             Debug.LogWarning("[DangeonSceneManager] GameSession does not contain a hero definition. Player will not be spawned.");
-            return;
+            return null;
         }
 
         if (_objectResolver == null)
         {
             Debug.LogError("[DangeonSceneManager] Object resolver is not available. Unable to instantiate player with dependencies.");
-            return;
+            return null;
         }
 
         Vector3 spawnPosition = _playerSpawnPoint != null ? _playerSpawnPoint.position : transform.position;
@@ -46,22 +57,22 @@ public class DangeonSceneManager : MonoBehaviour
         if (playerController == null)
         {
             Debug.LogError("[DangeonSceneManager] Instantiated player prefab does not contain a PlayerController component.");
-            return;
+            return null;
         }
 
         var unitModel = new UnitModel(_gameSession.HeroDefinition);
         playerController.Initialize(unitModel);
 
-        InitializeArmy(playerController);
+        return playerController;
     }
 
-    private void InitializeArmy(PlayerController playerController)
+    private PlayerArmyController InitializeArmy(PlayerController playerController)
     {
         var armyController = playerController.GetComponent<PlayerArmyController>();
         if (armyController == null)
         {
             Debug.LogWarning("[DangeonSceneManager] Player prefab is missing PlayerArmyController. Army initialization skipped.");
-            return;
+            return null;
         }
 
         var armyModel = new ArmyModel(armyController.MaxSlots);
@@ -75,5 +86,7 @@ public class DangeonSceneManager : MonoBehaviour
                 armyController.TryAddUnits(definition, defaultAmount);
             }
         }
+
+        return armyController;
     }
 }
