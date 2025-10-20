@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a3b59e15624dc43b57abbbb63b5824, type: 3}
+  m_Name: BrokenExit_Interaction
+  m_EditorClassIdentifier: Assembly-CSharp::InteractationDefinitionSO
+  Cooldown: 0
+  Type: 2
+  InteractionDistance: 1.5
+  Effects:
+  - {fileID: 11400000, guid: 4f53e4e5c33acaa45b13fefca846f52a, type: 2}
+  Conditions: []
+  TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}
