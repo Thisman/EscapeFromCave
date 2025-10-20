@@ -24,6 +24,18 @@ public sealed class ShowDialogEffect : EffectSO
             return;
         }
 
-        await ctx.DialogController.ShowForDurationAsync(Message ?? string.Empty, _displayDuration);
+        var message = Message ?? string.Empty;
+        var inputRouter = ctx.InputRouter;
+
+        inputRouter?.EnterDialog();
+
+        try
+        {
+            await ctx.DialogController.ShowForDurationAsync(message, _displayDuration);
+        }
+        finally
+        {
+            inputRouter?.EnterGameplay();
+        }
     }
 }

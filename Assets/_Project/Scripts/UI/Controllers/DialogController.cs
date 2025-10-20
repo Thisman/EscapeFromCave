@@ -7,7 +7,7 @@ public sealed class DialogController : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField, Min(1e-3f)] private float _charactersPerSecond = 24f;
+    [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
 
     private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
@@ -97,10 +97,12 @@ public sealed class DialogController : MonoBehaviour
             return Task.CompletedTask;
         }
 
-        Show(message);
+        var messageToShow = message ?? string.Empty;
+        Show(messageToShow);
 
         _displayCompletion = new TaskCompletionSource<bool>();
-        _displayRoutine = StartCoroutine(DisplayRoutine(duration));
+        var displayDuration = Mathf.Max(duration, CalculateTypingDuration(messageToShow));
+        _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration));
 
         if (_displayRoutine == null)
         {
@@ -114,13 +116,14 @@ public sealed class DialogController : MonoBehaviour
     {
         _text.text = message;
 
-        if (_charactersPerSecond <= 0f)
+        if (_secondsPerCharacter <= 0f)
         {
             _text.maxVisibleCharacters = message.Length;
+            _typingRoutine = null;
             yield break;
         }
 
-        var delay = 1f / _charactersPerSecond;
+        var delay = _secondsPerCharacter;
         _text.maxVisibleCharacters = 0;
 
         for (var i = 1; i <= message.Length; i++)
@@ -129,6 +132,7 @@ public sealed class DialogController : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
 
+        _text.maxVisibleCharacters = message.Length;
         _typingRoutine = null;
     }
 
@@ -137,5 +141,15 @@ public sealed class DialogController : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _displayRoutine = null;
         Hide();
+    }
+
+    private float CalculateTypingDuration(string message)
+    {
+        if (_secondsPerCharacter <= 0f || string.IsNullOrEmpty(message))
+        {
+            return 0f;
+        }
+
+        return message.Length * _secondsPerCharacter;
     }
 }

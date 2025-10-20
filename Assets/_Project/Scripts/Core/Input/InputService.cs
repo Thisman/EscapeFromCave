@@ -39,6 +39,9 @@ public class InputService
             case GameMode.Menu:
                 EnableOnly("Menu");
                 break;
+            case GameMode.Dialog:
+                EnableOnly("Dialog");
+                break;
         }
     }
 }

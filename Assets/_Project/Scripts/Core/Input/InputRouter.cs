@@ -22,6 +22,8 @@ public class InputRouter
 
     public void EnterMenu() => SetMode(GameMode.Menu);
 
+    public void EnterDialog() => SetMode(GameMode.Dialog);
+
     private void SetMode(GameMode mode)
     {
         if (_input == null)
