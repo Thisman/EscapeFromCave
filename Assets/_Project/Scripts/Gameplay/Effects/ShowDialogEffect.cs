@@ -8,7 +8,7 @@ public sealed class ShowDialogEffect : EffectSO
     [TextArea]
     public string Message;
 
-    [SerializeField, Min(0f)] private float _displayDuration = 2f;
+    [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
 
     public override async Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
@@ -31,7 +31,7 @@ public sealed class ShowDialogEffect : EffectSO
 
         try
         {
-            await ctx.DialogController.ShowForDurationAsync(message, _displayDuration);
+            await ctx.DialogController.ShowForDurationAsync(message, _secondsPerCharacter);
         }
         finally
         {

@@ -7,7 +7,7 @@ public sealed class DialogController : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
+    [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
 
     private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
@@ -29,6 +29,11 @@ public sealed class DialogController : MonoBehaviour
 
     public void Show(string message)
     {
+        Show(message, _defaultSecondsPerCharacter);
+    }
+
+    public void Show(string message, float secondsPerCharacter)
+    {
         if (_canvas == null || _text == null)
         {
             Debug.LogWarning("[DialogController] Missing canvas or text reference. Unable to show dialog.");
@@ -49,8 +54,11 @@ public sealed class DialogController : MonoBehaviour
         _displayCompletion?.TrySetResult(true);
         _displayCompletion = null;
 
+        var messageToShow = message ?? string.Empty;
+        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
+
         _canvas.enabled = true;
-        _typingRoutine = StartCoroutine(TypeText(message ?? string.Empty));
+        _typingRoutine = StartCoroutine(TypeText(messageToShow, resolvedSecondsPerCharacter));
     }
 
     public void Hide()
@@ -82,7 +90,7 @@ public sealed class DialogController : MonoBehaviour
         _displayCompletion = null;
     }
 
-    public Task ShowForDurationAsync(string message, float duration)
+    public Task ShowForDurationAsync(string message, float secondsPerCharacter)
     {
         if (_canvas == null || _text == null)
         {
@@ -90,18 +98,19 @@ public sealed class DialogController : MonoBehaviour
             return Task.CompletedTask;
         }
 
-        if (duration <= 0f)
-        {
-            Show(message);
-            Hide();
-            return Task.CompletedTask;
-        }
-
         var messageToShow = message ?? string.Empty;
-        Show(messageToShow);
+        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
+
+        Show(messageToShow, resolvedSecondsPerCharacter);
 
         _displayCompletion = new TaskCompletionSource<bool>();
-        var displayDuration = Mathf.Max(duration, CalculateTypingDuration(messageToShow));
+        var displayDuration = Mathf.Max(0f, CalculateTypingDuration(messageToShow, resolvedSecondsPerCharacter));
+
+        if (resolvedSecondsPerCharacter > 0f && !Mathf.Approximately(displayDuration, 0f))
+        {
+            displayDuration += resolvedSecondsPerCharacter;
+        }
+
         _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration));
 
         if (_displayRoutine == null)
@@ -112,18 +121,18 @@ public sealed class DialogController : MonoBehaviour
         return _displayCompletion.Task;
     }
 
-    private IEnumerator TypeText(string message)
+    private IEnumerator TypeText(string message, float secondsPerCharacter)
     {
         _text.text = message;
 
-        if (_secondsPerCharacter <= 0f)
+        if (secondsPerCharacter <= 0f)
         {
             _text.maxVisibleCharacters = message.Length;
             _typingRoutine = null;
             yield break;
         }
 
-        var delay = _secondsPerCharacter;
+        var delay = secondsPerCharacter;
         _text.maxVisibleCharacters = 0;
 
         for (var i = 1; i <= message.Length; i++)
@@ -143,13 +152,23 @@ public sealed class DialogController : MonoBehaviour
         Hide();
     }
 
-    private float CalculateTypingDuration(string message)
+    private float CalculateTypingDuration(string message, float secondsPerCharacter)
     {
-        if (_secondsPerCharacter <= 0f || string.IsNullOrEmpty(message))
+        if (secondsPerCharacter <= 0f || string.IsNullOrEmpty(message))
         {
             return 0f;
         }
 
-        return message.Length * _secondsPerCharacter;
+        return message.Length * secondsPerCharacter;
+    }
+
+    private float ResolveSecondsPerCharacter(float overrideSecondsPerCharacter)
+    {
+        if (overrideSecondsPerCharacter >= 0f)
+        {
+            return overrideSecondsPerCharacter;
+        }
+
+        return _defaultSecondsPerCharacter;
     }
 }
