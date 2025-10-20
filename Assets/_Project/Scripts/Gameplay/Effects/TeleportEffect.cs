@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Teleport Player Random Point")]
-public sealed class TeleportPlayerRandomPointEffect : EffectSO
+public sealed class TeleportEffect : EffectSO
 {
     [SerializeField]
     private Vector3[] _points = Array.Empty<Vector3>();
@@ -16,19 +16,19 @@ public sealed class TeleportPlayerRandomPointEffect : EffectSO
     {
         if (ctx == null)
         {
-            Debug.LogWarning("[TeleportPlayerRandomPointEffect] Interaction context is null. Unable to teleport player.");
+            Debug.LogWarning("[TeleportEffect] Interaction context is null. Unable to teleport player.");
             return Task.CompletedTask;
         }
 
         if (ctx.Actor == null)
         {
-            Debug.LogWarning("[TeleportPlayerRandomPointEffect] Actor is not specified in the interaction context. Unable to teleport player.");
+            Debug.LogWarning("[TeleportEffect] Actor is not specified in the interaction context. Unable to teleport player.");
             return Task.CompletedTask;
         }
 
         if (_points == null || _points.Length == 0)
         {
-            Debug.LogWarning("[TeleportPlayerRandomPointEffect] No teleport points configured. Unable to teleport player.");
+            Debug.LogWarning("[TeleportEffect] No teleport points configured. Unable to teleport player.");
             return Task.CompletedTask;
         }
 
