@@ -3,11 +3,10 @@ using UnityEngine;
 
 public sealed class ArmyRoasterView : MonoBehaviour
 {
-    public PlayerArmyController PlayerArmyController; 
-    
     [SerializeField] private RectTransform _content;
     [SerializeField] private ArmyRoasterSquadView _itemPrefab;
 
+    private PlayerArmyController _playerArmyController;
     private readonly List<ArmyRoasterSquadView> _items = new();
 
     private void Awake()
@@ -18,12 +17,21 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerArmyController.ArmyChanged += OnArmyChanged;
+        if (_playerArmyController)
+            _playerArmyController.ArmyChanged += OnArmyChanged;
     }
 
     private void OnDisable()
     {
-        PlayerArmyController.ArmyChanged -= OnArmyChanged;
+        if (_playerArmyController)
+            _playerArmyController.ArmyChanged -= OnArmyChanged;
+    }
+
+    public void Initialize(PlayerArmyController playerArmyController)
+    {
+        _playerArmyController = playerArmyController;
+        _playerArmyController.ArmyChanged += OnArmyChanged;
+        Rebuild();
     }
 
     private void OnArmyChanged(IReadOnlyArmyModel army)
@@ -33,14 +41,14 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     public void Rebuild()
     {
-        if (PlayerArmyController == null)
+        if (_playerArmyController == null)
         {
             Debug.LogWarning("[ArmyPanelUI] PlayerArmyController не назначен");
             ClearAll();
             return;
         }
 
-        var squads = PlayerArmyController.GetSquads();
+        var squads = _playerArmyController.GetSquads();
         int count = squads.Count;
         EnsureCapacity(count);
 
@@ -57,9 +65,9 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     public void RefreshValues()
     {
-        if (PlayerArmyController == null) return;
+        if (_playerArmyController == null) return;
 
-        var squads = PlayerArmyController.GetSquads();
+        var squads = _playerArmyController.GetSquads();
         int visible = Mathf.Min(squads.Count, _items.Count);
         for (int i = 0; i < visible; i++)
             if (_items[i].isActiveAndEnabled)

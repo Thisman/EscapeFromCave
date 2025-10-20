@@ -24,8 +24,7 @@ public class DangeonSceneManager : MonoBehaviour
         PlayerController playerController = InitializePlayer();
         PlayerArmyController playerArmyController = InitializeArmy(playerController);
 
-        _armyRoasterView.PlayerArmyController = playerArmyController;
-        _armyRoasterView.Rebuild();
+        _armyRoasterView.Initialize(playerArmyController);
     }
 
     private PlayerController InitializePlayer()
