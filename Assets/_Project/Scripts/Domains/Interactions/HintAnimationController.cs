@@ -48,7 +48,7 @@ public sealed class HintAnimationController : MonoBehaviour
     }
 #endif
 
-    private void CacheBasePosition()
+    private void CacheBasePosition(bool force = false)
     {
         var previousTargetTransform = _targetTransform;
         _targetTransform = null;
@@ -83,13 +83,33 @@ public sealed class HintAnimationController : MonoBehaviour
         }
 #endif
 
-        if (_hasCachedBasePosition)
+        if (_hasCachedBasePosition && !force)
         {
             return;
         }
 
         _baseLocalPosition = _targetTransform.localPosition;
         _hasCachedBasePosition = true;
+    }
+
+    public void SyncBasePositionWithTarget()
+    {
+        CacheBasePosition(force: true);
+
+        if (!_targetTransform)
+        {
+            return;
+        }
+
+        _baseLocalPosition = _targetTransform.localPosition;
+        _hasCachedBasePosition = true;
+
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
+        RestartAnimation();
     }
 
     private void RestartAnimation()

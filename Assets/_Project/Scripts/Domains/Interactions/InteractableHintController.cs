@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class InteractableHintSystem : MonoBehaviour
+public sealed class InteractableHintController : MonoBehaviour
 {
     [SerializeField] private GameObject _hintPrefab;
     [SerializeField] private Vector3 _worldOffset = new(0, 1.0f, 0);
@@ -17,6 +17,12 @@ public sealed class InteractableHintSystem : MonoBehaviour
     private readonly List<InteractionController> _interactables = new(128);
     private float _updateAccum;
     private float _rescanAccum;
+    private Vector3 _lastWorldOffset;
+
+    private void Awake()
+    {
+        _lastWorldOffset = _worldOffset;
+    }
 
     private void Start()
     {
@@ -31,6 +37,12 @@ public sealed class InteractableHintSystem : MonoBehaviour
     private void Update()
     {
         if (!_player || !_hintPrefab) return;
+
+        if ((_worldOffset - _lastWorldOffset).sqrMagnitude > 0.0001f)
+        {
+            RefreshActiveHintOffsets();
+            _lastWorldOffset = _worldOffset;
+        }
 
         _rescanAccum += Time.deltaTime;
         if (_rescanAccum >= _rescanInterval)
@@ -71,14 +83,25 @@ public sealed class InteractableHintSystem : MonoBehaviour
 
     private void ShowOrUpdate(InteractionController oi)
     {
+        bool created = false;
         if (!_active.TryGetValue(oi, out var go) || !go)
         {
             go = GetFromPool();
             _active[oi] = go;
             go.transform.SetParent(oi.transform, worldPositionStays: true);
+            created = true;
         }
 
-        go.transform.position = oi.transform.position + _worldOffset;
+        if (!created && go.transform.parent != oi.transform)
+        {
+            go.transform.SetParent(oi.transform, worldPositionStays: true);
+            created = true;
+        }
+
+        if (created)
+        {
+            ApplyHintOffset(oi, go);
+        }
     }
 
     private void Hide(InteractionController oi)
@@ -117,5 +140,29 @@ public sealed class InteractableHintSystem : MonoBehaviour
         go.SetActive(false);
         go.transform.SetParent(transform, false);
         _pool.Push(go);
+    }
+
+    private void RefreshActiveHintOffsets()
+    {
+        foreach (var kv in _active)
+        {
+            var interaction = kv.Key;
+            var hint = kv.Value;
+            if (!interaction || !hint) continue;
+
+            ApplyHintOffset(interaction, hint);
+        }
+    }
+
+    private void ApplyHintOffset(InteractionController interaction, GameObject hint)
+    {
+        if (!interaction || !hint) return;
+
+        hint.transform.position = interaction.transform.position + _worldOffset;
+
+        if (hint.TryGetComponent<HintAnimationController>(out var animation))
+        {
+            animation.SyncBasePositionWithTarget();
+        }
     }
 }
