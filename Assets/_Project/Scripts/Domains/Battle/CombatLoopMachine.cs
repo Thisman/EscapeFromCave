@@ -42,7 +42,7 @@ public sealed class CombatLoopMachine
         _sm.Configure(CombatState.RoundEnd)
             .OnEntry(RoundEnd)
             .Permit(CombatTrigger.EndRound, CombatState.RoundInit)
-            .Permit(CombatTrigger.EndCombat, CombatState.RoundEnd); // будет обработано фазовой машиной
+            .PermitReentry(CombatTrigger.EndCombat); // будет обработано фазовой машиной
     }
 
     public CombatState State => _sm.State;
