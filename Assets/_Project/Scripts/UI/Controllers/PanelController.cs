@@ -7,7 +7,7 @@ public class PanelController
     private string _currentLayer;
     private bool _currentLayerVisible;
 
-    public void Register(string layerName, GameObject[] layer)
+    public PanelController(string layerName, GameObject[] layer)
     {
         if (string.IsNullOrEmpty(layerName))
         {
