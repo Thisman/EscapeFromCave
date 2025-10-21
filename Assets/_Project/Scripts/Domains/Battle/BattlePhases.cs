@@ -1,0 +1,1 @@
+public enum BattlePhase { Tactics, Combat, Results }
