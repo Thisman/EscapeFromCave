@@ -78,7 +78,11 @@ public sealed class InteractableHintSystem : MonoBehaviour
             go.transform.SetParent(oi.transform, worldPositionStays: true);
         }
 
-        go.transform.position = oi.transform.position + _worldOffset;
+        Vector3 targetPosition = oi.transform.position + _worldOffset;
+        if (go.TryGetComponent<HintAnimationController>(out var animation))
+            animation.SetBasePosition(targetPosition);
+        else
+            go.transform.position = targetPosition;
     }
 
     private void Hide(InteractionController oi)
