@@ -90,19 +90,15 @@ public class BattleSceneManager : MonoBehaviour
 
     private void HandleStartCombat()
     {
-        _panelController?.Show("combat");
         _phaseMachine?.Fire(BattleTrigger.EndTactics);
     }
 
     private void HandleLeaveCombat()
     {
-        _panelController?.Show("results");
         _phaseMachine?.Fire(BattleTrigger.EndCombat);
     }
 
     private void HandleExitBattle()
     {
-        _panelController?.Show("results");
-        _phaseMachine?.Fire(BattleTrigger.ForceResults);
     }
 }
