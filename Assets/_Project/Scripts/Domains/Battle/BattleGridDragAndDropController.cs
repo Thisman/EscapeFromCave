@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public sealed class BattleGridDragAndDropController : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (IsPointerPressedThisFrame())
             TryStartDrag();
 
         if (_draggedObject == null)
@@ -35,8 +36,20 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
         UpdateDrag();
 
-        if (Input.GetMouseButtonUp(0))
+        if (IsPointerReleasedThisFrame())
             FinishDrag();
+    }
+
+    private static bool IsPointerPressedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasPressedThisFrame;
+    }
+
+    private static bool IsPointerReleasedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasReleasedThisFrame;
     }
 
     private void TryStartDrag()
@@ -191,7 +204,10 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (_draggedObject == null || _camera == null)
             return;
 
-        Vector3 mousePosition = Input.mousePosition;
+        if (!TryGetPointerScreenPosition(out var pointerPosition))
+            return;
+
+        Vector3 mousePosition = pointerPosition;
 
         if (_camera.orthographic)
         {
@@ -222,7 +238,10 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (_camera == null)
             return null;
 
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        if (!TryGetPointerScreenPosition(out var pointerPosition))
+            return null;
+
+        Ray ray = _camera.ScreenPointToRay(pointerPosition);
 
         if (Physics.Raycast(ray, out var hitInfo))
             return hitInfo.transform;
@@ -279,5 +298,19 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             BattleGridSlotSide.Enemy => unitModel.Definition.Type == UnitType.Enemy,
             _ => false
         };
+    }
+
+    private static bool TryGetPointerScreenPosition(out Vector3 position)
+    {
+        var mouse = Mouse.current;
+        if (mouse == null)
+        {
+            position = default;
+            return false;
+        }
+
+        Vector2 pointer = mouse.position.ReadValue();
+        position = new Vector3(pointer.x, pointer.y, 0f);
+        return true;
     }
 }
