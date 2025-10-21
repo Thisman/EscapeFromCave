@@ -16,8 +16,8 @@ MonoBehaviour:
   Type: 0
   InteractionDistance: 1.5
   Effects:
-  - {fileID: 11400000, guid: b2718067fb20bcc49bf058f5ebbab317, type: 2}
   - {fileID: 11400000, guid: 87244d7e58f249f40aac809cd04f89d8, type: 2}
   - {fileID: 11400000, guid: 9753b397b5c37ce48900e28240fe672c, type: 2}
+  - {fileID: 11400000, guid: b2718067fb20bcc49bf058f5ebbab317, type: 2}
   Conditions: []
   TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}
