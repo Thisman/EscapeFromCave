@@ -7,9 +7,22 @@ public class PanelController
     private string _currentLayer;
     private bool _currentLayerVisible;
 
-    public PanelController(string layerName, GameObject[] layer)
+    public PanelController(params (string layerName, GameObject[] layer)[] layers)
     {
-        if (string.IsNullOrEmpty(layerName))
+        if (layers == null)
+        {
+            return;
+        }
+
+        foreach (var (layerName, layer) in layers)
+        {
+            AddLayer(layerName, layer);
+        }
+    }
+
+    public void AddLayer(string layerName, params GameObject[] layer)
+    {
+        if (string.IsNullOrEmpty(layerName) || _layers.ContainsKey(layerName))
         {
             return;
         }
@@ -17,14 +30,8 @@ public class PanelController
         var elements = layer ?? System.Array.Empty<GameObject>();
         _layers[layerName] = elements;
 
-        if (layerName == _currentLayer)
-        {
-            SetActive(elements, _currentLayerVisible);
-        }
-        else
-        {
-            SetActive(elements, false);
-        }
+        var shouldBeActive = !string.IsNullOrEmpty(_currentLayer) && _currentLayer == layerName && _currentLayerVisible;
+        SetActive(elements, shouldBeActive);
     }
 
     public void Show(string layerName)
