@@ -14,6 +14,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     [Inject] private InputService _inputService;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private DialogController _dialogController;
+    [Inject] private InputRouter _inputRouter;
 
     private InputAction _interactAction;
     private Collider2D[] _hits;
@@ -146,6 +147,7 @@ public sealed class PlayerInteraction : MonoBehaviour
             Time = Time.time,
             SceneLoader = _sceneLoader,
             DialogController = _dialogController,
+            InputRouter = _inputRouter,
         };
 
         if (_sceneLoader == null)

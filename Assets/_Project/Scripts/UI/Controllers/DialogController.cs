@@ -7,7 +7,8 @@ public sealed class DialogController : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField, Min(1e-3f)] private float _charactersPerSecond = 24f;
+    [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
+    [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
 
     private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
@@ -29,6 +30,11 @@ public sealed class DialogController : MonoBehaviour
 
     public void Show(string message)
     {
+        Show(message, _defaultSecondsPerCharacter);
+    }
+
+    public void Show(string message, float secondsPerCharacter)
+    {
         if (_canvas == null || _text == null)
         {
             Debug.LogWarning("[DialogController] Missing canvas or text reference. Unable to show dialog.");
@@ -46,15 +52,121 @@ public sealed class DialogController : MonoBehaviour
             _displayRoutine = null;
         }
 
-        _displayCompletion?.TrySetResult(true);
-        _displayCompletion = null;
+        CompleteDisplay(_displayCompletion);
+
+        var messageToShow = message ?? string.Empty;
+        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
 
         _canvas.enabled = true;
-        _typingRoutine = StartCoroutine(TypeText(message ?? string.Empty));
+        _typingRoutine = StartCoroutine(TypeText(messageToShow, resolvedSecondsPerCharacter));
     }
 
     public void Hide()
     {
+        HideInternal(_displayCompletion);
+    }
+
+    public Task ShowForDurationAsync(string message, float secondsPerCharacter)
+    {
+        if (_canvas == null || _text == null)
+        {
+            Debug.LogWarning("[DialogController] Missing canvas or text reference. Unable to show dialog.");
+            return Task.CompletedTask;
+        }
+
+        var messageToShow = message ?? string.Empty;
+        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
+
+        Show(messageToShow, resolvedSecondsPerCharacter);
+
+        var completion = new TaskCompletionSource<bool>();
+        _displayCompletion = completion;
+
+        var displayDuration = Mathf.Max(0f, CalculateTypingDuration(messageToShow, resolvedSecondsPerCharacter));
+
+        if (resolvedSecondsPerCharacter > 0f && !Mathf.Approximately(displayDuration, 0f))
+        {
+            displayDuration += resolvedSecondsPerCharacter;
+        }
+
+        displayDuration += _delayBetweenShow;
+
+        _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration, completion));
+
+        if (_displayRoutine == null)
+        {
+            CompleteDisplay(completion);
+        }
+
+        return completion.Task;
+    }
+
+    private IEnumerator TypeText(string message, float secondsPerCharacter)
+    {
+        _text.text = message;
+
+        if (secondsPerCharacter <= 0f)
+        {
+            _text.maxVisibleCharacters = message.Length;
+            _typingRoutine = null;
+            yield break;
+        }
+
+        var delay = secondsPerCharacter;
+        _text.maxVisibleCharacters = 0;
+
+        for (var i = 1; i <= message.Length; i++)
+        {
+            _text.maxVisibleCharacters = i;
+            yield return new WaitForSeconds(delay);
+        }
+
+        _text.maxVisibleCharacters = message.Length;
+        _typingRoutine = null;
+    }
+
+    private IEnumerator DisplayRoutine(float duration, TaskCompletionSource<bool> completion)
+    {
+        yield return new WaitForSeconds(duration);
+
+        if (!ReferenceEquals(_displayCompletion, completion))
+        {
+            completion?.TrySetResult(true);
+            yield break;
+        }
+
+        _displayRoutine = null;
+        HideInternal(completion);
+    }
+
+    private float CalculateTypingDuration(string message, float secondsPerCharacter)
+    {
+        if (secondsPerCharacter <= 0f || string.IsNullOrEmpty(message))
+        {
+            return 0f;
+        }
+
+        return message.Length * secondsPerCharacter;
+    }
+
+    private float ResolveSecondsPerCharacter(float overrideSecondsPerCharacter)
+    {
+        if (overrideSecondsPerCharacter >= 0f)
+        {
+            return overrideSecondsPerCharacter;
+        }
+
+        return _defaultSecondsPerCharacter;
+    }
+
+    private void HideInternal(TaskCompletionSource<bool> completion)
+    {
+        if (!ReferenceEquals(_displayCompletion, completion) && completion != null)
+        {
+            completion.TrySetResult(true);
+            return;
+        }
+
         if (_typingRoutine != null)
         {
             StopCoroutine(_typingRoutine);
@@ -78,64 +190,21 @@ public sealed class DialogController : MonoBehaviour
             _canvas.enabled = false;
         }
 
-        _displayCompletion?.TrySetResult(true);
-        _displayCompletion = null;
+        CompleteDisplay(completion);
     }
 
-    public Task ShowForDurationAsync(string message, float duration)
+    private void CompleteDisplay(TaskCompletionSource<bool> completion)
     {
-        if (_canvas == null || _text == null)
+        if (completion == null)
         {
-            Debug.LogWarning("[DialogController] Missing canvas or text reference. Unable to show dialog.");
-            return Task.CompletedTask;
+            return;
         }
 
-        if (duration <= 0f)
+        completion.TrySetResult(true);
+
+        if (ReferenceEquals(_displayCompletion, completion))
         {
-            Show(message);
-            Hide();
-            return Task.CompletedTask;
+            _displayCompletion = null;
         }
-
-        Show(message);
-
-        _displayCompletion = new TaskCompletionSource<bool>();
-        _displayRoutine = StartCoroutine(DisplayRoutine(duration));
-
-        if (_displayRoutine == null)
-        {
-            _displayCompletion.TrySetResult(true);
-        }
-
-        return _displayCompletion.Task;
-    }
-
-    private IEnumerator TypeText(string message)
-    {
-        _text.text = message;
-
-        if (_charactersPerSecond <= 0f)
-        {
-            _text.maxVisibleCharacters = message.Length;
-            yield break;
-        }
-
-        var delay = 1f / _charactersPerSecond;
-        _text.maxVisibleCharacters = 0;
-
-        for (var i = 1; i <= message.Length; i++)
-        {
-            _text.maxVisibleCharacters = i;
-            yield return new WaitForSeconds(delay);
-        }
-
-        _typingRoutine = null;
-    }
-
-    private IEnumerator DisplayRoutine(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        _displayRoutine = null;
-        Hide();
     }
 }

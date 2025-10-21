@@ -15,4 +15,6 @@ public sealed class InteractionContext
     public SceneLoader SceneLoader;
 
     public DialogController DialogController;
+
+    public InputRouter InputRouter;
 }
