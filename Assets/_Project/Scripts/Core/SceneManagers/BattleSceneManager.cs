@@ -21,7 +21,10 @@ public class BattleSceneManager : MonoBehaviour
 
     private async void Start()
     {
-        _ctx = new BattleContext();
+        _ctx = new BattleContext
+        {
+            PanelController = _panelController
+        };
         _actionPipeline = new ActionPipelineMachine(_ctx);
         _combatLoop = new CombatLoopMachine(_ctx, _actionPipeline);
         _phaseMachine = new BattlePhaseMachine(_ctx, _combatLoop);

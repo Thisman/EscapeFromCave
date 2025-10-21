@@ -34,17 +34,20 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterTactics()
     {
+        _ctx.PanelController?.Show("tactic");
         // подготовка: размещение, предбоевые статусы и т. п.
     }
 
     private void OnEnterCombat()
     {
+        _ctx.PanelController?.Show("combat");
         _combat.Reset();
         _combat.BeginRound(); // инициируем первый раунд
     }
 
     private void OnEnterResults()
     {
+        _ctx.PanelController?.Show("results");
         _ctx.IsFinished = true;
         // сериализация результатов, подсчёт лута/опыта
     }
