@@ -8,6 +8,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
 
     private PlayerArmyController _playerArmyController;
     private readonly List<ArmyRoasterSquadView> _items = new();
+    private readonly List<IReadOnlySquadModel> _visibleSquads = new();
 
     private void Awake()
     {
@@ -48,15 +49,16 @@ public sealed class ArmyRoasterView : MonoBehaviour
             return;
         }
 
-        var squads = _playerArmyController.GetSquads();
-        int count = squads.Count;
+        BuildVisibleSquadCache();
+
+        int count = _visibleSquads.Count;
         EnsureCapacity(count);
 
         for (int i = 0; i < count; i++)
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
-            view.Bind(squads[i]);
+            view.Bind(_visibleSquads[i]);
         }
 
         for (int i = count; i < _items.Count; i++)
@@ -67,11 +69,12 @@ public sealed class ArmyRoasterView : MonoBehaviour
     {
         if (_playerArmyController == null) return;
 
-        var squads = _playerArmyController.GetSquads();
-        int visible = Mathf.Min(squads.Count, _items.Count);
+        BuildVisibleSquadCache();
+
+        int visible = Mathf.Min(_visibleSquads.Count, _items.Count);
         for (int i = 0; i < visible; i++)
             if (_items[i].isActiveAndEnabled)
-                _items[i].Bind(squads[i]);
+                _items[i].Bind(_visibleSquads[i]);
     }
 
     private void EnsureCapacity(int needed)
@@ -81,6 +84,21 @@ public sealed class ArmyRoasterView : MonoBehaviour
             var view = Instantiate(_itemPrefab, _content);
             view.gameObject.SetActive(false);
             _items.Add(view);
+        }
+    }
+
+    private void BuildVisibleSquadCache()
+    {
+        _visibleSquads.Clear();
+
+        var squads = _playerArmyController.GetSquads();
+        for (int i = 0; i < squads.Count; i++)
+        {
+            var squad = squads[i];
+            if (squad == null || squad.IsEmpty)
+                continue;
+
+            _visibleSquads.Add(squad);
         }
     }
 
