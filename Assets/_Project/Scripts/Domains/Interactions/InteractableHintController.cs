@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class InteractableHintSystem : MonoBehaviour
+public sealed class InteractableHintController : MonoBehaviour
 {
     [SerializeField] private GameObject _hintPrefab;
     [SerializeField] private Vector3 _worldOffset = new(0, 1.0f, 0);
@@ -78,7 +78,11 @@ public sealed class InteractableHintSystem : MonoBehaviour
             go.transform.SetParent(oi.transform, worldPositionStays: true);
         }
 
-        go.transform.position = oi.transform.position + _worldOffset;
+        Vector3 targetPosition = oi.transform.position + _worldOffset;
+        if (go.TryGetComponent<HintAnimationController>(out var animation))
+            animation.SetBasePosition(targetPosition);
+        else
+            go.transform.position = targetPosition;
     }
 
     private void Hide(InteractionController oi)
