@@ -4,13 +4,14 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public sealed class HintAnimationController : MonoBehaviour
 {
-    [SerializeField] private RectTransform _target;
-    [SerializeField, Min(0f)] private float _amplitude = 10f;
+    [SerializeField] private SpriteRenderer _target;
+    [SerializeField, Min(0f)] private float _amplitude = 0.5f;
     [SerializeField, Min(0f)] private float _frequency = 1f;
     [SerializeField] private float _phaseOffset;
     [SerializeField] private bool _useUnscaledTime = true;
 
-    private Vector2 _baseAnchoredPosition;
+    private Transform _targetTransform;
+    private Vector3 _baseLocalPosition;
     private Tween _animationTween;
 
     private void Awake()
@@ -27,9 +28,9 @@ public sealed class HintAnimationController : MonoBehaviour
     private void OnDisable()
     {
         KillAnimation();
-        if (_target)
+        if (_targetTransform)
         {
-            _target.anchoredPosition = _baseAnchoredPosition;
+            _targetTransform.localPosition = _baseLocalPosition;
         }
     }
 
@@ -48,14 +49,21 @@ public sealed class HintAnimationController : MonoBehaviour
 
     private void CacheBasePosition()
     {
+        _targetTransform = null;
+
         if (!_target)
         {
-            _target = transform as RectTransform;
+            _target = GetComponent<SpriteRenderer>();
         }
 
         if (_target)
         {
-            _baseAnchoredPosition = _target.anchoredPosition;
+            _targetTransform = _target.transform;
+        }
+
+        if (_targetTransform)
+        {
+            _baseLocalPosition = _targetTransform.localPosition;
         }
     }
 
@@ -63,14 +71,14 @@ public sealed class HintAnimationController : MonoBehaviour
     {
         KillAnimation();
 
-        if (!_target)
+        if (!_targetTransform)
         {
             return;
         }
 
         if (_frequency <= 0f || _amplitude <= 0f)
         {
-            _target.anchoredPosition = _baseAnchoredPosition;
+            _targetTransform.localPosition = _baseLocalPosition;
             return;
         }
 
@@ -97,12 +105,12 @@ public sealed class HintAnimationController : MonoBehaviour
 
     private void UpdateTargetPosition(float phase)
     {
-        if (!_target)
+        if (!_targetTransform)
         {
             return;
         }
 
         float offset = Mathf.Sin(phase) * _amplitude;
-        _target.anchoredPosition = _baseAnchoredPosition + Vector2.up * offset;
+        _targetTransform.localPosition = _baseLocalPosition + Vector3.up * offset;
     }
 }
