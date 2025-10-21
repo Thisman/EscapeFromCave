@@ -10,10 +10,14 @@ public sealed class BattlePhaseMachine
     {
         _ctx = ctx;
         _combat = combat;
-        _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Tactics);
+        _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Loading);
+
+        _sm.Configure(BattlePhase.Loading)
+            .Permit(BattleTrigger.Start, BattlePhase.Tactics);
 
         _sm.Configure(BattlePhase.Tactics)
             .OnEntry(() => OnEnterTactics())
+            .OnExit(() => OnExitTactics())
             .Permit(BattleTrigger.EndTactics, BattlePhase.Combat);
 
         _sm.Configure(BattlePhase.Combat)
@@ -35,7 +39,7 @@ public sealed class BattlePhaseMachine
     private void OnEnterTactics()
     {
         _ctx.PanelController?.Show("tactic");
-        // подготовка: размещение, предбоевые статусы и т. п.
+        _ctx.BattleGridDragAndDropController.enabled = true;
     }
 
     private void OnEnterCombat()
@@ -50,5 +54,10 @@ public sealed class BattlePhaseMachine
         _ctx.PanelController?.Show("results");
         _ctx.IsFinished = true;
         // сериализация результатов, подсчёт лута/опыта
+    }
+
+    private void OnExitTactics()
+    {
+        _ctx.BattleGridDragAndDropController.enabled = false;
     }
 }

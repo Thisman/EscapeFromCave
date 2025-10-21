@@ -1,1 +1,1 @@
-public enum BattlePhase { Tactics, Combat, Results }
+public enum BattlePhase { Loading, Tactics, Combat, Results }
