@@ -12,6 +12,7 @@ public sealed class HintAnimationController : MonoBehaviour
 
     private Transform _targetTransform;
     private Vector3 _baseLocalPosition;
+    private bool _hasCachedBasePosition;
     private Tween _animationTween;
 
     private void Awake()
@@ -49,6 +50,7 @@ public sealed class HintAnimationController : MonoBehaviour
 
     private void CacheBasePosition()
     {
+        var previousTargetTransform = _targetTransform;
         _targetTransform = null;
 
         if (!_target)
@@ -61,10 +63,33 @@ public sealed class HintAnimationController : MonoBehaviour
             _targetTransform = _target.transform;
         }
 
-        if (_targetTransform)
+        if (_targetTransform == null)
+        {
+            _hasCachedBasePosition = false;
+            return;
+        }
+
+        if (previousTargetTransform != _targetTransform)
+        {
+            _hasCachedBasePosition = false;
+        }
+
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
         {
             _baseLocalPosition = _targetTransform.localPosition;
+            _hasCachedBasePosition = true;
+            return;
         }
+#endif
+
+        if (_hasCachedBasePosition)
+        {
+            return;
+        }
+
+        _baseLocalPosition = _targetTransform.localPosition;
+        _hasCachedBasePosition = true;
     }
 
     private void RestartAnimation()
