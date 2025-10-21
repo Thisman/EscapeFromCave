@@ -52,8 +52,7 @@ public sealed class DialogController : MonoBehaviour
             _displayRoutine = null;
         }
 
-        _displayCompletion?.TrySetResult(true);
-        _displayCompletion = null;
+        CompleteDisplay(_displayCompletion);
 
         var messageToShow = message ?? string.Empty;
         var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
@@ -64,31 +63,7 @@ public sealed class DialogController : MonoBehaviour
 
     public void Hide()
     {
-        if (_typingRoutine != null)
-        {
-            StopCoroutine(_typingRoutine);
-            _typingRoutine = null;
-        }
-
-        if (_displayRoutine != null)
-        {
-            StopCoroutine(_displayRoutine);
-            _displayRoutine = null;
-        }
-
-        if (_text != null)
-        {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
-
-        if (_canvas != null)
-        {
-            _canvas.enabled = false;
-        }
-
-        _displayCompletion?.TrySetResult(true);
-        _displayCompletion = null;
+        HideInternal(_displayCompletion);
     }
 
     public Task ShowForDurationAsync(string message, float secondsPerCharacter)
@@ -104,7 +79,9 @@ public sealed class DialogController : MonoBehaviour
 
         Show(messageToShow, resolvedSecondsPerCharacter);
 
-        _displayCompletion = new TaskCompletionSource<bool>();
+        var completion = new TaskCompletionSource<bool>();
+        _displayCompletion = completion;
+
         var displayDuration = Mathf.Max(0f, CalculateTypingDuration(messageToShow, resolvedSecondsPerCharacter));
 
         if (resolvedSecondsPerCharacter > 0f && !Mathf.Approximately(displayDuration, 0f))
@@ -114,14 +91,14 @@ public sealed class DialogController : MonoBehaviour
 
         displayDuration += _delayBetweenShow;
 
-        _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration));
+        _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration, completion));
 
         if (_displayRoutine == null)
         {
-            _displayCompletion.TrySetResult(true);
+            CompleteDisplay(completion);
         }
 
-        return _displayCompletion.Task;
+        return completion.Task;
     }
 
     private IEnumerator TypeText(string message, float secondsPerCharacter)
@@ -148,11 +125,18 @@ public sealed class DialogController : MonoBehaviour
         _typingRoutine = null;
     }
 
-    private IEnumerator DisplayRoutine(float duration)
+    private IEnumerator DisplayRoutine(float duration, TaskCompletionSource<bool> completion)
     {
         yield return new WaitForSeconds(duration);
+
+        if (!ReferenceEquals(_displayCompletion, completion))
+        {
+            completion?.TrySetResult(true);
+            yield break;
+        }
+
         _displayRoutine = null;
-        Hide();
+        HideInternal(completion);
     }
 
     private float CalculateTypingDuration(string message, float secondsPerCharacter)
@@ -173,5 +157,54 @@ public sealed class DialogController : MonoBehaviour
         }
 
         return _defaultSecondsPerCharacter;
+    }
+
+    private void HideInternal(TaskCompletionSource<bool> completion)
+    {
+        if (!ReferenceEquals(_displayCompletion, completion) && completion != null)
+        {
+            completion.TrySetResult(true);
+            return;
+        }
+
+        if (_typingRoutine != null)
+        {
+            StopCoroutine(_typingRoutine);
+            _typingRoutine = null;
+        }
+
+        if (_displayRoutine != null)
+        {
+            StopCoroutine(_displayRoutine);
+            _displayRoutine = null;
+        }
+
+        if (_text != null)
+        {
+            _text.text = string.Empty;
+            _text.maxVisibleCharacters = 0;
+        }
+
+        if (_canvas != null)
+        {
+            _canvas.enabled = false;
+        }
+
+        CompleteDisplay(completion);
+    }
+
+    private void CompleteDisplay(TaskCompletionSource<bool> completion)
+    {
+        if (completion == null)
+        {
+            return;
+        }
+
+        completion.TrySetResult(true);
+
+        if (ReferenceEquals(_displayCompletion, completion))
+        {
+            _displayCompletion = null;
+        }
     }
 }
