@@ -8,6 +8,7 @@ public sealed class DialogController : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
+    [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
 
     private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
@@ -90,7 +91,7 @@ public sealed class DialogController : MonoBehaviour
         _displayCompletion = null;
     }
 
-    public Task ShowForDurationAsync(string message, float secondsPerCharacter, float delayAfter = 0f)
+    public Task ShowForDurationAsync(string message, float secondsPerCharacter)
     {
         if (_canvas == null || _text == null)
         {
@@ -100,7 +101,6 @@ public sealed class DialogController : MonoBehaviour
 
         var messageToShow = message ?? string.Empty;
         var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
-        var resolvedDelayAfter = Mathf.Max(0f, delayAfter);
 
         Show(messageToShow, resolvedSecondsPerCharacter);
 
@@ -112,7 +112,7 @@ public sealed class DialogController : MonoBehaviour
             displayDuration += resolvedSecondsPerCharacter;
         }
 
-        displayDuration += resolvedDelayAfter;
+        displayDuration += _delayBetweenShow;
 
         _displayRoutine = StartCoroutine(DisplayRoutine(displayDuration));
 

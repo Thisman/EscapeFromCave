@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,8 +9,6 @@ public sealed class ShowDialogEffect : EffectSO
     public string Message;
 
     [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
-    [SerializeField, Min(0f)] private float _delayBefore = 0f;
-    [SerializeField, Min(0f)] private float _delayAfter = 0f;
 
     public override async Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
@@ -34,12 +31,7 @@ public sealed class ShowDialogEffect : EffectSO
 
         try
         {
-            if (_delayBefore > 0f)
-            {
-                await Task.Delay(TimeSpan.FromSeconds(_delayBefore));
-            }
-
-            await ctx.DialogController.ShowForDurationAsync(message, _secondsPerCharacter, _delayAfter);
+            await ctx.DialogController.ShowForDurationAsync(message, _secondsPerCharacter);
         }
         finally
         {
