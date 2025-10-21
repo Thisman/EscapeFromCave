@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 342800978}
   - component: {fileID: 342800977}
   - component: {fileID: 342800976}
+  - component: {fileID: 342800980}
   m_Layer: 5
   m_Name: BattleResultsUI
   m_TagString: Untagged
@@ -491,6 +492,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &342800980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342800975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef398368aa3236488b2a8b4347e12dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleResultsUIController
+  _exitBattleButton: {fileID: 2007630984}
 --- !u!1 &389272943
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e65c85911af642a2a6e7a8544f1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSceneManager
+  _combatUIController: {fileID: 1544603973}
+  _resultsUIController: {fileID: 342800980}
+  _tacticUIController: {fileID: 834283549}
 --- !u!1001 &638048529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +871,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2659482929313494187, guid: 61718959028287d49839b1833c201430, type: 3}
   m_PrefabInstance: {fileID: 638048529}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &638048531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1267688474662559939, guid: 61718959028287d49839b1833c201430, type: 3}
+  m_PrefabInstance: {fileID: 638048529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &809895847
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,10 +937,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.007963595
-    width: 1
-    height: 0.98421496
+    x: 0.0032509752
+    y: 0
+    width: 0.9929201
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1118,6 +1146,7 @@ GameObject:
   - component: {fileID: 834283547}
   - component: {fileID: 834283546}
   - component: {fileID: 834283545}
+  - component: {fileID: 834283549}
   m_Layer: 5
   m_Name: BattleTacticUI
   m_TagString: Untagged
@@ -1208,6 +1237,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &834283549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834283544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2cc3557c47d994a9865ee2a6709499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleTacticUIController
+  _startCombatButton: {fileID: 1506980013}
 --- !u!1 &923275983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2253,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1506980013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1267688474662559939, guid: 61718959028287d49839b1833c201430, type: 3}
+  m_PrefabInstance: {fileID: 967435014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &1544603968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2276,7 @@ GameObject:
   - component: {fileID: 1544603971}
   - component: {fileID: 1544603970}
   - component: {fileID: 1544603969}
+  - component: {fileID: 1544603973}
   m_Layer: 5
   m_Name: BattleCombatUI
   m_TagString: Untagged
@@ -2313,6 +2367,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1544603973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544603968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea41bd13a55442b46b378c8cb48e1e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleCombatUIController
+  _leaveCombatButton: {fileID: 638048531}
 --- !u!1 &1559537773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5346,6 +5413,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2659482929313494187, guid: 61718959028287d49839b1833c201430, type: 3}
   m_PrefabInstance: {fileID: 2007630982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007630984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1267688474662559939, guid: 61718959028287d49839b1833c201430, type: 3}
+  m_PrefabInstance: {fileID: 2007630982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &2067365013
 GameObject:
   m_ObjectHideFlags: 0
