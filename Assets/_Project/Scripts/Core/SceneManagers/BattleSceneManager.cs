@@ -13,23 +13,27 @@ public class BattleSceneManager : MonoBehaviour
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
 
+    [SerializeField] private BattleGridController _battleGridController;
+    [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
+
     private void Awake()
     {
         SubscribeToUiEvents();
         InitializePanelController();
     }
 
-    private async void Start()
+    private void Start()
     {
         _ctx = new BattleContext
         {
-            PanelController = _panelController
+            PanelController = _panelController,
+            BattleGridController = _battleGridController,
+            BattleGridDragAndDropController = _battleGridDragAndDropController
         };
         _actionPipeline = new ActionPipelineMachine(_ctx);
         _combatLoop = new CombatLoopMachine(_ctx, _actionPipeline);
         _phaseMachine = new BattlePhaseMachine(_ctx, _combatLoop);
 
-        _panelController?.Show("tactic");
         _phaseMachine.Fire(BattleTrigger.Start);
     }
 
