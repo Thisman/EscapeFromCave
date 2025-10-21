@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2556446685836696779}
   - component: {fileID: 5924584460647497567}
+  - component: {fileID: -4300926361688847203}
   m_Layer: 0
   m_Name: InteractionHint
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 456848799
-  m_SortingLayer: 3
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c2af0de5df313d448ed41429805823c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,3 +91,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4300926361688847203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135258129533068811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef66e6bbb7ae4647a13a83e9c49f857f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HintAnimationController
+  _amplitude: 0.1
+  _cycleDuration: 1.5
+  _ease: 1
