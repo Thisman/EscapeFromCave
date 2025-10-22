@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using VContainer;
 
 public class BattleSceneManager : MonoBehaviour
@@ -16,6 +20,7 @@ public class BattleSceneManager : MonoBehaviour
 
     private readonly List<BattleSquadModel> _debugBattleSquads = new();
     private readonly List<GameObject> _debugBattleUnits = new();
+    private Sprite[] _cachedDebugRogueSprites;
 
     [SerializeField] private BattleGridController _battleGridController;
     [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
@@ -50,10 +55,10 @@ public class BattleSceneManager : MonoBehaviour
         ClearDebugBattleUnits();
         _debugBattleSquads.Clear();
 
-        var playerUnit = new UnitModel(CreateDebugDefinition("Debug Hero", UnitType.Hero, 1, 120, 20, 10, 12, 3.5f), 1);
-        var allySquadOne = new SquadModel(CreateDebugDefinition("Debug Ally 1", UnitType.Ally, 1, 80, 12, 6, 10, 3f), 5);
-        var allySquadTwo = new SquadModel(CreateDebugDefinition("Debug Ally 2", UnitType.Ally, 1, 70, 14, 4, 11, 3.2f), 4);
-        var enemyUnit = new UnitModel(CreateDebugDefinition("Debug Enemy", UnitType.Enemy, 1, 150, 25, 12, 9, 2.8f), 1);
+        var playerUnit = new UnitModel(CreateDebugDefinition("Debug Hero", UnitType.Hero, 1, 120, 20, 10, 12, 3.5f, GetDebugRogueSprite(0)), 1);
+        var allySquadOne = new SquadModel(CreateDebugDefinition("Debug Ally 1", UnitType.Ally, 1, 80, 12, 6, 10, 3f, GetDebugRogueSprite(1)), 5);
+        var allySquadTwo = new SquadModel(CreateDebugDefinition("Debug Ally 2", UnitType.Ally, 1, 70, 14, 4, 11, 3.2f, GetDebugRogueSprite(2)), 4);
+        var enemyUnit = new UnitModel(CreateDebugDefinition("Debug Enemy", UnitType.Enemy, 1, 150, 25, 12, 9, 2.8f, GetDebugRogueSprite(10)), 1);
 
         _debugBattleSquads.Add(new BattleSquadModel(playerUnit));
         _debugBattleSquads.Add(new BattleSquadModel(allySquadOne));
@@ -183,11 +188,13 @@ public class BattleSceneManager : MonoBehaviour
         int damage,
         int defense,
         int initiative,
-        float speed)
+        float speed,
+        Sprite icon)
     {
         var definition = ScriptableObject.CreateInstance<UnitDefinitionSO>();
         definition.UnitName = unitName;
         definition.Type = type;
+        definition.Icon = icon;
         definition.Levels = new List<UnitLevelDefintion>
         {
             new()
@@ -203,6 +210,61 @@ public class BattleSceneManager : MonoBehaviour
         };
 
         return definition;
+    }
+
+    private Sprite GetDebugRogueSprite(int requestedIndex)
+    {
+        var sprites = LoadDebugRogueSprites();
+        if (sprites == null || sprites.Length == 0)
+        {
+            return null;
+        }
+
+        if (requestedIndex < 0)
+        {
+            requestedIndex = 0;
+        }
+
+        if (requestedIndex >= sprites.Length)
+        {
+            Debug.LogWarning($"BattleSceneManager: Requested debug sprite index {requestedIndex} but only {sprites.Length} sprites are available.");
+            requestedIndex = sprites.Length - 1;
+        }
+
+        return sprites[requestedIndex];
+    }
+
+    private Sprite[] LoadDebugRogueSprites()
+    {
+        if (_cachedDebugRogueSprites != null)
+        {
+            return _cachedDebugRogueSprites;
+        }
+
+#if UNITY_EDITOR
+        const string rogueSpritePath = "Assets/_Project/Art/Packs/32rogues/rogues.png";
+        var loadedAssets = AssetDatabase.LoadAllAssetsAtPath(rogueSpritePath);
+        var sprites = new List<Sprite>(loadedAssets.Length);
+        foreach (var asset in loadedAssets)
+        {
+            if (asset is Sprite sprite)
+            {
+                sprites.Add(sprite);
+            }
+        }
+
+        if (sprites.Count == 0)
+        {
+            Debug.LogWarning($"BattleSceneManager: Unable to find any sprites in '{rogueSpritePath}'.");
+        }
+
+        sprites.Sort((left, right) => string.CompareOrdinal(left.name, right.name));
+        _cachedDebugRogueSprites = sprites.ToArray();
+#else
+        _cachedDebugRogueSprites = Array.Empty<Sprite>();
+#endif
+
+        return _cachedDebugRogueSprites;
     }
 
     private void OnDestroy()
