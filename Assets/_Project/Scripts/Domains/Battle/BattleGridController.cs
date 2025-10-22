@@ -393,6 +393,9 @@ public sealed class BattleGridController : MonoBehaviour
 
             if (child.GetComponent<UnitController>() != null)
                 return child;
+
+            if (child.GetComponent<BattleSquadController>() != null)
+                return child;
         }
 
         return null;

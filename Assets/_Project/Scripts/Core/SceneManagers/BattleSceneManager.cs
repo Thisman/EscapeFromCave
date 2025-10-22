@@ -93,7 +93,7 @@ public class BattleSceneManager : MonoBehaviour
         return placements;
     }
 
-    private GameObject CreateDebugUnitInstance(IReadOnlyBattleSquadModel battleSquad)
+    private GameObject CreateDebugUnitInstance(BattleSquadModel battleSquad)
     {
         GameObject instance;
         if (_battleUnitPrefab != null)
@@ -112,10 +112,26 @@ public class BattleSceneManager : MonoBehaviour
         instance.name = $"Debug_{unitName}";
 
         TryApplyDraggableTag(instance);
+        InitializeBattleSquadController(instance, battleSquad);
 
         _debugBattleUnits.Add(instance);
 
         return instance;
+    }
+
+    private void InitializeBattleSquadController(GameObject instance, BattleSquadModel battleSquad)
+    {
+        if (instance == null)
+            return;
+
+        var squadController = instance.GetComponentInChildren<BattleSquadController>(true);
+        if (squadController == null)
+        {
+            Debug.LogWarning($"BattleSceneManager: BattleSquadController is missing on debug unit '{instance.name}'.");
+            return;
+        }
+
+        squadController.Initialize(battleSquad);
     }
 
     private void TryApplyDraggableTag(GameObject instance)
