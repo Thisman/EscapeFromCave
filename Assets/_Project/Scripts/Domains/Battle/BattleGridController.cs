@@ -24,49 +24,38 @@ public sealed class BattleGridController : MonoBehaviour
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
     private readonly Dictionary<Transform, SlotVisualState> _slotVisuals = new();
 
-    public void PopulateWithSquads(IEnumerable<IReadOnlyBattleSquadModel> battleSquads, GameObject unitPrefab)
+    public void PopulateWithSquads(IEnumerable<(IReadOnlyBattleSquadModel Squad, Transform Instance)> battleSquads)
     {
-        if (unitPrefab == null)
-        {
-            Debug.LogWarning("BattleGridController: Unit prefab is not assigned.");
-            return;
-        }
-
         if (battleSquads == null)
         {
             Debug.LogWarning("BattleGridController: No squads provided for population.");
             return;
         }
 
-        ClearExistingOccupants();
-
-        var heroSquads = new List<IReadOnlyBattleSquadModel>();
-        var allySquads = new List<IReadOnlyBattleSquadModel>();
-        var enemySquads = new List<IReadOnlyBattleSquadModel>();
+        var heroSquads = new List<(IReadOnlyBattleSquadModel Squad, Transform Instance)>();
+        var allySquads = new List<(IReadOnlyBattleSquadModel Squad, Transform Instance)>();
+        var enemySquads = new List<(IReadOnlyBattleSquadModel Squad, Transform Instance)>();
 
         foreach (var battleSquad in battleSquads)
         {
-            if (battleSquad == null)
+            var squadModel = battleSquad.Squad;
+            if (squadModel?.Squad == null || battleSquad.Instance == null)
                 continue;
 
-            var squad = battleSquad.Squad;
-            if (squad == null)
-                continue;
-
-            var definition = squad.UnitDefinition;
+            var definition = squadModel.Squad.UnitDefinition;
             if (definition == null)
                 continue;
 
             switch (definition.Type)
             {
                 case UnitType.Hero:
-                    heroSquads.Add(battleSquad);
+                    heroSquads.Add((squadModel, battleSquad.Instance));
                     break;
                 case UnitType.Ally:
-                    allySquads.Add(battleSquad);
+                    allySquads.Add((squadModel, battleSquad.Instance));
                     break;
                 case UnitType.Enemy:
-                    enemySquads.Add(battleSquad);
+                    enemySquads.Add((squadModel, battleSquad.Instance));
                     break;
                 default:
                     Debug.LogWarning($"BattleGridController: Unsupported unit type '{definition.Type}' for squad '{definition.UnitName}'.");
@@ -105,9 +94,9 @@ public sealed class BattleGridController : MonoBehaviour
             enemySlots.Add(slot);
         }
 
-        PlaceSquadsInSlots(heroSquads, allyBackSlots, unitPrefab, "hero back row");
-        PlaceSquadsInSlots(allySquads, allyFrontSlots, unitPrefab, "ally front row");
-        PlaceSquadsInSlots(enemySquads, enemySlots, unitPrefab, "enemy");
+        PlaceSquadsInSlots(heroSquads, allyBackSlots, "hero back row");
+        PlaceSquadsInSlots(allySquads, allyFrontSlots, "ally front row");
+        PlaceSquadsInSlots(enemySquads, enemySlots, "enemy");
     }
 
     private void Awake()
@@ -358,48 +347,18 @@ public sealed class BattleGridController : MonoBehaviour
         }
     }
 
-    private void ClearExistingOccupants()
-    {
-        var slots = new List<Transform>(_slotOccupants.Keys);
-
-        foreach (var slot in slots)
-        {
-            if (slot == null)
-                continue;
-
-            if (_slotOccupants.TryGetValue(slot, out var occupant) && occupant != null)
-            {
-                if (Application.isPlaying)
-                    Destroy(occupant.gameObject);
-                else
-                    DestroyImmediate(occupant.gameObject);
-            }
-
-            _slotOccupants[slot] = null;
-        }
-
-        _occupantSlots.Clear();
-    }
-
-    private void PlaceSquadsInSlots(List<IReadOnlyBattleSquadModel> squads, List<Transform> availableSlots, GameObject unitPrefab, string slotCategory)
+    private void PlaceSquadsInSlots(List<(IReadOnlyBattleSquadModel Squad, Transform Instance)> squads, List<Transform> availableSlots, string slotCategory)
     {
         if (squads.Count == 0)
             return;
-
-        for (int i = squads.Count - 1; i >= 0; i--)
-        {
-            var battleSquad = squads[i];
-            if (battleSquad?.Squad == null)
-            {
-                squads.RemoveAt(i);
-            }
-        }
 
         foreach (var battleSquad in squads)
         {
             if (availableSlots.Count == 0)
             {
-                var squadName = battleSquad.Squad?.UnitDefinition != null ? battleSquad.Squad.UnitDefinition.UnitName : "Unknown";
+                var squadModel = battleSquad.Squad;
+                var squad = squadModel?.Squad;
+                var squadName = squad?.UnitDefinition != null ? squad.UnitDefinition.UnitName : "Unknown";
                 Debug.LogWarning($"BattleGridController: Not enough {slotCategory} slots to place squad '{squadName}'.");
                 break;
             }
@@ -411,19 +370,11 @@ public sealed class BattleGridController : MonoBehaviour
             if (slot == null)
                 continue;
 
-            var instance = Instantiate(unitPrefab);
-            if (instance == null)
-                continue;
-
-            instance.name = $"{unitPrefab.name}_{battleSquad.Squad.UnitDefinition.UnitName}";
-
-            if (!TryAttachToSlot(slot, instance.transform))
+            if (!TryAttachToSlot(slot, battleSquad.Instance))
             {
-                if (Application.isPlaying)
-                    Destroy(instance);
-                else
-                    DestroyImmediate(instance);
-                var squadName = battleSquad.Squad?.UnitDefinition != null ? battleSquad.Squad.UnitDefinition.UnitName : "Unknown";
+                var squadModel = battleSquad.Squad;
+                var squad = squadModel?.Squad;
+                var squadName = squad?.UnitDefinition != null ? squad.UnitDefinition.UnitName : "Unknown";
                 Debug.LogWarning($"BattleGridController: Failed to attach squad '{squadName}' to slot '{slot.name}'.");
             }
         }

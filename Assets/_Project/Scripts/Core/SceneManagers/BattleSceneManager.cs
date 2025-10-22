@@ -15,6 +15,7 @@ public class BattleSceneManager : MonoBehaviour
     private PanelController _panelController;
 
     private readonly List<BattleSquadModel> _debugBattleSquads = new();
+    private readonly List<GameObject> _debugBattleUnits = new();
 
     [SerializeField] private BattleGridController _battleGridController;
     [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
@@ -46,6 +47,7 @@ public class BattleSceneManager : MonoBehaviour
 #endif
     private void DebugCreateTestBattleSquads()
     {
+        ClearDebugBattleUnits();
         _debugBattleSquads.Clear();
 
         var playerUnit = new UnitModel(CreateDebugDefinition("Debug Hero", UnitType.Hero, 1, 120, 20, 10, 12, 3.5f), 1);
@@ -58,15 +60,102 @@ public class BattleSceneManager : MonoBehaviour
         _debugBattleSquads.Add(new BattleSquadModel(allySquadTwo));
         _debugBattleSquads.Add(new BattleSquadModel(enemyUnit));
 
+        var placements = CreateDebugUnitPlacements();
+
         Debug.Log("Debug battle squads created.");
 
-        if (_battleGridController != null && _battleUnitPrefab != null)
+        if (_battleGridController != null)
         {
-            _battleGridController.PopulateWithSquads(_debugBattleSquads, _battleUnitPrefab);
+            _battleGridController.PopulateWithSquads(placements);
         }
         else
         {
-            Debug.LogWarning("BattleSceneManager: Cannot populate battle grid for debug squads. Ensure BattleGridController and unit prefab are assigned.");
+            Debug.LogWarning("BattleSceneManager: Cannot populate battle grid for debug squads. Ensure BattleGridController is assigned.");
+        }
+    }
+
+    private List<(IReadOnlyBattleSquadModel Squad, Transform Instance)> CreateDebugUnitPlacements()
+    {
+        var placements = new List<(IReadOnlyBattleSquadModel, Transform)>();
+
+        foreach (var battleSquad in _debugBattleSquads)
+        {
+            if (battleSquad?.Squad == null)
+                continue;
+
+            var instance = CreateDebugUnitInstance(battleSquad);
+            if (instance == null)
+                continue;
+
+            placements.Add((battleSquad, instance.transform));
+        }
+
+        return placements;
+    }
+
+    private GameObject CreateDebugUnitInstance(IReadOnlyBattleSquadModel battleSquad)
+    {
+        GameObject instance;
+        if (_battleUnitPrefab != null)
+        {
+            instance = Instantiate(_battleUnitPrefab);
+        }
+        else
+        {
+            instance = new GameObject("DebugBattleUnit");
+        }
+
+        if (instance == null)
+            return null;
+
+        var unitName = battleSquad.Squad?.UnitDefinition != null ? battleSquad.Squad.UnitDefinition.UnitName : "Unknown";
+        instance.name = $"Debug_{unitName}";
+
+        TryApplyDraggableTag(instance);
+
+        _debugBattleUnits.Add(instance);
+
+        return instance;
+    }
+
+    private void TryApplyDraggableTag(GameObject instance)
+    {
+        if (instance == null)
+            return;
+
+        try
+        {
+            instance.tag = "Draggable";
+        }
+        catch (UnityException exception)
+        {
+            Debug.LogWarning($"BattleSceneManager: Failed to set Draggable tag on debug unit '{instance.name}'. {exception.Message}");
+        }
+    }
+
+    private void ClearDebugBattleUnits()
+    {
+        for (int i = _debugBattleUnits.Count - 1; i >= 0; i--)
+        {
+            var unit = _debugBattleUnits[i];
+            if (unit == null)
+            {
+                _debugBattleUnits.RemoveAt(i);
+                continue;
+            }
+
+            var unitTransform = unit.transform;
+            if (_battleGridController != null)
+            {
+                _battleGridController.TryRemoveOccupant(unitTransform, out _);
+            }
+
+            if (Application.isPlaying)
+                Destroy(unit);
+            else
+                DestroyImmediate(unit);
+
+            _debugBattleUnits.RemoveAt(i);
         }
     }
 
