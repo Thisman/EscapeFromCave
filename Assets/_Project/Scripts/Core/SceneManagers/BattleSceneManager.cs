@@ -18,6 +18,7 @@ public class BattleSceneManager : MonoBehaviour
 
     [SerializeField] private BattleGridController _battleGridController;
     [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
+    [SerializeField] private GameObject _battleUnitPrefab;
 
     private void Awake()
     {
@@ -58,6 +59,15 @@ public class BattleSceneManager : MonoBehaviour
         _debugBattleSquads.Add(new BattleSquadModel(enemyUnit));
 
         Debug.Log("Debug battle squads created.");
+
+        if (_battleGridController != null && _battleUnitPrefab != null)
+        {
+            _battleGridController.PopulateWithSquads(_debugBattleSquads, _battleUnitPrefab);
+        }
+        else
+        {
+            Debug.LogWarning("BattleSceneManager: Cannot populate battle grid for debug squads. Ensure BattleGridController and unit prefab are assigned.");
+        }
     }
 
     private static UnitDefinitionSO CreateDebugDefinition(

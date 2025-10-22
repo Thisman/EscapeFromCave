@@ -24,6 +24,92 @@ public sealed class BattleGridController : MonoBehaviour
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
     private readonly Dictionary<Transform, SlotVisualState> _slotVisuals = new();
 
+    public void PopulateWithSquads(IEnumerable<IReadOnlyBattleSquadModel> battleSquads, GameObject unitPrefab)
+    {
+        if (unitPrefab == null)
+        {
+            Debug.LogWarning("BattleGridController: Unit prefab is not assigned.");
+            return;
+        }
+
+        if (battleSquads == null)
+        {
+            Debug.LogWarning("BattleGridController: No squads provided for population.");
+            return;
+        }
+
+        ClearExistingOccupants();
+
+        var heroSquads = new List<IReadOnlyBattleSquadModel>();
+        var allySquads = new List<IReadOnlyBattleSquadModel>();
+        var enemySquads = new List<IReadOnlyBattleSquadModel>();
+
+        foreach (var battleSquad in battleSquads)
+        {
+            if (battleSquad == null)
+                continue;
+
+            var squad = battleSquad.Squad;
+            if (squad == null)
+                continue;
+
+            var definition = squad.UnitDefinition;
+            if (definition == null)
+                continue;
+
+            switch (definition.Type)
+            {
+                case UnitType.Hero:
+                    heroSquads.Add(battleSquad);
+                    break;
+                case UnitType.Ally:
+                    allySquads.Add(battleSquad);
+                    break;
+                case UnitType.Enemy:
+                    enemySquads.Add(battleSquad);
+                    break;
+                default:
+                    Debug.LogWarning($"BattleGridController: Unsupported unit type '{definition.Type}' for squad '{definition.UnitName}'.");
+                    break;
+            }
+        }
+
+        var allyBackSlots = new List<Transform>();
+        var allyFrontSlots = new List<Transform>();
+        var enemySlots = new List<Transform>();
+
+        for (int i = 0; i < _allySlots.Length; i++)
+        {
+            var slot = _allySlots[i];
+            if (slot == null)
+                continue;
+
+            EnsureSlotRegistered(slot);
+
+            if (i < 3)
+            {
+                allyBackSlots.Add(slot);
+            }
+            else
+            {
+                allyFrontSlots.Add(slot);
+            }
+        }
+
+        foreach (var slot in _enemySlots)
+        {
+            if (slot == null)
+                continue;
+
+            EnsureSlotRegistered(slot);
+            enemySlots.Add(slot);
+        }
+
+        PlaceSquadsInSlots(heroSquads, allyBackSlots, unitPrefab, "hero back row");
+        PlaceSquadsInSlots(allySquads, allyFrontSlots, unitPrefab, "ally front row");
+        PlaceSquadsInSlots(enemySquads, enemySlots, unitPrefab, "enemy");
+    }
+
     private void Awake()
     {
         InitializeSlots(_allySlots);
@@ -269,6 +355,77 @@ public sealed class BattleGridController : MonoBehaviour
         if (occupant != null)
         {
             _occupantSlots[occupant] = slot;
+        }
+    }
+
+    private void ClearExistingOccupants()
+    {
+        var slots = new List<Transform>(_slotOccupants.Keys);
+
+        foreach (var slot in slots)
+        {
+            if (slot == null)
+                continue;
+
+            if (_slotOccupants.TryGetValue(slot, out var occupant) && occupant != null)
+            {
+                if (Application.isPlaying)
+                    Destroy(occupant.gameObject);
+                else
+                    DestroyImmediate(occupant.gameObject);
+            }
+
+            _slotOccupants[slot] = null;
+        }
+
+        _occupantSlots.Clear();
+    }
+
+    private void PlaceSquadsInSlots(List<IReadOnlyBattleSquadModel> squads, List<Transform> availableSlots, GameObject unitPrefab, string slotCategory)
+    {
+        if (squads.Count == 0)
+            return;
+
+        for (int i = squads.Count - 1; i >= 0; i--)
+        {
+            var battleSquad = squads[i];
+            if (battleSquad?.Squad == null)
+            {
+                squads.RemoveAt(i);
+            }
+        }
+
+        foreach (var battleSquad in squads)
+        {
+            if (availableSlots.Count == 0)
+            {
+                var squadName = battleSquad.Squad?.UnitDefinition != null ? battleSquad.Squad.UnitDefinition.UnitName : "Unknown";
+                Debug.LogWarning($"BattleGridController: Not enough {slotCategory} slots to place squad '{squadName}'.");
+                break;
+            }
+
+            int slotIndex = UnityEngine.Random.Range(0, availableSlots.Count);
+            var slot = availableSlots[slotIndex];
+            availableSlots.RemoveAt(slotIndex);
+
+            if (slot == null)
+                continue;
+
+            var instance = Instantiate(unitPrefab);
+            if (instance == null)
+                continue;
+
+            instance.name = $"{unitPrefab.name}_{battleSquad.Squad.UnitDefinition.UnitName}";
+
+            if (!TryAttachToSlot(slot, instance.transform))
+            {
+                if (Application.isPlaying)
+                    Destroy(instance);
+                else
+                    DestroyImmediate(instance);
+                var squadName = battleSquad.Squad?.UnitDefinition != null ? battleSquad.Squad.UnitDefinition.UnitName : "Unknown";
+                Debug.LogWarning($"BattleGridController: Failed to attach squad '{squadName}' to slot '{slot.name}'.");
+            }
         }
     }
 
