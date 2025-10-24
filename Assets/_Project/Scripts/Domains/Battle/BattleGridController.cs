@@ -254,7 +254,7 @@ public sealed class BattleGridController : MonoBehaviour
             var instanceTransform = instance.transform;
             instances[i] = instanceTransform;
 
-            var battleController = instance.GetComponent<BattleUnitController>();
+            var battleController = instance.GetComponent<BattleSquadController>();
             if (battleController == null)
             {
                 CleanupInstances(instances);
@@ -306,7 +306,7 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
-    public bool TryPlaceUnits(IReadOnlyList<BattleUnitController> unitControllers)
+    public bool TryPlaceUnits(IReadOnlyList<BattleSquadController> unitControllers)
     {
         if (unitControllers == null)
             return false;
@@ -369,7 +369,7 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
-    private void TryInitializeBattleSquad(BattleUnitController battleController, GameObject instance)
+    private void TryInitializeBattleSquad(BattleSquadController battleController, GameObject instance)
     {
         if (battleController == null || instance == null)
             return;
@@ -609,7 +609,7 @@ public sealed class BattleGridController : MonoBehaviour
             if (child == null)
                 continue;
 
-            if (child.GetComponent<BattleUnitController>() != null)
+            if (child.GetComponent<BattleSquadController>() != null)
                 return child;
 
             if (child.GetComponent<SquadController>() != null)

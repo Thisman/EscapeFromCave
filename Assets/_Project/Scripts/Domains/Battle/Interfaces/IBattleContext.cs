@@ -13,7 +13,7 @@ public interface IBattleContext
 
     public BattleQueueUIController BattleQueueUIController { get; set; }
 
-    IReadOnlyList<BattleUnitController> BattleUnits { get; set; }
+    IReadOnlyList<BattleSquadController> BattleUnits { get; set; }
 
     IReadOnlySquadModel ActiveUnit { get; set; }
 

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BattleUnitController : MonoBehaviour
+public class BattleSquadController : MonoBehaviour
 {
     private SquadModel _squadModel;
 

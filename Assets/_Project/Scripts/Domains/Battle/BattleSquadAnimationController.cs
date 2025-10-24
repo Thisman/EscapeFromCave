@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class BattleUnitAnimationController : MonoBehaviour
+public class BattleSquadAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private BattleUnitController _unitController;
+    [SerializeField] private BattleSquadController _unitController;
 
     private void Start()
     {

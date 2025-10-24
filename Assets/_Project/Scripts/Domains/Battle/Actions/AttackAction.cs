@@ -37,7 +37,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
         Dispose();
     }
 
-    private bool TryGetUnitUnderPointer(out BattleUnitController unit)
+    private bool TryGetUnitUnderPointer(out BattleSquadController unit)
     {
         unit = null;
 
@@ -54,7 +54,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
 
         if (Physics.Raycast(ray, out var hitInfo))
         {
-            unit = hitInfo.transform.GetComponentInParent<BattleUnitController>();
+            unit = hitInfo.transform.GetComponentInParent<BattleSquadController>();
             if (unit != null)
                 return true;
         }
@@ -62,7 +62,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
         RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
         if (hit2D.transform != null)
         {
-            unit = hit2D.transform.GetComponentInParent<BattleUnitController>();
+            unit = hit2D.transform.GetComponentInParent<BattleSquadController>();
             if (unit != null)
                 return true;
         }
@@ -70,7 +70,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
         return false;
     }
 
-    private bool IsEnemyUnit(BattleUnitController unit)
+    private bool IsEnemyUnit(BattleSquadController unit)
     {
         if (unit == null)
             return false;
