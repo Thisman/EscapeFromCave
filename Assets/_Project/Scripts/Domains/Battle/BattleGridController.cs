@@ -223,15 +223,12 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
-    public bool TryPlaceUnit(IReadOnlyBattleUnitModel[] unitModels, Transform[] units)
+    public bool TryPlaceUnits(GameObject[] unitPrefabs)
     {
-        if (unitModels == null || units == null)
+        if (unitPrefabs == null)
             return false;
 
-        if (unitModels.Length != units.Length)
-            return false;
-
-        if (unitModels.Length == 0)
+        if (unitPrefabs.Length == 0)
             return true;
 
         var allyFrontSlots = new List<Transform>();
@@ -249,32 +246,53 @@ public sealed class BattleGridController : MonoBehaviour
             enemySlots
         };
 
-        var assignments = new Transform[unitModels.Length];
-        var originalParents = new Transform[units.Length];
-        var originalLocalPositions = new Vector3[units.Length];
-        var originalLocalRotations = new Quaternion[units.Length];
-        var originalLocalScales = new Vector3[units.Length];
-        var originalSlots = new Transform[units.Length];
+        var assignments = new Transform[unitPrefabs.Length];
+        var instances = new Transform[unitPrefabs.Length];
 
-        for (int i = 0; i < unitModels.Length; i++)
+        for (int i = 0; i < unitPrefabs.Length; i++)
         {
-            var model = unitModels[i];
-            var unit = units[i];
+            var prefab = unitPrefabs[i];
 
-            if (model == null || model.Definition == null || unit == null)
+            if (prefab == null)
+            {
+                CleanupInstances(instances);
                 return false;
+            }
 
-            originalParents[i] = unit.parent;
-            originalLocalPositions[i] = unit.localPosition;
-            originalLocalRotations[i] = unit.localRotation;
-            originalLocalScales[i] = unit.localScale;
+            var instance = Instantiate(prefab);
+            if (instance == null)
+            {
+                CleanupInstances(instances);
+                return false;
+            }
 
-            if (TryGetSlotForOccupant(unit, out var previousSlot))
-                originalSlots[i] = previousSlot;
+            var instanceTransform = instance.transform;
+            instances[i] = instanceTransform;
+            instanceTransform.SetParent(transform, false);
+
+            var battleController = instance.GetComponent<BattleUnitController>();
+            if (battleController == null)
+            {
+                CleanupInstances(instances);
+                return false;
+            }
+
+            var battleModel = battleController.GetUnitModel();
+            if (battleModel == null)
+            {
+                TryInitializeBattleModel(battleController, instance);
+                battleModel = battleController.GetUnitModel();
+            }
+
+            if (battleModel == null || battleModel.Definition == null)
+            {
+                CleanupInstances(instances);
+                return false;
+            }
 
             Transform slot = null;
 
-            switch (model.Definition.Type)
+            switch (battleModel.Definition.Type)
             {
                 case UnitType.Hero:
                     slot = AllocateSlot(allPools, allyBackSlots);
@@ -291,41 +309,67 @@ public sealed class BattleGridController : MonoBehaviour
             }
 
             if (slot == null)
+            {
+                CleanupInstances(instances);
                 return false;
+            }
 
             assignments[i] = slot;
         }
 
         for (int i = 0; i < assignments.Length; i++)
         {
-            if (TryAttachToSlot(assignments[i], units[i]))
+            if (TryAttachToSlot(assignments[i], instances[i]))
                 continue;
 
             for (int revertIndex = 0; revertIndex < i; revertIndex++)
             {
-                var revertUnit = units[revertIndex];
-                if (revertUnit == null)
+                var revertInstance = instances[revertIndex];
+                if (revertInstance == null)
                     continue;
 
-                TryRemoveOccupant(revertUnit, out _);
-
-                var originalSlot = originalSlots[revertIndex];
-                if (originalSlot != null)
-                {
-                    TryAttachToSlot(originalSlot, revertUnit);
-                    continue;
-                }
-
-                revertUnit.SetParent(originalParents[revertIndex], false);
-                revertUnit.localPosition = originalLocalPositions[revertIndex];
-                revertUnit.localRotation = originalLocalRotations[revertIndex];
-                revertUnit.localScale = originalLocalScales[revertIndex];
+                TryRemoveOccupant(revertInstance, out _);
+                Destroy(revertInstance.gameObject);
+                instances[revertIndex] = null;
             }
 
+            CleanupInstances(instances);
             return false;
         }
 
         return true;
+    }
+
+    private void TryInitializeBattleModel(BattleUnitController battleController, GameObject instance)
+    {
+        if (battleController == null || instance == null)
+            return;
+
+        var baseUnitController = instance.GetComponent<UnitController>();
+        if (baseUnitController == null)
+            return;
+
+        if (baseUnitController.GetUnitModel() is UnitModel unitModel)
+        {
+            battleController.Initialize(unitModel);
+        }
+    }
+
+    private void CleanupInstances(Transform[] instances)
+    {
+        if (instances == null)
+            return;
+
+        for (int i = 0; i < instances.Length; i++)
+        {
+            var instance = instances[i];
+            if (instance == null)
+                continue;
+
+            TryRemoveOccupant(instance, out _);
+            Destroy(instance.gameObject);
+            instances[i] = null;
+        }
     }
 
     public bool TryResolveSlot(Transform candidate, out Transform slot)
