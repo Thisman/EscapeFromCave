@@ -84,6 +84,8 @@ public class BattleSceneManager : MonoBehaviour
         if (_combatUIController != null)
         {
             _combatUIController.OnLeaveCombat += HandleLeaveCombat;
+            _combatUIController.OnDefend += HandleDefend;
+            _combatUIController.OnSkipTurn += HandleSkipTurn;
         }
 
         if (_resultsUIController != null)
@@ -102,6 +104,8 @@ public class BattleSceneManager : MonoBehaviour
         if (_combatUIController != null)
         {
             _combatUIController.OnLeaveCombat -= HandleLeaveCombat;
+            _combatUIController.OnDefend -= HandleDefend;
+            _combatUIController.OnSkipTurn -= HandleSkipTurn;
         }
 
         if (_resultsUIController != null)
@@ -118,6 +122,22 @@ public class BattleSceneManager : MonoBehaviour
     private void HandleLeaveCombat()
     {
         _phaseMachine?.Fire(BattleTrigger.EndCombat);
+    }
+
+    private void HandleDefend()
+    {
+        if (_combatLoop == null)
+            return;
+
+        _combatLoop.DefendActiveUnit();
+    }
+
+    private void HandleSkipTurn()
+    {
+        if (_combatLoop == null)
+            return;
+
+        _combatLoop.SkipTurn();
     }
 
     private void HandleExitBattle()

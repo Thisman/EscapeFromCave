@@ -53,11 +53,48 @@ public sealed class CombatLoopMachine
 
     public CombatState State => _sm.State;
 
-    public void Reset() => _sm.Activate(); // опционально
+    public void Reset() => _sm.Activate();
+
     public void BeginRound() => _sm.Fire(CombatTrigger.BeginRound);
+
     public void NextTurn() => _sm.Fire(CombatTrigger.NextTurn);
 
-    // ---- Handlers ----
+    public void SkipTurn()
+    {
+        if (_sm.State != CombatState.TurnSelect)
+            return;
+
+        _sm.Fire(CombatTrigger.Skip);
+    }
+
+    public void DefendActiveUnit()
+    {
+        var queueController = _ctx.BattleQueueController;
+
+        if (queueController == null)
+        {
+            Debug.LogWarning("[CombatLoop] Cannot defend without a BattleQueueController.");
+            return;
+        }
+
+        if (_sm.State != CombatState.TurnSelect)
+            return;
+
+        if (_defendingUnit != null)
+            return;
+
+        var queue = queueController.GetQueue();
+        if (queue == null || queue.Count == 0)
+            return;
+
+        var activeUnit = queue[0];
+        if (activeUnit == null)
+            return;
+
+        _defendingUnit = activeUnit;
+        _sm.Fire(CombatTrigger.Skip);
+    }
+
     private void RoundInit()
     {
         var queueController = _ctx.BattleQueueController;
@@ -105,6 +142,8 @@ public sealed class CombatLoopMachine
         _sm.Fire(CombatTrigger.NextTurn);
     }
 
+    private IReadOnlyUnitModel _defendingUnit;
+
     private void TurnEnd()
     {
         var queueController = _ctx.BattleQueueController;
@@ -115,7 +154,15 @@ public sealed class CombatLoopMachine
             return;
         }
 
-        queueController.NextTurn();
+        var finishedUnit = queueController.NextTurn();
+
+        if (finishedUnit != null && _defendingUnit != null && ReferenceEquals(finishedUnit, _defendingUnit))
+        {
+            queueController.AddLast(finishedUnit);
+        }
+
+        _defendingUnit = null;
+
         _ctx.BattleQueueUIController?.Render(queueController);
 
         var queue = queueController.GetQueue();
