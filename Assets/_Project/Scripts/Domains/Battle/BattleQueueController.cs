@@ -66,6 +66,14 @@ public class BattleQueueController
         return _queue.ToArray();
     }
 
+    public IReadOnlyUnitModel GetFirst()
+    {
+        if (_queue.Count == 0)
+            throw new InvalidOperationException("Queue is empty.");
+
+        return _queue.Peek();
+    }
+
     public IReadOnlyUnitModel GetAt(int index)
     {
         if (index < 0 || index >= _queue.Count)
