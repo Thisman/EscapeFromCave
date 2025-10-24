@@ -74,7 +74,7 @@ public sealed class CombatLoopMachine
                     .Cast<IReadOnlyUnitModel>();
 
             queueController.Rebuild(unitModels);
-            _ctx.BattleQueueUIController?.Update(queueController);
+            _ctx.BattleQueueUIController?.Render(queueController);
         }
         else
         {
@@ -116,7 +116,7 @@ public sealed class CombatLoopMachine
         }
 
         queueController.NextTurn();
-        _ctx.BattleQueueUIController?.Update(queueController);
+        _ctx.BattleQueueUIController?.Render(queueController);
 
         var queue = queueController.GetQueue();
         if (queue == null || queue.Count == 0)

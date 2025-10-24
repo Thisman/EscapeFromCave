@@ -79,6 +79,7 @@ public sealed class BattlePhaseMachine
     {
         _ctx.PanelController?.Show("combat");
         _combat.Reset();
+        _combat.BeginRound();
     }
 
     private void OnEnterResults()

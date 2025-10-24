@@ -16,10 +16,10 @@ public sealed class BattleQueueUIController : MonoBehaviour
 
     public void Init(BattleQueueController battleQueueController)
     {
-        Update(battleQueueController);
+        Render(battleQueueController);
     }
 
-    public void Update(BattleQueueController battleQueueController)
+    public void Render(BattleQueueController battleQueueController)
     {
         if (battleQueueController == null)
         {
