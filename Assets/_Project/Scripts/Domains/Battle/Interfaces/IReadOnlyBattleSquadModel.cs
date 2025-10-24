@@ -1,4 +1,4 @@
-public interface IReadOnlyBattleSquadModel : IReadOnlySquadModel
+public interface IReadOnlyBattleSquadModel : IReadOnlySquadModel, IBattleEntityModel
 {
     SquadModel GetBaseModel();
 }

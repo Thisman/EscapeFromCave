@@ -20,6 +20,12 @@ public sealed class BattleUnitModel : IReadOnlyBattleModel
         return _unitModel.GetStats();
     }
 
+    public int GetInitiative()
+    {
+        var stats = _unitModel.GetStats();
+        return stats?.Initiative ?? 0;
+    }
+
     public UnitModel GetBaseModel()
     {
         return _unitModel;

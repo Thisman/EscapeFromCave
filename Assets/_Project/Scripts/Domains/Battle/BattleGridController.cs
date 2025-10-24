@@ -231,7 +231,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (unitPrefabs.Length == 0)
             return true;
 
-        var models = new List<IReadOnlyBattleModel>(unitPrefabs.Length);
+        var models = new List<IBattleEntityModel>(unitPrefabs.Length);
         var instances = new Transform[unitPrefabs.Length];
 
         for (int i = 0; i < unitPrefabs.Length; i++)
@@ -314,7 +314,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (unitControllers.Count == 0)
             return true;
 
-        var models = new List<IReadOnlyBattleModel>(unitControllers.Count);
+        var models = new List<IBattleEntityModel>(unitControllers.Count);
         var transforms = new Transform[unitControllers.Count];
         var originalParents = new Transform[unitControllers.Count];
         var originalPositions = new Vector3[unitControllers.Count];
@@ -384,7 +384,7 @@ public sealed class BattleGridController : MonoBehaviour
         }
     }
 
-    private bool TryAllocateSlots(IReadOnlyList<IReadOnlyBattleModel> models, out Transform[] assignments)
+    private bool TryAllocateSlots(IReadOnlyList<IBattleEntityModel> models, out Transform[] assignments)
     {
         assignments = null;
 
@@ -610,6 +610,9 @@ public sealed class BattleGridController : MonoBehaviour
                 continue;
 
             if (child.GetComponent<BattleUnitController>() != null)
+                return child;
+
+            if (child.GetComponent<BattleSquadController>() != null)
                 return child;
 
             if (child.GetComponent<UnitController>() != null)

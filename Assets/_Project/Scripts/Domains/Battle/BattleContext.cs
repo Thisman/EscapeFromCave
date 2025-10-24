@@ -17,7 +17,7 @@ public sealed class BattleContext : IBattleContext
 
     public IReadOnlyList<BattleUnitController> BattleUnits { get; set; } = Array.Empty<BattleUnitController>();
 
-    public IReadOnlyUnitModel ActiveUnit { get; set; }
+    public IBattleEntityModel ActiveUnit { get; set; }
 
     public IBattleAction CurrentAction { get; set; }
 }

@@ -96,12 +96,12 @@ public sealed class CombatLoopMachine
         {
             var units = _ctx.BattleUnits;
             var unitModels = units == null
-                ? Array.Empty<IReadOnlyUnitModel>()
+                ? Array.Empty<IBattleEntityModel>()
                 : units
                     .Where(unit => unit != null)
                     .Select(unit => unit.GetUnitModel())
                     .Where(model => model != null)
-                    .Cast<IReadOnlyUnitModel>();
+                    .ToArray();
 
             queueController.Rebuild(unitModels);
             _ctx.BattleQueueUIController?.Render(queueController);
@@ -229,7 +229,7 @@ public sealed class CombatLoopMachine
         _sm.Fire(CombatTrigger.NextTurn);
     }
 
-    private IReadOnlyUnitModel _defendingUnit;
+    private IBattleEntityModel _defendingUnit;
 
     private void TurnEnd()
     {

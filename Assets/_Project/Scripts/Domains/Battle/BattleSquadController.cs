@@ -13,7 +13,7 @@ public class BattleSquadController : MonoBehaviour
         _squadModel = new BattleSquadModel(squadModel);
     }
 
-    public IReadOnlyBattleSquadModel GetSquadModel()
+    public IBattleEntityModel GetSquadModel()
     {
         return _squadModel;
     }

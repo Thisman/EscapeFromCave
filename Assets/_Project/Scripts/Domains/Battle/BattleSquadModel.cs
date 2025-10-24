@@ -9,6 +9,8 @@ public sealed class BattleSquadModel : IReadOnlyBattleSquadModel
         _squadModel = squadModel ?? throw new ArgumentNullException(nameof(squadModel));
     }
 
+    public UnitDefinitionSO Definition => _squadModel.UnitDefinition;
+
     public UnitDefinitionSO UnitDefinition => _squadModel.UnitDefinition;
 
     public int Count => _squadModel.Count;
@@ -24,5 +26,10 @@ public sealed class BattleSquadModel : IReadOnlyBattleSquadModel
     public SquadModel GetBaseModel()
     {
         return _squadModel;
+    }
+
+    public int GetInitiative()
+    {
+        return 0;
     }
 }

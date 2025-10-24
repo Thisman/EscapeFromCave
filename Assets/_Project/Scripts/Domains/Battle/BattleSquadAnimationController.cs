@@ -10,7 +10,8 @@ public class BattleSquadAnimationController : MonoBehaviour
         var battleModel = _squadController?.GetSquadModel();
         if (battleModel != null && _spriteRenderer != null)
         {
-            _spriteRenderer.sprite = battleModel.UnitDefinition.Icon;
+            _spriteRenderer.sprite = battleModel.Definition?.Icon;
+            _spriteRenderer.enabled = _spriteRenderer.sprite != null;
         }
     }
 }

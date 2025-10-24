@@ -17,7 +17,7 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
     private bool _pendingPointerExit;
     private bool _isHoverTweenRunning;
 
-    public void Bind(IReadOnlyUnitModel unit)
+    public void Bind(IBattleEntityModel unit)
     {
         if (_icon == null)
             return;

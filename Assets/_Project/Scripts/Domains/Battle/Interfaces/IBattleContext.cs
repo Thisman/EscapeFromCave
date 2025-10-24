@@ -15,7 +15,7 @@ public interface IBattleContext
 
     IReadOnlyList<BattleUnitController> BattleUnits { get; set; }
 
-    IReadOnlyUnitModel ActiveUnit { get; set; }
+    IBattleEntityModel ActiveUnit { get; set; }
 
     IBattleAction CurrentAction { get; set; }
 }

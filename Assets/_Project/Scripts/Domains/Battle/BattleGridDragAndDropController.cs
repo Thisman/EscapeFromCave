@@ -284,20 +284,36 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (!_gridController.TryGetSlotSide(resolvedSlot, out var side))
             return false;
 
-        var unitController = _draggedObject.GetComponent<UnitController>();
-        if (unitController == null)
-            return false;
-
-        var unitModel = unitController.GetUnitModel();
-        if (unitModel == null || unitModel.Definition == null)
+        var entityModel = ResolveEntityModel(_draggedObject);
+        if (entityModel == null || entityModel.Definition == null)
             return false;
 
         return side switch
         {
-            BattleGridSlotSide.Ally => unitModel.Definition.Type == UnitType.Ally || unitModel.Definition.Type == UnitType.Hero,
-            BattleGridSlotSide.Enemy => unitModel.Definition.Type == UnitType.Enemy,
+            BattleGridSlotSide.Ally => entityModel.Definition.Type == UnitType.Ally || entityModel.Definition.Type == UnitType.Hero,
+            BattleGridSlotSide.Enemy => entityModel.Definition.Type == UnitType.Enemy,
             _ => false
         };
+    }
+
+    private static IBattleEntityModel ResolveEntityModel(Transform candidate)
+    {
+        if (candidate == null)
+            return null;
+
+        if (candidate.TryGetComponent(out BattleUnitController battleUnit))
+            return battleUnit.GetUnitModel();
+
+        if (candidate.TryGetComponent(out BattleSquadController battleSquad))
+            return battleSquad.GetSquadModel();
+
+        if (candidate.TryGetComponent(out UnitController unitController))
+        {
+            if (unitController.GetUnitModel() is UnitModel unitModel)
+                return new BattleUnitModel(unitModel);
+        }
+
+        return null;
     }
 
     private static bool TryGetPointerScreenPosition(out Vector3 position)

@@ -18,7 +18,7 @@ public class BattleUnitController : MonoBehaviour
         return _unitModel?.GetStats();
     }
 
-    public IReadOnlyBattleModel GetUnitModel()
+    public IBattleEntityModel GetUnitModel()
     {
         return _unitModel;
     }
