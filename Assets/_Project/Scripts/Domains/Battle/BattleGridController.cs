@@ -23,7 +23,6 @@ public sealed class BattleGridController : MonoBehaviour
     private readonly Dictionary<Transform, Transform> _slotOccupants = new();
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
     private readonly Dictionary<Transform, SlotVisualState> _slotVisuals = new();
-    private readonly List<Transform> _slotSelectionBuffer = new();
 
     private void Awake()
     {
@@ -224,33 +223,109 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
-    public bool TryPlaceUnit(IReadOnlyBattleUnitModel unitModel, Transform unit)
+    public bool TryPlaceUnit(IReadOnlyBattleUnitModel[] unitModels, Transform[] units)
     {
-        if (unitModel == null || unitModel.Definition == null || unit == null)
+        if (unitModels == null || units == null)
             return false;
 
-        Transform targetSlot = null;
+        if (unitModels.Length != units.Length)
+            return false;
 
-        switch (unitModel.Definition.Type)
+        if (unitModels.Length == 0)
+            return true;
+
+        var allyFrontSlots = new List<Transform>();
+        var allyBackSlots = new List<Transform>();
+        var allyAnySlots = new List<Transform>();
+        var enemySlots = new List<Transform>();
+
+        CollectAvailableSlots(allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots);
+
+        var allPools = new List<List<Transform>>
         {
-            case UnitType.Hero:
-                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Back);
-                break;
-            case UnitType.Ally:
-                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Front) ?? GetRandomAvailableAllySlot(BattleGridRow.Back) ?? GetRandomAvailableAllySlot(null);
-                break;
-            case UnitType.Enemy:
-                targetSlot = GetRandomAvailableEnemySlot();
-                break;
-            default:
-                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Front) ?? GetRandomAvailableAllySlot(BattleGridRow.Back) ?? GetRandomAvailableAllySlot(null) ?? GetRandomAvailableEnemySlot();
-                break;
+            allyFrontSlots,
+            allyBackSlots,
+            allyAnySlots,
+            enemySlots
+        };
+
+        var assignments = new Transform[unitModels.Length];
+        var originalParents = new Transform[units.Length];
+        var originalLocalPositions = new Vector3[units.Length];
+        var originalLocalRotations = new Quaternion[units.Length];
+        var originalLocalScales = new Vector3[units.Length];
+        var originalSlots = new Transform[units.Length];
+
+        for (int i = 0; i < unitModels.Length; i++)
+        {
+            var model = unitModels[i];
+            var unit = units[i];
+
+            if (model == null || model.Definition == null || unit == null)
+                return false;
+
+            originalParents[i] = unit.parent;
+            originalLocalPositions[i] = unit.localPosition;
+            originalLocalRotations[i] = unit.localRotation;
+            originalLocalScales[i] = unit.localScale;
+
+            if (TryGetSlotForOccupant(unit, out var previousSlot))
+                originalSlots[i] = previousSlot;
+
+            Transform slot = null;
+
+            switch (model.Definition.Type)
+            {
+                case UnitType.Hero:
+                    slot = AllocateSlot(allPools, allyBackSlots);
+                    break;
+                case UnitType.Ally:
+                    slot = AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots);
+                    break;
+                case UnitType.Enemy:
+                    slot = AllocateSlot(allPools, enemySlots);
+                    break;
+                default:
+                    slot = AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots);
+                    break;
+            }
+
+            if (slot == null)
+                return false;
+
+            assignments[i] = slot;
         }
 
-        if (targetSlot == null)
-            return false;
+        for (int i = 0; i < assignments.Length; i++)
+        {
+            if (TryAttachToSlot(assignments[i], units[i]))
+                continue;
 
-        return TryAttachToSlot(targetSlot, unit);
+            for (int revertIndex = 0; revertIndex < i; revertIndex++)
+            {
+                var revertUnit = units[revertIndex];
+                if (revertUnit == null)
+                    continue;
+
+                TryRemoveOccupant(revertUnit, out _);
+
+                var originalSlot = originalSlots[revertIndex];
+                if (originalSlot != null)
+                {
+                    TryAttachToSlot(originalSlot, revertUnit);
+                    continue;
+                }
+
+                revertUnit.SetParent(originalParents[revertIndex], false);
+                revertUnit.localPosition = originalLocalPositions[revertIndex];
+                revertUnit.localRotation = originalLocalRotations[revertIndex];
+                revertUnit.localScale = originalLocalScales[revertIndex];
+            }
+
+            return false;
+        }
+
+        return true;
     }
 
     public bool TryResolveSlot(Transform candidate, out Transform slot)
@@ -275,58 +350,97 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
-    private Transform GetRandomAvailableAllySlot(BattleGridRow? rowFilter)
+    private void CollectAvailableSlots(List<Transform> allyFrontSlots, List<Transform> allyBackSlots, List<Transform> allyAnySlots, List<Transform> enemySlots)
     {
-        if (TryGetRandomAvailableSlot(_allySlots, rowFilter, out var slot))
-            return slot;
+        if (allyFrontSlots == null || allyBackSlots == null || allyAnySlots == null || enemySlots == null)
+            return;
 
-        return null;
+        FillAllySlots(allyFrontSlots, allyBackSlots, allyAnySlots);
+        FillEnemySlots(enemySlots);
     }
 
-    private Transform GetRandomAvailableEnemySlot()
+    private void FillAllySlots(List<Transform> allyFrontSlots, List<Transform> allyBackSlots, List<Transform> allyAnySlots)
     {
-        if (TryGetRandomAvailableSlot(_enemySlots, null, out var slot))
-            return slot;
+        if (_allySlots == null)
+            return;
 
-        return null;
-    }
-
-    private bool TryGetRandomAvailableSlot(Transform[] slots, BattleGridRow? rowFilter, out Transform slot)
-    {
-        _slotSelectionBuffer.Clear();
-
-        if (slots == null || slots.Length == 0)
+        foreach (var slot in _allySlots)
         {
-            slot = null;
-            return false;
-        }
-
-        for (int i = 0; i < slots.Length; i++)
-        {
-            var candidate = slots[i];
-            if (candidate == null)
+            if (slot == null)
                 continue;
 
-            if (!IsSlotEmpty(candidate))
+            if (!IsSlotEmpty(slot))
                 continue;
 
-            if (rowFilter.HasValue)
+            allyAnySlots.Add(slot);
+
+            if (!TryGetSlotRow(slot, out var row))
+                continue;
+
+            if (row == BattleGridRow.Front)
             {
-                if (!TryGetSlotRow(candidate, out var row) || row != rowFilter.Value)
-                    continue;
+                allyFrontSlots.Add(slot);
             }
-
-            _slotSelectionBuffer.Add(candidate);
+            else if (row == BattleGridRow.Back)
+            {
+                allyBackSlots.Add(slot);
+            }
         }
+    }
 
-        if (_slotSelectionBuffer.Count == 0)
+    private void FillEnemySlots(List<Transform> enemySlots)
+    {
+        if (_enemySlots == null)
+            return;
+
+        foreach (var slot in _enemySlots)
         {
-            slot = null;
-            return false;
+            if (slot == null)
+                continue;
+
+            if (!IsSlotEmpty(slot))
+                continue;
+
+            enemySlots.Add(slot);
+        }
+    }
+
+    private Transform AllocateSlot(List<List<Transform>> allPools, params List<Transform>[] priorityOrder)
+    {
+        if (priorityOrder == null || priorityOrder.Length == 0)
+            return null;
+
+        foreach (var pool in priorityOrder)
+        {
+            if (TryDrawFromPool(pool, allPools, out var slot))
+                return slot;
         }
 
-        int randomIndex = UnityEngine.Random.Range(0, _slotSelectionBuffer.Count);
-        slot = _slotSelectionBuffer[randomIndex];
+        return null;
+    }
+
+    private bool TryDrawFromPool(List<Transform> pool, List<List<Transform>> allPools, out Transform slot)
+    {
+        slot = null;
+
+        if (pool == null || pool.Count == 0)
+            return false;
+
+        int index = UnityEngine.Random.Range(0, pool.Count);
+        slot = pool[index];
+        pool.RemoveAt(index);
+
+        if (allPools != null)
+        {
+            foreach (var otherPool in allPools)
+            {
+                if (otherPool == null || otherPool == pool)
+                    continue;
+
+                otherPool.Remove(slot);
+            }
+        }
+
         return true;
     }
 
@@ -367,6 +481,9 @@ public sealed class BattleGridController : MonoBehaviour
             var child = slot.GetChild(i);
             if (child == null)
                 continue;
+
+            if (child.GetComponent<BattleUnitController>() != null)
+                return child;
 
             if (child.GetComponent<UnitController>() != null)
                 return child;
