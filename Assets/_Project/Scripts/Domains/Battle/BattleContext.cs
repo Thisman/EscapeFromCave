@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public sealed class BattleContext : IBattleContext
 {
     public bool IsFinished { get; set; }
@@ -7,5 +10,7 @@ public sealed class BattleContext : IBattleContext
     public BattleGridController BattleGridController { get; set; }
 
     public BattleGridDragAndDropController BattleGridDragAndDropController { get; set; }
+
+    public IReadOnlyList<BattleUnitController> BattleUnits { get; set; } = Array.Empty<BattleUnitController>();
 }
 

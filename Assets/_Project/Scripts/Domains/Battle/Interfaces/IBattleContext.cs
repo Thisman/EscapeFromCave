@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public interface IBattleContext
 {
     bool IsFinished { get; set; }
@@ -6,4 +8,6 @@ public interface IBattleContext
     BattleGridController BattleGridController { get; set; }
 
     BattleGridDragAndDropController BattleGridDragAndDropController { get; set; }
+
+    IReadOnlyList<BattleUnitController> BattleUnits { get; set; }
 }
