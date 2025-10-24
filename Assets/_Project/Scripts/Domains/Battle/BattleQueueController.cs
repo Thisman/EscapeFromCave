@@ -4,17 +4,18 @@ using System.Linq;
 
 public class BattleQueueController
 {
-    private readonly List<IReadOnlyUnitModel> _queue;
+    private Queue<IReadOnlyUnitModel> _queue;
 
     public BattleQueueController(IEnumerable<IReadOnlyUnitModel> units)
     {
         if (units == null)
             throw new ArgumentNullException(nameof(units));
 
-        _queue = units
-            .OrderByDescending(unit => unit?.GetStats().Initiative ?? 0)
-            .ThenByDescending(unit => unit != null && IsFriendly(unit))
-            .ToList();
+        _queue = new Queue<IReadOnlyUnitModel>(
+            units
+                .OrderByDescending(unit => unit?.GetStats().Initiative ?? 0)
+                .ThenByDescending(unit => unit != null && IsFriendly(unit))
+                .Where(unit => unit != null));
     }
 
     public void AddLast(IReadOnlyUnitModel unit)
@@ -22,7 +23,7 @@ public class BattleQueueController
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        _queue.Add(unit);
+        _queue.Enqueue(unit);
     }
 
     public void AddFirst(IReadOnlyUnitModel unit)
@@ -30,7 +31,7 @@ public class BattleQueueController
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        _queue.Insert(0, unit);
+        RebuildQueueWithInsertion(0, unit);
     }
 
     public bool AddAfter(IReadOnlyUnitModel target, IReadOnlyUnitModel unit)
@@ -40,17 +41,29 @@ public class BattleQueueController
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        int index = _queue.FindIndex(existing => ReferenceEquals(existing, target));
-        if (index < 0)
+        bool inserted = false;
+        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count + 1);
+
+        foreach (var existing in _queue)
+        {
+            buffer.Enqueue(existing);
+            if (!inserted && ReferenceEquals(existing, target))
+            {
+                buffer.Enqueue(unit);
+                inserted = true;
+            }
+        }
+
+        if (!inserted)
             return false;
 
-        _queue.Insert(index + 1, unit);
+        _queue = buffer;
         return true;
     }
 
     public IReadOnlyList<IReadOnlyUnitModel> GetQueue()
     {
-        return _queue;
+        return _queue.ToArray();
     }
 
     public IReadOnlyUnitModel GetAt(int index)
@@ -58,7 +71,16 @@ public class BattleQueueController
         if (index < 0 || index >= _queue.Count)
             throw new ArgumentOutOfRangeException(nameof(index));
 
-        return _queue[index];
+        int currentIndex = 0;
+        foreach (var unit in _queue)
+        {
+            if (currentIndex == index)
+                return unit;
+
+            currentIndex++;
+        }
+
+        throw new ArgumentOutOfRangeException(nameof(index));
     }
 
     public bool Remove(IReadOnlyUnitModel unit)
@@ -66,12 +88,45 @@ public class BattleQueueController
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        int index = _queue.FindIndex(existing => ReferenceEquals(existing, unit));
-        if (index < 0)
+        bool removed = false;
+        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count);
+
+        foreach (var existing in _queue)
+        {
+            if (!removed && ReferenceEquals(existing, unit))
+            {
+                removed = true;
+                continue;
+            }
+
+            buffer.Enqueue(existing);
+        }
+
+        if (!removed)
             return false;
 
-        _queue.RemoveAt(index);
+        _queue = buffer;
         return true;
+    }
+
+    private void RebuildQueueWithInsertion(int index, IReadOnlyUnitModel unit)
+    {
+        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count + 1);
+        int currentIndex = 0;
+
+        foreach (var existing in _queue)
+        {
+            if (currentIndex == index)
+                buffer.Enqueue(unit);
+
+            buffer.Enqueue(existing);
+            currentIndex++;
+        }
+
+        if (index >= currentIndex)
+            buffer.Enqueue(unit);
+
+        _queue = buffer;
     }
 
     private static bool IsFriendly(IReadOnlyUnitModel unit)
