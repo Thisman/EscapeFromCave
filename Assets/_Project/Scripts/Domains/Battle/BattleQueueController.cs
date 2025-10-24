@@ -6,10 +6,6 @@ public class BattleQueueController
 {
     private Queue<IReadOnlyUnitModel> _queue = new();
 
-    public BattleQueueController()
-    {
-    }
-
     public void Rebuild(IEnumerable<IReadOnlyUnitModel> units)
     {
         if (units == null)

@@ -8,16 +8,19 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private BattleCombatUIController _combatUIController;
     [SerializeField] private BattleResultsUIController _resultsUIController;
     [SerializeField] private BattleTacticUIController _tacticUIController;
+    [SerializeField] private BattleQueueUIController _queueUIController;
+
+    [SerializeField] private GameObject[] _battleUnitPrefabs = Array.Empty<GameObject>();
+
+    [Inject] private BattleGridController _battleGridController;
+    [Inject] private BattleQueueController _battleQueueController;
+    [Inject] BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private BattleContext _ctx;
     private ActionPipelineMachine _actionPipeline;
     private CombatLoopMachine _combatLoop;
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
-
-    [SerializeField] private BattleGridController _battleGridController;
-    [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
-    [SerializeField] private GameObject[] _battleUnitPrefabs = Array.Empty<GameObject>();
 
     private BattleUnitController[] _spawnedBattleUnits = Array.Empty<BattleUnitController>();
 
@@ -29,11 +32,15 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
+
         _ctx = new BattleContext
         {
             PanelController = _panelController,
+            BattleQueueUIController = _queueUIController,
+            BattleGridDragAndDropController = _battleGridDragAndDropController,
+
             BattleGridController = _battleGridController,
-            BattleGridDragAndDropController = _battleGridDragAndDropController
+            BattleQueueController = _battleQueueController,
         };
 
         InitializeBattleUnits();
@@ -59,7 +66,10 @@ public class BattleSceneManager : MonoBehaviour
 
         _panelController = new PanelController(
             ("tactic", new[] { _tacticUIController?.gameObject }),
-            ("combat", new[] { _combatUIController?.gameObject }),
+            ("combat", new[] {
+                _combatUIController?.gameObject,
+                _queueUIController?.gameObject
+            }),
             ("results", new[] { _resultsUIController?.gameObject })
         );
     }

@@ -9,5 +9,9 @@ public interface IBattleContext
 
     BattleGridDragAndDropController BattleGridDragAndDropController { get; set; }
 
+    public BattleQueueController BattleQueueController { get; set; }
+
+    public BattleQueueUIController BattleQueueUIController { get; set; }
+
     IReadOnlyList<BattleUnitController> BattleUnits { get; set; }
 }
