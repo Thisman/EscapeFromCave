@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class UnitAnimationController : MonoBehaviour
+public class SquadAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private UnitController _unitController;
+    [SerializeField] private SquadController _unitController;
 
     private void Start()
     {

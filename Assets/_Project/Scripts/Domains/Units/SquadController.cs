@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitController : MonoBehaviour
+public class SquadController : MonoBehaviour
 {
     [SerializeField] private UnitDefinitionSO _unitDefinition;
 

@@ -194,7 +194,7 @@ public class BattleSceneManager : MonoBehaviour
         if (battleController.GetUnitModel() != null)
             return;
 
-        if (!instance.TryGetComponent(out UnitController unitController))
+        if (!instance.TryGetComponent(out SquadController unitController))
             return;
 
         if (unitController.GetUnitModel() is UnitModel unitModel)

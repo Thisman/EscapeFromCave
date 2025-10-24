@@ -374,7 +374,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (battleController == null || instance == null)
             return;
 
-        var baseUnitController = instance.GetComponent<UnitController>();
+        var baseUnitController = instance.GetComponent<SquadController>();
         if (baseUnitController == null)
             return;
 
@@ -612,7 +612,7 @@ public sealed class BattleGridController : MonoBehaviour
             if (child.GetComponent<BattleUnitController>() != null)
                 return child;
 
-            if (child.GetComponent<UnitController>() != null)
+            if (child.GetComponent<SquadController>() != null)
                 return child;
         }
 

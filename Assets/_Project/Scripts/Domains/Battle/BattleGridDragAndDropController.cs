@@ -284,7 +284,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (!_gridController.TryGetSlotSide(resolvedSlot, out var side))
             return false;
 
-        var unitController = _draggedObject.GetComponent<UnitController>();
+        var unitController = _draggedObject.GetComponent<SquadController>();
         if (unitController == null)
             return false;
 
