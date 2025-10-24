@@ -23,6 +23,7 @@ public sealed class BattleGridController : MonoBehaviour
     private readonly Dictionary<Transform, Transform> _slotOccupants = new();
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
     private readonly Dictionary<Transform, SlotVisualState> _slotVisuals = new();
+    private readonly List<Transform> _slotSelectionBuffer = new();
 
     private void Awake()
     {
@@ -223,6 +224,35 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
+    public bool TryPlaceUnit(IReadOnlyBattleUnitModel unitModel, Transform unit)
+    {
+        if (unitModel == null || unitModel.Definition == null || unit == null)
+            return false;
+
+        Transform targetSlot = null;
+
+        switch (unitModel.Definition.Type)
+        {
+            case UnitType.Hero:
+                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Back);
+                break;
+            case UnitType.Ally:
+                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Front) ?? GetRandomAvailableAllySlot(BattleGridRow.Back) ?? GetRandomAvailableAllySlot(null);
+                break;
+            case UnitType.Enemy:
+                targetSlot = GetRandomAvailableEnemySlot();
+                break;
+            default:
+                targetSlot = GetRandomAvailableAllySlot(BattleGridRow.Front) ?? GetRandomAvailableAllySlot(BattleGridRow.Back) ?? GetRandomAvailableAllySlot(null) ?? GetRandomAvailableEnemySlot();
+                break;
+        }
+
+        if (targetSlot == null)
+            return false;
+
+        return TryAttachToSlot(targetSlot, unit);
+    }
+
     public bool TryResolveSlot(Transform candidate, out Transform slot)
     {
         slot = null;
@@ -243,6 +273,61 @@ public sealed class BattleGridController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private Transform GetRandomAvailableAllySlot(BattleGridRow? rowFilter)
+    {
+        if (TryGetRandomAvailableSlot(_allySlots, rowFilter, out var slot))
+            return slot;
+
+        return null;
+    }
+
+    private Transform GetRandomAvailableEnemySlot()
+    {
+        if (TryGetRandomAvailableSlot(_enemySlots, null, out var slot))
+            return slot;
+
+        return null;
+    }
+
+    private bool TryGetRandomAvailableSlot(Transform[] slots, BattleGridRow? rowFilter, out Transform slot)
+    {
+        _slotSelectionBuffer.Clear();
+
+        if (slots == null || slots.Length == 0)
+        {
+            slot = null;
+            return false;
+        }
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            var candidate = slots[i];
+            if (candidate == null)
+                continue;
+
+            if (!IsSlotEmpty(candidate))
+                continue;
+
+            if (rowFilter.HasValue)
+            {
+                if (!TryGetSlotRow(candidate, out var row) || row != rowFilter.Value)
+                    continue;
+            }
+
+            _slotSelectionBuffer.Add(candidate);
+        }
+
+        if (_slotSelectionBuffer.Count == 0)
+        {
+            slot = null;
+            return false;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, _slotSelectionBuffer.Count);
+        slot = _slotSelectionBuffer[randomIndex];
+        return true;
     }
 
     private void InitializeSlots(IEnumerable<Transform> slots)
