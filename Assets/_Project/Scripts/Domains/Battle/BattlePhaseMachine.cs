@@ -1,4 +1,5 @@
 using Stateless;
+using UnityEngine;
 
 public sealed class BattlePhaseMachine
 {
@@ -40,6 +41,35 @@ public sealed class BattlePhaseMachine
     {
         _ctx.PanelController?.Show("tactic");
         _ctx.BattleGridDragAndDropController.enabled = true;
+
+        var units = _ctx.BattleUnits;
+        if (_ctx.BattleGridController == null || units == null || units.Count == 0)
+            return;
+
+        bool requiresPlacement = false;
+
+        foreach (var unit in units)
+        {
+            if (unit == null)
+            {
+                requiresPlacement = true;
+                break;
+            }
+
+            if (!_ctx.BattleGridController.TryGetSlotForOccupant(unit.transform, out _))
+            {
+                requiresPlacement = true;
+                break;
+            }
+        }
+
+        if (!requiresPlacement)
+            return;
+
+        if (!_ctx.BattleGridController.TryPlaceUnits(units))
+        {
+            Debug.LogWarning("Failed to place battle units on the grid during tactics phase.");
+        }
     }
 
     private void OnEnterCombat()

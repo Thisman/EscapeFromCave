@@ -231,22 +231,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (unitPrefabs.Length == 0)
             return true;
 
-        var allyFrontSlots = new List<Transform>();
-        var allyBackSlots = new List<Transform>();
-        var allyAnySlots = new List<Transform>();
-        var enemySlots = new List<Transform>();
-
-        CollectAvailableSlots(allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots);
-
-        var allPools = new List<List<Transform>>
-        {
-            allyFrontSlots,
-            allyBackSlots,
-            allyAnySlots,
-            enemySlots
-        };
-
-        var assignments = new Transform[unitPrefabs.Length];
+        var models = new List<IReadOnlyBattleUnitModel>(unitPrefabs.Length);
         var instances = new Transform[unitPrefabs.Length];
 
         for (int i = 0; i < unitPrefabs.Length; i++)
@@ -259,7 +244,7 @@ public sealed class BattleGridController : MonoBehaviour
                 return false;
             }
 
-            var instance = Instantiate(prefab);
+            var instance = Instantiate(prefab, transform);
             if (instance == null)
             {
                 CleanupInstances(instances);
@@ -268,7 +253,6 @@ public sealed class BattleGridController : MonoBehaviour
 
             var instanceTransform = instance.transform;
             instances[i] = instanceTransform;
-            instanceTransform.SetParent(transform, false);
 
             var battleController = instance.GetComponent<BattleUnitController>();
             if (battleController == null)
@@ -290,31 +274,13 @@ public sealed class BattleGridController : MonoBehaviour
                 return false;
             }
 
-            Transform slot = null;
+            models.Add(battleModel);
+        }
 
-            switch (battleModel.Definition.Type)
-            {
-                case UnitType.Hero:
-                    slot = AllocateSlot(allPools, allyBackSlots);
-                    break;
-                case UnitType.Ally:
-                    slot = AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots);
-                    break;
-                case UnitType.Enemy:
-                    slot = AllocateSlot(allPools, enemySlots);
-                    break;
-                default:
-                    slot = AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots);
-                    break;
-            }
-
-            if (slot == null)
-            {
-                CleanupInstances(instances);
-                return false;
-            }
-
-            assignments[i] = slot;
+        if (!TryAllocateSlots(models, out var assignments))
+        {
+            CleanupInstances(instances);
+            return false;
         }
 
         for (int i = 0; i < assignments.Length; i++)
@@ -340,6 +306,69 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
+    public bool TryPlaceUnits(IReadOnlyList<BattleUnitController> unitControllers)
+    {
+        if (unitControllers == null)
+            return false;
+
+        if (unitControllers.Count == 0)
+            return true;
+
+        var models = new List<IReadOnlyBattleUnitModel>(unitControllers.Count);
+        var transforms = new Transform[unitControllers.Count];
+        var originalParents = new Transform[unitControllers.Count];
+        var originalPositions = new Vector3[unitControllers.Count];
+        var originalRotations = new Quaternion[unitControllers.Count];
+        var originalScales = new Vector3[unitControllers.Count];
+
+        for (int i = 0; i < unitControllers.Count; i++)
+        {
+            var controller = unitControllers[i];
+            if (controller == null)
+                return false;
+
+            var model = controller.GetUnitModel();
+            if (model == null || model.Definition == null)
+                return false;
+
+            var unitTransform = controller.transform;
+
+            transforms[i] = unitTransform;
+            models.Add(model);
+            originalParents[i] = unitTransform.parent;
+            originalPositions[i] = unitTransform.localPosition;
+            originalRotations[i] = unitTransform.localRotation;
+            originalScales[i] = unitTransform.localScale;
+        }
+
+        if (!TryAllocateSlots(models, out var assignments))
+            return false;
+
+        for (int i = 0; i < assignments.Length; i++)
+        {
+            if (TryAttachToSlot(assignments[i], transforms[i]))
+                continue;
+
+            for (int revertIndex = 0; revertIndex < i; revertIndex++)
+            {
+                var revertTransform = transforms[revertIndex];
+                if (revertTransform == null)
+                    continue;
+
+                TryRemoveOccupant(revertTransform, out _);
+                var originalParent = originalParents[revertIndex];
+                revertTransform.SetParent(originalParent, false);
+                revertTransform.localPosition = originalPositions[revertIndex];
+                revertTransform.localRotation = originalRotations[revertIndex];
+                revertTransform.localScale = originalScales[revertIndex];
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
     private void TryInitializeBattleModel(BattleUnitController battleController, GameObject instance)
     {
         if (battleController == null || instance == null)
@@ -353,6 +382,60 @@ public sealed class BattleGridController : MonoBehaviour
         {
             battleController.Initialize(unitModel);
         }
+    }
+
+    private bool TryAllocateSlots(IReadOnlyList<IReadOnlyBattleUnitModel> models, out Transform[] assignments)
+    {
+        assignments = null;
+
+        if (models == null)
+            return false;
+
+        int count = models.Count;
+        if (count == 0)
+        {
+            assignments = Array.Empty<Transform>();
+            return true;
+        }
+
+        var allyFrontSlots = new List<Transform>();
+        var allyBackSlots = new List<Transform>();
+        var allyAnySlots = new List<Transform>();
+        var enemySlots = new List<Transform>();
+
+        CollectAvailableSlots(allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots);
+
+        var allPools = new List<List<Transform>>
+        {
+            allyFrontSlots,
+            allyBackSlots,
+            allyAnySlots,
+            enemySlots
+        };
+
+        assignments = new Transform[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            var model = models[i];
+            if (model == null || model.Definition == null)
+                return false;
+
+            Transform slot = model.Definition.Type switch
+            {
+                UnitType.Hero => AllocateSlot(allPools, allyBackSlots),
+                UnitType.Ally => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots),
+                UnitType.Enemy => AllocateSlot(allPools, enemySlots),
+                _ => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots)
+            };
+
+            if (slot == null)
+                return false;
+
+            assignments[i] = slot;
+        }
+
+        return true;
     }
 
     private void CleanupInstances(Transform[] instances)
