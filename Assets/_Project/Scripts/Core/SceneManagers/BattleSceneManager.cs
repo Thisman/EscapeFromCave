@@ -10,7 +10,7 @@ public class BattleSceneManager : MonoBehaviour
     [SerializeField] private BattleTacticUIController _tacticUIController;
     [SerializeField] private BattleQueueUIController _queueUIController;
 
-    [SerializeField] private GameObject[] _battleUnitPrefabs = Array.Empty<GameObject>();
+    [SerializeField] private GameObject _battleSquadPrefab;
 
     [Inject] private BattleGridController _battleGridController;
     [Inject] private BattleQueueController _battleQueueController;
@@ -20,8 +20,6 @@ public class BattleSceneManager : MonoBehaviour
     private CombatLoopMachine _combatLoop;
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
-
-    private BattleUnitController[] _spawnedBattleUnits = Array.Empty<BattleUnitController>();
 
     private void Awake()
     {
@@ -148,58 +146,8 @@ public class BattleSceneManager : MonoBehaviour
             return;
         }
 
-        var collectedUnits = new List<BattleUnitController>();
+        var collectedUnits = new List<BattleSquadController>();
 
-        if (_battleUnitPrefabs != null)
-        {
-            foreach (var prefab in _battleUnitPrefabs)
-            {
-                if (prefab == null)
-                    continue;
-
-                var instance = Instantiate(prefab, transform);
-                if (instance == null)
-                    continue;
-
-                var battleController = instance.GetComponent<BattleUnitController>();
-                if (battleController == null)
-                {
-                    Debug.LogWarning($"Battle unit prefab '{prefab.name}' is missing a BattleUnitController.");
-                    Destroy(instance);
-                    continue;
-                }
-
-                EnsureBattleModelInitialized(battleController, instance);
-
-                if (battleController.GetUnitModel() == null)
-                {
-                    Debug.LogWarning($"Battle unit instance '{instance.name}' failed to initialize its battle model.");
-                    Destroy(instance);
-                    continue;
-                }
-
-                collectedUnits.Add(battleController);
-            }
-        }
-
-        _spawnedBattleUnits = collectedUnits.ToArray();
-        _ctx.BattleUnits = _spawnedBattleUnits;
-    }
-
-    private static void EnsureBattleModelInitialized(BattleUnitController battleController, GameObject instance)
-    {
-        if (battleController == null || instance == null)
-            return;
-
-        if (battleController.GetUnitModel() != null)
-            return;
-
-        if (!instance.TryGetComponent(out SquadController unitController))
-            return;
-
-        if (unitController.GetUnitModel() is UnitModel unitModel)
-        {
-            battleController.Initialize(unitModel);
-        }
+        _ctx.BattleUnits = collectedUnits;
     }
 }

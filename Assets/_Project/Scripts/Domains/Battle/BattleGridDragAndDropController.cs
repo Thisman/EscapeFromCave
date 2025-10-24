@@ -288,14 +288,14 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (unitController == null)
             return false;
 
-        var unitModel = unitController.GetUnitModel();
-        if (unitModel == null || unitModel.Definition == null)
+        var squadModel = unitController.GetSquadModel();
+        if (squadModel == null || squadModel.UnitDefinition == null)
             return false;
 
         return side switch
         {
-            BattleGridSlotSide.Ally => unitModel.Definition.Type == UnitType.Ally || unitModel.Definition.Type == UnitType.Hero,
-            BattleGridSlotSide.Enemy => unitModel.Definition.Type == UnitType.Enemy,
+            BattleGridSlotSide.Ally => squadModel.UnitDefinition.Type == UnitType.Ally || squadModel.UnitDefinition.Type == UnitType.Hero,
+            BattleGridSlotSide.Enemy => squadModel.UnitDefinition.Type == UnitType.Enemy,
             _ => false
         };
     }

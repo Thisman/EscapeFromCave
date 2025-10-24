@@ -96,12 +96,11 @@ public sealed class CombatLoopMachine
         {
             var units = _ctx.BattleUnits;
             var unitModels = units == null
-                ? Array.Empty<IReadOnlyUnitModel>()
+                ? Array.Empty<IReadOnlySquadModel>()
                 : units
                     .Where(unit => unit != null)
-                    .Select(unit => unit.GetUnitModel())
-                    .Where(model => model != null)
-                    .Cast<IReadOnlyUnitModel>();
+                    .Select(unit => unit.GetSquadModel())
+                    .Where(model => model != null);
 
             queueController.Rebuild(unitModels);
             _ctx.BattleQueueUIController?.Render(queueController);
@@ -135,11 +134,11 @@ public sealed class CombatLoopMachine
         }
 
         var nextUnit = queue[0];
-        if (nextUnit?.Definition != null)
+        if (nextUnit?.UnitDefinition != null)
         {
-            string unitName = string.IsNullOrWhiteSpace(nextUnit.Definition.UnitName)
-                ? nextUnit.Definition.name
-                : nextUnit.Definition.UnitName;
+            string unitName = string.IsNullOrWhiteSpace(nextUnit.UnitDefinition.UnitName)
+                ? nextUnit.UnitDefinition.name
+                : nextUnit.UnitDefinition.UnitName;
             Debug.Log($"[CombatLoop] Active unit: {unitName}");
         }
         else
@@ -229,7 +228,7 @@ public sealed class CombatLoopMachine
         _sm.Fire(CombatTrigger.NextTurn);
     }
 
-    private IReadOnlyUnitModel _defendingUnit;
+    private IReadOnlySquadModel _defendingUnit;
 
     private void TurnEnd()
     {

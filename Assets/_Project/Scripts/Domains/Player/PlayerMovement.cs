@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
         if (!body)
             return;
 
-        body.linearVelocity = _movement * _playerController.GetPlayerStats().Speed;
+        float speed = _playerController != null ? _playerController.GetMovementSpeed() : 0f;
+        body.linearVelocity = _movement * speed;
     }
 
     private void SubscribeToInput()
