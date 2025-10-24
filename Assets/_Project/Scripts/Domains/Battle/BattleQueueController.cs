@@ -4,21 +4,21 @@ using System.Linq;
 
 public class BattleQueueController
 {
-    private Queue<IReadOnlyUnitModel> _queue = new();
+    private Queue<IReadOnlySquadModel> _queue = new();
 
-    public void Rebuild(IEnumerable<IReadOnlyUnitModel> units)
+    public void Rebuild(IEnumerable<IReadOnlySquadModel> units)
     {
         if (units == null)
             throw new ArgumentNullException(nameof(units));
 
-        _queue = new Queue<IReadOnlyUnitModel>(
+        _queue = new Queue<IReadOnlySquadModel>(
             units
                 .Where(unit => unit != null)
-                .OrderByDescending(unit => unit.GetStats().Initiative)
+                .OrderByDescending(GetInitiative)
                 .ThenByDescending(IsFriendly));
     }
 
-    public void AddLast(IReadOnlyUnitModel unit)
+    public void AddLast(IReadOnlySquadModel unit)
     {
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
@@ -26,7 +26,7 @@ public class BattleQueueController
         _queue.Enqueue(unit);
     }
 
-    public void AddFirst(IReadOnlyUnitModel unit)
+    public void AddFirst(IReadOnlySquadModel unit)
     {
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
@@ -34,7 +34,7 @@ public class BattleQueueController
         RebuildQueueWithInsertion(0, unit);
     }
 
-    public bool AddAfter(IReadOnlyUnitModel target, IReadOnlyUnitModel unit)
+    public bool AddAfter(IReadOnlySquadModel target, IReadOnlySquadModel unit)
     {
         if (target == null)
             throw new ArgumentNullException(nameof(target));
@@ -42,7 +42,7 @@ public class BattleQueueController
             throw new ArgumentNullException(nameof(unit));
 
         bool inserted = false;
-        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count + 1);
+        var buffer = new Queue<IReadOnlySquadModel>(_queue.Count + 1);
 
         foreach (var existing in _queue)
         {
@@ -61,12 +61,12 @@ public class BattleQueueController
         return true;
     }
 
-    public IReadOnlyList<IReadOnlyUnitModel> GetQueue()
+    public IReadOnlyList<IReadOnlySquadModel> GetQueue()
     {
         return _queue.ToArray();
     }
 
-    public IReadOnlyUnitModel NextTurn()
+    public IReadOnlySquadModel NextTurn()
     {
         if (_queue.Count == 0)
             return null;
@@ -74,7 +74,7 @@ public class BattleQueueController
         return _queue.Dequeue();
     }
 
-    public IReadOnlyUnitModel GetFirst()
+    public IReadOnlySquadModel GetFirst()
     {
         if (_queue.Count == 0)
             throw new InvalidOperationException("Queue is empty.");
@@ -82,7 +82,7 @@ public class BattleQueueController
         return _queue.Peek();
     }
 
-    public IReadOnlyUnitModel GetAt(int index)
+    public IReadOnlySquadModel GetAt(int index)
     {
         if (index < 0 || index >= _queue.Count)
             throw new ArgumentOutOfRangeException(nameof(index));
@@ -99,13 +99,13 @@ public class BattleQueueController
         throw new ArgumentOutOfRangeException(nameof(index));
     }
 
-    public bool Remove(IReadOnlyUnitModel unit)
+    public bool Remove(IReadOnlySquadModel unit)
     {
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
         bool removed = false;
-        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count);
+        var buffer = new Queue<IReadOnlySquadModel>(_queue.Count);
 
         foreach (var existing in _queue)
         {
@@ -125,9 +125,9 @@ public class BattleQueueController
         return true;
     }
 
-    private void RebuildQueueWithInsertion(int index, IReadOnlyUnitModel unit)
+    private void RebuildQueueWithInsertion(int index, IReadOnlySquadModel unit)
     {
-        var buffer = new Queue<IReadOnlyUnitModel>(_queue.Count + 1);
+        var buffer = new Queue<IReadOnlySquadModel>(_queue.Count + 1);
         int currentIndex = 0;
 
         foreach (var existing in _queue)
@@ -145,8 +145,17 @@ public class BattleQueueController
         _queue = buffer;
     }
 
-    private static bool IsFriendly(IReadOnlyUnitModel unit)
+    private static bool IsFriendly(IReadOnlySquadModel unit)
     {
-        return unit.Definition.Type is UnitType.Hero or UnitType.Ally;
+        return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
+    }
+
+    private static int GetInitiative(IReadOnlySquadModel squad)
+    {
+        if (squad?.UnitDefinition == null)
+            return 0;
+
+        var stats = squad.UnitDefinition.GetStatsForLevel(1);
+        return stats.Initiative;
     }
 }

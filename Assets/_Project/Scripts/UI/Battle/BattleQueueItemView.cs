@@ -17,15 +17,15 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
     private bool _pendingPointerExit;
     private bool _isHoverTweenRunning;
 
-    public void Bind(IReadOnlyUnitModel unit)
+    public void Bind(IReadOnlySquadModel unit)
     {
         if (_icon == null)
             return;
 
-        if (unit?.Definition != null)
+        if (unit?.UnitDefinition != null)
         {
-            _icon.sprite = unit.Definition.Icon;
-            _icon.enabled = unit.Definition.Icon != null;
+            _icon.sprite = unit.UnitDefinition.Icon;
+            _icon.enabled = unit.UnitDefinition.Icon != null;
         }
         else
         {

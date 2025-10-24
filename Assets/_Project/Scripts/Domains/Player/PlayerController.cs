@@ -3,26 +3,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private UnitModel _unitModel;
+    private SquadModel _squadModel;
 
-    public void Initialize(UnitModel unitModel)
+    public void Initialize(SquadModel squadModel)
     {
-        _unitModel = unitModel ?? throw new ArgumentNullException(nameof(unitModel));
+        _squadModel = squadModel ?? throw new ArgumentNullException(nameof(squadModel));
     }
 
-    public UnitStatsModel GetPlayerStats()
+    public float GetMovementSpeed()
     {
-        if (_unitModel == null)
-            return null;
+        if (_squadModel == null)
+            return 0f;
 
-        return _unitModel.GetStats();
+        var definition = _squadModel.UnitDefinition;
+        if (definition == null)
+            return 0f;
+
+        var stats = definition.GetStatsForLevel(1);
+        return stats.Speed;
     }
 
-    public IReadOnlyUnitModel GetPlayerModel()
+    public IReadOnlySquadModel GetPlayerSquad()
     {
-        if (_unitModel == null)
-            return null;
-
-        return _unitModel;
+        return _squadModel;
     }
 }

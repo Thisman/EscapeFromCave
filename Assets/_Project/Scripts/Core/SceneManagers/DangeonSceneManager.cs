@@ -59,8 +59,8 @@ public class DangeonSceneManager : MonoBehaviour
             return null;
         }
 
-        var unitModel = new UnitModel(_gameSession.HeroDefinition);
-        playerController.Initialize(unitModel);
+        var squadModel = new SquadModel(_gameSession.HeroDefinition, 1);
+        playerController.Initialize(squadModel);
 
         return playerController;
     }

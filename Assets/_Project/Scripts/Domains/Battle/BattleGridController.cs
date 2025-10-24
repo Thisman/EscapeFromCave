@@ -231,7 +231,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (unitPrefabs.Length == 0)
             return true;
 
-        var models = new List<UnitModel>(unitPrefabs.Length);
+        var models = new List<IReadOnlySquadModel>(unitPrefabs.Length);
         var instances = new Transform[unitPrefabs.Length];
 
         for (int i = 0; i < unitPrefabs.Length; i++)
@@ -261,14 +261,14 @@ public sealed class BattleGridController : MonoBehaviour
                 return false;
             }
 
-            var battleModel = battleController.GetUnitModel();
+            var battleModel = battleController.GetSquadModel();
             if (battleModel == null)
             {
-                TryInitializeBattleModel(battleController, instance);
-                battleModel = battleController.GetUnitModel();
+                TryInitializeBattleSquad(battleController, instance);
+                battleModel = battleController.GetSquadModel();
             }
 
-            if (battleModel == null || battleModel.Definition == null)
+            if (battleModel == null || battleModel.UnitDefinition == null)
             {
                 CleanupInstances(instances);
                 return false;
@@ -314,7 +314,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (unitControllers.Count == 0)
             return true;
 
-        var models = new List<UnitModel>(unitControllers.Count);
+        var models = new List<IReadOnlySquadModel>(unitControllers.Count);
         var transforms = new Transform[unitControllers.Count];
         var originalParents = new Transform[unitControllers.Count];
         var originalPositions = new Vector3[unitControllers.Count];
@@ -327,8 +327,8 @@ public sealed class BattleGridController : MonoBehaviour
             if (controller == null)
                 return false;
 
-            var model = controller.GetUnitModel();
-            if (model == null || model.Definition == null)
+            var model = controller.GetSquadModel();
+            if (model == null || model.UnitDefinition == null)
                 return false;
 
             var unitTransform = controller.transform;
@@ -369,7 +369,7 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
-    private void TryInitializeBattleModel(BattleUnitController battleController, GameObject instance)
+    private void TryInitializeBattleSquad(BattleUnitController battleController, GameObject instance)
     {
         if (battleController == null || instance == null)
             return;
@@ -378,13 +378,13 @@ public sealed class BattleGridController : MonoBehaviour
         if (baseUnitController == null)
             return;
 
-        if (baseUnitController.GetUnitModel() is UnitModel unitModel)
+        if (baseUnitController.GetSquadModel() is SquadModel squadModel)
         {
-            battleController.Initialize(unitModel);
+            battleController.Initialize(squadModel);
         }
     }
 
-    private bool TryAllocateSlots(IReadOnlyList<UnitModel> models, out Transform[] assignments)
+    private bool TryAllocateSlots(IReadOnlyList<IReadOnlySquadModel> models, out Transform[] assignments)
     {
         assignments = null;
 
@@ -418,10 +418,10 @@ public sealed class BattleGridController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var model = models[i];
-            if (model == null || model.Definition == null)
+            if (model == null || model.UnitDefinition == null)
                 return false;
 
-            Transform slot = model.Definition.Type switch
+            Transform slot = model.UnitDefinition.Type switch
             {
                 UnitType.Hero => AllocateSlot(allPools, allyBackSlots),
                 UnitType.Ally => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots),

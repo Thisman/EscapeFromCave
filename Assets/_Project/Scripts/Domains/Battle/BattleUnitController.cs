@@ -3,23 +3,18 @@ using UnityEngine;
 
 public class BattleUnitController : MonoBehaviour
 {
-    private UnitModel _unitModel;
+    private SquadModel _squadModel;
 
-    public void Initialize(UnitModel unitModel)
+    public void Initialize(SquadModel squadModel)
     {
-        if (unitModel == null)
-            throw new ArgumentNullException(nameof(unitModel));
+        if (squadModel == null)
+            throw new ArgumentNullException(nameof(squadModel));
 
-        _unitModel = unitModel;
+        _squadModel = squadModel;
     }
 
-    public UnitStatsModel GetUnitStats()
+    public IReadOnlySquadModel GetSquadModel()
     {
-        return _unitModel?.GetStats();
-    }
-
-    public UnitModel GetUnitModel()
-    {
-        return _unitModel;
+        return _squadModel;
     }
 }

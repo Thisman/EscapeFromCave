@@ -171,7 +171,7 @@ public class BattleSceneManager : MonoBehaviour
 
                 EnsureBattleModelInitialized(battleController, instance);
 
-                if (battleController.GetUnitModel() == null)
+                if (battleController.GetSquadModel() == null)
                 {
                     Debug.LogWarning($"Battle unit instance '{instance.name}' failed to initialize its battle model.");
                     Destroy(instance);
@@ -191,15 +191,13 @@ public class BattleSceneManager : MonoBehaviour
         if (battleController == null || instance == null)
             return;
 
-        if (battleController.GetUnitModel() != null)
+        if (battleController.GetSquadModel() != null)
             return;
 
         if (!instance.TryGetComponent(out SquadController unitController))
             return;
 
-        if (unitController.GetUnitModel() is UnitModel unitModel)
-        {
-            battleController.Initialize(unitModel);
-        }
+        if (unitController.GetSquadModel() is SquadModel squadModel)
+            battleController.Initialize(squadModel);
     }
 }

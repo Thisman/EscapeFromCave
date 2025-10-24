@@ -7,10 +7,11 @@ public class BattleUnitAnimationController : MonoBehaviour
 
     private void Start()
     {
-        var model = _unitController?.GetUnitModel();
-        if (model != null && _spriteRenderer != null)
-        {
-            _spriteRenderer.sprite = model.Definition.Icon;
-        }
+        if (_spriteRenderer == null || _unitController == null)
+            return;
+
+        var model = _unitController.GetSquadModel();
+        if (model?.UnitDefinition != null)
+            _spriteRenderer.sprite = model.UnitDefinition.Icon;
     }
 }

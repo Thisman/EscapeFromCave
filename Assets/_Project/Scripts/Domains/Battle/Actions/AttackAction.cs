@@ -75,15 +75,15 @@ public sealed class AttackAction : IBattleAction, IDisposable
         if (unit == null)
             return false;
 
-        var targetModel = unit.GetUnitModel();
-        if (targetModel?.Definition == null)
+        var targetModel = unit.GetSquadModel();
+        if (targetModel?.UnitDefinition == null)
             return false;
 
         var activeUnit = _context.ActiveUnit;
-        if (activeUnit?.Definition == null)
-            return targetModel.Definition.Type == UnitType.Enemy;
+        if (activeUnit?.UnitDefinition == null)
+            return targetModel.UnitDefinition.Type == UnitType.Enemy;
 
-        return IsOpposingType(activeUnit.Definition.Type, targetModel.Definition.Type);
+        return IsOpposingType(activeUnit.UnitDefinition.Type, targetModel.UnitDefinition.Type);
     }
 
     private static bool IsOpposingType(UnitType source, UnitType target)

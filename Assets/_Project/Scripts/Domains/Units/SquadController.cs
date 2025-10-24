@@ -4,20 +4,22 @@ public class SquadController : MonoBehaviour
 {
     [SerializeField] private UnitDefinitionSO _unitDefinition;
 
-    private UnitModel _unitModel;
+    private SquadModel _squadModel;
 
     public void Awake()
     {
-        _unitModel = new UnitModel(_unitDefinition, 0, 0);
+        if (_unitDefinition == null)
+        {
+            Debug.LogWarning("[SquadController] Unit definition is not assigned. Squad model will not be created.");
+            return;
+        }
+
+        if (_squadModel == null)
+            _squadModel = new SquadModel(_unitDefinition, 1);
     }
 
-    public UnitStatsModel GetUnitStats()
+    public IReadOnlySquadModel GetSquadModel()
     {
-        return _unitModel.GetStats();
-    }
-
-    public IReadOnlyUnitModel GetUnitModel()
-    {
-        return _unitModel;
+        return _squadModel;
     }
 }
