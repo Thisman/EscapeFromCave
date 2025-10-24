@@ -177,7 +177,50 @@ public sealed class CombatLoopMachine
 
     private void TurnActionHost()
     {
-        // ожидаем завершения пайплайна действий
+        AttachNewAttackAction();
+    }
+
+    private void AttachNewAttackAction()
+    {
+        DetachCurrentAction();
+
+        var attackAction = new AttackAction(_ctx);
+        _ctx.CurrentAction = attackAction;
+        attackAction.OnResolve += OnActionResolved;
+        attackAction.OnCancel += OnActionCancelled;
+    }
+
+    private void DetachCurrentAction()
+    {
+        var currentAction = _ctx.CurrentAction;
+        if (currentAction == null)
+            return;
+
+        currentAction.OnResolve -= OnActionResolved;
+        currentAction.OnCancel -= OnActionCancelled;
+
+        if (currentAction is IDisposable disposable)
+        {
+            disposable.Dispose();
+        }
+
+        _ctx.CurrentAction = null;
+    }
+
+    private void OnActionResolved()
+    {
+        ActionDone();
+    }
+
+    private void OnActionCancelled()
+    {
+        AttachNewAttackAction();
+    }
+
+    private void ActionDone()
+    {
+        DetachCurrentAction();
+        _sm.Fire(CombatTrigger.ActionDone);
     }
 
     private void TurnSkip()
