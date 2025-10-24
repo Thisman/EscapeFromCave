@@ -3,10 +3,10 @@ using VContainer;
 
 public class MainMenuSceneManager : MonoBehaviour
 {
+    [SerializeField] private MainMenuSceneUIController _mainMenuSceneUIController;
+
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputRouter _inputRouter;
-
-    [SerializeField] private MainMenuSceneUIController _mainMenuSceneUIController;
 
     private void OnEnable()
     {

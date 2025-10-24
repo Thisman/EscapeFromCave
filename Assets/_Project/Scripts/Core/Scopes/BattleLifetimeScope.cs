@@ -10,6 +10,8 @@ public class BattleLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder builder)
     {
+        builder.Register<BattleQueueController>(Lifetime.Singleton);
+
         // TODO: register didn't work
         if (_battleGridController != null)
         {

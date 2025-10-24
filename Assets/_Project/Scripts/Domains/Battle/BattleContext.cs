@@ -11,6 +11,10 @@ public sealed class BattleContext : IBattleContext
 
     public BattleGridDragAndDropController BattleGridDragAndDropController { get; set; }
 
+    public BattleQueueController BattleQueueController { get; set; }
+
+    public BattleQueueUIController BattleQueueUIController { get; set; }
+
     public IReadOnlyList<BattleUnitController> BattleUnits { get; set; } = Array.Empty<BattleUnitController>();
 }
 
