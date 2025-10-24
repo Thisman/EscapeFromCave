@@ -4,18 +4,22 @@ using System.Linq;
 
 public class BattleQueueController
 {
-    private Queue<IReadOnlyUnitModel> _queue;
+    private Queue<IReadOnlyUnitModel> _queue = new();
 
-    public BattleQueueController(IEnumerable<IReadOnlyUnitModel> units)
+    public BattleQueueController()
+    {
+    }
+
+    public void Rebuild(IEnumerable<IReadOnlyUnitModel> units)
     {
         if (units == null)
             throw new ArgumentNullException(nameof(units));
 
         _queue = new Queue<IReadOnlyUnitModel>(
             units
-                .OrderByDescending(unit => unit?.GetStats().Initiative ?? 0)
-                .ThenByDescending(unit => unit != null && IsFriendly(unit))
-                .Where(unit => unit != null));
+                .Where(unit => unit != null)
+                .OrderByDescending(unit => unit.GetStats().Initiative)
+                .ThenByDescending(IsFriendly));
     }
 
     public void AddLast(IReadOnlyUnitModel unit)
