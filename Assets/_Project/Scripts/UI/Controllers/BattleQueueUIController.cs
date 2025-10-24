@@ -16,6 +16,11 @@ public sealed class BattleQueueUIController : MonoBehaviour
 
     public void Init(BattleQueueController battleQueueController)
     {
+        Update(battleQueueController);
+    }
+
+    public void Update(BattleQueueController battleQueueController)
+    {
         if (battleQueueController == null)
         {
             Debug.LogWarning("[BattleQueueUI] BattleQueueController is missing.");
