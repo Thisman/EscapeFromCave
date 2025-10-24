@@ -380,7 +380,7 @@ public sealed class BattleGridController : MonoBehaviour
 
         if (baseUnitController.GetSquadModel() is SquadModel squadModel)
         {
-            battleController.Initialize(squadModel);
+            battleController.Initialize(new BattleSquadModel(squadModel));
         }
     }
 
