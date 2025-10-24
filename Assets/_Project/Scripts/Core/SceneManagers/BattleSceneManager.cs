@@ -17,7 +17,6 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private BattleContext _ctx;
-    private ActionPipelineMachine _actionPipeline;
     private CombatLoopMachine _combatLoop;
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
@@ -32,7 +31,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
-
         _ctx = new BattleContext
         {
             PanelController = _panelController,
@@ -45,8 +43,7 @@ public class BattleSceneManager : MonoBehaviour
 
         InitializeBattleUnits();
 
-        _actionPipeline = new ActionPipelineMachine(_ctx);
-        _combatLoop = new CombatLoopMachine(_ctx, _actionPipeline);
+        _combatLoop = new CombatLoopMachine(_ctx);
         _phaseMachine = new BattlePhaseMachine(_ctx, _combatLoop);
 
         _phaseMachine.Fire(BattleTrigger.Start);

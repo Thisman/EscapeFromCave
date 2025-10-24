@@ -1,1 +1,0 @@
-public enum ActionTrigger { ChooseAbility, ChooseTargets, Valid, Invalid, Resolve, Commit, Cancel, Finish }

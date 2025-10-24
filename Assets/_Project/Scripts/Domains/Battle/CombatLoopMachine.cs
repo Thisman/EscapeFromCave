@@ -7,12 +7,10 @@ public sealed class CombatLoopMachine
 {
     private readonly IBattleContext _ctx;
     private readonly StateMachine<CombatState, CombatTrigger> _sm;
-    private readonly ActionPipelineMachine _action;
 
-    public CombatLoopMachine(IBattleContext ctx, ActionPipelineMachine action)
+    public CombatLoopMachine(IBattleContext ctx)
     {
         _ctx = ctx;
-        _action = action;
         _sm = new StateMachine<CombatState, CombatTrigger>(CombatState.RoundInit);
 
         _sm.Configure(CombatState.RoundInit)

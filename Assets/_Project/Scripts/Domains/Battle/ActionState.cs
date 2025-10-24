@@ -1,1 +1,0 @@
-public enum ActionState { AbilitySelect, TargetSelect, Validate, Resolve, CommitBuiltin, Cancel, End }
