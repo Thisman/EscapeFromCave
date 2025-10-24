@@ -78,11 +78,7 @@ public sealed class BattlePhaseMachine
     private void OnEnterCombat()
     {
         _ctx.PanelController?.Show("combat");
-        IEnumerable<IReadOnlyUnitModel> unitModels = _ctx.BattleUnits.Select(u => u.GetComponent<BattleUnitController>().GetUnitModel());
-        _ctx.BattleQueueController.Rebuild(unitModels);
-        _ctx.BattleQueueUIController?.Init(_ctx.BattleQueueController);
         _combat.Reset();
-        _combat.BeginRound(); // инициируем первый раунд
     }
 
     private void OnEnterResults()
