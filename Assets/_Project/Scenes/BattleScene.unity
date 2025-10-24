@@ -877,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4177784867073362060, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
       propertyPath: m_Name
-      value: DefaultIcon_Button
+      value: SkipTurnButton
       objectReference: {fileID: 0}
     - target: {fileID: 8643208717444044907, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
       propertyPath: m_Sprite
@@ -893,6 +893,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3779620810825804805, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
   m_PrefabInstance: {fileID: 375594638}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &375594640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3366134201833669344, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+  m_PrefabInstance: {fileID: 375594638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &389272943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3028,6 @@ MonoBehaviour:
   _leaveCombatButton: {fileID: 638048531}
   _defendButton: {fileID: 7854692551817037267}
   _skipTurnButton: {fileID: 1789303761}
---- !u!1 &1559537773
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7157,6 +7167,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &6376713425461596602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3366134201833669344, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+  m_PrefabInstance: {fileID: 8916378313184073921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &7854692551817037266 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3779620810825804805, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
