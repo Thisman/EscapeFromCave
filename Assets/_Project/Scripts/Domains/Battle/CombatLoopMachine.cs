@@ -53,9 +53,12 @@ public sealed class CombatLoopMachine
 
     public CombatState State => _sm.State;
 
-    public void Reset() => _sm.Activate(); // опционально
+    public void Reset() => _sm.Activate();
+
     public void BeginRound() => _sm.Fire(CombatTrigger.BeginRound);
+
     public void NextTurn() => _sm.Fire(CombatTrigger.NextTurn);
+
     public void SkipTurn()
     {
         if (_sm.State != CombatState.TurnSelect)
@@ -92,7 +95,6 @@ public sealed class CombatLoopMachine
         _sm.Fire(CombatTrigger.Skip);
     }
 
-    // ---- Handlers ----
     private void RoundInit()
     {
         var queueController = _ctx.BattleQueueController;
