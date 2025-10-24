@@ -14,4 +14,6 @@ public interface IBattleContext
     public BattleQueueUIController BattleQueueUIController { get; set; }
 
     IReadOnlyList<BattleUnitController> BattleUnits { get; set; }
+
+    IReadOnlyUnitModel ActiveUnit { get; set; }
 }

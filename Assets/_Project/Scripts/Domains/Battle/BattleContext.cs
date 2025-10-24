@@ -16,5 +16,7 @@ public sealed class BattleContext : IBattleContext
     public BattleQueueUIController BattleQueueUIController { get; set; }
 
     public IReadOnlyList<BattleUnitController> BattleUnits { get; set; } = Array.Empty<BattleUnitController>();
+
+    public IReadOnlyUnitModel ActiveUnit { get; set; }
 }
 

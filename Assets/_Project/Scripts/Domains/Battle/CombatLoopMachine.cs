@@ -1,13 +1,10 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Stateless;
 using UnityEngine;
 
 public sealed class CombatLoopMachine
 {
-    private static readonly TimeSpan TurnDelay = TimeSpan.FromSeconds(2);
-
     private readonly IBattleContext _ctx;
     private readonly StateMachine<CombatState, CombatTrigger> _sm;
     private readonly ActionPipelineMachine _action;
@@ -30,11 +27,13 @@ public sealed class CombatLoopMachine
 
         _sm.Configure(CombatState.TurnStart)
             .OnEntry(TurnStart)
-            .Permit(CombatTrigger.NextTurn, CombatState.TurnActionHost);
+            .Permit(CombatTrigger.NextTurn, CombatState.TurnActionHost)
+            .Permit(CombatTrigger.Skip, CombatState.TurnSkip);
 
         _sm.Configure(CombatState.TurnActionHost)
             .OnEntry(TurnActionHost)
-            .Permit(CombatTrigger.ActionDone, CombatState.TurnEnd);
+            .Permit(CombatTrigger.ActionDone, CombatState.TurnEnd)
+            .Permit(CombatTrigger.Skip, CombatState.TurnSkip);
 
         _sm.Configure(CombatState.TurnSkip)
             .OnEntry(TurnSkip)
@@ -61,7 +60,7 @@ public sealed class CombatLoopMachine
 
     public void SkipTurn()
     {
-        if (_sm.State != CombatState.TurnSelect)
+        if (!_sm.CanFire(CombatTrigger.Skip))
             return;
 
         _sm.Fire(CombatTrigger.Skip);
@@ -77,17 +76,13 @@ public sealed class CombatLoopMachine
             return;
         }
 
-        if (_sm.State != CombatState.TurnSelect)
+        if (!_sm.CanFire(CombatTrigger.Skip))
             return;
 
         if (_defendingUnit != null)
             return;
 
-        var queue = queueController.GetQueue();
-        if (queue == null || queue.Count == 0)
-            return;
-
-        var activeUnit = queue[0];
+        var activeUnit = _ctx.ActiveUnit;
         if (activeUnit == null)
             return;
 
@@ -123,17 +118,68 @@ public sealed class CombatLoopMachine
 
     private void TurnSelect()
     {
-        _ = HandleTurnSelectAsync();
+        var queueController = _ctx.BattleQueueController;
+
+        if (queueController == null)
+        {
+            Debug.LogWarning("[CombatLoop] BattleQueueController is missing in context.");
+            _ctx.ActiveUnit = null;
+            _sm.Fire(CombatTrigger.QueueEmpty);
+            return;
+        }
+
+        var queue = queueController.GetQueue();
+        if (queue == null || queue.Count == 0)
+        {
+            _ctx.ActiveUnit = null;
+            _sm.Fire(CombatTrigger.QueueEmpty);
+            return;
+        }
+
+        var nextUnit = queue[0];
+        if (nextUnit?.Definition != null)
+        {
+            string unitName = string.IsNullOrWhiteSpace(nextUnit.Definition.UnitName)
+                ? nextUnit.Definition.name
+                : nextUnit.Definition.UnitName;
+            Debug.Log($"[CombatLoop] Active unit: {unitName}");
+        }
+        else
+        {
+            Debug.Log("[CombatLoop] Active unit: <unknown>");
+        }
+
+        _sm.Fire(CombatTrigger.NextTurn);
     }
 
     private void TurnStart()
     {
+        var queueController = _ctx.BattleQueueController;
+
+        if (queueController == null)
+        {
+            Debug.LogWarning("[CombatLoop] BattleQueueController is missing in context.");
+            _ctx.ActiveUnit = null;
+            _sm.Fire(CombatTrigger.NextTurn);
+            return;
+        }
+
+        var queue = queueController.GetQueue();
+        if (queue == null || queue.Count == 0)
+        {
+            _ctx.ActiveUnit = null;
+            _sm.Fire(CombatTrigger.NextTurn);
+            return;
+        }
+
+        _ctx.ActiveUnit = queue[0];
+
         _sm.Fire(CombatTrigger.NextTurn); // к действию
     }
 
     private void TurnActionHost()
     {
-        _ = HandleTurnActionHostAsync();
+        // ожидаем завершения пайплайна действий
     }
 
     private void TurnSkip()
@@ -150,6 +196,7 @@ public sealed class CombatLoopMachine
 
         if (queueController == null)
         {
+            _ctx.ActiveUnit = null;
             _sm.Fire(CombatTrigger.QueueEmpty);
             return;
         }
@@ -162,6 +209,7 @@ public sealed class CombatLoopMachine
         }
 
         _defendingUnit = null;
+        _ctx.ActiveUnit = null;
 
         _ctx.BattleQueueUIController?.Render(queueController);
 
@@ -181,47 +229,5 @@ public sealed class CombatLoopMachine
         // если бой завершён → фазовая машина должна вызвать EndCombat
         // иначе новый раунд:
         _sm.Fire(CombatTrigger.EndRound);
-    }
-
-    private async Task HandleTurnSelectAsync()
-    {
-        var queueController = _ctx.BattleQueueController;
-
-        if (queueController == null)
-        {
-            Debug.LogWarning("[CombatLoop] BattleQueueController is missing in context.");
-            _sm.Fire(CombatTrigger.QueueEmpty);
-            return;
-        }
-
-        var queue = queueController.GetQueue();
-        if (queue == null || queue.Count == 0)
-        {
-            _sm.Fire(CombatTrigger.QueueEmpty);
-            return;
-        }
-
-        var nextUnit = queue[0];
-        if (nextUnit?.Definition != null)
-        {
-            string unitName = string.IsNullOrWhiteSpace(nextUnit.Definition.UnitName)
-                ? nextUnit.Definition.name
-                : nextUnit.Definition.UnitName;
-            Debug.Log($"[CombatLoop] Active unit: {unitName}");
-        }
-        else
-        {
-            Debug.Log("[CombatLoop] Active unit: <unknown>");
-        }
-
-        await Task.Delay(TurnDelay);
-
-        _sm.Fire(CombatTrigger.NextTurn);
-    }
-
-    private async Task HandleTurnActionHostAsync()
-    {
-        await Task.Delay(TurnDelay);
-        _sm.Fire(CombatTrigger.ActionDone);
     }
 }
