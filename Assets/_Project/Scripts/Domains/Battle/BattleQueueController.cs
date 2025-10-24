@@ -66,6 +66,14 @@ public class BattleQueueController
         return _queue.ToArray();
     }
 
+    public IReadOnlyUnitModel NextTurn()
+    {
+        if (_queue.Count == 0)
+            return null;
+
+        return _queue.Dequeue();
+    }
+
     public IReadOnlyUnitModel GetFirst()
     {
         if (_queue.Count == 0)
