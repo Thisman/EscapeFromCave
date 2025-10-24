@@ -53,6 +53,27 @@ public class BattleQueueController
         return _queue;
     }
 
+    public IReadOnlyUnitModel GetAt(int index)
+    {
+        if (index < 0 || index >= _queue.Count)
+            throw new ArgumentOutOfRangeException(nameof(index));
+
+        return _queue[index];
+    }
+
+    public bool Remove(IReadOnlyUnitModel unit)
+    {
+        if (unit == null)
+            throw new ArgumentNullException(nameof(unit));
+
+        int index = _queue.FindIndex(existing => ReferenceEquals(existing, unit));
+        if (index < 0)
+            return false;
+
+        _queue.RemoveAt(index);
+        return true;
+    }
+
     private static bool IsFriendly(IReadOnlyUnitModel unit)
     {
         return unit.Definition.Type is UnitType.Hero or UnitType.Ally;
