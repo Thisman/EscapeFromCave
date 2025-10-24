@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class BattleUnitController : MonoBehaviour
 {
-    private UnitModel _unitModel;
+    private BattleUnitModel _unitModel;
 
     public void Initialize(UnitModel unitModel)
     {
         if (unitModel == null)
             throw new ArgumentNullException(nameof(unitModel));
 
-        _unitModel = unitModel;
+        _unitModel = new BattleUnitModel(unitModel);
     }
 
     public UnitStatsModel GetUnitStats()
@@ -18,7 +18,12 @@ public class BattleUnitController : MonoBehaviour
         return _unitModel?.GetStats();
     }
 
-    public UnitModel GetUnitModel()
+    public IReadOnlyBattleModel GetUnitModel()
+    {
+        return _unitModel;
+    }
+
+    public BattleUnitModel GetBattleModel()
     {
         return _unitModel;
     }
