@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _icon;
-    [SerializeField] private RectTransform _animatedTarget;
+    [SerializeField] private Transform _animatedTarget;
     [SerializeField] private float _hoverOffset = 10f;
     [SerializeField] private float _animationDuration = 0.2f;
     [SerializeField] private Ease _animationEase = Ease.OutQuad;
 
-    private RectTransform _targetRectTransform;
-    private Vector2 _initialAnchoredPosition;
+    private Transform _targetTransform;
+    private Vector3 _initialLocalPosition;
     private Tween _hoverTween;
 
     public void Bind(IReadOnlyUnitModel unit)
@@ -34,18 +34,18 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
 
     private void Awake()
     {
-        _targetRectTransform = _animatedTarget != null ? _animatedTarget : transform as RectTransform;
+        _targetTransform = _animatedTarget != null ? _animatedTarget : transform;
 
-        if (_targetRectTransform != null)
-            _initialAnchoredPosition = _targetRectTransform.anchoredPosition;
+        if (_targetTransform != null)
+            _initialLocalPosition = _targetTransform.localPosition;
     }
 
     private void OnEnable()
     {
-        if (_targetRectTransform == null)
+        if (_targetTransform == null)
             return;
 
-        _initialAnchoredPosition = _targetRectTransform.anchoredPosition;
+        _initialLocalPosition = _targetTransform.localPosition;
         ResetPosition();
     }
 
@@ -62,35 +62,35 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_targetRectTransform == null)
+        if (_targetTransform == null)
             return;
 
-        AnimateTo(_initialAnchoredPosition + new Vector2(0f, -_hoverOffset));
+        AnimateToY(_initialLocalPosition.y - _hoverOffset);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (_targetRectTransform == null)
+        if (_targetTransform == null)
             return;
 
-        AnimateTo(_initialAnchoredPosition);
+        AnimateToY(_initialLocalPosition.y);
     }
 
-    private void AnimateTo(Vector2 targetPosition)
+    private void AnimateToY(float targetY)
     {
         KillHoverTween();
 
-        _hoverTween = _targetRectTransform
-            .DOAnchorPos(targetPosition, _animationDuration)
+        _hoverTween = _targetTransform
+            .DOLocalMoveY(targetY, _animationDuration)
             .SetEase(_animationEase);
     }
 
     private void ResetPosition()
     {
-        if (_targetRectTransform == null)
+        if (_targetTransform == null)
             return;
 
-        _targetRectTransform.anchoredPosition = _initialAnchoredPosition;
+        _targetTransform.localPosition = _initialLocalPosition;
     }
 
     private void KillHoverTween()
