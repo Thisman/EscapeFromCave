@@ -89,3 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleQueueItemView
   _icon: {fileID: 7762604148759163761}
+  _animatedTarget: {fileID: 7469031376234789151}
+  _hoverOffset: 10
+  _animationDuration: 0.2
+  _animationEase: 6
