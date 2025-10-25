@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class PreparationMenuUIController : MonoBehaviour
 {
+    [SerializeField] private Button _startButton;
     [SerializeField] private CarouselWidget _heroCarouselWidget;
     [SerializeField] private CarouselWidget[] _squadCarouselsWidget;
-    [SerializeField] private Button _startButton;
 
     public Action<UnitDefinitionSO, List<UnitDefinitionSO>> OnStartGame;
 
