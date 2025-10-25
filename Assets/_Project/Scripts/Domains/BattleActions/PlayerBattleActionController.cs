@@ -1,6 +1,6 @@
 using System;
 
-public class PlayerBattleActionController : ITurnController
+public class PlayerBattleActionController : IBattleActionController
 {
     public void RequestAction(IBattleContext ctx, Action<IBattleAction> onActionReady)
     {

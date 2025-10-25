@@ -2,10 +2,10 @@ using System;
 
 public sealed class BattleActionControllerResolver
 {
-    private readonly ITurnController _playerController;
-    private readonly ITurnController _enemyController;
+    private readonly IBattleActionController _playerController;
+    private readonly IBattleActionController _enemyController;
 
-    public BattleActionControllerResolver(ITurnController player, ITurnController enemy)
+    public BattleActionControllerResolver(IBattleActionController player, IBattleActionController enemy)
     {
         _playerController = player ?? throw new ArgumentNullException(nameof(player));
         _enemyController = enemy ?? throw new ArgumentNullException(nameof(enemy));
