@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Actor = BattleSquadController;
 
 public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
 {
@@ -11,7 +10,7 @@ public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public bool ResolveTarget(Actor actor, IReadOnlySquadModel target)
+    public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
         _ = actor;
 

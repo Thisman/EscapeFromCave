@@ -1,6 +1,4 @@
-using Actor = BattleSquadController;
-
 public interface IBattleActionTargetResolver
 {
-    bool ResolveTarget(Actor actor, IReadOnlySquadModel target);
+    bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target);
 }
