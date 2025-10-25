@@ -186,7 +186,10 @@ public sealed class CombatLoopMachine
     private void TurnActionHost()
     {
         if (!CanPlayerControlActiveUnit())
+        {
+            AttachEnemySkipAction();
             return;
+        }
 
         AttachNewAttackAction();
     }
@@ -195,6 +198,12 @@ public sealed class CombatLoopMachine
     {
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
+    }
+
+    private void AttachEnemySkipAction()
+    {
+        var skipAction = new AutoSkipTurnAction(EnemyAutoSkipDelaySeconds);
+        AttachAction(skipAction);
     }
 
     private void DetachCurrentAction()
@@ -239,6 +248,7 @@ public sealed class CombatLoopMachine
                 _sm.Fire(CombatTrigger.Skip);
                 break;
             case SkipTurnAction:
+            case AutoSkipTurnAction:
                 _sm.Fire(CombatTrigger.Skip);
                 break;
             default:
@@ -303,6 +313,8 @@ public sealed class CombatLoopMachine
         // иначе новый раунд:
         _sm.Fire(CombatTrigger.EndRound);
     }
+
+    private const float EnemyAutoSkipDelaySeconds = 2f;
 
     private bool CanPlayerControlActiveUnit()
     {
