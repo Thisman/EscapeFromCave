@@ -7,6 +7,7 @@ public sealed class AutoSkipTurnAction : IBattleAction, IDisposable
     private readonly float _triggerTime;
     private bool _disposed;
     private bool _resolved;
+    private bool _isActive;
 
     public AutoSkipTurnAction(float delaySeconds)
     {
@@ -14,11 +15,19 @@ public sealed class AutoSkipTurnAction : IBattleAction, IDisposable
             throw new ArgumentOutOfRangeException(nameof(delaySeconds));
 
         _triggerTime = Time.realtimeSinceStartup + delaySeconds;
-        InputSystem.onAfterUpdate += OnAfterUpdate;
     }
 
     public event Action OnResolve;
     public event Action OnCancel;
+
+    public void Resolve()
+    {
+        if (_disposed || _resolved || _isActive)
+            return;
+
+        _isActive = true;
+        InputSystem.onAfterUpdate += OnAfterUpdate;
+    }
 
     private void OnAfterUpdate()
     {
@@ -38,7 +47,11 @@ public sealed class AutoSkipTurnAction : IBattleAction, IDisposable
         if (_disposed)
             return;
 
-        InputSystem.onAfterUpdate -= OnAfterUpdate;
+        if (_isActive)
+        {
+            InputSystem.onAfterUpdate -= OnAfterUpdate;
+            _isActive = false;
+        }
         _disposed = true;
 
         if (!_resolved)

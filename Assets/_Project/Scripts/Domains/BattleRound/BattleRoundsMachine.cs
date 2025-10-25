@@ -166,8 +166,8 @@ public sealed class BattleRoundsMachine
 
         if (resolver == null)
         {
-            Debug.LogWarning("[CombatLoop] BattleActionControllerResolver is missing in context. Using default action.");
-            AttachDefaultActionFor(activeUnit);
+            Debug.LogWarning("[CombatLoop] BattleActionControllerResolver is missing in context. Skipping turn.");
+            _sm.Fire(BattleRoundTrigger.SkipTurn);
             return;
         }
 
@@ -180,14 +180,14 @@ public sealed class BattleRoundsMachine
         catch (Exception exception)
         {
             Debug.LogException(exception);
-            AttachDefaultActionFor(activeUnit);
+            _sm.Fire(BattleRoundTrigger.SkipTurn);
             return;
         }
 
         if (controller == null)
         {
-            Debug.LogWarning("[CombatLoop] Battle action controller is missing. Using default action.");
-            AttachDefaultActionFor(activeUnit);
+            Debug.LogWarning("[CombatLoop] Battle action controller is missing. Skipping turn.");
+            _sm.Fire(BattleRoundTrigger.SkipTurn);
             return;
         }
 
@@ -195,12 +195,22 @@ public sealed class BattleRoundsMachine
         {
             if (action == null)
             {
-                Debug.LogWarning("[CombatLoop] Battle action controller returned no action. Using default action.");
-                AttachDefaultActionFor(activeUnit);
+                Debug.LogWarning("[CombatLoop] Battle action controller returned no action. Skipping turn.");
+                _sm.Fire(BattleRoundTrigger.SkipTurn);
                 return;
             }
 
-            AttachAction(action);
+            try
+            {
+                AttachAction(action);
+                action.Resolve();
+            }
+            catch (Exception exception)
+            {
+                Debug.LogException(exception);
+                DetachCurrentAction();
+                _sm.Fire(BattleRoundTrigger.SkipTurn);
+            }
         });
     }
 
@@ -318,22 +328,7 @@ public sealed class BattleRoundsMachine
 
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
-    }
-
-    private void AttachDefaultActionFor(IReadOnlySquadModel unit)
-    {
-        if (unit == null)
-            return;
-
-        if (!CanPlayerControlActiveUnit(unit))
-        {
-            var skipAction = new AutoSkipTurnAction(2f);
-            AttachAction(skipAction);
-            return;
-        }
-
-        var attackAction = new AttackAction(_ctx);
-        AttachAction(attackAction);
+        attackAction.Resolve();
     }
 
     private bool CheckForBattleCompletion(BattleQueueController queueController)
