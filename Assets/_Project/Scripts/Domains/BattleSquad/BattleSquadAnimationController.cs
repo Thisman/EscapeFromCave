@@ -62,12 +62,12 @@ public class BattleSquadAnimationController : MonoBehaviour
         _flashCompletion = null;
     }
 
-    public void SetFlipY(bool flipped)
+    public void SetFlipX(bool flipped)
     {
         if (_spriteRenderer == null)
             return;
 
-        _spriteRenderer.flipY = flipped;
+        _spriteRenderer.flipX = flipped;
     }
 
     private IEnumerator DamageFlashRoutine()

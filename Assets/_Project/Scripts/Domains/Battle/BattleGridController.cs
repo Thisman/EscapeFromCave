@@ -67,7 +67,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (TryGetSlotSide(resolvedSlot, out var slotSide))
         {
             var animationController = unit.GetComponentInChildren<BattleSquadAnimationController>();
-            animationController?.SetFlipY(slotSide == BattleGridSlotSide.Ally);
+            animationController?.SetFlipX(slotSide == BattleGridSlotSide.Ally);
         }
 
         _slotOccupants[resolvedSlot] = unit;
