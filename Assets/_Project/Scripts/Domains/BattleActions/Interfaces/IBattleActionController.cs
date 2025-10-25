@@ -1,4 +1,6 @@
+using System;
+
 public interface IBattleActionController
 {
-    void RequestAction();
+    void RequestAction(IBattleContext ctx, Action<IBattleAction> onActionReady);
 }
