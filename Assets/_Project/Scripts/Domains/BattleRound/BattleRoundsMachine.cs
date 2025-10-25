@@ -184,23 +184,25 @@ public sealed class BattleRoundsMachine
     {
         if (!CanPlayerControlActiveUnit())
         {
-            AttachEnemySkipAction();
+            var skipAction = new AutoSkipTurnAction(2f);
+            AttachAction(skipAction);
             return;
         }
 
-        AttachNewAttackAction();
-    }
-
-    private void AttachNewAttackAction()
-    {
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
     }
 
-    private void AttachEnemySkipAction()
+    private void AttachAction(IBattleAction action)
     {
-        var skipAction = new AutoSkipTurnAction(EnemyAutoSkipDelaySeconds);
-        AttachAction(skipAction);
+        if (action == null)
+            throw new ArgumentNullException(nameof(action));
+
+        DetachCurrentAction();
+
+        _ctx.CurrentAction = action;
+        action.OnResolve += OnActionResolved;
+        action.OnCancel += OnActionCancelled;
     }
 
     private void DetachCurrentAction()
@@ -218,18 +220,6 @@ public sealed class BattleRoundsMachine
         }
 
         _ctx.CurrentAction = null;
-    }
-
-    private void AttachAction(IBattleAction action)
-    {
-        if (action == null)
-            throw new ArgumentNullException(nameof(action));
-
-        DetachCurrentAction();
-
-        _ctx.CurrentAction = action;
-        action.OnResolve += OnActionResolved;
-        action.OnCancel += OnActionCancelled;
     }
 
     private void OnActionResolved()
@@ -265,7 +255,8 @@ public sealed class BattleRoundsMachine
         if (!CanPlayerControlActiveUnit())
             return;
 
-        AttachNewAttackAction();
+        var attackAction = new AttackAction(_ctx);
+        AttachAction(attackAction);
     }
 
     private void TurnSkip()
@@ -307,8 +298,6 @@ public sealed class BattleRoundsMachine
         // иначе новый раунд:
         _sm.Fire(BattleRoundTrigger.EndRound);
     }
-
-    private const float EnemyAutoSkipDelaySeconds = 2f;
 
     private bool CanPlayerControlActiveUnit()
     {
