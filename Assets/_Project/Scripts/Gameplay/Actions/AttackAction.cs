@@ -7,6 +7,8 @@ public sealed class AttackAction : IBattleAction, IDisposable
     private readonly IBattleContext _context;
     private bool _disposed;
     private bool _resolved;
+    private bool _isAwaitingAnimation;
+    private BattleSquadAnimationController _activeAnimationController;
 
     public event Action OnResolve;
     public event Action OnCancel;
@@ -19,7 +21,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
 
     private void OnAfterInputUpdate()
     {
-        if (_disposed)
+        if (_disposed || _isAwaitingAnimation)
             return;
 
         var mouse = Mouse.current;
@@ -32,7 +34,41 @@ public sealed class AttackAction : IBattleAction, IDisposable
         if (!IsEnemyUnit(unit))
             return;
 
+        TryResolveWithAnimation(unit);
+    }
+
+    private void TryResolveWithAnimation(BattleSquadController unit)
+    {
+        _isAwaitingAnimation = true;
+
+        var animationController = unit != null
+            ? unit.GetComponentInChildren<BattleSquadAnimationController>()
+            : null;
+
+        if (animationController == null)
+        {
+            CompleteResolve();
+            return;
+        }
+
+        _activeAnimationController = animationController;
+        animationController.PlayDamageFlash(CompleteResolve);
+    }
+
+    private void CompleteResolve()
+    {
+        if (_resolved)
+            return;
+
+        if (_disposed)
+        {
+            _isAwaitingAnimation = false;
+            return;
+        }
+
         _resolved = true;
+        _isAwaitingAnimation = false;
+        _activeAnimationController = null;
         OnResolve?.Invoke();
         Dispose();
     }
@@ -103,6 +139,9 @@ public sealed class AttackAction : IBattleAction, IDisposable
 
         InputSystem.onAfterUpdate -= OnAfterInputUpdate;
         _disposed = true;
+        _isAwaitingAnimation = false;
+        _activeAnimationController?.CancelDamageFlash();
+        _activeAnimationController = null;
 
         if (!_resolved)
             OnCancel?.Invoke();
