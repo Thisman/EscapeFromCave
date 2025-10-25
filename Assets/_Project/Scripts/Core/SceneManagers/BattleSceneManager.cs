@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -12,14 +13,19 @@ public class BattleSceneManager : MonoBehaviour
 
     [SerializeField] private GameObject _battleSquadPrefab;
 
+    private const string BattleSceneName = "BattleScene";
+
     [Inject] private BattleGridController _battleGridController;
     [Inject] private BattleQueueController _battleQueueController;
     [Inject] BattleGridDragAndDropController _battleGridDragAndDropController;
+    [Inject] private SceneLoader _sceneLoader;
+    [Inject] private IObjectResolver _objectResolver;
 
     private BattleContext _ctx;
     private CombatLoopMachine _combatLoop;
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
+    private BattleSceneData _battleData;
 
     private void Awake()
     {
@@ -29,6 +35,8 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
+        ResolveBattleData();
+
         _ctx = new BattleContext
         {
             PanelController = _panelController,
@@ -148,6 +156,105 @@ public class BattleSceneManager : MonoBehaviour
 
         var collectedUnits = new List<BattleSquadController>();
 
+        if (_battleData != null)
+        {
+            TryAddUnit(collectedUnits, _battleData.Hero);
+
+            if (_battleData.Army != null)
+            {
+                foreach (var squad in _battleData.Army)
+                {
+                    TryAddUnit(collectedUnits, squad);
+                }
+            }
+
+            TryAddUnit(collectedUnits, _battleData.Enemy);
+        }
+        else
+        {
+            Debug.LogWarning("[BattleSceneManager] Battle data was not resolved. No units will be spawned.");
+        }
+
         _ctx.BattleUnits = collectedUnits;
+
+        if (_battleGridController != null && collectedUnits.Count > 0)
+        {
+            if (!_battleGridController.TryPlaceUnits(collectedUnits))
+            {
+                Debug.LogWarning("[BattleSceneManager] Failed to place battle units on the grid.");
+            }
+        }
+    }
+
+    private void ResolveBattleData()
+    {
+        if (_sceneLoader == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] SceneLoader was not injected. Unable to resolve battle payload.");
+            return;
+        }
+
+        if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
+        {
+            Debug.LogWarning("[BattleSceneManager] Battle scene payload was not found. Using empty battle setup.");
+            return;
+        }
+
+        _battleData = payload;
+    }
+
+    private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
+    {
+        if (buffer == null)
+            return;
+
+        if (!setup.IsValid)
+            return;
+
+        if (_battleSquadPrefab == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] Battle squad prefab is not assigned. Cannot spawn units.");
+            return;
+        }
+
+        GameObject instance = null;
+
+        try
+        {
+            instance = _objectResolver != null
+                ? _objectResolver.Instantiate(_battleSquadPrefab)
+                : Instantiate(_battleSquadPrefab);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[BattleSceneManager] Failed to instantiate battle squad prefab: {ex}");
+            return;
+        }
+
+        if (instance == null)
+            return;
+
+        var controller = instance.GetComponent<BattleSquadController>();
+        if (controller == null)
+        {
+            Debug.LogError("[BattleSceneManager] Spawned battle squad prefab does not contain a BattleSquadController component.");
+            Destroy(instance);
+            return;
+        }
+
+        try
+        {
+            var squadModel = new SquadModel(setup.Definition, setup.Count);
+            var battleModel = new BattleSquadModel(squadModel);
+            controller.Initialize(battleModel);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[BattleSceneManager] Failed to initialize battle squad model: {ex}");
+            Destroy(instance);
+            return;
+        }
+
+        buffer.Add(controller);
     }
 }

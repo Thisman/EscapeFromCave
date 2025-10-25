@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleLifetimeScope
   parentReference:
-    TypeName: 
+    TypeName: RootLifetimeScope
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 628714506}
@@ -1351,10 +1351,7 @@ MonoBehaviour:
   _resultsUIController: {fileID: 342800980}
   _tacticUIController: {fileID: 834283549}
   _queueUIController: {fileID: 1977573658}
-  _battleUnitPrefabs:
-  - {fileID: 9008136935096848922, guid: 81fad9e1a83dfa847907bace4e1f274f, type: 3}
-  - {fileID: 7707414912268575436, guid: fb5a28ec0d7f1ce4a94afc96a1ab2509, type: 3}
-  - {fileID: 7452649203407205668, guid: 5d35505dcf59d654998480b922f25a2c, type: 3}
+  _battleSquadPrefab: {fileID: 2995498901232598968, guid: d9de83ad7a92a8242820c6f6afe8aaf3, type: 3}
 --- !u!1001 &638048529
 PrefabInstance:
   m_ObjectHideFlags: 0
