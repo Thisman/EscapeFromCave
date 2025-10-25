@@ -61,6 +61,9 @@ public sealed class CombatLoopMachine
         if (!_sm.CanFire(CombatTrigger.Skip))
             return;
 
+        if (!CanPlayerControlActiveUnit())
+            return;
+
         var skipAction = new SkipTurnAction();
         AttachAction(skipAction);
         skipAction.Resolve();
@@ -84,6 +87,9 @@ public sealed class CombatLoopMachine
 
         var activeUnit = _ctx.ActiveUnit;
         if (activeUnit == null)
+            return;
+
+        if (!IsFriendlyUnit(activeUnit))
             return;
 
         var defendAction = new DefendAction();
@@ -179,6 +185,9 @@ public sealed class CombatLoopMachine
 
     private void TurnActionHost()
     {
+        if (!CanPlayerControlActiveUnit())
+            return;
+
         AttachNewAttackAction();
     }
 
@@ -240,6 +249,9 @@ public sealed class CombatLoopMachine
 
     private void OnActionCancelled()
     {
+        if (!CanPlayerControlActiveUnit())
+            return;
+
         AttachNewAttackAction();
     }
 
@@ -290,5 +302,22 @@ public sealed class CombatLoopMachine
         // если бой завершён → фазовая машина должна вызвать EndCombat
         // иначе новый раунд:
         _sm.Fire(CombatTrigger.EndRound);
+    }
+
+    private bool CanPlayerControlActiveUnit()
+    {
+        var activeUnit = _ctx.ActiveUnit;
+        if (activeUnit == null)
+            return false;
+
+        return IsFriendlyUnit(activeUnit);
+    }
+
+    private static bool IsFriendlyUnit(IReadOnlySquadModel unit)
+    {
+        if (unit?.UnitDefinition == null)
+            return false;
+
+        return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
     }
 }
