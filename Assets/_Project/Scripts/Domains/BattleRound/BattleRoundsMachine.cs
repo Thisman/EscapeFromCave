@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Stateless;
 using UnityEngine;
@@ -269,15 +270,20 @@ public sealed class BattleRoundsMachine
     {
         var queueController = _ctx.BattleQueueController;
 
+        if (queueController != null)
+        {
+            queueController.NextTurn();
+        }
+
+        _ctx.ActiveUnit = null;
+
+        RemoveDefeatedUnits(queueController, _ctx.BattleGridController);
+
         if (queueController == null)
         {
-            _ctx.ActiveUnit = null;
             _sm.Fire(BattleRoundTrigger.QueueEmpty);
             return;
         }
-
-        queueController.NextTurn();
-        _ctx.ActiveUnit = null;
 
         _ctx.BattleQueueUIController?.Render(queueController);
 
@@ -289,6 +295,68 @@ public sealed class BattleRoundsMachine
         }
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
+    {
+        var units = _ctx.BattleUnits;
+        if (units == null || units.Count == 0)
+        {
+            _ctx.BattleUnits = Array.Empty<BattleSquadController>();
+            return;
+        }
+
+        var aliveUnits = new List<BattleSquadController>(units.Count);
+        var defeatedUnits = new List<BattleSquadController>();
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var model = unitController.GetSquadModel();
+
+            if (model == null || model.Count > 0)
+            {
+                aliveUnits.Add(unitController);
+                continue;
+            }
+
+            defeatedUnits.Add(unitController);
+        }
+
+        if (defeatedUnits.Count == 0)
+            return;
+
+        _ctx.BattleUnits = aliveUnits.Count > 0
+            ? aliveUnits
+            : Array.Empty<BattleSquadController>();
+
+        foreach (var defeatedUnit in defeatedUnits)
+        {
+            if (defeatedUnit == null)
+                continue;
+
+            var model = defeatedUnit.GetSquadModel();
+
+            if (queueController != null && model != null)
+            {
+                while (queueController.Remove(model))
+                {
+                }
+            }
+
+            if (gridController != null)
+            {
+                var defeatedTransform = defeatedUnit.transform;
+                if (defeatedTransform != null)
+                {
+                    gridController.TryRemoveOccupant(defeatedTransform, out _);
+                }
+            }
+
+            UnityEngine.Object.Destroy(defeatedUnit.gameObject);
+        }
     }
 
     private void RoundEnd()
