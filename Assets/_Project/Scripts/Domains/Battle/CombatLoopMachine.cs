@@ -61,7 +61,9 @@ public sealed class CombatLoopMachine
         if (!_sm.CanFire(CombatTrigger.Skip))
             return;
 
-        _sm.Fire(CombatTrigger.Skip);
+        var skipAction = new SkipTurnAction();
+        AttachAction(skipAction);
+        skipAction.Resolve();
     }
 
     public void DefendActiveUnit()
@@ -84,8 +86,9 @@ public sealed class CombatLoopMachine
         if (activeUnit == null)
             return;
 
-        _defendingUnit = activeUnit;
-        _sm.Fire(CombatTrigger.Skip);
+        var defendAction = new DefendAction();
+        AttachAction(defendAction);
+        defendAction.Resolve();
     }
 
     private void RoundInit()
@@ -181,12 +184,8 @@ public sealed class CombatLoopMachine
 
     private void AttachNewAttackAction()
     {
-        DetachCurrentAction();
-
         var attackAction = new AttackAction(_ctx);
-        _ctx.CurrentAction = attackAction;
-        attackAction.OnResolve += OnActionResolved;
-        attackAction.OnCancel += OnActionCancelled;
+        AttachAction(attackAction);
     }
 
     private void DetachCurrentAction()
@@ -206,20 +205,42 @@ public sealed class CombatLoopMachine
         _ctx.CurrentAction = null;
     }
 
+    private void AttachAction(IBattleAction action)
+    {
+        if (action == null)
+            throw new ArgumentNullException(nameof(action));
+
+        DetachCurrentAction();
+
+        _ctx.CurrentAction = action;
+        action.OnResolve += OnActionResolved;
+        action.OnCancel += OnActionCancelled;
+    }
+
     private void OnActionResolved()
     {
-        ActionDone();
+        var resolvedAction = _ctx.CurrentAction;
+
+        DetachCurrentAction();
+
+        switch (resolvedAction)
+        {
+            case DefendAction:
+                _defendingUnit = _ctx.ActiveUnit;
+                _sm.Fire(CombatTrigger.Skip);
+                break;
+            case SkipTurnAction:
+                _sm.Fire(CombatTrigger.Skip);
+                break;
+            default:
+                _sm.Fire(CombatTrigger.ActionDone);
+                break;
+        }
     }
 
     private void OnActionCancelled()
     {
         AttachNewAttackAction();
-    }
-
-    private void ActionDone()
-    {
-        DetachCurrentAction();
-        _sm.Fire(CombatTrigger.ActionDone);
     }
 
     private void TurnSkip()
