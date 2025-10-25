@@ -12,9 +12,9 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private IObjectResolver _objectResolver;
 
+    [Inject] private BattleQueueUIController _queueUIController;
     [Inject] private BattleQueueController _battleQueueController;
 
-    [Inject] private BattleQueueUIController _queueUIController;
     [Inject] private BattleTacticUIController _tacticUIController;
     [Inject] private BattleCombatUIController _combatUIController;
     [Inject] private BattleResultsUIController _resultsUIController;
@@ -23,8 +23,8 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private PanelManager _panelManager;
-    private BattleContext _battleContext;
     private BattleSceneData _battleData;
+    private BattleContext _battleContext;
     private BattleRoundsMachine _battleRoundMachine;
     private BattlePhaseMachine _battlePhaseMachine;
 
@@ -41,7 +41,7 @@ public class BattleSceneManager : MonoBehaviour
         InitializeBattleUnits();
         InitializeStateMachines();
 
-        _battlePhaseMachine.Fire(BattleTrigger.Start);
+        _battlePhaseMachine.Fire(BattleTrigger.StartBattle);
     }
 
     private void OnDestroy()
@@ -108,6 +108,10 @@ public class BattleSceneManager : MonoBehaviour
 
             BattleGridController = _battleGridController,
             BattleQueueController = _battleQueueController,
+
+            BattleTacticUIController = _tacticUIController,
+            BattleCombatUIController = _combatUIController,
+            BattleResultsUIController = _resultsUIController,
         };
     }
 
@@ -136,18 +140,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void SubscribeToUiEvents()
     {
-        if (_tacticUIController != null)
-        {
-            _tacticUIController.OnStartCombat += HandleStartCombat;
-        }
-
-        if (_combatUIController != null)
-        {
-            _combatUIController.OnLeaveCombat += HandleLeaveCombat;
-            _combatUIController.OnDefend += HandleDefend;
-            _combatUIController.OnSkipTurn += HandleSkipTurn;
-        }
-
         if (_resultsUIController != null)
         {
             _resultsUIController.OnExitBattle += HandleExitBattle;
@@ -156,48 +148,10 @@ public class BattleSceneManager : MonoBehaviour
 
     private void UnsubscribeFromUiEvents()
     {
-        if (_tacticUIController != null)
-        {
-            _tacticUIController.OnStartCombat -= HandleStartCombat;
-        }
-
-        if (_combatUIController != null)
-        {
-            _combatUIController.OnLeaveCombat -= HandleLeaveCombat;
-            _combatUIController.OnDefend -= HandleDefend;
-            _combatUIController.OnSkipTurn -= HandleSkipTurn;
-        }
-
         if (_resultsUIController != null)
         {
             _resultsUIController.OnExitBattle -= HandleExitBattle;
         }
-    }
-
-    private void HandleStartCombat()
-    {
-        _battlePhaseMachine?.Fire(BattleTrigger.EndTactics);
-    }
-
-    private void HandleLeaveCombat()
-    {
-        _battlePhaseMachine?.Fire(BattleTrigger.EndRounds);
-    }
-
-    private void HandleDefend()
-    {
-        if (_battleRoundMachine == null)
-            return;
-
-        _battleRoundMachine.DefendActiveUnit();
-    }
-
-    private void HandleSkipTurn()
-    {
-        if (_battleRoundMachine == null)
-            return;
-
-        _battleRoundMachine.SkipTurn();
     }
 
     private void HandleExitBattle()

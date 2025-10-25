@@ -18,38 +18,37 @@ public sealed class BattleRoundsMachine
         _sm = new StateMachine<BattleRoundState, BattleRoundTrigger>(BattleRoundState.RoundInit);
 
         _sm.Configure(BattleRoundState.RoundInit)
-            .OnEntry(RoundInit)
-            .Permit(BattleRoundTrigger.BeginRound, BattleRoundState.TurnSelect);
+            .OnEntry(OnRoundInit)
+            .Permit(BattleRoundTrigger.StartRound, BattleRoundState.TurnSelect);
 
         _sm.Configure(BattleRoundState.TurnSelect)
-            .OnEntry(TurnSelect)
+            .OnEntry(OnTurnSelect)
             .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnStart)
-            .Permit(BattleRoundTrigger.Skip, BattleRoundState.TurnSkip)
+            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip)
             .Permit(BattleRoundTrigger.QueueEmpty, BattleRoundState.RoundEnd);
 
         _sm.Configure(BattleRoundState.TurnStart)
-            .OnEntry(TurnStart)
-            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnActionHost)
-            .Permit(BattleRoundTrigger.Skip, BattleRoundState.TurnSkip);
+            .OnEntry(OnTurnStart)
+            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnActionWait)
+            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip);
 
-        _sm.Configure(BattleRoundState.TurnActionHost)
-            .OnEntry(TurnActionHost)
+        _sm.Configure(BattleRoundState.TurnActionWait)
+            .OnEntry(OnTurnActionWait)
             .Permit(BattleRoundTrigger.ActionDone, BattleRoundState.TurnEnd)
-            .Permit(BattleRoundTrigger.Skip, BattleRoundState.TurnSkip);
+            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip);
 
         _sm.Configure(BattleRoundState.TurnSkip)
-            .OnEntry(TurnSkip)
+            .OnEntry(OnTurnSkip)
             .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnEnd);
 
         _sm.Configure(BattleRoundState.TurnEnd)
-            .OnEntry(TurnEnd)
+            .OnEntry(OnTurnEnd)
             .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnSelect)
             .Permit(BattleRoundTrigger.QueueEmpty, BattleRoundState.RoundEnd);
 
         _sm.Configure(BattleRoundState.RoundEnd)
-            .OnEntry(RoundEnd)
-            .Permit(BattleRoundTrigger.EndRound, BattleRoundState.RoundInit)
-            .PermitReentry(BattleRoundTrigger.EndBattleRounds); // будет обработано фазовой машиной
+            .OnEntry(OnRoundEnd)
+            .Permit(BattleRoundTrigger.StartNewRound, BattleRoundState.RoundInit);
     }
 
     public BattleRoundState State => _sm.State;
@@ -60,50 +59,14 @@ public sealed class BattleRoundsMachine
         _sm.Activate();
     }
 
-    public void BeginRound() => _sm.Fire(BattleRoundTrigger.BeginRound);
+    public void BeginRound() => _sm.Fire(BattleRoundTrigger.StartRound);
 
-    public void NextTurn() => _sm.Fire(BattleRoundTrigger.NextTurn);
-
-    public void SkipTurn()
+    private void OnRoundInit()
     {
-        if (!_sm.CanFire(BattleRoundTrigger.Skip))
-            return;
+        _ctx.BattleCombatUIController.OnLeaveCombat += HandleLeaveCombat;
+        _ctx.BattleCombatUIController.OnDefend += HandleDefend;
+        _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
 
-        if (!CanPlayerControlActiveUnit())
-            return;
-
-        var skipAction = new SkipTurnAction();
-        AttachAction(skipAction);
-        skipAction.Resolve();
-    }
-
-    public void DefendActiveUnit()
-    {
-        var queueController = _ctx.BattleQueueController;
-
-        if (queueController == null)
-        {
-            Debug.LogWarning("[CombatLoop] Cannot defend without a BattleQueueController.");
-            return;
-        }
-
-        if (!_sm.CanFire(BattleRoundTrigger.Skip))
-            return;
-
-        var activeUnit = _ctx.ActiveUnit;
-        if (activeUnit == null)
-            return;
-
-        if (!IsFriendlyUnit(activeUnit))
-            return;
-
-        var defendAction = new DefendAction();
-        AttachAction(defendAction);
-        defendAction.Resolve();
-    }
-
-    private void RoundInit()
-    {
         var queueController = _ctx.BattleQueueController;
 
         if (queueController != null)
@@ -124,10 +87,10 @@ public sealed class BattleRoundsMachine
             Debug.LogWarning("[CombatLoop] BattleQueueController is missing in context.");
         }
 
-        _sm.Fire(BattleRoundTrigger.BeginRound);
+        _sm.Fire(BattleRoundTrigger.StartRound);
     }
 
-    private void TurnSelect()
+    private void OnTurnSelect()
     {
         var queueController = _ctx.BattleQueueController;
 
@@ -163,7 +126,7 @@ public sealed class BattleRoundsMachine
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
-    private void TurnStart()
+    private void OnTurnStart()
     {
         var queueController = _ctx.BattleQueueController;
 
@@ -185,12 +148,12 @@ public sealed class BattleRoundsMachine
 
         _ctx.ActiveUnit = queue[0];
 
-        _sm.Fire(BattleRoundTrigger.NextTurn); // к действию
+        _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
-    private void TurnActionHost()
+    private void OnTurnActionWait()
     {
-        if (!CanPlayerControlActiveUnit())
+        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
         {
             var skipAction = new AutoSkipTurnAction(2f);
             AttachAction(skipAction);
@@ -199,6 +162,56 @@ public sealed class BattleRoundsMachine
 
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
+    }
+
+    private void OnTurnSkip()
+    {
+        _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private void OnTurnEnd()
+    {
+        var queueController = _ctx.BattleQueueController;
+
+        if (queueController != null)
+        {
+            queueController.NextTurn();
+        }
+
+        _ctx.ActiveUnit = null;
+
+        RemoveDefeatedUnits(queueController, _ctx.BattleGridController);
+
+        if (CheckForBattleCompletion(queueController))
+            return;
+
+        if (queueController == null)
+        {
+            _sm.Fire(BattleRoundTrigger.QueueEmpty);
+            return;
+        }
+
+        _ctx.BattleQueueUIController?.Render(queueController);
+
+        var queue = queueController.GetQueue();
+        if (queue == null || queue.Count == 0)
+        {
+            _sm.Fire(BattleRoundTrigger.QueueEmpty);
+            return;
+        }
+
+        _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private void OnRoundEnd()
+    {
+        if (_battleFinished)
+            return;
+
+        _ctx.BattleCombatUIController.OnLeaveCombat -= HandleLeaveCombat;
+        _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
+        _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
+        _sm.Fire(BattleRoundTrigger.StartNewRound);
     }
 
     private void AttachAction(IBattleAction action)
@@ -246,11 +259,11 @@ public sealed class BattleRoundsMachine
                 {
                     queueController.AddLast(defendingUnit);
                 }
-                _sm.Fire(BattleRoundTrigger.Skip);
+                _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             case SkipTurnAction:
             case AutoSkipTurnAction:
-                _sm.Fire(BattleRoundTrigger.Skip);
+                _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             default:
                 _sm.Fire(BattleRoundTrigger.ActionDone);
@@ -260,51 +273,11 @@ public sealed class BattleRoundsMachine
 
     private void OnActionCancelled()
     {
-        if (!CanPlayerControlActiveUnit())
+        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
             return;
 
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
-    }
-
-    private void TurnSkip()
-    {
-        // логируем пропуск, публикуем события
-        _sm.Fire(BattleRoundTrigger.NextTurn);
-    }
-
-    private void TurnEnd()
-    {
-        var queueController = _ctx.BattleQueueController;
-
-        if (queueController != null)
-        {
-            queueController.NextTurn();
-        }
-
-        _ctx.ActiveUnit = null;
-
-        RemoveDefeatedUnits(queueController, _ctx.BattleGridController);
-
-        if (CheckForBattleCompletion(queueController))
-            return;
-
-        if (queueController == null)
-        {
-            _sm.Fire(BattleRoundTrigger.QueueEmpty);
-            return;
-        }
-
-        _ctx.BattleQueueUIController?.Render(queueController);
-
-        var queue = queueController.GetQueue();
-        if (queue == null || queue.Count == 0)
-        {
-            _sm.Fire(BattleRoundTrigger.QueueEmpty);
-            return;
-        }
-
-        _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
     private bool CheckForBattleCompletion(BattleQueueController queueController)
@@ -330,7 +303,7 @@ public sealed class BattleRoundsMachine
             if (model == null || model.Count <= 0)
                 continue;
 
-            if (IsFriendlyUnit(model))
+            if (CanPlayerControlActiveUnit(model))
             {
                 hasFriendlyUnits = true;
             }
@@ -436,27 +409,37 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    private void RoundEnd()
+    private void HandleLeaveCombat()
     {
-        // onRoundEnd(), проверка конца боя:
-        // если бой завершён → фазовая машина должна вызвать EndCombat
-        // иначе новый раунд:
-        if (_battleFinished)
+        TriggerBattleFinish(_ctx.BattleQueueController);
+    }
+
+    private void HandleDefend() {
+        if (!_sm.CanFire(BattleRoundTrigger.SkipTurn))
             return;
 
-        _sm.Fire(BattleRoundTrigger.EndRound);
+        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
+            return;
+
+        var defendAction = new DefendAction();
+        AttachAction(defendAction);
+        defendAction.Resolve();
     }
 
-    private bool CanPlayerControlActiveUnit()
+    private void HandleSkipTurn()
     {
-        var activeUnit = _ctx.ActiveUnit;
-        if (activeUnit == null)
-            return false;
+        if (!_sm.CanFire(BattleRoundTrigger.SkipTurn))
+            return;
 
-        return IsFriendlyUnit(activeUnit);
+        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
+            return;
+
+        var skipAction = new SkipTurnAction();
+        AttachAction(skipAction);
+        skipAction.Resolve();
     }
 
-    private static bool IsFriendlyUnit(IReadOnlySquadModel unit)
+    private bool CanPlayerControlActiveUnit(IReadOnlySquadModel unit)
     {
         if (unit?.UnitDefinition == null)
             return false;
