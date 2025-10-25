@@ -6,8 +6,8 @@ using UnityEngine;
 
 public sealed class BattlePhaseMachine
 {
-    private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly IBattleContext _ctx;
+    private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly BattleRoundsMachine _battleRoundsMachine;
 
     public BattlePhaseMachine(IBattleContext ctx, BattleRoundsMachine battleRoundsMachine)
@@ -31,11 +31,13 @@ public sealed class BattlePhaseMachine
 
         _sm.Configure(BattlePhase.BattleRounds)
             .OnEntry(() => OnEnterRounds())
+            .OnExit(() => OnExitRounds())
             .Permit(BattleTrigger.EndRounds, BattlePhase.Results);
 
         _sm.Configure(BattlePhase.Results)
             .OnEntry(() => OnEnterResults())
-            .Ignore(BattleTrigger.ForceResults); // финал
+            .OnExit(() => OnExitResults())
+            .Ignore(BattleTrigger.ForceResults);
     }
 
     public BattlePhase State => _sm.State;
@@ -50,34 +52,7 @@ public sealed class BattlePhaseMachine
         _ctx.PanelManager?.Show("tactic");
         _ctx.BattleGridDragAndDropController.enabled = true;
 
-        var units = _ctx.BattleUnits;
-        if (_ctx.BattleGridController == null || units == null || units.Count == 0)
-            return;
-
-        bool requiresPlacement = false;
-
-        foreach (var unit in units)
-        {
-            if (unit == null)
-            {
-                requiresPlacement = true;
-                break;
-            }
-
-            if (!_ctx.BattleGridController.TryGetSlotForOccupant(unit.transform, out _))
-            {
-                requiresPlacement = true;
-                break;
-            }
-        }
-
-        if (!requiresPlacement)
-            return;
-
-        if (!_ctx.BattleGridController.TryPlaceUnits(units))
-        {
-            Debug.LogWarning("Failed to place battle units on the grid during tactics phase.");
-        }
+        PlaceUnitsOnGrid();
     }
 
     private void OnEnterRounds()
@@ -91,7 +66,22 @@ public sealed class BattlePhaseMachine
     {
         _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
-        // сериализация результатов, подсчёт лута/опыта
+    }
+
+    private void OnExitTactics()
+    {
+        _ctx.BattleGridController.DisableSlotsCollider();
+        _ctx.BattleGridDragAndDropController.enabled = false;
+    }
+
+    private void OnExitRounds()
+    {
+        // No actions needed on exit from rounds phase currently.
+    }
+
+    private void OnExitResults()
+    {
+        // No actions needed on exit from results phase currently.
     }
 
     private void HandleBattleFinished()
@@ -99,9 +89,13 @@ public sealed class BattlePhaseMachine
         Fire(BattleTrigger.EndRounds);
     }
 
-    private void OnExitTactics()
+    private void PlaceUnitsOnGrid()
     {
-        _ctx.BattleGridController.DisableSlotsCollider();
-        _ctx.BattleGridDragAndDropController.enabled = false;
+        if (_ctx.BattleGridController == null || _ctx.BattleUnits == null || _ctx.BattleUnits.Count == 0)
+            return;
+        if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
+        {
+            Debug.LogWarning("Failed to place battle units on the grid.");
+        }
     }
 }
