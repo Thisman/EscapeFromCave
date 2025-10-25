@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5304983857772435637}
   - component: {fileID: -4288179465582321745}
-  - component: {fileID: 1525755230995814446}
-  - component: {fileID: 5487807155608044040}
+  - component: {fileID: 8431889633247697648}
+  - component: {fileID: 7984291329870025893}
   m_Layer: 0
   m_Name: BattleSquad
   m_TagString: Draggable
@@ -81,7 +81,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1525755230995814446
+--- !u!114 &8431889633247697648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2995498901232598968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ddc444f0be94dd89ea1b9ba4c19914a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1893f9389a7bdee4c93e498e04485777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSquadController
---- !u!114 &5487807155608044040
+--- !u!114 &7984291329870025893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,11 +102,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2995498901232598968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bbef89bb1a4e00ab0b61235b89cf4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 86d880352c023574993863f6770bd024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSquadAnimationController
   _spriteRenderer: {fileID: 6778397580762529526}
-  _unitController: {fileID: 1525755230995814446}
+  _unitController: {fileID: 8431889633247697648}
+  _damageFlashColor: {r: 1, g: 0, b: 0, a: 0.09803922}
+  _damageFlashDuration: 0.5
+  _damageFlashFrequency: 6
 --- !u!1 &4040300121593027273
 GameObject:
   m_ObjectHideFlags: 0

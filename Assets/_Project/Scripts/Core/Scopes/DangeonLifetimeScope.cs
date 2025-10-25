@@ -4,17 +4,17 @@ using VContainer.Unity;
 
 public class DangeonLifetimeScope : LifetimeScope
 {
-    [SerializeField] private DialogController dialogController;
+    [SerializeField] private DialogManager _dialogManager;
 
     protected override void Configure(IContainerBuilder builder)
     {
-        if (dialogController != null)
+        if (_dialogManager != null)
         {
-            builder.RegisterInstance(dialogController).AsSelf();
+            builder.RegisterInstance(_dialogManager).AsSelf();
         }
         else
         {
-            Debug.LogWarning("[GameLifetimeScope] DialogController reference is missing. Dialog interactions will be unavailable.");
+            Debug.LogWarning("[GameLifetimeScope] DialogManager reference is missing. Dialog interactions will be unavailable.");
         }
     }
 }

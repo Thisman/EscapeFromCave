@@ -11,10 +11,10 @@ public sealed class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactableMask = ~0;
     [SerializeField, Min(1)] private int maxCandidates = 16;
 
-    [Inject] private InputService _inputService;
-    [Inject] private SceneLoader _sceneLoader;
-    [Inject] private DialogController _dialogController;
-    [Inject] private InputRouter _inputRouter;
+    [Inject] private readonly SceneLoader _sceneLoader;
+    [Inject] private readonly InputRouter _inputRouter;
+    [Inject] private readonly InputService _inputService;
+    [Inject] private readonly DialogManager _dialogManager;
 
     private InputAction _interactAction;
     private Collider2D[] _hits;
@@ -146,7 +146,7 @@ public sealed class PlayerInteraction : MonoBehaviour
             Point = transform.position,
             Time = Time.time,
             SceneLoader = _sceneLoader,
-            DialogController = _dialogController,
+            DialogManager = _dialogManager,
             InputRouter = _inputRouter,
         };
 

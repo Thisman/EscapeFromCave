@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c85678b87793c47ae59811f4f335a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ca6756907ad2a645944713e441cb061, type: 3}
   m_Name: Chest_Test_DestroyEffect
   m_EditorClassIdentifier: Assembly-CSharp::DestroyEffect
   delay: 0

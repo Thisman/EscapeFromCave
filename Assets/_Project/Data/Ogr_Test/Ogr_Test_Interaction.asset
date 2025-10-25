@@ -18,7 +18,6 @@ MonoBehaviour:
   Effects:
   - {fileID: 11400000, guid: 87244d7e58f249f40aac809cd04f89d8, type: 2}
   - {fileID: 11400000, guid: 841dfbde12b47ab4ba2a11505a1e7249, type: 2}
-  - {fileID: 11400000, guid: 9753b397b5c37ce48900e28240fe672c, type: 2}
-  - {fileID: 11400000, guid: b2718067fb20bcc49bf058f5ebbab317, type: 2}
+  - {fileID: 11400000, guid: cb40bdc19eab7db4cbe982fb54dcac41, type: 2}
   Conditions: []
   TargetResolver: {fileID: 11400000, guid: ef16b7d332364c244a8d04ab98d411b6, type: 2}

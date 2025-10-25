@@ -8,9 +8,9 @@ public sealed class BattlePhaseMachine
 {
     private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly IBattleContext _ctx;
-    private readonly CombatLoopMachine _combat;
+    private readonly BattleRound _combat;
 
-    public BattlePhaseMachine(IBattleContext ctx, CombatLoopMachine combat)
+    public BattlePhaseMachine(IBattleContext ctx, BattleRound combat)
     {
         _ctx = ctx;
         _combat = combat;
@@ -42,7 +42,7 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterTactics()
     {
-        _ctx.PanelController?.Show("tactic");
+        _ctx.PanelManager?.Show("tactic");
         _ctx.BattleGridDragAndDropController.enabled = true;
 
         var units = _ctx.BattleUnits;
@@ -77,14 +77,14 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterCombat()
     {
-        _ctx.PanelController?.Show("combat");
+        _ctx.PanelManager?.Show("combat");
         _combat.Reset();
         _combat.BeginRound();
     }
 
     private void OnEnterResults()
     {
-        _ctx.PanelController?.Show("results");
+        _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
         // сериализация результатов, подсчёт лута/опыта
     }
