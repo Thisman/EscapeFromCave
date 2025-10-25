@@ -16,6 +16,11 @@ public sealed class BattlePhaseMachine
         _battleRoundsMachine = battleRoundsMachine;
         _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Loading);
 
+        if (_battleRoundsMachine != null)
+        {
+            _battleRoundsMachine.BattleFinished += HandleBattleFinished;
+        }
+
         _sm.Configure(BattlePhase.Loading)
             .Permit(BattleTrigger.Start, BattlePhase.Tactics);
 
@@ -87,6 +92,11 @@ public sealed class BattlePhaseMachine
         _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
         // сериализация результатов, подсчёт лута/опыта
+    }
+
+    private void HandleBattleFinished()
+    {
+        Fire(BattleTrigger.EndRounds);
     }
 
     private void OnExitTactics()

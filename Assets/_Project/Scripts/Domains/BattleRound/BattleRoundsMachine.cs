@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Stateless;
 using UnityEngine;
@@ -7,6 +8,9 @@ public sealed class BattleRoundsMachine
 {
     private readonly IBattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
+    private bool _battleFinished;
+
+    public event Action BattleFinished;
 
     public BattleRoundsMachine(IBattleContext ctx)
     {
@@ -50,7 +54,11 @@ public sealed class BattleRoundsMachine
 
     public BattleRoundState State => _sm.State;
 
-    public void Reset() => _sm.Activate();
+    public void Reset()
+    {
+        _battleFinished = false;
+        _sm.Activate();
+    }
 
     public void BeginRound() => _sm.Fire(BattleRoundTrigger.BeginRound);
 
@@ -269,15 +277,23 @@ public sealed class BattleRoundsMachine
     {
         var queueController = _ctx.BattleQueueController;
 
+        if (queueController != null)
+        {
+            queueController.NextTurn();
+        }
+
+        _ctx.ActiveUnit = null;
+
+        RemoveDefeatedUnits(queueController, _ctx.BattleGridController);
+
+        if (CheckForBattleCompletion(queueController))
+            return;
+
         if (queueController == null)
         {
-            _ctx.ActiveUnit = null;
             _sm.Fire(BattleRoundTrigger.QueueEmpty);
             return;
         }
-
-        queueController.NextTurn();
-        _ctx.ActiveUnit = null;
 
         _ctx.BattleQueueUIController?.Render(queueController);
 
@@ -291,11 +307,143 @@ public sealed class BattleRoundsMachine
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
+    private bool CheckForBattleCompletion(BattleQueueController queueController)
+    {
+        if (_battleFinished)
+            return true;
+
+        var units = _ctx.BattleUnits;
+
+        if (units == null || units.Count == 0)
+            return TriggerBattleFinish(queueController);
+
+        bool hasFriendlyUnits = false;
+        bool hasEnemyUnits = false;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var model = unitController.GetSquadModel();
+
+            if (model == null || model.Count <= 0)
+                continue;
+
+            if (IsFriendlyUnit(model))
+            {
+                hasFriendlyUnits = true;
+            }
+            else
+            {
+                hasEnemyUnits = true;
+            }
+
+            if (hasFriendlyUnits && hasEnemyUnits)
+                return false;
+        }
+
+        if (!hasFriendlyUnits && !hasEnemyUnits)
+            return TriggerBattleFinish(queueController);
+
+        if (hasFriendlyUnits == hasEnemyUnits)
+            return false;
+
+        return TriggerBattleFinish(queueController);
+    }
+
+    private bool TriggerBattleFinish(BattleQueueController queueController)
+    {
+        if (_battleFinished)
+            return true;
+
+        _battleFinished = true;
+
+        if (queueController != null)
+        {
+            queueController.Rebuild(Array.Empty<IReadOnlySquadModel>());
+        }
+
+        if (_sm.CanFire(BattleRoundTrigger.QueueEmpty))
+        {
+            _sm.Fire(BattleRoundTrigger.QueueEmpty);
+        }
+
+        BattleFinished?.Invoke();
+
+        return true;
+    }
+
+    private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
+    {
+        var units = _ctx.BattleUnits;
+        if (units == null || units.Count == 0)
+        {
+            _ctx.BattleUnits = Array.Empty<BattleSquadController>();
+            return;
+        }
+
+        var aliveUnits = new List<BattleSquadController>(units.Count);
+        var defeatedUnits = new List<BattleSquadController>();
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var model = unitController.GetSquadModel();
+
+            if (model == null || model.Count > 0)
+            {
+                aliveUnits.Add(unitController);
+                continue;
+            }
+
+            defeatedUnits.Add(unitController);
+        }
+
+        if (defeatedUnits.Count == 0)
+            return;
+
+        _ctx.BattleUnits = aliveUnits.Count > 0
+            ? aliveUnits
+            : Array.Empty<BattleSquadController>();
+
+        foreach (var defeatedUnit in defeatedUnits)
+        {
+            if (defeatedUnit == null)
+                continue;
+
+            var model = defeatedUnit.GetSquadModel();
+
+            if (queueController != null && model != null)
+            {
+                while (queueController.Remove(model))
+                {
+                }
+            }
+
+            if (gridController != null)
+            {
+                var defeatedTransform = defeatedUnit.transform;
+                if (defeatedTransform != null)
+                {
+                    gridController.TryRemoveOccupant(defeatedTransform, out _);
+                }
+            }
+
+            UnityEngine.Object.Destroy(defeatedUnit.gameObject);
+        }
+    }
+
     private void RoundEnd()
     {
         // onRoundEnd(), проверка конца боя:
         // если бой завершён → фазовая машина должна вызвать EndCombat
         // иначе новый раунд:
+        if (_battleFinished)
+            return;
+
         _sm.Fire(BattleRoundTrigger.EndRound);
     }
 

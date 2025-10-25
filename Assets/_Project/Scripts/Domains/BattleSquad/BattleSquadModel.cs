@@ -3,22 +3,28 @@ using System;
 public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
 {
     private readonly SquadModel _sourceModel;
-    private int _count;
+    private readonly int _unitHealth;
+    private int _totalHealth;
 
     public BattleSquadModel(SquadModel sourceModel)
     {
         _sourceModel = sourceModel ?? throw new ArgumentNullException(nameof(sourceModel));
-        _count = _sourceModel.Count;
+        _unitHealth = CalculateUnitHealth(_sourceModel.UnitDefinition);
+        _totalHealth = CalculateInitialTotalHealth();
         _sourceModel.Changed += HandleSourceChanged;
     }
 
     public UnitDefinitionSO UnitDefinition => _sourceModel.UnitDefinition;
 
-    public int Count => _count;
+    public int Count => CalculateCount();
 
-    public bool IsEmpty => _count <= 0;
+    public bool IsEmpty => _totalHealth <= 0;
 
     public SquadModel SourceModel => _sourceModel;
+
+    public int UnitHealth => _unitHealth;
+
+    public int TotalHealth => _totalHealth;
 
     public event Action<IReadOnlySquadModel> Changed;
 
@@ -27,10 +33,21 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
         if (casualties < 0)
             throw new ArgumentOutOfRangeException(nameof(casualties));
 
-        if (casualties == 0)
+        if (casualties == 0 || _unitHealth <= 0)
             return;
 
-        SetCount(Math.Max(0, _count - casualties));
+        ApplyDamage(casualties * _unitHealth);
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        if (damage <= 0)
+            return;
+
+        if (_totalHealth <= 0)
+            return;
+
+        SetTotalHealth(Math.Max(0, _totalHealth - damage));
     }
 
     public void SetCount(int count)
@@ -38,11 +55,15 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
         if (count < 0)
             throw new ArgumentOutOfRangeException(nameof(count));
 
-        if (_count == count)
+        if (_unitHealth <= 0)
+        {
+            if (_totalHealth != 0)
+                SetTotalHealth(0);
             return;
+        }
 
-        _count = count;
-        NotifyChanged();
+        int newTotal = count * _unitHealth;
+        SetTotalHealth(newTotal);
     }
 
     public void Dispose()
@@ -50,13 +71,52 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
         _sourceModel.Changed -= HandleSourceChanged;
     }
 
+    private int CalculateInitialTotalHealth()
+    {
+        if (_unitHealth <= 0)
+            return 0;
+
+        int sourceCount = Math.Max(0, _sourceModel.Count);
+        return sourceCount * _unitHealth;
+    }
+
+    private static int CalculateUnitHealth(UnitDefinitionSO definition)
+    {
+        if (definition == null)
+            return 0;
+
+        var stats = definition.GetStatsForLevel(1);
+        return Math.Max(0, stats.Health);
+    }
+
+    private int CalculateCount()
+    {
+        if (_unitHealth <= 0)
+            return 0;
+
+        if (_totalHealth <= 0)
+            return 0;
+
+        return (_totalHealth + _unitHealth - 1) / _unitHealth;
+    }
+
     private void HandleSourceChanged(IReadOnlySquadModel model)
     {
         int newCount = model?.Count ?? 0;
-        if (_count == newCount)
+        int currentCount = Count;
+        if (newCount == currentCount)
             return;
 
-        _count = newCount;
+        SetCount(newCount);
+    }
+
+    private void SetTotalHealth(int newTotalHealth)
+    {
+        newTotalHealth = Math.Max(0, newTotalHealth);
+        if (_totalHealth == newTotalHealth)
+            return;
+
+        _totalHealth = newTotalHealth;
         NotifyChanged();
     }
 
