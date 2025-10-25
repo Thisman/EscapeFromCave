@@ -8,13 +8,14 @@ public class ArmyModel : IReadOnlyArmyModel
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
     [SerializeField] private List<SquadModel> _slots;
+
+    public event Action<IReadOnlyArmyModel> Changed;
+
     private IReadOnlyList<IReadOnlySquadModel> _readOnlySlots;
 
     public int MaxSlots => _maxSlots;
 
     public IReadOnlyList<IReadOnlySquadModel> Slots => _readOnlySlots;
-
-    public event Action<IReadOnlyArmyModel> Changed;
 
     public ArmyModel(int maxSlots = 3)
     {
@@ -25,13 +26,13 @@ public class ArmyModel : IReadOnlyArmyModel
             _slots.Add(null);
     }
 
-    public IReadOnlySquadModel GetSlot(int index) => IsValid(index) ? _slots[index] : null;
+    public IReadOnlySquadModel GetSlot(int index) => IsValidSlotIndex(index) ? _slots[index] : null;
 
     public IReadOnlyList<IReadOnlySquadModel> GetAllSlots() => _readOnlySlots;
 
     public bool SetSlot(int index, SquadModel squad)
     {
-        if (!IsValid(index)) return false;
+        if (!IsValidSlotIndex(index)) return false;
         var normalized = (squad != null && squad.IsEmpty) ? null : squad;
         bool changed = AssignSlot(index, normalized);
         if (changed)
@@ -41,7 +42,7 @@ public class ArmyModel : IReadOnlyArmyModel
 
     public bool ClearSlot(int index)
     {
-        if (!IsValid(index)) return false;
+        if (!IsValidSlotIndex(index)) return false;
         bool changed = AssignSlot(index, null);
         if (changed)
             Changed?.Invoke(this);
@@ -50,7 +51,7 @@ public class ArmyModel : IReadOnlyArmyModel
 
     public bool SwapSlots(int a, int b)
     {
-        if (!IsValid(a) || !IsValid(b) || a == b) return false;
+        if (!IsValidSlotIndex(a) || !IsValidSlotIndex(b) || a == b) return false;
         var slotA = _slots[a];
         var slotB = _slots[b];
         bool changed = AssignSlot(a, slotB);
@@ -130,7 +131,7 @@ public class ArmyModel : IReadOnlyArmyModel
 
     public bool TryMerge(int fromIndex, int toIndex)
     {
-        if (!IsValid(fromIndex) || !IsValid(toIndex) || fromIndex == toIndex) return false;
+        if (!IsValidSlotIndex(fromIndex) || !IsValidSlotIndex(toIndex) || fromIndex == toIndex) return false;
         var from = _slots[fromIndex];
         var to = _slots[toIndex];
         if (from == null) return false;
@@ -168,28 +169,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return -1;
     }
 
-    private bool IsValid(int i) => i >= 0 && i < _slots.Count;
-    private sealed class ReadOnlySquadList : IReadOnlyList<IReadOnlySquadModel>
-    {
-        private readonly List<SquadModel> _source;
-
-        public ReadOnlySquadList(List<SquadModel> source)
-        {
-            _source = source ?? throw new ArgumentNullException(nameof(source));
-        }
-
-        public IReadOnlySquadModel this[int index] => _source[index];
-
-        public int Count => _source.Count;
-
-        public IEnumerator<IReadOnlySquadModel> GetEnumerator()
-        {
-            for (int i = 0; i < _source.Count; i++)
-                yield return _source[i];
-        }
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
+    private bool IsValidSlotIndex(int i) => i >= 0 && i < _slots.Count;
 
     private bool AssignSlot(int index, SquadModel squad)
     {
@@ -211,5 +191,27 @@ public class ArmyModel : IReadOnlyArmyModel
     private void OnSquadChanged(IReadOnlySquadModel squad)
     {
         Changed?.Invoke(this);
+    }
+
+    private sealed class ReadOnlySquadList : IReadOnlyList<IReadOnlySquadModel>
+    {
+        private readonly List<SquadModel> _source;
+
+        public ReadOnlySquadList(List<SquadModel> source)
+        {
+            _source = source ?? throw new ArgumentNullException(nameof(source));
+        }
+
+        public IReadOnlySquadModel this[int index] => _source[index];
+
+        public int Count => _source.Count;
+
+        public IEnumerator<IReadOnlySquadModel> GetEnumerator()
+        {
+            for (int i = 0; i < _source.Count; i++)
+                yield return _source[i];
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
