@@ -105,58 +105,20 @@
         {
             "name": "Menu",
             "id": "53c8f333-ca3e-4501-be34-7759f017b8a9",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "d4c21a74-86ce-4175-9110-0954820b1fb9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "23171272-715f-40f1-832a-9edf0e0a09c4",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
         },
         {
             "name": "DIalog",
             "id": "84fe2c0c-a6ef-4b1a-a76d-9da718a569da",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "f20b826a-faaa-4cbc-af7d-65a6887175ce",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7c2c93db-4461-45cd-8917-0b7e162b1283",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "Battle",
+            "id": "4178ad6d-5cf5-4764-be5d-1662002d4863",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []

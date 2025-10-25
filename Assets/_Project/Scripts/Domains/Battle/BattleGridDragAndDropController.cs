@@ -17,7 +17,6 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private float _dragPlaneDistance;
-    private readonly List<Collider> _disabledColliders3D = new();
     private readonly List<Collider2D> _disabledColliders2D = new();
 
     private void Awake()
@@ -140,20 +139,10 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
     private void DisableDragObjectColliders()
     {
-        _disabledColliders3D.Clear();
         _disabledColliders2D.Clear();
 
         if (_draggedObject == null)
             return;
-
-        foreach (var collider in _draggedObject.GetComponentsInChildren<Collider>())
-        {
-            if (collider != null && collider.enabled)
-            {
-                _disabledColliders3D.Add(collider);
-                collider.enabled = false;
-            }
-        }
 
         foreach (var collider2D in _draggedObject.GetComponentsInChildren<Collider2D>())
         {
@@ -167,19 +156,12 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
     private void RestoreDragObjectColliders()
     {
-        foreach (var collider in _disabledColliders3D)
-        {
-            if (collider != null)
-                collider.enabled = true;
-        }
-
         foreach (var collider2D in _disabledColliders2D)
         {
             if (collider2D != null)
                 collider2D.enabled = true;
         }
 
-        _disabledColliders3D.Clear();
         _disabledColliders2D.Clear();
     }
 
@@ -243,9 +225,6 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
         Ray ray = _camera.ScreenPointToRay(pointerPosition);
 
-        if (Physics.Raycast(ray, out var hitInfo))
-            return hitInfo.transform;
-
         var hit2D = Physics2D.GetRayIntersection(ray);
         if (hit2D.collider != null)
             return hit2D.transform;
@@ -284,7 +263,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (!_gridController.TryGetSlotSide(resolvedSlot, out var side))
             return false;
 
-        var unitController = _draggedObject.GetComponent<SquadController>();
+        var unitController = _draggedObject.GetComponent<BattleSquadController>();
         if (unitController == null)
             return false;
 
