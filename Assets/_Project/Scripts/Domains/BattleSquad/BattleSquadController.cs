@@ -40,7 +40,13 @@ public class BattleSquadController : MonoBehaviour
             return 0;
 
         var stats = definition.GetStatsForLevel(1);
-        return stats.Damage;
+        var unitDamage = Math.Max(0, stats.Damage);
+        var unitCount = Math.Max(0, model.Count);
+
+        if (unitDamage == 0 || unitCount == 0)
+            return 0;
+
+        return unitDamage * unitCount;
     }
 
     public void ApplyDamage(int damage)
