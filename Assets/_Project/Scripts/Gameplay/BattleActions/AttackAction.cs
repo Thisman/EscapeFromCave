@@ -6,6 +6,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
 {
     private readonly IBattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
+    private readonly IBattleDamageResolver _damageResolver;
     private bool _disposed;
     private bool _resolved;
     private bool _isAwaitingAnimation;
@@ -18,6 +19,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = new DefaultActionTargetResolver(_context);
+        _damageResolver = new DefaultBattleDamageResolver();
         InputSystem.onAfterUpdate += OnAfterInputUpdate;
     }
 
@@ -44,7 +46,29 @@ public sealed class AttackAction : IBattleAction, IDisposable
         if (!_targetResolver.ResolveTarget(actorModel, targetModel))
             return;
 
+        var actorController = FindController(actorModel);
+        if (actorController != null)
+            _damageResolver.ResolveDamage(actorController, unit);
+
         TryResolveWithAnimation(unit);
+    }
+
+    private BattleSquadController FindController(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return null;
+
+        var units = _context.BattleUnits;
+        if (units == null)
+            return null;
+
+        foreach (var squad in units)
+        {
+            if (squad?.GetSquadModel() == model)
+                return squad;
+        }
+
+        return null;
     }
 
     private void TryResolveWithAnimation(BattleSquadController unit)
