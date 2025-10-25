@@ -7,20 +7,20 @@ using VContainer.Unity;
 
 public class BattleSceneManager : MonoBehaviour
 {
-    [SerializeField] private BattleCombatUIController _combatUIController;
-    [SerializeField] private BattleResultsUIController _resultsUIController;
-    [SerializeField] private BattleTacticUIController _tacticUIController;
-    [SerializeField] private BattleQueueUIController _queueUIController;
-
     [SerializeField] private GameObject _battleSquadPrefab;
 
-    private const string BattleSceneName = "BattleScene";
-
-    [Inject] private BattleGridController _battleGridController;
-    [Inject] private BattleQueueController _battleQueueController;
-    [Inject] BattleGridDragAndDropController _battleGridDragAndDropController;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private IObjectResolver _objectResolver;
+
+    [Inject] private BattleQueueController _battleQueueController;
+
+    [Inject] private BattleQueueUIController _queueUIController;
+    [Inject] private BattleTacticUIController _tacticUIController;
+    [Inject] private BattleCombatUIController _combatUIController;
+    [Inject] private BattleResultsUIController _resultsUIController;
+
+    [Inject] private BattleGridController _battleGridController;
+    [Inject] private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private BattleContext _battleContext;
     private BattleRound _combatLoopMachine;
@@ -29,15 +29,13 @@ public class BattleSceneManager : MonoBehaviour
     private BattleSceneData _battleData;
     private string _originSceneName;
 
-    private void Awake()
-    {
-        SubscribeToUiEvents();
-        InitializePanelController();
-    }
+    private const string BattleSceneName = "BattleScene";
 
     private void Start()
     {
         ResolveBattleData();
+        SubscribeToUiEvents();
+        InitializePanelController();
 
         _battleContext = new BattleContext
         {
