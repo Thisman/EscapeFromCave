@@ -8,6 +8,9 @@ public sealed class BattleRoundsMachine
 {
     private readonly IBattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
+    private bool _battleFinished;
+
+    public event Action BattleFinished;
 
     public BattleRoundsMachine(IBattleContext ctx)
     {
@@ -51,7 +54,11 @@ public sealed class BattleRoundsMachine
 
     public BattleRoundState State => _sm.State;
 
-    public void Reset() => _sm.Activate();
+    public void Reset()
+    {
+        _battleFinished = false;
+        _sm.Activate();
+    }
 
     public void BeginRound() => _sm.Fire(BattleRoundTrigger.BeginRound);
 
@@ -279,6 +286,9 @@ public sealed class BattleRoundsMachine
 
         RemoveDefeatedUnits(queueController, _ctx.BattleGridController);
 
+        if (CheckForBattleCompletion(queueController))
+            return;
+
         if (queueController == null)
         {
             _sm.Fire(BattleRoundTrigger.QueueEmpty);
@@ -295,6 +305,73 @@ public sealed class BattleRoundsMachine
         }
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private bool CheckForBattleCompletion(BattleQueueController queueController)
+    {
+        if (_battleFinished)
+            return true;
+
+        var units = _ctx.BattleUnits;
+
+        if (units == null || units.Count == 0)
+            return TriggerBattleFinish(queueController);
+
+        bool hasFriendlyUnits = false;
+        bool hasEnemyUnits = false;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var model = unitController.GetSquadModel();
+
+            if (model == null || model.Count <= 0)
+                continue;
+
+            if (IsFriendlyUnit(model))
+            {
+                hasFriendlyUnits = true;
+            }
+            else
+            {
+                hasEnemyUnits = true;
+            }
+
+            if (hasFriendlyUnits && hasEnemyUnits)
+                return false;
+        }
+
+        if (!hasFriendlyUnits && !hasEnemyUnits)
+            return TriggerBattleFinish(queueController);
+
+        if (hasFriendlyUnits == hasEnemyUnits)
+            return false;
+
+        return TriggerBattleFinish(queueController);
+    }
+
+    private bool TriggerBattleFinish(BattleQueueController queueController)
+    {
+        if (_battleFinished)
+            return true;
+
+        _battleFinished = true;
+
+        if (queueController != null)
+        {
+            queueController.Rebuild(Array.Empty<IReadOnlySquadModel>());
+        }
+
+        if (_sm.CanFire(BattleRoundTrigger.QueueEmpty))
+        {
+            _sm.Fire(BattleRoundTrigger.QueueEmpty);
+        }
+
+        BattleFinished?.Invoke();
+
+        return true;
     }
 
     private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
@@ -364,6 +441,9 @@ public sealed class BattleRoundsMachine
         // onRoundEnd(), проверка конца боя:
         // если бой завершён → фазовая машина должна вызвать EndCombat
         // иначе новый раунд:
+        if (_battleFinished)
+            return;
+
         _sm.Fire(BattleRoundTrigger.EndRound);
     }
 
