@@ -301,6 +301,19 @@ public sealed class BattleRoundsMachine
         if (units == null || units.Count == 0)
             return TriggerBattleFinish(queueController);
 
+        if (queueController != null)
+        {
+            var queue = queueController.GetQueue();
+
+            if (queue != null && queue.Count > 0)
+            {
+                bool heroInQueue = queue.Any(unit => unit?.UnitDefinition?.Type == UnitType.Hero);
+
+                if (!heroInQueue)
+                    return TriggerBattleFinish(queueController);
+            }
+        }
+
         bool hasFriendlyUnits = false;
         bool hasEnemyUnits = false;
 
