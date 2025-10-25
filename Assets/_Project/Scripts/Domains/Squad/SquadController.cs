@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SquadController : MonoBehaviour
 {
+    [SerializeField] private int _count = 1;
     [SerializeField] private UnitDefinitionSO _unitDefinition;
 
     private SquadModel _squadModel;
@@ -15,7 +16,7 @@ public class SquadController : MonoBehaviour
         }
 
         if (_squadModel == null)
-            _squadModel = new SquadModel(_unitDefinition, 1);
+            _squadModel = new SquadModel(_unitDefinition, _count);
     }
 
     public IReadOnlySquadModel GetSquadModel()

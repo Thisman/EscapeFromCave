@@ -9,6 +9,7 @@ public class PlayerArmyController : MonoBehaviour
     private ArmyModel _army;
 
     public IReadOnlyArmyModel Army => _army;
+
     public event Action<IReadOnlyArmyModel> ArmyChanged;
 
     public int MaxSlots => Mathf.Max(1, _maxSlots);
@@ -26,15 +27,23 @@ public class PlayerArmyController : MonoBehaviour
     }
 
     public bool TryAddUnits(UnitDefinitionSO def, int amount) => _army.TryAddUnits(def, amount);
+
     public int RemoveUnits(UnitDefinitionSO def, int amount) => _army.RemoveUnits(def, amount);
+
     public bool TrySplit(UnitDefinitionSO def, int amount) => _army.TrySplit(def, amount);
+
     public bool TryMerge(int fromIndex, int toIndex) => _army.TryMerge(fromIndex, toIndex);
 
     public int GetTotal(UnitDefinitionSO def) => _army.GetTotalUnits(def);
+
     public IReadOnlyList<IReadOnlySquadModel> GetSquads() => _army.GetAllSlots();
+
     public IReadOnlySquadModel GetSlot(int index) => _army.GetSlot(index);
+
     public bool SetSlot(int index, SquadModel squad) => _army.SetSlot(index, squad);
+
     public bool ClearSlot(int index) => _army.ClearSlot(index);
+
     public bool SwapSlots(int a, int b) => _army.SwapSlots(a, b);
 
     private void OnDestroy()
