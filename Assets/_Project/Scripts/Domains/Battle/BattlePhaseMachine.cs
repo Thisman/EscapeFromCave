@@ -101,7 +101,7 @@ public sealed class BattlePhaseMachine
 
     private void OnExitTactics()
     {
-        _ctx.BattleGridController.DisableSlots();
+        _ctx.BattleGridController.DisableSlotsCollider();
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 }

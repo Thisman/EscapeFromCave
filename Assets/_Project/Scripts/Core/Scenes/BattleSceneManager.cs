@@ -210,14 +210,6 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         _battleContext.BattleUnits = collectedUnits;
-
-        if (_battleGridController != null && collectedUnits.Count > 0)
-        {
-            if (!_battleGridController.TryPlaceUnits(collectedUnits))
-            {
-                Debug.LogWarning("[BattleSceneManager] Failed to place battle units on the grid.");
-            }
-        }
     }
 
     private void ResolveBattleData()

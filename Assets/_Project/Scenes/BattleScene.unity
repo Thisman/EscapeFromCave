@@ -2921,11 +2921,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad620ac2a2f45a992ee85831abd80ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleGridDragAndDropController
-  _gridController: {fileID: 1416069488}
   _camera: {fileID: 809895849}
+  _gridController: {fileID: 1416069488}
   _draggableTag: Draggable
-  _validSlotColor: {r: 0, g: 1, b: 0, a: 0.05882353}
-  _invalidSlotColor: {r: 1, g: 0, b: 0, a: 0.05882353}
+  _validSlotColor: {r: 0, g: 1, b: 0, a: 0.09803922}
+  _invalidSlotColor: {r: 1, g: 0, b: 0, a: 0.09803922}
 --- !u!114 &1416069488
 MonoBehaviour:
   m_ObjectHideFlags: 0
