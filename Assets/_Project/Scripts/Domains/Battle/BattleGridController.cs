@@ -57,11 +57,19 @@ public sealed class BattleGridController : MonoBehaviour
 
         unit.SetParent(resolvedSlot, keepWorldPosition);
 
+        var targetRotation = Quaternion.identity;
+
+        if (TryGetSlotSide(resolvedSlot, out var slotSide) && slotSide == BattleGridSlotSide.Ally)
+        {
+            targetRotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+
         if (!keepWorldPosition)
         {
             unit.localPosition = Vector3.zero;
-            unit.localRotation = Quaternion.identity;
         }
+
+        unit.localRotation = targetRotation;
 
         _slotOccupants[resolvedSlot] = unit;
         _occupantSlots[unit] = resolvedSlot;
