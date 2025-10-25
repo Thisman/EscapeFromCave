@@ -15,6 +15,8 @@ public sealed class BattleContext : IBattleContext
 
     public BattleQueueUIController BattleQueueUIController { get; set; }
 
+    public BattleActionControllerResolver BattleActionControllerResolver { get; set; }
+
     public BattleTacticUIController BattleTacticUIController { get; set; }
 
     public BattleCombatUIController BattleCombatUIController { get; set; }

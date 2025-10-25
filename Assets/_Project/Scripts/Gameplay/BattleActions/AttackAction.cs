@@ -9,6 +9,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
     private readonly IBattleDamageResolver _damageResolver;
     private bool _disposed;
     private bool _resolved;
+    private bool _isActive;
     private bool _isAwaitingAnimation;
     private BattleSquadAnimationController _activeAnimationController;
 
@@ -20,6 +21,14 @@ public sealed class AttackAction : IBattleAction, IDisposable
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = new DefaultActionTargetResolver(_context);
         _damageResolver = new DefaultBattleDamageResolver();
+    }
+
+    public void Resolve()
+    {
+        if (_disposed || _isActive)
+            return;
+
+        _isActive = true;
         InputSystem.onAfterUpdate += OnAfterInputUpdate;
     }
 
@@ -171,7 +180,11 @@ public sealed class AttackAction : IBattleAction, IDisposable
         if (_disposed)
             return;
 
-        InputSystem.onAfterUpdate -= OnAfterInputUpdate;
+        if (_isActive)
+        {
+            InputSystem.onAfterUpdate -= OnAfterInputUpdate;
+            _isActive = false;
+        }
         _disposed = true;
         _isAwaitingAnimation = false;
         _activeAnimationController?.CancelDamageFlash();

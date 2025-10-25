@@ -100,6 +100,10 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleContext()
     {
+        var playerTurnController = new PlayerBattleActionController();
+        var enemyTurnController = new AIBattleActionController();
+        var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
+
         _battleContext = new BattleContext
         {
             PanelManager = _panelManager,
@@ -108,6 +112,8 @@ public class BattleSceneManager : MonoBehaviour
 
             BattleGridController = _battleGridController,
             BattleQueueController = _battleQueueController,
+
+            BattleActionControllerResolver = actionControllerResolver,
 
             BattleTacticUIController = _tacticUIController,
             BattleCombatUIController = _combatUIController,
