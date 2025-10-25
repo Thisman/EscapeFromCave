@@ -56,12 +56,11 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (_gridController == null || _camera == null)
             return;
 
-        var hitTransform = RaycastForTransform();
-        if (hitTransform == null)
+        var draggable = RaycastForDraggable();
+        if (draggable == null)
             return;
 
-        var draggable = ResolveDraggable(hitTransform);
-        if (draggable == null)
+        if (!CanDrag(draggable))
             return;
 
         _originalParent = draggable.parent;
@@ -215,6 +214,30 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         return _gridController.TryResolveSlot(hit, out var slot) ? slot : null;
     }
 
+    private Transform RaycastForDraggable()
+    {
+        if (_camera == null)
+            return null;
+
+        if (!TryGetPointerScreenPosition(out var pointerPosition))
+            return null;
+
+        Ray ray = _camera.ScreenPointToRay(pointerPosition);
+        var hits2D = Physics2D.GetRayIntersectionAll(ray);
+
+        foreach (var hit in hits2D)
+        {
+            if (hit.collider == null)
+                continue;
+
+            var draggable = ResolveDraggable(hit.transform);
+            if (draggable != null)
+                return draggable;
+        }
+
+        return null;
+    }
+
     private Transform RaycastForTransform()
     {
         if (_camera == null)
@@ -247,6 +270,22 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         }
 
         return null;
+    }
+
+    private bool CanDrag(Transform draggable)
+    {
+        if (draggable == null)
+            return false;
+
+        var unitController = draggable.GetComponentInParent<BattleSquadController>();
+        if (unitController == null)
+            return false;
+
+        var squadModel = unitController.GetSquadModel();
+        if (squadModel == null || squadModel.UnitDefinition == null)
+            return false;
+
+        return squadModel.UnitDefinition.Type is UnitType.Ally or UnitType.Hero;
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)
