@@ -34,6 +34,14 @@ public sealed class BattleGridController : MonoBehaviour
 
     public IReadOnlyList<Transform> EnemySlots => _enemySlots;
 
+    public void DisableSlots()
+    {
+        foreach (var slot in EnumerateSlots())
+        {
+            slot.gameObject.GetComponent<Collider2D>().enabled = false;
+        }
+    }
+
     public bool TryAttachToSlot(Transform slot, Transform unit, bool keepWorldPosition = false)
     {
         if (!TryResolveSlot(slot, out var resolvedSlot) || unit == null)
