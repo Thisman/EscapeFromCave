@@ -14,6 +14,8 @@ public interface IBattleContext
 
     BattleQueueUIController BattleQueueUIController { get; set; }
 
+    BattleActionControllerResolver BattleActionControllerResolver { get; set; }
+
     BattleTacticUIController BattleTacticUIController { get; set; }
 
     BattleCombatUIController BattleCombatUIController { get; set; }
