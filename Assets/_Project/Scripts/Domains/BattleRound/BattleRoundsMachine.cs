@@ -82,9 +82,6 @@ public sealed class BattleRoundsMachine
         if (!_sm.CanFire(BattleRoundTrigger.Skip))
             return;
 
-        if (_defendingUnit != null)
-            return;
-
         var activeUnit = _ctx.ActiveUnit;
         if (activeUnit == null)
             return;
@@ -244,7 +241,13 @@ public sealed class BattleRoundsMachine
         switch (resolvedAction)
         {
             case DefendAction:
-                _defendingUnit = _ctx.ActiveUnit;
+                var defendingUnit = _ctx.ActiveUnit;
+                var queueController = _ctx.BattleQueueController;
+
+                if (defendingUnit != null && queueController != null)
+                {
+                    queueController.AddLast(defendingUnit);
+                }
                 _sm.Fire(BattleRoundTrigger.Skip);
                 break;
             case SkipTurnAction:
@@ -271,8 +274,6 @@ public sealed class BattleRoundsMachine
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
-    private IReadOnlySquadModel _defendingUnit;
-
     private void TurnEnd()
     {
         var queueController = _ctx.BattleQueueController;
@@ -284,14 +285,7 @@ public sealed class BattleRoundsMachine
             return;
         }
 
-        var finishedUnit = queueController.NextTurn();
-
-        if (finishedUnit != null && _defendingUnit != null && ReferenceEquals(finishedUnit, _defendingUnit))
-        {
-            queueController.AddLast(finishedUnit);
-        }
-
-        _defendingUnit = null;
+        queueController.NextTurn();
         _ctx.ActiveUnit = null;
 
         _ctx.BattleQueueUIController?.Render(queueController);
