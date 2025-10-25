@@ -64,8 +64,6 @@ public sealed class BattleRoundsMachine
     private void OnRoundInit()
     {
         _ctx.BattleCombatUIController.OnLeaveCombat += HandleLeaveCombat;
-        _ctx.BattleCombatUIController.OnDefend += HandleDefend;
-        _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
 
         var queueController = _ctx.BattleQueueController;
 
@@ -153,43 +151,9 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnActionWait()
     {
-        var activeUnit = _ctx.ActiveUnit;
-
-        if (activeUnit == null)
-        {
-            Debug.LogWarning("[CombatLoop] Active unit is missing. Skipping turn.");
-            _sm.Fire(BattleRoundTrigger.SkipTurn);
-            return;
-        }
-
-        var resolver = _ctx.BattleActionControllerResolver;
-
-        if (resolver == null)
-        {
-            Debug.LogWarning("[CombatLoop] BattleActionControllerResolver is missing in context. Skipping turn.");
-            _sm.Fire(BattleRoundTrigger.SkipTurn);
-            return;
-        }
-
-        IBattleActionController controller;
-
-        try
-        {
-            controller = resolver.ResolveFor(activeUnit);
-        }
-        catch (Exception exception)
-        {
-            Debug.LogException(exception);
-            _sm.Fire(BattleRoundTrigger.SkipTurn);
-            return;
-        }
-
-        if (controller == null)
-        {
-            Debug.LogWarning("[CombatLoop] Battle action controller is missing. Skipping turn.");
-            _sm.Fire(BattleRoundTrigger.SkipTurn);
-            return;
-        }
+        IReadOnlySquadModel activeUnit = _ctx.ActiveUnit;
+        BattleActionControllerResolver resolver = _ctx.BattleActionControllerResolver;
+        IBattleActionController controller = resolver.ResolveFor(activeUnit);
 
         controller.RequestAction(_ctx, action =>
         {
@@ -259,8 +223,6 @@ public sealed class BattleRoundsMachine
             return;
 
         _ctx.BattleCombatUIController.OnLeaveCombat -= HandleLeaveCombat;
-        _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
-        _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
         _sm.Fire(BattleRoundTrigger.StartNewRound);
     }
 
@@ -326,9 +288,7 @@ public sealed class BattleRoundsMachine
         if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
             return;
 
-        var attackAction = new AttackAction(_ctx);
-        AttachAction(attackAction);
-        attackAction.Resolve();
+        OnTurnActionWait();
     }
 
     private bool CheckForBattleCompletion(BattleQueueController queueController)
@@ -463,31 +423,6 @@ public sealed class BattleRoundsMachine
     private void HandleLeaveCombat()
     {
         TriggerBattleFinish(_ctx.BattleQueueController);
-    }
-
-    private void HandleDefend() {
-        if (!_sm.CanFire(BattleRoundTrigger.SkipTurn))
-            return;
-
-        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
-            return;
-
-        var defendAction = new DefendAction();
-        AttachAction(defendAction);
-        defendAction.Resolve();
-    }
-
-    private void HandleSkipTurn()
-    {
-        if (!_sm.CanFire(BattleRoundTrigger.SkipTurn))
-            return;
-
-        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
-            return;
-
-        var skipAction = new SkipTurnAction();
-        AttachAction(skipAction);
-        skipAction.Resolve();
     }
 
     private bool CanPlayerControlActiveUnit(IReadOnlySquadModel unit)
