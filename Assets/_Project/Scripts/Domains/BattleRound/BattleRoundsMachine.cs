@@ -153,15 +153,55 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnActionWait()
     {
-        if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
+        var activeUnit = _ctx.ActiveUnit;
+
+        if (activeUnit == null)
         {
-            var skipAction = new AutoSkipTurnAction(2f);
-            AttachAction(skipAction);
+            Debug.LogWarning("[CombatLoop] Active unit is missing. Skipping turn.");
+            _sm.Fire(BattleRoundTrigger.SkipTurn);
             return;
         }
 
-        var attackAction = new AttackAction(_ctx);
-        AttachAction(attackAction);
+        var resolver = _ctx.BattleActionControllerResolver;
+
+        if (resolver == null)
+        {
+            Debug.LogWarning("[CombatLoop] BattleActionControllerResolver is missing in context. Using default action.");
+            AttachDefaultActionFor(activeUnit);
+            return;
+        }
+
+        IBattleActionController controller;
+
+        try
+        {
+            controller = resolver.ResolveFor(activeUnit);
+        }
+        catch (Exception exception)
+        {
+            Debug.LogException(exception);
+            AttachDefaultActionFor(activeUnit);
+            return;
+        }
+
+        if (controller == null)
+        {
+            Debug.LogWarning("[CombatLoop] Battle action controller is missing. Using default action.");
+            AttachDefaultActionFor(activeUnit);
+            return;
+        }
+
+        controller.RequestAction(_ctx, action =>
+        {
+            if (action == null)
+            {
+                Debug.LogWarning("[CombatLoop] Battle action controller returned no action. Using default action.");
+                AttachDefaultActionFor(activeUnit);
+                return;
+            }
+
+            AttachAction(action);
+        });
     }
 
     private void OnTurnSkip()
@@ -275,6 +315,22 @@ public sealed class BattleRoundsMachine
     {
         if (!CanPlayerControlActiveUnit(_ctx.ActiveUnit))
             return;
+
+        var attackAction = new AttackAction(_ctx);
+        AttachAction(attackAction);
+    }
+
+    private void AttachDefaultActionFor(IReadOnlySquadModel unit)
+    {
+        if (unit == null)
+            return;
+
+        if (!CanPlayerControlActiveUnit(unit))
+        {
+            var skipAction = new AutoSkipTurnAction(2f);
+            AttachAction(skipAction);
+            return;
+        }
 
         var attackAction = new AttackAction(_ctx);
         AttachAction(attackAction);
