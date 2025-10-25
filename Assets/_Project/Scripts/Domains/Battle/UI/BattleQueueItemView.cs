@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _icon;
+    [SerializeField] private TextMeshProUGUI _countText;
     [SerializeField] private Transform _animatedTarget;
     [SerializeField] private float _hoverOffset = 10f;
     [SerializeField] private float _animationDuration = 0.2f;
@@ -26,11 +28,13 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
         {
             _icon.sprite = unit.UnitDefinition.Icon;
             _icon.enabled = unit.UnitDefinition.Icon != null;
+            _countText.text = unit.Count.ToString();
         }
         else
         {
             _icon.sprite = null;
             _icon.enabled = false;
+            _countText.text = "";
         }
     }
 
