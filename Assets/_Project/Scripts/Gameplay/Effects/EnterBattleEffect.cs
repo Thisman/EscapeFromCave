@@ -42,11 +42,23 @@ public sealed class EnterBattleEffect : EffectSO
         var data = new BattleSceneData(heroSetup, armySetups, enemySetup, ctx.Actor, enemyObject);
         var payload = new BattleScenePayload(data);
 
-        ctx.InputRouter?.EnterBattle();
+        var inputRouter = ctx.InputRouter;
+        inputRouter?.EnterBattle();
 
-        var loadTask = ctx.SceneLoader.LoadAdditiveWithDataAsync<BattleSceneData, object>(BattleSceneName, payload);
-        _ = HandleLoadTaskAsync(loadTask);
-        await Task.CompletedTask;
+        try
+        {
+            await ctx.SceneLoader
+                .LoadAdditiveWithDataAsync<BattleSceneData, object>(BattleSceneName, payload)
+                .ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[EnterBattleEffect] Battle scene session failed: {ex}");
+        }
+        finally
+        {
+            inputRouter?.EnterGameplay();
+        }
     }
 
     private static BattleSquadSetup ResolveHero(GameObject actor)
@@ -150,15 +162,4 @@ public sealed class EnterBattleEffect : EffectSO
         return false;
     }
 
-    private static async Task HandleLoadTaskAsync(Task task)
-    {
-        try
-        {
-            await task.ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[EnterBattleEffect] Battle scene load task failed: {ex}");
-        }
-    }
 }
