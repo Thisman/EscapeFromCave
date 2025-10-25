@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum BattleGridSlotSide
 {
@@ -34,7 +33,7 @@ public sealed class BattleGridController : MonoBehaviour
 
     public IReadOnlyList<Transform> EnemySlots => _enemySlots;
 
-    public void DisableSlots()
+    public void DisableSlotsCollider()
     {
         foreach (var slot in EnumerateSlots())
         {
@@ -94,11 +93,6 @@ public sealed class BattleGridController : MonoBehaviour
         }
 
         return true;
-    }
-
-    public bool IsSlotOccupied(Transform slot)
-    {
-        return !IsSlotEmpty(slot);
     }
 
     public void HighlightSlot(Transform slot, Color color)
@@ -238,89 +232,6 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
-    public bool TryPlaceUnits(GameObject[] unitPrefabs)
-    {
-        if (unitPrefabs == null)
-            return false;
-
-        if (unitPrefabs.Length == 0)
-            return true;
-
-        var models = new List<IReadOnlySquadModel>(unitPrefabs.Length);
-        var instances = new Transform[unitPrefabs.Length];
-
-        for (int i = 0; i < unitPrefabs.Length; i++)
-        {
-            var prefab = unitPrefabs[i];
-
-            if (prefab == null)
-            {
-                CleanupInstances(instances);
-                return false;
-            }
-
-            var instance = Instantiate(prefab, transform);
-            if (instance == null)
-            {
-                CleanupInstances(instances);
-                return false;
-            }
-
-            var instanceTransform = instance.transform;
-            instances[i] = instanceTransform;
-
-            var battleController = instance.GetComponent<BattleSquadController>();
-            if (battleController == null)
-            {
-                CleanupInstances(instances);
-                return false;
-            }
-
-            var battleModel = battleController.GetSquadModel();
-            if (battleModel == null)
-            {
-                TryInitializeBattleSquad(battleController, instance);
-                battleModel = battleController.GetSquadModel();
-            }
-
-            if (battleModel == null || battleModel.UnitDefinition == null)
-            {
-                CleanupInstances(instances);
-                return false;
-            }
-
-            models.Add(battleModel);
-        }
-
-        if (!TryAllocateSlots(models, out var assignments))
-        {
-            CleanupInstances(instances);
-            return false;
-        }
-
-        for (int i = 0; i < assignments.Length; i++)
-        {
-            if (TryAttachToSlot(assignments[i], instances[i]))
-                continue;
-
-            for (int revertIndex = 0; revertIndex < i; revertIndex++)
-            {
-                var revertInstance = instances[revertIndex];
-                if (revertInstance == null)
-                    continue;
-
-                TryRemoveOccupant(revertInstance, out _);
-                Destroy(revertInstance.gameObject);
-                instances[revertIndex] = null;
-            }
-
-            CleanupInstances(instances);
-            return false;
-        }
-
-        return true;
-    }
-
     public bool TryPlaceUnits(IReadOnlyList<BattleSquadController> unitControllers)
     {
         if (unitControllers == null)
@@ -384,21 +295,6 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
-    private void TryInitializeBattleSquad(BattleSquadController battleController, GameObject instance)
-    {
-        if (battleController == null || instance == null)
-            return;
-
-        var baseUnitController = instance.GetComponent<SquadController>();
-        if (baseUnitController == null)
-            return;
-
-        if (baseUnitController.GetSquadModel() is SquadModel squadModel)
-        {
-            battleController.Initialize(new BattleSquadModel(squadModel));
-        }
-    }
-
     private bool TryAllocateSlots(IReadOnlyList<IReadOnlySquadModel> models, out Transform[] assignments)
     {
         assignments = null;
@@ -451,23 +347,6 @@ public sealed class BattleGridController : MonoBehaviour
         }
 
         return true;
-    }
-
-    private void CleanupInstances(Transform[] instances)
-    {
-        if (instances == null)
-            return;
-
-        for (int i = 0; i < instances.Length; i++)
-        {
-            var instance = instances[i];
-            if (instance == null)
-                continue;
-
-            TryRemoveOccupant(instance, out _);
-            Destroy(instance.gameObject);
-            instances[i] = null;
-        }
     }
 
     public bool TryResolveSlot(Transform candidate, out Transform slot)
@@ -669,18 +548,6 @@ public sealed class BattleGridController : MonoBehaviour
         if (slot.TryGetComponent(out SpriteRenderer spriteRenderer))
         {
             state = new SlotVisualState(spriteRenderer.color, c => spriteRenderer.color = c);
-            return true;
-        }
-
-        if (slot.TryGetComponent(out Graphic graphic))
-        {
-            state = new SlotVisualState(graphic.color, c => graphic.color = c);
-            return true;
-        }
-
-        if (slot.TryGetComponent(out Renderer renderer) && renderer.material != null)
-        {
-            state = new SlotVisualState(renderer.material.color, c => renderer.material.color = c);
             return true;
         }
 

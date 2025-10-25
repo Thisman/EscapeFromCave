@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 
 public sealed class BattleGridDragAndDropController : MonoBehaviour
 {
-    [SerializeField] private BattleGridController _gridController;
     [SerializeField] private Camera _camera;
+    [SerializeField] private BattleGridController _gridController;
     [SerializeField] private string _draggableTag = "Draggable";
     [SerializeField] private Color _validSlotColor = Color.green;
     [SerializeField] private Color _invalidSlotColor = Color.red;
 
-    private Transform _draggedObject;
     private Transform _originSlot;
     private Transform _hoveredSlot;
+    private Transform _draggedObject;
     private Transform _originalParent;
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;

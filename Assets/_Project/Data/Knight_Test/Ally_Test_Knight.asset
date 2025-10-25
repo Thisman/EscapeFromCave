@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
   m_Name: Ally_Test_Knight
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: 2783893222895161197, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Ally_Test_Archer
   Type: 1
-  Icon: {fileID: 2783893222895161197, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   Levels:
   - LevelIndex: 0
     XPToNext: 100
-    Health: 50
-    Damage: 15
+    Health: 80
+    Damage: 20
     Defense: 10
     Initiative: 1
     Speed: 0

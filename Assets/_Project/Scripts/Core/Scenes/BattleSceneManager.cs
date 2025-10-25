@@ -12,9 +12,9 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private IObjectResolver _objectResolver;
 
+    [Inject] private BattleQueueUIController _queueUIController;
     [Inject] private BattleQueueController _battleQueueController;
 
-    [Inject] private BattleQueueUIController _queueUIController;
     [Inject] private BattleTacticUIController _tacticUIController;
     [Inject] private BattleCombatUIController _combatUIController;
     [Inject] private BattleResultsUIController _resultsUIController;
@@ -23,8 +23,8 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private PanelManager _panelManager;
-    private BattleContext _battleContext;
     private BattleSceneData _battleData;
+    private BattleContext _battleContext;
     private BattleRoundsMachine _battleRoundMachine;
     private BattlePhaseMachine _battlePhaseMachine;
 
@@ -33,10 +33,73 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
-        ResolveBattleData();
-        SubscribeToUiEvents();
         InitializePanelController();
+        SubscribeToUiEvents();
 
+        InitializeBattleData();
+        InitializeBattleContext();
+        InitializeBattleUnits();
+        InitializeStateMachines();
+
+        _battlePhaseMachine.Fire(BattleTrigger.StartBattle);
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeFromUiEvents();
+    }
+
+    private void InitializeBattleData()
+    {
+        if (_sceneLoader == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] SceneLoader was not injected. Unable to resolve battle payload.");
+            return;
+        }
+
+        if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
+        {
+            Debug.LogWarning("[BattleSceneManager] Battle scene payload was not found. Using empty battle setup.");
+            return;
+        }
+
+        _battleData = payload;
+        _originSceneName = ResolveOriginSceneName(payload);
+    }
+
+    private void InitializeBattleUnits()
+    {
+        if (_battleContext == null)
+        {
+            return;
+        }
+
+        var collectedUnits = new List<BattleSquadController>();
+
+        if (_battleData != null)
+        {
+            TryAddUnit(collectedUnits, _battleData.Hero);
+
+            if (_battleData.Army != null)
+            {
+                foreach (var squad in _battleData.Army)
+                {
+                    TryAddUnit(collectedUnits, squad);
+                }
+            }
+
+            TryAddUnit(collectedUnits, _battleData.Enemy);
+        }
+        else
+        {
+            Debug.LogWarning("[BattleSceneManager] Battle data was not resolved. No units will be spawned.");
+        }
+
+        _battleContext.BattleUnits = collectedUnits;
+    }
+
+    private void InitializeBattleContext()
+    {
         _battleContext = new BattleContext
         {
             PanelManager = _panelManager,
@@ -45,19 +108,17 @@ public class BattleSceneManager : MonoBehaviour
 
             BattleGridController = _battleGridController,
             BattleQueueController = _battleQueueController,
+
+            BattleTacticUIController = _tacticUIController,
+            BattleCombatUIController = _combatUIController,
+            BattleResultsUIController = _resultsUIController,
         };
-
-        InitializeBattleUnits();
-
-        _battleRoundMachine = new BattleRoundsMachine(_battleContext);
-        _battlePhaseMachine = new BattlePhaseMachine(_battleContext, _battleRoundMachine);
-
-        _battlePhaseMachine.Fire(BattleTrigger.Start);
     }
 
-    private void OnDestroy()
+    private void InitializeStateMachines()
     {
-        UnsubscribeFromUiEvents();
+        _battleRoundMachine = new BattleRoundsMachine(_battleContext);
+        _battlePhaseMachine = new BattlePhaseMachine(_battleContext, _battleRoundMachine);
     }
 
     private void InitializePanelController()
@@ -79,18 +140,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void SubscribeToUiEvents()
     {
-        if (_tacticUIController != null)
-        {
-            _tacticUIController.OnStartCombat += HandleStartCombat;
-        }
-
-        if (_combatUIController != null)
-        {
-            _combatUIController.OnLeaveCombat += HandleLeaveCombat;
-            _combatUIController.OnDefend += HandleDefend;
-            _combatUIController.OnSkipTurn += HandleSkipTurn;
-        }
-
         if (_resultsUIController != null)
         {
             _resultsUIController.OnExitBattle += HandleExitBattle;
@@ -99,48 +148,10 @@ public class BattleSceneManager : MonoBehaviour
 
     private void UnsubscribeFromUiEvents()
     {
-        if (_tacticUIController != null)
-        {
-            _tacticUIController.OnStartCombat -= HandleStartCombat;
-        }
-
-        if (_combatUIController != null)
-        {
-            _combatUIController.OnLeaveCombat -= HandleLeaveCombat;
-            _combatUIController.OnDefend -= HandleDefend;
-            _combatUIController.OnSkipTurn -= HandleSkipTurn;
-        }
-
         if (_resultsUIController != null)
         {
             _resultsUIController.OnExitBattle -= HandleExitBattle;
         }
-    }
-
-    private void HandleStartCombat()
-    {
-        _battlePhaseMachine?.Fire(BattleTrigger.EndTactics);
-    }
-
-    private void HandleLeaveCombat()
-    {
-        _battlePhaseMachine?.Fire(BattleTrigger.EndRounds);
-    }
-
-    private void HandleDefend()
-    {
-        if (_battleRoundMachine == null)
-            return;
-
-        _battleRoundMachine.DefendActiveUnit();
-    }
-
-    private void HandleSkipTurn()
-    {
-        if (_battleRoundMachine == null)
-            return;
-
-        _battleRoundMachine.SkipTurn();
     }
 
     private void HandleExitBattle()
@@ -179,63 +190,6 @@ public class BattleSceneManager : MonoBehaviour
         {
             Debug.LogError($"[BattleSceneManager] Failed to unload battle scene: {ex}");
         }
-    }
-
-    private void InitializeBattleUnits()
-    {
-        if (_battleContext == null)
-        {
-            return;
-        }
-
-        var collectedUnits = new List<BattleSquadController>();
-
-        if (_battleData != null)
-        {
-            TryAddUnit(collectedUnits, _battleData.Hero);
-
-            if (_battleData.Army != null)
-            {
-                foreach (var squad in _battleData.Army)
-                {
-                    TryAddUnit(collectedUnits, squad);
-                }
-            }
-
-            TryAddUnit(collectedUnits, _battleData.Enemy);
-        }
-        else
-        {
-            Debug.LogWarning("[BattleSceneManager] Battle data was not resolved. No units will be spawned.");
-        }
-
-        _battleContext.BattleUnits = collectedUnits;
-
-        if (_battleGridController != null && collectedUnits.Count > 0)
-        {
-            if (!_battleGridController.TryPlaceUnits(collectedUnits))
-            {
-                Debug.LogWarning("[BattleSceneManager] Failed to place battle units on the grid.");
-            }
-        }
-    }
-
-    private void ResolveBattleData()
-    {
-        if (_sceneLoader == null)
-        {
-            Debug.LogWarning("[BattleSceneManager] SceneLoader was not injected. Unable to resolve battle payload.");
-            return;
-        }
-
-        if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
-        {
-            Debug.LogWarning("[BattleSceneManager] Battle scene payload was not found. Using empty battle setup.");
-            return;
-        }
-
-        _battleData = payload;
-        _originSceneName = ResolveOriginSceneName(payload);
     }
 
     private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
