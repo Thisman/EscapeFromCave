@@ -1,0 +1,1 @@
+public enum BattleTrigger { Start, EndTactics, EndCombat, ForceResults }

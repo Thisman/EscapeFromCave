@@ -1,0 +1,1 @@
+public enum CombatTrigger { BeginRound, NextTurn, Skip, ActionDone, QueueEmpty, EndRound, EndCombat }

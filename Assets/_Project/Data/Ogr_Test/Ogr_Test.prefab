@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541626881315363255}
   - component: {fileID: 1049952634387665156}
-  - component: {fileID: 385590447565543366}
+  - component: {fileID: 4035285883418965749}
   - component: {fileID: -8213997057954841995}
   - component: {fileID: -3009412262272902082}
   - component: {fileID: 8819193310141489975}
@@ -83,7 +83,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &385590447565543366
+--- !u!114 &4035285883418965749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,9 +92,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 999093162817123816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c81fa6cc6fea96e469f0db0e65df3b59, type: 3}
+  m_Script: {fileID: 11500000, guid: cff2ae8df1b662b42979717560be419e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitController
+  m_EditorClassIdentifier: Assembly-CSharp::SquadController
   _unitDefinition: {fileID: 11400000, guid: c478cbe4b6296064f92f089771da4418, type: 2}
 --- !u!114 &-8213997057954841995
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationController
   _spriteRenderer: {fileID: 5439797107561190270}
-  _unitController: {fileID: 385590447565543366}
+  _unitController: {fileID: 4035285883418965749}
 --- !u!114 &-3009412262272902082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1344224177
-  m_SortingLayer: 1
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

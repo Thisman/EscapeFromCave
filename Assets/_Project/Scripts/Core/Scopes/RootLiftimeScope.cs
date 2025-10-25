@@ -8,14 +8,14 @@ public sealed class RootLifetimeScope : LifetimeScope
 {
     [SerializeField] private InputActionAsset inputActions;
 
-    protected override void Configure(IContainerBuilder b)
+    protected override void Configure(IContainerBuilder builder)
     {
-        b.Register<SceneLoader>(Lifetime.Singleton);
-        b.Register<GameSession>(Lifetime.Singleton);
+        builder.Register<SceneLoader>(Lifetime.Singleton);
+        builder.Register<GameSession>(Lifetime.Singleton);
 
-        b.RegisterInstance(inputActions).As<InputActionAsset>();
-        b.Register<InputService>(Lifetime.Singleton);
-        b.Register<InputRouter>(Lifetime.Singleton);
+        builder.RegisterInstance(inputActions).As<InputActionAsset>();
+        builder.Register<InputService>(Lifetime.Singleton);
+        builder.Register<InputRouter>(Lifetime.Singleton);
     }
 
     protected override void Awake()

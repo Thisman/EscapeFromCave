@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Interactable
+  - Draggable
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 234783229
+    locked: 0
+  - name: BattleUnit
+    uniqueID: 884999975
     locked: 0
   - name: Units
     uniqueID: 1344224177
