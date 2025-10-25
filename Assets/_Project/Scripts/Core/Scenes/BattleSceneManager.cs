@@ -22,13 +22,13 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] private BattleGridController _battleGridController;
     [Inject] private BattleGridDragAndDropController _battleGridDragAndDropController;
 
-    private BattleContext _battleContext;
-    private BattleRound _combatLoopMachine;
-    private BattlePhaseMachine _phaseMachine;
     private PanelManager _panelManager;
+    private BattleContext _battleContext;
     private BattleSceneData _battleData;
-    private string _originSceneName;
+    private BattleRoundsMachine _battleRoundMachine;
+    private BattlePhaseMachine _battlePhaseMachine;
 
+    private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
 
     private void Start()
@@ -49,10 +49,10 @@ public class BattleSceneManager : MonoBehaviour
 
         InitializeBattleUnits();
 
-        _combatLoopMachine = new BattleRound(_battleContext);
-        _phaseMachine = new BattlePhaseMachine(_battleContext, _combatLoopMachine);
+        _battleRoundMachine = new BattleRoundsMachine(_battleContext);
+        _battlePhaseMachine = new BattlePhaseMachine(_battleContext, _battleRoundMachine);
 
-        _phaseMachine.Fire(BattleTrigger.Start);
+        _battlePhaseMachine.Fire(BattleTrigger.Start);
     }
 
     private void OnDestroy()
@@ -69,7 +69,7 @@ public class BattleSceneManager : MonoBehaviour
 
         _panelManager = new PanelManager(
             ("tactic", new[] { _tacticUIController?.gameObject }),
-            ("combat", new[] {
+            ("rounds", new[] {
                 _combatUIController?.gameObject,
                 _queueUIController?.gameObject
             }),
@@ -119,28 +119,28 @@ public class BattleSceneManager : MonoBehaviour
 
     private void HandleStartCombat()
     {
-        _phaseMachine?.Fire(BattleTrigger.EndTactics);
+        _battlePhaseMachine?.Fire(BattleTrigger.EndTactics);
     }
 
     private void HandleLeaveCombat()
     {
-        _phaseMachine?.Fire(BattleTrigger.EndCombat);
+        _battlePhaseMachine?.Fire(BattleTrigger.EndRounds);
     }
 
     private void HandleDefend()
     {
-        if (_combatLoopMachine == null)
+        if (_battleRoundMachine == null)
             return;
 
-        _combatLoopMachine.DefendActiveUnit();
+        _battleRoundMachine.DefendActiveUnit();
     }
 
     private void HandleSkipTurn()
     {
-        if (_combatLoopMachine == null)
+        if (_battleRoundMachine == null)
             return;
 
-        _combatLoopMachine.SkipTurn();
+        _battleRoundMachine.SkipTurn();
     }
 
     private void HandleExitBattle()

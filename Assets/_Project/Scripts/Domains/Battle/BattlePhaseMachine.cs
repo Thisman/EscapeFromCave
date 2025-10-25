@@ -8,12 +8,12 @@ public sealed class BattlePhaseMachine
 {
     private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly IBattleContext _ctx;
-    private readonly BattleRound _combat;
+    private readonly BattleRoundsMachine _battleRoundsMachine;
 
-    public BattlePhaseMachine(IBattleContext ctx, BattleRound combat)
+    public BattlePhaseMachine(IBattleContext ctx, BattleRoundsMachine battleRoundsMachine)
     {
         _ctx = ctx;
-        _combat = combat;
+        _battleRoundsMachine = battleRoundsMachine;
         _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Loading);
 
         _sm.Configure(BattlePhase.Loading)
@@ -22,11 +22,11 @@ public sealed class BattlePhaseMachine
         _sm.Configure(BattlePhase.Tactics)
             .OnEntry(() => OnEnterTactics())
             .OnExit(() => OnExitTactics())
-            .Permit(BattleTrigger.EndTactics, BattlePhase.Combat);
+            .Permit(BattleTrigger.EndTactics, BattlePhase.BattleRounds);
 
-        _sm.Configure(BattlePhase.Combat)
-            .OnEntry(() => OnEnterCombat())
-            .Permit(BattleTrigger.EndCombat, BattlePhase.Results);
+        _sm.Configure(BattlePhase.BattleRounds)
+            .OnEntry(() => OnEnterRounds())
+            .Permit(BattleTrigger.EndRounds, BattlePhase.Results);
 
         _sm.Configure(BattlePhase.Results)
             .OnEntry(() => OnEnterResults())
@@ -75,11 +75,11 @@ public sealed class BattlePhaseMachine
         }
     }
 
-    private void OnEnterCombat()
+    private void OnEnterRounds()
     {
-        _ctx.PanelManager?.Show("combat");
-        _combat.Reset();
-        _combat.BeginRound();
+        _ctx.PanelManager?.Show("rounds");
+        _battleRoundsMachine.Reset();
+        _battleRoundsMachine.BeginRound();
     }
 
     private void OnEnterResults()
@@ -91,6 +91,7 @@ public sealed class BattlePhaseMachine
 
     private void OnExitTactics()
     {
+        _ctx.BattleGridController.DisableSlots();
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 }

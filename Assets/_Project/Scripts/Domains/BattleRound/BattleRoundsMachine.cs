@@ -3,12 +3,12 @@ using System.Linq;
 using Stateless;
 using UnityEngine;
 
-public sealed class BattleRound
+public sealed class BattleRoundsMachine
 {
     private readonly IBattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
 
-    public BattleRound(IBattleContext ctx)
+    public BattleRoundsMachine(IBattleContext ctx)
     {
         _ctx = ctx;
         _sm = new StateMachine<BattleRoundState, BattleRoundTrigger>(BattleRoundState.RoundInit);
@@ -45,7 +45,7 @@ public sealed class BattleRound
         _sm.Configure(BattleRoundState.RoundEnd)
             .OnEntry(RoundEnd)
             .Permit(BattleRoundTrigger.EndRound, BattleRoundState.RoundInit)
-            .PermitReentry(BattleRoundTrigger.EndCombat); // будет обработано фазовой машиной
+            .PermitReentry(BattleRoundTrigger.EndBattleRounds); // будет обработано фазовой машиной
     }
 
     public BattleRoundState State => _sm.State;
