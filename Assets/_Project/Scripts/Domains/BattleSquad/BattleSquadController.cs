@@ -24,6 +24,25 @@ public class BattleSquadController : MonoBehaviour
         return _squadModel;
     }
 
+    public int ResolveDamage()
+    {
+        var model = _squadModel;
+        if (model == null)
+            return 0;
+
+        var definition = model.UnitDefinition;
+        if (definition == null)
+            return 0;
+
+        var stats = definition.GetStatsForLevel(1);
+        return stats.Damage;
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        _ = damage;
+    }
+
     private void OnDestroy()
     {
         DisposeModel();
