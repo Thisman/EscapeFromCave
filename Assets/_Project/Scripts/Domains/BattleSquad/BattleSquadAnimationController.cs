@@ -62,6 +62,14 @@ public class BattleSquadAnimationController : MonoBehaviour
         _flashCompletion = null;
     }
 
+    public void SetFlipX(bool flipped)
+    {
+        if (_spriteRenderer == null)
+            return;
+
+        _spriteRenderer.flipX = flipped;
+    }
+
     private IEnumerator DamageFlashRoutine()
     {
         _flashRestoreColor = _spriteRenderer.color;

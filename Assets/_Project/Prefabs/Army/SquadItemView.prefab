@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7646428332702843855
 CanvasRenderer:
@@ -113,7 +113,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 64, y: 64}
+  m_SizeDelta: {x: 96, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8243492484639333748
 CanvasRenderer:
@@ -167,6 +167,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SquadItemView
   _icon: {fileID: 334632636142689373}
   _countText: {fileID: 4988848365970175741}
+  _scaleTarget: {fileID: 0}
+  _hoverScale: 1.05
+  _hoverDuration: 0.2
+  _hoverEase: 27
+  _returnDuration: 0.2
+  _returnEase: 27
 --- !u!1 &7902894688122434596
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +185,7 @@ GameObject:
   - component: {fileID: 418662172833140046}
   - component: {fileID: 4988848365970175741}
   m_Layer: 5
-  m_Name: SquadCount
+  m_Name: Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 257, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &418662172833140046
@@ -232,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9999
+  m_text: 99999
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

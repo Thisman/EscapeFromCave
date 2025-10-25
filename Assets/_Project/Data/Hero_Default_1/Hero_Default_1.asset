@@ -18,8 +18,8 @@ MonoBehaviour:
   Levels:
   - LevelIndex: 0
     XPToNext: 0
-    Health: 0
-    Damage: 0
-    Defense: 0
-    Initiative: 0
+    Health: 100
+    Damage: 20
+    Defense: 15
+    Initiative: 1
     Speed: 3

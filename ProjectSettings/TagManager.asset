@@ -67,5 +67,8 @@ TagManager:
   - name: Hints
     uniqueID: 456848799
     locked: 0
+  - name: UI
+    uniqueID: 3308650499
+    locked: 0
   m_RenderingLayers:
   - Default
