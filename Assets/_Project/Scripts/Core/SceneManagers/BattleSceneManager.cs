@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -26,6 +27,7 @@ public class BattleSceneManager : MonoBehaviour
     private BattlePhaseMachine _phaseMachine;
     private PanelController _panelController;
     private BattleSceneData _battleData;
+    private string _originSceneName;
 
     private void Awake()
     {
@@ -145,6 +147,40 @@ public class BattleSceneManager : MonoBehaviour
 
     private void HandleExitBattle()
     {
+        if (_sceneLoader == null)
+        {
+            Debug.LogWarning("[BattleSceneManager] SceneLoader is not available. Unable to exit battle scene.");
+            return;
+        }
+
+        _ = ExitBattleAsync();
+    }
+
+    private async Task ExitBattleAsync()
+    {
+        var returnScene = _originSceneName;
+
+        try
+        {
+            await _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, null, returnScene);
+        }
+        catch (InvalidOperationException ex)
+        {
+            Debug.LogWarning($"[BattleSceneManager] Failed to unload battle scene with session data: {ex.Message}. Falling back to direct unload.");
+
+            try
+            {
+                await _sceneLoader.UnloadAdditiveAsync(BattleSceneName, returnScene);
+            }
+            catch (Exception fallbackEx)
+            {
+                Debug.LogError($"[BattleSceneManager] Failed to unload battle scene via fallback: {fallbackEx}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"[BattleSceneManager] Failed to unload battle scene: {ex}");
+        }
     }
 
     private void InitializeBattleUnits()
@@ -201,6 +237,7 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         _battleData = payload;
+        _originSceneName = ResolveOriginSceneName(payload);
     }
 
     private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
@@ -256,5 +293,30 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         buffer.Add(controller);
+    }
+
+    private static string ResolveOriginSceneName(BattleSceneData data)
+    {
+        if (data == null)
+            return null;
+
+        var heroScene = TryGetSourceSceneName(data.HeroSource);
+        if (!string.IsNullOrEmpty(heroScene))
+            return heroScene;
+
+        var enemyScene = TryGetSourceSceneName(data.EnemySource);
+        if (!string.IsNullOrEmpty(enemyScene))
+            return enemyScene;
+
+        return null;
+    }
+
+    private static string TryGetSourceSceneName(GameObject source)
+    {
+        if (source == null)
+            return null;
+
+        var scene = source.scene;
+        return scene.IsValid() ? scene.name : null;
     }
 }

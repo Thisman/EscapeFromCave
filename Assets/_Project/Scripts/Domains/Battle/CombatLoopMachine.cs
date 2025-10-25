@@ -61,7 +61,12 @@ public sealed class CombatLoopMachine
         if (!_sm.CanFire(CombatTrigger.Skip))
             return;
 
-        _sm.Fire(CombatTrigger.Skip);
+        if (!CanPlayerControlActiveUnit())
+            return;
+
+        var skipAction = new SkipTurnAction();
+        AttachAction(skipAction);
+        skipAction.Resolve();
     }
 
     public void DefendActiveUnit()
@@ -84,8 +89,12 @@ public sealed class CombatLoopMachine
         if (activeUnit == null)
             return;
 
-        _defendingUnit = activeUnit;
-        _sm.Fire(CombatTrigger.Skip);
+        if (!IsFriendlyUnit(activeUnit))
+            return;
+
+        var defendAction = new DefendAction();
+        AttachAction(defendAction);
+        defendAction.Resolve();
     }
 
     private void RoundInit()
@@ -176,17 +185,25 @@ public sealed class CombatLoopMachine
 
     private void TurnActionHost()
     {
+        if (!CanPlayerControlActiveUnit())
+        {
+            AttachEnemySkipAction();
+            return;
+        }
+
         AttachNewAttackAction();
     }
 
     private void AttachNewAttackAction()
     {
-        DetachCurrentAction();
-
         var attackAction = new AttackAction(_ctx);
-        _ctx.CurrentAction = attackAction;
-        attackAction.OnResolve += OnActionResolved;
-        attackAction.OnCancel += OnActionCancelled;
+        AttachAction(attackAction);
+    }
+
+    private void AttachEnemySkipAction()
+    {
+        var skipAction = new AutoSkipTurnAction(EnemyAutoSkipDelaySeconds);
+        AttachAction(skipAction);
     }
 
     private void DetachCurrentAction()
@@ -206,20 +223,46 @@ public sealed class CombatLoopMachine
         _ctx.CurrentAction = null;
     }
 
+    private void AttachAction(IBattleAction action)
+    {
+        if (action == null)
+            throw new ArgumentNullException(nameof(action));
+
+        DetachCurrentAction();
+
+        _ctx.CurrentAction = action;
+        action.OnResolve += OnActionResolved;
+        action.OnCancel += OnActionCancelled;
+    }
+
     private void OnActionResolved()
     {
-        ActionDone();
+        var resolvedAction = _ctx.CurrentAction;
+
+        DetachCurrentAction();
+
+        switch (resolvedAction)
+        {
+            case DefendAction:
+                _defendingUnit = _ctx.ActiveUnit;
+                _sm.Fire(CombatTrigger.Skip);
+                break;
+            case SkipTurnAction:
+            case AutoSkipTurnAction:
+                _sm.Fire(CombatTrigger.Skip);
+                break;
+            default:
+                _sm.Fire(CombatTrigger.ActionDone);
+                break;
+        }
     }
 
     private void OnActionCancelled()
     {
-        AttachNewAttackAction();
-    }
+        if (!CanPlayerControlActiveUnit())
+            return;
 
-    private void ActionDone()
-    {
-        DetachCurrentAction();
-        _sm.Fire(CombatTrigger.ActionDone);
+        AttachNewAttackAction();
     }
 
     private void TurnSkip()
@@ -269,5 +312,24 @@ public sealed class CombatLoopMachine
         // если бой завершён → фазовая машина должна вызвать EndCombat
         // иначе новый раунд:
         _sm.Fire(CombatTrigger.EndRound);
+    }
+
+    private const float EnemyAutoSkipDelaySeconds = 2f;
+
+    private bool CanPlayerControlActiveUnit()
+    {
+        var activeUnit = _ctx.ActiveUnit;
+        if (activeUnit == null)
+            return false;
+
+        return IsFriendlyUnit(activeUnit);
+    }
+
+    private static bool IsFriendlyUnit(IReadOnlySquadModel unit)
+    {
+        if (unit?.UnitDefinition == null)
+            return false;
+
+        return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
     }
 }
