@@ -9,7 +9,6 @@ public class DangeonSceneManager : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private ArmyRoasterView _armyRoasterView;
 
-    [SerializeField] private GameObject _debugCamera;
     [SerializeField] private Light2D _globalLight2D;
 
     [Inject] private readonly InputRouter _inputRouter;
@@ -18,7 +17,6 @@ public class DangeonSceneManager : MonoBehaviour
 
     public void Start()
     {
-        _debugCamera.SetActive(false);
         _globalLight2D.intensity = 0f;
         _inputRouter.EnterGameplay();
         PlayerController playerController = InitializePlayer();
