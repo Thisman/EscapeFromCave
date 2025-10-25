@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public sealed class AttackAction : IBattleAction, IDisposable
 {
     private readonly IBattleContext _context;
+    private readonly IBattleActionTargetResolver _targetResolver;
     private bool _disposed;
     private bool _resolved;
     private bool _isAwaitingAnimation;
@@ -16,6 +17,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
     public AttackAction(IBattleContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
+        _targetResolver = new DefaultActionTargetResolver(_context);
         InputSystem.onAfterUpdate += OnAfterInputUpdate;
     }
 
@@ -32,6 +34,14 @@ public sealed class AttackAction : IBattleAction, IDisposable
             return;
 
         if (!IsEnemyUnit(unit))
+            return;
+
+        var actorModel = _context.ActiveUnit;
+        var targetModel = unit.GetSquadModel();
+        if (actorModel == null || targetModel == null)
+            return;
+
+        if (!_targetResolver.ResolveTarget(actorModel, targetModel))
             return;
 
         TryResolveWithAnimation(unit);
