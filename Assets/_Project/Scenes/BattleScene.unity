@@ -955,6 +955,10 @@ MonoBehaviour:
   - {fileID: 628714506}
   _battleGridController: {fileID: 1416069488}
   _battleGridDragAndDropController: {fileID: 1416069487}
+  _queueUIController: {fileID: 1977573658}
+  _combatUIController: {fileID: 1544603973}
+  _tacticUIController: {fileID: 834283549}
+  _resultsUIController: {fileID: 342800980}
 --- !u!1 &449870185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,10 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e65c85911af642a2a6e7a8544f1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSceneManager
-  _combatUIController: {fileID: 1544603973}
-  _resultsUIController: {fileID: 342800980}
-  _tacticUIController: {fileID: 834283549}
-  _queueUIController: {fileID: 1977573658}
   _battleSquadPrefab: {fileID: 2995498901232598968, guid: d9de83ad7a92a8242820c6f6afe8aaf3, type: 3}
 --- !u!1001 &638048529
 PrefabInstance:
@@ -1524,9 +1524,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0026007802
+    x: 0.044073854
     y: 0
-    width: 0.99523187
+    width: 0.9116537
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -7281,8 +7281,8 @@ SceneRoots:
   - {fileID: 1416069490}
   - {fileID: 571201810}
   - {fileID: 562005277}
+  - {fileID: 1977573662}
   - {fileID: 834283548}
   - {fileID: 1544603972}
-  - {fileID: 1977573662}
   - {fileID: 342800979}
   - {fileID: 1113441137}

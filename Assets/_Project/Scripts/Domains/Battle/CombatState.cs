@@ -1,1 +1,0 @@
-public enum CombatState { RoundInit, TurnSelect, TurnStart, TurnActionHost, TurnSkip, TurnEnd, RoundEnd }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public interface IBattleContext
 {
     bool IsFinished { get; set; }
-    PanelController PanelController { get; set; }
+    PanelManager PanelManager { get; set; }
 
     BattleGridController BattleGridController { get; set; }
 
