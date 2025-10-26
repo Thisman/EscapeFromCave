@@ -221,8 +221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7469031376234789151}
   - component: {fileID: 4434294800103686}
-  - component: {fileID: 2032548013392871087}
   - component: {fileID: 2779151428548501013}
+  - component: {fileID: 2032548013392871087}
   m_Layer: 5
   m_Name: BattleQueueItemViewUI
   m_TagString: Untagged
@@ -259,24 +259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7576387061457103811}
   m_CullTransparentMesh: 1
---- !u!114 &2032548013392871087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7576387061457103811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f32e164ea0f8453dadfdf2c0ac5753ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleQueueItemView
-  _icon: {fileID: 3737975942817032395}
-  _countText: {fileID: 9219136836349749672}
-  _animatedTarget: {fileID: 7469031376234789151}
-  _hoverOffset: 10
-  _animationDuration: 0.2
-  _animationEase: 6
 --- !u!114 &2779151428548501013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,3 +289,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2032548013392871087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576387061457103811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32e164ea0f8453dadfdf2c0ac5753ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleQueueItemView
+  _icon: {fileID: 3737975942817032395}
+  _countText: {fileID: 9219136836349749672}
