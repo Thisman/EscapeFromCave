@@ -174,10 +174,16 @@ public class BattleSceneManager : MonoBehaviour
     private async Task ExitBattleAsync()
     {
         var returnScene = _originSceneName;
+        object closeData = null;
+
+        if (_battleContext != null && _battleContext.IsFinished)
+        {
+            closeData = _battleContext.BattleResult;
+        }
 
         try
         {
-            await _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, null, returnScene);
+            await _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
         }
         catch (InvalidOperationException ex)
         {
