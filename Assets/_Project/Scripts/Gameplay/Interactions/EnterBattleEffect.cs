@@ -7,6 +7,7 @@ using UnityEngine;
 public sealed class EnterBattleEffect : EffectSO
 {
     private const string BattleSceneName = "BattleScene";
+    private const string MainMenuSceneName = "MainMenuScene";
 
     public override async Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
@@ -45,11 +46,15 @@ public sealed class EnterBattleEffect : EffectSO
         var inputRouter = ctx.InputRouter;
         inputRouter?.EnterBattle();
 
+        BattleResult battleResult = default;
+        bool battleCompleted = false;
+
         try
         {
-            await ctx.SceneLoader
-                .LoadAdditiveWithDataAsync<BattleSceneData, object>(BattleSceneName, payload)
+            battleResult = await ctx.SceneLoader
+                .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload)
                 .ConfigureAwait(false);
+            battleCompleted = true;
         }
         catch (Exception ex)
         {
@@ -58,6 +63,11 @@ public sealed class EnterBattleEffect : EffectSO
         finally
         {
             inputRouter?.EnterGameplay();
+        }
+
+        if (battleCompleted)
+        {
+            HandleBattleResult(ctx, battleResult);
         }
     }
 
@@ -160,6 +170,130 @@ public sealed class EnterBattleEffect : EffectSO
 
         setup = default;
         return false;
+    }
+
+    private static void HandleBattleResult(InteractionContext ctx, BattleResult result)
+    {
+        if (ctx == null)
+            return;
+
+        if (result.Status == BattleResultStatus.Defeat)
+        {
+            ctx.SceneLoader?.LoadScene(MainMenuSceneName);
+            return;
+        }
+
+        if (result.Status != BattleResultStatus.Victory && result.Status != BattleResultStatus.Flee)
+            return;
+
+        UpdateHeroArmy(ctx.Actor, result.BattleUnitsResult.FriendlyUnits);
+    }
+
+    private static void UpdateHeroArmy(GameObject actor, IReadOnlyList<IReadOnlySquadModel> friendlyUnits)
+    {
+        if (actor == null || friendlyUnits == null || friendlyUnits.Count == 0)
+            return;
+
+        IReadOnlySquadModel heroUnit = null;
+        var armyUnits = new List<IReadOnlySquadModel>();
+
+        for (int i = 0; i < friendlyUnits.Count; i++)
+        {
+            var unit = friendlyUnits[i];
+            if (unit?.UnitDefinition == null || unit.Count <= 0)
+                continue;
+
+            var type = unit.UnitDefinition.Type;
+
+            if (type == UnitType.Hero)
+            {
+                if (heroUnit == null)
+                    heroUnit = unit;
+                continue;
+            }
+
+            if (type == UnitType.Ally)
+                armyUnits.Add(unit);
+        }
+
+        UpdateHeroSquad(actor, heroUnit);
+        UpdateArmySquads(actor, armyUnits);
+    }
+
+    private static void UpdateHeroSquad(GameObject actor, IReadOnlySquadModel heroUnit)
+    {
+        if (heroUnit == null || heroUnit.UnitDefinition == null)
+            return;
+
+        if (actor.TryGetComponent<PlayerController>(out var playerController))
+        {
+            ApplySquadToPlayer(playerController, heroUnit);
+            return;
+        }
+
+        if (TryResolveSquadModel(actor, out var squadModel) && squadModel is SquadModel playerSquad)
+        {
+            ApplyCountsToSquad(playerSquad, heroUnit);
+        }
+    }
+
+    private static void ApplySquadToPlayer(PlayerController controller, IReadOnlySquadModel heroUnit)
+    {
+        if (controller == null)
+            return;
+
+        var existing = controller.GetPlayerSquad();
+
+        if (existing is SquadModel existingModel && existingModel.UnitDefinition == heroUnit.UnitDefinition)
+        {
+            ApplyCountsToSquad(existingModel, heroUnit);
+        }
+        else
+        {
+            var replacement = new SquadModel(heroUnit.UnitDefinition, heroUnit.Count);
+            controller.Initialize(replacement);
+        }
+    }
+
+    private static void ApplyCountsToSquad(SquadModel target, IReadOnlySquadModel source)
+    {
+        if (target == null || source?.UnitDefinition == null)
+            return;
+
+        if (target.UnitDefinition != source.UnitDefinition)
+            return;
+
+        target.Clear();
+        if (source.Count > 0)
+            target.TryAdd(source.Count);
+    }
+
+    private static void UpdateArmySquads(GameObject actor, List<IReadOnlySquadModel> units)
+    {
+        if (actor == null || units == null)
+            return;
+
+        if (!actor.TryGetComponent<PlayerArmyController>(out var armyController))
+            return;
+
+        int maxSlots = armyController.MaxSlots;
+        int unitIndex = 0;
+
+        for (int slot = 0; slot < maxSlots; slot++)
+        {
+            if (unitIndex < units.Count)
+            {
+                var unit = units[unitIndex++];
+                if (unit?.UnitDefinition != null && unit.Count > 0)
+                {
+                    var squad = new SquadModel(unit.UnitDefinition, unit.Count);
+                    armyController.SetSlot(slot, squad);
+                    continue;
+                }
+            }
+
+            armyController.ClearSlot(slot);
+        }
     }
 
 }
