@@ -2,7 +2,7 @@ using System;
 
 public interface IReadOnlySquadModel
 {
-    UnitDefinitionSO UnitDefinition { get; }
+    UnitDefinitionSO Definition { get; }
 
     int Count { get; }
 

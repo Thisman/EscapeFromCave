@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         if (_squadModel == null)
             return 0f;
 
-        var definition = _squadModel.UnitDefinition;
+        var definition = _squadModel.Definition;
         if (definition == null)
             return 0f;
 

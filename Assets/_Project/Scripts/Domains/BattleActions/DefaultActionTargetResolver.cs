@@ -58,7 +58,7 @@ public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
         if (units == null)
             return false;
 
-        var targetDefinition = target?.UnitDefinition;
+        var targetDefinition = target?.Definition;
         if (targetDefinition == null)
             return false;
 
@@ -71,7 +71,7 @@ public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
             if (model == null || ReferenceEquals(model, target))
                 continue;
 
-            var definition = model.UnitDefinition;
+            var definition = model.Definition;
             if (definition == null)
                 continue;
 

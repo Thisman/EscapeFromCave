@@ -42,7 +42,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         if (grid == null)
             return null;
 
-        var actorDefinition = actor?.UnitDefinition;
+        var actorDefinition = actor?.Definition;
         var actorType = actorDefinition?.Type ?? UnitType.Enemy;
 
         BattleSquadController backlineCandidate = null;
@@ -56,7 +56,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
             if (model == null || model.IsEmpty)
                 continue;
 
-            var definition = model.UnitDefinition;
+            var definition = model.Definition;
             if (definition == null)
                 continue;
 

@@ -20,8 +20,8 @@ public class BattleSquadAnimationController : MonoBehaviour
             return;
 
         var model = _unitController.Model;
-        if (model?.UnitDefinition != null)
-            _spriteRenderer.sprite = model.UnitDefinition.Icon;
+        if (model?.Definition != null)
+            _spriteRenderer.sprite = model.Definition.Icon;
         _flashRestoreColor = _spriteRenderer.color;
     }
 

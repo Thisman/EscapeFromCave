@@ -111,11 +111,11 @@ public sealed class BattleRoundsMachine
         }
 
         var nextUnit = queue[0];
-        if (nextUnit?.UnitDefinition != null)
+        if (nextUnit?.Definition != null)
         {
-            string unitName = string.IsNullOrWhiteSpace(nextUnit.UnitDefinition.UnitName)
-                ? nextUnit.UnitDefinition.name
-                : nextUnit.UnitDefinition.UnitName;
+            string unitName = string.IsNullOrWhiteSpace(nextUnit.Definition.UnitName)
+                ? nextUnit.Definition.name
+                : nextUnit.Definition.UnitName;
             Debug.Log($"[CombatLoop] Active unit: {unitName}");
         }
         else
@@ -302,7 +302,7 @@ public sealed class BattleRoundsMachine
         if (units.Count == 0)
             return TriggerBattleFinish(queueController);
 
-        bool heroInQueue = units.Any(unit => unit.GetSquadModel().UnitDefinition.Type == UnitType.Hero);
+        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.Type == UnitType.Hero);
 
         if (!heroInQueue)
             return TriggerBattleFinish(queueController);
@@ -444,10 +444,10 @@ public sealed class BattleRoundsMachine
 
     private bool CanPlayerControlActiveUnit(IReadOnlySquadModel unit)
     {
-        if (unit?.UnitDefinition == null)
+        if (unit?.Definition == null)
             return false;
 
-        return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
+        return unit.Definition.Type is UnitType.Hero or UnitType.Ally;
     }
 
     private BattleUnitsResult BuildUnitsResult()
@@ -471,10 +471,10 @@ public sealed class BattleRoundsMachine
 
             var model = unitController.GetSquadModel();
 
-            if (model?.UnitDefinition == null || model.Count <= 0)
+            if (model?.Definition == null || model.Count <= 0)
                 continue;
 
-            switch (model.UnitDefinition.Type)
+            switch (model.Definition.Type)
             {
                 case UnitType.Hero:
                 case UnitType.Ally:
@@ -497,7 +497,7 @@ public sealed class BattleRoundsMachine
             return BattleResultStatus.Flee;
 
         bool heroAlive = unitsResult.FriendlyUnits.Any(model =>
-            model?.UnitDefinition != null && model.UnitDefinition.Type == UnitType.Hero);
+            model?.Definition != null && model.Definition.Type == UnitType.Hero);
 
         if (!heroAlive)
             return BattleResultStatus.Defeat;

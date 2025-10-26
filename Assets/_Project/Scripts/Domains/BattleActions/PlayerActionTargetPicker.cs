@@ -95,14 +95,14 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
             return false;
 
         var targetModel = unit.GetSquadModel();
-        if (targetModel?.UnitDefinition == null)
+        if (targetModel?.Definition == null)
             return false;
 
         var activeUnit = _context.ActiveUnit;
-        if (activeUnit?.UnitDefinition == null)
-            return targetModel.UnitDefinition.Type == UnitType.Enemy;
+        if (activeUnit?.Definition == null)
+            return targetModel.Definition.Type == UnitType.Enemy;
 
-        return IsOpposingType(activeUnit.UnitDefinition.Type, targetModel.UnitDefinition.Type);
+        return IsOpposingType(activeUnit.Definition.Type, targetModel.Definition.Type);
     }
 
     private static bool IsOpposingType(UnitType source, UnitType target)

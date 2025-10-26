@@ -10,7 +10,7 @@ public class SquadAnimationController : MonoBehaviour
         if (_spriteRenderer == null || _unitController == null)
             return;
 
-        if (_unitController.GetSquadModel() is { UnitDefinition: { } definition })
+        if (_unitController.GetSquadModel() is { Definition: { } definition })
             _spriteRenderer.sprite = definition.Icon;
 }
 }

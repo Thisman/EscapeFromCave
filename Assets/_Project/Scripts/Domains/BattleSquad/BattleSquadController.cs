@@ -35,7 +35,7 @@ public class BattleSquadController : MonoBehaviour
         if (model == null)
             return 0;
 
-        var definition = model.UnitDefinition;
+        var definition = model.Definition;
         if (definition == null)
             return 0;
 

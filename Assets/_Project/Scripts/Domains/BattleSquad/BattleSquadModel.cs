@@ -9,12 +9,12 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
     public BattleSquadModel(SquadModel sourceModel)
     {
         _sourceModel = sourceModel ?? throw new ArgumentNullException(nameof(sourceModel));
-        _unitHealth = CalculateUnitHealth(_sourceModel.UnitDefinition);
+        _unitHealth = CalculateUnitHealth(_sourceModel.Definition);
         _totalHealth = CalculateInitialTotalHealth();
         _sourceModel.Changed += HandleSourceChanged;
     }
 
-    public UnitDefinitionSO UnitDefinition => _sourceModel.UnitDefinition;
+    public UnitDefinitionSO Definition => _sourceModel.Definition;
 
     public int Count => CalculateCount();
 

@@ -282,10 +282,10 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel.UnitDefinition == null)
+        if (squadModel == null || squadModel.Definition == null)
             return false;
 
-        return squadModel.UnitDefinition.Type is UnitType.Ally or UnitType.Hero;
+        return squadModel.Definition.Type is UnitType.Ally or UnitType.Hero;
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)
@@ -307,13 +307,13 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel.UnitDefinition == null)
+        if (squadModel == null || squadModel.Definition == null)
             return false;
 
         return side switch
         {
-            BattleGridSlotSide.Ally => squadModel.UnitDefinition.Type == UnitType.Ally || squadModel.UnitDefinition.Type == UnitType.Hero,
-            BattleGridSlotSide.Enemy => squadModel.UnitDefinition.Type == UnitType.Enemy,
+            BattleGridSlotSide.Ally => squadModel.Definition.Type == UnitType.Ally || squadModel.Definition.Type == UnitType.Hero,
+            BattleGridSlotSide.Enemy => squadModel.Definition.Type == UnitType.Enemy,
             _ => false
         };
     }

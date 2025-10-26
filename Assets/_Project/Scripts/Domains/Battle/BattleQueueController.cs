@@ -147,15 +147,15 @@ public class BattleQueueController
 
     private static bool IsFriendly(IReadOnlySquadModel unit)
     {
-        return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
+        return unit.Definition.Type is UnitType.Hero or UnitType.Ally;
     }
 
     private static int GetInitiative(IReadOnlySquadModel squad)
     {
-        if (squad?.UnitDefinition == null)
+        if (squad?.Definition == null)
             return 0;
 
-        var stats = squad.UnitDefinition.GetStatsForLevel(1);
+        var stats = squad.Definition.GetStatsForLevel(1);
         return stats.Initiative;
     }
 }

@@ -20,7 +20,7 @@ public sealed class ArmyRoasterSquadView : MonoBehaviour
         }
 
         if (_icon)
-            _icon.sprite = squad.UnitDefinition != null ? squad.UnitDefinition.Icon : null;
+            _icon.sprite = squad.Definition != null ? squad.Definition.Icon : null;
 
         if (_countText)
             _countText.text = squad.Count.ToString();

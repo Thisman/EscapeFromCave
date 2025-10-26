@@ -156,14 +156,14 @@ public sealed class EnterBattleEffect : EffectSO
     private static bool TryGetModelFromComponent(IReadOnlySquadModel candidate, out IReadOnlySquadModel model)
     {
         model = candidate;
-        return model != null && model.UnitDefinition != null;
+        return model != null && model.Definition != null;
     }
 
     private static bool TryCreateSetup(IReadOnlySquadModel model, out BattleSquadSetup setup)
     {
-        if (model != null && model.UnitDefinition != null && model.Count > 0)
+        if (model != null && model.Definition != null && model.Count > 0)
         {
-            setup = new BattleSquadSetup(model.UnitDefinition, model.Count);
+            setup = new BattleSquadSetup(model.Definition, model.Count);
             return true;
         }
 
@@ -199,10 +199,10 @@ public sealed class EnterBattleEffect : EffectSO
         for (int i = 0; i < friendlyUnits.Count; i++)
         {
             var unit = friendlyUnits[i];
-            if (unit?.UnitDefinition == null || unit.Count <= 0)
+            if (unit?.Definition == null || unit.Count <= 0)
                 continue;
 
-            var type = unit.UnitDefinition.Type;
+            var type = unit.Definition.Type;
 
             if (type == UnitType.Hero)
             {
@@ -221,7 +221,7 @@ public sealed class EnterBattleEffect : EffectSO
 
     private static void UpdateHeroSquad(GameObject actor, IReadOnlySquadModel heroUnit)
     {
-        if (heroUnit == null || heroUnit.UnitDefinition == null)
+        if (heroUnit == null || heroUnit.Definition == null)
             return;
 
         if (actor.TryGetComponent<PlayerController>(out var playerController))
@@ -243,23 +243,23 @@ public sealed class EnterBattleEffect : EffectSO
 
         var existing = controller.GetPlayerSquad();
 
-        if (existing is SquadModel existingModel && existingModel.UnitDefinition == heroUnit.UnitDefinition)
+        if (existing is SquadModel existingModel && existingModel.Definition == heroUnit.Definition)
         {
             ApplyCountsToSquad(existingModel, heroUnit);
         }
         else
         {
-            var replacement = new SquadModel(heroUnit.UnitDefinition, heroUnit.Count);
+            var replacement = new SquadModel(heroUnit.Definition, heroUnit.Count);
             controller.Initialize(replacement);
         }
     }
 
     private static void ApplyCountsToSquad(SquadModel target, IReadOnlySquadModel source)
     {
-        if (target == null || source?.UnitDefinition == null)
+        if (target == null || source?.Definition == null)
             return;
 
-        if (target.UnitDefinition != source.UnitDefinition)
+        if (target.Definition != source.Definition)
             return;
 
         target.Clear();
@@ -283,9 +283,9 @@ public sealed class EnterBattleEffect : EffectSO
             if (unitIndex < units.Count)
             {
                 var unit = units[unitIndex++];
-                if (unit?.UnitDefinition != null && unit.Count > 0)
+                if (unit?.Definition != null && unit.Count > 0)
                 {
-                    var squad = new SquadModel(unit.UnitDefinition, unit.Count);
+                    var squad = new SquadModel(unit.Definition, unit.Count);
                     armyController.Army.SetSlot(slot, squad);
                     continue;
                 }

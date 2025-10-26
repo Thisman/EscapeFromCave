@@ -70,7 +70,7 @@ public class ArmyModel : IReadOnlyArmyModel
         for (int i = 0; i < _slots.Count; i++)
         {
             var s = _slots[i];
-            if (s != null && s.UnitDefinition == def) return s;
+            if (s != null && s.Definition == def) return s;
         }
         return null;
     }

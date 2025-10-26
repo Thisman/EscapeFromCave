@@ -24,10 +24,10 @@ public sealed class BattleQueueItemView : MonoBehaviour, IPointerEnterHandler, I
         if (_icon == null)
             return;
 
-        if (unit?.UnitDefinition != null)
+        if (unit?.Definition != null)
         {
-            _icon.sprite = unit.UnitDefinition.Icon;
-            _icon.enabled = unit.UnitDefinition.Icon != null;
+            _icon.sprite = unit.Definition.Icon;
+            _icon.enabled = unit.Definition.Icon != null;
             _countText.text = unit.Count.ToString();
         }
         else
