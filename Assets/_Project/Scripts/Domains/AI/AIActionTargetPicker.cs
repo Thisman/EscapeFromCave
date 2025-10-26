@@ -3,13 +3,13 @@ using UnityEngine;
 
 public sealed class AIActionTargetPicker : IActionTargetPicker
 {
-    private readonly IBattleContext _context;
+    private readonly BattleContext _context;
     private bool _disposed;
     private bool _selectionRequested;
 
     public event Action<BattleSquadController> OnSelect;
 
-    public AIActionTargetPicker(IBattleContext context)
+    public AIActionTargetPicker(BattleContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

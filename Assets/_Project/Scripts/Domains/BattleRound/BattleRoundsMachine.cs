@@ -6,14 +6,14 @@ using UnityEngine;
 
 public sealed class BattleRoundsMachine
 {
-    private readonly IBattleContext _ctx;
+    private readonly BattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
     private bool _battleFinished;
     private bool _playerRequestedFlee;
 
     public event Action<BattleResult> BattleFinished;
 
-    public BattleRoundsMachine(IBattleContext ctx)
+    public BattleRoundsMachine(BattleContext ctx)
     {
         _ctx = ctx;
         _sm = new StateMachine<BattleRoundState, BattleRoundTrigger>(BattleRoundState.RoundInit);

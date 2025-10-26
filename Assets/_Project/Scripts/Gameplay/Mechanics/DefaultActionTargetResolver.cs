@@ -3,9 +3,9 @@ using UnityEngine;
 
 public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
 {
-    private readonly IBattleContext _context;
+    private readonly BattleContext _context;
 
-    public DefaultActionTargetResolver(IBattleContext context)
+    public DefaultActionTargetResolver(BattleContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

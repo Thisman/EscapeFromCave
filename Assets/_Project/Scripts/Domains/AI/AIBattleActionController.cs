@@ -2,7 +2,7 @@ using System;
 
 public class AIBattleActionController : IBattleActionController
 {
-    public void RequestAction(IBattleContext ctx, Action<IBattleAction> onActionReady)
+    public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
         var targetResolver = new DefaultActionTargetResolver(ctx);
         var damageResolver = new DefaultBattleDamageResolver();

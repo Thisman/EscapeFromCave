@@ -6,11 +6,11 @@ using UnityEngine;
 
 public sealed class BattlePhaseMachine
 {
-    private readonly IBattleContext _ctx;
+    private readonly BattleContext _ctx;
     private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly BattleRoundsMachine _battleRoundsMachine;
 
-    public BattlePhaseMachine(IBattleContext ctx, BattleRoundsMachine battleRoundsMachine)
+    public BattlePhaseMachine(BattleContext ctx, BattleRoundsMachine battleRoundsMachine)
     {
         _ctx = ctx;
         _battleRoundsMachine = battleRoundsMachine;

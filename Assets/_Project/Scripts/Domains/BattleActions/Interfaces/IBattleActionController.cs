@@ -2,5 +2,5 @@ using System;
 
 public interface IBattleActionController
 {
-    void RequestAction(IBattleContext ctx, Action<IBattleAction> onActionReady);
+    void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady);
 }
