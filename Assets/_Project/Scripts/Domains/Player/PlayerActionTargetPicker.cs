@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public sealed class PlayerActionTargetPicker : IActionTargetPicker
 {
-    private readonly IBattleContext _context;
+    private readonly BattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
 
     private bool _isActive;
@@ -12,7 +12,7 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
 
     public event Action<BattleSquadController> OnSelect;
 
-    public PlayerActionTargetPicker(IBattleContext context, IBattleActionTargetResolver targetResolver)
+    public PlayerActionTargetPicker(BattleContext context, IBattleActionTargetResolver targetResolver)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));

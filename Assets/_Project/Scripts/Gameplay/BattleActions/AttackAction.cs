@@ -2,7 +2,7 @@ using System;
 
 public sealed class AttackAction : IBattleAction, IDisposable
 {
-    private readonly IBattleContext _context;
+    private readonly BattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
     private readonly IBattleDamageResolver _damageResolver;
     private bool _disposed;
@@ -14,7 +14,7 @@ public sealed class AttackAction : IBattleAction, IDisposable
     public event Action OnCancel;
 
     public AttackAction(
-        IBattleContext context,
+        BattleContext context,
         IBattleActionTargetResolver targetResolver,
         IBattleDamageResolver damageResolver,
         IActionTargetPicker targetPicker)

@@ -2,10 +2,10 @@ using System;
 
 public class PlayerBattleActionController : IBattleActionController
 {
-    private IBattleContext _ctx;
+    private BattleContext _ctx;
     private Action<IBattleAction> _onActionReady;
 
-    public void RequestAction(IBattleContext ctx, Action<IBattleAction> onActionReady)
+    public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
         _ctx = ctx;
         _onActionReady = onActionReady;

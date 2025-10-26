@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public sealed class BattleContext : IBattleContext
+public sealed class BattleContext
 {
     public bool IsFinished { get; set; }
 
