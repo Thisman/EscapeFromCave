@@ -61,7 +61,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return true;
     }
 
-    public bool TryAddUnits(UnitDefinitionSO def, int amount)
+    public bool TryAddSquad(UnitDefinitionSO def, int amount)
     {
         if (!def || amount <= 0) return false;
 
@@ -83,7 +83,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return false;
     }
 
-    public int RemoveUnits(UnitDefinitionSO def, int amount)
+    public int RemoveSquad(UnitDefinitionSO def, int amount)
     {
         if (!def || amount <= 0) return 0;
         int left = amount;
@@ -104,7 +104,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return removed;
     }
 
-    public int GetTotalUnits(UnitDefinitionSO def)
+    public int GetTotalUnitsInSquad(UnitDefinitionSO def)
     {
         if (!def) return 0;
         int sum = 0;

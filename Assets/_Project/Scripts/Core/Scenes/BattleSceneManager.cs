@@ -9,18 +9,18 @@ public class BattleSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _battleSquadPrefab;
 
-    [Inject] private SceneLoader _sceneLoader;
-    [Inject] private IObjectResolver _objectResolver;
+    [Inject] readonly private SceneLoader _sceneLoader;
+    [Inject] readonly private IObjectResolver _objectResolver;
 
-    [Inject] private BattleQueueUIController _queueUIController;
-    [Inject] private BattleQueueController _battleQueueController;
+    [Inject] readonly private BattleQueueUIController _queueUIController;
+    [Inject] readonly private BattleQueueController _battleQueueController;
 
-    [Inject] private BattleTacticUIController _tacticUIController;
-    [Inject] private BattleCombatUIController _combatUIController;
-    [Inject] private BattleResultsUIController _resultsUIController;
+    [Inject] readonly private BattleTacticUIController _tacticUIController;
+    [Inject] readonly private BattleCombatUIController _combatUIController;
+    [Inject] readonly private BattleResultsUIController _resultsUIController;
 
-    [Inject] private BattleGridController _battleGridController;
-    [Inject] private BattleGridDragAndDropController _battleGridDragAndDropController;
+    [Inject] readonly private BattleGridController _battleGridController;
+    [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     private PanelManager _panelManager;
     private BattleSceneData _battleData;
@@ -51,12 +51,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleData()
     {
-        if (_sceneLoader == null)
-        {
-            Debug.LogWarning("[BattleSceneManager] SceneLoader was not injected. Unable to resolve battle payload.");
-            return;
-        }
-
         if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
         {
             Debug.LogWarning("[BattleSceneManager] Battle scene payload was not found. Using empty battle setup.");
@@ -69,12 +63,7 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleUnits()
     {
-        if (_battleContext == null)
-        {
-            return;
-        }
-
-        var collectedUnits = new List<BattleSquadController>();
+        List<BattleSquadController> collectedUnits = new();
 
         if (_battleData != null)
         {
@@ -100,9 +89,9 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleContext()
     {
-        var enemyTurnController = new AIBattleActionController();
-        var playerTurnController = new PlayerBattleActionController();
-        var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
+        AIBattleActionController enemyTurnController = new();
+        PlayerBattleActionController playerTurnController = new();
+        BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
 
         _battleContext = new BattleContext
         {
@@ -135,12 +124,12 @@ public class BattleSceneManager : MonoBehaviour
         }
 
         _panelManager = new PanelManager(
-            ("tactic", new[] { _tacticUIController?.gameObject }),
+            ("tactic", new[] { _tacticUIController.gameObject }),
             ("rounds", new[] {
-                _combatUIController?.gameObject,
-                _queueUIController?.gameObject
+                _combatUIController.gameObject,
+                _queueUIController.gameObject
             }),
-            ("results", new[] { _resultsUIController?.gameObject })
+            ("results", new[] { _resultsUIController.gameObject })
         );
     }
 
@@ -148,7 +137,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (_resultsUIController != null)
         {
-            _resultsUIController.OnExitBattle += HandleExitBattle;
+            _resultsUIController.OnExitBattle += ExitBattle;
         }
     }
 
@@ -156,105 +145,35 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (_resultsUIController != null)
         {
-            _resultsUIController.OnExitBattle -= HandleExitBattle;
+            _resultsUIController.OnExitBattle -= ExitBattle;
         }
     }
 
-    private void HandleExitBattle()
+    private void ExitBattle()
     {
-        if (_sceneLoader == null)
-        {
-            Debug.LogWarning("[BattleSceneManager] SceneLoader is not available. Unable to exit battle scene.");
-            return;
-        }
-
-        _ = ExitBattleAsync();
-    }
-
-    private async Task ExitBattleAsync()
-    {
-        var returnScene = _originSceneName;
+        string returnScene = _originSceneName;
         object closeData = null;
 
-        if (_battleContext != null && _battleContext.IsFinished)
+        if (_battleContext.IsFinished)
         {
             closeData = _battleContext.BattleResult;
         }
 
-        try
-        {
-            await _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
-        }
-        catch (InvalidOperationException ex)
-        {
-            Debug.LogWarning($"[BattleSceneManager] Failed to unload battle scene with session data: {ex.Message}. Falling back to direct unload.");
-
-            try
-            {
-                await _sceneLoader.UnloadAdditiveAsync(BattleSceneName, returnScene);
-            }
-            catch (Exception fallbackEx)
-            {
-                Debug.LogError($"[BattleSceneManager] Failed to unload battle scene via fallback: {fallbackEx}");
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[BattleSceneManager] Failed to unload battle scene: {ex}");
-        }
+        _ = _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
     }
 
     private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
     {
-        if (buffer == null)
-            return;
-
         if (!setup.IsValid)
             return;
 
-        if (_battleSquadPrefab == null)
-        {
-            Debug.LogWarning("[BattleSceneManager] Battle squad prefab is not assigned. Cannot spawn units.");
-            return;
-        }
+        GameObject instance = _objectResolver.Instantiate(_battleSquadPrefab);
 
-        GameObject instance = null;
+        BattleSquadController controller = instance.GetComponent<BattleSquadController>();
 
-        try
-        {
-            instance = _objectResolver != null
-                ? _objectResolver.Instantiate(_battleSquadPrefab)
-                : Instantiate(_battleSquadPrefab);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[BattleSceneManager] Failed to instantiate battle squad prefab: {ex}");
-            return;
-        }
-
-        if (instance == null)
-            return;
-
-        var controller = instance.GetComponent<BattleSquadController>();
-        if (controller == null)
-        {
-            Debug.LogError("[BattleSceneManager] Spawned battle squad prefab does not contain a BattleSquadController component.");
-            Destroy(instance);
-            return;
-        }
-
-        try
-        {
-            var squadModel = new SquadModel(setup.Definition, setup.Count);
-            var battleModel = new BattleSquadModel(squadModel);
-            controller.Initialize(battleModel);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[BattleSceneManager] Failed to initialize battle squad model: {ex}");
-            Destroy(instance);
-            return;
-        }
+        SquadModel squadModel = new(setup.Definition, setup.Count);
+        BattleSquadModel battleModel = new(squadModel);
+        controller.Initialize(battleModel);
 
         buffer.Add(controller);
     }

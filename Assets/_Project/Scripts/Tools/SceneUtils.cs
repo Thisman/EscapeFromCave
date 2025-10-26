@@ -15,7 +15,6 @@ public static class SceneUtils
         foreach (var root in scene.GetRootGameObjects())
         {
             root.SetActive(active);
-            Debug.Log($"[SceneUtils] GameObject '{root.name}' in scene '{sceneName}' set active: {active}.");
         }
     }
 }

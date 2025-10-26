@@ -28,7 +28,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
             _playerArmyController.ArmyChanged -= OnArmyChanged;
     }
 
-    public void Initialize(PlayerArmyController playerArmyController)
+    public void Render(PlayerArmyController playerArmyController)
     {
         _playerArmyController = playerArmyController;
         _playerArmyController.ArmyChanged += OnArmyChanged;

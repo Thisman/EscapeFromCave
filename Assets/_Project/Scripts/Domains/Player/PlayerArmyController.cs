@@ -26,15 +26,15 @@ public class PlayerArmyController : MonoBehaviour
         HandleArmyChanged(_army);
     }
 
-    public bool TryAddUnits(UnitDefinitionSO def, int amount) => _army.TryAddUnits(def, amount);
+    public bool TryAddSquad(UnitDefinitionSO def, int amount) => _army.TryAddSquad(def, amount);
 
-    public int RemoveUnits(UnitDefinitionSO def, int amount) => _army.RemoveUnits(def, amount);
+    public int RemoveSquad(UnitDefinitionSO def, int amount) => _army.RemoveSquad(def, amount);
 
     public bool TrySplit(UnitDefinitionSO def, int amount) => _army.TrySplit(def, amount);
 
     public bool TryMerge(int fromIndex, int toIndex) => _army.TryMerge(fromIndex, toIndex);
 
-    public int GetTotal(UnitDefinitionSO def) => _army.GetTotalUnits(def);
+    public int GetTotal(UnitDefinitionSO def) => _army.GetTotalUnitsInSquad(def);
 
     public IReadOnlyList<IReadOnlySquadModel> GetSquads() => _army.GetAllSlots();
 

@@ -21,7 +21,6 @@ public class MainMenuSceneManager : MonoBehaviour
 
     private async void HandleStartGame()
     {
-        Debug.Log("[MainMenuSceneManager] Start Game button clicked. Transitioning to Preparation Scene.");
         await _sceneLoader.LoadAdditiveAsync("PreparationScene");
         await _sceneLoader.UnloadAdditiveAsync("MainMenuScene");
     }
