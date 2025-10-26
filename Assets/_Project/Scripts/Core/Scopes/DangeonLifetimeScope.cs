@@ -8,13 +8,6 @@ public class DangeonLifetimeScope : LifetimeScope
 
     protected override void Configure(IContainerBuilder builder)
     {
-        if (_dialogManager != null)
-        {
-            builder.RegisterInstance(_dialogManager).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] DialogManager reference is missing. Dialog interactions will be unavailable.");
-        }
+        builder.RegisterInstance(_dialogManager).AsSelf();
     }
 }

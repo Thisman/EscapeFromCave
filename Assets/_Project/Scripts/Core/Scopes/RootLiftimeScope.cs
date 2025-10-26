@@ -20,7 +20,7 @@ public sealed class RootLifetimeScope : LifetimeScope
 
     protected override void Awake()
     {
-        var roots = FindObjectsOfType<RootLifetimeScope>();
+        var roots = FindObjectsByType<RootLifetimeScope>(FindObjectsSortMode.None);
         if (roots.Length > 1)
         {
             Destroy(gameObject);

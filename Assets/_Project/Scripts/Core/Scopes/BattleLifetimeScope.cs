@@ -5,8 +5,8 @@ using VContainer.Unity;
 
 public class BattleLifetimeScope : LifetimeScope
 {
-    [SerializeField] BattleGridController _battleGridController;
-    [SerializeField] BattleGridDragAndDropController _battleGridDragAndDropController;
+    [SerializeField] private BattleGridController _battleGridController;
+    [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     [SerializeField] private BattleQueueUIController _queueUIController;
     [SerializeField] private BattleTacticUIController _tacticUIController;
@@ -17,58 +17,12 @@ public class BattleLifetimeScope : LifetimeScope
     {
         builder.Register<BattleQueueController>(Lifetime.Singleton);
 
-        if (_battleGridController != null)
-        {
-            builder.RegisterInstance(_battleGridController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleGridController reference is missing.");
-        }
+        builder.RegisterInstance(_battleGridController).AsSelf();
+        builder.RegisterInstance(_battleGridDragAndDropController).AsSelf();
 
-        if (_battleGridDragAndDropController != null)
-        {
-            builder.RegisterInstance(_battleGridDragAndDropController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleGridDragAndDropController reference is missing.");
-        }
-
-        if (_queueUIController != null)
-        {
-            builder.RegisterInstance(_queueUIController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleQueueUIController reference is missing.");
-        }
-
-        if (_combatUIController != null)
-        {
-            builder.RegisterInstance(_combatUIController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleCombatUIController reference is missing.");
-        }
-
-        if (_tacticUIController != null)
-        {
-            builder.RegisterInstance(_tacticUIController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleTacticUIController reference is missing.");
-        }
-
-        if (_resultsUIController != null)
-        {
-            builder.RegisterInstance(_resultsUIController).AsSelf();
-        }
-        else
-        {
-            Debug.LogWarning("[GameLifetimeScope] BattleResultsUIController reference is missing.");
-        }
+        builder.RegisterInstance(_queueUIController).AsSelf();
+        builder.RegisterInstance(_combatUIController).AsSelf();
+        builder.RegisterInstance(_tacticUIController).AsSelf();
+        builder.RegisterInstance(_resultsUIController).AsSelf();
     }
 }
