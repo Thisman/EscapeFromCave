@@ -11,18 +11,6 @@ public sealed class EnterBattleEffect : EffectSO
 
     public override async Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        if (ctx == null)
-        {
-            Debug.LogWarning("[EnterBattleEffect] Interaction context is null. Unable to start battle.");
-            return EffectResult.Continue;
-        }
-
-        if (ctx.SceneLoader == null)
-        {
-            Debug.LogWarning("[EnterBattleEffect] SceneLoader is not available in the interaction context. Battle scene cannot be loaded.");
-            return EffectResult.Continue;
-        }
-
         var heroSetup = ResolveHero(ctx.Actor);
         var armySetups = ResolveArmy(ctx.Actor);
         var enemyObject = ResolveEnemyObject(ctx, targets);
@@ -46,30 +34,13 @@ public sealed class EnterBattleEffect : EffectSO
         var inputRouter = ctx.InputRouter;
         inputRouter?.EnterBattle();
 
-        BattleResult battleResult = default;
-        bool battleCompleted = false;
+        BattleResult battleResult = await ctx.SceneLoader
+            .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload);
 
-        try
-        {
-            battleResult = await ctx.SceneLoader
-                .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload);
-            battleCompleted = true;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[EnterBattleEffect] Battle scene session failed: {ex}");
-        }
-        finally
-        {
-            inputRouter?.EnterGameplay();
-        }
+        inputRouter?.EnterGameplay();
+        HandleBattleResult(ctx, battleResult);
 
-        if (battleCompleted)
-        {
-            HandleBattleResult(ctx, battleResult);
-        }
-
-        return EffectResult.Continue;
+        return battleResult.IsVictory ? EffectResult.Continue : EffectResult.Break;
     }
 
     private static BattleSquadSetup ResolveHero(GameObject actor)

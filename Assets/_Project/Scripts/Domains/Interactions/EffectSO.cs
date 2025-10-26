@@ -5,7 +5,7 @@ using UnityEngine;
 public enum EffectResult
 {
     Continue,
-    Restart,
+    Break,
 }
 
 public abstract class EffectSO : ScriptableObject
