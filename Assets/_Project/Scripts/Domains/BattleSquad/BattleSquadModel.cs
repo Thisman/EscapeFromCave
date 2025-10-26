@@ -2,8 +2,9 @@ using System;
 
 public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
 {
-    private readonly SquadModel _sourceModel;
     private readonly int _unitHealth;
+    private readonly SquadModel _sourceModel;
+
     private int _totalHealth;
 
     public BattleSquadModel(SquadModel sourceModel)
@@ -20,24 +21,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
 
     public bool IsEmpty => _totalHealth <= 0;
 
-    public SquadModel SourceModel => _sourceModel;
-
-    public int UnitHealth => _unitHealth;
-
-    public int TotalHealth => _totalHealth;
-
     public event Action<IReadOnlySquadModel> Changed;
-
-    public void ApplyCasualties(int casualties)
-    {
-        if (casualties < 0)
-            throw new ArgumentOutOfRangeException(nameof(casualties));
-
-        if (casualties == 0 || _unitHealth <= 0)
-            return;
-
-        ApplyDamage(casualties * _unitHealth);
-    }
 
     public void ApplyDamage(int damage)
     {
@@ -80,15 +64,6 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
         return sourceCount * _unitHealth;
     }
 
-    private static int CalculateUnitHealth(UnitDefinitionSO definition)
-    {
-        if (definition == null)
-            return 0;
-
-        var stats = definition.GetStatsForLevel(1);
-        return Math.Max(0, stats.Health);
-    }
-
     private int CalculateCount()
     {
         if (_unitHealth <= 0)
@@ -123,5 +98,14 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
     private void NotifyChanged()
     {
         Changed?.Invoke(this);
+    }
+
+    private static int CalculateUnitHealth(UnitDefinitionSO definition)
+    {
+        if (definition == null)
+            return 0;
+
+        var stats = definition.GetStatsForLevel(1);
+        return Math.Max(0, stats.Health);
     }
 }

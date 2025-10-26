@@ -8,6 +8,11 @@ public class BattleSquadController : MonoBehaviour
 
     public BattleSquadModel Model => _squadModel;
 
+    private void OnDestroy()
+    {
+        DisposeModel();
+    }
+
     public void Initialize(IReadOnlySquadModel squadModel)
     {
         if (squadModel == null)
@@ -55,11 +60,6 @@ public class BattleSquadController : MonoBehaviour
             return;
 
         _squadModel?.ApplyDamage(damage);
-    }
-
-    private void OnDestroy()
-    {
-        DisposeModel();
     }
 
     private void DisposeModel()

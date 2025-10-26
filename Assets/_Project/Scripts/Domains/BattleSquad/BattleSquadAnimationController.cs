@@ -25,6 +25,16 @@ public class BattleSquadAnimationController : MonoBehaviour
         _flashRestoreColor = _spriteRenderer.color;
     }
 
+    private void OnDisable()
+    {
+        if (_flashRoutine != null)
+        {
+            StopCoroutine(_flashRoutine);
+            RestoreSpriteColor();
+            CompleteFlash();
+        }
+    }
+
     public void PlayDamageFlash(Action onComplete)
     {
         if (_spriteRenderer == null)
@@ -96,16 +106,6 @@ public class BattleSquadAnimationController : MonoBehaviour
 
         RestoreSpriteColor();
         CompleteFlash();
-    }
-
-    private void OnDisable()
-    {
-        if (_flashRoutine != null)
-        {
-            StopCoroutine(_flashRoutine);
-            RestoreSpriteColor();
-            CompleteFlash();
-        }
     }
 
     private void RestoreSpriteColor()
