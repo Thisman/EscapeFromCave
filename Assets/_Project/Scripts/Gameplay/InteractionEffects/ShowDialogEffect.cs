@@ -9,18 +9,18 @@ public sealed class ShowDialogEffect : EffectSO
 
     [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
 
-    public override async Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override async Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (ctx == null)
         {
             Debug.LogWarning("[ShowDialogEffect] Interaction context is null. Skipping dialog display.");
-            return;
+            return EffectResult.Continue;
         }
 
         if (ctx.DialogManager == null)
         {
             Debug.LogWarning("[ShowDialogEffect] DialogController is missing in the context. Assign it in the scene lifetime scope.");
-            return;
+            return EffectResult.Continue;
         }
 
         var message = Message ?? string.Empty;
@@ -36,5 +36,7 @@ public sealed class ShowDialogEffect : EffectSO
         {
             inputRouter?.EnterGameplay();
         }
+
+        return EffectResult.Continue;
     }
 }

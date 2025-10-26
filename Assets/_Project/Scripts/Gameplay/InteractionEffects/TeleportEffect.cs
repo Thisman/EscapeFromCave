@@ -12,24 +12,24 @@ public sealed class TeleportEffect : EffectSO
     [SerializeField]
     private bool _preserveOriginalZ = true;
 
-    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (ctx == null)
         {
             Debug.LogWarning("[TeleportEffect] Interaction context is null. Unable to teleport player.");
-            return Task.CompletedTask;
+            return Task.FromResult(EffectResult.Continue);
         }
 
         if (ctx.Actor == null)
         {
             Debug.LogWarning("[TeleportEffect] Actor is not specified in the interaction context. Unable to teleport player.");
-            return Task.CompletedTask;
+            return Task.FromResult(EffectResult.Continue);
         }
 
         if (_points == null || _points.Length == 0)
         {
             Debug.LogWarning("[TeleportEffect] No teleport points configured. Unable to teleport player.");
-            return Task.CompletedTask;
+            return Task.FromResult(EffectResult.Continue);
         }
 
         var actorTransform = ctx.Actor.transform;
@@ -42,6 +42,6 @@ public sealed class TeleportEffect : EffectSO
         }
 
         actorTransform.position = destination;
-        return Task.CompletedTask;
+        return Task.FromResult(EffectResult.Continue);
     }
 }

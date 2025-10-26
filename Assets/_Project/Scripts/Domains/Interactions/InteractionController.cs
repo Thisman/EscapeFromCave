@@ -12,12 +12,6 @@ public class InteractionController : MonoBehaviour
 
     public async Task<bool> TryInteract(InteractionContext ctx)
     {
-        if (Definition == null)
-        {
-            Debug.LogWarning($"[InteractionController] '{name}' does not have an interaction definition assigned. Actor: {ctx.Actor?.name ?? "<null>"}.");
-            return false;
-        }
-
         if (!_cooldown.Ready(ctx.Time))
         {
             Debug.LogWarning($"[InteractionController] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
@@ -33,12 +27,6 @@ public class InteractionController : MonoBehaviour
             }
         }
 
-        if (Definition.TargetResolver == null)
-        {
-            Debug.LogError($"[InteractionController] Definition '{Definition.name}' on '{name}' is missing a target resolver.");
-            return false;
-        }
-
         IReadOnlyList<GameObject> targets = Definition.TargetResolver.Resolve(ctx);
         int targetCount = targets?.Count ?? 0;
         if (targetCount == 0)
@@ -48,18 +36,16 @@ public class InteractionController : MonoBehaviour
 
         _cooldown.Start(ctx.Time, Definition.Cooldown);
 
+
         foreach (var eff in Definition.Effects)
         {
-            if (eff == null)
+            var result = await eff.Apply(ctx, targets);
+            if (result == EffectResult.Break)
             {
-                Debug.LogWarning($"[InteractionController] '{Definition.name}' has a null effect reference on '{name}'.");
-                continue;
+                break;
             }
-
-            await eff.Apply(ctx, targets);
         }
 
-        Debug.Log($"[InteractionController] Interaction '{Definition.name}' executed by '{ctx.Actor?.name ?? "<null>"}' on '{name}'. Targets affected: {targetCount}.");
         return true;
     }
 }

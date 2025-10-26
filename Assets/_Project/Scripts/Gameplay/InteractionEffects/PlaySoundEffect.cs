@@ -15,28 +15,26 @@ public sealed class PlaySoundEffect : EffectSO
     [SerializeField]
     private bool _waitForCompletion = false;
 
-    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override async Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (_clip == null)
         {
             Debug.LogWarning("[PlaySoundEffect] Audio clip is not assigned. Unable to play sound.");
-            return Task.CompletedTask;
+            return EffectResult.Continue;
         }
 
         var position = ctx?.Actor != null ? ctx.Actor.transform.position : Vector3.zero;
         AudioSource.PlayClipAtPoint(_clip, position, Mathf.Clamp01(_volume));
 
-        if (!_waitForCompletion)
+        if (_waitForCompletion)
         {
-            return Task.CompletedTask;
+            var duration = Mathf.Max(0f, _clip.length);
+            if (duration > 0f)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(duration));
+            }
         }
 
-        var duration = Mathf.Max(0f, _clip.length);
-        if (duration <= 0f)
-        {
-            return Task.CompletedTask;
-        }
-
-        return Task.Delay(TimeSpan.FromSeconds(duration));
+        return EffectResult.Continue;
     }
 }
