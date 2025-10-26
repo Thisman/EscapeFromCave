@@ -6,10 +6,10 @@ using UnityEngine;
 public sealed class DebugEffect : EffectSO
 {
     public string Message;
-    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         Debug.Log(Message);
 
-        return Task.CompletedTask;
+        return Task.FromResult(EffectResult.Continue);
     }
 }

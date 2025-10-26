@@ -48,15 +48,33 @@ public class InteractionController : MonoBehaviour
 
         _cooldown.Start(ctx.Time, Definition.Cooldown);
 
-        foreach (var eff in Definition.Effects)
+        int restartAttempts = 0;
+        while (true)
         {
-            if (eff == null)
+            bool shouldRestart = false;
+
+            foreach (var eff in Definition.Effects)
             {
-                Debug.LogWarning($"[InteractionController] '{Definition.name}' has a null effect reference on '{name}'.");
-                continue;
+                if (eff == null)
+                {
+                    Debug.LogWarning($"[InteractionController] '{Definition.name}' has a null effect reference on '{name}'.");
+                    continue;
+                }
+
+                var result = await eff.Apply(ctx, targets);
+                if (result == EffectResult.Restart)
+                {
+                    restartAttempts++;
+                    Debug.Log($"[InteractionController] Effect '{eff.name}' requested restart for interaction '{Definition.name}' on '{name}'. Attempt: {restartAttempts}.");
+                    shouldRestart = true;
+                    break;
+                }
             }
 
-            await eff.Apply(ctx, targets);
+            if (!shouldRestart)
+            {
+                break;
+            }
         }
 
         Debug.Log($"[InteractionController] Interaction '{Definition.name}' executed by '{ctx.Actor?.name ?? "<null>"}' on '{name}'. Targets affected: {targetCount}.");

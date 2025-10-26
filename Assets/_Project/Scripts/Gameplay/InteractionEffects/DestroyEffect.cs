@@ -9,10 +9,10 @@ public class DestroyEffect : EffectSO
 
     public bool includeInactive = false;
 
-    public override Task Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
+    public override Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         if (targets == null || targets.Count == 0)
-            return Task.CompletedTask;
+            return Task.FromResult(EffectResult.Continue);
 
         foreach (var target in targets)
         {
@@ -34,6 +34,6 @@ public class DestroyEffect : EffectSO
             }
         }
 
-        return Task.CompletedTask;
+        return Task.FromResult(EffectResult.Continue);
     }
 }
