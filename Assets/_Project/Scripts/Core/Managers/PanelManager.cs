@@ -10,11 +10,6 @@ public class PanelManager
 
     public PanelManager(params (string layerName, GameObject[] layer)[] layers)
     {
-        if (layers == null)
-        {
-            return;
-        }
-
         foreach (var (layerName, layer) in layers)
         {
             AddLayer(layerName, layer);
@@ -23,11 +18,6 @@ public class PanelManager
 
     public void AddLayer(string layerName, params GameObject[] layer)
     {
-        if (string.IsNullOrEmpty(layerName) || _layers.ContainsKey(layerName))
-        {
-            return;
-        }
-
         var elements = layer ?? System.Array.Empty<GameObject>();
         _layers[layerName] = elements;
 
@@ -37,8 +27,9 @@ public class PanelManager
 
     public void Show(string layerName)
     {
-        if (string.IsNullOrEmpty(layerName) || !_layers.TryGetValue(layerName, out _))
+        if (!_layers.TryGetValue(layerName, out _))
         {
+            Debug.LogWarning($"Unknow layer name: {layerName}");
             return;
         }
 
@@ -76,11 +67,6 @@ public class PanelManager
 
     private static void SetActive(IEnumerable<GameObject> layer, bool isActive)
     {
-        if (layer == null)
-        {
-            return;
-        }
-
         foreach (var element in layer)
         {
             if (element != null)
