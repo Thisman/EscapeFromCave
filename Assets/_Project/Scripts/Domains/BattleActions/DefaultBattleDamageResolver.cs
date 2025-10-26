@@ -11,14 +11,6 @@ public sealed class DefaultBattleDamageResolver : IBattleDamageResolver
             throw new ArgumentNullException(nameof(target));
 
         int damage = actor.ResolveDamage();
-        target.ApplyDamage(damage);
-
-        var animationController = target.GetComponentInChildren<BattleSquadAnimationController>();
-        if (animationController == null)
-            return;
-
-        var completionSource = new TaskCompletionSource<bool>();
-        animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
-        await completionSource.Task;
+        await target.ApplyDamage(damage);
     }
 }
