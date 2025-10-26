@@ -30,5 +30,7 @@ public sealed class BattleContext : IBattleContext
     public IBattleAction CurrentAction { get; set; }
 
     public BattleResult BattleResult { get; set; }
+
+    public ISet<IReadOnlySquadModel> DefendedUnitsThisRound { get; } = new HashSet<IReadOnlySquadModel>();
 }
 

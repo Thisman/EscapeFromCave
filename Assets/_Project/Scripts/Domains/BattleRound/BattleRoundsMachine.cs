@@ -68,6 +68,8 @@ public sealed class BattleRoundsMachine
     {
         var queueController = _ctx.BattleQueueController;
 
+        _ctx.DefendedUnitsThisRound?.Clear();
+
         if (queueController != null)
         {
             var units = _ctx.BattleUnits;
@@ -269,6 +271,7 @@ public sealed class BattleRoundsMachine
 
                 if (defendingUnit != null && queueController != null)
                 {
+                    _ctx.DefendedUnitsThisRound?.Add(defendingUnit);
                     queueController.AddLast(defendingUnit);
                 }
                 _sm.Fire(BattleRoundTrigger.SkipTurn);

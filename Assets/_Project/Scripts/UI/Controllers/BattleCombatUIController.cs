@@ -12,6 +12,12 @@ public class BattleCombatUIController : MonoBehaviour
     public Action OnDefend;
     public Action OnSkipTurn;
 
+    public void SetDefendButtonInteractable(bool interactable)
+    {
+        if (_defendButton != null)
+            _defendButton.interactable = interactable;
+    }
+
     private void OnEnable()
     {
         if (_leaveCombatButton != null)
