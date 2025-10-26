@@ -26,12 +26,6 @@ public class InputRouter
 
     private void SetMode(GameMode mode)
     {
-        if (_input == null)
-        {
-            Debug.LogError($"[InputRouter] Cannot set input mode to {mode} because input service is null.");
-            return;
-        }
-
         _input.SetMode(mode);
         Debug.Log($"[InputRouter] Input mode set to {mode}.");
     }
