@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5611ca96a1a69e42906b0aba8a1f392, type: 3}
+  m_Name: Chest_Test_Open_PlaySoundEffect
+  m_EditorClassIdentifier: Assembly-CSharp::PlaySoundEffect
+  _clip: {fileID: 8300000, guid: 6e6be8dc9f49cbf4b89b3c2150bee08e, type: 3}
+  _volume: 0.3
+  _waitForCompletion: 1
