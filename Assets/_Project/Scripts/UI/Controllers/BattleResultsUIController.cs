@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class BattleResultsUIController : MonoBehaviour
     private const string FleeStatusText = "Побег";
 
     [SerializeField] private Button _exitBattleButton;
-    [SerializeField] private Text _statusText;
+    [SerializeField] private TextMeshProUGUI _statusText;
 
     public Action OnExitBattle;
 
