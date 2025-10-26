@@ -100,8 +100,8 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleContext()
     {
-        var playerTurnController = new PlayerBattleActionController();
         var enemyTurnController = new AIBattleActionController();
+        var playerTurnController = new PlayerBattleActionController();
         var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
 
         _battleContext = new BattleContext

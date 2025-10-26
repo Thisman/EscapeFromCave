@@ -9,6 +9,11 @@ public class PlayerBattleActionController : IBattleActionController
     {
         _ctx = ctx;
         _onActionReady = onActionReady;
+
+        // Unsubscribe prev handlers
+        _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
+        _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
+
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
 
