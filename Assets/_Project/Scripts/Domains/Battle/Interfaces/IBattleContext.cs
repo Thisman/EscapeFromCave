@@ -27,4 +27,6 @@ public interface IBattleContext
     IReadOnlySquadModel ActiveUnit { get; set; }
 
     IBattleAction CurrentAction { get; set; }
+
+    BattleResult BattleResult { get; set; }
 }

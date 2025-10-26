@@ -9,8 +9,9 @@ public sealed class BattleRoundsMachine
     private readonly IBattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
     private bool _battleFinished;
+    private bool _playerRequestedFlee;
 
-    public event Action BattleFinished;
+    public event Action<BattleResult> BattleFinished;
 
     public BattleRoundsMachine(IBattleContext ctx)
     {
@@ -56,6 +57,7 @@ public sealed class BattleRoundsMachine
     public void Reset()
     {
         _battleFinished = false;
+        _playerRequestedFlee = false;
         _sm.Activate();
     }
 
@@ -347,6 +349,11 @@ public sealed class BattleRoundsMachine
 
         _battleFinished = true;
 
+        if (_ctx.BattleCombatUIController != null)
+        {
+            _ctx.BattleCombatUIController.OnLeaveCombat -= HandleLeaveCombat;
+        }
+
         if (queueController != null)
         {
             queueController.Rebuild(Array.Empty<IReadOnlySquadModel>());
@@ -357,7 +364,12 @@ public sealed class BattleRoundsMachine
             _sm.Fire(BattleRoundTrigger.QueueEmpty);
         }
 
-        BattleFinished?.Invoke();
+        var unitsResult = BuildUnitsResult();
+        var status = DetermineBattleStatus(unitsResult);
+        var result = new BattleResult(status, unitsResult);
+        _ctx.BattleResult = result;
+
+        BattleFinished?.Invoke(result);
 
         return true;
     }
@@ -426,6 +438,7 @@ public sealed class BattleRoundsMachine
 
     private void HandleLeaveCombat()
     {
+        _playerRequestedFlee = true;
         TriggerBattleFinish(_ctx.BattleQueueController);
     }
 
@@ -435,5 +448,66 @@ public sealed class BattleRoundsMachine
             return false;
 
         return unit.UnitDefinition.Type is UnitType.Hero or UnitType.Ally;
+    }
+
+    private BattleUnitsResult BuildUnitsResult()
+    {
+        var units = _ctx.BattleUnits;
+
+        if (units == null || units.Count == 0)
+        {
+            return new BattleUnitsResult(
+                Array.Empty<IReadOnlySquadModel>(),
+                Array.Empty<IReadOnlySquadModel>());
+        }
+
+        var friendlyUnits = new List<IReadOnlySquadModel>();
+        var enemyUnits = new List<IReadOnlySquadModel>();
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var model = unitController.GetSquadModel();
+
+            if (model?.UnitDefinition == null || model.Count <= 0)
+                continue;
+
+            switch (model.UnitDefinition.Type)
+            {
+                case UnitType.Hero:
+                case UnitType.Ally:
+                    friendlyUnits.Add(model);
+                    break;
+                case UnitType.Enemy:
+                    enemyUnits.Add(model);
+                    break;
+            }
+        }
+
+        return new BattleUnitsResult(
+            friendlyUnits.Count > 0 ? friendlyUnits.ToArray() : Array.Empty<IReadOnlySquadModel>(),
+            enemyUnits.Count > 0 ? enemyUnits.ToArray() : Array.Empty<IReadOnlySquadModel>());
+    }
+
+    private BattleResultStatus DetermineBattleStatus(BattleUnitsResult unitsResult)
+    {
+        if (_playerRequestedFlee)
+            return BattleResultStatus.Flee;
+
+        bool heroAlive = unitsResult.FriendlyUnits.Any(model =>
+            model?.UnitDefinition != null && model.UnitDefinition.Type == UnitType.Hero);
+
+        if (!heroAlive)
+            return BattleResultStatus.Defeat;
+
+        if (unitsResult.FriendlyUnits.Count > 0 && unitsResult.EnemyUnits.Count == 0)
+            return BattleResultStatus.Victory;
+
+        if (unitsResult.FriendlyUnits.Count > 0)
+            return BattleResultStatus.Victory;
+
+        return BattleResultStatus.Defeat;
     }
 }
