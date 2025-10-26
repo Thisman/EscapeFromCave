@@ -1,8 +1,9 @@
 using System;
+using System.Threading.Tasks;
 
 public sealed class DefaultBattleDamageResolver : IBattleDamageResolver
 {
-    public void ResolveDamage(BattleSquadController actor, BattleSquadController target)
+    public async Task ResolveDamage(BattleSquadController actor, BattleSquadController target)
     {
         if (actor == null)
             throw new ArgumentNullException(nameof(actor));
@@ -11,5 +12,13 @@ public sealed class DefaultBattleDamageResolver : IBattleDamageResolver
 
         int damage = actor.ResolveDamage();
         target.ApplyDamage(damage);
+
+        var animationController = target.GetComponentInChildren<BattleSquadAnimationController>();
+        if (animationController == null)
+            return;
+
+        var completionSource = new TaskCompletionSource<bool>();
+        animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
+        await completionSource.Task;
     }
 }

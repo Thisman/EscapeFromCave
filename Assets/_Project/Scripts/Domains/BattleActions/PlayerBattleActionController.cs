@@ -12,7 +12,10 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
 
-        onActionReady.Invoke(new AttackAction(ctx));
+        var targetResolver = new DefaultActionTargetResolver(ctx);
+        var damageResolver = new DefaultBattleDamageResolver();
+        var targetPicker = new PlayerActionTargetPicker(ctx, targetResolver);
+        onActionReady.Invoke(new AttackAction(ctx, targetResolver, damageResolver, targetPicker));
     }
 
     private void HandleDefend()     {
