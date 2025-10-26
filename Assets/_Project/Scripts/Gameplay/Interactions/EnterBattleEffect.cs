@@ -52,8 +52,7 @@ public sealed class EnterBattleEffect : EffectSO
         try
         {
             battleResult = await ctx.SceneLoader
-                .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload)
-                .ConfigureAwait(false);
+                .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload);
             battleCompleted = true;
         }
         catch (Exception ex)
