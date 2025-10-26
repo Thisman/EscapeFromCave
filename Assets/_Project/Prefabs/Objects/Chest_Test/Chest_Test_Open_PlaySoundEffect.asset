@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chest_Test_Open_PlaySoundEffect
   m_EditorClassIdentifier: Assembly-CSharp::PlaySoundEffect
   _clip: {fileID: 8300000, guid: 6e6be8dc9f49cbf4b89b3c2150bee08e, type: 3}
-  _volume: 0.3
+  _volume: 0.5
   _waitForCompletion: 1
