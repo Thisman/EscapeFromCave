@@ -10,6 +10,7 @@ public sealed class EnemyAttackAction : IBattleAction
     private bool _resolved;
     private bool _isAwaitingAnimation;
     private BattleSquadAnimationController _activeAnimationController;
+    private IActionTargetPicker _targetPicker;
 
     public EnemyAttackAction(IBattleContext context)
     {
@@ -41,8 +42,37 @@ public sealed class EnemyAttackAction : IBattleAction
             return;
         }
 
-        var targetController = SelectTarget(actorModel);
+        _targetPicker = new AIActionTargetPicker(_context);
+        _targetPicker.OnSelect += OnTargetSelected;
+        _targetPicker.RequestTarget();
+        if (!_isResolving)
+            return;
+    }
+
+    private void OnTargetSelected(BattleSquadController targetController)
+    {
+        if (_targetPicker != null)
+        {
+            _targetPicker.OnSelect -= OnTargetSelected;
+            _targetPicker.Dispose();
+            _targetPicker = null;
+        }
+
         if (targetController == null)
+        {
+            CancelResolution();
+            return;
+        }
+
+        var actorModel = _context.ActiveUnit;
+        if (actorModel == null)
+        {
+            CancelResolution();
+            return;
+        }
+
+        var actorController = FindController(actorModel);
+        if (actorController == null)
         {
             CancelResolution();
             return;
@@ -96,53 +126,14 @@ public sealed class EnemyAttackAction : IBattleAction
             _activeAnimationController = null;
         }
 
-        OnCancel?.Invoke();
-    }
-
-    private BattleSquadController SelectTarget(IReadOnlySquadModel actor)
-    {
-        var units = _context.BattleUnits;
-        if (units == null)
-            return null;
-
-        var grid = _context.BattleGridController;
-        if (grid == null)
-            return null;
-
-        var actorDefinition = actor?.UnitDefinition;
-        var actorType = actorDefinition?.Type ?? UnitType.Enemy;
-
-        BattleSquadController backlineCandidate = null;
-
-        foreach (var unit in units)
+        if (_targetPicker != null)
         {
-            if (unit == null)
-                continue;
-
-            var model = unit.GetSquadModel();
-            if (model == null || model.IsEmpty)
-                continue;
-
-            var definition = model.UnitDefinition;
-            if (definition == null)
-                continue;
-
-            if (!IsOpposingType(actorType, definition.Type))
-                continue;
-
-            if (!grid.TryGetSlotForOccupant(unit.transform, out var slot))
-                continue;
-
-            if (!grid.TryGetSlotRow(slot, out var row))
-                continue;
-
-            if (row == BattleGridRow.Front)
-                return unit;
-
-            backlineCandidate ??= unit;
+            _targetPicker.OnSelect -= OnTargetSelected;
+            _targetPicker.Dispose();
+            _targetPicker = null;
         }
 
-        return backlineCandidate;
+        OnCancel?.Invoke();
     }
 
     private BattleSquadController FindController(IReadOnlySquadModel model)
@@ -161,15 +152,5 @@ public sealed class EnemyAttackAction : IBattleAction
         }
 
         return null;
-    }
-
-    private static bool IsOpposingType(UnitType source, UnitType target)
-    {
-        return source switch
-        {
-            UnitType.Hero or UnitType.Ally => target == UnitType.Enemy,
-            UnitType.Enemy => target is UnitType.Hero or UnitType.Ally,
-            _ => false,
-        };
     }
 }
