@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BattleSquadController : MonoBehaviour
@@ -54,12 +55,20 @@ public class BattleSquadController : MonoBehaviour
         return unitDamage * unitCount;
     }
 
-    public void ApplyDamage(int damage)
+    public async Task ApplyDamage(int damage)
     {
         if (damage <= 0)
             return;
 
         _squadModel?.ApplyDamage(damage);
+
+        var animationController = GetComponentInChildren<BattleSquadAnimationController>();
+        if (animationController == null)
+            return;
+
+        var completionSource = new TaskCompletionSource<bool>();
+        animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
+        await completionSource.Task;
     }
 
     private void DisposeModel()
