@@ -892,6 +892,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 84d76ca62c3f0a84eb69af38b03dcdaa, type: 3}
+    - target: {fileID: 8643208717444044907, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+      propertyPath: m_Color.b
+      value: 0.40784317
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643208717444044907, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643208717444044907, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7294118
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8064,6 +8076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefendButton
       objectReference: {fileID: 0}
+    - target: {fileID: 8643208717444044907, guid: 8d8fafddf8f73184ab650f2685116cff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5044350967181698012, guid: c677824552fd5f443b6a0a5fafd3132b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
