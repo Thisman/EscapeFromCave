@@ -17,15 +17,25 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
 
+        UpdateDefendAvailability();
+
         var targetResolver = new DefaultActionTargetResolver(ctx);
         var damageResolver = new DefaultBattleDamageResolver();
         var targetPicker = new PlayerActionTargetPicker(ctx, targetResolver);
         onActionReady.Invoke(new AttackAction(ctx, targetResolver, damageResolver, targetPicker));
     }
 
-    private void HandleDefend()     {
+    private void HandleDefend()
+    {
+        if (!CanActiveUnitDefend())
+        {
+            _ctx.BattleCombatUIController?.SetDefendButtonInteractable(false);
+            return;
+        }
+
         _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
+        _ctx.BattleCombatUIController?.SetDefendButtonInteractable(false);
         var defendAction = new DefendAction();
         _onActionReady.Invoke(defendAction);
     }
@@ -34,7 +44,24 @@ public class PlayerBattleActionController : IBattleActionController
     {
         _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
+        _ctx.BattleCombatUIController?.SetDefendButtonInteractable(false);
         var skipTurnAction = new SkipTurnAction();
         _onActionReady.Invoke(skipTurnAction);
+    }
+
+    private bool CanActiveUnitDefend()
+    {
+        var activeUnit = _ctx?.ActiveUnit;
+        if (activeUnit == null)
+            return false;
+
+        var defendedUnits = _ctx.DefendedUnitsThisRound;
+        return defendedUnits == null || !defendedUnits.Contains(activeUnit);
+    }
+
+    private void UpdateDefendAvailability()
+    {
+        bool canDefend = CanActiveUnitDefend();
+        _ctx?.BattleCombatUIController?.SetDefendButtonInteractable(canDefend);
     }
 }
