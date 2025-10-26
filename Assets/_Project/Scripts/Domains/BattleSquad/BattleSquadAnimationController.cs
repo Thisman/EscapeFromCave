@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class BattleSquadAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private TextMeshProUGUI _countTextUI;
     [SerializeField] private BattleSquadController _unitController;
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField, Min(0f)] private float _damageFlashDuration = 0.5f;
@@ -16,13 +18,14 @@ public class BattleSquadAnimationController : MonoBehaviour
 
     private void Start()
     {
-        if (_spriteRenderer == null || _unitController == null)
-            return;
-
-        var model = _unitController.Model;
-        if (model?.Definition != null)
-            _spriteRenderer.sprite = model.Definition.Icon;
+        _spriteRenderer.sprite = _unitController.Model.Definition.Icon;
+        _countTextUI.text = _unitController.Model.Count.ToString();
         _flashRestoreColor = _spriteRenderer.color;
+    }
+
+    private void Update()
+    {
+        _countTextUI.text = _unitController.Model.Count.ToString();
     }
 
     private void OnDisable()
