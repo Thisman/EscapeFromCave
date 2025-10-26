@@ -66,6 +66,7 @@ public sealed class BattlePhaseMachine
     {
         _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
+        _ctx.BattleResultsUIController?.Render(_ctx.BattleResult);
     }
 
     private void OnExitTactics()
@@ -85,8 +86,9 @@ public sealed class BattlePhaseMachine
         // No actions needed on exit from results phase currently.
     }
 
-    private void HandleBattleFinished()
+    private void HandleBattleFinished(BattleResult result)
     {
+        _ctx.BattleResult = result;
         Fire(BattleTrigger.ShowBattleResults);
     }
 
