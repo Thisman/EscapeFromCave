@@ -5,11 +5,10 @@ using VContainer;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private PlayerController _playerController;
 
-    [Inject] private InputService _inputService;
+    [Inject] private readonly InputService _inputService;
 
     private InputAction _moveAction;
     private Vector2 _movement;
@@ -18,11 +17,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!body)
             body = GetComponent<Rigidbody2D>();
-    }
-
-    public void Start()
-    {
-        SubscribeToInput();
     }
 
     private void OnEnable()
@@ -50,9 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void SubscribeToInput()
     {
-        if (_moveAction != null || _inputService == null)
-            return;
-
         _moveAction = _inputService.Actions.FindAction("Move", throwIfNotFound: true);
         _moveAction.performed += OnMovePerformed;
         _moveAction.canceled += OnMoveCanceled;
@@ -60,9 +51,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void UnsubscribeFromInput()
     {
-        if (_moveAction == null)
-            return;
-
         _moveAction.performed -= OnMovePerformed;
         _moveAction.canceled -= OnMoveCanceled;
         _moveAction = null;

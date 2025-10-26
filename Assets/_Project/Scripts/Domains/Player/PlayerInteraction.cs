@@ -7,30 +7,25 @@ using System.Linq;
 [RequireComponent(typeof(Collider2D))]
 public sealed class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
-    [SerializeField] private LayerMask interactableMask = ~0;
     [SerializeField, Min(1)] private int maxCandidates = 16;
+    [SerializeField] private LayerMask interactableMask = ~0;
+    [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
 
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly DialogManager _dialogManager;
 
-    private InputAction _interactAction;
-    private Collider2D[] _hits;
-    private InteractionController _currentTarget;
     private GameObject _actor;
+    private Collider2D[] _hits;
+    private InputAction _interactAction;
     private Collider2D _lastWarnedCollider;
+    private InteractionController _currentTarget;
 
     private void Awake()
     {
         _actor = gameObject;
         _hits = new Collider2D[maxCandidates];
-    }
-
-    public void Start()
-    {
-        SubscribeToInput();
     }
 
     private void OnEnable()
@@ -50,42 +45,14 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private void SubscribeToInput()
     {
-        if (_interactAction != null)
-            return;
-
-        if (_inputService == null)
-        {
-            Debug.LogError($"[PlayerInteraction] Input service is missing on '{name}'. Interaction input will be disabled.");
-            return;
-        }
-
-        try
-        {
-            _interactAction = _inputService.Actions.FindAction("Interact", throwIfNotFound: true);
-        }
-        catch (InvalidOperationException ex)
-        {
-            Debug.LogError($"[PlayerInteraction] Failed to find 'Interact' action for '{name}'. {ex.Message}");
-            return;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[PlayerInteraction] Unexpected error while subscribing to interact action for '{name}': {ex}");
-            return;
-        }
-
+        _interactAction = _inputService.Actions.FindAction("Interact", throwIfNotFound: true);
         _interactAction.performed += OnInteractPressed;
-        Debug.Log($"[PlayerInteraction] Subscribed to interact input for '{name}'.");
     }
 
     private void UnsubscribeFromInput()
     {
-        if (_interactAction == null)
-            return;
-
         _interactAction.performed -= OnInteractPressed;
         _interactAction = null;
-        Debug.Log($"[PlayerInteraction] Unsubscribed from interact input for '{name}'.");
     }
 
     private void AcquireTargetInRadius()
@@ -116,18 +83,8 @@ public sealed class PlayerInteraction : MonoBehaviour
             Debug.Log($"[PlayerInteraction] '{name}' switched interaction target to '{targetName}'.");
         }
 
-        // Очистим ссылки для удобства
         for (int i = 0; i < _hits.Length - 1; i++)
             _hits[i] = null;
-    }
-
-    private static bool TryGetInteractable(Collider2D col, out InteractionController interactable)
-    {
-        if (col.TryGetComponent(out interactable))
-            return true;
-
-        interactable = col.GetComponentInParent<InteractionController>();
-        return interactable != null;
     }
 
     private async void OnInteractPressed(InputAction.CallbackContext _)
@@ -156,5 +113,14 @@ public sealed class PlayerInteraction : MonoBehaviour
         }
 
         await _currentTarget.TryInteract(ctxData);
+    }
+
+    private static bool TryGetInteractable(Collider2D col, out InteractionController interactable)
+    {
+        if (col.TryGetComponent(out interactable))
+            return true;
+
+        interactable = col.GetComponentInParent<InteractionController>();
+        return interactable != null;
     }
 }
