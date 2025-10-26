@@ -58,7 +58,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
-            view.Bind(_visibleSquads[i]);
+            view.Render(_visibleSquads[i]);
         }
 
         for (int i = count; i < _items.Count; i++)
@@ -74,7 +74,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
         int visible = Mathf.Min(_visibleSquads.Count, _items.Count);
         for (int i = 0; i < visible; i++)
             if (_items[i].isActiveAndEnabled)
-                _items[i].Bind(_visibleSquads[i]);
+                _items[i].Render(_visibleSquads[i]);
     }
 
     private void EnsureCapacity(int needed)
@@ -91,7 +91,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
     {
         _visibleSquads.Clear();
 
-        var squads = _playerArmyController.GetSquads();
+        var squads = _playerArmyController.Army.GetSquads();
         for (int i = 0; i < squads.Count; i++)
         {
             var squad = squads[i];

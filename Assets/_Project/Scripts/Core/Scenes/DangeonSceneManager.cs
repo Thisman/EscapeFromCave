@@ -51,7 +51,7 @@ public class DangeonSceneManager : MonoBehaviour
             if (definition != null)
             {
                 const int defaultAmount = 10;
-                armyController.TryAddSquad(definition, defaultAmount);
+                armyController.Army.TryAddSquad(definition, defaultAmount);
             }
         }
 

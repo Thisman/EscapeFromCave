@@ -96,7 +96,7 @@ public sealed class EnterBattleEffect : EffectSO
 
         if (actor.TryGetComponent<PlayerArmyController>(out var armyController))
         {
-            foreach (var squad in armyController.GetSquads())
+            foreach (var squad in armyController.Army.GetSquads())
             {
                 if (TryCreateSetup(squad, out var setup))
                     result.Add(setup);
@@ -286,12 +286,12 @@ public sealed class EnterBattleEffect : EffectSO
                 if (unit?.UnitDefinition != null && unit.Count > 0)
                 {
                     var squad = new SquadModel(unit.UnitDefinition, unit.Count);
-                    armyController.SetSlot(slot, squad);
+                    armyController.Army.SetSlot(slot, squad);
                     continue;
                 }
             }
 
-            armyController.ClearSlot(slot);
+            armyController.Army.ClearSlot(slot);
         }
     }
 

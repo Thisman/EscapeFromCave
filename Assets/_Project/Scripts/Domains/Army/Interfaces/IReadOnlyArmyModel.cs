@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public interface IReadOnlyArmyModel
 {
-    int MaxSlots { get; }
-
     event Action<IReadOnlyArmyModel> Changed;
 
-    IReadOnlyList<IReadOnlySquadModel> Slots { get; }
+    IReadOnlyList<IReadOnlySquadModel> GetSquads();
 
-    IReadOnlySquadModel GetSlot(int index);
+    bool SetSlot(int index, SquadModel squad);
 
-    IReadOnlyList<IReadOnlySquadModel> GetAllSlots();
+    bool TryAddSquad(UnitDefinitionSO def, int amount);
+
+    bool ClearSlot(int index);
 }

@@ -54,7 +54,7 @@ public class PreparationMenuUIController : MonoBehaviour
             if (itemView == null)
                 continue;
 
-            selectedSquads.Add(itemView.Definition);
+            selectedSquads.Add(itemView.GetDefinition());
         }
 
         return selectedSquads;
