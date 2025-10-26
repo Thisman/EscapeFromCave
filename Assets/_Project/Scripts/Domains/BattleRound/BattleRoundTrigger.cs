@@ -1,1 +1,1 @@
-public enum BattleRoundTrigger { StartRound, NextTurn, SkipTurn, ActionDone, QueueEmpty, StartNewRound }
+public enum BattleRoundTrigger { StartRound, NextTurn, SkipTurn, ActionDone, ExitRound, StartNewRound }
