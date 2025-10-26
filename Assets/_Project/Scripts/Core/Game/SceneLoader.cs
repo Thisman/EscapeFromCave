@@ -12,19 +12,16 @@ public sealed class SceneLoader
     {
         if (string.IsNullOrEmpty(sceneName))
         {
-            Debug.LogError("[SceneLoader] Scene name must not be null or empty when loading additively with data.");
             throw new ArgumentException("Scene name must not be null or empty", nameof(sceneName));
         }
 
         if (payload == null)
         {
-            Debug.LogError($"[SceneLoader] Payload is null for scene '{sceneName}'.");
-            throw new ArgumentNullException(nameof(payload));
+            throw new ArgumentNullException("[SceneLoader] Payload is null for scene", nameof(payload));
         }
 
         if (_sessions.ContainsKey(sceneName))
         {
-            Debug.LogError($"[SceneLoader] Attempted to load scene '{sceneName}' while a session already exists.");
             throw new InvalidOperationException($"Scene '{sceneName}' is already loaded with a data session");
         }
 
@@ -46,7 +43,6 @@ public sealed class SceneLoader
             if (result is TCloseData typed)
                 return typed;
 
-            Debug.LogError($"[SceneLoader] Close data for scene '{sceneName}' is of type {result.GetType().Name}, expected {typeof(TCloseData)}.");
             throw new InvalidCastException($"Unable to cast close data for scene '{sceneName}' to {typeof(TCloseData)}");
         }
         finally

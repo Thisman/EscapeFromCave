@@ -22,7 +22,7 @@ public class PreparationSceneManager : MonoBehaviour
 
     private async void HandleStartGame(UnitDefinitionSO selectedHero, List<UnitDefinitionSO> selectedSquads)
     {
-        _gameSession.SetSelection(selectedHero, selectedSquads);
+        _gameSession.SelectHeroAndArmy(selectedHero, selectedSquads);
         await _sceneLoader.LoadAdditiveAsync("Dangeon_Level_1");
         await _sceneLoader.UnloadAdditiveAsync("PreparationScene");
     }
