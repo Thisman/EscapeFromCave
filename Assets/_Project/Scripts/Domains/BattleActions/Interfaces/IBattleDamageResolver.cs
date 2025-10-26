@@ -1,4 +1,6 @@
+using System.Threading.Tasks;
+
 public interface IBattleDamageResolver
 {
-    void ResolveDamage(BattleSquadController actor, BattleSquadController target);
+    Task ResolveDamage(BattleSquadController actor, BattleSquadController target);
 }
