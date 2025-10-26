@@ -66,6 +66,7 @@ public sealed class BattlePhaseMachine
     {
         _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
+        _ctx.BattleResultsUIController?.Render(_ctx.BattleResult);
     }
 
     private void OnExitTactics()
