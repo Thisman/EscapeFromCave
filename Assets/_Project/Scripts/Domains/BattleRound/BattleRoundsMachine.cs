@@ -274,7 +274,6 @@ public sealed class BattleRoundsMachine
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             case SkipTurnAction:
-            case AutoSkipTurnAction:
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             default:
