@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 2754881610265278224}
   - component: {fileID: 8914119487802927726}
   m_Layer: 3
-  m_Name: Chest_Test
+  m_Name: InteractableObject
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed083f313c025f4fa85f664c9e91bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectController
-  _interactableDefinition: {fileID: 11400000, guid: bc8dfa842cbb20b4290893da1397e020, type: 2}
+  _interactableDefinition: {fileID: 0}
 --- !u!114 &3070156410181719332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cc7fd1ea077f14ea1554601264c7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  Definition: {fileID: 11400000, guid: ac99895d43a3e3c4e91d44d267560b4e, type: 2}
+  Definition: {fileID: 0}
 --- !u!114 &8914119487802927726
 MonoBehaviour:
   m_ObjectHideFlags: 0
