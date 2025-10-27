@@ -14,26 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: 2783893222895161197, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Ally_Test_Archer
-  Type: 1
-  Levels:
-  - LevelIndex: 0
-    XPToNext: 100
-    Health: 80
-    Damage: 20
-    Defense: 10
-    Initiative: 1
-    Speed: 0
-  - LevelIndex: 0
-    XPToNext: 250
-    Health: 75
-    Damage: 18
-    Defense: 11
-    Initiative: 1
-    Speed: 0
-  - LevelIndex: 0
-    XPToNext: 500
-    Health: 100
-    Damage: 25
-    Defense: 13
-    Initiative: 1
-    Speed: 0
+  Kind: 1
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 100
+  BasePhysicalDefense: 2
+  BaseMagicDefense: 0
+  BaseAbsoluteDefense: 0
+  MinDamage: 10
+  MaxDamage: 20
+  Speed: 2
+  BaseCritChance: 1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 5

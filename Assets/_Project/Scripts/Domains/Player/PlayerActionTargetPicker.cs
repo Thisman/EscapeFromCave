@@ -100,17 +100,17 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
 
         var activeUnit = _context.ActiveUnit;
         if (activeUnit?.Definition == null)
-            return targetModel.Definition.Type == UnitType.Enemy;
+            return targetModel.Definition.Kind == UnitKind.Enemy;
 
-        return IsOpposingType(activeUnit.Definition.Type, targetModel.Definition.Type);
+        return IsOpposingType(activeUnit.Definition.Kind, targetModel.Definition.Kind);
     }
 
-    private static bool IsOpposingType(UnitType source, UnitType target)
+    private static bool IsOpposingType(UnitKind source, UnitKind target)
     {
         return source switch
         {
-            UnitType.Hero or UnitType.Ally => target == UnitType.Enemy,
-            UnitType.Enemy => target is UnitType.Hero or UnitType.Ally,
+            UnitKind.Hero or UnitKind.Ally => target == UnitKind.Enemy,
+            UnitKind.Enemy => target is UnitKind.Hero or UnitKind.Ally,
             _ => false,
         };
     }

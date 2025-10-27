@@ -43,7 +43,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
             return null;
 
         var actorDefinition = actor?.Definition;
-        var actorType = actorDefinition?.Type ?? UnitType.Enemy;
+        var actorType = actorDefinition?.Kind ?? UnitKind.Enemy;
 
         BattleSquadController backlineCandidate = null;
 
@@ -60,7 +60,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
             if (definition == null)
                 continue;
 
-            if (!IsOpposingType(actorType, definition.Type))
+            if (!IsOpposingType(actorType, definition.Kind))
                 continue;
 
             if (!grid.TryGetSlotForOccupant(unit.transform, out var slot))
@@ -78,12 +78,12 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         return backlineCandidate;
     }
 
-    private static bool IsOpposingType(UnitType source, UnitType target)
+    private static bool IsOpposingType(UnitKind source, UnitKind target)
     {
         return source switch
         {
-            UnitType.Hero or UnitType.Ally => target == UnitType.Enemy,
-            UnitType.Enemy => target is UnitType.Hero or UnitType.Ally,
+            UnitKind.Hero or UnitKind.Ally => target == UnitKind.Enemy,
+            UnitKind.Enemy => target is UnitKind.Hero or UnitKind.Ally,
             _ => false,
         };
     }

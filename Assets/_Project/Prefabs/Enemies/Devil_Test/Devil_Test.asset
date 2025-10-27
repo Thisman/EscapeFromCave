@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: -4905392893228763649, guid: 4b352e952093f734c855535193b627e6, type: 3}
   UnitName: Devil_Test
-  Type: 2
-  Levels:
-  - LevelIndex: 0
-    XPToNext: 0
-    Health: 250
-    Damage: 35
-    Defense: 20
-    Initiative: 3
-    Speed: 0
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 100
+  BasePhysicalDefense: 2
+  BaseMagicDefense: 0
+  BaseAbsoluteDefense: 0
+  MinDamage: 10
+  MaxDamage: 20
+  Speed: 2
+  BaseCritChance: 1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 5

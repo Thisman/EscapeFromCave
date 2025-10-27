@@ -75,7 +75,7 @@ public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
             if (definition == null)
                 continue;
 
-            if (!IsSameSide(targetDefinition.Type, definition.Type))
+            if (!IsSameSide(targetDefinition.Kind, definition.Kind))
                 continue;
 
             if (model.IsEmpty)
@@ -102,13 +102,13 @@ public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
         return grid.TryGetSlotRow(slot, out row);
     }
 
-    private static bool IsSameSide(UnitType source, UnitType target)
+    private static bool IsSameSide(UnitKind source, UnitKind target)
     {
         return source switch
         {
-            UnitType.Hero or UnitType.Ally => target is UnitType.Hero or UnitType.Ally,
-            UnitType.Enemy => target == UnitType.Enemy,
-            UnitType.Neutral => target == UnitType.Neutral,
+            UnitKind.Hero or UnitKind.Ally => target is UnitKind.Hero or UnitKind.Ally,
+            UnitKind.Enemy => target == UnitKind.Enemy,
+            UnitKind.Neutral => target == UnitKind.Neutral,
             _ => false,
         };
     }

@@ -175,16 +175,16 @@ public sealed class EnterBattleEffect : EffectSO
             if (unit?.Definition == null || unit.Count <= 0)
                 continue;
 
-            var type = unit.Definition.Type;
+            var type = unit.Definition.Kind;
 
-            if (type == UnitType.Hero)
+            if (type == UnitKind.Hero)
             {
                 if (heroUnit == null)
                     heroUnit = unit;
                 continue;
             }
 
-            if (type == UnitType.Ally)
+            if (type == UnitKind.Ally)
                 armyUnits.Add(unit);
         }
 

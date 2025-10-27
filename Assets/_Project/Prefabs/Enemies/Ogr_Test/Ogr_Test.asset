@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: -3398425601533472082, guid: 4b352e952093f734c855535193b627e6, type: 3}
   UnitName: Ogr_Test
-  Type: 2
-  Levels:
-  - LevelIndex: 0
-    XPToNext: 0
-    Health: 100
-    Damage: 20
-    Defense: 10
-    Initiative: 1
-    Speed: 0
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 100
+  BasePhysicalDefense: 2
+  BaseMagicDefense: 0
+  BaseAbsoluteDefense: 0
+  MinDamage: 10
+  MaxDamage: 20
+  Speed: 2
+  BaseCritChance: 1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 5

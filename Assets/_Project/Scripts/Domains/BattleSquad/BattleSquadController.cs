@@ -37,22 +37,11 @@ public class BattleSquadController : MonoBehaviour
 
     public int ResolveDamage()
     {
-        var model = _squadModel;
-        if (model == null)
-            return 0;
+        var definition = _squadModel.Definition;
+        var unitDamage = UnityEngine.Random.Range(definition.MinDamage, definition.MaxDamage);
+        var unitCount = Math.Max(0, _squadModel.Count);
 
-        var definition = model.Definition;
-        if (definition == null)
-            return 0;
-
-        var stats = definition.GetStatsForLevel(1);
-        var unitDamage = Math.Max(0, stats.Damage);
-        var unitCount = Math.Max(0, model.Count);
-
-        if (unitDamage == 0 || unitCount == 0)
-            return 0;
-
-        return unitDamage * unitCount;
+        return (int)unitDamage * unitCount;
     }
 
     public async Task ApplyDamage(int damage)

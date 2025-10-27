@@ -332,11 +332,11 @@ public sealed class BattleGridController : MonoBehaviour
             if (model == null || model.Definition == null)
                 return false;
 
-            Transform slot = model.Definition.Type switch
+            Transform slot = model.Definition.Kind switch
             {
-                UnitType.Hero => AllocateSlot(allPools, allyBackSlots),
-                UnitType.Ally => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots),
-                UnitType.Enemy => AllocateSlot(allPools, enemySlots),
+                UnitKind.Hero => AllocateSlot(allPools, allyBackSlots),
+                UnitKind.Ally => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots),
+                UnitKind.Enemy => AllocateSlot(allPools, enemySlots),
                 _ => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots, enemySlots)
             };
 

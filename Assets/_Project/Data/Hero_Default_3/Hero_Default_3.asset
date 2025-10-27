@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: -2498498304402662931, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Hero_Default_3
-  Type: 0
-  Levels:
-  - LevelIndex: 0
-    XPToNext: 0
-    Health: 85
-    Damage: 25
-    Defense: 7
-    Initiative: 1
-    Speed: 3
+  Kind: 0
+  AttackKind: 0
+  DamageType: 1
+  BaseHealth: 100
+  BasePhysicalDefense: 2
+  BaseMagicDefense: 0
+  BaseAbsoluteDefense: 0
+  MinDamage: 10
+  MaxDamage: 20
+  Speed: 2
+  BaseCritChance: 1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 5

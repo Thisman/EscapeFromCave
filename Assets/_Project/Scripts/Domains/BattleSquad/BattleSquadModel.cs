@@ -102,10 +102,6 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
 
     private static int CalculateUnitHealth(UnitDefinitionSO definition)
     {
-        if (definition == null)
-            return 0;
-
-        var stats = definition.GetStatsForLevel(1);
-        return Math.Max(0, stats.Health);
+        return (int)definition.BaseHealth;
     }
 }

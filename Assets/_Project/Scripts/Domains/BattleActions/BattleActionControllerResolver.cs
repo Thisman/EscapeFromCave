@@ -16,7 +16,7 @@ public sealed class BattleActionControllerResolver
         if (unit == null)
             throw new ArgumentNullException(nameof(unit));
 
-        if (unit.Definition != null && (unit.Definition.Type == UnitType.Hero || unit.Definition.Type == UnitType.Ally))
+        if (unit.Definition.Kind == UnitKind.Hero || unit.Definition.Kind == UnitKind.Ally)
             return _playerController;
 
         return _enemyController;

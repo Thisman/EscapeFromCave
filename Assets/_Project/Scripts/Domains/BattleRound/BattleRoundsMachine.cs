@@ -303,7 +303,7 @@ public sealed class BattleRoundsMachine
         if (units.Count == 0)
             return TriggerBattleFinish(queueController);
 
-        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.Type == UnitType.Hero);
+        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.Kind == UnitKind.Hero);
 
         if (!heroInQueue)
             return TriggerBattleFinish(queueController);
@@ -448,7 +448,7 @@ public sealed class BattleRoundsMachine
         if (unit?.Definition == null)
             return false;
 
-        return unit.Definition.Type is UnitType.Hero or UnitType.Ally;
+        return unit.Definition.Kind is UnitKind.Hero or UnitKind.Ally;
     }
 
     private BattleUnitsResult BuildUnitsResult()
@@ -475,13 +475,13 @@ public sealed class BattleRoundsMachine
             if (model?.Definition == null || model.Count <= 0)
                 continue;
 
-            switch (model.Definition.Type)
+            switch (model.Definition.Kind)
             {
-                case UnitType.Hero:
-                case UnitType.Ally:
+                case UnitKind.Hero:
+                case UnitKind.Ally:
                     friendlyUnits.Add(model);
                     break;
-                case UnitType.Enemy:
+                case UnitKind.Enemy:
                     enemyUnits.Add(model);
                     break;
             }
@@ -498,7 +498,7 @@ public sealed class BattleRoundsMachine
             return BattleResultStatus.Flee;
 
         bool heroAlive = unitsResult.FriendlyUnits.Any(model =>
-            model?.Definition != null && model.Definition.Type == UnitType.Hero);
+            model?.Definition != null && model.Definition.Kind == UnitKind.Hero);
 
         if (!heroAlive)
             return BattleResultStatus.Defeat;
