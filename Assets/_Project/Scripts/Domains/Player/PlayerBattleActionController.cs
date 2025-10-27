@@ -15,7 +15,7 @@ public class PlayerBattleActionController : IBattleActionController
         SubscribeUIEvents();
         UpdateDefendAvailability();
 
-        var targetResolver = new DefaultActionTargetResolver(ctx);
+        var targetResolver = new DefaultBattleActionTargetResolver(ctx);
         var damageResolver = new DefaultBattleDamageResolver();
         var targetPicker = new PlayerBattleActionTargetPicker(ctx, targetResolver);
 

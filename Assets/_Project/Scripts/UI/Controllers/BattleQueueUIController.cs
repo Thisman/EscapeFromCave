@@ -14,11 +14,6 @@ public sealed class BattleQueueUIController : MonoBehaviour
             _container = transform;
     }
 
-    public void Init(BattleQueueController battleQueueController)
-    {
-        Render(battleQueueController);
-    }
-
     public void Render(BattleQueueController battleQueueController)
     {
         if (battleQueueController == null)

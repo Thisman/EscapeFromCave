@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-public sealed class DefaultActionTargetResolver : IBattleActionTargetResolver
+public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResolver
 {
     private readonly BattleContext _context;
 
-    public DefaultActionTargetResolver(BattleContext context)
+    public DefaultBattleActionTargetResolver(BattleContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
