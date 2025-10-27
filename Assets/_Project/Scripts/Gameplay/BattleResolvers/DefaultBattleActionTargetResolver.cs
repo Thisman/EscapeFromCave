@@ -12,7 +12,8 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
 
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        _ = actor;
+        if (actor.Definition.AttackKind == AttackKind.Ranged)
+            return true;
 
         if (target == null)
             throw new ArgumentNullException(nameof(target));
