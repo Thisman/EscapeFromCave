@@ -19,6 +19,7 @@ public class SquadModel : IReadOnlySquadModel
     {
         if (!definition) throw new ArgumentNullException(nameof(definition));
         if (initialCount < 0) throw new ArgumentOutOfRangeException(nameof(initialCount));
+
         _unitDefinition = definition;
         _count = initialCount;
     }
@@ -26,6 +27,7 @@ public class SquadModel : IReadOnlySquadModel
     public bool TryAdd(int amount)
     {
         if (amount <= 0) return false;
+
         _count += amount;
         NotifyChanged();
         return true;

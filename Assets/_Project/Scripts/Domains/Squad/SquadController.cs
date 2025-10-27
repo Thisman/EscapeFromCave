@@ -9,14 +9,7 @@ public class SquadController : MonoBehaviour
 
     public void Awake()
     {
-        if (_unitDefinition == null)
-        {
-            Debug.LogWarning("[SquadController] Unit definition is not assigned. Squad model will not be created.");
-            return;
-        }
-
-        if (_squadModel == null)
-            _squadModel = new SquadModel(_unitDefinition, _count);
+        _squadModel ??= new SquadModel(_unitDefinition, _count);
     }
 
     public IReadOnlySquadModel GetSquadModel()

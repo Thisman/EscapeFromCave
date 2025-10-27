@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class BattleSquadAnimationController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private TextMeshProUGUI _countTextUI;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BattleSquadController _unitController;
+
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField, Min(0f)] private float _damageFlashDuration = 0.5f;
     [SerializeField, Min(0f)] private float _damageFlashFrequency = 6f;
@@ -18,14 +19,11 @@ public class BattleSquadAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = _unitController.Model.Definition.Icon;
-        _countTextUI.text = _unitController.Model.Count.ToString();
         _flashRestoreColor = _spriteRenderer.color;
-    }
+        _spriteRenderer.sprite = _unitController.GetSquadModel().Definition.Icon;
 
-    private void Update()
-    {
-        _countTextUI.text = _unitController.Model.Count.ToString();
+        _unitController.GetSquadModel().Changed += HandleModelChanged;
+        HandleModelChanged(_unitController.GetSquadModel());
     }
 
     private void OnDisable()
@@ -36,6 +34,8 @@ public class BattleSquadAnimationController : MonoBehaviour
             RestoreSpriteColor();
             CompleteFlash();
         }
+
+        _unitController.GetSquadModel().Changed -= HandleModelChanged;
     }
 
     public void PlayDamageFlash(Action onComplete)
@@ -123,5 +123,10 @@ public class BattleSquadAnimationController : MonoBehaviour
         _flashCompletion = null;
         _flashRoutine = null;
         completion?.Invoke();
+    }
+
+    private void HandleModelChanged(IReadOnlySquadModel model)
+    {
+        _countTextUI.text = model.Count.ToString();
     }
 }

@@ -168,9 +168,7 @@ public class BattleSceneManager : MonoBehaviour
             return;
 
         GameObject instance = _objectResolver.Instantiate(_battleSquadPrefab);
-
         BattleSquadController controller = instance.GetComponent<BattleSquadController>();
-
         SquadModel squadModel = new(setup.Definition, setup.Count);
         BattleSquadModel battleModel = new(squadModel);
         controller.Initialize(battleModel);

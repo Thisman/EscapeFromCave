@@ -1,25 +1,22 @@
 using System;
 
-public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
+public sealed class BattleSquadModel : IReadOnlySquadModel
 {
-    private readonly int _unitHealth;
-    private readonly SquadModel _sourceModel;
+    private readonly IReadOnlySquadModel _sourceModel;
 
-    private int _totalHealth;
+    private int _squadHealth;
 
-    public BattleSquadModel(SquadModel sourceModel)
+    public BattleSquadModel(IReadOnlySquadModel sourceModel)
     {
         _sourceModel = sourceModel ?? throw new ArgumentNullException(nameof(sourceModel));
-        _unitHealth = CalculateUnitHealth(_sourceModel.Definition);
-        _totalHealth = CalculateInitialTotalHealth();
-        _sourceModel.Changed += HandleSourceChanged;
+        _squadHealth = CalculateInitialTotalHealth();
     }
 
     public UnitDefinitionSO Definition => _sourceModel.Definition;
 
     public int Count => CalculateCount();
 
-    public bool IsEmpty => _totalHealth <= 0;
+    public bool IsEmpty => Count <= 0;
 
     public event Action<IReadOnlySquadModel> Changed;
 
@@ -28,80 +25,35 @@ public sealed class BattleSquadModel : IReadOnlySquadModel, IDisposable
         if (damage <= 0)
             return;
 
-        if (_totalHealth <= 0)
+        if (_squadHealth <= 0)
             return;
 
-        SetTotalHealth(Math.Max(0, _totalHealth - damage));
-    }
-
-    public void SetCount(int count)
-    {
-        if (count < 0)
-            throw new ArgumentOutOfRangeException(nameof(count));
-
-        if (_unitHealth <= 0)
-        {
-            if (_totalHealth != 0)
-                SetTotalHealth(0);
-            return;
-        }
-
-        int newTotal = count * _unitHealth;
-        SetTotalHealth(newTotal);
-    }
-
-    public void Dispose()
-    {
-        _sourceModel.Changed -= HandleSourceChanged;
+        SetSquadHealth(Math.Max(0, _squadHealth - damage));
     }
 
     private int CalculateInitialTotalHealth()
     {
-        if (_unitHealth <= 0)
-            return 0;
-
-        int sourceCount = Math.Max(0, _sourceModel.Count);
-        return sourceCount * _unitHealth;
+        return _sourceModel.Count * (int)_sourceModel.Definition.BaseHealth;
     }
 
     private int CalculateCount()
     {
-        if (_unitHealth <= 0)
-            return 0;
-
-        if (_totalHealth <= 0)
-            return 0;
-
-        return (_totalHealth + _unitHealth - 1) / _unitHealth;
+        int unitBaseHealth = (int)_sourceModel.Definition.BaseHealth;
+        return (_squadHealth + unitBaseHealth - 1) / unitBaseHealth;
     }
 
-    private void HandleSourceChanged(IReadOnlySquadModel model)
+    private void SetSquadHealth(int newSquadHealth)
     {
-        int newCount = model?.Count ?? 0;
-        int currentCount = Count;
-        if (newCount == currentCount)
+        newSquadHealth = Math.Max(0, newSquadHealth);
+        if (_squadHealth == newSquadHealth)
             return;
 
-        SetCount(newCount);
-    }
-
-    private void SetTotalHealth(int newTotalHealth)
-    {
-        newTotalHealth = Math.Max(0, newTotalHealth);
-        if (_totalHealth == newTotalHealth)
-            return;
-
-        _totalHealth = newTotalHealth;
+        _squadHealth = newSquadHealth;
         NotifyChanged();
     }
 
     private void NotifyChanged()
     {
         Changed?.Invoke(this);
-    }
-
-    private static int CalculateUnitHealth(UnitDefinitionSO definition)
-    {
-        return (int)definition.BaseHealth;
     }
 }

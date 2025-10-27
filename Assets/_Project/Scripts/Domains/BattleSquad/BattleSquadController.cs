@@ -5,34 +5,23 @@ using UnityEngine;
 public class BattleSquadController : MonoBehaviour
 {
     private BattleSquadModel _squadModel;
-    private IReadOnlySquadModel _readOnlyModel;
-
-    public BattleSquadModel Model => _squadModel;
 
     private void OnDestroy()
     {
-        DisposeModel();
+        _squadModel = null;
     }
 
-    public void Initialize(IReadOnlySquadModel squadModel)
+    public void Initialize(BattleSquadModel squadModel)
     {
-        if (squadModel == null)
-            throw new ArgumentNullException(nameof(squadModel));
-
-        if (_readOnlyModel == squadModel)
-            return;
-
         if (squadModel is not BattleSquadModel battleSquadModel)
             throw new ArgumentException($"{nameof(BattleSquadController)} requires a {nameof(BattleSquadModel)} instance.", nameof(squadModel));
 
-        DisposeModel();
         _squadModel = battleSquadModel;
-        _readOnlyModel = battleSquadModel;
     }
 
     public IReadOnlySquadModel GetSquadModel()
     {
-        return _readOnlyModel;
+        return _squadModel;
     }
 
     public int ResolveDamage()
@@ -58,12 +47,5 @@ public class BattleSquadController : MonoBehaviour
         var completionSource = new TaskCompletionSource<bool>();
         animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
         await completionSource.Task;
-    }
-
-    private void DisposeModel()
-    {
-        _squadModel?.Dispose();
-        _squadModel = null;
-        _readOnlyModel = null;
     }
 }
