@@ -29,10 +29,6 @@ public sealed class BattleGridController : MonoBehaviour
         InitializeSlots(_enemySlots);
     }
 
-    public IReadOnlyList<Transform> AllySlots => _allySlots;
-
-    public IReadOnlyList<Transform> EnemySlots => _enemySlots;
-
     public void DisableSlotsCollider()
     {
         foreach (var slot in EnumerateSlots())
@@ -55,7 +51,6 @@ public sealed class BattleGridController : MonoBehaviour
         }
 
         unit.SetParent(resolvedSlot, keepWorldPosition);
-
         unit.localRotation = Quaternion.identity;
 
         if (!keepWorldPosition)
@@ -66,7 +61,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (TryGetSlotSide(resolvedSlot, out var slotSide))
         {
             var animationController = unit.GetComponentInChildren<BattleSquadAnimationController>();
-            animationController?.SetFlipX(slotSide == BattleGridSlotSide.Ally);
+            animationController.SetFlipX(slotSide == BattleGridSlotSide.Ally);
         }
 
         _slotOccupants[resolvedSlot] = unit;

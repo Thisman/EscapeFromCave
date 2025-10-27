@@ -80,7 +80,7 @@ public sealed class BattleRoundsMachine
                     .Select(unit => unit.GetSquadModel())
                     .Where(model => model != null);
 
-            queueController.Rebuild(unitModels);
+            queueController.Build(unitModels);
             _ctx.BattleQueueUIController?.Render(queueController);
         }
         else
@@ -357,7 +357,7 @@ public sealed class BattleRoundsMachine
 
         if (queueController != null)
         {
-            queueController.Rebuild(Array.Empty<IReadOnlySquadModel>());
+            queueController.Build(Array.Empty<IReadOnlySquadModel>());
         }
 
         if (_sm.CanFire(BattleRoundTrigger.ExitRound))

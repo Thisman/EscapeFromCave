@@ -46,7 +46,7 @@ public sealed class BattleQueueUIController : MonoBehaviour
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
-            view.Bind(queue[i]);
+            view.Render(queue[i]);
         }
 
         for (int i = queue.Count; i < _items.Count; i++)

@@ -1,7 +1,4 @@
 using Stateless;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public sealed class BattlePhaseMachine
@@ -16,10 +13,7 @@ public sealed class BattlePhaseMachine
         _battleRoundsMachine = battleRoundsMachine;
         _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Loading);
 
-        if (_battleRoundsMachine != null)
-        {
-            _battleRoundsMachine.BattleFinished += HandleBattleFinished;
-        }
+        _battleRoundsMachine.BattleFinished += HandleBattleFinished;
 
         _sm.Configure(BattlePhase.Loading)
             .Permit(BattleTrigger.StartBattle, BattlePhase.Tactics);
@@ -39,8 +33,6 @@ public sealed class BattlePhaseMachine
             .OnExit(() => OnExitResults());
     }
 
-    public BattlePhase State => _sm.State;
-
     public void Fire(BattleTrigger trigger)
     {
         if (_sm.CanFire(trigger)) _sm.Fire(trigger);
@@ -49,10 +41,12 @@ public sealed class BattlePhaseMachine
     private void OnEnterTactics()
     {
         _ctx.PanelManager?.Show("tactic");
-        _ctx.BattleTacticUIController.OnStartCombat += HandleStartCombat;
+        _ctx.BattleTacticUIController.OnBattleRoundsStart += HandleStartBattleRounds;
+        if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
+        {
+            Debug.LogWarning("Failed to place battle units on the grid.");
+        }
         _ctx.BattleGridDragAndDropController.enabled = true;
-
-        PlaceUnitsOnGrid();
     }
 
     private void OnEnterRounds()
@@ -64,15 +58,15 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterResults()
     {
-        _ctx.PanelManager?.Show("results");
         _ctx.IsFinished = true;
+        _ctx.PanelManager?.Show("results");
         _ctx.BattleResultsUIController?.Render(_ctx.BattleResult);
     }
 
     private void OnExitTactics()
     {
         _ctx.BattleGridController.DisableSlotsCollider();
-        _ctx.BattleTacticUIController.OnStartCombat -= HandleStartCombat;
+        _ctx.BattleTacticUIController.OnBattleRoundsStart -= HandleStartBattleRounds;
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 
@@ -92,17 +86,7 @@ public sealed class BattlePhaseMachine
         Fire(BattleTrigger.ShowBattleResults);
     }
 
-    private void PlaceUnitsOnGrid()
-    {
-        if (_ctx.BattleGridController == null || _ctx.BattleUnits == null || _ctx.BattleUnits.Count == 0)
-            return;
-        if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
-        {
-            Debug.LogWarning("Failed to place battle units on the grid.");
-        }
-    }
-
-    private void HandleStartCombat()
+    private void HandleStartBattleRounds()
     {
         Fire(BattleTrigger.StartBattleRound);
     }
