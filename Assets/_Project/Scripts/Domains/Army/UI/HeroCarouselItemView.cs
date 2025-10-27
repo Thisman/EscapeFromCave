@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 public class HeroCarouselItemView : MonoBehaviour
 {
-    [SerializeField] public UnitDefinitionSO Definition;
-
+    [SerializeField] private UnitDefinitionSO Definition;
     [SerializeField] private UnitStatsInfoView statsInfoViewUI;
     [SerializeField] private Image icon;
 
@@ -12,5 +11,10 @@ public class HeroCarouselItemView : MonoBehaviour
     {
         icon.sprite = Definition.Icon;
         statsInfoViewUI.Render(Definition);
+    }
+
+    public UnitDefinitionSO GetDefinition()
+    {
+        return Definition;
     }
 }
