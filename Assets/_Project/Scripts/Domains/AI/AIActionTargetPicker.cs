@@ -35,30 +35,16 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
     private BattleSquadController SelectTarget(IReadOnlySquadModel actor)
     {
         var units = _context.BattleUnits;
-        if (units == null)
-            return null;
-
         var grid = _context.BattleGridController;
-        if (grid == null)
-            return null;
-
-        var actorDefinition = actor?.Definition;
-        var actorType = actorDefinition?.Kind ?? UnitKind.Enemy;
+        var actorDefinition = actor.Definition;
+        var actorType = actorDefinition.Kind;
 
         BattleSquadController backlineCandidate = null;
 
         foreach (var unit in units)
         {
-            if (unit == null)
-                continue;
-
             var model = unit.GetSquadModel();
-            if (model == null || model.IsEmpty)
-                continue;
-
             var definition = model.Definition;
-            if (definition == null)
-                continue;
 
             if (!IsOpposingType(actorType, definition.Kind))
                 continue;

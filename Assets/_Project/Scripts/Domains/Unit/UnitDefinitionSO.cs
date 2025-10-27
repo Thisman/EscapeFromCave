@@ -35,7 +35,9 @@ public sealed class UnitDefinitionSO : ScriptableObject
 
     public (float min, float max) GetBaseDamageRange() => (MinDamage, MaxDamage);
 
-    public bool IsAlly () => Kind == UnitKind.Ally || Kind == UnitKind.Hero;
+    public bool IsFrendly () => Kind == UnitKind.Ally || Kind == UnitKind.Hero;
+
+    public bool IsAlly () => Kind == UnitKind.Ally;
 
     public bool IsHero () => Kind == UnitKind.Hero;
 

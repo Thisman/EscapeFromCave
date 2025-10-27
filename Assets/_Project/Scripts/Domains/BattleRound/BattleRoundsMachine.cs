@@ -303,7 +303,7 @@ public sealed class BattleRoundsMachine
         if (units.Count == 0)
             return TriggerBattleFinish(queueController);
 
-        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.Kind == UnitKind.Hero);
+        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.IsHero());
 
         if (!heroInQueue)
             return TriggerBattleFinish(queueController);
@@ -445,10 +445,7 @@ public sealed class BattleRoundsMachine
 
     private bool CanPlayerControlActiveUnit(IReadOnlySquadModel unit)
     {
-        if (unit?.Definition == null)
-            return false;
-
-        return unit.Definition.Kind is UnitKind.Hero or UnitKind.Ally;
+        return unit.Definition.IsFrendly();
     }
 
     private BattleUnitsResult BuildUnitsResult()
@@ -497,8 +494,7 @@ public sealed class BattleRoundsMachine
         if (_playerRequestedFlee)
             return BattleResultStatus.Flee;
 
-        bool heroAlive = unitsResult.FriendlyUnits.Any(model =>
-            model?.Definition != null && model.Definition.Kind == UnitKind.Hero);
+        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.Definition.IsHero());
 
         if (!heroAlive)
             return BattleResultStatus.Defeat;

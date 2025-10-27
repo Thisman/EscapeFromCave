@@ -100,7 +100,7 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
 
         var activeUnit = _context.ActiveUnit;
         if (activeUnit?.Definition == null)
-            return targetModel.Definition.Kind == UnitKind.Enemy;
+            return targetModel.Definition.IsEnemy();
 
         return IsOpposingType(activeUnit.Definition.Kind, targetModel.Definition.Kind);
     }

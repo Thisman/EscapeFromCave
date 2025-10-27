@@ -278,14 +278,9 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var unitController = draggable.GetComponentInParent<BattleSquadController>();
-        if (unitController == null)
-            return false;
-
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel.Definition == null)
-            return false;
 
-        return squadModel.Definition.Kind is UnitKind.Ally or UnitKind.Hero;
+        return squadModel.Definition.IsFrendly();
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)

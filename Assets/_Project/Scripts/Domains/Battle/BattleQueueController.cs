@@ -15,7 +15,7 @@ public class BattleQueueController
             units
                 .Where(unit => unit != null)
                 .OrderByDescending(GetInitiative)
-                .ThenByDescending(IsFriendly));
+                .ThenByDescending((unit) => unit.Definition.IsFrendly()));
     }
 
     public void AddLast(IReadOnlySquadModel unit)
@@ -143,11 +143,6 @@ public class BattleQueueController
             buffer.Enqueue(unit);
 
         _queue = buffer;
-    }
-
-    private static bool IsFriendly(IReadOnlySquadModel unit)
-    {
-        return unit.Definition.Kind is UnitKind.Hero or UnitKind.Ally;
     }
 
     private static int GetInitiative(IReadOnlySquadModel squad)
