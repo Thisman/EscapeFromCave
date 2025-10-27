@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         return _squadModel.Definition.Speed;
     }
 
-    public IReadOnlySquadModel GetPlayerSquad()
+    public IReadOnlySquadModel GetPlayer()
     {
         return _squadModel;
     }

@@ -50,7 +50,7 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
 
         if (actor.TryGetComponent<PlayerController>(out var playerController))
         {
-            if (TryCreateSetup(playerController.GetPlayerSquad(), out var setup))
+            if (TryCreateSetup(playerController.GetPlayer(), out var setup))
                 return setup;
         }
 
@@ -120,7 +120,7 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         if (TryGetModelFromComponent(source.GetComponentInParent<SquadController>()?.GetSquadModel(), out model))
             return true;
 
-        if (TryGetModelFromComponent(source.GetComponentInParent<PlayerController>()?.GetPlayerSquad(), out model))
+        if (TryGetModelFromComponent(source.GetComponentInParent<PlayerController>()?.GetPlayer(), out model))
             return true;
 
         return false;
@@ -211,7 +211,7 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         if (controller == null)
             return;
 
-        var existing = controller.GetPlayerSquad();
+        var existing = controller.GetPlayer();
 
         if (existing is SquadModel existingModel && existingModel.Definition == heroUnit.Definition)
         {

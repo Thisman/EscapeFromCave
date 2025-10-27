@@ -14,32 +14,21 @@ public class BattleCombatUIController : MonoBehaviour
 
     public void SetDefendButtonInteractable(bool interactable)
     {
-        if (_defendButton != null)
-            _defendButton.interactable = interactable;
+        _defendButton.interactable = interactable;
     }
 
     private void OnEnable()
     {
-        if (_leaveCombatButton != null)
-            _leaveCombatButton.onClick.AddListener(HandleLeaveCombatClicked);
-
-        if (_defendButton != null)
-            _defendButton.onClick.AddListener(HandleDefendClicked);
-
-        if (_skipTurnButton != null)
-            _skipTurnButton.onClick.AddListener(HandleSkipTurnClicked);
+        _leaveCombatButton.onClick.AddListener(HandleLeaveCombatClicked);
+        _defendButton.onClick.AddListener(HandleDefendClicked);
+        _skipTurnButton.onClick.AddListener(HandleSkipTurnClicked);
     }
 
     private void OnDisable()
     {
-        if (_leaveCombatButton != null)
-            _leaveCombatButton.onClick.RemoveListener(HandleLeaveCombatClicked);
-
-        if (_defendButton != null)
-            _defendButton.onClick.RemoveListener(HandleDefendClicked);
-
-        if (_skipTurnButton != null)
-            _skipTurnButton.onClick.RemoveListener(HandleSkipTurnClicked);
+        _leaveCombatButton.onClick.RemoveListener(HandleLeaveCombatClicked);
+        _defendButton.onClick.RemoveListener(HandleDefendClicked);
+        _skipTurnButton.onClick.RemoveListener(HandleSkipTurnClicked);
     }
 
     private void HandleLeaveCombatClicked() => OnLeaveCombat?.Invoke();

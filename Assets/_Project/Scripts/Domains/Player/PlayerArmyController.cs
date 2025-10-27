@@ -10,16 +10,13 @@ public class PlayerArmyController : MonoBehaviour
 
     public event Action<IReadOnlyArmyModel> ArmyChanged;
 
-    public int MaxSlots => Mathf.Max(1, _maxSlots);
+    public int MaxSlots => _maxSlots;
 
     public IReadOnlyArmyModel Army => _army;
 
     private void OnDestroy()
     {
-        if (_army != null)
-        {
-            _army.Changed -= HandleArmyChanged;
-        }
+        _army.Changed -= HandleArmyChanged;
     }
 
     public void Initialize(ArmyModel armyModel)
