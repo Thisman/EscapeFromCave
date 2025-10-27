@@ -27,3 +27,5 @@ MonoBehaviour:
   BaseCritChance: 1
   BaseCritMultiplier: 1.1
   BaseMissChance: 5
+  Abilities:
+  - {fileID: 11400000, guid: f3f0416d5586384438663f3333c4593d, type: 2}

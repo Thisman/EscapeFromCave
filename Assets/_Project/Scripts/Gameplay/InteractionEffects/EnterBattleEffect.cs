@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/EnterBattle")]
+[CreateAssetMenu(menuName = "Gameplay/Effects/Enter Battle")]
 public sealed class EnterBattleEffect : EffectDefinitionSO
 {
     private const string BattleSceneName = "BattleScene";

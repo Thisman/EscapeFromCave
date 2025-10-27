@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG/Unit")]
+[CreateAssetMenu(menuName = "Gameplay/Unit")]
 public sealed class UnitDefinitionSO : ScriptableObject
 {
     public Sprite Icon;
@@ -32,6 +32,8 @@ public sealed class UnitDefinitionSO : ScriptableObject
     [Min(1)] public float BaseCritMultiplier = 1.1f;
 
     [Range(0, 100)] public float BaseMissChance = 5;
+
+    public BattleAbilityDefinitionSO[] Abilities;
 
     public (float min, float max) GetBaseDamageRange() => (MinDamage, MaxDamage);
 
