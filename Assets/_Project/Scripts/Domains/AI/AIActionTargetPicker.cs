@@ -34,6 +34,18 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
 
     private BattleSquadController SelectTarget(IReadOnlySquadModel actor)
     {
+        if (actor == null)
+            return null;
+
+        var definition = actor.Definition;
+
+        if (definition.AttackKind == AttackKind.Melee)
+            return SelectFrontlineTarget(actor);
+
+        return SelectTargetWithHighestInitiative(actor);
+    }
+    private BattleSquadController SelectFrontlineTarget(IReadOnlySquadModel actor)
+    {
         var units = _context.BattleUnits;
         var grid = _context.BattleGridController;
         var actorDefinition = actor.Definition;
@@ -62,6 +74,34 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         }
 
         return backlineCandidate;
+    }
+
+    private BattleSquadController SelectTargetWithHighestInitiative(IReadOnlySquadModel actor)
+    {
+        var units = _context.BattleUnits;
+        var actorType = actor.Definition.Kind;
+
+        BattleSquadController bestTarget = null;
+        float bestInitiative = float.MinValue;
+
+        foreach (var unit in units)
+        {
+            var model = unit.GetSquadModel();
+            var definition = model.Definition;
+
+            if (!IsOpposingType(actorType, definition.Kind))
+                continue;
+
+            var initiative = definition.Speed;
+
+            if (initiative <= bestInitiative)
+                continue;
+
+            bestInitiative = initiative;
+            bestTarget = unit;
+        }
+
+        return bestTarget;
     }
 
     private static bool IsOpposingType(UnitKind source, UnitKind target)
