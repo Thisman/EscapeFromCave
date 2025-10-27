@@ -13,7 +13,7 @@ public sealed class BattlePhaseMachine
         _battleRoundsMachine = battleRoundsMachine;
         _sm = new StateMachine<BattlePhase, BattleTrigger>(BattlePhase.Loading);
 
-        _battleRoundsMachine.BattleFinished += HandleBattleFinished;
+        _battleRoundsMachine.OnBattleRoundsFinished += HandleBattleFinished;
 
         _sm.Configure(BattlePhase.Loading)
             .Permit(BattleTrigger.StartBattle, BattlePhase.Tactics);
