@@ -99,18 +99,12 @@ public sealed class PlayerInteraction : MonoBehaviour
         var ctxData = new InteractionContext
         {
             Actor = _actor,
-            Target = (_currentTarget as MonoBehaviour)?.gameObject,
-            Point = transform.position,
+            Target = _currentTarget.gameObject,
             Time = Time.time,
             SceneLoader = _sceneLoader,
-            DialogManager = _dialogManager,
             InputRouter = _inputRouter,
+            DialogManager = _dialogManager,
         };
-
-        if (_sceneLoader == null)
-        {
-            Debug.LogWarning($"[PlayerInteraction] SceneLoader was not injected for '{name}'. Scene-based interactions may fail.");
-        }
 
         await _currentTarget.TryInteract(ctxData);
     }
