@@ -45,7 +45,7 @@ public class BattleSquadController : MonoBehaviour
             return;
 
         var completionSource = new TaskCompletionSource<bool>();
-        animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
+        animationController.PlayDamageFlash(damage, () => completionSource.TrySetResult(true));
         await completionSource.Task;
     }
 }

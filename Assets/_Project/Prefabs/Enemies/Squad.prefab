@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3009412262272902082}
   - component: {fileID: 8819193310141489975}
   m_Layer: 3
-  m_Name: Ogr_Test
+  m_Name: Squad
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SquadController
   _count: 1
-  _unitDefinition: {fileID: 11400000, guid: c478cbe4b6296064f92f089771da4418, type: 2}
+  _unitDefinition: {fileID: 0}
 --- !u!114 &-8213997057954841995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1cc7fd1ea077f14ea1554601264c7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
-  Definition: {fileID: 11400000, guid: 71c19586bdd22f44dab80c93c203510f, type: 2}
+  Definition: {fileID: 0}
 --- !u!114 &8819193310141489975
 MonoBehaviour:
   m_ObjectHideFlags: 0
