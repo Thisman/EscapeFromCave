@@ -21,7 +21,7 @@ public class PlayerBattleActionController : IBattleActionController
 
         var targetResolver = new DefaultActionTargetResolver(ctx);
         var damageResolver = new DefaultBattleDamageResolver();
-        var targetPicker = new PlayerActionTargetPicker(ctx, targetResolver);
+        var targetPicker = new PlayerBattleActionTargetPicker(ctx, targetResolver);
         onActionReady.Invoke(new AttackAction(ctx, targetResolver, damageResolver, targetPicker));
     }
 

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public sealed class PlayerActionTargetPicker : IActionTargetPicker
+public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
 {
     private readonly BattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
@@ -12,7 +12,7 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
 
     public event Action<BattleSquadController> OnSelect;
 
-    public PlayerActionTargetPicker(BattleContext context, IBattleActionTargetResolver targetResolver)
+    public PlayerBattleActionTargetPicker(BattleContext context, IBattleActionTargetResolver targetResolver)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));
@@ -39,13 +39,11 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
         if (!TryGetUnitUnderPointer(out var unit))
             return;
 
-        if (!IsEnemyUnit(unit))
+        if (!unit.GetSquadModel().Definition.IsEnemy())
             return;
 
         var actorModel = _context.ActiveUnit;
         var targetModel = unit.GetSquadModel();
-        if (actorModel == null || targetModel == null)
-            return;
 
         if (!_targetResolver.ResolveTarget(actorModel, targetModel))
             return;
@@ -87,32 +85,6 @@ public sealed class PlayerActionTargetPicker : IActionTargetPicker
         }
 
         return false;
-    }
-
-    private bool IsEnemyUnit(BattleSquadController unit)
-    {
-        if (unit == null)
-            return false;
-
-        var targetModel = unit.GetSquadModel();
-        if (targetModel?.Definition == null)
-            return false;
-
-        var activeUnit = _context.ActiveUnit;
-        if (activeUnit?.Definition == null)
-            return targetModel.Definition.IsEnemy();
-
-        return IsOpposingType(activeUnit.Definition.Kind, targetModel.Definition.Kind);
-    }
-
-    private static bool IsOpposingType(UnitKind source, UnitKind target)
-    {
-        return source switch
-        {
-            UnitKind.Hero or UnitKind.Ally => target == UnitKind.Enemy,
-            UnitKind.Enemy => target is UnitKind.Hero or UnitKind.Ally,
-            _ => false,
-        };
     }
 
     public void Dispose()
