@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Play Sound")]
-public sealed class PlaySoundEffect : EffectSO
+public sealed class PlaySoundEffect : EffectDefinitionSO
 {
     [SerializeField]
     private AudioClip _clip;

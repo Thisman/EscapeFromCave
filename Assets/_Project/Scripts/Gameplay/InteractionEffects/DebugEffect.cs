@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Debug")]
-public sealed class DebugEffect : EffectSO
+public sealed class DebugEffect : EffectDefinitionSO
 {
     public string Message;
     public override Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
