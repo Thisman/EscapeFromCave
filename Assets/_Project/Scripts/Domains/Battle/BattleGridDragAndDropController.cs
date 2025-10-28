@@ -262,7 +262,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         var unitController = draggable.GetComponentInParent<BattleSquadController>();
         var squadModel = unitController.GetSquadModel();
 
-        return squadModel.Definition.IsFrendly();
+        return squadModel.Definition.IsFriendly();
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)

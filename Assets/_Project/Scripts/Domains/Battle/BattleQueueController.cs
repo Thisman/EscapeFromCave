@@ -15,7 +15,7 @@ public class BattleQueueController
             units
                 .Where(unit => unit != null)
                 .OrderByDescending(GetInitiative)
-                .ThenByDescending((unit) => unit.Definition.IsFrendly()));
+                .ThenByDescending((unit) => unit.Definition.IsFriendly()));
     }
 
     public void AddLast(IReadOnlySquadModel unit)

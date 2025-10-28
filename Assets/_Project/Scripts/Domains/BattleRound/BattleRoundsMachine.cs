@@ -223,7 +223,7 @@ public sealed class BattleRoundsMachine
 
     private void OnActionCancelled()
     {
-        if (!_ctx.ActiveUnit.Definition.IsFrendly())
+        if (!_ctx.ActiveUnit.Definition.IsFriendly())
             return;
 
         _ctx.BattleCombatUIController?.ResetAbilityHighlight();
@@ -259,7 +259,7 @@ public sealed class BattleRoundsMachine
             if (model == null || model.Count <= 0)
                 continue;
 
-            if (model.Definition.IsFrendly())
+            if (model.Definition.IsFriendly())
             {
                 hasFriendlyUnits = true;
             }

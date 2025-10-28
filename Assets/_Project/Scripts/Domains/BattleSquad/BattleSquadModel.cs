@@ -1,10 +1,60 @@
 using System;
+using UnityEngine;
 
 public sealed class BattleSquadModel : IReadOnlySquadModel
 {
     private readonly IReadOnlySquadModel _sourceModel;
 
     private int _squadHealth;
+    
+    public UnitDefinitionSO Definition => _sourceModel.Definition;
+
+    public event Action<IReadOnlySquadModel> Changed;
+
+    public Sprite Icon => _sourceModel.Icon;
+
+    public string UnitName => _sourceModel.UnitName;
+
+    public UnitKind Kind => _sourceModel.Kind;
+
+    public AttackKind AttackKind => _sourceModel.AttackKind;
+
+    public DamageType DamageType => _sourceModel.DamageType;
+
+    public float Health => _sourceModel.Health;
+
+    public float PhysicalDefense => _sourceModel.PhysicalDefense;
+
+    public float MagicDefense => _sourceModel.MagicDefense;
+
+    public float AbsoluteDefense => _sourceModel.AbsoluteDefense;
+
+    public (float min, float max) GetBaseDamageRange()
+    {
+        return _sourceModel.GetBaseDamageRange();
+    }
+
+    public float Speed => _sourceModel.Speed;
+
+    public float Initiative => _sourceModel.Speed;
+
+    public float CritChance => _sourceModel.CritChance;
+
+    public float CritMultiplier => _sourceModel.CritMultiplier;
+
+    public float MissChance => _sourceModel.MissChance;
+
+    public BattleAbilityDefinitionSO[] Abilities => _sourceModel.Abilities;
+
+    public bool IsFriendly() => _sourceModel.IsFriendly();
+
+    public bool IsAlly() => _sourceModel.IsAlly();
+
+    public bool IsHero() => _sourceModel.IsHero();
+
+    public bool IsEnemy() => _sourceModel.IsEnemy();
+
+    public bool IsNeutral() => _sourceModel.IsNeutral();
 
     public BattleSquadModel(IReadOnlySquadModel sourceModel)
     {
@@ -12,13 +62,9 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         _squadHealth = CalculateInitialTotalHealth();
     }
 
-    public UnitDefinitionSO Definition => _sourceModel.Definition;
-
     public int Count => CalculateCount();
 
     public bool IsEmpty => Count <= 0;
-
-    public event Action<IReadOnlySquadModel> Changed;
 
     public void ApplyDamage(int damage)
     {
