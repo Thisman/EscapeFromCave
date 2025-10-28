@@ -21,12 +21,26 @@ public class BattleCombatUIController : MonoBehaviour
 
     public void RenderAbilityList(BattleAbilityDefinitionSO[] abilities)
     {
-        if (_abilityListController == null)
+        _abilityListController.Render(abilities);
+    }
+
+    public void HighlightAbility(BattleAbilityDefinitionSO ability)
+    {
+        if (ability == null)
         {
+            _abilityListController.ResetHighlights();
             return;
         }
 
-        _abilityListController.Render(abilities);
+        _abilityListController.ResetHighlights();
+
+        BattleAbilityItemView itemView = _abilityListController.FindItem(ability);
+        itemView?.Highlight();
+    }
+
+    public void ResetAbilityHighlight()
+    {
+        _abilityListController?.ResetHighlights();
     }
 
     private void OnEnable()
@@ -34,10 +48,7 @@ public class BattleCombatUIController : MonoBehaviour
         _leaveCombatButton.onClick.AddListener(HandleLeaveCombatClicked);
         _defendButton.onClick.AddListener(HandleDefendClicked);
         _skipTurnButton.onClick.AddListener(HandleSkipTurnClicked);
-        if (_abilityListController != null)
-        {
-            _abilityListController.OnSelectAbility += HandleAbilitySelected;
-        }
+        _abilityListController.OnSelectAbility += HandleAbilitySelected;
     }
 
     private void OnDisable()
@@ -45,10 +56,7 @@ public class BattleCombatUIController : MonoBehaviour
         _leaveCombatButton.onClick.RemoveListener(HandleLeaveCombatClicked);
         _defendButton.onClick.RemoveListener(HandleDefendClicked);
         _skipTurnButton.onClick.RemoveListener(HandleSkipTurnClicked);
-        if (_abilityListController != null)
-        {
-            _abilityListController.OnSelectAbility -= HandleAbilitySelected;
-        }
+        _abilityListController.OnSelectAbility -= HandleAbilitySelected;
     }
 
     private void HandleLeaveCombatClicked() => OnLeaveCombat?.Invoke();

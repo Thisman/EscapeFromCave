@@ -12,6 +12,8 @@ public sealed class AbilityAction : IBattleAction, IDisposable
     public event Action OnResolve;
     public event Action OnCancel;
 
+    public BattleAbilityDefinitionSO Ability => _ability;
+
     public AbilityAction(BattleAbilityDefinitionSO ability, IActionTargetPicker targetPicker)
     {
         _ability = ability ?? throw new ArgumentNullException(nameof(ability));

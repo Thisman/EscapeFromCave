@@ -47,6 +47,44 @@ public class BattleAbilityListUIController : MonoBehaviour
         SetActive(abilityItemViews.Count > 0);
     }
 
+    public BattleAbilityItemView FindItem(BattleAbilityDefinitionSO ability)
+    {
+        if (ability == null)
+        {
+            return null;
+        }
+
+        for (int i = 0; i < abilityItemViews.Count; i++)
+        {
+            BattleAbilityItemView itemView = abilityItemViews[i];
+            if (itemView == null)
+            {
+                continue;
+            }
+
+            if (itemView.Definition == ability)
+            {
+                return itemView;
+            }
+        }
+
+        return null;
+    }
+
+    public void ResetHighlights()
+    {
+        for (int i = 0; i < abilityItemViews.Count; i++)
+        {
+            BattleAbilityItemView itemView = abilityItemViews[i];
+            if (itemView == null)
+            {
+                continue;
+            }
+
+            itemView.ResetHighlight();
+        }
+    }
+
     private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
     {
         OnSelectAbility?.Invoke(ability);

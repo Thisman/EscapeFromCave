@@ -1,9 +1,11 @@
 using System;
+using UnityEngine.InputSystem;
 
 public class PlayerBattleActionController : IBattleActionController
 {
     private BattleContext _ctx;
     private Action<IBattleAction> _onActionReady;
+    private InputAction _cancelAction;
 
     public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
@@ -73,6 +75,8 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility += HandleAbilitySelected;
+
+        SubscribeToCancelAction();
     }
 
     private void UnsubscribeUIEvents()
@@ -80,6 +84,44 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility -= HandleAbilitySelected;
+
+        UnsubscribeFromCancelAction();
+    }
+
+    private void SubscribeToCancelAction()
+    {
+        if (_cancelAction != null)
+            return;
+
+        var inputService = _ctx?.InputService;
+        if (inputService == null)
+            return;
+
+        _cancelAction = inputService.Actions.FindAction("Cancel");
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed += HandleCancelPerformed;
+    }
+
+    private void UnsubscribeFromCancelAction()
+    {
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed -= HandleCancelPerformed;
+        _cancelAction = null;
+    }
+
+    private void HandleCancelPerformed(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        if (_ctx?.CurrentAction is AbilityAction abilityAction)
+        {
+            abilityAction.Dispose();
+        }
     }
 
     private sealed class AbilityBattleActionTargetResolver : IBattleActionTargetResolver

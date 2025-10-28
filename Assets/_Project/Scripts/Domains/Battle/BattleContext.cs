@@ -31,6 +31,8 @@ public sealed class BattleContext
 
     public BattleResult BattleResult { get; set; }
 
+    public InputService InputService { get; set; }
+
     public ISet<IReadOnlySquadModel> DefendedUnitsThisRound { get; } = new HashSet<IReadOnlySquadModel>();
 }
 
