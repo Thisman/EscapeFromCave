@@ -7,7 +7,7 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private float _movementThreshold = 0.01f;
 
-    [Inject] private GameSession _gameSession;
+    [Inject] private readonly GameSession _gameSession;
 
     private void Start()
     {

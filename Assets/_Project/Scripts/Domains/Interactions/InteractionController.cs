@@ -22,7 +22,7 @@ public class InteractionController : MonoBehaviour
         {
             if (!Definition.Conditions.All(c => c.IsMet(ctx)))
             {
-                Debug.LogWarning($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor?.name ?? "<null>"}' on '{name}'.");
+                Debug.LogWarning($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor.name ?? "<null>"}' on '{name}'.");
                 return false;
             }
         }

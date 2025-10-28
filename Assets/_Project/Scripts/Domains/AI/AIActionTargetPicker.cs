@@ -34,33 +34,31 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
 
     private BattleSquadController SelectTarget(IReadOnlySquadModel actor)
     {
+        if (actor == null)
+            return null;
+
+        var definition = actor.Definition;
+
+        if (definition.AttackKind == AttackKind.Melee)
+            return SelectFrontlineTarget(actor);
+
+        return SelectTargetWithHighestInitiative(actor);
+    }
+    private BattleSquadController SelectFrontlineTarget(IReadOnlySquadModel actor)
+    {
         var units = _context.BattleUnits;
-        if (units == null)
-            return null;
-
         var grid = _context.BattleGridController;
-        if (grid == null)
-            return null;
-
-        var actorDefinition = actor?.Definition;
-        var actorType = actorDefinition?.Type ?? UnitType.Enemy;
+        var actorDefinition = actor.Definition;
+        var actorType = actorDefinition.Kind;
 
         BattleSquadController backlineCandidate = null;
 
         foreach (var unit in units)
         {
-            if (unit == null)
-                continue;
-
             var model = unit.GetSquadModel();
-            if (model == null || model.IsEmpty)
-                continue;
-
             var definition = model.Definition;
-            if (definition == null)
-                continue;
 
-            if (!IsOpposingType(actorType, definition.Type))
+            if (!IsOpposingType(actorType, definition.Kind))
                 continue;
 
             if (!grid.TryGetSlotForOccupant(unit.transform, out var slot))
@@ -78,12 +76,40 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         return backlineCandidate;
     }
 
-    private static bool IsOpposingType(UnitType source, UnitType target)
+    private BattleSquadController SelectTargetWithHighestInitiative(IReadOnlySquadModel actor)
+    {
+        var units = _context.BattleUnits;
+        var actorType = actor.Definition.Kind;
+
+        BattleSquadController bestTarget = null;
+        float bestInitiative = float.MinValue;
+
+        foreach (var unit in units)
+        {
+            var model = unit.GetSquadModel();
+            var definition = model.Definition;
+
+            if (!IsOpposingType(actorType, definition.Kind))
+                continue;
+
+            var initiative = definition.Speed;
+
+            if (initiative <= bestInitiative)
+                continue;
+
+            bestInitiative = initiative;
+            bestTarget = unit;
+        }
+
+        return bestTarget;
+    }
+
+    private static bool IsOpposingType(UnitKind source, UnitKind target)
     {
         return source switch
         {
-            UnitType.Hero or UnitType.Ally => target == UnitType.Enemy,
-            UnitType.Enemy => target is UnitType.Hero or UnitType.Ally,
+            UnitKind.Hero or UnitKind.Ally => target == UnitKind.Enemy,
+            UnitKind.Enemy => target is UnitKind.Hero or UnitKind.Ally,
             _ => false,
         };
     }

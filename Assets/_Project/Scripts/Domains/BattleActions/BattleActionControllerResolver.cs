@@ -7,16 +7,13 @@ public sealed class BattleActionControllerResolver
 
     public BattleActionControllerResolver(IBattleActionController player, IBattleActionController enemy)
     {
-        _playerController = player ?? throw new ArgumentNullException(nameof(player));
-        _enemyController = enemy ?? throw new ArgumentNullException(nameof(enemy));
+        _playerController = player;
+        _enemyController = enemy;
     }
 
     public IBattleActionController ResolveFor(IReadOnlySquadModel unit)
     {
-        if (unit == null)
-            throw new ArgumentNullException(nameof(unit));
-
-        if (unit.Definition != null && (unit.Definition.Type == UnitType.Hero || unit.Definition.Type == UnitType.Ally))
+        if (unit.Definition.IsFrendly())
             return _playerController;
 
         return _enemyController;

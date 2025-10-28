@@ -5,54 +5,32 @@ using UnityEngine;
 public class BattleSquadController : MonoBehaviour
 {
     private BattleSquadModel _squadModel;
-    private IReadOnlySquadModel _readOnlyModel;
-
-    public BattleSquadModel Model => _squadModel;
 
     private void OnDestroy()
     {
-        DisposeModel();
+        _squadModel = null;
     }
 
-    public void Initialize(IReadOnlySquadModel squadModel)
+    public void Initialize(BattleSquadModel squadModel)
     {
-        if (squadModel == null)
-            throw new ArgumentNullException(nameof(squadModel));
-
-        if (_readOnlyModel == squadModel)
-            return;
-
         if (squadModel is not BattleSquadModel battleSquadModel)
             throw new ArgumentException($"{nameof(BattleSquadController)} requires a {nameof(BattleSquadModel)} instance.", nameof(squadModel));
 
-        DisposeModel();
         _squadModel = battleSquadModel;
-        _readOnlyModel = battleSquadModel;
     }
 
     public IReadOnlySquadModel GetSquadModel()
     {
-        return _readOnlyModel;
+        return _squadModel;
     }
 
     public int ResolveDamage()
     {
-        var model = _squadModel;
-        if (model == null)
-            return 0;
+        var definition = _squadModel.Definition;
+        var unitDamage = UnityEngine.Random.Range(definition.MinDamage, definition.MaxDamage);
+        var unitCount = Math.Max(0, _squadModel.Count);
 
-        var definition = model.Definition;
-        if (definition == null)
-            return 0;
-
-        var stats = definition.GetStatsForLevel(1);
-        var unitDamage = Math.Max(0, stats.Damage);
-        var unitCount = Math.Max(0, model.Count);
-
-        if (unitDamage == 0 || unitCount == 0)
-            return 0;
-
-        return unitDamage * unitCount;
+        return (int)unitDamage * unitCount;
     }
 
     public async Task ApplyDamage(int damage)
@@ -67,14 +45,7 @@ public class BattleSquadController : MonoBehaviour
             return;
 
         var completionSource = new TaskCompletionSource<bool>();
-        animationController.PlayDamageFlash(() => completionSource.TrySetResult(true));
+        animationController.PlayDamageFlash(damage, () => completionSource.TrySetResult(true));
         await completionSource.Task;
-    }
-
-    private void DisposeModel()
-    {
-        _squadModel?.Dispose();
-        _squadModel = null;
-        _readOnlyModel = null;
     }
 }

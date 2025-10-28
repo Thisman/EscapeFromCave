@@ -117,8 +117,30 @@
         {
             "name": "Battle",
             "id": "4178ad6d-5cf5-4764-be5d-1662002d4863",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "9925458f-da7a-4ecf-bcc9-79a47fda048f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "44b7d722-a8cf-459d-be03-c3fee0dbf9aa",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

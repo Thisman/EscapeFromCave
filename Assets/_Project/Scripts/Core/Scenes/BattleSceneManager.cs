@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,6 +20,8 @@ public class BattleSceneManager : MonoBehaviour
 
     [Inject] readonly private BattleGridController _battleGridController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
+
+    [Inject] readonly private InputService _inputService;
 
     private PanelManager _panelManager;
     private BattleSceneData _battleData;
@@ -107,6 +108,7 @@ public class BattleSceneManager : MonoBehaviour
             BattleTacticUIController = _tacticUIController,
             BattleCombatUIController = _combatUIController,
             BattleResultsUIController = _resultsUIController,
+            InputService = _inputService,
         };
     }
 
@@ -168,9 +170,7 @@ public class BattleSceneManager : MonoBehaviour
             return;
 
         GameObject instance = _objectResolver.Instantiate(_battleSquadPrefab);
-
         BattleSquadController controller = instance.GetComponent<BattleSquadController>();
-
         SquadModel squadModel = new(setup.Definition, setup.Count);
         BattleSquadModel battleModel = new(squadModel);
         controller.Initialize(battleModel);

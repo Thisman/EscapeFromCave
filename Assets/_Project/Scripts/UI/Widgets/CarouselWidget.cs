@@ -6,7 +6,6 @@ public class CarouselWidget : MonoBehaviour
     [SerializeField] private Button _prevButton;
     [SerializeField] private Button _nextButton;
     [SerializeField] private RectTransform _content;
-    [SerializeField] private UnitStatsInfoView _statsInfoViewUI;
 
     [SerializeField] private bool _loop = false;
 

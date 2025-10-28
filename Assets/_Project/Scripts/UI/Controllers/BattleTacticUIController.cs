@@ -6,11 +6,11 @@ public class BattleTacticUIController : MonoBehaviour
 {
     [SerializeField] private Button _startCombatButton;
 
-    public Action OnStartCombat;
+    public Action OnBattleRoundsStart;
 
     private void OnEnable()
     {
-        _startCombatButton.onClick.AddListener(() => OnStartCombat?.Invoke());
+        _startCombatButton.onClick.AddListener(() => OnBattleRoundsStart?.Invoke());
     }
 
     private void OnDisable()

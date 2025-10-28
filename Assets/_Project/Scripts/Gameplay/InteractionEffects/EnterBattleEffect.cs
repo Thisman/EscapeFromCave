@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/EnterBattle")]
-public sealed class EnterBattleEffect : EffectSO
+[CreateAssetMenu(menuName = "Gameplay/Effects/Enter Battle")]
+public sealed class EnterBattleEffect : EffectDefinitionSO
 {
     private const string BattleSceneName = "BattleScene";
     private const string MainMenuSceneName = "MainMenuScene";
@@ -50,7 +50,7 @@ public sealed class EnterBattleEffect : EffectSO
 
         if (actor.TryGetComponent<PlayerController>(out var playerController))
         {
-            if (TryCreateSetup(playerController.GetPlayerSquad(), out var setup))
+            if (TryCreateSetup(playerController.GetPlayer(), out var setup))
                 return setup;
         }
 
@@ -120,7 +120,7 @@ public sealed class EnterBattleEffect : EffectSO
         if (TryGetModelFromComponent(source.GetComponentInParent<SquadController>()?.GetSquadModel(), out model))
             return true;
 
-        if (TryGetModelFromComponent(source.GetComponentInParent<PlayerController>()?.GetPlayerSquad(), out model))
+        if (TryGetModelFromComponent(source.GetComponentInParent<PlayerController>()?.GetPlayer(), out model))
             return true;
 
         return false;
@@ -175,16 +175,13 @@ public sealed class EnterBattleEffect : EffectSO
             if (unit?.Definition == null || unit.Count <= 0)
                 continue;
 
-            var type = unit.Definition.Type;
-
-            if (type == UnitType.Hero)
+            if (unit.Definition.IsHero())
             {
-                if (heroUnit == null)
-                    heroUnit = unit;
+                heroUnit ??= unit;
                 continue;
             }
 
-            if (type == UnitType.Ally)
+            if (unit.Definition.IsAlly())
                 armyUnits.Add(unit);
         }
 
@@ -214,7 +211,7 @@ public sealed class EnterBattleEffect : EffectSO
         if (controller == null)
             return;
 
-        var existing = controller.GetPlayerSquad();
+        var existing = controller.GetPlayer();
 
         if (existing is SquadModel existingModel && existingModel.Definition == heroUnit.Definition)
         {

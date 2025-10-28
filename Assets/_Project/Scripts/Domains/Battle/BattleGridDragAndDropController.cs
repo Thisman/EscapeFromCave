@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public sealed class BattleGridDragAndDropController : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private BattleGridController _gridController;
     [SerializeField] private string _draggableTag = "Draggable";
+    [SerializeField] private BattleGridController _gridController;
     [SerializeField] private Color _validSlotColor = Color.green;
     [SerializeField] private Color _invalidSlotColor = Color.red;
 
@@ -39,23 +39,8 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             FinishDrag();
     }
 
-    private static bool IsPointerPressedThisFrame()
-    {
-        var mouse = Mouse.current;
-        return mouse != null && mouse.leftButton.wasPressedThisFrame;
-    }
-
-    private static bool IsPointerReleasedThisFrame()
-    {
-        var mouse = Mouse.current;
-        return mouse != null && mouse.leftButton.wasReleasedThisFrame;
-    }
-
     private void TryStartDrag()
     {
-        if (_gridController == null || _camera == null)
-            return;
-
         var draggable = RaycastForDraggable();
         if (draggable == null)
             return;
@@ -182,9 +167,6 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
     private void UpdateDraggedObjectPosition()
     {
-        if (_draggedObject == null || _camera == null)
-            return;
-
         if (!TryGetPointerScreenPosition(out var pointerPosition))
             return;
 
@@ -278,14 +260,9 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var unitController = draggable.GetComponentInParent<BattleSquadController>();
-        if (unitController == null)
-            return false;
-
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel.Definition == null)
-            return false;
 
-        return squadModel.Definition.Type is UnitType.Ally or UnitType.Hero;
+        return squadModel.Definition.IsFrendly();
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)
@@ -312,8 +289,8 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
         return side switch
         {
-            BattleGridSlotSide.Ally => squadModel.Definition.Type == UnitType.Ally || squadModel.Definition.Type == UnitType.Hero,
-            BattleGridSlotSide.Enemy => squadModel.Definition.Type == UnitType.Enemy,
+            BattleGridSlotSide.Ally => squadModel.Definition.Kind == UnitKind.Ally || squadModel.Definition.Kind == UnitKind.Hero,
+            BattleGridSlotSide.Enemy => squadModel.Definition.Kind == UnitKind.Enemy,
             _ => false
         };
     }
@@ -330,5 +307,17 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         Vector2 pointer = mouse.position.ReadValue();
         position = new Vector3(pointer.x, pointer.y, 0f);
         return true;
+    }
+
+    private static bool IsPointerPressedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasPressedThisFrame;
+    }
+
+    private static bool IsPointerReleasedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasReleasedThisFrame;
     }
 }

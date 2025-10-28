@@ -38,7 +38,7 @@ public class PreparationMenuUIController : MonoBehaviour
         if (heroItemView == null)
             return null;
 
-        return heroItemView.Definition;
+        return heroItemView.GetDefinition();
     }
 
     private List<UnitDefinitionSO> GetSelectedArmy()

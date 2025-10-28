@@ -37,23 +37,6 @@ public class PlayerLightController : MonoBehaviour
         CaptureBaseValues(true);
     }
 
-    private void CaptureBaseValues(bool force = false)
-    {
-        if (_light == null)
-        {
-            return;
-        }
-
-        if (_hasCachedBaseValues && !force)
-        {
-            return;
-        }
-
-        _baseInnerRadius = _light.pointLightInnerRadius;
-        _baseOuterRadius = _light.pointLightOuterRadius;
-        _hasCachedBaseValues = true;
-    }
-
     private void Update()
     {
         if (_light == null || _beatsPerMinute <= 0f)
@@ -75,29 +58,20 @@ public class PlayerLightController : MonoBehaviour
         _light.pointLightOuterRadius = _baseOuterRadius + offset;
     }
 
-#if UNITY_EDITOR
-    private void OnValidate()
+    private void CaptureBaseValues(bool force = false)
     {
-        if (!Application.isPlaying)
+        if (_light == null)
         {
-            _hasCachedBaseValues = false;
-            CaptureBaseValues(true);
-            if (_light != null)
-            {
-                float pulse = _beatsPerMinute > 0f ? Mathf.Clamp01(_heartbeatCurve.Evaluate(0f)) : 0f;
-                ApplyPulse(pulse);
-            }
+            return;
         }
-    }
-#endif
 
-    public void SetBeatsPerMinute(float beatsPerMinute)
-    {
-        _beatsPerMinute = Mathf.Max(0f, beatsPerMinute);
-    }
+        if (_hasCachedBaseValues && !force)
+        {
+            return;
+        }
 
-    public void SetRadiusOffset(float radiusOffset)
-    {
-        _radiusOffset = Mathf.Max(0f, radiusOffset);
+        _baseInnerRadius = _light.pointLightInnerRadius;
+        _baseOuterRadius = _light.pointLightOuterRadius;
+        _hasCachedBaseValues = true;
     }
 }

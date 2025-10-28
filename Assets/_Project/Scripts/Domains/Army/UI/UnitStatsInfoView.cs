@@ -10,11 +10,9 @@ public sealed class UnitStatsInfoView : MonoBehaviour
 
     public void Render(UnitDefinitionSO unitDefinition)
     {
-        UnitLevelDefintion stats = unitDefinition.GetStatsForLevel(0);
-
-        _healthTextUI.text = "Здоровье: " + stats.Health.ToString();
-        _damageTextUI.text = "Урон: " + stats.Damage.ToString();
-        _defenseTextUI.text = "Защита: " + stats.Defense.ToString();
-        _initiativeTextUI.text = "Инициатива: " + stats.Initiative.ToString();
+        _healthTextUI.text = "Здоровье: " + unitDefinition.BaseHealth.ToString();
+        _damageTextUI.text = "Урон: " + unitDefinition.MinDamage.ToString() + " - " + unitDefinition.MinDamage.ToString();
+        _defenseTextUI.text = "Физ. защита: " + unitDefinition.BasePhysicalDefense.ToString();
+        _initiativeTextUI.text = "Скорость: " + unitDefinition.Speed.ToString();
     }
 }

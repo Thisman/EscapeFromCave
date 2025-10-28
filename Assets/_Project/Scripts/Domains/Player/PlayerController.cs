@@ -12,13 +12,10 @@ public class PlayerController : MonoBehaviour
 
     public float GetMovementSpeed()
     {
-        UnitDefinitionSO definition = _squadModel.Definition;
-        UnitLevelDefintion stats = definition.GetStatsForLevel(1);
-
-        return stats.Speed;
+        return _squadModel.Definition.Speed;
     }
 
-    public IReadOnlySquadModel GetPlayerSquad()
+    public IReadOnlySquadModel GetPlayer()
     {
         return _squadModel;
     }

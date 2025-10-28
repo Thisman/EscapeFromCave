@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Dialog")]
-public sealed class ShowDialogEffect : EffectSO
+public sealed class ShowDialogEffect : EffectDefinitionSO
 {
     [TextArea] public string Message;
 
