@@ -44,6 +44,19 @@ public class PlayerBattleActionController : IBattleActionController
         _onActionReady.Invoke(skipTurnAction);
     }
 
+    private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
+    {
+        if (ability == null || _ctx == null || _onActionReady == null)
+            return;
+
+        UnsubscribeUIEvents();
+        _ctx.BattleCombatUIController.SetDefendButtonInteractable(false);
+
+        var targetPicker = new PlayerBattleActionTargetPicker(_ctx, new AbilityBattleActionTargetResolver());
+        var abilityAction = new AbilityAction(ability, targetPicker);
+        _onActionReady.Invoke(abilityAction);
+    }
+
     private bool CanActiveUnitDefend()
     {
         var activeUnit = _ctx.ActiveUnit;
@@ -62,11 +75,21 @@ public class PlayerBattleActionController : IBattleActionController
     {
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
+        _ctx.BattleCombatUIController.OnSelectAbility += HandleAbilitySelected;
     }
 
     private void UnsubscribeUIEvents()
     {
         _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
+        _ctx.BattleCombatUIController.OnSelectAbility -= HandleAbilitySelected;
+    }
+
+    private sealed class AbilityBattleActionTargetResolver : IBattleActionTargetResolver
+    {
+        public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
+        {
+            return target?.Definition != null && target.Definition.IsEnemy();
+        }
     }
 }
