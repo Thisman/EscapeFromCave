@@ -9,7 +9,7 @@ public sealed class BattleQueueItemView : MonoBehaviour
 
     public void Render(IReadOnlySquadModel unit)
     {
-        _icon.sprite = unit.Definition.Icon;
+        _icon.sprite = unit.Icon;
         _countText.text = unit.Count.ToString();
     }
 }

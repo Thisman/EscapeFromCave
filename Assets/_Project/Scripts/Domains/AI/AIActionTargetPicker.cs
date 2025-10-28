@@ -37,9 +37,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         if (actor == null)
             return null;
 
-        var definition = actor.Definition;
-
-        if (definition.AttackKind == AttackKind.Melee)
+        if (actor.AttackKind == AttackKind.Melee)
             return SelectFrontlineTarget(actor);
 
         return SelectTargetWithHighestInitiative(actor);
@@ -48,17 +46,14 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
     {
         var units = _context.BattleUnits;
         var grid = _context.BattleGridController;
-        var actorDefinition = actor.Definition;
-        var actorType = actorDefinition.Kind;
 
         BattleSquadController backlineCandidate = null;
 
         foreach (var unit in units)
         {
             var model = unit.GetSquadModel();
-            var definition = model.Definition;
 
-            if (!IsOpposingType(actorType, definition.Kind))
+            if (!IsOpposingType(actor.Kind, model.Kind))
                 continue;
 
             if (!grid.TryGetSlotForOccupant(unit.transform, out var slot))
@@ -79,7 +74,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
     private BattleSquadController SelectTargetWithHighestInitiative(IReadOnlySquadModel actor)
     {
         var units = _context.BattleUnits;
-        var actorType = actor.Definition.Kind;
+        var actorType = actor.Kind;
 
         BattleSquadController bestTarget = null;
         float bestInitiative = float.MinValue;
@@ -87,12 +82,11 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
         foreach (var unit in units)
         {
             var model = unit.GetSquadModel();
-            var definition = model.Definition;
 
-            if (!IsOpposingType(actorType, definition.Kind))
+            if (!IsOpposingType(actor.Kind, model.Kind))
                 continue;
 
-            var initiative = definition.Speed;
+            var initiative = actor.Initiative;
 
             if (initiative <= bestInitiative)
                 continue;

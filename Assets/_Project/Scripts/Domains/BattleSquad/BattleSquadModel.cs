@@ -3,13 +3,18 @@ using UnityEngine;
 
 public sealed class BattleSquadModel : IReadOnlySquadModel
 {
+    private int _squadHealth;
     private readonly IReadOnlySquadModel _sourceModel;
 
-    private int _squadHealth;
-    
     public UnitDefinitionSO Definition => _sourceModel.Definition;
 
     public event Action<IReadOnlySquadModel> Changed;
+
+    public BattleSquadModel(IReadOnlySquadModel sourceModel)
+    {
+        _sourceModel = sourceModel ?? throw new ArgumentNullException(nameof(sourceModel));
+        _squadHealth = CalculateInitialTotalHealth();
+    }
 
     public Sprite Icon => _sourceModel.Icon;
 
@@ -56,12 +61,6 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public bool IsNeutral() => _sourceModel.IsNeutral();
 
-    public BattleSquadModel(IReadOnlySquadModel sourceModel)
-    {
-        _sourceModel = sourceModel ?? throw new ArgumentNullException(nameof(sourceModel));
-        _squadHealth = CalculateInitialTotalHealth();
-    }
-
     public int Count => CalculateCount();
 
     public bool IsEmpty => Count <= 0;
@@ -79,12 +78,12 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     private int CalculateInitialTotalHealth()
     {
-        return _sourceModel.Count * (int)_sourceModel.Definition.BaseHealth;
+        return _sourceModel.Count * (int)_sourceModel.Health;
     }
 
     private int CalculateCount()
     {
-        int unitBaseHealth = (int)_sourceModel.Definition.BaseHealth;
+        int unitBaseHealth = (int)_sourceModel.Health;
         return (_squadHealth + unitBaseHealth - 1) / unitBaseHealth;
     }
 

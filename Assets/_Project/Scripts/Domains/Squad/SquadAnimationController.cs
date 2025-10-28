@@ -7,6 +7,6 @@ public class SquadAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = _unitController.GetSquadModel().Definition.Icon;
+        _spriteRenderer.sprite = _unitController.GetSquadModel().Icon;
     }
 }

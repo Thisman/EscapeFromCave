@@ -12,7 +12,7 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
 
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        if (actor.Definition.AttackKind == AttackKind.Ranged)
+        if (actor.AttackKind == AttackKind.Ranged)
             return true;
 
         if (target == null)
@@ -56,27 +56,15 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
     private bool HasFrontlineUnits(IReadOnlySquadModel target)
     {
         var units = _context.BattleUnits;
-        if (units == null)
-            return false;
-
-        var targetDefinition = target?.Definition;
-        if (targetDefinition == null)
-            return false;
 
         foreach (var unit in units)
         {
-            if (unit == null)
-                continue;
-
             var model = unit.GetSquadModel();
             if (model == null || ReferenceEquals(model, target))
                 continue;
 
-            var definition = model.Definition;
-            if (definition == null)
-                continue;
 
-            if (!IsSameSide(targetDefinition.Kind, definition.Kind))
+            if (!IsSameSide(target.Kind, model.Kind))
                 continue;
 
             if (model.IsEmpty)

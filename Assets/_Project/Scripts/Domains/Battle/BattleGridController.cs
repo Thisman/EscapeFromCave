@@ -249,8 +249,6 @@ public sealed class BattleGridController : MonoBehaviour
                 return false;
 
             var model = controller.GetSquadModel();
-            if (model == null || model.Definition == null)
-                return false;
 
             var unitTransform = controller.transform;
 
@@ -324,10 +322,8 @@ public sealed class BattleGridController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var model = models[i];
-            if (model == null || model.Definition == null)
-                return false;
 
-            Transform slot = model.Definition.Kind switch
+            Transform slot = model.Kind switch
             {
                 UnitKind.Hero => AllocateSlot(allPools, allyBackSlots),
                 UnitKind.Ally => AllocateSlot(allPools, allyFrontSlots, allyBackSlots, allyAnySlots),

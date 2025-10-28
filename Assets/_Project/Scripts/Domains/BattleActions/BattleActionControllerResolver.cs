@@ -13,7 +13,7 @@ public sealed class BattleActionControllerResolver
 
     public IBattleActionController ResolveFor(IReadOnlySquadModel unit)
     {
-        if (unit.Definition.IsFriendly())
+        if (unit.IsFriendly())
             return _playerController;
 
         return _enemyController;

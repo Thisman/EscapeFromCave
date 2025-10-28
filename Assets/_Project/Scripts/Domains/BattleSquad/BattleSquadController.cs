@@ -26,8 +26,8 @@ public class BattleSquadController : MonoBehaviour
 
     public int ResolveDamage()
     {
-        var definition = _squadModel.Definition;
-        var unitDamage = UnityEngine.Random.Range(definition.MinDamage, definition.MaxDamage);
+        var (minDamage, maxDamage) = _squadModel.GetBaseDamageRange();
+        var unitDamage = UnityEngine.Random.Range(minDamage, maxDamage);
         var unitCount = Math.Max(0, _squadModel.Count);
 
         return (int)unitDamage * unitCount;

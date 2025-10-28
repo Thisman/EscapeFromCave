@@ -128,7 +128,7 @@ public class PlayerBattleActionController : IBattleActionController
     {
         public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
         {
-            return target?.Definition != null && target.Definition.IsEnemy();
+            return target != null && target.IsEnemy();
         }
     }
 }

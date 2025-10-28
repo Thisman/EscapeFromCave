@@ -96,7 +96,7 @@ public sealed class BattleRoundsMachine
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
 
-        var abilities = _ctx.ActiveUnit?.Definition?.Abilities;
+        var abilities = _ctx.ActiveUnit.Abilities;
         _ctx.BattleCombatUIController?.RenderAbilityList(abilities);
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
@@ -223,7 +223,7 @@ public sealed class BattleRoundsMachine
 
     private void OnActionCancelled()
     {
-        if (!_ctx.ActiveUnit.Definition.IsFriendly())
+        if (!_ctx.ActiveUnit.IsFriendly())
             return;
 
         _ctx.BattleCombatUIController?.ResetAbilityHighlight();
@@ -241,7 +241,7 @@ public sealed class BattleRoundsMachine
         if (units.Count == 0)
             return true;
 
-        bool heroInQueue = units.Any(unit => unit.GetSquadModel().Definition.IsHero());
+        bool heroInQueue = units.Any(unit => unit.GetSquadModel().IsHero());
 
         if (!heroInQueue)
             return true;
@@ -259,7 +259,7 @@ public sealed class BattleRoundsMachine
             if (model == null || model.Count <= 0)
                 continue;
 
-            if (model.Definition.IsFriendly())
+            if (model.IsFriendly())
             {
                 hasFriendlyUnits = true;
             }
@@ -383,10 +383,10 @@ public sealed class BattleRoundsMachine
 
             var model = unitController.GetSquadModel();
 
-            if (model?.Definition == null || model.Count <= 0)
+            if (model == null || model.Count <= 0)
                 continue;
 
-            switch (model.Definition.Kind)
+            switch (model.Kind)
             {
                 case UnitKind.Hero:
                 case UnitKind.Ally:
@@ -408,7 +408,7 @@ public sealed class BattleRoundsMachine
         if (_playerRequestedFlee)
             return BattleResultStatus.Flee;
 
-        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.Definition.IsHero());
+        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.IsHero());
 
         if (!heroAlive)
             return BattleResultStatus.Defeat;

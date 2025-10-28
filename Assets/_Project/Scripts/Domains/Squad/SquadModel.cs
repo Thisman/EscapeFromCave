@@ -11,6 +11,12 @@ public class SquadModel : IReadOnlySquadModel
 
     public event Action<IReadOnlySquadModel> Changed;
 
+    public SquadModel(UnitDefinitionSO definition, int initialCount = 0)
+    {
+        _unitDefinition = definition;
+        _count = initialCount;
+    }
+
     public int Count => _count;
 
     public bool IsEmpty => _count <= 0;
@@ -60,15 +66,6 @@ public class SquadModel : IReadOnlySquadModel
 
     public bool IsNeutral () => _unitDefinition.IsNeutral();
 
-    public SquadModel(UnitDefinitionSO definition, int initialCount = 0)
-    {
-        if (!definition) throw new ArgumentNullException(nameof(definition));
-        if (initialCount < 0) throw new ArgumentOutOfRangeException(nameof(initialCount));
-
-        _unitDefinition = definition;
-        _count = initialCount;
-    }
-
     public bool TryAdd(int amount)
     {
         if (amount <= 0) return false;
@@ -81,6 +78,7 @@ public class SquadModel : IReadOnlySquadModel
     public void Clear()
     {
         if (_count == 0) return;
+
         _count = 0;
         NotifyChanged();
     }

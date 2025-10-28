@@ -129,12 +129,12 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
     private static bool TryGetModelFromComponent(IReadOnlySquadModel candidate, out IReadOnlySquadModel model)
     {
         model = candidate;
-        return model != null && model.Definition != null;
+        return model != null;
     }
 
     private static bool TryCreateSetup(IReadOnlySquadModel model, out BattleSquadSetup setup)
     {
-        if (model != null && model.Definition != null && model.Count > 0)
+        if (model != null && model.Count > 0)
         {
             setup = new BattleSquadSetup(model.Definition, model.Count);
             return true;

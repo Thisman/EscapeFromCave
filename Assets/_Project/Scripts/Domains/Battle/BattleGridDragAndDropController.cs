@@ -262,7 +262,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         var unitController = draggable.GetComponentInParent<BattleSquadController>();
         var squadModel = unitController.GetSquadModel();
 
-        return squadModel.Definition.IsFriendly();
+        return squadModel.IsFriendly();
     }
 
     private bool IsSlotValidForDraggedObject(Transform slot)
@@ -284,13 +284,13 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel.Definition == null)
+        if (squadModel == null || squadModel == null)
             return false;
 
         return side switch
         {
-            BattleGridSlotSide.Ally => squadModel.Definition.Kind == UnitKind.Ally || squadModel.Definition.Kind == UnitKind.Hero,
-            BattleGridSlotSide.Enemy => squadModel.Definition.Kind == UnitKind.Enemy,
+            BattleGridSlotSide.Ally => squadModel.Kind == UnitKind.Ally || squadModel.Kind == UnitKind.Hero,
+            BattleGridSlotSide.Enemy => squadModel.Kind == UnitKind.Enemy,
             _ => false
         };
     }

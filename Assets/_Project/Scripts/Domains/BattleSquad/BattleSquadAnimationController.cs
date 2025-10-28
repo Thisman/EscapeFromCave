@@ -26,7 +26,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     private void Start()
     {
         _flashRestoreColor = _spriteRenderer.color;
-        _spriteRenderer.sprite = _unitController.GetSquadModel().Definition.Icon;
+        _spriteRenderer.sprite = _unitController.GetSquadModel().Icon;
 
         _unitController.GetSquadModel().Changed += HandleModelChanged;
         HandleModelChanged(_unitController.GetSquadModel());

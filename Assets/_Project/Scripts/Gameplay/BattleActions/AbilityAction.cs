@@ -57,22 +57,14 @@ public sealed class AbilityAction : IBattleAction, IDisposable
             return;
         }
 
-        var definition = targetModel.Definition;
-        if (definition == null || !definition.IsEnemy())
+        if (!targetModel.IsEnemy())
         {
             Debug.LogWarning("[AbilityAction] Selected target is not a valid enemy.");
             CompleteResolve();
             return;
         }
 
-        string abilityName = !string.IsNullOrEmpty(_ability.AbilityName)
-            ? _ability.AbilityName
-            : _ability.name;
-        string targetName = !string.IsNullOrEmpty(definition.UnitName)
-            ? definition.UnitName
-            : definition.name;
-
-        Debug.Log($"Ability '{abilityName}' used on target '{targetName}'.");
+        Debug.Log($"Ability '{_ability.AbilityName}' used on target '{targetModel.UnitName}'.");
 
         CompleteResolve();
     }

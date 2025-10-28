@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public float GetMovementSpeed()
     {
-        return _squadModel.Definition.Speed;
+        return _squadModel.Speed;
     }
 
     public IReadOnlySquadModel GetPlayer()

@@ -3,9 +3,9 @@ using UnityEngine;
 
 public interface IReadOnlySquadModel
 {
-    public UnitDefinitionSO Definition { get; }
-
     public event Action<IReadOnlySquadModel> Changed;
+
+    public UnitDefinitionSO Definition { get; }
 
     public int Count { get; }
 
