@@ -1,9 +1,11 @@
 using System;
+using UnityEngine.InputSystem;
 
 public class PlayerBattleActionController : IBattleActionController
 {
     private BattleContext _ctx;
     private Action<IBattleAction> _onActionReady;
+    private bool _isInputSubscribed;
 
     public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
@@ -73,6 +75,12 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend += HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility += HandleAbilitySelected;
+
+        if (!_isInputSubscribed)
+        {
+            InputSystem.onAfterUpdate += HandleInputSystemUpdate;
+            _isInputSubscribed = true;
+        }
     }
 
     private void UnsubscribeUIEvents()
@@ -80,6 +88,26 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnDefend -= HandleDefend;
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility -= HandleAbilitySelected;
+
+        if (_isInputSubscribed)
+        {
+            InputSystem.onAfterUpdate -= HandleInputSystemUpdate;
+            _isInputSubscribed = false;
+        }
+    }
+
+    private void HandleInputSystemUpdate()
+    {
+        if (Keyboard.current == null)
+            return;
+
+        if (!Keyboard.current.escapeKey.wasPressedThisFrame)
+            return;
+
+        if (_ctx?.CurrentAction is AbilityAction abilityAction)
+        {
+            abilityAction.Dispose();
+        }
     }
 
     private sealed class AbilityBattleActionTargetResolver : IBattleActionTargetResolver
