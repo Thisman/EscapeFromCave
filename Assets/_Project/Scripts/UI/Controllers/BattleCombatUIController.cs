@@ -19,6 +19,16 @@ public class BattleCombatUIController : MonoBehaviour
         _defendButton.interactable = interactable;
     }
 
+    public void RenderAbilityList(BattleAbilityDefinitionSO[] abilities)
+    {
+        if (_abilityListController == null)
+        {
+            return;
+        }
+
+        _abilityListController.Render(abilities);
+    }
+
     private void OnEnable()
     {
         _leaveCombatButton.onClick.AddListener(HandleLeaveCombatClicked);
