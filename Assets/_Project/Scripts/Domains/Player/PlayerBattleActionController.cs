@@ -5,7 +5,7 @@ public class PlayerBattleActionController : IBattleActionController
 {
     private BattleContext _ctx;
     private Action<IBattleAction> _onActionReady;
-    private bool _isInputSubscribed;
+    private InputAction _cancelAction;
 
     public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
@@ -76,11 +76,7 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnSkipTurn += HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility += HandleAbilitySelected;
 
-        if (!_isInputSubscribed)
-        {
-            InputSystem.onAfterUpdate += HandleInputSystemUpdate;
-            _isInputSubscribed = true;
-        }
+        SubscribeToCancelAction();
     }
 
     private void UnsubscribeUIEvents()
@@ -89,19 +85,37 @@ public class PlayerBattleActionController : IBattleActionController
         _ctx.BattleCombatUIController.OnSkipTurn -= HandleSkipTurn;
         _ctx.BattleCombatUIController.OnSelectAbility -= HandleAbilitySelected;
 
-        if (_isInputSubscribed)
-        {
-            InputSystem.onAfterUpdate -= HandleInputSystemUpdate;
-            _isInputSubscribed = false;
-        }
+        UnsubscribeFromCancelAction();
     }
 
-    private void HandleInputSystemUpdate()
+    private void SubscribeToCancelAction()
     {
-        if (Keyboard.current == null)
+        if (_cancelAction != null)
             return;
 
-        if (!Keyboard.current.escapeKey.wasPressedThisFrame)
+        var inputService = _ctx?.InputService;
+        if (inputService == null)
+            return;
+
+        _cancelAction = inputService.Actions.FindAction("Cancel");
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed += HandleCancelPerformed;
+    }
+
+    private void UnsubscribeFromCancelAction()
+    {
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed -= HandleCancelPerformed;
+        _cancelAction = null;
+    }
+
+    private void HandleCancelPerformed(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
             return;
 
         if (_ctx?.CurrentAction is AbilityAction abilityAction)
