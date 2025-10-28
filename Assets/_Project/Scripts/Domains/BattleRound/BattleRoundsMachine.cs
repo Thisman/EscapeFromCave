@@ -170,6 +170,15 @@ public sealed class BattleRoundsMachine
         _ctx.CurrentAction = action;
         action.OnResolve += OnActionResolved;
         action.OnCancel += OnActionCancelled;
+
+        if (action is AbilityAction abilityAction)
+        {
+            _ctx.BattleCombatUIController?.HighlightAbility(abilityAction.Ability);
+        }
+        else
+        {
+            _ctx.BattleCombatUIController?.ResetAbilityHighlight();
+        }
     }
 
     private void DetachCurrentAction()
@@ -184,6 +193,8 @@ public sealed class BattleRoundsMachine
         {
             disposable.Dispose();
         }
+
+        _ctx.BattleCombatUIController?.ResetAbilityHighlight();
 
         _ctx.CurrentAction = null;
     }
@@ -214,6 +225,8 @@ public sealed class BattleRoundsMachine
     {
         if (!_ctx.ActiveUnit.Definition.IsFrendly())
             return;
+
+        _ctx.BattleCombatUIController?.ResetAbilityHighlight();
 
         OnWaitTurnAction();
     }

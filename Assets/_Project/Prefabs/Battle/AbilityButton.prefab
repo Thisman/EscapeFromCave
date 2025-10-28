@@ -137,6 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityItemView
   icon: {fileID: 7549984075958432984}
   button: {fileID: 3331879139934788246}
+  highlightScaleMultiplier: 1.2
+  highlightTweenDuration: 0.2
+  highlightTweenEase: 27
 --- !u!1 &3995407274344870733
 GameObject:
   m_ObjectHideFlags: 0
