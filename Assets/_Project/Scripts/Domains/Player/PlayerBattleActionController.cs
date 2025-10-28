@@ -49,9 +49,6 @@ public class PlayerBattleActionController : IBattleActionController
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
-        UnsubscribeUIEvents();
-        _ctx.BattleCombatUIController.SetDefendButtonInteractable(false);
-
         var targetPicker = new PlayerBattleActionTargetPicker(_ctx, new AbilityBattleActionTargetResolver());
         var abilityAction = new AbilityAction(ability, targetPicker);
         _onActionReady.Invoke(abilityAction);
