@@ -22,6 +22,7 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     [Inject] readonly private InputService _inputService;
+    [Inject] readonly private AudioManager _audioManager;
 
     private PanelManager _panelManager;
     private BattleSceneData _battleData;
@@ -42,11 +43,13 @@ public class BattleSceneManager : MonoBehaviour
         InitializeBattleUnits();
         InitializeStateMachines();
 
+        _ = _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
         _battlePhaseMachine.Fire(BattleTrigger.StartBattle);
     }
 
     private void OnDestroy()
     {
+        _ = _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
         UnsubscribeFromUiEvents();
     }
 

@@ -7,6 +7,12 @@ public class MainMenuSceneManager : MonoBehaviour
 
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputRouter _inputRouter;
+    [Inject] private readonly AudioManager _audioManager;
+
+    public void Start()
+    {
+        _ = _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
+    }
 
     private void OnEnable()
     {
