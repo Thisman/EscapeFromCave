@@ -30,9 +30,9 @@ public sealed class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioTrackDefinition[] _trackDefinitions =
     {
-        new AudioTrackDefinition { Name = TrackNames.BackgroundMusic, Loop = true, DefaultVolume = 1f },
-        new AudioTrackDefinition { Name = TrackNames.BackgroundEffect, Loop = true, DefaultVolume = 0.8f },
-        new AudioTrackDefinition { Name = TrackNames.Effects, Loop = false, DefaultVolume = 1f }
+        new() { Name = TrackNames.BackgroundMusic, Loop = true, DefaultVolume = 1f },
+        new() { Name = TrackNames.BackgroundEffect, Loop = true, DefaultVolume = 0.8f },
+        new() { Name = TrackNames.Effects, Loop = false, DefaultVolume = 1f }
     };
 
     private readonly Dictionary<string, AudioTrackState> _tracks = new(StringComparer.OrdinalIgnoreCase);
@@ -110,37 +110,6 @@ public sealed class AudioManager : MonoBehaviour
         }
 
         AudioSource.PlayClipAtPoint(clip, position, Mathf.Clamp01(volume));
-    }
-
-    public async Task<bool> SetTrackClipAsync(
-        string trackName,
-        string clipName,
-        bool loop = true,
-        float transitionDuration = 1f,
-        CancellationToken cancellationToken = default)
-    {
-        if (!_tracks.TryGetValue(trackName, out var track) || track == null)
-        {
-            Debug.LogWarning($"[AudioManager] Track '{trackName}' is not registered.");
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(clipName))
-        {
-            Debug.LogWarning("[AudioManager] Clip name is empty. Unable to play audio.");
-            return false;
-        }
-
-        var clip = await GetClipAsync(clipName, cancellationToken);
-
-        if (clip == null)
-        {
-            Debug.LogWarning($"[AudioManager] Clip '{clipName}' is not loaded.");
-            return false;
-        }
-
-        await track.PlayAsync(this, clip, loop, transitionDuration, cancellationToken);
-        return true;
     }
 
     public async Task<IReadOnlyList<string>> LoadFolderAsync(
@@ -226,6 +195,7 @@ public sealed class AudioManager : MonoBehaviour
             loadedNames.Add(clipName);
         }
 
+        Debug.Log(loadedNames);
         return loadedNames;
     }
 
@@ -422,6 +392,37 @@ public sealed class AudioManager : MonoBehaviour
             default:
                 return AudioType.UNKNOWN;
         }
+    }
+
+    private async Task<bool> SetTrackClipAsync(
+        string trackName,
+        string clipName,
+        bool loop = true,
+        float transitionDuration = 1f,
+        CancellationToken cancellationToken = default)
+    {
+        if (!_tracks.TryGetValue(trackName, out var track) || track == null)
+        {
+            Debug.LogWarning($"[AudioManager] Track '{trackName}' is not registered.");
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(clipName))
+        {
+            Debug.LogWarning("[AudioManager] Clip name is empty. Unable to play audio.");
+            return false;
+        }
+
+        var clip = await GetClipAsync(clipName, cancellationToken);
+
+        if (clip == null)
+        {
+            Debug.LogWarning($"[AudioManager] Clip '{clipName}' is not loaded.");
+            return false;
+        }
+
+        await track.PlayAsync(this, clip, loop, transitionDuration, cancellationToken);
+        return true;
     }
 
     [Serializable]

@@ -6,16 +6,19 @@ using VContainer.Unity;
 [DefaultExecutionOrder(-1000)]
 public sealed class RootLifetimeScope : LifetimeScope
 {
-    [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] private InputActionAsset InputActions;
+    [SerializeField] private AudioManager AudioManager;
 
     protected override void Configure(IContainerBuilder builder)
     {
         builder.Register<SceneLoader>(Lifetime.Singleton);
         builder.Register<GameSession>(Lifetime.Singleton);
 
-        builder.RegisterInstance(inputActions).As<InputActionAsset>();
+        builder.RegisterInstance(InputActions).As<InputActionAsset>();
         builder.Register<InputService>(Lifetime.Singleton);
         builder.Register<InputRouter>(Lifetime.Singleton);
+
+        builder.RegisterInstance(AudioManager).As<AudioManager>();
     }
 
     protected override void Awake()

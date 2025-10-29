@@ -14,10 +14,12 @@ public class DangeonSceneManager : MonoBehaviour
     [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly IObjectResolver _objectResolver;
+    [Inject] private readonly AudioManager _audioManager;
 
     private void Start()
     {
         _globalLight2D.intensity = 0f;
+        _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
         _inputRouter.EnterGameplay();
         PlayerController playerController = InitializePlayer();
         PlayerArmyController playerArmyController = InitializeArmy(playerController);
