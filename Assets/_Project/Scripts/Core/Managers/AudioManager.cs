@@ -131,7 +131,7 @@ public sealed class AudioManager : MonoBehaviour
             return false;
         }
 
-        var clip = await GetClipAsync(clipName, cancellationToken).ConfigureAwait(false);
+        var clip = await GetClipAsync(clipName, cancellationToken);
 
         if (clip == null)
         {
@@ -139,7 +139,7 @@ public sealed class AudioManager : MonoBehaviour
             return false;
         }
 
-        await track.PlayAsync(this, clip, loop, transitionDuration, cancellationToken).ConfigureAwait(false);
+        await track.PlayAsync(this, clip, loop, transitionDuration, cancellationToken);
         return true;
     }
 
@@ -165,6 +165,7 @@ public sealed class AudioManager : MonoBehaviour
         }
 
         var loadTasks = new List<Task<AudioClip>>(audioFiles.Length);
+        var pendingNames = new List<string>(audioFiles.Length);
         var loadedNames = new List<string>(audioFiles.Length);
 
         foreach (var file in audioFiles)
@@ -184,6 +185,7 @@ public sealed class AudioManager : MonoBehaviour
             {
                 if (existingHandle.Clip != null)
                 {
+                    existingHandle.Clip.name = clipName;
                     loadedNames.Add(clipName);
                     continue;
                 }
@@ -191,6 +193,7 @@ public sealed class AudioManager : MonoBehaviour
                 if (existingHandle.LoadTask != null)
                 {
                     loadTasks.Add(existingHandle.LoadTask);
+                    pendingNames.Add(clipName);
                     continue;
                 }
             }
@@ -198,6 +201,7 @@ public sealed class AudioManager : MonoBehaviour
             var loadTask = LoadClipInternalAsync(file, clipName, cancellationToken);
             _clipHandles[clipName] = new ClipLoadHandle { LoadTask = loadTask };
             loadTasks.Add(loadTask);
+            pendingNames.Add(clipName);
         }
 
         if (loadTasks.Count == 0)
@@ -205,16 +209,21 @@ public sealed class AudioManager : MonoBehaviour
             return loadedNames;
         }
 
-        var clips = await Task.WhenAll(loadTasks).ConfigureAwait(false);
+        var clips = await Task.WhenAll(loadTasks);
 
-        foreach (var clip in clips)
+        for (var i = 0; i < clips.Length; i++)
         {
+            var clip = clips[i];
+            var clipName = pendingNames[i];
+
             if (clip == null)
             {
+                _clipHandles.Remove(clipName);
                 continue;
             }
 
-            loadedNames.Add(clip.name);
+            clip.name = clipName;
+            loadedNames.Add(clipName);
         }
 
         return loadedNames;
@@ -227,8 +236,7 @@ public sealed class AudioManager : MonoBehaviour
         float transitionDuration = 1f,
         CancellationToken cancellationToken = default)
     {
-        return await SetTrackClipAsync(trackName, clipName, loop, transitionDuration, cancellationToken)
-            .ConfigureAwait(false);
+        return await SetTrackClipAsync(trackName, clipName, loop, transitionDuration, cancellationToken);
     }
 
     private async Task<AudioClip> GetClipAsync(string clipName, CancellationToken cancellationToken)
@@ -242,7 +250,13 @@ public sealed class AudioManager : MonoBehaviour
 
             if (handle.LoadTask != null)
             {
-                return await handle.LoadTask.ConfigureAwait(false);
+                var clipFromHandle = await handle.LoadTask;
+                if (clipFromHandle != null)
+                {
+                    clipFromHandle.name = clipName;
+                }
+
+                return clipFromHandle;
             }
         }
 
@@ -254,7 +268,14 @@ public sealed class AudioManager : MonoBehaviour
 
         var loadTask = LoadClipInternalAsync(filePath, clipName, cancellationToken);
         _clipHandles[clipName] = new ClipLoadHandle { LoadTask = loadTask };
-        return await loadTask.ConfigureAwait(false);
+        var loadedClip = await loadTask;
+
+        if (loadedClip != null)
+        {
+            loadedClip.name = clipName;
+        }
+
+        return loadedClip;
     }
 
     private async Task<AudioClip> LoadClipInternalAsync(string filePath, string clipName, CancellationToken cancellationToken)
@@ -285,7 +306,6 @@ public sealed class AudioManager : MonoBehaviour
             }
 
             var clip = DownloadHandlerAudioClip.GetContent(request);
-            clip.name = clipName;
 
             _clipHandles[clipName] = new ClipLoadHandle { Clip = clip };
             return clip;
