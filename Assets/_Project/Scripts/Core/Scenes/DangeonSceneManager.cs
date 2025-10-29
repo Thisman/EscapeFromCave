@@ -9,8 +9,6 @@ public class DangeonSceneManager : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private ArmyRoasterView _armyRoasterView;
 
-    [SerializeField] private Light2D _globalLight2D;
-
     [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly IObjectResolver _objectResolver;
@@ -18,7 +16,6 @@ public class DangeonSceneManager : MonoBehaviour
 
     private void Start()
     {
-        _globalLight2D.intensity = 0f;
         _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
         _inputRouter.EnterGameplay();
         PlayerController playerController = InitializePlayer();
