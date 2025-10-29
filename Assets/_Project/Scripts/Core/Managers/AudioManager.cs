@@ -38,9 +38,9 @@ public sealed class AudioManager : MonoBehaviour
     private readonly Dictionary<string, AudioTrackState> _tracks = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, ClipLoadHandle> _clipHandles = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, string> _clipPaths = new(StringComparer.OrdinalIgnoreCase);
-    private readonly Dictionary<string, AudioListener> _listeners = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, AudioSource> _trackSources = new(StringComparer.OrdinalIgnoreCase);
 
-    public IReadOnlyDictionary<string, AudioListener> Listeners => _listeners;
+    public IReadOnlyDictionary<string, AudioSource> Sources => _trackSources;
 
     public IReadOnlyDictionary<string, AudioSource> Tracks
     {
@@ -64,18 +64,18 @@ public sealed class AudioManager : MonoBehaviour
         InitialiseTracks();
     }
 
-    public bool TryGetListener(string trackName, out AudioListener listener)
+    public bool TryGetSource(string trackName, out AudioSource source)
     {
-        listener = null;
+        source = null;
 
         if (string.IsNullOrWhiteSpace(trackName))
         {
             return false;
         }
 
-        if (!_listeners.TryGetValue(trackName, out listener) || listener == null)
+        if (!_trackSources.TryGetValue(trackName, out source) || source == null)
         {
-            Debug.LogWarning($"[AudioManager] Listener for track '{trackName}' is not registered.");
+            Debug.LogWarning($"[AudioManager] Source for track '{trackName}' is not registered.");
             return false;
         }
 
@@ -306,7 +306,7 @@ public sealed class AudioManager : MonoBehaviour
     private void InitialiseTracks()
     {
         _tracks.Clear();
-        _listeners.Clear();
+        _trackSources.Clear();
 
         if (_trackDefinitions == null || _trackDefinitions.Length == 0)
         {
@@ -326,35 +326,49 @@ public sealed class AudioManager : MonoBehaviour
                 continue;
             }
 
-            var listener = EnsureListener(definition);
-            if (listener != null)
+            var source = EnsurePrimarySource(definition);
+            if (source != null)
             {
-                _listeners[definition.Name] = listener;
+                _trackSources[definition.Name] = source;
             }
 
-            var parent = listener != null ? listener.transform : transform;
-            var state = new AudioTrackState(definition, parent);
+            var parent = source != null ? source.transform.parent : transform;
+            var state = new AudioTrackState(definition, source, parent ?? transform);
             _tracks[definition.Name] = state;
         }
     }
 
-    private AudioListener EnsureListener(AudioTrackDefinition definition)
+    private AudioSource EnsurePrimarySource(AudioTrackDefinition definition)
     {
-        if (definition.Listener != null)
+        if (definition.Source != null)
         {
-            return definition.Listener;
+            ConfigureSource(definition, definition.Source);
+            return definition.Source;
         }
 
-        var listenerObject = new GameObject(definition.Name + "_Listener")
+        var sourceObject = new GameObject(definition.Name + "_Source")
         {
             hideFlags = HideFlags.DontSave
         };
 
-        listenerObject.transform.SetParent(transform, false);
+        sourceObject.transform.SetParent(transform, false);
 
-        var listener = listenerObject.AddComponent<AudioListener>();
-        definition.Listener = listener;
-        return listener;
+        var source = sourceObject.AddComponent<AudioSource>();
+        ConfigureSource(definition, source);
+        definition.Source = source;
+        return source;
+    }
+
+    private static void ConfigureSource(AudioTrackDefinition definition, AudioSource source)
+    {
+        if (source == null)
+        {
+            return;
+        }
+
+        source.playOnAwake = false;
+        source.loop = definition.Loop;
+        source.volume = Mathf.Clamp01(definition.DefaultVolume);
     }
 
     private static string ResolveFullAudioPath(string relativePath)
@@ -396,7 +410,7 @@ public sealed class AudioManager : MonoBehaviour
         public string Name;
         public bool Loop = true;
         [Range(0f, 1f)] public float DefaultVolume = 1f;
-        public AudioListener Listener;
+        public AudioSource Source;
     }
 
     private sealed class ClipLoadHandle
@@ -415,11 +429,28 @@ public sealed class AudioManager : MonoBehaviour
         private AudioSource _inactiveSource;
         private Coroutine _transitionRoutine;
 
-        public AudioTrackState(AudioTrackDefinition definition, Transform parent)
+        public AudioTrackState(AudioTrackDefinition definition, AudioSource primarySource, Transform parent)
         {
             _definition = definition;
-            _firstSource = CreateSource(definition, parent, definition.Name + "_A");
-            _secondSource = CreateSource(definition, parent, definition.Name + "_B");
+            var parentTransform = parent;
+
+            if (primarySource != null)
+            {
+                if (primarySource.transform.parent == null && parentTransform != null)
+                {
+                    primarySource.transform.SetParent(parentTransform, false);
+                }
+
+                _firstSource = primarySource;
+                ConfigureSource(definition, _firstSource);
+                parentTransform = primarySource.transform.parent ?? parentTransform;
+            }
+            else
+            {
+                _firstSource = CreateSource(definition, parentTransform, definition.Name + "_Primary");
+            }
+
+            _secondSource = CreateSource(definition, parentTransform, definition.Name + "_Secondary");
 
             _activeSource = _firstSource;
             _inactiveSource = _secondSource;
@@ -568,10 +599,7 @@ public sealed class AudioManager : MonoBehaviour
             trackObject.transform.SetParent(parent, false);
 
             var source = trackObject.AddComponent<AudioSource>();
-            source.playOnAwake = false;
-            source.loop = definition.Loop;
-            source.volume = Mathf.Clamp01(definition.DefaultVolume);
-
+            ConfigureSource(definition, source);
             return source;
         }
     }
