@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public sealed class SceneLoader
 {
+    private const string RootSceneName = "RootScene";
     private readonly Dictionary<string, SceneSession> _sessions = new();
 
     public async Task<TCloseData> LoadAdditiveWithDataAsync<TPayload, TCloseData>(string sceneName, ISceneLoadingPayload<TPayload> payload)
@@ -158,13 +159,21 @@ public sealed class SceneLoader
             return;
         }
 
+        var isRootScene = string.Equals(sceneToActivate.name, RootSceneName, StringComparison.Ordinal);
+
         if (isActive)
         {
             SceneManager.SetActiveScene(sceneToActivate);
             Debug.Log($"[SceneLoader] Scene '{sceneToActivate.name}' set as active scene.");
         }
 
-        SceneUtils.SetSceneActiveObjects(sceneToActivate.name, isActive);
-        Debug.Log($"[SceneLoader] Scene '{sceneToActivate.name}' root objects set active: {isActive}.");
+        if (!isRootScene || isActive)
+        {
+            SceneUtils.SetSceneActiveObjects(sceneToActivate.name, isActive);
+            Debug.Log($"[SceneLoader] Scene '{sceneToActivate.name}' root objects set active: {isActive}.");
+            return;
+        }
+
+        Debug.Log($"[SceneLoader] Skipping deactivation of root scene '{sceneToActivate.name}'.");
     }
 }
