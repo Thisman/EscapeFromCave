@@ -27,10 +27,10 @@ public sealed class BattleEffectsManager
         if (existingEffect != null)
         {
             ApplyStackingPolicy(existingEffect, effect);
-            effect.OnApply(ctx);
+            InvokeEffectCallback(ctx, target, effect, () => effect.OnApply(ctx));
 
             if (effect.Trigger == BattleEffectTrigger.OnApply)
-                effect.OnTick(ctx);
+                InvokeEffectCallback(ctx, target, effect, () => effect.OnTick(ctx));
 
             if (ShouldRemoveImmediately(existingEffect))
                 RemoveEffectInternal(ctx, target, existingEffect);
@@ -43,11 +43,11 @@ public sealed class BattleEffectsManager
         effects.Add(instance);
         controller?.AddEffect(instance);
 
-        effect.OnAttach(ctx);
-        effect.OnApply(ctx);
+        InvokeEffectCallback(ctx, target, effect, () => effect.OnAttach(ctx));
+        InvokeEffectCallback(ctx, target, effect, () => effect.OnApply(ctx));
 
         if (effect.Trigger == BattleEffectTrigger.OnApply)
-            effect.OnTick(ctx);
+            InvokeEffectCallback(ctx, target, effect, () => effect.OnTick(ctx));
 
         if (ShouldRemoveImmediately(instance))
             RemoveEffectInternal(ctx, target, instance);
@@ -105,10 +105,10 @@ public sealed class BattleEffectsManager
                 if (definition == null)
                     continue;
 
-                definition.OnBattleRoundState(ctx);
+                InvokeEffectCallback(ctx, target, definition, () => definition.OnBattleRoundState(ctx));
 
                 if (definition.Trigger == BattleEffectTrigger.OnPhase)
-                    definition.OnTick(ctx);
+                    InvokeEffectCallback(ctx, target, definition, () => definition.OnTick(ctx));
 
                 if (!instance.ShouldProcessTrigger(trigger))
                     continue;
@@ -170,7 +170,8 @@ public sealed class BattleEffectsManager
         var controller = FindEffectsController(ctx, target);
         controller?.RemoveEffect(instance);
 
-        instance.Definition?.OnRemove(ctx);
+        if (instance.Definition != null)
+            InvokeEffectCallback(ctx, target, instance.Definition, () => instance.Definition.OnRemove(ctx));
     }
 
     private List<BattleEffectModel> GetOrCreateEffectList(IReadOnlySquadModel target)
@@ -229,5 +230,37 @@ public sealed class BattleEffectsManager
         }
 
         return null;
+    }
+
+    private static void InvokeEffectCallback(
+        BattleContext ctx,
+        IReadOnlySquadModel target,
+        BattleEffectDefinitionSO definition,
+        Action callback)
+    {
+        if (callback == null)
+            return;
+
+        if (ctx == null)
+        {
+            callback();
+            return;
+        }
+
+        var previousTarget = ctx.CurrentEffectTarget;
+        var previousDefinition = ctx.CurrentEffectDefinition;
+
+        ctx.CurrentEffectTarget = target;
+        ctx.CurrentEffectDefinition = definition;
+
+        try
+        {
+            callback();
+        }
+        finally
+        {
+            ctx.CurrentEffectTarget = previousTarget;
+            ctx.CurrentEffectDefinition = previousDefinition;
+        }
     }
 }
