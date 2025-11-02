@@ -96,6 +96,8 @@ public sealed class BattleRoundsMachine
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
 
+        _ctx.BattleEffectsManager?.OnTick(_ctx, BattleRoundTrigger.NextTurn);
+
         var abilities = _ctx.ActiveUnit.Abilities;
         _ctx.BattleCombatUIController?.RenderAbilityList(abilities);
 
