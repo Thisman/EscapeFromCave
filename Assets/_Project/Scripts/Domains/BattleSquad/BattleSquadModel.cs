@@ -76,6 +76,14 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         SetSquadHealth(Math.Max(0, _squadHealth - damage));
     }
 
+    public int ResolveDamage()
+    {
+        var (minDamage, maxDamage) = GetBaseDamageRange();
+        var unitDamage = UnityEngine.Random.Range(minDamage, maxDamage);
+
+        return (int)unitDamage * Count;
+    }
+
     private int CalculateInitialTotalHealth()
     {
         return _sourceModel.Count * (int)_sourceModel.Health;
