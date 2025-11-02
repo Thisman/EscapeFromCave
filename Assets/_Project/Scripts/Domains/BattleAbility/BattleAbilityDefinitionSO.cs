@@ -34,5 +34,7 @@ public abstract class BattleAbilityDefinitionSO : ScriptableObject
 
     public BattleAbilityTargetType AbilityTargetType;
 
+    public BattleEffectDefinitionSO[] Effects;
+
     public abstract void Apply(BattleContext ctx, IReadOnlySquadModel user, IReadOnlyList<IReadOnlySquadModel> targets);
 }
