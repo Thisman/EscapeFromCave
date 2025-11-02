@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Teleport Player Random Point")]
-public sealed class TeleportEffect : EffectDefinitionSO
+public sealed class TeleportEffect : InteractionEffectDefinitionSO
 {
     [SerializeField]
     private Vector3[] _points = Array.Empty<Vector3>();

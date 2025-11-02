@@ -8,7 +8,7 @@ public enum EffectResult
     Break,
 }
 
-public abstract class EffectDefinitionSO : ScriptableObject
+public abstract class InteractionEffectDefinitionSO : ScriptableObject
 {
     public abstract Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets);
 }

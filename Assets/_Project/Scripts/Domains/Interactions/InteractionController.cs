@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    [SerializeField] public InteractationDefinitionSO Definition;
+    [SerializeField] public InteractionDefinitionSO Definition;
 
     private CooldownState _cooldown;
 

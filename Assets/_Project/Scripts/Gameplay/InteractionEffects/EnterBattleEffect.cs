@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Gameplay/Effects/Enter Battle")]
-public sealed class EnterBattleEffect : EffectDefinitionSO
+public sealed class EnterBattleEffect : InteractionEffectDefinitionSO
 {
     private const string BattleSceneName = "BattleScene";
     private const string MainMenuSceneName = "MainMenuScene";
