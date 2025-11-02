@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5489631312374a49834d674d26d624c, type: 3}
-  m_Name: AttackAbility_Test
+  m_Name: Test_AttackAbility
   m_EditorClassIdentifier: Assembly-CSharp::AttackBattleAbility
   Id: test_ability
   AbilityName: "\u0422\u0435\u0441\u0442\u043E\u0432\u0430\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C"
@@ -22,3 +22,5 @@ MonoBehaviour:
   IsReady: 0
   AbilityType: 0
   AbilityTargetType: 0
+  Effects:
+  - {fileID: 11400000, guid: ef81e9ca25e7e9240ad7a614ea5d8b7c, type: 2}
