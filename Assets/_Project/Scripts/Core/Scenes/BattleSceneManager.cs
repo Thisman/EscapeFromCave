@@ -29,6 +29,7 @@ public class BattleSceneManager : MonoBehaviour
     private BattleContext _battleContext;
     private BattleRoundsMachine _battleRoundMachine;
     private BattlePhaseMachine _battlePhaseMachine;
+    private BattleEffectsManager _battleEffectsManager;
 
     private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
@@ -97,6 +98,8 @@ public class BattleSceneManager : MonoBehaviour
         PlayerBattleActionController playerTurnController = new();
         BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
 
+        _battleEffectsManager = new BattleEffectsManager();
+
         _battleContext = new BattleContext
         {
             PanelManager = _panelManager,
@@ -112,6 +115,7 @@ public class BattleSceneManager : MonoBehaviour
             BattleCombatUIController = _combatUIController,
             BattleResultsUIController = _resultsUIController,
             InputService = _inputService,
+            BattleEffectsManager = _battleEffectsManager,
         };
     }
 
