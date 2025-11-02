@@ -1,0 +1,1 @@
+public enum BattleEffectStackPolicy { RefreshDuration, AddStacks, Ignore }

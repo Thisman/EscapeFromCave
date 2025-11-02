@@ -1,0 +1,1 @@
+public enum BattleEffectTrigger { OnApply, OnPhase }

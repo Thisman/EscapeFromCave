@@ -1,0 +1,1 @@
+public enum BattleEffectTargetKind { Self, Single, Multiple, AllAllies, AllEnemies, RandomN }

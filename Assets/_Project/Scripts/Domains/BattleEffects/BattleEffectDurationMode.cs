@@ -1,0 +1,1 @@
+public enum BattleEffectDurationMode { Instant, TurnCount, RoundCount, UntilEvent, Infinite }
