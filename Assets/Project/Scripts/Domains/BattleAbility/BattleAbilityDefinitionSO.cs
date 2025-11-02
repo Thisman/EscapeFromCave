@@ -16,6 +16,7 @@ public enum BattleAbilityTargetType
     AllAllies,
 }
 
+[CreateAssetMenu(menuName = "Gameplay/Battle Ability/Ability")]
 public abstract class BattleAbilityDefinitionSO : ScriptableObject
 {
     public string Id;
@@ -34,5 +35,8 @@ public abstract class BattleAbilityDefinitionSO : ScriptableObject
 
     public BattleAbilityTargetType AbilityTargetType;
 
-    public abstract void Apply(BattleContext ctx, IReadOnlySquadModel user, IReadOnlyList<IReadOnlySquadModel> targets);
+    public void Apply(BattleContext ctx, IReadOnlySquadModel actor, IReadOnlyList<IReadOnlySquadModel> targets)
+    {
+        Debug.Log("Apply ability: " + AbilityName);
+    }
 }
