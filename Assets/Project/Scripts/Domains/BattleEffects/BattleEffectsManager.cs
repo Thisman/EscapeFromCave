@@ -15,7 +15,7 @@ public sealed class BattleEffectsManager
         target.AddEffect(effect);
         effect.OnAttach(_ctx, target);
 
-        if (effect.DurationMode == BattleEffectDurationMode.Instant)
+        if (effect.Trigger == BattleEffectTrigger.OnAttach)
         {
             FinalizeEffect(target, effect);
             return;
@@ -108,16 +108,7 @@ public sealed class BattleEffectsManager
 
     private static bool ShouldEffectExpire(BattleEffectState state)
     {
-        var durationMode = state.Effect.DurationMode;
-        return durationMode switch
-        {
-            BattleEffectDurationMode.Instant => true,
-            BattleEffectDurationMode.TurnCount or BattleEffectDurationMode.RoundCount
-                => state.Effect.MaxTick > 0 && state.TickCount >= state.Effect.MaxTick,
-            BattleEffectDurationMode.UntilEvent => false,
-            BattleEffectDurationMode.Infinite => false,
-            _ => false,
-        };
+        return state.Effect.MaxTick > 0 && state.TickCount >= state.Effect.MaxTick;
     }
 
     private void FinalizeEffect(BattleSquadEffectsController target, BattleEffectDefinitionSO effect)

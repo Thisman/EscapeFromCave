@@ -5,8 +5,6 @@ using UnityEngine;
 
 public enum BattleEffectTrigger { OnAttach, OnTick }
 
-public enum BattleEffectDurationMode { Instant, TurnCount, RoundCount, UntilEvent, Infinite }
-
 public class BattleEffectDefinitionSO: ScriptableObject
 {
     public string Name;
@@ -16,8 +14,6 @@ public class BattleEffectDefinitionSO: ScriptableObject
     public Sprite Icon;
 
     public BattleEffectTrigger Trigger;
-
-    public BattleEffectDurationMode DurationMode;
 
     [Min(0)] public int MaxTick;
 

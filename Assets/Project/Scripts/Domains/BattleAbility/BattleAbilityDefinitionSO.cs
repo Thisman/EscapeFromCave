@@ -39,6 +39,9 @@ public class BattleAbilityDefinitionSO : ScriptableObject
 
     public void Apply(BattleContext ctx, BattleSquadController target)
     {
-        Debug.Log("Apply ability: " + AbilityName);
+        foreach(var effect in Effects)
+        {
+            ctx.BattleEffectsManager.AddEffect(ctx, effect, target.GetComponent<BattleSquadEffectsController>());
+        }
     }
 }
