@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class BattleSquadModel : IReadOnlySquadModel
 {
     private int _squadHealth;
     private readonly IReadOnlySquadModel _sourceModel;
+    private readonly Dictionary<object, Dictionary<BattleSquadStat, float>> _statModifiersBySource = new();
+    private readonly Dictionary<BattleSquadStat, float> _aggregatedModifiers = new();
 
     public UnitDefinitionSO Definition => _sourceModel.Definition;
 
@@ -26,28 +29,31 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public DamageType DamageType => _sourceModel.DamageType;
 
-    public float Health => _sourceModel.Health;
+    public float Health => GetModifiedStat(BattleSquadStat.Health, _sourceModel.Health);
 
-    public float PhysicalDefense => _sourceModel.PhysicalDefense;
+    public float PhysicalDefense => GetModifiedStat(BattleSquadStat.PhysicalDefense, _sourceModel.PhysicalDefense);
 
-    public float MagicDefense => _sourceModel.MagicDefense;
+    public float MagicDefense => GetModifiedStat(BattleSquadStat.MagicDefense, _sourceModel.MagicDefense);
 
-    public float AbsoluteDefense => _sourceModel.AbsoluteDefense;
+    public float AbsoluteDefense => GetModifiedStat(BattleSquadStat.AbsoluteDefense, _sourceModel.AbsoluteDefense);
 
     public (float min, float max) GetBaseDamageRange()
     {
-        return _sourceModel.GetBaseDamageRange();
+        var (min, max) = _sourceModel.GetBaseDamageRange();
+        min = GetModifiedStat(BattleSquadStat.MinDamage, min);
+        max = GetModifiedStat(BattleSquadStat.MaxDamage, max);
+        return (min, max);
     }
 
-    public float Speed => _sourceModel.Speed;
+    public float Speed => GetModifiedStat(BattleSquadStat.Speed, _sourceModel.Speed);
 
-    public float Initiative => _sourceModel.Speed;
+    public float Initiative => GetModifiedStat(BattleSquadStat.Initiative, _sourceModel.Initiative);
 
-    public float CritChance => _sourceModel.CritChance;
+    public float CritChance => GetModifiedStat(BattleSquadStat.CritChance, _sourceModel.CritChance);
 
-    public float CritMultiplier => _sourceModel.CritMultiplier;
+    public float CritMultiplier => GetModifiedStat(BattleSquadStat.CritMultiplier, _sourceModel.CritMultiplier);
 
-    public float MissChance => _sourceModel.MissChance;
+    public float MissChance => GetModifiedStat(BattleSquadStat.MissChance, _sourceModel.MissChance);
 
     public BattleAbilityDefinitionSO[] Abilities => _sourceModel.Abilities;
 
@@ -84,6 +90,103 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         return (int)unitDamage * Count;
     }
 
+    public void SetStatModifiers(object source, IReadOnlyList<BattleStatModifier> modifiers)
+    {
+        if (source == null)
+            throw new ArgumentNullException(nameof(source));
+
+        if (modifiers == null || modifiers.Count == 0)
+        {
+            RemoveStatModifiers(source);
+            return;
+        }
+
+        if (!_statModifiersBySource.TryGetValue(source, out var existingModifiers))
+        {
+            existingModifiers = new Dictionary<BattleSquadStat, float>();
+            _statModifiersBySource[source] = existingModifiers;
+        }
+        else if (AreModifiersEqual(existingModifiers, modifiers))
+        {
+            return;
+        }
+
+        bool hadExistingModifiers = existingModifiers.Count > 0;
+        if (hadExistingModifiers)
+        {
+            foreach (var kvp in existingModifiers)
+            {
+                if (_aggregatedModifiers.TryGetValue(kvp.Key, out var currentValue))
+                {
+                    var updatedValue = currentValue - kvp.Value;
+                    if (Mathf.Approximately(updatedValue, 0f))
+                        _aggregatedModifiers.Remove(kvp.Key);
+                    else
+                        _aggregatedModifiers[kvp.Key] = updatedValue;
+                }
+            }
+
+            existingModifiers.Clear();
+        }
+
+        bool appliedAnyModifier = false;
+        for (int i = 0; i < modifiers.Count; i++)
+        {
+            var modifier = modifiers[i];
+            if (Mathf.Approximately(modifier.Value, 0f))
+                continue;
+
+            existingModifiers[modifier.Stat] = modifier.Value;
+            if (_aggregatedModifiers.TryGetValue(modifier.Stat, out var currentValue))
+                _aggregatedModifiers[modifier.Stat] = currentValue + modifier.Value;
+            else
+                _aggregatedModifiers[modifier.Stat] = modifier.Value;
+
+            appliedAnyModifier = true;
+        }
+
+        if (!appliedAnyModifier)
+        {
+            _statModifiersBySource.Remove(source);
+        }
+
+        if (hadExistingModifiers || appliedAnyModifier)
+        {
+            NotifyChanged();
+        }
+    }
+
+    public void RemoveStatModifiers(object source)
+    {
+        if (source == null)
+            return;
+
+        if (!_statModifiersBySource.TryGetValue(source, out var existingModifiers) || existingModifiers.Count == 0)
+            return;
+
+        bool changed = false;
+        foreach (var kvp in existingModifiers)
+        {
+            if (_aggregatedModifiers.TryGetValue(kvp.Key, out var currentValue))
+            {
+                var updatedValue = currentValue - kvp.Value;
+                if (Mathf.Approximately(updatedValue, 0f))
+                    _aggregatedModifiers.Remove(kvp.Key);
+                else
+                    _aggregatedModifiers[kvp.Key] = updatedValue;
+
+                changed = true;
+            }
+        }
+
+        _statModifiersBySource.Remove(source);
+
+        if (changed)
+        {
+            NotifyChanged();
+        }
+    }
+
     private int CalculateInitialTotalHealth()
     {
         return _sourceModel.Count * (int)_sourceModel.Health;
@@ -108,5 +211,30 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     private void NotifyChanged()
     {
         Changed?.Invoke(this);
+    }
+
+    private static bool AreModifiersEqual(Dictionary<BattleSquadStat, float> existingModifiers, IReadOnlyList<BattleStatModifier> modifiers)
+    {
+        int nonZeroCount = 0;
+        for (int i = 0; i < modifiers.Count; i++)
+        {
+            var modifier = modifiers[i];
+            if (Mathf.Approximately(modifier.Value, 0f))
+                continue;
+
+            nonZeroCount++;
+            if (!existingModifiers.TryGetValue(modifier.Stat, out var existingValue) || !Mathf.Approximately(existingValue, modifier.Value))
+                return false;
+        }
+
+        return existingModifiers.Count == nonZeroCount;
+    }
+
+    private float GetModifiedStat(BattleSquadStat stat, float baseValue)
+    {
+        if (_aggregatedModifiers.TryGetValue(stat, out var modifier))
+            return baseValue + modifier;
+
+        return baseValue;
     }
 }
