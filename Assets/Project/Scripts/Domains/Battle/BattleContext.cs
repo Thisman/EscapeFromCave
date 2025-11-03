@@ -27,6 +27,8 @@ public sealed class BattleContext
 
     public IReadOnlySquadModel ActiveUnit { get; set; }
 
+    public BattleEffectsManager BattleEffectsManager { get; set; }
+
     public IBattleAction CurrentAction { get; set; }
 
     public BattleResult BattleResult { get; set; }

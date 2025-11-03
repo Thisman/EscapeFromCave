@@ -96,6 +96,7 @@ public class BattleSceneManager : MonoBehaviour
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
         BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
+        BattleEffectsManager battleEffectsManager = new();
 
         _battleContext = new BattleContext
         {
@@ -107,6 +108,7 @@ public class BattleSceneManager : MonoBehaviour
             BattleQueueController = _battleQueueController,
 
             BattleActionControllerResolver = actionControllerResolver,
+            BattleEffectsManager = battleEffectsManager,
 
             BattleTacticUIController = _tacticUIController,
             BattleCombatUIController = _combatUIController,
