@@ -15,12 +15,6 @@ public sealed class BattleEffectsManager
         target.AddEffect(effect);
         effect.OnAttach(_ctx, target);
 
-        if (effect.Trigger == BattleEffectTrigger.OnAttach)
-        {
-            FinalizeEffect(_ctx, target, effect);
-            return;
-        }
-
         if (!_activeEffects.TryGetValue(target, out var effects))
         {
             effects = new List<BattleEffectState>();
@@ -109,12 +103,6 @@ public sealed class BattleEffectsManager
     private static bool ShouldEffectExpire(BattleEffectState state)
     {
         return state.Effect.MaxTick > 0 && state.TickCount >= state.Effect.MaxTick;
-    }
-
-    private void FinalizeEffect(BattleContext context, BattleSquadEffectsController target, BattleEffectDefinitionSO effect)
-    {
-        target.RemoveEffect(effect);
-        effect.OnRemove(context, target);
     }
 
     private sealed class BattleEffectState
