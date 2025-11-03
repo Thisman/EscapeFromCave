@@ -8,14 +8,16 @@ public sealed class AbilityAction : IBattleAction, IDisposable
     private bool _disposed;
     private bool _resolved;
     private bool _targetRequested;
+    private BattleContext _ctx;
 
     public event Action OnResolve;
     public event Action OnCancel;
 
     public BattleAbilityDefinitionSO Ability => _ability;
 
-    public AbilityAction(BattleAbilityDefinitionSO ability, IActionTargetPicker targetPicker)
+    public AbilityAction(BattleContext ctx, BattleAbilityDefinitionSO ability, IActionTargetPicker targetPicker)
     {
+        _ctx = ctx;
         _ability = ability ?? throw new ArgumentNullException(nameof(ability));
         _targetPicker = targetPicker ?? throw new ArgumentNullException(nameof(targetPicker));
     }
@@ -64,7 +66,7 @@ public sealed class AbilityAction : IBattleAction, IDisposable
             return;
         }
 
-        Debug.Log($"Ability '{_ability.AbilityName}' used on target '{targetModel.UnitName}'.");
+        _ability.Apply(_ctx, unit);
 
         CompleteResolve();
     }

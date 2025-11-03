@@ -35,7 +35,9 @@ public class BattleAbilityDefinitionSO : ScriptableObject
 
     public BattleAbilityTargetType AbilityTargetType;
 
-    public void Apply(BattleContext ctx, IReadOnlySquadModel actor, IReadOnlyList<IReadOnlySquadModel> targets)
+    public BattleEffectDefinitionSO[] Effects;
+
+    public void Apply(BattleContext ctx, BattleSquadController target)
     {
         Debug.Log("Apply ability: " + AbilityName);
     }

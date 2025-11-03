@@ -7,7 +7,7 @@ public enum BattleEffectTrigger { OnAttach, OnTick }
 
 public enum BattleEffectDurationMode { Instant, TurnCount, RoundCount, UntilEvent, Infinite }
 
-class BattleEffectDefinitionSO: ScriptableObject
+public class BattleEffectDefinitionSO: ScriptableObject
 {
     public string Name;
 

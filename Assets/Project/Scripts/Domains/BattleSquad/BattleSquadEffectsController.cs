@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-class BattleSquadEffectsController: MonoBehaviour
+public class BattleSquadEffectsController: MonoBehaviour
 {
     private readonly List<BattleEffectDefinitionSO> _effects;
 

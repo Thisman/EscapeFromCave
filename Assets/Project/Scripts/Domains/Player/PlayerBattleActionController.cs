@@ -52,7 +52,7 @@ public class PlayerBattleActionController : IBattleActionController
             return;
 
         var targetPicker = new PlayerBattleActionTargetPicker(_ctx, new AbilityBattleActionTargetResolver());
-        var abilityAction = new AbilityAction(ability, targetPicker);
+        var abilityAction = new AbilityAction(_ctx, ability, targetPicker);
         _onActionReady.Invoke(abilityAction);
     }
 
