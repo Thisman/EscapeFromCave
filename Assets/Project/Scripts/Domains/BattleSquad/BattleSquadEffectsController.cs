@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BattleSquadEffectsController: MonoBehaviour
 {
-    private readonly List<BattleEffectDefinitionSO> _effects;
+    private readonly List<BattleEffectDefinitionSO> _effects = new();
 
     public IReadOnlyList<BattleEffectDefinitionSO> Effects => _effects;
 

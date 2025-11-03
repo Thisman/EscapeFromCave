@@ -19,6 +19,8 @@ public class BattleEffectDefinitionSO: ScriptableObject
 
     public BattleEffectDurationMode DurationMode;
 
+    [Min(0)] public int MaxTick;
+
     public void OnAttach(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (Trigger == BattleEffectTrigger.OnAttach)
