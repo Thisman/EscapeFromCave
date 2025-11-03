@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Hero_Default_2
-  Kind: 3
+  Kind: 0
   AttackKind: 0
   DamageType: 1
   BaseHealth: 100
@@ -27,3 +27,4 @@ MonoBehaviour:
   BaseCritChance: 1
   BaseCritMultiplier: 1.1
   BaseMissChance: 5
+  Abilities: []

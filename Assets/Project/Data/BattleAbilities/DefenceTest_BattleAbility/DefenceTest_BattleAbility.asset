@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beba5f1d77ee04346b0c07345d9784af, type: 3}
+  m_Name: DefenceTest_BattleAbility
+  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityDefinitionSO
+  Id: Test2 Ability
+  AbilityName: Test2 Ability
+  Description: Test2 Ability
+  Icon: {fileID: 1906539149752960527, guid: 56aa7d23134f4304fb04e83ce7373d59, type: 3}
+  Cooldown: 2
+  IsReady: 0
+  AbilityType: 0
+  AbilityTargetType: 2

@@ -17,7 +17,7 @@ public enum BattleAbilityTargetType
 }
 
 [CreateAssetMenu(menuName = "Gameplay/Battle Ability/Ability")]
-public abstract class BattleAbilityDefinitionSO : ScriptableObject
+public class BattleAbilityDefinitionSO : ScriptableObject
 {
     public string Id;
 
