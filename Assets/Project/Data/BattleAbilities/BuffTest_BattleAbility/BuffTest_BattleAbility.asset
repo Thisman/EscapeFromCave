@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beba5f1d77ee04346b0c07345d9784af, type: 3}
   m_Name: BuffTest_BattleAbility
   m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityDefinitionSO
-  Id: 
-  AbilityName: 
-  Description: 
-  Icon: {fileID: 0}
-  Cooldown: 0
+  Id: BuffTest_BattleAbility
+  AbilityName: BuffTest_BattleAbility
+  Description: BuffTest_BattleAbility
+  Icon: {fileID: -5303463568620795852, guid: 56aa7d23134f4304fb04e83ce7373d59, type: 3}
+  Cooldown: 3
   IsReady: 0
   AbilityType: 0
-  AbilityTargetType: 0
+  AbilityTargetType: 3
+  Effects: []

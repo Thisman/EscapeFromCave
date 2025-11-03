@@ -17,7 +17,7 @@ public sealed class BattleEffectsManager
 
         if (effect.Trigger == BattleEffectTrigger.OnAttach)
         {
-            FinalizeEffect(target, effect);
+            FinalizeEffect(_ctx, target, effect);
             return;
         }
 
@@ -27,7 +27,7 @@ public sealed class BattleEffectsManager
             _activeEffects[target] = effects;
         }
 
-        effects.Add(new BattleEffectState(effect));
+        effects.Add(new BattleEffectState(effect, _ctx));
     }
 
     public void RemoveEffect(BattleEffectDefinitionSO effect, BattleSquadEffectsController target)
@@ -48,7 +48,7 @@ public sealed class BattleEffectsManager
         {
             if (effects[i].Effect == effect)
             {
-                effect.OnRemove();
+                effect.OnRemove(effects[i].Context, target);
                 effects.RemoveAt(i);
                 break;
             }
@@ -71,7 +71,7 @@ public sealed class BattleEffectsManager
                 {
                     foreach (var orphan in orphanedEffects)
                     {
-                        orphan.Effect.OnRemove();
+                        orphan.Effect.OnRemove(orphan.Context, null);
                     }
                 }
 
@@ -89,12 +89,12 @@ public sealed class BattleEffectsManager
             {
                 var state = effects[i];
                 state.TickCount++;
-                state.Effect.OnTick();
+                state.Effect.OnTick(state.Context, controller);
 
                 if (ShouldEffectExpire(state))
                 {
                     controller.RemoveEffect(state.Effect);
-                    state.Effect.OnRemove();
+                    state.Effect.OnRemove(state.Context, controller);
                     effects.RemoveAt(i);
                 }
             }
@@ -111,20 +111,23 @@ public sealed class BattleEffectsManager
         return state.Effect.MaxTick > 0 && state.TickCount >= state.Effect.MaxTick;
     }
 
-    private void FinalizeEffect(BattleSquadEffectsController target, BattleEffectDefinitionSO effect)
+    private void FinalizeEffect(BattleContext context, BattleSquadEffectsController target, BattleEffectDefinitionSO effect)
     {
         target.RemoveEffect(effect);
-        effect.OnRemove();
+        effect.OnRemove(context, target);
     }
 
     private sealed class BattleEffectState
     {
-        public BattleEffectState(BattleEffectDefinitionSO effect)
+        public BattleEffectState(BattleEffectDefinitionSO effect, BattleContext context)
         {
             Effect = effect;
+            Context = context;
         }
 
         public BattleEffectDefinitionSO Effect { get; }
+
+        public BattleContext Context { get; }
 
         public int TickCount { get; set; }
     }

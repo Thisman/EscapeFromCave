@@ -21,25 +21,23 @@ public class BattleEffectDefinitionSO: ScriptableObject
     {
         if (Trigger == BattleEffectTrigger.OnAttach)
         {
-            Apply();
+            Apply(ctx, target);
         }
     }
 
-    public virtual void Apply()
+    public virtual void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
-
     }
 
-    public void OnTick()
+    public void OnTick(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (Trigger == BattleEffectTrigger.OnTick)
         {
-            Apply();
+            Apply(ctx, target);
         }
     }
 
-    public virtual void OnRemove()
+    public virtual void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
     {
-
     }
 }
