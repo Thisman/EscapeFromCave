@@ -51,7 +51,17 @@ public class PlayerBattleActionController : IBattleActionController
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
-        var targetPicker = new PlayerBattleActionTargetPicker(_ctx, new AbilityBattleActionTargetResolver());
+        IBattleActionTargetResolver targetResolver = ability.AbilityTargetType switch
+        {
+            BattleAbilityTargetType.Self => new BattleActionSelfTargetResolver(),
+            BattleAbilityTargetType.Ally => new BattleActionAllyTargetResolver(),
+            BattleAbilityTargetType.AllAllies => new BattleActionAllyTargetResolver(),
+            BattleAbilityTargetType.SingleEnemy => new BattleActionEnemyTargetResolver(),
+            BattleAbilityTargetType.AllEnemies => new BattleActionEnemyTargetResolver(),
+            _ => new BattleActionEnemyTargetResolver(),
+        };
+
+        var targetPicker = new PlayerBattleActionTargetPicker(_ctx, targetResolver);
         var abilityAction = new AbilityAction(_ctx, ability, targetPicker);
         _onActionReady.Invoke(abilityAction);
     }
@@ -121,14 +131,6 @@ public class PlayerBattleActionController : IBattleActionController
         if (_ctx?.CurrentAction is AbilityAction abilityAction)
         {
             abilityAction.Dispose();
-        }
-    }
-
-    private sealed class AbilityBattleActionTargetResolver : IBattleActionTargetResolver
-    {
-        public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
-        {
-            return target != null && target.IsEnemy();
         }
     }
 }
