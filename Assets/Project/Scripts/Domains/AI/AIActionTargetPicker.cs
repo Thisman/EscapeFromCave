@@ -42,6 +42,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
 
         return SelectTargetWithHighestInitiative(actor);
     }
+
     private BattleSquadController SelectFrontlineTarget(IReadOnlySquadModel actor)
     {
         var units = _context.BattleUnits;

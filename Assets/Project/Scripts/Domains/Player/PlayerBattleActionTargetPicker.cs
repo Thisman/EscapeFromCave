@@ -39,9 +39,6 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
         if (!TryGetUnitUnderPointer(out var unit))
             return;
 
-        if (!unit.GetSquadModel().IsEnemy())
-            return;
-
         var actorModel = _context.ActiveUnit;
         var targetModel = unit.GetSquadModel();
 

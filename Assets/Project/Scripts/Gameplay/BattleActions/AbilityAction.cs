@@ -59,13 +59,6 @@ public sealed class AbilityAction : IBattleAction, IDisposable
             return;
         }
 
-        if (!targetModel.IsEnemy())
-        {
-            Debug.LogWarning("[AbilityAction] Selected target is not a valid enemy.");
-            CompleteResolve();
-            return;
-        }
-
         _ability.Apply(_ctx, unit);
 
         CompleteResolve();
