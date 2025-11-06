@@ -19,17 +19,14 @@ public class BattleCombatUIController : MonoBehaviour
         _defendButton.interactable = interactable;
     }
 
-    public void RenderAbilityList(BattleAbilityDefinitionSO[] abilities)
+    public void RenderAbilityList(BattleAbilityDefinitionSO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
     {
-        _abilityListController.Render(abilities);
+        _abilityListController?.Render(abilities, abilityManager, owner);
     }
 
-    public void UpdateAbilityAvailability(Func<BattleAbilityDefinitionSO, bool> readinessEvaluator)
+    public void RefreshAbilityAvailability()
     {
-        if (_abilityListController == null)
-            return;
-
-        _abilityListController.UpdateAvailability(readinessEvaluator);
+        _abilityListController?.RefreshAvailability();
     }
 
     public void HighlightAbility(BattleAbilityDefinitionSO ability)
@@ -56,7 +53,8 @@ public class BattleCombatUIController : MonoBehaviour
         _leaveCombatButton.onClick.AddListener(HandleLeaveCombatClicked);
         _defendButton.onClick.AddListener(HandleDefendClicked);
         _skipTurnButton.onClick.AddListener(HandleSkipTurnClicked);
-        _abilityListController.OnSelectAbility += HandleAbilitySelected;
+        if (_abilityListController != null)
+            _abilityListController.OnSelectAbility += HandleAbilitySelected;
     }
 
     private void OnDisable()
@@ -64,7 +62,8 @@ public class BattleCombatUIController : MonoBehaviour
         _leaveCombatButton.onClick.RemoveListener(HandleLeaveCombatClicked);
         _defendButton.onClick.RemoveListener(HandleDefendClicked);
         _skipTurnButton.onClick.RemoveListener(HandleSkipTurnClicked);
-        _abilityListController.OnSelectAbility -= HandleAbilitySelected;
+        if (_abilityListController != null)
+            _abilityListController.OnSelectAbility -= HandleAbilitySelected;
     }
 
     private void HandleLeaveCombatClicked() => OnLeaveCombat?.Invoke();

@@ -66,13 +66,7 @@ public sealed class AbilityAction : IBattleAction, IDisposable
         if (abilityManager != null && caster != null)
         {
             abilityManager.TriggerCooldown(caster, _ability);
-            _ctx?.BattleCombatUIController?.UpdateAbilityAvailability(ability =>
-            {
-                if (abilityManager == null || caster == null)
-                    return true;
-
-                return abilityManager.IsAbilityReady(caster, ability);
-            });
+            _ctx?.BattleCombatUIController?.RefreshAbilityAvailability();
         }
 
         CompleteResolve();

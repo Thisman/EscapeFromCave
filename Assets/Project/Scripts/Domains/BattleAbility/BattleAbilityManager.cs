@@ -33,7 +33,8 @@ public sealed class BattleAbilityManager
             return;
         }
 
-        state.RemainingCooldown = cooldown;
+        // Don't cooldown in current round
+        state.RemainingCooldown = cooldown + 1;
     }
 
     public void OnTick()
