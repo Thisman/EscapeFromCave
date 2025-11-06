@@ -18,12 +18,13 @@ MonoBehaviour:
   AttackKind: 0
   DamageType: 0
   BaseHealth: 100
-  BasePhysicalDefense: 2
+  BasePhysicalDefense: 0
   BaseMagicDefense: 0
-  BaseAbsoluteDefense: 0
+  BaseAbsoluteDefense: 0.2
   MinDamage: 10
   MaxDamage: 20
   Speed: 2
-  BaseCritChance: 1
+  BaseCritChance: 0.05
   BaseCritMultiplier: 1.1
-  BaseMissChance: 5
+  BaseMissChance: 0
+  Abilities: []

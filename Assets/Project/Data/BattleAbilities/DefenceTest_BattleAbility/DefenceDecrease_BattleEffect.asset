@@ -18,5 +18,5 @@ MonoBehaviour:
   Trigger: 0
   MaxTick: 3
   _statModifiers:
-  - Stat: 1
-    Value: 10
+  - Stat: 3
+    Value: 0.15

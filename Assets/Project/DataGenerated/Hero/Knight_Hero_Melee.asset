@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Ally_Test_Archer
+  m_Name: Knight_Hero_Melee
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Ally_Test_Archer
-  Kind: 1
-  AttackKind: 1
+  Icon: {fileID: 3327685065352914550, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  UnitName: Knight
+  Kind: 0
+  AttackKind: 0
   DamageType: 0
-  BaseHealth: 20
-  BasePhysicalDefense: 0
-  BaseMagicDefense: 0
+  BaseHealth: 100
+  BasePhysicalDefense: 0.2
+  BaseMagicDefense: 0.1
   BaseAbsoluteDefense: 0.1
-  MinDamage: 17
-  MaxDamage: 23
-  Speed: 2
-  BaseCritChance: 0.05
-  BaseCritMultiplier: 1.2
-  BaseMissChance: 0
+  MinDamage: 10
+  MaxDamage: 15
+  Speed: 1
+  BaseCritChance: 0.1
+  BaseCritMultiplier: 1
+  BaseMissChance: 0.1
   Abilities: []

@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Ally_Test_Archer
+  m_Name: Mage_Hero_Magic
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Ally_Test_Archer
-  Kind: 1
-  AttackKind: 1
-  DamageType: 0
-  BaseHealth: 20
-  BasePhysicalDefense: 0
-  BaseMagicDefense: 0
+  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  UnitName: Mage
+  Kind: 0
+  AttackKind: 2
+  DamageType: 1
+  BaseHealth: 75
+  BasePhysicalDefense: 0.05
+  BaseMagicDefense: 0.2
   BaseAbsoluteDefense: 0.1
-  MinDamage: 17
-  MaxDamage: 23
+  MinDamage: 7
+  MaxDamage: 13
   Speed: 2
-  BaseCritChance: 0.05
-  BaseCritMultiplier: 1.2
-  BaseMissChance: 0
+  BaseCritChance: 0.1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 0.1
   Abilities: []
