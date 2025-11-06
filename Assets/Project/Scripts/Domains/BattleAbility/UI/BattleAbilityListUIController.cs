@@ -11,9 +11,15 @@ public class BattleAbilityListUIController : MonoBehaviour
 
     private readonly List<BattleAbilityItemView> abilityItemViews = new();
 
-    public void Render(BattleAbilityDefinitionSO[] abilities)
+    private BattleAbilityManager _abilityManager;
+    private IReadOnlySquadModel _owner;
+
+    public void Render(BattleAbilityDefinitionSO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
     {
         ClearItems();
+
+        _abilityManager = abilityManager;
+        _owner = owner;
 
         if (abilities == null || abilities.Length == 0)
         {
@@ -40,6 +46,7 @@ public class BattleAbilityListUIController : MonoBehaviour
 
             BattleAbilityItemView itemView = Instantiate(abilityItemViewPrefab, parent);
             itemView.Render(ability);
+            UpdateItemAvailability(itemView);
             itemView.OnClick += HandleAbilitySelected;
             abilityItemViews.Add(itemView);
         }
@@ -85,6 +92,18 @@ public class BattleAbilityListUIController : MonoBehaviour
         }
     }
 
+    public void RefreshAvailability()
+    {
+        for (int i = 0; i < abilityItemViews.Count; i++)
+        {
+            BattleAbilityItemView itemView = abilityItemViews[i];
+            if (itemView == null)
+                continue;
+
+            UpdateItemAvailability(itemView);
+        }
+    }
+
     private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
     {
         OnSelectAbility?.Invoke(ability);
@@ -105,6 +124,8 @@ public class BattleAbilityListUIController : MonoBehaviour
         }
 
         abilityItemViews.Clear();
+        _abilityManager = null;
+        _owner = null;
     }
 
     private void SetActive(bool isActive)
@@ -113,6 +134,22 @@ public class BattleAbilityListUIController : MonoBehaviour
         {
             gameObject.SetActive(isActive);
         }
+    }
+
+    private void UpdateItemAvailability(BattleAbilityItemView itemView)
+    {
+        if (itemView == null)
+            return;
+
+        if (_abilityManager == null || _owner == null)
+        {
+            itemView.SetInteractable(true);
+            return;
+        }
+
+        BattleAbilityDefinitionSO ability = itemView.Definition;
+        bool isReady = ability != null && _abilityManager.IsAbilityReady(_owner, ability);
+        itemView.SetInteractable(isReady);
     }
 
     private void OnDestroy()
