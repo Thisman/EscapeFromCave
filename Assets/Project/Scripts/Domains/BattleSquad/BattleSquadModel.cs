@@ -73,21 +73,56 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public void ApplyDamage(int damage)
     {
-        if (damage <= 0)
-            return;
+        if (damage <= 0 || _squadHealth <= 0) return;
 
-        if (_squadHealth <= 0)
+        // 1) Промах атакующего
+        float pMiss = Mathf.Clamp01(MissChance);
+        if (UnityEngine.Random.value < pMiss)
+        {
+            Debug.Log($"[Battle]: {UnitName} dodge damage");
             return;
+        }
 
-        SetSquadHealth(Math.Max(0, _squadHealth - damage));
+        // 2) Процентная защита отряда (0..1)
+        float absDef = Mathf.Clamp01(AbsoluteDefense);
+
+        // Если у тебя absDef хранится в процентах (0..100), раскомментируй:
+        // absDef = Mathf.Clamp01(AbsoluteDefense * 0.01f);
+
+        // 3) Применяем процент ко всему входящему урону один раз
+        //    Вопрос округления: RoundToInt — нейтральный вариант. Если хочешь «не завышать» снижение, используй FloorToInt.
+        int afterDefense = Mathf.Max(0, Mathf.RoundToInt(damage * (1f - absDef)));
+
+        if (afterDefense <= 0) return;
+
+        int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
+
+        Debug.Log($"[Battle]: {UnitName} took {afterDefense} dmg (raw={damage}, absDef={absDef:P0})");
+        Debug.Log($"[Battle]: {UnitName} new health {newHealth}");
+
+        SetSquadHealth(newHealth);
     }
 
     public int ResolveDamage()
     {
-        var (minDamage, maxDamage) = GetBaseDamageRange();
-        var unitDamage = UnityEngine.Random.Range(minDamage, maxDamage);
+        var (minD, maxD) = GetBaseDamageRange();
+        if (maxD < minD) (minD, maxD) = (maxD, minD);
 
-        return (int)unitDamage * Count;
+        float pCrit = Mathf.Clamp01(CritChance);
+        float critMul = Mathf.Max(1f, CritMultiplier);
+
+        int total = 0;
+        for (int i = 0; i < Count; i++)
+        {
+            float dmg = UnityEngine.Random.Range(minD, maxD); // float-версия даёт непрерывный диапазон
+            if (UnityEngine.Random.value < pCrit)
+                dmg *= critMul;
+
+            total += Mathf.FloorToInt(dmg);
+        }
+
+        Debug.Log($"[Battle]: {UnitName} resolve damage {total}");
+        return Mathf.Max(0, total);
     }
 
     public void SetStatModifiers(object source, IReadOnlyList<BattleStatModifier> modifiers)

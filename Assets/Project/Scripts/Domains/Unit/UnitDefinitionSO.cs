@@ -15,11 +15,11 @@ public sealed class UnitDefinitionSO : ScriptableObject
 
     [Min(1)] public float BaseHealth = 100;
 
-    [Range(0, 100)] public float BasePhysicalDefense = 2;
+    [Range(0, 1)] public float BasePhysicalDefense = 2;
 
-    [Range(0, 100)] public float BaseMagicDefense = 0;
+    [Range(0, 1)] public float BaseMagicDefense = 0;
 
-    [Range(0, 100)] public float BaseAbsoluteDefense = 0;
+    [Range(0, 1)] public float BaseAbsoluteDefense = 0;
 
     [Min(0)] public float MinDamage = 10;
 
@@ -27,11 +27,11 @@ public sealed class UnitDefinitionSO : ScriptableObject
 
     [Min(1)] public float Speed = 2;
 
-    [Range(0, 100)] public float BaseCritChance = 1;
+    [Range(0, 1)] public float BaseCritChance = 1;
 
     [Min(1)] public float BaseCritMultiplier = 1.1f;
 
-    [Range(0, 100)] public float BaseMissChance = 5;
+    [Range(0, 1)] public float BaseMissChance = 5;
 
     public BattleAbilityDefinitionSO[] Abilities;
 
