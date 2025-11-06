@@ -24,6 +24,14 @@ public class BattleCombatUIController : MonoBehaviour
         _abilityListController.Render(abilities);
     }
 
+    public void UpdateAbilityAvailability(Func<BattleAbilityDefinitionSO, bool> readinessEvaluator)
+    {
+        if (_abilityListController == null)
+            return;
+
+        _abilityListController.UpdateAvailability(readinessEvaluator);
+    }
+
     public void HighlightAbility(BattleAbilityDefinitionSO ability)
     {
         if (ability == null)

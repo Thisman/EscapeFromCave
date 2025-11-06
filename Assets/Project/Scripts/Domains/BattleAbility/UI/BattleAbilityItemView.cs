@@ -53,6 +53,8 @@ public class BattleAbilityItemView : MonoBehaviour
         {
             icon.sprite = _definition != null ? _definition.Icon : null;
         }
+
+        SetInteractable(true);
     }
 
     public void Highlight()
@@ -68,6 +70,14 @@ public class BattleAbilityItemView : MonoBehaviour
     private void HandleClick()
     {
         OnClick?.Invoke(_definition);
+    }
+
+    public void SetInteractable(bool interactable)
+    {
+        if (button == null)
+            return;
+
+        button.interactable = interactable;
     }
 
     private void ResetHighlight(bool force)

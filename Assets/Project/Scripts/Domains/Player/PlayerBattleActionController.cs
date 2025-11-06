@@ -51,6 +51,13 @@ public class PlayerBattleActionController : IBattleActionController
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
+        var abilityManager = _ctx.BattleAbilityManager;
+        var activeUnit = _ctx.ActiveUnit;
+        if (abilityManager != null && activeUnit != null && !abilityManager.IsAbilityReady(activeUnit, ability))
+        {
+            return;
+        }
+
         IBattleActionTargetResolver targetResolver = ability.AbilityTargetType switch
         {
             BattleAbilityTargetType.Self => new BattleActionSelfTargetResolver(),

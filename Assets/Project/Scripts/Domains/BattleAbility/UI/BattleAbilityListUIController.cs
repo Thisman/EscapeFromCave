@@ -85,6 +85,20 @@ public class BattleAbilityListUIController : MonoBehaviour
         }
     }
 
+    public void UpdateAvailability(Func<BattleAbilityDefinitionSO, bool> readinessEvaluator)
+    {
+        for (int i = 0; i < abilityItemViews.Count; i++)
+        {
+            BattleAbilityItemView itemView = abilityItemViews[i];
+            if (itemView == null)
+                continue;
+
+            BattleAbilityDefinitionSO ability = itemView.Definition;
+            bool isInteractable = readinessEvaluator?.Invoke(ability) ?? true;
+            itemView.SetInteractable(isInteractable);
+        }
+    }
+
     private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
     {
         OnSelectAbility?.Invoke(ability);
