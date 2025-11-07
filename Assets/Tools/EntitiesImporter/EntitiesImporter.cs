@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
@@ -83,24 +84,21 @@ public class EntitiesImporter : EditorWindow
             {
                 try
                 {
-                    var content = await _tableLoader.LoadTableAsync(operation.Url);
-                    var characterCount = content?.Length ?? 0;
-                    _importLog.Add($"Loaded {operation.Name} table from {operation.Url} ({characterCount} characters).");
+                    var result = await operation.ExecuteAsync();
 
-                    if (operation.ProcessContent != null)
+                    if (result.Logs != null && result.Logs.Count > 0)
                     {
-                        var result = operation.ProcessContent(content);
-                        _importLog.Add($"Processed {result.ProcessedCount} rows for {operation.Name} table.");
+                        _importLog.AddRange(result.Logs);
+                    }
 
-                        if (result.AssetsModified)
-                        {
-                            anyAssetsModified = true;
-                        }
+                    if (result.AssetsModified)
+                    {
+                        anyAssetsModified = true;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"EntitiesImporter: Failed to process table '{operation.Name}' from {operation.Url}. {ex.Message}");
+                    Debug.LogError($"EntitiesImporter: Failed to process table '{operation.Name}'. {ex.Message}");
                     _importLog.Add($"Failed to import {operation.Name} table. See console for details.");
                 }
             }
@@ -133,57 +131,78 @@ public class EntitiesImporter : EditorWindow
 
             yield return new TableImportOperation(
                 "Battle Effects",
-                _settings.BattleEffectsTableUrl,
-                content => ProcessBattleEffects(content, parser, creator));
+                () => ProcessBattleEffectsAsync(_settings.BattleEffectsTableUrl, parser, creator));
         }
     }
 
-    private TableImportResult ProcessBattleEffects(string content, BattleEffectsTableParser parser, BattleEffectsCreator creator)
+    private async Task<TableImportResult> ProcessBattleEffectsAsync(
+        string tableUrl,
+        BattleEffectsTableParser parser,
+        BattleEffectsCreator creator)
     {
-        var processedCount = 0;
-        var assetsModified = false;
+        var logs = new List<string>();
 
-        if (!string.IsNullOrWhiteSpace(content))
+        if (string.IsNullOrWhiteSpace(tableUrl))
         {
-            var entries = parser
-                .Parse(content, _settings.Delimiter)
-                .ToList();
+            logs.Add("Battle Effects table URL is empty.");
+            return new TableImportResult(0, false, logs);
+        }
 
-            foreach (var entry in entries)
+        var sheetResults = await parser.LoadAllSheetsAsync(
+            _tableLoader,
+            tableUrl,
+            _settings.Delimiter);
+
+        if (sheetResults == null || sheetResults.Count == 0)
+        {
+            logs.Add("No battle effect sheets were returned from the parser.");
+            return new TableImportResult(0, false, logs);
+        }
+
+        var processedCount = 0;
+
+        foreach (var sheetResult in sheetResults)
+        {
+            logs.Add($"Loaded {sheetResult.RawRowCount} rows from '{sheetResult.SheetName}' sheet.");
+
+            foreach (var entry in sheetResult.Entries)
             {
                 creator.Create(entry);
             }
 
-            processedCount = entries.Count;
-            assetsModified = processedCount > 0;
+            processedCount += sheetResult.Entries.Count;
         }
 
-        return new TableImportResult(processedCount, assetsModified);
+        logs.Add($"Processed {processedCount} rows for Battle Effects table.");
+
+        var assetsModified = processedCount > 0;
+
+        return new TableImportResult(processedCount, assetsModified, logs);
     }
 
     private readonly struct TableImportOperation
     {
-        public TableImportOperation(string name, string url, Func<string, TableImportResult> processContent)
+        public TableImportOperation(string name, Func<Task<TableImportResult>> executeAsync)
         {
             Name = name;
-            Url = url;
-            ProcessContent = processContent;
+            ExecuteAsync = executeAsync;
         }
 
         public string Name { get; }
-        public string Url { get; }
-        public Func<string, TableImportResult> ProcessContent { get; }
+        public Func<Task<TableImportResult>> ExecuteAsync { get; }
     }
 
     private readonly struct TableImportResult
     {
-        public TableImportResult(int processedCount, bool assetsModified)
+        public TableImportResult(int processedCount, bool assetsModified, IReadOnlyList<string> logs)
         {
             ProcessedCount = processedCount;
             AssetsModified = assetsModified;
+            Logs = logs;
         }
 
         public int ProcessedCount { get; }
         public bool AssetsModified { get; }
+        public IReadOnlyList<string> Logs { get; }
     }
 }
