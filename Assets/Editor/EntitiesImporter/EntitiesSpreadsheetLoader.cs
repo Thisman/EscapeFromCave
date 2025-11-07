@@ -79,8 +79,7 @@ namespace EscapeFromCave.EditorTools.EntitiesImporter
                 return fallback;
             }
 
-            const string TitlePattern =
-                "\"title\"\\s*:\\s*\\{\\s*\"type\"\\s*:\\s*\"text\"\\s*,\\s*\"\\$t\"\\s*:\\s*\"(?<title>[^\\"]+)\"";
+            const string TitlePattern = "\"title\"\s*:\s*\{\s*\"type\"\s*:\s*\"text\"\s*,\s*\"\$t\"\s*:\s*\"(?<title>[^\"]+)\"";
             var match = Regex.Match(worksheetFeed, TitlePattern, RegexOptions.Singleline);
             return match.Success ? match.Groups["title"].Value : fallback;
         }
@@ -93,8 +92,7 @@ namespace EscapeFromCave.EditorTools.EntitiesImporter
                 return results;
             }
 
-            const string EntryPattern =
-                "\\{[^{}]*\"gs\\$gid\"\\s*:\\s*\"(?<gid>[^\\"]+)\"[^{}]*\"title\"\\s*:\\s*\\{\\s*\"\\$t\"\\s*:\\s*\"(?<title>[^\\"]+)\"";
+            const string EntryPattern = "\\{[^{}]*\"gs\\$gid\"\s*:\s*\"(?<gid>[^\"]+)\"[^{}]*\"title\"\s*:\s*\{\s*\"\$t\"\s*:\s*\"(?<title>[^\"]+)\"";
             var entryRegex = new Regex(EntryPattern, RegexOptions.Singleline);
             var matches = entryRegex.Matches(worksheetFeed);
             foreach (Match match in matches)
