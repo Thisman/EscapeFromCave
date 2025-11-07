@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public enum DelimiterMode
@@ -23,8 +24,8 @@ public sealed class DownloadSettings : ScriptableObject
 
     [Header("Damage Battle Effects")]
     [Tooltip("Папка внутри Assets, где будут сохраняться создаваемые DamageBattleEffect.")]
-    public string battleEffectsRootFolder = "Project/Data/BattleEffects";
+    public DefaultAsset battleEffectsRootFolder;
 
-    [Tooltip("Папка внутри Assets, откуда берём спрайты для иконок эффектов.")]
-    public string spritesFolder = "Project/Sprites/BattleEffects";
+    [Tooltip("Список спрайтов, доступных для установки в поле Icon.")]
+    public Sprite[] sprites;
 }

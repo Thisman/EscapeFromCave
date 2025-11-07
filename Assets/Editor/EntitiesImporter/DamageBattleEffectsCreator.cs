@@ -34,12 +34,7 @@ public static class DamageBattleEffectsCreator
         var delimiter = ResolveDelimiter(settings, sourceName);
         var rows = ParseTable(tableText, delimiter);
 
-        var battleEffectsFolder = NormalizeFolder(settings.battleEffectsRootFolder);
-        if (string.IsNullOrEmpty(battleEffectsFolder))
-        {
-            throw new InvalidOperationException("Battle effects root folder is not specified in DownloadSettings.");
-        }
-
+        var battleEffectsFolder = ResolveBattleEffectsRoot(settings);
         EnsureFolderExists(battleEffectsFolder);
 
         foreach (var row in rows)
@@ -95,40 +90,34 @@ public static class DamageBattleEffectsCreator
             return null;
         }
 
-        var folder = NormalizeFolder(settings.spritesFolder);
-        if (string.IsNullOrEmpty(folder))
+        iconName = iconName.Trim();
+        if (iconName.Length == 0)
         {
             return null;
         }
 
-        if (!AssetDatabase.IsValidFolder(folder))
+        var sprites = settings.sprites;
+        if (sprites == null || sprites.Length == 0)
         {
-            Debug.LogWarning($"Sprites folder '{folder}' is not a valid Unity project folder.");
+            Debug.LogWarning("DamageBattleEffectsCreator: список спрайтов пуст в DownloadSettings.");
             return null;
         }
 
-        string searchFilter = $"name:{iconName} t:Sprite";
-        string[] guids = AssetDatabase.FindAssets(searchFilter, new[] { folder });
-        foreach (var guid in guids)
+        for (int i = 0; i < sprites.Length; i++)
         {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
-            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-            if (sprite != null && string.Equals(sprite.name, iconName, StringComparison.OrdinalIgnoreCase))
+            var sprite = sprites[i];
+            if (sprite == null)
+            {
+                continue;
+            }
+
+            if (string.Equals(sprite.name, iconName, StringComparison.OrdinalIgnoreCase))
             {
                 return sprite;
             }
         }
 
-        if (guids.Length > 0)
-        {
-            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(AssetDatabase.GUIDToAssetPath(guids[0]));
-            if (sprite != null)
-            {
-                return sprite;
-            }
-        }
-
-        Debug.LogWarning($"Sprite '{iconName}' not found in folder '{folder}'.");
+        Debug.LogWarning($"Sprite '{iconName}' not found in configured sprites list.");
         return null;
     }
 
@@ -306,22 +295,6 @@ public static class DamageBattleEffectsCreator
         return '\0';
     }
 
-    private static string NormalizeFolder(string folder)
-    {
-        if (string.IsNullOrWhiteSpace(folder))
-        {
-            return null;
-        }
-
-        folder = folder.Replace('\\', '/');
-        if (!folder.StartsWith("Assets", StringComparison.OrdinalIgnoreCase))
-        {
-            folder = Path.Combine("Assets", folder).Replace('\\', '/');
-        }
-
-        return folder;
-    }
-
     private static void EnsureFolderExists(string path)
     {
         if (AssetDatabase.IsValidFolder(path))
@@ -343,6 +316,27 @@ public static class DamageBattleEffectsCreator
         {
             AssetDatabase.CreateFolder(parent, folderName);
         }
+    }
+
+    private static string ResolveBattleEffectsRoot(DownloadSettings settings)
+    {
+        if (settings.battleEffectsRootFolder == null)
+        {
+            throw new InvalidOperationException("Battle effects root folder is not specified in DownloadSettings.");
+        }
+
+        var folderPath = AssetDatabase.GetAssetPath(settings.battleEffectsRootFolder);
+        if (string.IsNullOrEmpty(folderPath))
+        {
+            throw new InvalidOperationException("Cannot determine path for the battle effects root folder asset.");
+        }
+
+        if (!AssetDatabase.IsValidFolder(folderPath))
+        {
+            throw new InvalidOperationException($"Assigned battle effects root asset is not a folder: {folderPath}");
+        }
+
+        return folderPath;
     }
 }
 #endif
