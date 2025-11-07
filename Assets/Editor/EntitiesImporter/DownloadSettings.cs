@@ -20,4 +20,11 @@ public sealed class DownloadSettings : ScriptableObject
 
     [Tooltip("Используется при Custom")]
     public string customDelimiter = ",";
+
+    [Header("Damage Battle Effects")]
+    [Tooltip("Папка внутри Assets, где будут сохраняться создаваемые DamageBattleEffect.")]
+    public string battleEffectsRootFolder = "Project/Data/BattleEffects";
+
+    [Tooltip("Папка внутри Assets, откуда берём спрайты для иконок эффектов.")]
+    public string spritesFolder = "Project/Sprites/BattleEffects";
 }
