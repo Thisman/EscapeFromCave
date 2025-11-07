@@ -25,7 +25,7 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
 
         EditorGUILayout.Space();
-        if (GUILayout.Button("Import (clear & rebuild)", GUILayout.Height(32)))
+        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
         {
             ImportAll(_settings);
         }
@@ -33,7 +33,8 @@ public sealed class StatModifiersImporterWindow : EditorWindow
 
     private void ImportAll(StatModifiersImportSettingsSO s)
     {
-        if (s.Table == null) { Debug.LogWarning("[StatModsImporter] Table is null"); return; }
+        var tableText = ImporterTableLoader.Download(s.TableUrl, "StatModsImporter");
+        if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[StatModsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
@@ -42,14 +43,10 @@ public sealed class StatModifiersImporterWindow : EditorWindow
             return;
         }
 
-        // 1) Очистка и Refresh
-        ClearRootFolder(rootPath);
-        AssetDatabase.Refresh();
+        // 1) Разбор таблицы
+        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
 
-        // 2) Разбор таблицы
-        var rows = ParseTable(s.Table.text, s.Delimiter, s.HasHeader).ToList();
-
-        // 3) Создание ассетов
+        // 2) Создание/обновление ассетов
         int ok = 0, bad = 0;
         AssetDatabase.StartAssetEditing();
         try
@@ -70,27 +67,6 @@ public sealed class StatModifiersImporterWindow : EditorWindow
 
         Debug.Log($"[StatModsImporter] Done. OK: {ok}, Warnings: {bad}");
         EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
-    }
-
-    // ===== Очистка целевой папки =====
-    private static void ClearRootFolder(string rootPath)
-    {
-        var guids = AssetDatabase.FindAssets("", new[] { rootPath });
-        foreach (var guid in guids)
-        {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
-            if (path == rootPath) continue;
-            if (!AssetDatabase.IsValidFolder(path))
-                AssetDatabase.DeleteAsset(path);
-        }
-
-        var folders = new List<string>(AssetDatabase.GetSubFolders(rootPath));
-        for (int i = 0; i < folders.Count; i++)
-            folders.AddRange(AssetDatabase.GetSubFolders(folders[i]));
-        folders.Sort((a, b) => b.Length.CompareTo(a.Length));
-        foreach (var f in folders.Distinct())
-            if (AssetDatabase.IsValidFolder(f))
-                AssetDatabase.DeleteAsset(f);
     }
 
     // ===== CSV/TSV парсер (RFC-4180) =====
@@ -234,7 +210,16 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         if (!modOk) Warn("Failed to build BattleStatModifier (Stat/Value parse)", r);
 
         // 7) Создание ассета (тип StatModifierBattleEffect)
-        var asset = ScriptableObject.CreateInstance<StatModifierBattleEffect>();
+        string fileName = $"{San(displayName.Trim())}.asset";
+        string targetPath = $"{rootPath}/{fileName}";
+
+        var asset = AssetDatabase.LoadAssetAtPath<StatModifierBattleEffect>(targetPath);
+        if (asset == null)
+        {
+            asset = ScriptableObject.CreateInstance<StatModifierBattleEffect>();
+            AssetDatabase.CreateAsset(asset, targetPath);
+        }
+
         // базовые поля
         asset.Name = displayName.Trim();
         asset.Description = description;
@@ -243,10 +228,7 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         asset.MaxTick = maxTick;
         // массив модификаторов
         asset.StatsModifier = new[] { modifier };
-
-        string fileName = $"{San(asset.Name)}.asset";
-        string targetPath = AssetDatabase.GenerateUniqueAssetPath($"{rootPath}/{fileName}");
-        AssetDatabase.CreateAsset(asset, targetPath);
+        EditorUtility.SetDirty(asset);
 
         createdPath = targetPath;
         return true;

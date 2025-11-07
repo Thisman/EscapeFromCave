@@ -23,7 +23,7 @@ public sealed class UnitsImporterWindow : EditorWindow
         EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
 
         EditorGUILayout.Space();
-        if (GUILayout.Button("Import (clear & rebuild)", GUILayout.Height(32)))
+        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
         {
             ImportAll(_settings);
         }
@@ -31,7 +31,8 @@ public sealed class UnitsImporterWindow : EditorWindow
 
     private void ImportAll(UnitsImportSettingsSO s)
     {
-        if (s.Table == null) { Debug.LogWarning("[UnitsImporter] Table is null"); return; }
+        var tableText = ImporterTableLoader.Download(s.TableUrl, "UnitsImporter");
+        if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[UnitsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
@@ -40,17 +41,13 @@ public sealed class UnitsImporterWindow : EditorWindow
             return;
         }
 
-        // 1) Полная очистка целевого каталога и обновление кэша
-        ClearRootFolder(rootPath);
-        AssetDatabase.Refresh();
+        // 1) Разбор таблицы и материализация строк (важно до предсоздания подпапок)
+        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
 
-        // 2) Разбор таблицы и материализация строк (важно до предсоздания подпапок)
-        var rows = ParseTable(s.Table.text, s.Delimiter, s.HasHeader).ToList();
-
-        // 3) Создаём подпапки по Kind ОДИН раз
+        // 2) Создаём подпапки по Kind при необходимости
         EnsureKindSubfolders(rootPath, rows);
 
-        // 4) Создание ассетов
+        // 3) Создание/обновление ассетов
         int ok = 0, bad = 0;
         AssetDatabase.StartAssetEditing();
         try
@@ -71,31 +68,6 @@ public sealed class UnitsImporterWindow : EditorWindow
 
         Debug.Log($"[UnitsImporter] Done. OK: {ok}, Warnings: {bad}");
         EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
-    }
-
-    // =========================
-    // Очистка корневой папки
-    // =========================
-    private static void ClearRootFolder(string rootPath)
-    {
-        // Удаляем все файлы ассетов
-        var assetGuids = AssetDatabase.FindAssets("", new[] { rootPath });
-        foreach (var guid in assetGuids)
-        {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
-            if (path == rootPath) continue;
-            if (!AssetDatabase.IsValidFolder(path))
-                AssetDatabase.DeleteAsset(path);
-        }
-
-        // Удаляем подпапки (снизу вверх)
-        var folders = new List<string>(AssetDatabase.GetSubFolders(rootPath));
-        for (int i = 0; i < folders.Count; i++)
-            folders.AddRange(AssetDatabase.GetSubFolders(folders[i]));
-        folders.Sort((a, b) => b.Length.CompareTo(a.Length));
-        foreach (var f in folders.Distinct())
-            if (AssetDatabase.IsValidFolder(f))
-                AssetDatabase.DeleteAsset(f);
     }
 
     // =========================
@@ -282,7 +254,16 @@ public sealed class UnitsImporterWindow : EditorWindow
         // 5) Создание ассета и запись (папка уже создана заранее)
         string kindFolder = GetKindFolder(rootPath, kind);
 
-        var asset = ScriptableObject.CreateInstance<UnitDefinitionSO>();
+        string fileName = $"{San(unitName.Trim())}_{kind}_{attackKind}.asset";
+        string targetPath = $"{kindFolder}/{fileName}";
+
+        var asset = AssetDatabase.LoadAssetAtPath<UnitDefinitionSO>(targetPath);
+        if (asset == null)
+        {
+            asset = ScriptableObject.CreateInstance<UnitDefinitionSO>();
+            AssetDatabase.CreateAsset(asset, targetPath);
+        }
+
         asset.Icon = icon;
         asset.UnitName = unitName.Trim();
         asset.Kind = kind;
@@ -303,10 +284,7 @@ public sealed class UnitsImporterWindow : EditorWindow
         asset.BaseMissChance = Mathf.Clamp01(missCh);
 
         asset.Abilities = System.Array.Empty<BattleAbilityDefinitionSO>();
-
-        string fileName = $"{San(asset.UnitName)}_{kind}_{attackKind}.asset";
-        string targetPath = AssetDatabase.GenerateUniqueAssetPath($"{kindFolder}/{fileName}");
-        AssetDatabase.CreateAsset(asset, targetPath);
+        EditorUtility.SetDirty(asset);
         createdPath = targetPath;
         return true;
     }

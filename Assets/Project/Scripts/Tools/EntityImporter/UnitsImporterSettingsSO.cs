@@ -6,12 +6,13 @@ using UnityEngine.U2D; // если SpriteAtlas
 public sealed class UnitsImportSettingsSO : ScriptableObject
 {
     [Header("Источник данных")]
-    public TextAsset Table;                  // CSV/TSV
+    [Tooltip("Ссылка на опубликованную Google-таблицу (формат CSV/TSV)")]
+    public string TableUrl;                  // CSV/TSV
     public char Delimiter = '\t';            // по умолчанию TSV для Google Sheets
     public bool HasHeader = true;
     public System.Globalization.CultureInfo Culture = System.Globalization.CultureInfo.InvariantCulture;
 
-    [Header("Куда складывать ассеты (очистится перед импортом)")]
+    [Header("Куда складывать ассеты (будет обновляться/создаваться)")]
     public DefaultAsset RootFolder;          // укажи папку в Project
 
     [Header("Иконки по UnitKind")]
