@@ -17,7 +17,7 @@ public class EntityTableLoader
         using (var response = await SharedClient.GetAsync(url, cancellationToken).ConfigureAwait(false))
         {
             response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+            return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
     }
 }
