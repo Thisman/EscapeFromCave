@@ -2,39 +2,25 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-public sealed class UnitsImporterWindow : EditorWindow
+public sealed class UnitsImporter
 {
-    private UnitsImportSettingsSO _settings;
+    private readonly UnitsImportSettingsSO _settings;
 
-    [MenuItem("Tools/Units Importer")]
-    private static void Open() => GetWindow<UnitsImporterWindow>("Units Importer");
-
-    private void OnGUI()
+    public UnitsImporter(UnitsImportSettingsSO settings)
     {
-        _settings = (UnitsImportSettingsSO)EditorGUILayout.ObjectField("Settings", _settings, typeof(UnitsImportSettingsSO), false);
-        if (_settings == null) { EditorGUILayout.HelpBox("Укажите Settings (UnitsImportSettingsSO)", MessageType.Info); return; }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Источник", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Delimiter:", _settings.Delimiter == '\t' ? "\\t (TSV)" : _settings.Delimiter.ToString());
-        EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
-
-        EditorGUILayout.Space();
-        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
-        {
-            ImportAll(_settings);
-        }
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
-    private void ImportAll(UnitsImportSettingsSO s)
+    public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(s.TableUrl, "UnitsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "UnitsImporter");
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[UnitsImporter] Table text is empty"); return; }
 
-        var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
+        var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
         {
             Debug.LogWarning("[UnitsImporter] RootFolder is not set or invalid");
@@ -42,7 +28,7 @@ public sealed class UnitsImporterWindow : EditorWindow
         }
 
         // 1) Разбор таблицы и материализация строк (важно до предсоздания подпапок)
-        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
+        var rows = ParseTable(tableText, _settings.Delimiter, _settings.HasHeader).ToList();
 
         // 2) Создаём подпапки по Kind при необходимости
         EnsureKindSubfolders(rootPath, rows);
@@ -54,7 +40,7 @@ public sealed class UnitsImporterWindow : EditorWindow
         {
             foreach (var row in rows)
             {
-                if (TryCreateUnitAsset(row, s, rootPath, out _))
+                if (TryCreateUnitAsset(row, _settings, rootPath, out _))
                     ok++;
                 else
                     bad++;
@@ -67,7 +53,10 @@ public sealed class UnitsImporterWindow : EditorWindow
         }
 
         Debug.Log($"[UnitsImporter] Done. OK: {ok}, Warnings: {bad}");
-        EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        if (revealInFinder)
+        {
+            EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        }
     }
 
     // =========================

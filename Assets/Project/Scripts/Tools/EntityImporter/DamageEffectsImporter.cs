@@ -2,47 +2,33 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-public sealed class ObjectsImporterWindow : EditorWindow
+public sealed class DamageEffectsImporter
 {
-    private ObjectsImportSettingsSO _settings;
+    private readonly DamageEffectsImportSettingsSO _settings;
 
-    [MenuItem("Tools/Objects Importer")]
-    private static void Open() => GetWindow<ObjectsImporterWindow>("Objects Importer");
-
-    private void OnGUI()
+    public DamageEffectsImporter(DamageEffectsImportSettingsSO settings)
     {
-        _settings = (ObjectsImportSettingsSO)EditorGUILayout.ObjectField("Settings", _settings, typeof(ObjectsImportSettingsSO), false);
-        if (_settings == null) { EditorGUILayout.HelpBox("Укажите Settings (ObjectsImportSettingsSO)", MessageType.Info); return; }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Источник", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Delimiter:", _settings.Delimiter == '\t' ? "\\t (TSV)" : _settings.Delimiter.ToString());
-        EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
-
-        EditorGUILayout.Space();
-        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
-        {
-            ImportAll(_settings);
-        }
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
-    private void ImportAll(ObjectsImportSettingsSO s)
+    public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(s.TableUrl, "ObjectsImporter");
-        if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[ObjectsImporter] Table text is empty"); return; }
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "DamageEffectsImporter");
+        if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[DamageEffectsImporter] Table text is empty"); return; }
 
-        var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
+        var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
         {
-            Debug.LogWarning("[ObjectsImporter] RootFolder is not set or invalid");
+            Debug.LogWarning("[DamageEffectsImporter] RootFolder is not set or invalid");
             return;
         }
 
         // 1) Разбор таблицы и материализация строк
-        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
+        var rows = ParseTable(tableText, _settings.Delimiter, _settings.HasHeader).ToList();
 
         // 2) Создание/обновление ассетов
         int ok = 0, bad = 0;
@@ -51,7 +37,7 @@ public sealed class ObjectsImporterWindow : EditorWindow
         {
             foreach (var row in rows)
             {
-                if (TryCreateObjectAsset(row, s, rootPath, out _))
+                if (TryCreateDamageEffectAsset(row, _settings, rootPath, out _))
                     ok++;
                 else
                     bad++;
@@ -63,8 +49,11 @@ public sealed class ObjectsImporterWindow : EditorWindow
             AssetDatabase.SaveAssets();
         }
 
-        Debug.Log($"[ObjectsImporter] Done. OK: {ok}, Warnings: {bad}");
-        EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        Debug.Log($"[DamageEffectsImporter] Done. OK: {ok}, Warnings: {bad}");
+        if (revealInFinder)
+        {
+            EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        }
     }
 
     // ===== CSV/TSV парсер (RFC-4180) =====
@@ -157,38 +146,67 @@ public sealed class ObjectsImporterWindow : EditorWindow
     }
 
     // ===== Создание ассета из строки =====
-    private static bool TryCreateObjectAsset(Dictionary<string, string> r, ObjectsImportSettingsSO s, string rootPath, out string createdPath)
+    private static bool TryCreateDamageEffectAsset(
+        Dictionary<string, string> r,
+        DamageEffectsImportSettingsSO s,
+        string rootPath,
+        out string createdPath)
     {
         createdPath = null;
 
-        // Обязательное имя
-        string objectName = GetAnyValue(r, "ObjectName", "Name");
-        if (string.IsNullOrWhiteSpace(objectName))
+        // 1) Имя (обязательное)
+        string displayName = GetAnyValue(r, "Name", "EffectName");
+        if (string.IsNullOrWhiteSpace(displayName))
         {
-            Warn("ObjectName empty", r);
+            Warn("Name empty", r);
             return false;
         }
 
-        // Icon (индекс)
+        // 2) Описание
+        string description = GetAnyValue(r, "Description", "Desc") ?? "";
+
+        // 3) Иконка по индексу
         bool ok = true;
         int iconIndex = ReadInt(r, FirstExistingKey(r, "Icon", "IconIndex"), -1, ref ok);
-        if (!ok) { Warn("Icon parse error", r); }
-
+        if (!ok) { Warn("Icon parse error", r); ok = true; } // не критично
         Sprite icon = ResolveIcon(iconIndex, s);
 
-        // Создание ассета
-        string sanitizedName = San(objectName.Trim());
-        string targetPath = $"{rootPath}/{sanitizedName}.asset";
+        // 4) Триггер
+        if (!TryEnumAny(r, out BattleEffectTrigger trigger, "Trigger"))
+        {
+            Warn("Bad Trigger", r);
+            return false;
+        }
 
-        var asset = AssetDatabase.LoadAssetAtPath<ObjectDefinitionSO>(targetPath);
+        // 5) MaxTick (int >= 0)
+        int maxTick = ReadInt(r, FirstExistingKey(r, "MaxTick", "Max Ticks"), 0, ref ok);
+        if (maxTick < 0) { Warn("MaxTick < 0; clamped to 0", r); maxTick = 0; }
+
+        // 6) Damage (int >= 0)
+        int damage = ReadInt(r, FirstExistingKey(r, "Damage"), 0, ref ok);
+        if (damage < 0) { Warn("Damage < 0; clamped to 0", r); damage = 0; }
+
+        if (!ok) { Warn("Number parse error(s)", r); }
+
+        // 7) Создание ассета (тип DamageBattleEffect)
+        string fileName = $"{San(displayName.Trim())}.asset";
+        string targetPath = $"{rootPath}/{fileName}";
+
+        var asset = AssetDatabase.LoadAssetAtPath<DamageBattleEffect>(targetPath);
         if (asset == null)
         {
-            asset = ScriptableObject.CreateInstance<ObjectDefinitionSO>();
+            asset = ScriptableObject.CreateInstance<DamageBattleEffect>();
             AssetDatabase.CreateAsset(asset, targetPath);
         }
 
-        asset.ObjectName = objectName.Trim();
+        // Поля базового эффекта:
+        asset.Name = displayName.Trim();
+        asset.Description = description;
         asset.Icon = icon;
+        asset.Trigger = trigger;
+        asset.MaxTick = maxTick;
+        // Специфичное поле урона:
+        asset.Damage = damage;
         EditorUtility.SetDirty(asset);
 
         createdPath = targetPath;
@@ -196,7 +214,6 @@ public sealed class ObjectsImporterWindow : EditorWindow
     }
 
     // ===== Helpers =====
-
     static string FirstExistingKey(Dictionary<string, string> r, params string[] keys)
     {
         foreach (var k in keys)
@@ -212,8 +229,15 @@ public sealed class ObjectsImporterWindow : EditorWindow
         return null;
     }
 
+    static bool TryEnumAny<T>(Dictionary<string, string> r, out T val, params string[] keys) where T : struct
+    {
+        val = default;
+        var s = GetAnyValue(r, keys);
+        return !string.IsNullOrEmpty(s) && System.Enum.TryParse<T>(s.Trim(), true, out val);
+    }
+
     static void Warn(string msg, Dictionary<string, string> r)
-        => Debug.LogWarning($"[ObjectsImporter] {msg}; row: {string.Join(" | ", r.Select(kv => $"{kv.Key}={kv.Value}"))}");
+        => Debug.LogWarning($"[DamageEffectsImporter] {msg}; row: {string.Join(" | ", r.Select(kv => $"{kv.Key}={kv.Value}"))}");
 
     static int ReadInt(Dictionary<string, string> r, string key, int def, ref bool ok)
     {
@@ -227,7 +251,7 @@ public sealed class ObjectsImporterWindow : EditorWindow
         return def;
     }
 
-    static Sprite ResolveIcon(int index, ObjectsImportSettingsSO s)
+    static Sprite ResolveIcon(int index, DamageEffectsImportSettingsSO s)
     {
         if (index < 0) return null;
         var arr = s.Sprites;
@@ -236,7 +260,7 @@ public sealed class ObjectsImporterWindow : EditorWindow
 
     static string San(string s)
     {
-        if (string.IsNullOrEmpty(s)) return "Object";
+        if (string.IsNullOrEmpty(s)) return "DamageEffect";
         foreach (var c in Path.GetInvalidFileNameChars())
             s = s.Replace(c, '_');
         return s.Replace(' ', '_');

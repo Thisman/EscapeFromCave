@@ -7,36 +7,21 @@ using System.Text;
 using System;
 using System.Reflection;
 
-public sealed class StatModifiersImporterWindow : EditorWindow
+public sealed class StatModifiersImporter
 {
-    private StatModifiersImportSettingsSO _settings;
+    private readonly StatModifiersImportSettingsSO _settings;
 
-    [MenuItem("Tools/Stat Modifiers Importer")]
-    private static void Open() => GetWindow<StatModifiersImporterWindow>("Stat Modifiers Importer");
-
-    private void OnGUI()
+    public StatModifiersImporter(StatModifiersImportSettingsSO settings)
     {
-        _settings = (StatModifiersImportSettingsSO)EditorGUILayout.ObjectField("Settings", _settings, typeof(StatModifiersImportSettingsSO), false);
-        if (_settings == null) { EditorGUILayout.HelpBox("Укажите Settings (StatModifiersImportSettingsSO)", MessageType.Info); return; }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Источник", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Delimiter:", _settings.Delimiter == '\t' ? "\\t (TSV)" : _settings.Delimiter.ToString());
-        EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
-
-        EditorGUILayout.Space();
-        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
-        {
-            ImportAll(_settings);
-        }
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
-    private void ImportAll(StatModifiersImportSettingsSO s)
+    public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(s.TableUrl, "StatModsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "StatModsImporter");
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[StatModsImporter] Table text is empty"); return; }
 
-        var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
+        var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
         {
             Debug.LogWarning("[StatModsImporter] RootFolder is not set or invalid");
@@ -44,7 +29,7 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         }
 
         // 1) Разбор таблицы
-        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
+        var rows = ParseTable(tableText, _settings.Delimiter, _settings.HasHeader).ToList();
 
         // 2) Создание/обновление ассетов
         int ok = 0, bad = 0;
@@ -53,7 +38,7 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         {
             foreach (var row in rows)
             {
-                if (TryCreateStatModifierEffectAsset(row, s, rootPath, out _))
+                if (TryCreateStatModifierEffectAsset(row, _settings, rootPath, out _))
                     ok++;
                 else
                     bad++;
@@ -66,7 +51,10 @@ public sealed class StatModifiersImporterWindow : EditorWindow
         }
 
         Debug.Log($"[StatModsImporter] Done. OK: {ok}, Warnings: {bad}");
-        EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        if (revealInFinder)
+        {
+            EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        }
     }
 
     // ===== CSV/TSV парсер (RFC-4180) =====

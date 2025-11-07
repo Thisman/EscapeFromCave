@@ -2,46 +2,32 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-public sealed class AbilitiesImporterWindow : EditorWindow
+public sealed class AbilitiesImporter
 {
-    private AbilitiesImportSettingsSO _settings;
+    private readonly AbilitiesImportSettingsSO _settings;
 
-    [MenuItem("Tools/Abilities Importer")]
-    private static void Open() => GetWindow<AbilitiesImporterWindow>("Abilities Importer");
-
-    private void OnGUI()
+    public AbilitiesImporter(AbilitiesImportSettingsSO settings)
     {
-        _settings = (AbilitiesImportSettingsSO)EditorGUILayout.ObjectField("Settings", _settings, typeof(AbilitiesImportSettingsSO), false);
-        if (_settings == null) { EditorGUILayout.HelpBox("Укажите Settings (AbilitiesImportSettingsSO)", MessageType.Info); return; }
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Источник", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Delimiter:", _settings.Delimiter == '\t' ? "\\t (TSV)" : _settings.Delimiter.ToString());
-        EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
-
-        EditorGUILayout.Space();
-        if (GUILayout.Button("Import (update/create)", GUILayout.Height(32)))
-        {
-            ImportAll(_settings);
-        }
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
-    private void ImportAll(AbilitiesImportSettingsSO s)
+    public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(s.TableUrl, "AbilitiesImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "AbilitiesImporter");
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[AbilitiesImporter] Table text is empty"); return; }
 
-        var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
+        var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);
         if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
         {
             Debug.LogWarning("[AbilitiesImporter] RootFolder is not set or invalid");
             return;
         }
 
-        var effectsFolderPath = AssetDatabase.GetAssetPath(s.EffectsFolder);
+        var effectsFolderPath = AssetDatabase.GetAssetPath(_settings.EffectsFolder);
         if (string.IsNullOrEmpty(effectsFolderPath) || !AssetDatabase.IsValidFolder(effectsFolderPath))
         {
             Debug.LogWarning("[AbilitiesImporter] EffectsFolder is not set or invalid");
@@ -49,7 +35,7 @@ public sealed class AbilitiesImporterWindow : EditorWindow
         }
 
         // 1) Парсим таблицу и материализуем строки
-        var rows = ParseTable(tableText, s.Delimiter, s.HasHeader).ToList();
+        var rows = ParseTable(tableText, _settings.Delimiter, _settings.HasHeader).ToList();
 
         // 2) Подготавливаем индекс эффектов: fileName -> BattleEffectDefinitionSO
         var effectIndex = BuildEffectsIndex(effectsFolderPath);
@@ -61,7 +47,7 @@ public sealed class AbilitiesImporterWindow : EditorWindow
         {
             foreach (var row in rows)
             {
-                if (TryCreateAbilityAsset(row, s, rootPath, effectIndex, out _))
+                if (TryCreateAbilityAsset(row, _settings, rootPath, effectIndex, out _))
                     ok++;
                 else
                     bad++;
@@ -74,7 +60,10 @@ public sealed class AbilitiesImporterWindow : EditorWindow
         }
 
         Debug.Log($"[AbilitiesImporter] Done. OK: {ok}, Warnings: {bad}");
-        EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        if (revealInFinder)
+        {
+            EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+        }
     }
 
     // ===== Индексация эффектов по имени файла =====
