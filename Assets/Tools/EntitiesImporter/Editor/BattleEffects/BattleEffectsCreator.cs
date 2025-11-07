@@ -35,10 +35,10 @@ public class BattleEffectsCreator : BaseEntityCreator
             return;
         }
 
-        var outputFolder = _settings.BattleEffectsOutputFolder;
+        var outputFolder = _settings.GetBattleEffectsOutputFolderPath();
         if (string.IsNullOrWhiteSpace(outputFolder))
         {
-            Debug.LogWarning("BattleEffectsCreator: Output folder is not specified in settings.");
+            Debug.LogWarning("BattleEffectsCreator: Output folder is not specified or invalid in settings.");
             return;
         }
 

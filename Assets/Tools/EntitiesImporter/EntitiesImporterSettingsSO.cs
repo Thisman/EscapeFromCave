@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(
     fileName = "EntitiesImporterSettings",
@@ -22,7 +25,11 @@ public class EntitiesImporterSettingsSO : ScriptableObject
     [SerializeField] private string delimiter = DefaultDelimiter;
 
     [Header("Battle Effects")]
-    [SerializeField] private string battleEffectsOutputFolder;
+#if UNITY_EDITOR
+    [SerializeField] private DefaultAsset battleEffectsOutputFolder;
+#else
+    [SerializeField] private UnityEngine.Object battleEffectsOutputFolder;
+#endif
     [SerializeField] private Sprite[] battleEffectIcons = Array.Empty<Sprite>();
 
     public string InteractionEffectsTableUrl => interactionEffectsTableUrl;
@@ -34,8 +41,31 @@ public class EntitiesImporterSettingsSO : ScriptableObject
     public string BattleAbilitiesTableUrl => battleAbilitiesTableUrl;
     public string UnitsTableUrl => unitsTableUrl;
     public string Delimiter => string.IsNullOrEmpty(delimiter) ? DefaultDelimiter : delimiter;
-    public string BattleEffectsOutputFolder => battleEffectsOutputFolder;
     public IReadOnlyList<Sprite> BattleEffectIcons => battleEffectIcons ?? Array.Empty<Sprite>();
+
+#if UNITY_EDITOR
+    public DefaultAsset BattleEffectsOutputFolder => battleEffectsOutputFolder;
+#endif
+
+    public string GetBattleEffectsOutputFolderPath()
+    {
+#if UNITY_EDITOR
+        if (battleEffectsOutputFolder == null)
+        {
+            return string.Empty;
+        }
+
+        var path = AssetDatabase.GetAssetPath(battleEffectsOutputFolder);
+        if (!AssetDatabase.IsValidFolder(path))
+        {
+            return string.Empty;
+        }
+
+        return path;
+#else
+        return string.Empty;
+#endif
+    }
 
     public IEnumerable<string> GetAllTableUrls()
     {
