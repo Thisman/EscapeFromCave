@@ -5,14 +5,14 @@ using UnityEngine;
 public sealed class StatModifierBattleEffect : BattleEffectDefinitionSO
 {
     [SerializeField]
-    private BattleStatModifier[] _statModifiers = Array.Empty<BattleStatModifier>();
+    public BattleStatModifier[] StatsModifiers = Array.Empty<BattleStatModifier>();
 
     public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (!TryResolveModel(target, out var model))
             return;
 
-        model.SetStatModifiers(this, _statModifiers ?? Array.Empty<BattleStatModifier>());
+        model.SetStatModifiers(this, StatsModifiers ?? Array.Empty<BattleStatModifier>());
     }
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,10 @@ public class EntitiesImporterSettingsSO : ScriptableObject
     [SerializeField] private string unitsTableUrl;
     [SerializeField] private string delimiter = DefaultDelimiter;
 
+    [Header("Battle Effects")]
+    [SerializeField] private string battleEffectsOutputFolder;
+    [SerializeField] private Sprite[] battleEffectIcons = Array.Empty<Sprite>();
+
     public string InteractionEffectsTableUrl => interactionEffectsTableUrl;
     public string InteractionConditionsTableUrl => interactionConditionsTableUrl;
     public string InteractionTargetResolversTableUrl => interactionTargetResolversTableUrl;
@@ -29,6 +34,8 @@ public class EntitiesImporterSettingsSO : ScriptableObject
     public string BattleAbilitiesTableUrl => battleAbilitiesTableUrl;
     public string UnitsTableUrl => unitsTableUrl;
     public string Delimiter => string.IsNullOrEmpty(delimiter) ? DefaultDelimiter : delimiter;
+    public string BattleEffectsOutputFolder => battleEffectsOutputFolder;
+    public IReadOnlyList<Sprite> BattleEffectIcons => battleEffectIcons ?? Array.Empty<Sprite>();
 
     public IEnumerable<string> GetAllTableUrls()
     {
