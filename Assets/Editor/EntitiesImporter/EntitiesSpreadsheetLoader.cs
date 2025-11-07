@@ -13,6 +13,13 @@ namespace EscapeFromCave.EditorTools.EntitiesImporter
     {
         private const string WorksheetListUrl = "https://spreadsheets.google.com/feeds/worksheets/{0}/public/full?alt=json";
         private const string SheetExportUrl = "https://docs.google.com/spreadsheets/d/{0}/export?format=csv&gid={1}";
+        private const char Quote = '"';
+        private static readonly Regex SpreadsheetTitleRegex = new Regex(
+            $"{Quote}title{Quote}\\s*:\\s*\\{{\\s*{Quote}type{Quote}\\s*:\\s*{Quote}text{Quote}\\s*,\\s*{Quote}\\$t{Quote}\\s*:\\s*{Quote}(?<title>[^{Quote}]+){Quote}",
+            RegexOptions.Singleline | RegexOptions.Compiled);
+        private static readonly Regex WorksheetEntryRegex = new Regex(
+            $"\\{{[^{{}}]*{Quote}gs\\$gid{Quote}\\s*:\\s*{Quote}(?<gid>[^{Quote}]+){Quote}[^{{}}]*{Quote}title{Quote}\\s*:\\s*\\{{\\s*{Quote}\\$t{Quote}\\s*:\\s*{Quote}(?<title>[^{Quote}]+){Quote}",
+            RegexOptions.Singleline | RegexOptions.Compiled);
 
         public static List<ImportedSheet> Import(EntitiesImporterSettingsSO settings)
         {
@@ -79,8 +86,7 @@ namespace EscapeFromCave.EditorTools.EntitiesImporter
                 return fallback;
             }
 
-            const string TitlePattern = @"""title""\s*:\s*\{\s*""type""\s*:\s*""text""\s*,\s*""\$t""\s*:\s*""(?<title>[^"]+)""";
-            var match = Regex.Match(worksheetFeed, TitlePattern, RegexOptions.Singleline);
+            var match = SpreadsheetTitleRegex.Match(worksheetFeed);
             return match.Success ? match.Groups["title"].Value : fallback;
         }
 
@@ -92,9 +98,7 @@ namespace EscapeFromCave.EditorTools.EntitiesImporter
                 return results;
             }
 
-            const string EntryPattern = @"\{[^{}]*""gs\$gid""\s*:\s*""(?<gid>[^"]+)""[^{}]*""title""\s*:\s*\{\s*""\$t""\s*:\s*""(?<title>[^"]+)""";
-            var entryRegex = new Regex(EntryPattern, RegexOptions.Singleline);
-            var matches = entryRegex.Matches(worksheetFeed);
+            var matches = WorksheetEntryRegex.Matches(worksheetFeed);
             foreach (Match match in matches)
             {
                 if (!match.Success)
