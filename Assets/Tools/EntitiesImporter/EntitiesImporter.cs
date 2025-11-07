@@ -65,8 +65,8 @@ public class EntitiesImporter : EditorWindow
             return;
         }
 
-        var urls = _settings.GetAllTableUrls().Where(url => !string.IsNullOrWhiteSpace(url)).ToList();
-        if (urls.Count == 0)
+        var operations = BuildImportOperations().ToList();
+        if (operations.Count == 0)
         {
             Debug.LogWarning("EntitiesImporter: No table URLs specified in the settings.");
             return;
@@ -77,24 +77,113 @@ public class EntitiesImporter : EditorWindow
 
         try
         {
-            foreach (var url in urls)
+            var anyAssetsModified = false;
+
+            foreach (var operation in operations)
             {
                 try
                 {
-                    var content = await _tableLoader.LoadTableAsync(url);
-                    _importLog.Add($"Loaded table from {url} ({content.Length} characters).");
+                    var content = await _tableLoader.LoadTableAsync(operation.Url);
+                    var characterCount = content?.Length ?? 0;
+                    _importLog.Add($"Loaded {operation.Name} table from {operation.Url} ({characterCount} characters).");
+
+                    if (operation.ProcessContent != null)
+                    {
+                        var result = operation.ProcessContent(content);
+                        _importLog.Add($"Processed {result.ProcessedCount} rows for {operation.Name} table.");
+
+                        if (result.AssetsModified)
+                        {
+                            anyAssetsModified = true;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"EntitiesImporter: Failed to load table from {url}. {ex.Message}");
-                    _importLog.Add($"Failed to load table from {url}. See console for details.");
+                    Debug.LogError($"EntitiesImporter: Failed to process table '{operation.Name}' from {operation.Url}. {ex.Message}");
+                    _importLog.Add($"Failed to import {operation.Name} table. See console for details.");
                 }
             }
+
+#if UNITY_EDITOR
+            if (anyAssetsModified)
+            {
+                AssetDatabase.Refresh();
+            }
+#endif
         }
         finally
         {
             _isImporting = false;
             Repaint();
         }
+    }
+
+    private IEnumerable<TableImportOperation> BuildImportOperations()
+    {
+        if (_settings == null)
+        {
+            yield break;
+        }
+
+        if (!string.IsNullOrWhiteSpace(_settings.BattleEffectsTableUrl))
+        {
+            var parser = new BattleEffectsTableParser();
+            var creator = new BattleEffectsCreator(_settings);
+
+            yield return new TableImportOperation(
+                "Battle Effects",
+                _settings.BattleEffectsTableUrl,
+                content => ProcessBattleEffects(content, parser, creator));
+        }
+    }
+
+    private TableImportResult ProcessBattleEffects(string content, BattleEffectsTableParser parser, BattleEffectsCreator creator)
+    {
+        var processedCount = 0;
+        var assetsModified = false;
+
+        if (!string.IsNullOrWhiteSpace(content))
+        {
+            var entries = parser
+                .Parse(content, _settings.Delimiter)
+                .ToList();
+
+            foreach (var entry in entries)
+            {
+                creator.Create(entry);
+            }
+
+            processedCount = entries.Count;
+            assetsModified = processedCount > 0;
+        }
+
+        return new TableImportResult(processedCount, assetsModified);
+    }
+
+    private readonly struct TableImportOperation
+    {
+        public TableImportOperation(string name, string url, Func<string, TableImportResult> processContent)
+        {
+            Name = name;
+            Url = url;
+            ProcessContent = processContent;
+        }
+
+        public string Name { get; }
+        public string Url { get; }
+        public Func<string, TableImportResult> ProcessContent { get; }
+    }
+
+    private readonly struct TableImportResult
+    {
+        public TableImportResult(int processedCount, bool assetsModified)
+        {
+            ProcessedCount = processedCount;
+            AssetsModified = assetsModified;
+        }
+
+        public int ProcessedCount { get; }
+        public bool AssetsModified { get; }
     }
 }
