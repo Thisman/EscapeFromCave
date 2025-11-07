@@ -107,6 +107,7 @@ public sealed class FileDownloaderWindow : EditorWindow
             });
 
             _results = await FileDownloader.DownloadAllAsync(_settings, prog);
+            DownloadedTablesProcessor.Process(_results, _settings);
         }
         finally
         {
