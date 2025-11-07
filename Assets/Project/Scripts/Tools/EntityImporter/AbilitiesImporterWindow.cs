@@ -1,0 +1,363 @@
+using UnityEditor;
+using UnityEngine;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
+
+public sealed class AbilitiesImporterWindow : EditorWindow
+{
+    private AbilitiesImportSettingsSO _settings;
+
+    [MenuItem("Tools/Abilities Importer")]
+    private static void Open() => GetWindow<AbilitiesImporterWindow>("Abilities Importer");
+
+    private void OnGUI()
+    {
+        _settings = (AbilitiesImportSettingsSO)EditorGUILayout.ObjectField("Settings", _settings, typeof(AbilitiesImportSettingsSO), false);
+        if (_settings == null) { EditorGUILayout.HelpBox("Укажите Settings (AbilitiesImportSettingsSO)", MessageType.Info); return; }
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("Источник", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("Delimiter:", _settings.Delimiter == '\t' ? "\\t (TSV)" : _settings.Delimiter.ToString());
+        EditorGUILayout.LabelField("HasHeader:", _settings.HasHeader ? "true" : "false");
+
+        EditorGUILayout.Space();
+        if (GUILayout.Button("Import (clear & rebuild)", GUILayout.Height(32)))
+        {
+            ImportAll(_settings);
+        }
+    }
+
+    private void ImportAll(AbilitiesImportSettingsSO s)
+    {
+        if (s.Table == null) { Debug.LogWarning("[AbilitiesImporter] Table is null"); return; }
+
+        var rootPath = AssetDatabase.GetAssetPath(s.RootFolder);
+        if (string.IsNullOrEmpty(rootPath) || !AssetDatabase.IsValidFolder(rootPath))
+        {
+            Debug.LogWarning("[AbilitiesImporter] RootFolder is not set or invalid");
+            return;
+        }
+
+        var effectsFolderPath = AssetDatabase.GetAssetPath(s.EffectsFolder);
+        if (string.IsNullOrEmpty(effectsFolderPath) || !AssetDatabase.IsValidFolder(effectsFolderPath))
+        {
+            Debug.LogWarning("[AbilitiesImporter] EffectsFolder is not set or invalid");
+            return;
+        }
+
+        // 1) Очистка папки и Refresh
+        ClearRootFolder(rootPath);
+        AssetDatabase.Refresh();
+
+        // 2) Парсим таблицу и материализуем строки
+        var rows = ParseTable(s.Table.text, s.Delimiter, s.HasHeader).ToList();
+
+        // 3) Подготавливаем индекс эффектов: fileName -> BattleEffectDefinitionSO
+        var effectIndex = BuildEffectsIndex(effectsFolderPath);
+
+        // 4) Создаём ассеты
+        int ok = 0, bad = 0;
+        AssetDatabase.StartAssetEditing();
+        try
+        {
+            foreach (var row in rows)
+            {
+                if (TryCreateAbilityAsset(row, s, rootPath, effectIndex, out _))
+                    ok++;
+                else
+                    bad++;
+            }
+        }
+        finally
+        {
+            AssetDatabase.StopAssetEditing();
+            AssetDatabase.SaveAssets();
+        }
+
+        Debug.Log($"[AbilitiesImporter] Done. OK: {ok}, Warnings: {bad}");
+        EditorUtility.RevealInFinder(Path.GetFullPath(rootPath));
+    }
+
+    // ===== Очистка целевой папки =====
+    private static void ClearRootFolder(string rootPath)
+    {
+        var guids = AssetDatabase.FindAssets("", new[] { rootPath });
+        foreach (var guid in guids)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            if (path == rootPath) continue;
+            if (!AssetDatabase.IsValidFolder(path))
+                AssetDatabase.DeleteAsset(path);
+        }
+
+        var folders = new List<string>(AssetDatabase.GetSubFolders(rootPath));
+        for (int i = 0; i < folders.Count; i++)
+            folders.AddRange(AssetDatabase.GetSubFolders(folders[i]));
+        folders.Sort((a, b) => b.Length.CompareTo(a.Length));
+        foreach (var f in folders.Distinct())
+            if (AssetDatabase.IsValidFolder(f))
+                AssetDatabase.DeleteAsset(f);
+    }
+
+    // ===== Индексация эффектов по имени файла =====
+    private static Dictionary<string, BattleEffectDefinitionSO> BuildEffectsIndex(string effectsFolderPath)
+    {
+        var dict = new Dictionary<string, BattleEffectDefinitionSO>(System.StringComparer.OrdinalIgnoreCase);
+        var guids = AssetDatabase.FindAssets("t:BattleEffectDefinitionSO", new[] { effectsFolderPath });
+        foreach (var guid in guids)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            var name = Path.GetFileNameWithoutExtension(path);
+            var effect = AssetDatabase.LoadAssetAtPath<BattleEffectDefinitionSO>(path);
+            if (effect != null && !dict.ContainsKey(name))
+                dict.Add(name, effect);
+        }
+        return dict;
+    }
+
+    // ===== CSV/TSV парсер (RFC-4180) =====
+    private static IEnumerable<Dictionary<string, string>> ParseTable(string text, char delimiter, bool header)
+    {
+        var reader = new StringReader(text);
+        string line;
+        string[] headerCols = null;
+
+        while ((line = reader.ReadLine()) != null)
+        {
+            if (string.IsNullOrWhiteSpace(line)) continue;
+
+            var cols = ParseCsvLine(line, delimiter);
+
+            if (header && headerCols == null)
+            {
+                headerCols = cols.Select(c => c.Trim()).ToArray();
+                continue;
+            }
+
+            var map = new Dictionary<string, string>(System.StringComparer.OrdinalIgnoreCase);
+            if (headerCols != null)
+            {
+                int len = Mathf.Min(headerCols.Length, cols.Count);
+                for (int i = 0; i < len; i++)
+                    map[headerCols[i]] = cols[i].Trim();
+            }
+            else
+            {
+                for (int i = 0; i < cols.Count; i++)
+                    map[$"Col{i}"] = cols[i].Trim();
+            }
+
+            yield return map;
+        }
+    }
+
+    private static List<string> ParseCsvLine(string line, char delimiter)
+    {
+        var result = new List<string>();
+        if (line == null) { result.Add(string.Empty); return result; }
+
+        bool inQuotes = false;
+        var current = new StringBuilder();
+
+        for (int i = 0; i < line.Length; i++)
+        {
+            char c = line[i];
+
+            if (inQuotes)
+            {
+                if (c == '"')
+                {
+                    if (i + 1 < line.Length && line[i + 1] == '"')
+                    {
+                        current.Append('"');
+                        i++;
+                    }
+                    else
+                    {
+                        inQuotes = false;
+                    }
+                }
+                else
+                {
+                    current.Append(c);
+                }
+            }
+            else
+            {
+                if (c == '"')
+                {
+                    inQuotes = true;
+                }
+                else if (c == delimiter)
+                {
+                    result.Add(current.ToString());
+                    current.Length = 0;
+                }
+                else
+                {
+                    current.Append(c);
+                }
+            }
+        }
+
+        result.Add(current.ToString());
+        return result;
+    }
+
+    // ===== Создание ассета из строки =====
+    private static bool TryCreateAbilityAsset(
+        Dictionary<string, string> r,
+        AbilitiesImportSettingsSO s,
+        string rootPath,
+        Dictionary<string, BattleEffectDefinitionSO> effectIndex,
+        out string createdPath)
+    {
+        createdPath = null;
+
+        // 1) Обязательные/важные поля
+        string id = GetAnyValue(r, "Id", "ID");
+        if (string.IsNullOrWhiteSpace(id)) { Warn("Id empty", r); return false; }
+
+        string abilityName = GetAnyValue(r, "AbilityName", "Name");
+        if (string.IsNullOrWhiteSpace(abilityName)) { Warn("AbilityName empty", r); return false; }
+
+        string description = GetAnyValue(r, "Description", "Desc") ?? "";
+
+        // 2) Иконка по индексу
+        bool ok = true;
+        int iconIndex = ReadInt(r, FirstExistingKey(r, "Icon", "IconIndex"), -1, ref ok);
+        if (!ok) { Warn("Icon parse error", r); ok = true; } // не критично
+        Sprite icon = ResolveIcon(iconIndex, s);
+
+        // 3) Остальные поля: Cooldown, AbilityType, AbilityTargetType
+        int cooldown = ReadInt(r, FirstExistingKey(r, "Cooldown"), 0, ref ok);
+
+        if (!TryEnumAny(r, out BattleAbilityType abilityType, "AbilityType", "Type"))
+        {
+            Warn("Bad AbilityType", r);
+            return false;
+        }
+
+        if (!TryEnumAny(r, out BattleAbilityTargetType targetType, "AbilityTargetType", "TargetType"))
+        {
+            Warn("Bad AbilityTargetType", r);
+            return false;
+        }
+
+        // 4) Эффекты: список имён файлов через запятую
+        var effects = ParseEffectsList(r, "Effects", effectIndex, out var missings);
+        if (missings.Count > 0)
+        {
+            Warn($"Effects not found: {string.Join(", ", missings)}", r);
+            // не критично — импортируем с тем, что нашли
+        }
+
+        // 5) Создание ассета
+        var asset = ScriptableObject.CreateInstance<BattleAbilityDefinitionSO>();
+        asset.Id = id.Trim();
+        asset.AbilityName = abilityName.Trim();
+        asset.Description = description;
+        asset.Icon = icon;
+        asset.Cooldown = Mathf.Max(0, cooldown);
+        asset.IsReady = false; // по умолчанию
+        asset.AbilityType = abilityType;
+        asset.AbilityTargetType = targetType;
+        asset.Effects = effects;
+
+        string fileName = $"{San(asset.Id)}_{San(asset.AbilityName)}.asset";
+        string targetPath = AssetDatabase.GenerateUniqueAssetPath($"{rootPath}/{fileName}");
+        AssetDatabase.CreateAsset(asset, targetPath);
+
+        createdPath = targetPath;
+        return true;
+    }
+
+    // ===== Разбор Effects =====
+    private static BattleEffectDefinitionSO[] ParseEffectsList(
+        Dictionary<string, string> r,
+        string key,
+        Dictionary<string, BattleEffectDefinitionSO> effectIndex,
+        out List<string> missings)
+    {
+        missings = new List<string>();
+        if (!r.TryGetValue(key, out var raw) || string.IsNullOrWhiteSpace(raw))
+            return System.Array.Empty<BattleEffectDefinitionSO>();
+
+        // В CSV поле может содержать запятые, но наш парсер уже вернул цельное поле.
+        // Здесь делим по ',' и чистим пробелы/кавычки.
+        var tokens = raw.Split(',')
+                        .Select(x => x.Trim().Trim('"').Trim())
+                        .Where(x => !string.IsNullOrEmpty(x));
+
+        var list = new List<BattleEffectDefinitionSO>();
+        foreach (var t in tokens)
+        {
+            // ищем по имени файла без расширения
+            if (effectIndex.TryGetValue(t, out var eff) && eff != null)
+            {
+                list.Add(eff);
+            }
+            else
+            {
+                missings.Add(t);
+            }
+        }
+
+        return list.ToArray();
+    }
+
+    // ===== Helpers =====
+    static string FirstExistingKey(Dictionary<string, string> r, params string[] keys)
+    {
+        foreach (var k in keys)
+            if (r.ContainsKey(k)) return k;
+        return keys.Length > 0 ? keys[0] : null;
+    }
+
+    static string GetAnyValue(Dictionary<string, string> r, params string[] keys)
+    {
+        foreach (var k in keys)
+            if (r.TryGetValue(k, out var v) && !string.IsNullOrWhiteSpace(v))
+                return v;
+        return null;
+    }
+
+    static bool TryEnumAny<T>(Dictionary<string, string> r, out T val, params string[] keys) where T : struct
+    {
+        val = default;
+        var s = GetAnyValue(r, keys);
+        return !string.IsNullOrEmpty(s) && System.Enum.TryParse<T>(s.Trim(), true, out val);
+    }
+
+    static void Warn(string msg, Dictionary<string, string> r)
+        => Debug.LogWarning($"[AbilitiesImporter] {msg}; row: {string.Join(" | ", r.Select(kv => $"{kv.Key}={kv.Value}"))}");
+
+    static int ReadInt(Dictionary<string, string> r, string key, int def, ref bool ok)
+    {
+        if (string.IsNullOrEmpty(key) || !r.TryGetValue(key, out var s) || string.IsNullOrWhiteSpace(s))
+            return def;
+
+        s = s.Trim();
+        if (int.TryParse(s, out var v)) return v;
+
+        ok = false;
+        return def;
+    }
+
+    static Sprite ResolveIcon(int index, AbilitiesImportSettingsSO s)
+    {
+        if (index < 0) return null;
+        var arr = s.Sprites;
+        return (arr != null && index >= 0 && index < arr.Length) ? arr[index] : null;
+    }
+
+    static string San(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return "Ability";
+        foreach (var c in Path.GetInvalidFileNameChars())
+            s = s.Replace(c, '_');
+        return s.Replace(' ', '_');
+    }
+}

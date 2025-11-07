@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6aed0bf4a72b1641ba2ce4f4d1490f1, type: 3}
+  m_Name: ImporterAbilitiesSettings
+  m_EditorClassIdentifier: Assembly-CSharp::AbilitiesImportSettingsSO
+  Table: {fileID: 4900000, guid: 9b3a9cf1c270cdd419b7259ff6370f37, type: 3}
+  Delimiter: 44
+  HasHeader: 1
+  RootFolder: {fileID: 102900000, guid: 963e3acf9a5e1894ab132e827d93bdcf, type: 3}
+  Sprites: []
+  EffectsFolder: {fileID: 102900000, guid: ea109558a1bf86b4cad9ea359bfba5cd, type: 3}

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c6aea6f22598c44695c3627ec10efba, type: 3}
-  m_Name: UnitsImporterSettings
+  m_Name: ImportUnitsSettings
   m_EditorClassIdentifier: Assembly-CSharp::UnitsImportSettingsSO
-  Table: {fileID: 4900000, guid: c227d6a992ed3014aa4944d08f52e3d8, type: 3}
+  Table: {fileID: 4900000, guid: f3e7b03fe91e509418fea3f9a5213077, type: 3}
   Delimiter: 44
   HasHeader: 1
-  RootFolder: {fileID: 102900000, guid: ca73360d37d0bd045b3a433d995217f3, type: 3}
+  RootFolder: {fileID: 102900000, guid: 1b619d050fb7b6745a5cdf1ae2c7857c, type: 3}
   AllySprites:
   - {fileID: -1662613486703163539, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   - {fileID: -5918137915363136097, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}

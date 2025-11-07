@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Mage_Hero_Magic
+  m_Name: Mage_Squad_Ally_Magic
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Mage
-  Kind: 0
+  Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  UnitName: Mage_Squad
+  Kind: 1
   AttackKind: 2
   DamageType: 1
-  BaseHealth: 75
+  BaseHealth: 20
   BasePhysicalDefense: 0.05
   BaseMagicDefense: 0.2
   BaseAbsoluteDefense: 0.1
-  MinDamage: 7
-  MaxDamage: 13
+  MinDamage: 20
+  MaxDamage: 24
   Speed: 2
-  BaseCritChance: 0.1
-  BaseCritMultiplier: 1.1
-  BaseMissChance: 0.1
+  BaseCritChance: 0.2
+  BaseCritMultiplier: 1.2
+  BaseMissChance: 0.05
   Abilities: []

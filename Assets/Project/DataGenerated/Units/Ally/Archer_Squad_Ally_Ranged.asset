@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Rouge_Hero_Melee
+  m_Name: Archer_Squad_Ally_Ranged
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Rouge
-  Kind: 0
-  AttackKind: 0
-  DamageType: 2
-  BaseHealth: 60
+  UnitName: Archer_Squad
+  Kind: 1
+  AttackKind: 1
+  DamageType: 0
+  BaseHealth: 25
   BasePhysicalDefense: 0.05
   BaseMagicDefense: 0.1
   BaseAbsoluteDefense: 0.1
-  MinDamage: 15
-  MaxDamage: 20
-  Speed: 3
-  BaseCritChance: 0.3
-  BaseCritMultiplier: 1.4
-  BaseMissChance: 0.05
+  MinDamage: 10
+  MaxDamage: 13
+  Speed: 1
+  BaseCritChance: 0.1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 0.1
   Abilities: []

@@ -20,9 +20,9 @@ MonoBehaviour:
   BaseHealth: 100
   BasePhysicalDefense: 0.2
   BaseMagicDefense: 0.1
-  BaseAbsoluteDefense: 0.1
-  MinDamage: 10
-  MaxDamage: 15
+  BaseAbsoluteDefense: 0.2
+  MinDamage: 20
+  MaxDamage: 35
   Speed: 1
   BaseCritChance: 0.1
   BaseCritMultiplier: 1
