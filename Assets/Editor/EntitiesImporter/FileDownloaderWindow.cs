@@ -1,6 +1,5 @@
 #if UNITY_EDITOR
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
@@ -10,8 +9,6 @@ public sealed class FileDownloaderWindow : EditorWindow
     private DownloadSettings _settings;
     private bool _running;
     private float _progress;
-    private Vector2 _scroll;
-    private List<FileDownloader.DownloadResult> _results;
 
     [MenuItem("Tools/Tables/File Downloader")]
     public static void Open()
@@ -43,78 +40,65 @@ public sealed class FileDownloaderWindow : EditorWindow
             Repaint();
         }
 
-        if (_results != null)
-        {
-            EditorGUILayout.Space(8);
-            EditorGUILayout.LabelField($"Results: {_results.Count}", EditorStyles.boldLabel);
-            _scroll = EditorGUILayout.BeginScrollView(_scroll);
-            foreach (var r in _results)
-            {
-                DrawResult(r);
-                EditorGUILayout.Space(6);
-            }
-            EditorGUILayout.EndScrollView();
-        }
-    }
-
-    private void DrawResult(FileDownloader.DownloadResult r)
-    {
-        using (new EditorGUILayout.VerticalScope("box"))
-        {
-            EditorGUILayout.LabelField("Link", r.link);
-            if (!string.IsNullOrEmpty(r.error))
-            {
-                EditorGUILayout.HelpBox(r.error, MessageType.Error);
-                return;
-            }
-
-            EditorGUILayout.LabelField("File Name", r.fileName ?? "(unknown)");
-            EditorGUILayout.LabelField("Content-Type", r.contentType ?? "(unknown)");
-            EditorGUILayout.LabelField("Size", r.Size.ToString("N0") + " bytes");
-
-            if (r.IsText)
-            {
-                EditorGUILayout.LabelField("Preview (UTF-8):");
-                using (new EditorGUI.DisabledScope(true))
-                {
-                    EditorGUILayout.TextArea(r.textPreview, GUILayout.MinHeight(80));
-                }
-
-                if (GUILayout.Button("Copy preview to clipboard"))
-                    EditorGUIUtility.systemCopyBuffer = r.textPreview ?? "";
-            }
-            else
-            {
-                EditorGUILayout.LabelField("Preview", "(binary / not a UTF-8 text)");
-            }
-        }
     }
 
     private async Task RunAsync()
     {
-        if (_settings == null) return;
+        if (_settings == null || _running) return;
 
         _running = true;
         _progress = 0f;
-        _results = null;
+
+        var prog = new Progress<float>(p =>
+        {
+            _progress = p;
+            Repaint();
+        });
+
+        var settingsSnapshot = _settings;
 
         try
         {
-            var prog = new Progress<float>(p =>
-            {
-                _progress = p;
-                EditorUtility.DisplayProgressBar("Downloading", "Fetching files...", p);
-            });
+            var results = await FileDownloader.DownloadAllAsync(settingsSnapshot, prog);
 
-            _results = await FileDownloader.DownloadAllAsync(_settings, prog);
-            DownloadedTablesProcessor.Process(_results, _settings);
+            ScheduleOnMainThread(() =>
+            {
+                try
+                {
+                    DownloadedTablesProcessor.Process(results, settingsSnapshot);
+                }
+                finally
+                {
+                    _running = false;
+                    _progress = 1f;
+                    Repaint();
+                }
+            });
         }
-        finally
+        catch (Exception ex)
         {
-            EditorUtility.ClearProgressBar();
-            _running = false;
-            _progress = 1f;
-            Repaint();
+            ScheduleOnMainThread(() =>
+            {
+                Debug.LogError(ex);
+                _running = false;
+                Repaint();
+            });
+        }
+    }
+
+    private static void ScheduleOnMainThread(Action action)
+    {
+        if (action == null)
+        {
+            return;
+        }
+
+        EditorApplication.delayCall += Invoke;
+
+        void Invoke()
+        {
+            EditorApplication.delayCall -= Invoke;
+            action();
         }
     }
 }
