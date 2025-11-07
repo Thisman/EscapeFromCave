@@ -1,8 +1,0 @@
-Icon,UnitName,Kind,AttackKind,DamageType,BaseHealth,BasePhysicalDefense,BaseMagicDefense,BaseAbsoluteDefense,MinDamage,MaxDamage,Speed,BaseCritChance,BaseCritMultiplier,BaseMissChance,Abilities
-8,Knight,Hero,Melee,Physical,100,0.2,0.1,0.2,20,35,1,0.1,1,0.1,
-23,Mage,Hero,Magic,Magical,75,0.05,0.2,0.1,17,13,2,0.1,1.1,0.1,
-4,Rouge,Hero,Melee,Pure,60,0.05,0.1,0.1,30,40,3,0.3,1.4,0.05,
-3,Archer_Squad,Ally,Ranged,Physical,25,0.05,0.1,0.1,10,13,1,0.1,1.1,0.1,
-3,Knight_Squad,Ally,Melee,Physical,35,0.1,0.05,0.15,15,20,1,0.1,1.1,0.1,
-3,Mage_Squad,Ally,Magic,Magical,20,0.05,0.2,0.1,20,24,2,0.2,1.2,0.05,
-8,Ogr_Squad,Enemy,Melee,Physical,150,0.4,0.5,0.5,30,35,1,0.2,1.3,0.15,

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6aea6f22598c44695c3627ec10efba, type: 3}
   m_Name: ImportUnitsSettings
   m_EditorClassIdentifier: Assembly-CSharp::UnitsImportSettingsSO
-  Table: {fileID: 4900000, guid: f3e7b03fe91e509418fea3f9a5213077, type: 3}
+  TableUrl: https://docs.google.com/spreadsheets/d/10O74CwwPy6GTg2fzYBZIQquA77GWbLPGZEgDowvV3C0/edit?usp=sharing
   Delimiter: 44
   HasHeader: 1
   RootFolder: {fileID: 102900000, guid: 1b619d050fb7b6745a5cdf1ae2c7857c, type: 3}

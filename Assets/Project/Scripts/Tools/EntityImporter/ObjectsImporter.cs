@@ -17,7 +17,7 @@ public sealed class ObjectsImporter
 
     public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "ObjectsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "ObjectsImporter", _settings.Delimiter);
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[ObjectsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);

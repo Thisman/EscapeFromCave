@@ -18,7 +18,7 @@ public sealed class StatModifiersImporter
 
     public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "StatModsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "StatModsImporter", _settings.Delimiter);
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[StatModsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);

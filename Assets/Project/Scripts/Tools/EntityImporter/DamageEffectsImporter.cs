@@ -17,7 +17,7 @@ public sealed class DamageEffectsImporter
 
     public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "DamageEffectsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "DamageEffectsImporter", _settings.Delimiter);
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[DamageEffectsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);

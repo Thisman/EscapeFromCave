@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaef594beb08d1944ba42882e3a4965b, type: 3}
   m_Name: ImporterStatModifierEffectsSettings
   m_EditorClassIdentifier: Assembly-CSharp::StatModifiersImportSettingsSO
-  Table: {fileID: 0}
+  TableUrl: https://docs.google.com/spreadsheets/d/1Bu-crfJXyXfuonuY_Re50i4Dz0kP-ZYD2a5gVII0u1Y/edit?gid=0#gid=0
   Delimiter: 44
   HasHeader: 1
-  RootFolder: {fileID: 0}
+  RootFolder: {fileID: 102900000, guid: ea109558a1bf86b4cad9ea359bfba5cd, type: 3}
   Sprites: []

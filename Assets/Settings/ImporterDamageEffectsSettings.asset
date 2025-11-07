@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea827f2baf8c56d489af6ed6cf3414c6, type: 3}
   m_Name: ImporterDamageEffectsSettings
   m_EditorClassIdentifier: Assembly-CSharp::DamageEffectsImportSettingsSO
-  Table: {fileID: 4900000, guid: 8965723257f6cbd4ab270b89faf6a1fd, type: 3}
+  TableUrl: https://docs.google.com/spreadsheets/d/1MuKWNul0KOG35ydENuAhvt0qfxTPgppv5HBn-KmO3tc/edit?usp=sharing
   Delimiter: 44
   HasHeader: 1
-  RootFolder: {fileID: 0}
+  RootFolder: {fileID: 102900000, guid: ea109558a1bf86b4cad9ea359bfba5cd, type: 3}
   Sprites: []

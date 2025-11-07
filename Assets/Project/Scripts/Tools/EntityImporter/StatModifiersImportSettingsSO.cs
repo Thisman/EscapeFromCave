@@ -5,7 +5,7 @@ using UnityEngine;
 public sealed class StatModifiersImportSettingsSO : ScriptableObject
 {
     [Header("Источник данных")]
-    [Tooltip("Ссылка на опубликованную Google-таблицу (формат CSV/TSV)")]
+    [Tooltip("Ссылка на Google-таблицу (можно обычную /edit; загрузка конвертируется в CSV/TSV)")]
     public string TableUrl;        // CSV/TSV (UTF-8)
     public char Delimiter = ',';   // CSV = ',' ; TSV = '\t'
     public bool HasHeader = true;  // первая строка — заголовки

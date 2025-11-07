@@ -17,7 +17,7 @@ public sealed class UnitsImporter
 
     public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "UnitsImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "UnitsImporter", _settings.Delimiter);
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[UnitsImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);

@@ -17,7 +17,7 @@ public sealed class AbilitiesImporter
 
     public void Import(bool revealInFinder = true)
     {
-        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "AbilitiesImporter");
+        var tableText = ImporterTableLoader.Download(_settings.TableUrl, "AbilitiesImporter", _settings.Delimiter);
         if (string.IsNullOrWhiteSpace(tableText)) { Debug.LogWarning("[AbilitiesImporter] Table text is empty"); return; }
 
         var rootPath = AssetDatabase.GetAssetPath(_settings.RootFolder);

@@ -6,7 +6,7 @@ using UnityEngine.U2D; // если SpriteAtlas
 public sealed class UnitsImportSettingsSO : ScriptableObject
 {
     [Header("Источник данных")]
-    [Tooltip("Ссылка на опубликованную Google-таблицу (формат CSV/TSV)")]
+    [Tooltip("Ссылка на Google-таблицу (можно обычную /edit; загрузка конвертируется в CSV/TSV)")]
     public string TableUrl;                  // CSV/TSV
     public char Delimiter = '\t';            // по умолчанию TSV для Google Sheets
     public bool HasHeader = true;
