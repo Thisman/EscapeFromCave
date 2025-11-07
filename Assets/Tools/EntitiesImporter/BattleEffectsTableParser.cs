@@ -303,10 +303,15 @@ public class BattleEffectsTableParser : BaseEntityTableParser
                 endIndex = baseUrl.Length;
             }
 
+            var prefix = baseUrl.Substring(0, startIndex);
+            var suffix = endIndex < baseUrl.Length
+                ? baseUrl.Substring(endIndex)
+                : string.Empty;
+
             return string.Concat(
-                baseUrl.AsSpan(0, startIndex),
+                prefix,
                 Uri.EscapeDataString(sheetName),
-                baseUrl.AsSpan(endIndex));
+                suffix);
         }
 
         var separator = baseUrl.Contains("?") ? "&" : "?";
