@@ -78,7 +78,7 @@ public sealed class UnitDefinitionSOImporter : IEntitiesSheetImporter
             return;
         }
 
-        var sprites = unitSettings.Sprites?.ToArray() ?? Array.Empty<Sprite>();
+        var spriteLookup = BuildSpriteLookup(unitSettings.Sprites);
         var abilities = LoadAbilities(abilitiesFolderPath);
         if (abilities.Count == 0)
         {
@@ -121,26 +121,9 @@ public sealed class UnitDefinitionSOImporter : IEntitiesSheetImporter
             unit.UnitName = row.GetValueOrDefault("UnitName");
 
             var iconValue = row.GetValueOrDefault("Icon");
-            if (TryGetSpriteIndex(iconValue, row.RowNumber, out var iconIndex))
+            if (TryResolveSprite(iconValue, spriteLookup, row.RowNumber, out var sprite))
             {
-                if (iconIndex >= 0 && iconIndex < sprites.Length)
-                {
-                    var sprite = sprites[iconIndex];
-                    if (sprite != null)
-                    {
-                        unit.Icon = sprite;
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"[UnitDefinitionSOImporter] Row {row.RowNumber}: Icon at index {iconIndex} is not assigned in sprites array.");
-                        unit.Icon = null;
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning($"[UnitDefinitionSOImporter] Row {row.RowNumber}: Icon index {iconIndex} is out of range for sprites array (size {sprites.Length}).");
-                    unit.Icon = null;
-                }
+                unit.Icon = sprite;
             }
             else
             {
@@ -298,40 +281,52 @@ public sealed class UnitDefinitionSOImporter : IEntitiesSheetImporter
         abilities[sanitized] = ability;
     }
 
-    private static bool TryGetSpriteIndex(string value, int rowNumber, out int index)
+    private static bool TryResolveSprite(string value, Dictionary<string, Sprite> sprites, int rowNumber, out Sprite sprite)
     {
-        index = 0;
+        sprite = null;
 
         if (string.IsNullOrWhiteSpace(value))
         {
             return false;
         }
 
-        if (!TryParseInteger(value, out var parsed))
+        if (sprites.TryGetValue(value.Trim(), out sprite))
         {
-            Debug.LogWarning($"[UnitDefinitionSOImporter] Row {rowNumber}: Icon '{value}' is not a valid integer. Icon will be cleared.");
-            return false;
+            return true;
         }
 
-        index = parsed;
-        return true;
+        Debug.LogWarning($"[UnitDefinitionSOImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        return false;
     }
 
-    private static bool TryParseInteger(string value, out int result)
+    private static Dictionary<string, Sprite> BuildSpriteLookup(IReadOnlyList<Sprite> sprites)
     {
-        if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out result))
+        var result = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
+
+        if (sprites == null)
         {
-            return true;
+            return result;
         }
 
-        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        for (var i = 0; i < sprites.Count; i++)
         {
-            result = Mathf.RoundToInt(floatParsed);
-            return true;
+            var sprite = sprites[i];
+            if (sprite == null)
+            {
+                Debug.LogWarning($"[UnitDefinitionSOImporter] Sprites array contains an unassigned entry at index {i}.");
+                continue;
+            }
+
+            if (result.ContainsKey(sprite.name))
+            {
+                Debug.LogWarning($"[UnitDefinitionSOImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                continue;
+            }
+
+            result[sprite.name] = sprite;
         }
 
-        result = 0;
-        return false;
+        return result;
     }
 
     private static float ParseFloat(string value, int rowNumber, string columnName)

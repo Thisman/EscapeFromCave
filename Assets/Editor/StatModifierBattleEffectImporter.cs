@@ -55,7 +55,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return;
         }
 
-        var sprites = battleEffectSettings.Sprites?.ToArray() ?? Array.Empty<Sprite>();
+        var spriteLookup = BuildSpriteLookup(battleEffectSettings.Sprites);
 
         foreach (var column in RequiredColumns)
         {
@@ -97,26 +97,9 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             effect.Description = firstRow.GetValueOrDefault("Description");
 
             var iconValue = firstRow.GetValueOrDefault("Icon");
-            if (TryGetSpriteIndex(iconValue, firstRow.RowNumber, out var iconIndex))
+            if (TryResolveSprite(iconValue, spriteLookup, firstRow.RowNumber, out var sprite))
             {
-                if (iconIndex >= 0 && iconIndex < sprites.Length)
-                {
-                    var sprite = sprites[iconIndex];
-                    if (sprite != null)
-                    {
-                        effect.Icon = sprite;
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Icon at index {iconIndex} is not assigned in sprites array.");
-                        effect.Icon = null;
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Icon index {iconIndex} is out of range for sprites array (size {sprites.Length}).");
-                    effect.Icon = null;
-                }
+                effect.Icon = sprite;
             }
             else
             {
@@ -196,40 +179,52 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
         return 0;
     }
 
-    private static bool TryGetSpriteIndex(string value, int rowNumber, out int index)
+    private static bool TryResolveSprite(string value, Dictionary<string, Sprite> sprites, int rowNumber, out Sprite sprite)
     {
-        index = 0;
+        sprite = null;
 
         if (string.IsNullOrWhiteSpace(value))
         {
             return false;
         }
 
-        if (!TryParseInteger(value, out var parsed))
+        if (sprites.TryGetValue(value.Trim(), out sprite))
         {
-            Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {rowNumber}: Icon '{value}' is not a valid integer. Icon will be cleared.");
-            return false;
+            return true;
         }
 
-        index = parsed;
-        return true;
+        Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        return false;
     }
 
-    private static bool TryParseInteger(string value, out int result)
+    private static Dictionary<string, Sprite> BuildSpriteLookup(IReadOnlyList<Sprite> sprites)
     {
-        if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out result))
+        var result = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
+
+        if (sprites == null)
         {
-            return true;
+            return result;
         }
 
-        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        for (var i = 0; i < sprites.Count; i++)
         {
-            result = Mathf.RoundToInt(floatParsed);
-            return true;
+            var sprite = sprites[i];
+            if (sprite == null)
+            {
+                Debug.LogWarning($"[StatModifierBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
+                continue;
+            }
+
+            if (result.ContainsKey(sprite.name))
+            {
+                Debug.LogWarning($"[StatModifierBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                continue;
+            }
+
+            result[sprite.name] = sprite;
         }
 
-        result = 0;
-        return false;
+        return result;
     }
 
     private static bool TryParseFloat(string value, out float result)
