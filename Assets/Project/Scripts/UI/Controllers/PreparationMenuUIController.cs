@@ -8,8 +8,16 @@ public class PreparationMenuUIController : MonoBehaviour
     [SerializeField] private Button _startButton;
     [SerializeField] private CarouselWidget _heroCarouselWidget;
     [SerializeField] private CarouselWidget[] _squadCarouselsWidget;
+    [SerializeField] private HeroCarouselItemView _heroCarouselItemPrefab;
+    [SerializeField] private SquadCarouselItemView _squadCarouselItemPrefab;
 
     public Action<UnitDefinitionSO, List<UnitDefinitionSO>> OnStartGame;
+
+    public void PopulateCarousels(UnitDefinitionSO[] heroDefinitions, UnitDefinitionSO[] squadDefinitions)
+    {
+        PopulateHeroCarousel(heroDefinitions);
+        PopulateSquadCarousels(squadDefinitions);
+    }
 
     private void OnEnable()
     {
@@ -58,5 +66,63 @@ public class PreparationMenuUIController : MonoBehaviour
         }
 
         return selectedSquads;
+    }
+
+    private void PopulateHeroCarousel(UnitDefinitionSO[] heroDefinitions)
+    {
+        if (_heroCarouselWidget == null || _heroCarouselItemPrefab == null)
+            return;
+
+        ClearContent(_heroCarouselWidget.Content);
+
+        foreach (UnitDefinitionSO hero in heroDefinitions)
+        {
+            if (hero == null)
+                continue;
+
+            HeroCarouselItemView itemView = Instantiate(_heroCarouselItemPrefab, _heroCarouselWidget.Content);
+            itemView.SetDefinition(hero);
+        }
+
+        _heroCarouselWidget.RefreshItems();
+    }
+
+    private void PopulateSquadCarousels(UnitDefinitionSO[] squadDefinitions)
+    {
+        if (_squadCarouselsWidget == null || _squadCarouselItemPrefab == null)
+            return;
+
+        foreach (CarouselWidget carousel in _squadCarouselsWidget)
+        {
+            if (carousel == null)
+                continue;
+
+            ClearContent(carousel.Content);
+
+            foreach (UnitDefinitionSO squadUnit in squadDefinitions)
+            {
+                if (squadUnit == null)
+                    continue;
+
+                SquadCarouselItemView itemView = Instantiate(_squadCarouselItemPrefab, carousel.Content);
+                itemView.SetDefinition(squadUnit);
+            }
+
+            carousel.RefreshItems();
+        }
+    }
+
+    private static void ClearContent(RectTransform content)
+    {
+        for (int i = content.childCount - 1; i >= 0; i--)
+        {
+            Transform childTransform = content.GetChild(i);
+            childTransform.SetParent(null, false);
+
+            if (Application.isPlaying)
+                Destroy(childTransform.gameObject);
+            else
+                DestroyImmediate(childTransform.gameObject);
+        }
     }
 }

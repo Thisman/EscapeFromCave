@@ -10,16 +10,11 @@ public class CarouselWidget : MonoBehaviour
     [SerializeField] private bool _loop = false;
 
     private int _currentIndex = 0;
-    private RectTransform[] _items;
+    private RectTransform[] _items = System.Array.Empty<RectTransform>();
 
     private void Awake()
     {
-        int count = _content.childCount;
-        _items = new RectTransform[count];
-        for (int i = 0; i < count; i++)
-            _items[i] = _content.GetChild(i) as RectTransform;
-
-        ShowIndex(0);
+        RefreshItems();
 
         _prevButton.onClick.AddListener(Prev);
         _nextButton.onClick.AddListener(Next);
@@ -33,10 +28,22 @@ public class CarouselWidget : MonoBehaviour
 
     public GameObject GetCurrentObject()
     {
-        if (_items.Length == 0)
+        if (_items == null || _items.Length == 0)
             return null;
 
         return _items[_currentIndex]?.gameObject;
+    }
+
+    public RectTransform Content => _content;
+
+    public void RefreshItems()
+    {
+        int count = _content.childCount;
+        _items = new RectTransform[count];
+        for (int i = 0; i < count; i++)
+            _items[i] = _content.GetChild(i) as RectTransform;
+
+        ShowIndex(_items.Length == 0 ? 0 : Mathf.Clamp(_currentIndex, 0, _items.Length - 1));
     }
 
     private void Prev()
@@ -59,6 +66,12 @@ public class CarouselWidget : MonoBehaviour
 
     private void ShowIndex(int index)
     {
+        if (_items == null || _items.Length == 0)
+        {
+            _currentIndex = 0;
+            return;
+        }
+
         _currentIndex = Mathf.Clamp(index, 0, _items.Length - 1);
 
         for (int i = 0; i < _items.Length; i++)
