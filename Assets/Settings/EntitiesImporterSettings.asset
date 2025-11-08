@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-Editor::EntitiesImporterSettings
   tables:
   - {fileID: 102900000, guid: 8abda2ac91bc0e4419d9f652b1a7cfa4, type: 3}
-  - {fileID: 102900000, guid: 2da811bd06e0c454ba07e64355568e67, type: 3}
+  - {fileID: 102900000, guid: 74692f68d29686d46b478ec5643e730c, type: 3}
   - {fileID: 102900000, guid: a5ae55e0f08c399439336204ba23a87d, type: 3}
   battleEffect:
     folder: {fileID: 102900000, guid: 37eb46a814c53f848b44274ecbb367cb, type: 3}
