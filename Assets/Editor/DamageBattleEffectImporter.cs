@@ -54,10 +54,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return;
         }
 
-        var sprites = (battleEffectSettings.Sprites ?? Array.Empty<Sprite>())
-            .Where(sprite => sprite != null)
-            .GroupBy(sprite => sprite.name)
-            .ToDictionary(group => group.Key, group => group.First(), StringComparer.OrdinalIgnoreCase);
+        var spriteLookup = BuildSpriteLookup(battleEffectSettings.Sprites);
 
         foreach (var column in RequiredColumns)
         {
@@ -95,15 +92,10 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             effect.Name = row.GetValueOrDefault("Name");
             effect.Description = row.GetValueOrDefault("Description");
 
-            var iconName = row.GetValueOrDefault("Icon");
-            if (!string.IsNullOrWhiteSpace(iconName) && sprites.TryGetValue(iconName, out var sprite))
+            var iconValue = row.GetValueOrDefault("Icon");
+            if (TryResolveSprite(iconValue, spriteLookup, row.RowNumber, out var sprite))
             {
                 effect.Icon = sprite;
-            }
-            else if (!string.IsNullOrWhiteSpace(iconName))
-            {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon '{iconName}' not found in configured sprites.");
-                effect.Icon = null;
             }
             else
             {
@@ -153,6 +145,54 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
 
         Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
+    }
+
+    private static bool TryResolveSprite(string value, Dictionary<string, Sprite> sprites, int rowNumber, out Sprite sprite)
+    {
+        sprite = null;
+
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return false;
+        }
+
+        if (sprites.TryGetValue(value.Trim(), out sprite))
+        {
+            return true;
+        }
+
+        Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        return false;
+    }
+
+    private static Dictionary<string, Sprite> BuildSpriteLookup(IReadOnlyList<Sprite> sprites)
+    {
+        var result = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
+
+        if (sprites == null)
+        {
+            return result;
+        }
+
+        for (var i = 0; i < sprites.Count; i++)
+        {
+            var sprite = sprites[i];
+            if (sprite == null)
+            {
+                Debug.LogWarning($"[DamageBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
+                continue;
+            }
+
+            if (result.ContainsKey(sprite.name))
+            {
+                Debug.LogWarning($"[DamageBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                continue;
+            }
+
+            result[sprite.name] = sprite;
+        }
+
+        return result;
     }
 
     private static string SanitizeFileName(string name)
