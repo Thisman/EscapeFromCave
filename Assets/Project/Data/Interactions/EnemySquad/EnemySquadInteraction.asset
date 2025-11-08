@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemySquadInteraction
   m_EditorClassIdentifier: Assembly-CSharp::InteractationDefinitionSO
   Cooldown: 10
-  InteractionDistance: 0
+  InteractionDistance: 1.5
   Effects:
   - {fileID: 11400000, guid: 841dfbde12b47ab4ba2a11505a1e7249, type: 2}
   Conditions: []

@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff2ae8df1b662b42979717560be419e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SquadController
-  _count: 10
+  _count: 1
   _unitDefinition: {fileID: 11400000, guid: c9813b369caed014e8586b1a50b699d8, type: 2}
 --- !u!114 &-8213997057954841995
 MonoBehaviour:
