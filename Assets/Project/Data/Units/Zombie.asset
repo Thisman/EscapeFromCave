@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: 8179219320991236185, guid: 4b352e952093f734c855535193b627e6, type: 3}
-  UnitName: zombie
+  UnitName: Zombie
   Kind: 2
   AttackKind: 0
   DamageType: 0

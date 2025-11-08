@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  Icon: {fileID: 8086551292566691165, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Mage
-  Kind: 0
+  Kind: 1
   AttackKind: 2
   DamageType: 1
-  BaseHealth: 75
+  BaseHealth: 40
   BasePhysicalDefense: 0.05
   BaseMagicDefense: 0.2
   BaseAbsoluteDefense: 0.1
-  MinDamage: 17
-  MaxDamage: 13
+  MinDamage: 20
+  MaxDamage: 24
   Speed: 2
-  BaseCritChance: 0.1
-  BaseCritMultiplier: 1.1
-  BaseMissChance: 0.1
-  Abilities:
-  - {fileID: 11400000, guid: 90441159bd0bd89429a8b32650aa605e, type: 2}
+  BaseCritChance: 0.2
+  BaseCritMultiplier: 1.2
+  BaseMissChance: 0.05
+  Abilities: []

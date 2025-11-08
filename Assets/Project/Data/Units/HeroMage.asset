@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Knight_Squad
+  m_Name: HeroMage
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 248234936431850608, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Knight Squad
-  Kind: 1
-  AttackKind: 0
-  DamageType: 0
-  BaseHealth: 35
-  BasePhysicalDefense: 0.1
-  BaseMagicDefense: 0.05
-  BaseAbsoluteDefense: 0.15
-  MinDamage: 15
-  MaxDamage: 20
-  Speed: 1
+  Icon: {fileID: 3078493119409997294, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  UnitName: Mage
+  Kind: 0
+  AttackKind: 2
+  DamageType: 1
+  BaseHealth: 175
+  BasePhysicalDefense: 0.05
+  BaseMagicDefense: 0.2
+  BaseAbsoluteDefense: 0.1
+  MinDamage: 38
+  MaxDamage: 45
+  Speed: 2
   BaseCritChance: 0.1
   BaseCritMultiplier: 1.1
   BaseMissChance: 0.1
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 90441159bd0bd89429a8b32650aa605e, type: 2}

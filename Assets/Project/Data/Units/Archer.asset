@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Mage_Squad
+  m_Name: Archer
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
-  Icon: {fileID: 8086551292566691165, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Mage Squad
+  Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
+  UnitName: Archer
   Kind: 1
-  AttackKind: 2
-  DamageType: 1
-  BaseHealth: 20
+  AttackKind: 1
+  DamageType: 0
+  BaseHealth: 50
   BasePhysicalDefense: 0.05
-  BaseMagicDefense: 0.2
+  BaseMagicDefense: 0.1
   BaseAbsoluteDefense: 0.1
-  MinDamage: 20
-  MaxDamage: 24
-  Speed: 2
-  BaseCritChance: 0.2
-  BaseCritMultiplier: 1.2
-  BaseMissChance: 0.05
+  MinDamage: 10
+  MaxDamage: 13
+  Speed: 1
+  BaseCritChance: 0.1
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 0.1
   Abilities: []

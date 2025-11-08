@@ -839,12 +839,12 @@ TextureImporter:
       name: items-palette-swaps_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1351
-        width: 13
-        height: 14
+        x: 0
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -861,12 +861,12 @@ TextureImporter:
       name: items-palette-swaps_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1350
-        width: 18
-        height: 19
+        x: 32
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -883,12 +883,12 @@ TextureImporter:
       name: items-palette-swaps_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 1348
-        width: 21
-        height: 21
+        x: 64
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -905,12 +905,12 @@ TextureImporter:
       name: items-palette-swaps_3
       rect:
         serializedVersion: 2
-        x: 101
-        y: 1347
-        width: 24
-        height: 24
+        x: 96
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -927,12 +927,12 @@ TextureImporter:
       name: items-palette-swaps_4
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1347
-        width: 26
-        height: 26
+        x: 128
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -954,7 +954,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -971,12 +971,12 @@ TextureImporter:
       name: items-palette-swaps_6
       rect:
         serializedVersion: 2
-        x: 201
-        y: 1350
-        width: 17
-        height: 17
+        x: 192
+        y: 1344
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -993,12 +993,12 @@ TextureImporter:
       name: items-palette-swaps_7
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1318
-        width: 18
-        height: 19
+        x: 0
+        y: 1312
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1015,12 +1015,12 @@ TextureImporter:
       name: items-palette-swaps_8
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1315
-        width: 25
-        height: 25
+        x: 32
+        y: 1312
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1037,12 +1037,12 @@ TextureImporter:
       name: items-palette-swaps_9
       rect:
         serializedVersion: 2
-        x: 69
-        y: 1315
-        width: 24
-        height: 25
+        x: 64
+        y: 1312
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1059,12 +1059,12 @@ TextureImporter:
       name: items-palette-swaps_10
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1314
-        width: 27
-        height: 28
+        x: 96
+        y: 1312
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1081,12 +1081,12 @@ TextureImporter:
       name: items-palette-swaps_11
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 1312
-        width: 27
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1103,12 +1103,12 @@ TextureImporter:
       name: items-palette-swaps_12
       rect:
         serializedVersion: 2
-        x: 162
+        x: 160
         y: 1312
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1125,12 +1125,12 @@ TextureImporter:
       name: items-palette-swaps_13
       rect:
         serializedVersion: 2
-        x: 194
+        x: 192
         y: 1312
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1147,12 +1147,12 @@ TextureImporter:
       name: items-palette-swaps_14
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1286
-        width: 18
-        height: 18
+        x: 0
+        y: 1280
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1169,12 +1169,12 @@ TextureImporter:
       name: items-palette-swaps_15
       rect:
         serializedVersion: 2
-        x: 40
-        y: 1286
-        width: 16
-        height: 23
+        x: 32
+        y: 1280
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1191,12 +1191,12 @@ TextureImporter:
       name: items-palette-swaps_16
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1282
-        width: 19
-        height: 29
+        x: 64
+        y: 1280
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1213,12 +1213,12 @@ TextureImporter:
       name: items-palette-swaps_17
       rect:
         serializedVersion: 2
-        x: 103
-        y: 1281
-        width: 22
-        height: 30
+        x: 96
+        y: 1280
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1235,12 +1235,12 @@ TextureImporter:
       name: items-palette-swaps_18
       rect:
         serializedVersion: 2
-        x: 132
-        y: 1283
-        width: 22
-        height: 15
+        x: 128
+        y: 1280
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1257,12 +1257,12 @@ TextureImporter:
       name: items-palette-swaps_19
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1255
-        width: 20
-        height: 17
+        x: 0
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1279,12 +1279,12 @@ TextureImporter:
       name: items-palette-swaps_20
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1252
-        width: 25
-        height: 25
+        x: 32
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1302,11 +1302,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 1250
-        width: 31
-        height: 29
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1324,11 +1324,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 1249
+        y: 1248
         width: 32
-        height: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1345,12 +1345,12 @@ TextureImporter:
       name: items-palette-swaps_23
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1252
-        width: 28
-        height: 23
+        x: 128
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1367,12 +1367,12 @@ TextureImporter:
       name: items-palette-swaps_24
       rect:
         serializedVersion: 2
-        x: 167
-        y: 1256
-        width: 17
-        height: 14
+        x: 160
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1389,12 +1389,12 @@ TextureImporter:
       name: items-palette-swaps_25
       rect:
         serializedVersion: 2
-        x: 197
-        y: 1254
-        width: 21
-        height: 19
+        x: 192
+        y: 1248
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1411,12 +1411,12 @@ TextureImporter:
       name: items-palette-swaps_26
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1222
-        width: 19
-        height: 20
+        x: 0
+        y: 1216
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1433,12 +1433,12 @@ TextureImporter:
       name: items-palette-swaps_27
       rect:
         serializedVersion: 2
-        x: 34
-        y: 1220
-        width: 27
-        height: 25
+        x: 32
+        y: 1216
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1455,12 +1455,12 @@ TextureImporter:
       name: items-palette-swaps_28
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1218
-        width: 29
-        height: 28
+        x: 64
+        y: 1216
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1477,12 +1477,12 @@ TextureImporter:
       name: items-palette-swaps_29
       rect:
         serializedVersion: 2
-        x: 102
-        y: 1222
-        width: 20
-        height: 20
+        x: 96
+        y: 1216
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1499,12 +1499,12 @@ TextureImporter:
       name: items-palette-swaps_30
       rect:
         serializedVersion: 2
-        x: 129
-        y: 1219
-        width: 29
-        height: 27
+        x: 128
+        y: 1216
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1521,12 +1521,12 @@ TextureImporter:
       name: items-palette-swaps_31
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1190
-        width: 19
-        height: 19
+        x: 0
+        y: 1184
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1543,12 +1543,12 @@ TextureImporter:
       name: items-palette-swaps_32
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1189
-        width: 20
-        height: 20
+        x: 32
+        y: 1184
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1565,12 +1565,12 @@ TextureImporter:
       name: items-palette-swaps_33
       rect:
         serializedVersion: 2
-        x: 65
-        y: 1185
-        width: 31
-        height: 31
+        x: 64
+        y: 1184
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1587,12 +1587,12 @@ TextureImporter:
       name: items-palette-swaps_34
       rect:
         serializedVersion: 2
-        x: 100
-        y: 1186
-        width: 24
-        height: 24
+        x: 96
+        y: 1184
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1609,12 +1609,12 @@ TextureImporter:
       name: items-palette-swaps_35
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1154
-        width: 26
-        height: 26
+        x: 0
+        y: 1152
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1631,12 +1631,12 @@ TextureImporter:
       name: items-palette-swaps_36
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1159
-        width: 19
-        height: 19
+        x: 32
+        y: 1152
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1653,12 +1653,12 @@ TextureImporter:
       name: items-palette-swaps_37
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1154
-        width: 28
-        height: 28
+        x: 64
+        y: 1152
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1675,12 +1675,12 @@ TextureImporter:
       name: items-palette-swaps_38
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1130
-        width: 18
-        height: 15
+        x: 0
+        y: 1120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1697,12 +1697,12 @@ TextureImporter:
       name: items-palette-swaps_39
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1130
-        width: 19
-        height: 15
+        x: 32
+        y: 1120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1719,12 +1719,12 @@ TextureImporter:
       name: items-palette-swaps_40
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1124
-        width: 23
-        height: 21
+        x: 64
+        y: 1120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1741,12 +1741,12 @@ TextureImporter:
       name: items-palette-swaps_41
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1095
-        width: 13
-        height: 14
+        x: 0
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1763,12 +1763,12 @@ TextureImporter:
       name: items-palette-swaps_42
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1094
-        width: 18
-        height: 19
+        x: 32
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1785,12 +1785,12 @@ TextureImporter:
       name: items-palette-swaps_43
       rect:
         serializedVersion: 2
-        x: 68
-        y: 1092
-        width: 21
-        height: 21
+        x: 64
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1807,12 +1807,12 @@ TextureImporter:
       name: items-palette-swaps_44
       rect:
         serializedVersion: 2
-        x: 101
-        y: 1091
-        width: 24
-        height: 24
+        x: 96
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1829,12 +1829,12 @@ TextureImporter:
       name: items-palette-swaps_45
       rect:
         serializedVersion: 2
-        x: 131
-        y: 1091
-        width: 26
-        height: 26
+        x: 128
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1856,7 +1856,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1873,12 +1873,12 @@ TextureImporter:
       name: items-palette-swaps_47
       rect:
         serializedVersion: 2
-        x: 201
-        y: 1094
-        width: 17
-        height: 17
+        x: 192
+        y: 1088
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1895,12 +1895,12 @@ TextureImporter:
       name: items-palette-swaps_48
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1062
-        width: 18
-        height: 19
+        x: 0
+        y: 1056
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1917,12 +1917,12 @@ TextureImporter:
       name: items-palette-swaps_49
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1059
-        width: 25
-        height: 25
+        x: 32
+        y: 1056
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1939,12 +1939,12 @@ TextureImporter:
       name: items-palette-swaps_50
       rect:
         serializedVersion: 2
-        x: 69
-        y: 1059
-        width: 24
-        height: 25
+        x: 64
+        y: 1056
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1961,12 +1961,12 @@ TextureImporter:
       name: items-palette-swaps_51
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1058
-        width: 27
-        height: 28
+        x: 96
+        y: 1056
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1983,12 +1983,12 @@ TextureImporter:
       name: items-palette-swaps_52
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 1056
-        width: 27
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2005,12 +2005,12 @@ TextureImporter:
       name: items-palette-swaps_53
       rect:
         serializedVersion: 2
-        x: 162
+        x: 160
         y: 1056
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2027,12 +2027,12 @@ TextureImporter:
       name: items-palette-swaps_54
       rect:
         serializedVersion: 2
-        x: 194
+        x: 192
         y: 1056
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2049,12 +2049,12 @@ TextureImporter:
       name: items-palette-swaps_55
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1030
-        width: 18
-        height: 18
+        x: 0
+        y: 1024
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2071,12 +2071,12 @@ TextureImporter:
       name: items-palette-swaps_56
       rect:
         serializedVersion: 2
-        x: 40
-        y: 1030
-        width: 16
-        height: 23
+        x: 32
+        y: 1024
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2093,12 +2093,12 @@ TextureImporter:
       name: items-palette-swaps_57
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1026
-        width: 19
-        height: 29
+        x: 64
+        y: 1024
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2115,12 +2115,12 @@ TextureImporter:
       name: items-palette-swaps_58
       rect:
         serializedVersion: 2
-        x: 103
-        y: 1025
-        width: 22
-        height: 30
+        x: 96
+        y: 1024
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2137,12 +2137,12 @@ TextureImporter:
       name: items-palette-swaps_59
       rect:
         serializedVersion: 2
-        x: 132
-        y: 1027
-        width: 22
-        height: 15
+        x: 128
+        y: 1024
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2159,12 +2159,12 @@ TextureImporter:
       name: items-palette-swaps_60
       rect:
         serializedVersion: 2
-        x: 5
-        y: 999
-        width: 20
-        height: 17
+        x: 0
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2181,12 +2181,12 @@ TextureImporter:
       name: items-palette-swaps_61
       rect:
         serializedVersion: 2
-        x: 35
-        y: 996
-        width: 25
-        height: 25
+        x: 32
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2204,11 +2204,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 994
-        width: 31
-        height: 29
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2226,11 +2226,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 993
+        y: 992
         width: 32
-        height: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2247,12 +2247,12 @@ TextureImporter:
       name: items-palette-swaps_64
       rect:
         serializedVersion: 2
-        x: 131
-        y: 996
-        width: 28
-        height: 23
+        x: 128
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2269,12 +2269,12 @@ TextureImporter:
       name: items-palette-swaps_65
       rect:
         serializedVersion: 2
-        x: 167
-        y: 1000
-        width: 17
-        height: 14
+        x: 160
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2291,12 +2291,12 @@ TextureImporter:
       name: items-palette-swaps_66
       rect:
         serializedVersion: 2
-        x: 197
-        y: 998
-        width: 21
-        height: 19
+        x: 192
+        y: 992
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2313,12 +2313,12 @@ TextureImporter:
       name: items-palette-swaps_67
       rect:
         serializedVersion: 2
-        x: 7
-        y: 966
-        width: 19
-        height: 20
+        x: 0
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2335,12 +2335,12 @@ TextureImporter:
       name: items-palette-swaps_68
       rect:
         serializedVersion: 2
-        x: 34
-        y: 964
-        width: 27
-        height: 25
+        x: 32
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2357,12 +2357,12 @@ TextureImporter:
       name: items-palette-swaps_69
       rect:
         serializedVersion: 2
-        x: 66
-        y: 962
-        width: 29
-        height: 28
+        x: 64
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2379,12 +2379,12 @@ TextureImporter:
       name: items-palette-swaps_70
       rect:
         serializedVersion: 2
-        x: 102
-        y: 966
-        width: 20
-        height: 20
+        x: 96
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2401,12 +2401,12 @@ TextureImporter:
       name: items-palette-swaps_71
       rect:
         serializedVersion: 2
-        x: 129
-        y: 963
-        width: 29
-        height: 27
+        x: 128
+        y: 960
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2423,12 +2423,12 @@ TextureImporter:
       name: items-palette-swaps_72
       rect:
         serializedVersion: 2
-        x: 8
-        y: 934
-        width: 19
-        height: 19
+        x: 0
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2445,12 +2445,12 @@ TextureImporter:
       name: items-palette-swaps_73
       rect:
         serializedVersion: 2
-        x: 39
-        y: 933
-        width: 20
-        height: 20
+        x: 32
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2467,12 +2467,12 @@ TextureImporter:
       name: items-palette-swaps_74
       rect:
         serializedVersion: 2
-        x: 65
-        y: 929
-        width: 31
-        height: 31
+        x: 64
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2489,12 +2489,12 @@ TextureImporter:
       name: items-palette-swaps_75
       rect:
         serializedVersion: 2
-        x: 100
-        y: 930
-        width: 24
-        height: 24
+        x: 96
+        y: 928
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2511,12 +2511,12 @@ TextureImporter:
       name: items-palette-swaps_76
       rect:
         serializedVersion: 2
-        x: 4
-        y: 898
-        width: 26
-        height: 26
+        x: 0
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2533,12 +2533,12 @@ TextureImporter:
       name: items-palette-swaps_77
       rect:
         serializedVersion: 2
-        x: 38
-        y: 903
-        width: 19
-        height: 19
+        x: 32
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2555,12 +2555,12 @@ TextureImporter:
       name: items-palette-swaps_78
       rect:
         serializedVersion: 2
-        x: 66
-        y: 898
-        width: 28
-        height: 28
+        x: 64
+        y: 896
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2577,12 +2577,12 @@ TextureImporter:
       name: items-palette-swaps_79
       rect:
         serializedVersion: 2
-        x: 7
-        y: 874
-        width: 18
-        height: 15
+        x: 0
+        y: 864
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2599,12 +2599,12 @@ TextureImporter:
       name: items-palette-swaps_80
       rect:
         serializedVersion: 2
-        x: 38
-        y: 874
-        width: 19
-        height: 15
+        x: 32
+        y: 864
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2621,12 +2621,12 @@ TextureImporter:
       name: items-palette-swaps_81
       rect:
         serializedVersion: 2
-        x: 72
-        y: 868
-        width: 23
-        height: 21
+        x: 64
+        y: 864
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2643,12 +2643,12 @@ TextureImporter:
       name: items-palette-swaps_82
       rect:
         serializedVersion: 2
-        x: 11
-        y: 839
-        width: 13
-        height: 14
+        x: 0
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2665,12 +2665,12 @@ TextureImporter:
       name: items-palette-swaps_83
       rect:
         serializedVersion: 2
-        x: 39
-        y: 838
-        width: 18
-        height: 19
+        x: 32
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2687,12 +2687,12 @@ TextureImporter:
       name: items-palette-swaps_84
       rect:
         serializedVersion: 2
-        x: 68
-        y: 836
-        width: 21
-        height: 21
+        x: 64
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2709,12 +2709,12 @@ TextureImporter:
       name: items-palette-swaps_85
       rect:
         serializedVersion: 2
-        x: 101
-        y: 835
-        width: 24
-        height: 24
+        x: 96
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2731,12 +2731,12 @@ TextureImporter:
       name: items-palette-swaps_86
       rect:
         serializedVersion: 2
-        x: 131
-        y: 835
-        width: 26
-        height: 26
+        x: 128
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2758,7 +2758,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2775,12 +2775,12 @@ TextureImporter:
       name: items-palette-swaps_88
       rect:
         serializedVersion: 2
-        x: 201
-        y: 838
-        width: 17
-        height: 17
+        x: 192
+        y: 832
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2797,12 +2797,12 @@ TextureImporter:
       name: items-palette-swaps_89
       rect:
         serializedVersion: 2
-        x: 7
-        y: 806
-        width: 18
-        height: 19
+        x: 0
+        y: 800
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2819,12 +2819,12 @@ TextureImporter:
       name: items-palette-swaps_90
       rect:
         serializedVersion: 2
-        x: 36
-        y: 803
-        width: 25
-        height: 25
+        x: 32
+        y: 800
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2841,12 +2841,12 @@ TextureImporter:
       name: items-palette-swaps_91
       rect:
         serializedVersion: 2
-        x: 69
-        y: 803
-        width: 24
-        height: 25
+        x: 64
+        y: 800
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2863,12 +2863,12 @@ TextureImporter:
       name: items-palette-swaps_92
       rect:
         serializedVersion: 2
-        x: 99
-        y: 802
-        width: 27
-        height: 28
+        x: 96
+        y: 800
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2885,12 +2885,12 @@ TextureImporter:
       name: items-palette-swaps_93
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 800
-        width: 27
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2907,12 +2907,12 @@ TextureImporter:
       name: items-palette-swaps_94
       rect:
         serializedVersion: 2
-        x: 162
+        x: 160
         y: 800
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2929,12 +2929,12 @@ TextureImporter:
       name: items-palette-swaps_95
       rect:
         serializedVersion: 2
-        x: 194
+        x: 192
         y: 800
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2951,12 +2951,12 @@ TextureImporter:
       name: items-palette-swaps_96
       rect:
         serializedVersion: 2
-        x: 7
-        y: 774
-        width: 18
-        height: 18
+        x: 0
+        y: 768
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2973,12 +2973,12 @@ TextureImporter:
       name: items-palette-swaps_97
       rect:
         serializedVersion: 2
-        x: 40
-        y: 774
-        width: 16
-        height: 23
+        x: 32
+        y: 768
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2995,12 +2995,12 @@ TextureImporter:
       name: items-palette-swaps_98
       rect:
         serializedVersion: 2
-        x: 72
-        y: 770
-        width: 19
-        height: 29
+        x: 64
+        y: 768
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3017,12 +3017,12 @@ TextureImporter:
       name: items-palette-swaps_99
       rect:
         serializedVersion: 2
-        x: 103
-        y: 769
-        width: 22
-        height: 30
+        x: 96
+        y: 768
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3039,12 +3039,12 @@ TextureImporter:
       name: items-palette-swaps_100
       rect:
         serializedVersion: 2
-        x: 132
-        y: 771
-        width: 22
-        height: 15
+        x: 128
+        y: 768
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3061,12 +3061,12 @@ TextureImporter:
       name: items-palette-swaps_101
       rect:
         serializedVersion: 2
-        x: 5
-        y: 743
-        width: 20
-        height: 17
+        x: 0
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3083,12 +3083,12 @@ TextureImporter:
       name: items-palette-swaps_102
       rect:
         serializedVersion: 2
-        x: 35
-        y: 740
-        width: 25
-        height: 25
+        x: 32
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3106,11 +3106,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 738
-        width: 31
-        height: 29
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3128,11 +3128,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 737
+        y: 736
         width: 32
-        height: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3149,12 +3149,12 @@ TextureImporter:
       name: items-palette-swaps_105
       rect:
         serializedVersion: 2
-        x: 131
-        y: 740
-        width: 28
-        height: 23
+        x: 128
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3171,12 +3171,12 @@ TextureImporter:
       name: items-palette-swaps_106
       rect:
         serializedVersion: 2
-        x: 167
-        y: 744
-        width: 17
-        height: 14
+        x: 160
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3193,12 +3193,12 @@ TextureImporter:
       name: items-palette-swaps_107
       rect:
         serializedVersion: 2
-        x: 197
-        y: 742
-        width: 21
-        height: 19
+        x: 192
+        y: 736
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3215,12 +3215,12 @@ TextureImporter:
       name: items-palette-swaps_108
       rect:
         serializedVersion: 2
-        x: 7
-        y: 710
-        width: 19
-        height: 20
+        x: 0
+        y: 704
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3237,12 +3237,12 @@ TextureImporter:
       name: items-palette-swaps_109
       rect:
         serializedVersion: 2
-        x: 34
-        y: 708
-        width: 27
-        height: 25
+        x: 32
+        y: 704
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3259,12 +3259,12 @@ TextureImporter:
       name: items-palette-swaps_110
       rect:
         serializedVersion: 2
-        x: 66
-        y: 706
-        width: 29
-        height: 28
+        x: 64
+        y: 704
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3281,12 +3281,12 @@ TextureImporter:
       name: items-palette-swaps_111
       rect:
         serializedVersion: 2
-        x: 102
-        y: 710
-        width: 20
-        height: 20
+        x: 96
+        y: 704
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3303,12 +3303,12 @@ TextureImporter:
       name: items-palette-swaps_112
       rect:
         serializedVersion: 2
-        x: 129
-        y: 707
-        width: 29
-        height: 27
+        x: 128
+        y: 704
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3325,12 +3325,12 @@ TextureImporter:
       name: items-palette-swaps_113
       rect:
         serializedVersion: 2
-        x: 8
-        y: 678
-        width: 19
-        height: 19
+        x: 0
+        y: 672
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3347,12 +3347,12 @@ TextureImporter:
       name: items-palette-swaps_114
       rect:
         serializedVersion: 2
-        x: 39
-        y: 677
-        width: 20
-        height: 20
+        x: 32
+        y: 672
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3369,12 +3369,12 @@ TextureImporter:
       name: items-palette-swaps_115
       rect:
         serializedVersion: 2
-        x: 65
-        y: 673
-        width: 31
-        height: 31
+        x: 64
+        y: 672
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3391,12 +3391,12 @@ TextureImporter:
       name: items-palette-swaps_116
       rect:
         serializedVersion: 2
-        x: 100
-        y: 674
-        width: 24
-        height: 24
+        x: 96
+        y: 672
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3413,12 +3413,12 @@ TextureImporter:
       name: items-palette-swaps_117
       rect:
         serializedVersion: 2
-        x: 4
-        y: 642
-        width: 26
-        height: 26
+        x: 0
+        y: 640
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3435,12 +3435,12 @@ TextureImporter:
       name: items-palette-swaps_118
       rect:
         serializedVersion: 2
-        x: 38
-        y: 647
-        width: 19
-        height: 19
+        x: 32
+        y: 640
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3457,12 +3457,12 @@ TextureImporter:
       name: items-palette-swaps_119
       rect:
         serializedVersion: 2
-        x: 66
-        y: 642
-        width: 28
-        height: 28
+        x: 64
+        y: 640
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3479,12 +3479,12 @@ TextureImporter:
       name: items-palette-swaps_120
       rect:
         serializedVersion: 2
-        x: 7
-        y: 618
-        width: 18
-        height: 15
+        x: 0
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3501,12 +3501,12 @@ TextureImporter:
       name: items-palette-swaps_121
       rect:
         serializedVersion: 2
-        x: 38
-        y: 618
-        width: 19
-        height: 15
+        x: 32
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3523,12 +3523,12 @@ TextureImporter:
       name: items-palette-swaps_122
       rect:
         serializedVersion: 2
-        x: 72
-        y: 612
-        width: 23
-        height: 21
+        x: 64
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3545,12 +3545,12 @@ TextureImporter:
       name: items-palette-swaps_123
       rect:
         serializedVersion: 2
-        x: 11
-        y: 583
-        width: 13
-        height: 14
+        x: 0
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3567,12 +3567,12 @@ TextureImporter:
       name: items-palette-swaps_124
       rect:
         serializedVersion: 2
-        x: 39
-        y: 582
-        width: 18
-        height: 19
+        x: 32
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3589,12 +3589,12 @@ TextureImporter:
       name: items-palette-swaps_125
       rect:
         serializedVersion: 2
-        x: 68
-        y: 580
-        width: 21
-        height: 21
+        x: 64
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3611,12 +3611,12 @@ TextureImporter:
       name: items-palette-swaps_126
       rect:
         serializedVersion: 2
-        x: 101
-        y: 579
-        width: 24
-        height: 24
+        x: 96
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3633,12 +3633,12 @@ TextureImporter:
       name: items-palette-swaps_127
       rect:
         serializedVersion: 2
-        x: 131
-        y: 579
-        width: 26
-        height: 26
+        x: 128
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3660,7 +3660,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3677,12 +3677,12 @@ TextureImporter:
       name: items-palette-swaps_129
       rect:
         serializedVersion: 2
-        x: 201
-        y: 582
-        width: 17
-        height: 17
+        x: 192
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3699,12 +3699,12 @@ TextureImporter:
       name: items-palette-swaps_130
       rect:
         serializedVersion: 2
-        x: 7
-        y: 550
-        width: 18
-        height: 19
+        x: 0
+        y: 544
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3721,12 +3721,12 @@ TextureImporter:
       name: items-palette-swaps_131
       rect:
         serializedVersion: 2
-        x: 36
-        y: 547
-        width: 25
-        height: 25
+        x: 32
+        y: 544
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3743,12 +3743,12 @@ TextureImporter:
       name: items-palette-swaps_132
       rect:
         serializedVersion: 2
-        x: 69
-        y: 547
-        width: 24
-        height: 25
+        x: 64
+        y: 544
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3765,12 +3765,12 @@ TextureImporter:
       name: items-palette-swaps_133
       rect:
         serializedVersion: 2
-        x: 99
-        y: 546
-        width: 27
-        height: 28
+        x: 96
+        y: 544
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3787,12 +3787,12 @@ TextureImporter:
       name: items-palette-swaps_134
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 544
-        width: 27
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3809,12 +3809,12 @@ TextureImporter:
       name: items-palette-swaps_135
       rect:
         serializedVersion: 2
-        x: 162
+        x: 160
         y: 544
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3831,12 +3831,12 @@ TextureImporter:
       name: items-palette-swaps_136
       rect:
         serializedVersion: 2
-        x: 194
+        x: 192
         y: 544
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3853,12 +3853,12 @@ TextureImporter:
       name: items-palette-swaps_137
       rect:
         serializedVersion: 2
-        x: 7
-        y: 518
-        width: 18
-        height: 18
+        x: 0
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3875,12 +3875,12 @@ TextureImporter:
       name: items-palette-swaps_138
       rect:
         serializedVersion: 2
-        x: 40
-        y: 518
-        width: 16
-        height: 23
+        x: 32
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3897,12 +3897,12 @@ TextureImporter:
       name: items-palette-swaps_139
       rect:
         serializedVersion: 2
-        x: 72
-        y: 514
-        width: 19
-        height: 29
+        x: 64
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3919,12 +3919,12 @@ TextureImporter:
       name: items-palette-swaps_140
       rect:
         serializedVersion: 2
-        x: 103
-        y: 513
-        width: 22
-        height: 30
+        x: 96
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3941,12 +3941,12 @@ TextureImporter:
       name: items-palette-swaps_141
       rect:
         serializedVersion: 2
-        x: 132
-        y: 515
-        width: 22
-        height: 15
+        x: 128
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3963,12 +3963,12 @@ TextureImporter:
       name: items-palette-swaps_142
       rect:
         serializedVersion: 2
-        x: 5
-        y: 487
-        width: 20
-        height: 17
+        x: 0
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3985,12 +3985,12 @@ TextureImporter:
       name: items-palette-swaps_143
       rect:
         serializedVersion: 2
-        x: 35
-        y: 484
-        width: 25
-        height: 25
+        x: 32
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4008,11 +4008,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 482
-        width: 31
-        height: 29
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4030,11 +4030,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 481
+        y: 480
         width: 32
-        height: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4051,12 +4051,12 @@ TextureImporter:
       name: items-palette-swaps_146
       rect:
         serializedVersion: 2
-        x: 131
-        y: 484
-        width: 28
-        height: 23
+        x: 128
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4073,12 +4073,12 @@ TextureImporter:
       name: items-palette-swaps_147
       rect:
         serializedVersion: 2
-        x: 167
-        y: 488
-        width: 17
-        height: 14
+        x: 160
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4095,12 +4095,12 @@ TextureImporter:
       name: items-palette-swaps_148
       rect:
         serializedVersion: 2
-        x: 197
-        y: 486
-        width: 21
-        height: 19
+        x: 192
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4117,12 +4117,12 @@ TextureImporter:
       name: items-palette-swaps_149
       rect:
         serializedVersion: 2
-        x: 7
-        y: 454
-        width: 19
-        height: 20
+        x: 0
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4139,12 +4139,12 @@ TextureImporter:
       name: items-palette-swaps_150
       rect:
         serializedVersion: 2
-        x: 34
-        y: 452
-        width: 27
-        height: 25
+        x: 32
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4161,12 +4161,12 @@ TextureImporter:
       name: items-palette-swaps_151
       rect:
         serializedVersion: 2
-        x: 66
-        y: 450
-        width: 29
-        height: 28
+        x: 64
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4183,12 +4183,12 @@ TextureImporter:
       name: items-palette-swaps_152
       rect:
         serializedVersion: 2
-        x: 102
-        y: 454
-        width: 20
-        height: 20
+        x: 96
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4205,12 +4205,12 @@ TextureImporter:
       name: items-palette-swaps_153
       rect:
         serializedVersion: 2
-        x: 129
-        y: 451
-        width: 29
-        height: 27
+        x: 128
+        y: 448
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4227,12 +4227,12 @@ TextureImporter:
       name: items-palette-swaps_154
       rect:
         serializedVersion: 2
-        x: 8
-        y: 422
-        width: 19
-        height: 19
+        x: 0
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4249,12 +4249,12 @@ TextureImporter:
       name: items-palette-swaps_155
       rect:
         serializedVersion: 2
-        x: 39
-        y: 421
-        width: 20
-        height: 20
+        x: 32
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4271,12 +4271,12 @@ TextureImporter:
       name: items-palette-swaps_156
       rect:
         serializedVersion: 2
-        x: 65
-        y: 417
-        width: 31
-        height: 31
+        x: 64
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4293,12 +4293,12 @@ TextureImporter:
       name: items-palette-swaps_157
       rect:
         serializedVersion: 2
-        x: 100
-        y: 418
-        width: 24
-        height: 24
+        x: 96
+        y: 416
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4315,12 +4315,12 @@ TextureImporter:
       name: items-palette-swaps_158
       rect:
         serializedVersion: 2
-        x: 4
-        y: 386
-        width: 26
-        height: 26
+        x: 0
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4337,12 +4337,12 @@ TextureImporter:
       name: items-palette-swaps_159
       rect:
         serializedVersion: 2
-        x: 38
-        y: 391
-        width: 19
-        height: 19
+        x: 32
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4359,12 +4359,12 @@ TextureImporter:
       name: items-palette-swaps_160
       rect:
         serializedVersion: 2
-        x: 66
-        y: 386
-        width: 28
-        height: 28
+        x: 64
+        y: 384
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4381,12 +4381,12 @@ TextureImporter:
       name: items-palette-swaps_161
       rect:
         serializedVersion: 2
-        x: 7
-        y: 362
-        width: 18
-        height: 15
+        x: 0
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4403,12 +4403,12 @@ TextureImporter:
       name: items-palette-swaps_162
       rect:
         serializedVersion: 2
-        x: 38
-        y: 362
-        width: 19
-        height: 15
+        x: 32
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4425,12 +4425,12 @@ TextureImporter:
       name: items-palette-swaps_163
       rect:
         serializedVersion: 2
-        x: 72
-        y: 356
-        width: 23
-        height: 21
+        x: 64
+        y: 352
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4447,12 +4447,12 @@ TextureImporter:
       name: items-palette-swaps_164
       rect:
         serializedVersion: 2
-        x: 8
-        y: 328
-        width: 16
-        height: 16
+        x: 0
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4469,12 +4469,12 @@ TextureImporter:
       name: items-palette-swaps_165
       rect:
         serializedVersion: 2
-        x: 38
-        y: 330
-        width: 16
-        height: 16
+        x: 32
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4491,12 +4491,12 @@ TextureImporter:
       name: items-palette-swaps_166
       rect:
         serializedVersion: 2
-        x: 39
-        y: 323
-        width: 16
-        height: 16
+        x: 64
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4513,12 +4513,12 @@ TextureImporter:
       name: items-palette-swaps_167
       rect:
         serializedVersion: 2
-        x: 45
-        y: 329
-        width: 16
-        height: 16
+        x: 96
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4535,12 +4535,12 @@ TextureImporter:
       name: items-palette-swaps_168
       rect:
         serializedVersion: 2
-        x: 74
-        y: 327
-        width: 13
-        height: 13
+        x: 128
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4557,12 +4557,12 @@ TextureImporter:
       name: items-palette-swaps_169
       rect:
         serializedVersion: 2
-        x: 103
-        y: 325
-        width: 13
-        height: 13
+        x: 160
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4579,12 +4579,12 @@ TextureImporter:
       name: items-palette-swaps_170
       rect:
         serializedVersion: 2
-        x: 104
-        y: 331
-        width: 13
-        height: 13
+        x: 192
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4601,12 +4601,12 @@ TextureImporter:
       name: items-palette-swaps_171
       rect:
         serializedVersion: 2
-        x: 111
-        y: 330
-        width: 13
-        height: 13
+        x: 224
+        y: 320
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4623,12 +4623,12 @@ TextureImporter:
       name: items-palette-swaps_172
       rect:
         serializedVersion: 2
-        x: 136
-        y: 328
-        width: 16
-        height: 16
+        x: 0
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4645,12 +4645,12 @@ TextureImporter:
       name: items-palette-swaps_173
       rect:
         serializedVersion: 2
-        x: 166
-        y: 330
-        width: 16
-        height: 16
+        x: 32
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4667,12 +4667,12 @@ TextureImporter:
       name: items-palette-swaps_174
       rect:
         serializedVersion: 2
-        x: 167
-        y: 323
-        width: 16
-        height: 16
+        x: 64
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4689,12 +4689,12 @@ TextureImporter:
       name: items-palette-swaps_175
       rect:
         serializedVersion: 2
-        x: 173
-        y: 329
-        width: 16
-        height: 16
+        x: 96
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4711,12 +4711,12 @@ TextureImporter:
       name: items-palette-swaps_176
       rect:
         serializedVersion: 2
-        x: 202
-        y: 327
-        width: 13
-        height: 13
+        x: 128
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4733,12 +4733,12 @@ TextureImporter:
       name: items-palette-swaps_177
       rect:
         serializedVersion: 2
-        x: 231
-        y: 325
-        width: 13
-        height: 13
+        x: 0
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4755,12 +4755,12 @@ TextureImporter:
       name: items-palette-swaps_178
       rect:
         serializedVersion: 2
-        x: 232
-        y: 331
-        width: 13
-        height: 13
+        x: 32
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4777,12 +4777,12 @@ TextureImporter:
       name: items-palette-swaps_179
       rect:
         serializedVersion: 2
-        x: 239
-        y: 330
-        width: 13
-        height: 13
+        x: 64
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4799,12 +4799,12 @@ TextureImporter:
       name: items-palette-swaps_180
       rect:
         serializedVersion: 2
-        x: 8
-        y: 299
-        width: 16
-        height: 9
+        x: 96
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4821,12 +4821,12 @@ TextureImporter:
       name: items-palette-swaps_181
       rect:
         serializedVersion: 2
-        x: 43
-        y: 299
-        width: 12
-        height: 12
+        x: 128
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4843,12 +4843,12 @@ TextureImporter:
       name: items-palette-swaps_182
       rect:
         serializedVersion: 2
-        x: 70
-        y: 296
-        width: 19
-        height: 19
+        x: 160
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4865,12 +4865,12 @@ TextureImporter:
       name: items-palette-swaps_183
       rect:
         serializedVersion: 2
-        x: 101
-        y: 294
-        width: 25
-        height: 25
+        x: 192
+        y: 256
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4887,12 +4887,12 @@ TextureImporter:
       name: items-palette-swaps_184
       rect:
         serializedVersion: 2
-        x: 129
-        y: 299
-        width: 29
-        height: 10
+        x: 0
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4909,12 +4909,12 @@ TextureImporter:
       name: items-palette-swaps_185
       rect:
         serializedVersion: 2
-        x: 7
-        y: 262
-        width: 19
-        height: 19
+        x: 32
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4931,12 +4931,12 @@ TextureImporter:
       name: items-palette-swaps_186
       rect:
         serializedVersion: 2
-        x: 39
-        y: 259
-        width: 18
-        height: 24
+        x: 64
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4953,12 +4953,12 @@ TextureImporter:
       name: items-palette-swaps_187
       rect:
         serializedVersion: 2
-        x: 70
-        y: 259
-        width: 20
-        height: 22
+        x: 96
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4975,12 +4975,12 @@ TextureImporter:
       name: items-palette-swaps_188
       rect:
         serializedVersion: 2
-        x: 103
-        y: 259
-        width: 17
-        height: 28
+        x: 128
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4997,12 +4997,12 @@ TextureImporter:
       name: items-palette-swaps_189
       rect:
         serializedVersion: 2
-        x: 134
-        y: 261
-        width: 21
-        height: 21
+        x: 160
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5019,12 +5019,12 @@ TextureImporter:
       name: items-palette-swaps_190
       rect:
         serializedVersion: 2
-        x: 167
-        y: 263
-        width: 17
-        height: 17
+        x: 0
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5041,12 +5041,12 @@ TextureImporter:
       name: items-palette-swaps_191
       rect:
         serializedVersion: 2
-        x: 199
-        y: 256
-        width: 19
-        height: 31
+        x: 32
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5063,12 +5063,12 @@ TextureImporter:
       name: items-palette-swaps_192
       rect:
         serializedVersion: 2
-        x: 3
-        y: 229
-        width: 29
-        height: 24
+        x: 64
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5085,12 +5085,12 @@ TextureImporter:
       name: items-palette-swaps_193
       rect:
         serializedVersion: 2
-        x: 34
-        y: 229
-        width: 28
-        height: 23
+        x: 160
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5107,12 +5107,12 @@ TextureImporter:
       name: items-palette-swaps_194
       rect:
         serializedVersion: 2
-        x: 67
-        y: 226
-        width: 27
-        height: 27
+        x: 0
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5129,12 +5129,12 @@ TextureImporter:
       name: items-palette-swaps_195
       rect:
         serializedVersion: 2
-        x: 98
-        y: 224
-        width: 28
-        height: 29
+        x: 32
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5151,12 +5151,12 @@ TextureImporter:
       name: items-palette-swaps_196
       rect:
         serializedVersion: 2
-        x: 129
-        y: 227
-        width: 30
-        height: 26
+        x: 64
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5173,12 +5173,12 @@ TextureImporter:
       name: items-palette-swaps_197
       rect:
         serializedVersion: 2
-        x: 162
-        y: 228
-        width: 28
-        height: 25
+        x: 160
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5195,12 +5195,12 @@ TextureImporter:
       name: items-palette-swaps_198
       rect:
         serializedVersion: 2
-        x: 8
-        y: 199
-        width: 13
-        height: 9
+        x: 0
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5217,12 +5217,12 @@ TextureImporter:
       name: items-palette-swaps_199
       rect:
         serializedVersion: 2
-        x: 11
-        y: 206
-        width: 13
-        height: 9
+        x: 32
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5239,12 +5239,12 @@ TextureImporter:
       name: items-palette-swaps_200
       rect:
         serializedVersion: 2
-        x: 36
-        y: 198
-        width: 20
-        height: 10
+        x: 64
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5261,12 +5261,12 @@ TextureImporter:
       name: items-palette-swaps_201
       rect:
         serializedVersion: 2
-        x: 39
-        y: 206
-        width: 20
-        height: 10
+        x: 96
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5283,12 +5283,12 @@ TextureImporter:
       name: items-palette-swaps_202
       rect:
         serializedVersion: 2
-        x: 66
-        y: 198
-        width: 26
-        height: 10
+        x: 128
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5305,12 +5305,12 @@ TextureImporter:
       name: items-palette-swaps_203
       rect:
         serializedVersion: 2
-        x: 68
-        y: 206
-        width: 27
-        height: 10
+        x: 160
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5327,12 +5327,12 @@ TextureImporter:
       name: items-palette-swaps_204
       rect:
         serializedVersion: 2
-        x: 165
-        y: 206
-        width: 25
-        height: 10
+        x: 192
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5349,12 +5349,12 @@ TextureImporter:
       name: items-palette-swaps_205
       rect:
         serializedVersion: 2
-        x: 162
-        y: 195
-        width: 26
-        height: 10
+        x: 224
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5371,12 +5371,12 @@ TextureImporter:
       name: items-palette-swaps_206
       rect:
         serializedVersion: 2
-        x: 4
-        y: 167
-        width: 11
-        height: 10
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5393,12 +5393,12 @@ TextureImporter:
       name: items-palette-swaps_207
       rect:
         serializedVersion: 2
-        x: 14
-        y: 165
-        width: 11
-        height: 10
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5415,12 +5415,12 @@ TextureImporter:
       name: items-palette-swaps_208
       rect:
         serializedVersion: 2
-        x: 36
-        y: 167
-        width: 12
-        height: 16
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5437,12 +5437,12 @@ TextureImporter:
       name: items-palette-swaps_209
       rect:
         serializedVersion: 2
-        x: 46
-        y: 165
-        width: 12
-        height: 16
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5459,12 +5459,12 @@ TextureImporter:
       name: items-palette-swaps_210
       rect:
         serializedVersion: 2
-        x: 69
-        y: 168
-        width: 13
-        height: 19
+        x: 128
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5481,12 +5481,12 @@ TextureImporter:
       name: items-palette-swaps_211
       rect:
         serializedVersion: 2
-        x: 78
-        y: 165
-        width: 13
-        height: 19
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5503,12 +5503,12 @@ TextureImporter:
       name: items-palette-swaps_212
       rect:
         serializedVersion: 2
-        x: 164
-        y: 165
-        width: 13
-        height: 23
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5525,12 +5525,12 @@ TextureImporter:
       name: items-palette-swaps_213
       rect:
         serializedVersion: 2
-        x: 175
-        y: 164
-        width: 11
-        height: 23
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5547,12 +5547,12 @@ TextureImporter:
       name: items-palette-swaps_214
       rect:
         serializedVersion: 2
-        x: 8
-        y: 132
-        width: 18
-        height: 22
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5569,12 +5569,12 @@ TextureImporter:
       name: items-palette-swaps_215
       rect:
         serializedVersion: 2
-        x: 42
-        y: 133
-        width: 14
-        height: 20
+        x: 128
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5591,12 +5591,12 @@ TextureImporter:
       name: items-palette-swaps_216
       rect:
         serializedVersion: 2
-        x: 67
-        y: 137
-        width: 26
-        height: 16
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5613,12 +5613,12 @@ TextureImporter:
       name: items-palette-swaps_217
       rect:
         serializedVersion: 2
-        x: 105
-        y: 133
-        width: 17
-        height: 21
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5635,12 +5635,12 @@ TextureImporter:
       name: items-palette-swaps_218
       rect:
         serializedVersion: 2
-        x: 139
-        y: 133
-        width: 14
-        height: 20
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5657,12 +5657,12 @@ TextureImporter:
       name: items-palette-swaps_219
       rect:
         serializedVersion: 2
-        x: 168
-        y: 132
-        width: 19
-        height: 22
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5679,12 +5679,12 @@ TextureImporter:
       name: items-palette-swaps_220
       rect:
         serializedVersion: 2
-        x: 200
-        y: 132
-        width: 15
-        height: 21
+        x: 128
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5701,12 +5701,12 @@ TextureImporter:
       name: items-palette-swaps_221
       rect:
         serializedVersion: 2
-        x: 231
-        y: 134
-        width: 16
-        height: 19
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5723,12 +5723,12 @@ TextureImporter:
       name: items-palette-swaps_222
       rect:
         serializedVersion: 2
-        x: 9
-        y: 102
-        width: 17
-        height: 17
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5745,12 +5745,12 @@ TextureImporter:
       name: items-palette-swaps_223
       rect:
         serializedVersion: 2
-        x: 43
-        y: 103
-        width: 15
-        height: 16
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5767,12 +5767,12 @@ TextureImporter:
       name: items-palette-swaps_224
       rect:
         serializedVersion: 2
-        x: 66
-        y: 97
-        width: 29
-        height: 29
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5789,12 +5789,12 @@ TextureImporter:
       name: items-palette-swaps_225
       rect:
         serializedVersion: 2
-        x: 99
-        y: 97
-        width: 26
-        height: 27
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5807,363 +5807,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_226
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 100
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 686e4c7db3242e420800000000000000
-      internalID: 2657759554892523142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_227
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 70
-        width: 17
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ff29800eddfc56b0800000000000000
-      internalID: -5306087131015729163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_228
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 71
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 69f0d2855c317e010800000000000000
-      internalID: 1217963962535841686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_229
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 65
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cfc3da203d4afe610800000000000000
-      internalID: 1652720814458223868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_230
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 65
-        width: 26
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 47c374aadf13ed020800000000000000
-      internalID: 2368385419596741748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_231
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 68
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8aeb94e72a82592c0800000000000000
-      internalID: -4425586380453069144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_232
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 38
-        width: 17
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2dc9b450cecb2bcc0800000000000000
-      internalID: -3696684622230610734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_233
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 39
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af171d1f91bc32d60800000000000000
-      internalID: 7864352686610674170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_234
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 33
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 44ca2c3c63de3a0f0800000000000000
-      internalID: -1106780263934677948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_235
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 33
-        width: 26
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9be160f3b3e79a630800000000000000
-      internalID: 3938818142037745337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_236
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 36
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 438c129bbff4666b0800000000000000
-      internalID: -5303463568620795852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_237
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 6
-        width: 17
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32f1d7602be49c8b0800000000000000
-      internalID: -5131483773891961053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_238
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 7
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d86582e5c09488f00800000000000000
-      internalID: 1119224824869705357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_239
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 1
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0bc6fdd4c46421840800000000000000
-      internalID: 5193290613849550000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_240
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 1
-        width: 26
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6cd9548d03106f80800000000000000
-      internalID: -8115465579745649556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: items-palette-swaps_241
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 4
-        width: 20
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bdd860876bf6a4580800000000000000
-      internalID: -8842132088900121125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3132762fe2ee28b4a849286e5c8c6106
     internalID: 0
     vertices: []
     indices: 
@@ -6171,7 +5819,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       items-palette-swaps_0: -6619492975346507483
       items-palette-swaps_1: 4589782827064144943
@@ -6315,24 +5965,8 @@ TextureImporter:
       items-palette-swaps_223: -5093489349422110545
       items-palette-swaps_224: -116301554113208238
       items-palette-swaps_225: -7103753514480521270
-      items-palette-swaps_226: 2657759554892523142
-      items-palette-swaps_227: -5306087131015729163
-      items-palette-swaps_228: 1217963962535841686
-      items-palette-swaps_229: 1652720814458223868
       items-palette-swaps_23: -445002188124651845
-      items-palette-swaps_230: 2368385419596741748
-      items-palette-swaps_231: -4425586380453069144
-      items-palette-swaps_232: -3696684622230610734
-      items-palette-swaps_233: 7864352686610674170
-      items-palette-swaps_234: -1106780263934677948
-      items-palette-swaps_235: 3938818142037745337
-      items-palette-swaps_236: -5303463568620795852
-      items-palette-swaps_237: -5131483773891961053
-      items-palette-swaps_238: 1119224824869705357
-      items-palette-swaps_239: 5193290613849550000
       items-palette-swaps_24: -7129021121070087271
-      items-palette-swaps_240: -8115465579745649556
-      items-palette-swaps_241: -8842132088900121125
       items-palette-swaps_25: -239231322826098568
       items-palette-swaps_26: 2152374782320564188
       items-palette-swaps_27: 6488347691703966746

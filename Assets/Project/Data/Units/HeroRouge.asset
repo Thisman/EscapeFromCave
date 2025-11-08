@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
-  m_Name: Rouge
+  m_Name: HeroRouge
   m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
   Icon: {fileID: 1024069151341385491, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
   UnitName: Rouge
   Kind: 0
   AttackKind: 0
   DamageType: 2
-  BaseHealth: 60
+  BaseHealth: 150
   BasePhysicalDefense: 0.05
   BaseMagicDefense: 0.1
   BaseAbsoluteDefense: 0.1
-  MinDamage: 30
-  MaxDamage: 40
-  Speed: 3
+  MinDamage: 50
+  MaxDamage: 57
+  Speed: 2
   BaseCritChance: 0.3
   BaseCritMultiplier: 1.4
   BaseMissChance: 0.05
