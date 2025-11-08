@@ -10,14 +10,28 @@ public class HeroCarouselItemView : MonoBehaviour
 
     private void Start()
     {
-        icon.sprite = Definition.Icon;
-        statsInfoViewUI.Render(Definition);
-        RenderAbilities();
+        Render();
+    }
+
+    public void SetDefinition(UnitDefinitionSO definition)
+    {
+        Definition = definition;
+        Render();
     }
 
     public UnitDefinitionSO GetDefinition()
     {
         return Definition;
+    }
+
+    private void Render()
+    {
+        if (Definition == null)
+            return;
+
+        icon.sprite = Definition.Icon;
+        statsInfoViewUI.Render(Definition);
+        RenderAbilities();
     }
 
     private void RenderAbilities()
