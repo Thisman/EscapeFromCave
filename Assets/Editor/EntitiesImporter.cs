@@ -7,8 +7,61 @@ using System.Xml.Linq;
 using UnityEditor;
 using UnityEngine;
 
+public interface IEntitiesSheetImporter
+{
+    string SheetName { get; }
+
+    void Import(EntitiesSheet sheet, EntitiesImporterSettings settings);
+}
+
+public sealed class EntitiesSheet
+{
+    public EntitiesSheet(string name, IReadOnlyList<string> headers, IReadOnlyList<EntitiesSheetRow> rows)
+    {
+        Name = name;
+        Headers = headers;
+        Rows = rows;
+    }
+
+    public string Name { get; }
+
+    public IReadOnlyList<string> Headers { get; }
+
+    public IReadOnlyList<EntitiesSheetRow> Rows { get; }
+}
+
+public sealed class EntitiesSheetRow
+{
+    private readonly Dictionary<string, string> values;
+
+    public EntitiesSheetRow(int rowNumber, Dictionary<string, string> values)
+    {
+        RowNumber = rowNumber;
+        this.values = values;
+    }
+
+    public int RowNumber { get; }
+
+    public IReadOnlyDictionary<string, string> Values => values;
+
+    public bool TryGetValue(string header, out string value)
+    {
+        return values.TryGetValue(header, out value);
+    }
+
+    public string GetValueOrDefault(string header)
+    {
+        return values.TryGetValue(header, out var value) ? value : string.Empty;
+    }
+}
+
 public class EntitiesImporter : EditorWindow
 {
+    private static readonly IEntitiesSheetImporter[] SheetImporters =
+    {
+        new DamageBattleEffectImporter(),
+    };
+
     private EntitiesImporterSettings settings;
 
     [MenuItem("Tools/Entities Importer")]
@@ -62,9 +115,24 @@ public class EntitiesImporter : EditorWindow
 
             try
             {
-                foreach (var sheetInfo in ReadSheets(absolutePath))
+                foreach (var sheet in ReadSheets(absolutePath))
                 {
-                    Debug.Log($"[EntitiesImporter] Sheet '{sheetInfo.Name}' has {sheetInfo.RowCount} rows.");
+                    Debug.Log($"[EntitiesImporter] Sheet '{sheet.Name}' has {sheet.Rows.Count} data rows.");
+
+                    var importer = FindImporterForSheet(sheet.Name);
+                    if (importer == null)
+                    {
+                        continue;
+                    }
+
+                    try
+                    {
+                        importer.Import(sheet, settings);
+                    }
+                    catch (Exception importerException)
+                    {
+                        Debug.LogError($"[EntitiesImporter] Importer '{importer.SheetName}' failed: {importerException.Message}");
+                    }
                 }
             }
             catch (Exception exception)
@@ -74,7 +142,13 @@ public class EntitiesImporter : EditorWindow
         }
     }
 
-    private static IEnumerable<(string Name, int RowCount)> ReadSheets(string xlsxPath)
+    private static IEntitiesSheetImporter FindImporterForSheet(string sheetName)
+    {
+        return SheetImporters.FirstOrDefault(importer =>
+            string.Equals(importer.SheetName, sheetName, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static IEnumerable<EntitiesSheet> ReadSheets(string xlsxPath)
     {
         using var fileStream = File.OpenRead(xlsxPath);
         using var archive = new ZipArchive(fileStream, ZipArchiveMode.Read, leaveOpen: false);
@@ -86,6 +160,7 @@ public class EntitiesImporter : EditorWindow
 
         var sheetDefinitions = LoadSheetDefinitions(workbookEntry);
         var relationships = LoadRelationships(relationshipEntry);
+        var sharedStrings = LoadSharedStrings(archive);
 
         foreach (var sheet in sheetDefinitions)
         {
@@ -102,8 +177,11 @@ public class EntitiesImporter : EditorWindow
                 continue;
             }
 
-            var rowCount = CountRows(worksheetEntry);
-            yield return (sheet.Name, rowCount);
+            var sheetData = LoadWorksheet(worksheetEntry, sheet.Name, sharedStrings);
+            if (sheetData != null)
+            {
+                yield return sheetData;
+            }
         }
     }
 
@@ -141,13 +219,176 @@ public class EntitiesImporter : EditorWindow
                 data => NormalizeEntryPath(data.Target!));
     }
 
-    private static int CountRows(ZipArchiveEntry worksheetEntry)
+    private static IReadOnlyList<string> LoadSharedStrings(ZipArchive archive)
+    {
+        var entry = archive.GetEntry("xl/sharedStrings.xml");
+        if (entry == null)
+        {
+            return Array.Empty<string>();
+        }
+
+        using var stream = entry.Open();
+        var document = XDocument.Load(stream);
+        var mainNamespace = document.Root?.Name.Namespace ?? XNamespace.None;
+
+        return document
+            .Descendants(mainNamespace + "si")
+            .Select(si => string.Concat(si
+                .Descendants(mainNamespace + "t")
+                .Select(textNode => textNode.Value)))
+            .ToList();
+    }
+
+    private static EntitiesSheet LoadWorksheet(ZipArchiveEntry worksheetEntry, string sheetName, IReadOnlyList<string> sharedStrings)
     {
         using var stream = worksheetEntry.Open();
         var document = XDocument.Load(stream);
         var mainNamespace = document.Root?.Name.Namespace ?? XNamespace.None;
-        var sheetData = document.Root?.Element(mainNamespace + "sheetData");
-        return sheetData?.Elements(mainNamespace + "row").Count() ?? 0;
+        var sheetDataElement = document.Root?.Element(mainNamespace + "sheetData");
+        if (sheetDataElement == null)
+        {
+            return new EntitiesSheet(sheetName, Array.Empty<string>(), Array.Empty<EntitiesSheetRow>());
+        }
+
+        var headers = new List<string>();
+        var rows = new List<EntitiesSheetRow>();
+        var headerInitialized = false;
+
+        foreach (var rowElement in sheetDataElement.Elements(mainNamespace + "row"))
+        {
+            var cells = ReadRowCells(rowElement, sharedStrings);
+
+            if (!headerInitialized)
+            {
+                for (var i = 0; i < cells.Count; i++)
+                {
+                    var headerValue = cells[i];
+                    headers.Add(string.IsNullOrWhiteSpace(headerValue) ? $"Column{i + 1}" : headerValue);
+                }
+
+                headerInitialized = true;
+                continue;
+            }
+
+            while (cells.Count > headers.Count)
+            {
+                headers.Add($"Column{headers.Count + 1}");
+            }
+
+            var values = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            for (var i = 0; i < headers.Count; i++)
+            {
+                var value = i < cells.Count ? cells[i] : string.Empty;
+                values[headers[i]] = value;
+            }
+
+            if (values.Values.All(string.IsNullOrWhiteSpace))
+            {
+                continue;
+            }
+
+            var rowReference = (string?)rowElement.Attribute("r");
+            int rowNumber;
+            if (!string.IsNullOrEmpty(rowReference) && int.TryParse(rowReference, out var parsedRowNumber))
+            {
+                rowNumber = parsedRowNumber;
+            }
+            else
+            {
+                rowNumber = rows.Count + 2;
+            }
+
+            rows.Add(new EntitiesSheetRow(rowNumber, values));
+        }
+
+        return new EntitiesSheet(sheetName, headers, rows);
+    }
+
+    private static List<string> ReadRowCells(XElement rowElement, IReadOnlyList<string> sharedStrings)
+    {
+        var result = new List<string>();
+        foreach (var cellElement in rowElement.Elements())
+        {
+            if (cellElement.Name.LocalName != "c")
+            {
+                continue;
+            }
+
+            var reference = (string?)cellElement.Attribute("r");
+            var columnIndex = !string.IsNullOrEmpty(reference) ? GetColumnIndex(reference) : result.Count;
+
+            while (result.Count < columnIndex)
+            {
+                result.Add(string.Empty);
+            }
+
+            var value = ReadCellValue(cellElement, sharedStrings);
+            if (result.Count == columnIndex)
+            {
+                result.Add(value);
+            }
+            else
+            {
+                result[columnIndex] = value;
+            }
+        }
+
+        return result;
+    }
+
+    private static string ReadCellValue(XElement cellElement, IReadOnlyList<string> sharedStrings)
+    {
+        var cellType = (string?)cellElement.Attribute("t");
+        var valueElement = cellElement.Elements().FirstOrDefault(e => e.Name.LocalName == "v");
+
+        switch (cellType)
+        {
+            case "s":
+                if (valueElement == null)
+                {
+                    return string.Empty;
+                }
+
+                if (int.TryParse(valueElement.Value, out var sharedIndex) && sharedIndex >= 0 && sharedIndex < sharedStrings.Count)
+                {
+                    return sharedStrings[sharedIndex];
+                }
+
+                return string.Empty;
+            case "inlineStr":
+                var inline = cellElement
+                    .Elements()
+                    .FirstOrDefault(e => e.Name.LocalName == "is");
+                if (inline != null)
+                {
+                    return string.Concat(inline
+                        .Descendants()
+                        .Where(e => e.Name.LocalName == "t")
+                        .Select(textNode => textNode.Value));
+                }
+
+                return valueElement?.Value ?? string.Empty;
+            case "str":
+                return valueElement?.Value ?? string.Empty;
+            default:
+                return valueElement?.Value ?? string.Empty;
+        }
+    }
+
+    private static int GetColumnIndex(string cellReference)
+    {
+        var index = 0;
+        foreach (var character in cellReference)
+        {
+            if (!char.IsLetter(character))
+            {
+                break;
+            }
+
+            index = (index * 26) + (char.ToUpperInvariant(character) - 'A' + 1);
+        }
+
+        return Math.Max(0, index - 1);
     }
 
     private static string NormalizeEntryPath(string relativePath)
