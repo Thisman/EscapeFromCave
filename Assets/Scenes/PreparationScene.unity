@@ -6365,6 +6365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreStartSceneManager
   _preparationSceneUIController: {fileID: 878179897}
+  _unitsFolder: {fileID: 102900000, guid: b4b97a38da29edb4d9311cd745e80232, type: 3}
 --- !u!1 &796459376
 GameObject:
   m_ObjectHideFlags: 0
@@ -6823,6 +6824,8 @@ MonoBehaviour:
   - {fileID: 79350898}
   - {fileID: 2078471996}
   - {fileID: 1971849892}
+  _heroCarouselItemPrefab: {fileID: 2523923578472604700, guid: 4317d73274e98674787f34913c263fc5, type: 3}
+  _squadCarouselItemPrefab: {fileID: 9059135440722637459, guid: 851680bc7c065254c9e4761c1caa76e1, type: 3}
 --- !u!4 &878179898
 Transform:
   m_ObjectHideFlags: 0
