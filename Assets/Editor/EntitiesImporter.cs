@@ -60,6 +60,7 @@ public class EntitiesImporter : EditorWindow
     private static readonly IEntitiesSheetImporter[] SheetImporters =
     {
         new DamageBattleEffectImporter(),
+        new StatModifierBattleEffectImporter(),
     };
 
     private EntitiesImporterSettings settings;
