@@ -62,6 +62,7 @@ public class EntitiesImporter : EditorWindow
         new DamageBattleEffectImporter(),
         new StatModifierBattleEffectImporter(),
         new BattleAbilityDefinitionSOImporter(),
+        new UnitDefinitionSOImporter(),
     };
 
     private EntitiesImporterSettings settings;
