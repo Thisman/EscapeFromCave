@@ -12,7 +12,7 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
 
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        if (actor.AttackKind == AttackKind.Ranged)
+        if (actor.AttackKind == AttackKind.Range)
             return true;
 
         if (target == null)

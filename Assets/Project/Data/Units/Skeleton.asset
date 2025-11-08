@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: 3671900364904746485, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: skeleton
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 59
+  BasePhysicalDefense: 0.04
+  BaseMagicDefense: 0.06
+  BaseAbsoluteDefense: 0.06
+  MinDamage: 7
+  MaxDamage: 10
+  Speed: 2
+  BaseCritChance: 0.07
+  BaseCritMultiplier: 1.32
+  BaseMissChance: 0.1
+  Abilities: []

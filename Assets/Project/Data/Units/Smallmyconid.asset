@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Smallmyconid
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: -5422780926002879241, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: small myconid
+  Kind: 2
+  AttackKind: 2
+  DamageType: 1
+  BaseHealth: 66
+  BasePhysicalDefense: 0
+  BaseMagicDefense: 0.14
+  BaseAbsoluteDefense: 0.02
+  MinDamage: 8
+  MaxDamage: 10
+  Speed: 2
+  BaseCritChance: 0.03
+  BaseCritMultiplier: 1.25
+  BaseMissChance: 0.08
+  Abilities: []

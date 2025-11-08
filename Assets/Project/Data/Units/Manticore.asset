@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Manticore
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: -4125082613292834868, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: manticore
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 284
+  BasePhysicalDefense: 0.33
+  BaseMagicDefense: 0.27
+  BaseAbsoluteDefense: 0.21
+  MinDamage: 38
+  MaxDamage: 41
+  Speed: 1
+  BaseCritChance: 0.12
+  BaseCritMultiplier: 1.57
+  BaseMissChance: 0.06
+  Abilities: []

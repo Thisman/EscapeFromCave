@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Dryad
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: -5396700817622867847, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: dryad
+  Kind: 2
+  AttackKind: 2
+  DamageType: 1
+  BaseHealth: 96
+  BasePhysicalDefense: 0.05
+  BaseMagicDefense: 0.17
+  BaseAbsoluteDefense: 0.08
+  MinDamage: 18
+  MaxDamage: 21
+  Speed: 1
+  BaseCritChance: 0.06
+  BaseCritMultiplier: 1.35
+  BaseMissChance: 0.08
+  Abilities: []

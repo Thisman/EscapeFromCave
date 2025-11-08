@@ -23,7 +23,7 @@ MonoBehaviour:
   BaseAbsoluteDefense: 0.2
   MinDamage: 20
   MaxDamage: 35
-  Speed: 1
+  Speed: 3
   BaseCritChance: 0.1
   BaseCritMultiplier: 1.1
   BaseMissChance: 0.1

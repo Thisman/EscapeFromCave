@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Cultist
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: -2189383202378275735, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: cultist
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 120
+  BasePhysicalDefense: 0.08
+  BaseMagicDefense: 0.12
+  BaseAbsoluteDefense: 0.06
+  MinDamage: 13
+  MaxDamage: 17
+  Speed: 1
+  BaseCritChance: 0.1
+  BaseCritMultiplier: 1.37
+  BaseMissChance: 0.1
+  Abilities: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d536d40311e314abfa2dbaccef3930, type: 3}
+  m_Name: Twoheadedettin
+  m_EditorClassIdentifier: Assembly-CSharp::UnitDefinitionSO
+  Icon: {fileID: 3499036745522295064, guid: 4b352e952093f734c855535193b627e6, type: 3}
+  UnitName: two headed ettin
+  Kind: 2
+  AttackKind: 0
+  DamageType: 0
+  BaseHealth: 403
+  BasePhysicalDefense: 0.34
+  BaseMagicDefense: 0.31
+  BaseAbsoluteDefense: 0.22
+  MinDamage: 41
+  MaxDamage: 52
+  Speed: 1
+  BaseCritChance: 0.12
+  BaseCritMultiplier: 1.52
+  BaseMissChance: 0.06
+  Abilities: []

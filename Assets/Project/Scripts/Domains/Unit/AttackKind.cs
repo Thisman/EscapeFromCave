@@ -1,6 +1,6 @@
 public enum AttackKind
 {
     Melee,
-    Ranged,
+    Range,
     Magic,
 }
