@@ -5,7 +5,7 @@ using UnityEngine;
 public sealed class StatModifierBattleEffect : BattleEffectDefinitionSO
 {
     [SerializeField]
-    private BattleStatModifier[] _statModifiers = Array.Empty<BattleStatModifier>();
+    public BattleStatModifier[] _statModifiers = Array.Empty<BattleStatModifier>();
 
     public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
