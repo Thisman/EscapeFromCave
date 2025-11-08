@@ -146,6 +146,11 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return parsed;
         }
 
+        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        {
+            return Mathf.RoundToInt(floatParsed);
+        }
+
         Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }

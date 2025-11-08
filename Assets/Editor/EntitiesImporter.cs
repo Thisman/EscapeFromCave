@@ -195,8 +195,8 @@ public class EntitiesImporter : EditorWindow
         return document
             .Descendants(mainNamespace + "sheet")
             .Select(sheet => (
-                Name: (string?)sheet.Attribute("name") ?? "Unnamed",
-                RelationshipId: (string?)sheet.Attribute(XName.Get("id", "http://schemas.openxmlformats.org/officeDocument/2006/relationships")) ?? string.Empty))
+                Name: (string)sheet.Attribute("name") ?? "Unnamed",
+                RelationshipId: (string)sheet.Attribute(XName.Get("id", "http://schemas.openxmlformats.org/officeDocument/2006/relationships")) ?? string.Empty))
             .Where(sheet => !string.IsNullOrEmpty(sheet.RelationshipId))
             .ToList();
     }
@@ -211,8 +211,8 @@ public class EntitiesImporter : EditorWindow
             .Descendants(relationshipsNamespace + "Relationship")
             .Select(relationship => new
             {
-                Id = (string?)relationship.Attribute("Id"),
-                Target = (string?)relationship.Attribute("Target")
+                Id = (string)relationship.Attribute("Id"),
+                Target = (string)relationship.Attribute("Target")
             })
             .Where(data => !string.IsNullOrEmpty(data.Id) && !string.IsNullOrEmpty(data.Target))
             .ToDictionary(
@@ -288,7 +288,7 @@ public class EntitiesImporter : EditorWindow
                 continue;
             }
 
-            var rowReference = (string?)rowElement.Attribute("r");
+            var rowReference = (string)rowElement.Attribute("r");
             int rowNumber;
             if (!string.IsNullOrEmpty(rowReference) && int.TryParse(rowReference, out var parsedRowNumber))
             {
@@ -315,7 +315,7 @@ public class EntitiesImporter : EditorWindow
                 continue;
             }
 
-            var reference = (string?)cellElement.Attribute("r");
+            var reference = (string)cellElement.Attribute("r");
             var columnIndex = !string.IsNullOrEmpty(reference) ? GetColumnIndex(reference) : result.Count;
 
             while (result.Count < columnIndex)
@@ -339,7 +339,7 @@ public class EntitiesImporter : EditorWindow
 
     private static string ReadCellValue(XElement cellElement, IReadOnlyList<string> sharedStrings)
     {
-        var cellType = (string?)cellElement.Attribute("t");
+        var cellType = (string)cellElement.Attribute("t");
         var valueElement = cellElement.Elements().FirstOrDefault(e => e.Name.LocalName == "v");
 
         switch (cellType)

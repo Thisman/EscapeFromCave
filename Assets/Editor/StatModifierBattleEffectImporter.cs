@@ -178,6 +178,11 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return parsed;
         }
 
+        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        {
+            return Mathf.RoundToInt(floatParsed);
+        }
+
         Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
@@ -190,7 +195,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return true;
         }
 
-        if (float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out result))
+        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out result))
         {
             return true;
         }
