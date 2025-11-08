@@ -12,9 +12,14 @@ public class EntitiesImporterSettings : ScriptableObject
     [SerializeField]
     private BattleEffectImportSettings battleEffect = new();
 
+    [SerializeField]
+    private BattleAbilityImportSettings battleAbility = new();
+
     public IReadOnlyList<DefaultAsset> Tables => tables;
 
     public BattleEffectImportSettings BattleEffect => battleEffect;
+
+    public BattleAbilityImportSettings BattleAbility => battleAbility;
 }
 
 [Serializable]
@@ -29,4 +34,23 @@ public sealed class BattleEffectImportSettings
     public DefaultAsset Folder => folder;
 
     public IReadOnlyList<Sprite> Sprites => sprites ?? Array.Empty<Sprite>();
+}
+
+[Serializable]
+public sealed class BattleAbilityImportSettings
+{
+    [SerializeField]
+    private DefaultAsset folder;
+
+    [SerializeField]
+    private Sprite[] sprites = Array.Empty<Sprite>();
+
+    [SerializeField]
+    private DefaultAsset effectsFolder;
+
+    public DefaultAsset Folder => folder;
+
+    public IReadOnlyList<Sprite> Sprites => sprites ?? Array.Empty<Sprite>();
+
+    public DefaultAsset EffectsFolder => effectsFolder;
 }
