@@ -54,10 +54,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return;
         }
 
-        var sprites = (battleEffectSettings.Sprites ?? Array.Empty<Sprite>())
-            .Where(sprite => sprite != null)
-            .GroupBy(sprite => sprite.name)
-            .ToDictionary(group => group.Key, group => group.First(), StringComparer.OrdinalIgnoreCase);
+        var sprites = battleEffectSettings.Sprites?.ToArray() ?? Array.Empty<Sprite>();
 
         foreach (var column in RequiredColumns)
         {
@@ -96,15 +93,24 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             effect.Description = row.GetValueOrDefault("Description");
 
             var iconValue = row.GetValueOrDefault("Icon");
-            if (TryGetSpriteKey(iconValue, row.RowNumber, out var iconKey))
+            if (TryGetSpriteIndex(iconValue, row.RowNumber, out var iconIndex))
             {
-                if (sprites.TryGetValue(iconKey, out var sprite))
+                if (iconIndex >= 0 && iconIndex < sprites.Length)
                 {
-                    effect.Icon = sprite;
+                    var sprite = sprites[iconIndex];
+                    if (sprite != null)
+                    {
+                        effect.Icon = sprite;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon at index {iconIndex} is not assigned in sprites array.");
+                        effect.Icon = null;
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon '{iconKey}' not found in configured sprites.");
+                    Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon index {iconIndex} is out of range for sprites array (size {sprites.Length}).");
                     effect.Icon = null;
                 }
             }
@@ -158,9 +164,9 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
         return 0;
     }
 
-    private static bool TryGetSpriteKey(string value, int rowNumber, out string key)
+    private static bool TryGetSpriteIndex(string value, int rowNumber, out int index)
     {
-        key = null;
+        index = 0;
 
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -173,7 +179,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return false;
         }
 
-        key = parsed.ToString(CultureInfo.InvariantCulture);
+        index = parsed;
         return true;
     }
 

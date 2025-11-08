@@ -55,10 +55,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return;
         }
 
-        var sprites = (battleEffectSettings.Sprites ?? Array.Empty<Sprite>())
-            .Where(sprite => sprite != null)
-            .GroupBy(sprite => sprite.name)
-            .ToDictionary(group => group.Key, group => group.First(), StringComparer.OrdinalIgnoreCase);
+        var sprites = battleEffectSettings.Sprites?.ToArray() ?? Array.Empty<Sprite>();
 
         foreach (var column in RequiredColumns)
         {
@@ -100,15 +97,24 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             effect.Description = firstRow.GetValueOrDefault("Description");
 
             var iconValue = firstRow.GetValueOrDefault("Icon");
-            if (TryGetSpriteKey(iconValue, firstRow.RowNumber, out var iconKey))
+            if (TryGetSpriteIndex(iconValue, firstRow.RowNumber, out var iconIndex))
             {
-                if (sprites.TryGetValue(iconKey, out var sprite))
+                if (iconIndex >= 0 && iconIndex < sprites.Length)
                 {
-                    effect.Icon = sprite;
+                    var sprite = sprites[iconIndex];
+                    if (sprite != null)
+                    {
+                        effect.Icon = sprite;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Icon at index {iconIndex} is not assigned in sprites array.");
+                        effect.Icon = null;
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Icon '{iconKey}' not found in configured sprites.");
+                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Icon index {iconIndex} is out of range for sprites array (size {sprites.Length}).");
                     effect.Icon = null;
                 }
             }
@@ -190,9 +196,9 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
         return 0;
     }
 
-    private static bool TryGetSpriteKey(string value, int rowNumber, out string key)
+    private static bool TryGetSpriteIndex(string value, int rowNumber, out int index)
     {
-        key = null;
+        index = 0;
 
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -205,7 +211,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return false;
         }
 
-        key = parsed.ToString(CultureInfo.InvariantCulture);
+        index = parsed;
         return true;
     }
 
