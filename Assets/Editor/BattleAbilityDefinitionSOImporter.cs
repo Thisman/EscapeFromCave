@@ -119,15 +119,18 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             ability.Cooldown = ParseInt(row.GetValueOrDefault("Cooldown"), row.RowNumber, "Cooldown");
             ability.IsReady = ability.Cooldown <= 0;
 
-            var iconName = row.GetValueOrDefault("Icon");
-            if (!string.IsNullOrWhiteSpace(iconName) && sprites.TryGetValue(iconName, out var sprite))
+            var iconValue = row.GetValueOrDefault("Icon");
+            if (TryGetSpriteKey(iconValue, row.RowNumber, out var iconKey))
             {
-                ability.Icon = sprite;
-            }
-            else if (!string.IsNullOrWhiteSpace(iconName))
-            {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: Icon '{iconName}' not found in configured sprites.");
-                ability.Icon = null;
+                if (sprites.TryGetValue(iconKey, out var sprite))
+                {
+                    ability.Icon = sprite;
+                }
+                else
+                {
+                    Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: Icon '{iconKey}' not found in configured sprites.");
+                    ability.Icon = null;
+                }
             }
             else
             {
@@ -223,6 +226,42 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
         }
 
         return result;
+    }
+
+    private static bool TryGetSpriteKey(string value, int rowNumber, out string key)
+    {
+        key = null;
+
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return false;
+        }
+
+        if (!TryParseInteger(value, out var parsed))
+        {
+            Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Icon '{value}' is not a valid integer. Icon will be cleared.");
+            return false;
+        }
+
+        key = parsed.ToString(CultureInfo.InvariantCulture);
+        return true;
+    }
+
+    private static bool TryParseInteger(string value, out int result)
+    {
+        if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out result))
+        {
+            return true;
+        }
+
+        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        {
+            result = Mathf.RoundToInt(floatParsed);
+            return true;
+        }
+
+        result = 0;
+        return false;
     }
 
     private static int ParseInt(string value, int rowNumber, string columnName)

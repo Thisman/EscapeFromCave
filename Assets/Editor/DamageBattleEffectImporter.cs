@@ -95,15 +95,18 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             effect.Name = row.GetValueOrDefault("Name");
             effect.Description = row.GetValueOrDefault("Description");
 
-            var iconName = row.GetValueOrDefault("Icon");
-            if (!string.IsNullOrWhiteSpace(iconName) && sprites.TryGetValue(iconName, out var sprite))
+            var iconValue = row.GetValueOrDefault("Icon");
+            if (TryGetSpriteKey(iconValue, row.RowNumber, out var iconKey))
             {
-                effect.Icon = sprite;
-            }
-            else if (!string.IsNullOrWhiteSpace(iconName))
-            {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon '{iconName}' not found in configured sprites.");
-                effect.Icon = null;
+                if (sprites.TryGetValue(iconKey, out var sprite))
+                {
+                    effect.Icon = sprite;
+                }
+                else
+                {
+                    Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Icon '{iconKey}' not found in configured sprites.");
+                    effect.Icon = null;
+                }
             }
             else
             {
@@ -153,6 +156,42 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
 
         Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
+    }
+
+    private static bool TryGetSpriteKey(string value, int rowNumber, out string key)
+    {
+        key = null;
+
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return false;
+        }
+
+        if (!TryParseInteger(value, out var parsed))
+        {
+            Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Icon '{value}' is not a valid integer. Icon will be cleared.");
+            return false;
+        }
+
+        key = parsed.ToString(CultureInfo.InvariantCulture);
+        return true;
+    }
+
+    private static bool TryParseInteger(string value, out int result)
+    {
+        if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out result))
+        {
+            return true;
+        }
+
+        if (float.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var floatParsed))
+        {
+            result = Mathf.RoundToInt(floatParsed);
+            return true;
+        }
+
+        result = 0;
+        return false;
     }
 
     private static string SanitizeFileName(string name)
