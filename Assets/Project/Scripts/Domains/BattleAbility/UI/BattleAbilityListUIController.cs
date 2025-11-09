@@ -104,8 +104,11 @@ public class BattleAbilityListUIController : MonoBehaviour
         }
     }
 
-    private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
+    private void HandleAbilitySelected(BattleAbilityItemView itemView, BattleAbilityDefinitionSO ability)
     {
+        if (itemView == null)
+            return;
+
         OnSelectAbility?.Invoke(ability);
     }
 

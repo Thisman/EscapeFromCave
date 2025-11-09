@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityDefinitionSO
   Id: HolyShield
   AbilityName: Holy Shield
-  Description: 
+  Description: "\u0414\u0430\u0435\u0442 \u0437\u0430\u0449\u0438\u0442\u0443 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u043C\u0443
+    \u044E\u043D\u0438\u0442\u0443"
   Icon: {fileID: -8407088903485722905, guid: 56aa7d23134f4304fb04e83ce7373d59, type: 3}
   Cooldown: 3
   IsReady: 0

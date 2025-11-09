@@ -1,17 +1,21 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BattleAbilityItemView : MonoBehaviour
+public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private Button button;
-    [SerializeField] private float highlightScaleMultiplier = 1.1f;
-    [SerializeField] private float highlightTweenDuration = 0.2f;
-    [SerializeField] private Ease highlightTweenEase = Ease.OutBack;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Button _button;
+    [SerializeField] private float _highlightScaleMultiplier = 1.1f;
+    [SerializeField] private float _highlightTweenDuration = 0.2f;
+    [SerializeField] private Ease _highlightTweenEase = Ease.OutBack;
+    [SerializeField] private GameObject _descriptionRoot;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
 
-    public event Action<BattleAbilityDefinitionSO> OnClick;
+    public event Action<BattleAbilityItemView, BattleAbilityDefinitionSO> OnClick;
 
     private BattleAbilityDefinitionSO _definition;
     private Vector3 _initialScale;
@@ -26,21 +30,22 @@ public class BattleAbilityItemView : MonoBehaviour
 
     private void OnEnable()
     {
-        if (button != null)
+        if (_button != null)
         {
-            button.onClick.AddListener(HandleClick);
+            _button.onClick.AddListener(HandleClick);
         }
     }
 
     private void OnDisable()
     {
-        if (button != null)
+        if (_button != null)
         {
-            button.onClick.RemoveListener(HandleClick);
+            _button.onClick.RemoveListener(HandleClick);
         }
 
         KillHighlightTween();
         transform.localScale = _initialScale;
+        HideDescription();
     }
 
     public void Render(BattleAbilityDefinitionSO abilityDefinition)
@@ -49,17 +54,19 @@ public class BattleAbilityItemView : MonoBehaviour
 
         ResetHighlight(force: true);
 
-        if (icon != null)
+        if (_icon != null)
         {
-            icon.sprite = _definition != null ? _definition.Icon : null;
+            _icon.sprite = _definition != null ? _definition.Icon : null;
         }
 
         SetInteractable(true);
+        UpdateDescriptionText();
+        HideDescription();
     }
 
     public void Highlight()
     {
-        TweenScale(_initialScale * highlightScaleMultiplier);
+        TweenScale(_initialScale * _highlightScaleMultiplier);
     }
 
     public void ResetHighlight()
@@ -69,20 +76,34 @@ public class BattleAbilityItemView : MonoBehaviour
 
     private void HandleClick()
     {
-        OnClick?.Invoke(_definition);
+        OnClick?.Invoke(this, _definition);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_definition == null)
+            return;
+
+        UpdateDescriptionText();
+        ShowDescription();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideDescription();
     }
 
     public void SetInteractable(bool interactable)
     {
-        if (button == null)
+        if (_button == null)
             return;
 
-        button.interactable = interactable;
+        _button.interactable = interactable;
     }
 
     private void ResetHighlight(bool force)
     {
-        if (force || !gameObject.activeInHierarchy || highlightTweenDuration <= 0f)
+        if (force || !gameObject.activeInHierarchy || _highlightTweenDuration <= 0f)
         {
             KillHighlightTween();
             transform.localScale = _initialScale;
@@ -94,17 +115,17 @@ public class BattleAbilityItemView : MonoBehaviour
 
     private void TweenScale(Vector3 targetScale)
     {
-        if (!gameObject.activeInHierarchy || highlightTweenDuration <= 0f)
+        if (!_button.gameObject.activeInHierarchy || _highlightTweenDuration <= 0f)
         {
             KillHighlightTween();
-            transform.localScale = targetScale;
+            _button.transform.localScale = targetScale;
             return;
         }
 
         KillHighlightTween();
-        _highlightTween = transform
-            .DOScale(targetScale, highlightTweenDuration)
-            .SetEase(highlightTweenEase)
+        _highlightTween = _button.transform
+            .DOScale(targetScale, _highlightTweenDuration)
+            .SetEase(_highlightTweenEase)
             .OnComplete(() => _highlightTween = null);
     }
 
@@ -115,5 +136,54 @@ public class BattleAbilityItemView : MonoBehaviour
 
         _highlightTween.Kill();
         _highlightTween = null;
+    }
+
+    private void ShowDescription()
+    {
+        if (_descriptionRoot != null)
+        {
+            _descriptionRoot.SetActive(true);
+        }
+    }
+
+    private void HideDescription()
+    {
+        if (_descriptionRoot != null)
+        {
+            _descriptionRoot.SetActive(false);
+        }
+    }
+
+    private void UpdateDescriptionText()
+    {
+        if (_descriptionText == null || _definition == null)
+            return;
+
+        _descriptionText.text = FormatDescription(_definition);
+    }
+
+    private string FormatDescription(BattleAbilityDefinitionSO abilityDefinition)
+    {
+        string cooldownLabel = GetCooldownText(abilityDefinition.Cooldown);
+        return $"{abilityDefinition.AbilityName}\n{abilityDefinition.Description}\nПерезарядка: {abilityDefinition.Cooldown} {cooldownLabel}";
+    }
+
+    private string GetCooldownText(int cooldown)
+    {
+        int absoluteCooldown = Mathf.Abs(cooldown);
+        int lastTwoDigits = absoluteCooldown % 100;
+        int lastDigit = absoluteCooldown % 10;
+
+        if (lastDigit == 1 && lastTwoDigits != 11)
+        {
+            return "раунд";
+        }
+
+        if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 12 || lastTwoDigits > 14))
+        {
+            return "раунда";
+        }
+
+        return "раундов";
     }
 }
