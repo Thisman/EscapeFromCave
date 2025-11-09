@@ -19,6 +19,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField] private Transform _shakeTarget;
     [SerializeField, Min(0f)] private float _damageShakeAmplitude = 0.1f;
     [SerializeField] private Vector2 _damageTextOffset = new(0f, 50f);
+    [SerializeField, Range(0f, 1f)] private float _unavailableAlpha = 0.35f;
 
     private Coroutine _flashRoutine;
     private Coroutine _damageTextRoutine;
@@ -31,6 +32,10 @@ public class BattleSquadAnimationController : MonoBehaviour
     private Vector3 _initialScale;
     private bool _isScaleAnimationPaused;
     private float _scaleAnimationStartTime;
+    private bool _isAvailabilityOverrideActive;
+    private Color _availabilitySpriteRestoreColor;
+    private Color _availabilityCountRestoreColor;
+    private Color _availabilityDamageTextRestoreColor;
 
     private void Awake()
     {
@@ -90,6 +95,8 @@ public class BattleSquadAnimationController : MonoBehaviour
 
         transform.localScale = _initialScale;
         _isScaleAnimationPaused = false;
+
+        ResetAvailabilityVisual();
     }
 
     private void Update()
@@ -137,6 +144,63 @@ public class BattleSquadAnimationController : MonoBehaviour
             return;
 
         _spriteRenderer.flipX = flipped;
+    }
+
+    public void SetAvailabilityVisual(bool isAvailable)
+    {
+        if (isAvailable)
+        {
+            ResetAvailabilityVisual();
+            return;
+        }
+
+        if (_isAvailabilityOverrideActive)
+            return;
+
+        float alphaMultiplier = Mathf.Clamp01(_unavailableAlpha);
+
+        if (_spriteRenderer != null)
+        {
+            _availabilitySpriteRestoreColor = _spriteRenderer.color;
+            var color = _availabilitySpriteRestoreColor;
+            color.a *= alphaMultiplier;
+            _spriteRenderer.color = color;
+        }
+
+        if (_countTextUI != null)
+        {
+            _availabilityCountRestoreColor = _countTextUI.color;
+            var color = _availabilityCountRestoreColor;
+            color.a *= alphaMultiplier;
+            _countTextUI.color = color;
+        }
+
+        if (_damageTextUI != null)
+        {
+            _availabilityDamageTextRestoreColor = _damageTextUI.color;
+            var color = _availabilityDamageTextRestoreColor;
+            color.a *= alphaMultiplier;
+            _damageTextUI.color = color;
+        }
+
+        _isAvailabilityOverrideActive = true;
+    }
+
+    public void ResetAvailabilityVisual()
+    {
+        if (!_isAvailabilityOverrideActive)
+            return;
+
+        if (_spriteRenderer != null)
+            _spriteRenderer.color = _availabilitySpriteRestoreColor;
+
+        if (_countTextUI != null)
+            _countTextUI.color = _availabilityCountRestoreColor;
+
+        if (_damageTextUI != null)
+            _damageTextUI.color = _availabilityDamageTextRestoreColor;
+
+        _isAvailabilityOverrideActive = false;
     }
 
     private void StartFlashRoutine(Color flashColor, bool useShake, bool showDamageText, int damage, Action onComplete)

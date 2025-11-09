@@ -9,6 +9,7 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
 
     private bool _isActive;
     private bool _disposed;
+    private bool _availabilityVisualsApplied;
 
     public event Action<BattleSquadController> OnSelect;
 
@@ -25,6 +26,8 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
 
         _isActive = true;
         InputSystem.onAfterUpdate += OnAfterInputUpdate;
+
+        ApplyUnitAvailabilityVisuals();
     }
 
     private void OnAfterInputUpdate()
@@ -48,6 +51,7 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
         _isActive = false;
         InputSystem.onAfterUpdate -= OnAfterInputUpdate;
 
+        ResetUnitAvailabilityVisuals();
         OnSelect?.Invoke(unit);
     }
 
@@ -95,6 +99,72 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
             _isActive = false;
         }
 
+        ResetUnitAvailabilityVisuals();
         _disposed = true;
+    }
+
+    private void ApplyUnitAvailabilityVisuals()
+    {
+        ResetUnitAvailabilityVisuals();
+
+        var activeUnit = _context?.ActiveUnit;
+        if (activeUnit == null || !activeUnit.IsFriendly())
+            return;
+
+        var units = _context.BattleUnits;
+        if (units == null)
+            return;
+
+        foreach (var unit in units)
+        {
+            if (unit == null)
+                continue;
+
+            var model = unit.GetSquadModel();
+            if (model == null)
+                continue;
+
+            var animationController = unit.GetComponentInChildren<BattleSquadAnimationController>();
+            if (animationController == null)
+                continue;
+
+            bool isAvailable = false;
+
+            try
+            {
+                isAvailable = _targetResolver.ResolveTarget(activeUnit, model);
+            }
+            catch (Exception exception)
+            {
+                GameLogger.Exception(exception);
+            }
+
+            animationController.SetAvailabilityVisual(isAvailable);
+            _availabilityVisualsApplied = true;
+        }
+    }
+
+    private void ResetUnitAvailabilityVisuals()
+    {
+        if (!_availabilityVisualsApplied)
+            return;
+
+        var units = _context?.BattleUnits;
+        if (units == null)
+        {
+            _availabilityVisualsApplied = false;
+            return;
+        }
+
+        foreach (var unit in units)
+        {
+            if (unit == null)
+                continue;
+
+            var animationController = unit.GetComponentInChildren<BattleSquadAnimationController>();
+            animationController?.ResetAvailabilityVisual();
+        }
+
+        _availabilityVisualsApplied = false;
     }
 }
