@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Interactable")]
+[CreateAssetMenu(menuName = "Gameplay/Interactions/Interaction")]
 public sealed class InteractationDefinitionSO : ScriptableObject
 {
     public float Cooldown;

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/Dialog")]
+[CreateAssetMenu(fileName = "DialogEffect", menuName = "Gameplay/Effects/Dialog")]
 public sealed class ShowDialogEffect : EffectDefinitionSO
 {
     [TextArea] public string Message;

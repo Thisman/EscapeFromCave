@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/Teleport Player Random Point")]
+[CreateAssetMenu(fileName = "TeleportEffect", menuName = "Gameplay/Effects/Teleport")]
 public sealed class TeleportEffect : EffectDefinitionSO
 {
     [SerializeField]

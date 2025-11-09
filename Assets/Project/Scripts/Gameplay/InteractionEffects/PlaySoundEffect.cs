@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/Play Sound")]
+[CreateAssetMenu(fileName = "PlaySoundEffect", menuName = "Gameplay/Effects/Play Sound")]
 public sealed class PlaySoundEffect : EffectDefinitionSO
 {
     [SerializeField]
