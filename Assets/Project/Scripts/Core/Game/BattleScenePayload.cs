@@ -27,7 +27,7 @@ public sealed class BattleSceneData
         GameObject enemySource)
     {
         Hero = hero;
-        Army = army != null ? new List<BattleSquadSetup>(army) : Array.Empty<BattleSquadSetup>();
+        Army = army;
         Enemies = enemies;
         HeroSource = heroSource;
         EnemySource = enemySource;

@@ -12,11 +12,11 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
     public override async Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         BattleSquadSetup heroSetup = ResolveHero(ctx.Actor);
-        List<BattleSquadSetup> armySetups = ResolveArmy(ctx.Actor);
+        List<BattleSquadSetup> armySetup = ResolveArmy(ctx.Actor);
         GameObject enemyObject = ResolveEnemyObject(ctx, targets);
         List<BattleSquadSetup> enemiesSetup = ResolveEnemy(enemyObject);
 
-        var data = new BattleSceneData(heroSetup, armySetups, enemiesSetup, ctx.Actor, enemyObject);
+        var data = new BattleSceneData(heroSetup, armySetup, enemiesSetup, ctx.Actor, enemyObject);
         var payload = new BattleScenePayload(data);
 
         var inputRouter = ctx.InputRouter;

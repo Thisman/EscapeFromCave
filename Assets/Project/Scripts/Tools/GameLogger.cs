@@ -5,26 +5,17 @@ using System.Runtime.CompilerServices;
 public static class GameLogger
 {
     [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
-    public static void Log(string message,
-        [CallerMemberName] string method = "")
-    {
-        var callerType = new StackTrace().GetFrame(1)?.GetMethod()?.DeclaringType?.Name;
-        UnityEngine.Debug.Log($"[{callerType}.{method}] {message}");
+    public static void Log(string message, [CallerMemberName] string method = "") {
+        UnityEngine.Debug.Log($"[{method}] {message}");
     }
 
     [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
-    public static void Warn(string message,
-        [CallerMemberName] string method = "")
-    {
-        var callerType = new StackTrace().GetFrame(1)?.GetMethod()?.DeclaringType?.Name;
-        UnityEngine.Debug.LogWarning($"[WARN][{callerType}.{method}] {message}");
+    public static void Warn(string message, [CallerMemberName] string method = "") {
+        UnityEngine.Debug.LogWarning($"[WARN][{method}] {message}");
     }
 
     [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
-    public static void Error(string message,
-        [CallerMemberName] string method = "")
-    {
-        var callerType = new StackTrace().GetFrame(1)?.GetMethod()?.DeclaringType?.Name;
-        UnityEngine.Debug.LogError($"[ERROR][{callerType}.{method}] {message}");
+    public static void Error(string message,  [CallerMemberName] string method = "") {
+        UnityEngine.Debug.LogError($"[ERROR][{method}] {message}");
     }
 }

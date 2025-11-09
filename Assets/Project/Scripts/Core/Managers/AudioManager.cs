@@ -195,7 +195,6 @@ public sealed class AudioManager : MonoBehaviour
             loadedNames.Add(clipName);
         }
 
-        Debug.Log(loadedNames);
         return loadedNames;
     }
 
