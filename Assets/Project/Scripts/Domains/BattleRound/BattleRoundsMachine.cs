@@ -8,10 +8,8 @@ public sealed class BattleRoundsMachine
 {
     private readonly BattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
-    private readonly Color _activeTurnSlotColor = new(1f, 0.92f, 0.016f, 0.35f);
     private bool _battleFinished;
     private bool _playerRequestedFlee;
-    private Transform _highlightedSlot;
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -164,8 +162,6 @@ public sealed class BattleRoundsMachine
 
     private void HighlightActiveUnitSlot()
     {
-        ClearActiveUnitSlotHighlight();
-
         var activeUnitModel = _ctx.ActiveUnit;
         if (activeUnitModel == null)
             return;
@@ -178,27 +174,18 @@ public sealed class BattleRoundsMachine
         if (gridController == null)
             return;
 
+        gridController.ClearActiveSlot();
+
         if (!gridController.TryGetSlotForOccupant(controller.transform, out var slot) || slot == null)
             return;
 
-        gridController.HighlightSlot(slot, _activeTurnSlotColor);
-        _highlightedSlot = slot;
+        gridController.SetActiveSlot(slot);
     }
 
     private void ClearActiveUnitSlotHighlight()
     {
-        if (_highlightedSlot == null)
-            return;
-
         var gridController = _ctx.BattleGridController;
-        if (gridController == null)
-        {
-            _highlightedSlot = null;
-            return;
-        }
-
-        gridController.ResetSlotHighlight(_highlightedSlot);
-        _highlightedSlot = null;
+        gridController?.ClearActiveSlot();
     }
 
     private BattleSquadController FindControllerForModel(IReadOnlySquadModel model)

@@ -18,10 +18,14 @@ public sealed class BattleGridController : MonoBehaviour
 {
     [SerializeField] private Transform[] _allySlots = Array.Empty<Transform>();
     [SerializeField] private Transform[] _enemySlots = Array.Empty<Transform>();
+    [SerializeField] private Color _activeSlotColor = new(1f, 0.92f, 0.016f, 0.35f);
 
     private readonly Dictionary<Transform, Transform> _slotOccupants = new();
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
     private readonly Dictionary<Transform, SlotVisualState> _slotVisuals = new();
+    private Transform _activeSlot;
+
+    public Transform ActiveSlot => _activeSlot;
 
     private void Awake()
     {
@@ -110,6 +114,32 @@ public sealed class BattleGridController : MonoBehaviour
             return;
 
         visualState.Setter?.Invoke(visualState.OriginalColor);
+    }
+
+    public void SetActiveSlot(Transform slot)
+    {
+        if (!TryResolveSlot(slot, out var resolvedSlot))
+            return;
+
+        if (_activeSlot == resolvedSlot)
+        {
+            HighlightSlot(resolvedSlot, _activeSlotColor);
+            return;
+        }
+
+        ClearActiveSlot();
+
+        _activeSlot = resolvedSlot;
+        HighlightSlot(resolvedSlot, _activeSlotColor);
+    }
+
+    public void ClearActiveSlot()
+    {
+        if (_activeSlot == null)
+            return;
+
+        ResetSlotHighlight(_activeSlot);
+        _activeSlot = null;
     }
 
     public bool TryGetSlotSide(Transform slot, out BattleGridSlotSide side)
