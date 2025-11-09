@@ -19,7 +19,7 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         var data = new BattleSceneData(heroSetup, armySetup, enemiesSetup, ctx.Actor, enemyObject);
         var payload = new BattleScenePayload(data);
 
-        var inputRouter = ctx.InputRouter;
+        var inputRouter = ctx.InputService;
         inputRouter?.EnterBattle();
 
         BattleResult battleResult = await ctx.SceneLoader

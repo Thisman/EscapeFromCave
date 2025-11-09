@@ -12,7 +12,6 @@ public sealed class PlayerInteraction : MonoBehaviour
     [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
 
     [Inject] private readonly SceneLoader _sceneLoader;
-    [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly DialogManager _dialogManager;
 
@@ -99,11 +98,11 @@ public sealed class PlayerInteraction : MonoBehaviour
         var ctxData = new InteractionContext
         {
             Actor = _actor,
-            Target = _currentTarget.gameObject,
             Time = Time.time,
             SceneLoader = _sceneLoader,
-            InputRouter = _inputRouter,
+            InputService = _inputService,
             DialogManager = _dialogManager,
+            Target = _currentTarget.gameObject,
         };
 
         await _currentTarget.TryInteract(ctxData);

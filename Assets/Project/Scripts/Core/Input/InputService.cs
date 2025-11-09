@@ -24,7 +24,15 @@ public class InputService
 
     public void ClearBindingMask() => _actions.bindingMask = null;
 
-    public void SetMode(GameMode mode)
+    public void EnterBattle() => SetMode(GameMode.Battle);
+
+    public void EnterGameplay() => SetMode(GameMode.Gameplay);
+
+    public void EnterMenu() => SetMode(GameMode.Menu);
+
+    public void EnterDialog() => SetMode(GameMode.Dialog);
+
+    private void SetMode(GameMode mode)
     {
         ClearBindingMask();
 

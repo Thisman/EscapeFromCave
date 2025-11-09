@@ -9,7 +9,7 @@ public class DangeonSceneManager : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private ArmyRoasterView _armyRoasterView;
 
-    [Inject] private readonly InputRouter _inputRouter;
+    [Inject] private readonly InputService _inputService;
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly IObjectResolver _objectResolver;
     [Inject] private readonly AudioManager _audioManager;
@@ -17,7 +17,8 @@ public class DangeonSceneManager : MonoBehaviour
     private void Start()
     {
         _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
-        _inputRouter.EnterGameplay();
+        _inputService.EnterGameplay();
+
         PlayerController playerController = InitializePlayer();
         PlayerArmyController playerArmyController = InitializeArmy(playerController);
 

@@ -24,7 +24,7 @@ public sealed class ShowDialogEffect : EffectDefinitionSO
         }
 
         var message = Message ?? string.Empty;
-        var inputRouter = ctx.InputRouter;
+        var inputRouter = ctx.InputService;
 
         inputRouter?.EnterDialog();
 

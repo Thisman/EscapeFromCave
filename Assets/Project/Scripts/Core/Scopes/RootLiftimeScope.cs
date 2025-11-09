@@ -16,7 +16,6 @@ public sealed class RootLifetimeScope : LifetimeScope
 
         builder.RegisterInstance(InputActions).As<InputActionAsset>();
         builder.Register<InputService>(Lifetime.Singleton);
-        builder.Register<InputRouter>(Lifetime.Singleton);
 
         builder.RegisterInstance(AudioManager).As<AudioManager>();
     }
