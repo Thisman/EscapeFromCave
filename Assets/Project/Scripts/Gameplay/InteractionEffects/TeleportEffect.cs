@@ -16,19 +16,19 @@ public sealed class TeleportEffect : EffectDefinitionSO
     {
         if (ctx == null)
         {
-            Debug.LogWarning("[TeleportEffect] Interaction context is null. Unable to teleport player.");
+            GameLogger.Warn("[TeleportEffect] Interaction context is null. Unable to teleport player.");
             return Task.FromResult(EffectResult.Continue);
         }
 
         if (ctx.Actor == null)
         {
-            Debug.LogWarning("[TeleportEffect] Actor is not specified in the interaction context. Unable to teleport player.");
+            GameLogger.Warn("[TeleportEffect] Actor is not specified in the interaction context. Unable to teleport player.");
             return Task.FromResult(EffectResult.Continue);
         }
 
         if (_points == null || _points.Length == 0)
         {
-            Debug.LogWarning("[TeleportEffect] No teleport points configured. Unable to teleport player.");
+            GameLogger.Warn("[TeleportEffect] No teleport points configured. Unable to teleport player.");
             return Task.FromResult(EffectResult.Continue);
         }
 

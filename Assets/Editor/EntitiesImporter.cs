@@ -91,7 +91,7 @@ public class EntitiesImporter : EditorWindow
     {
         if (settings == null)
         {
-            Debug.LogWarning("[EntitiesImporter] Settings asset is not assigned.");
+            GameLogger.Warn("[EntitiesImporter] Settings asset is not assigned.");
             return;
         }
 
@@ -105,14 +105,14 @@ public class EntitiesImporter : EditorWindow
             var assetPath = AssetDatabase.GetAssetPath(table);
             if (string.IsNullOrEmpty(assetPath))
             {
-                Debug.LogWarning($"[EntitiesImporter] Unable to resolve path for asset '{table.name}'.");
+                GameLogger.Warn($"[EntitiesImporter] Unable to resolve path for asset '{table.name}'.");
                 continue;
             }
 
             var absolutePath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", assetPath));
             if (!File.Exists(absolutePath))
             {
-                Debug.LogWarning($"[EntitiesImporter] File not found at '{absolutePath}'.");
+                GameLogger.Warn($"[EntitiesImporter] File not found at '{absolutePath}'.");
                 continue;
             }
 
@@ -120,7 +120,7 @@ public class EntitiesImporter : EditorWindow
             {
                 foreach (var sheet in ReadSheets(absolutePath))
                 {
-                    Debug.Log($"[EntitiesImporter] Sheet '{sheet.Name}' has {sheet.Rows.Count} data rows.");
+                    GameLogger.Log($"[EntitiesImporter] Sheet '{sheet.Name}' has {sheet.Rows.Count} data rows.");
 
                     var importer = FindImporterForSheet(sheet.Name);
                     if (importer == null)
@@ -134,13 +134,13 @@ public class EntitiesImporter : EditorWindow
                     }
                     catch (Exception importerException)
                     {
-                        Debug.LogError($"[EntitiesImporter] Importer '{importer.SheetName}' failed: {importerException.Message}");
+                        GameLogger.Error($"[EntitiesImporter] Importer '{importer.SheetName}' failed: {importerException.Message}");
                     }
                 }
             }
             catch (Exception exception)
             {
-                Debug.LogError($"[EntitiesImporter] Failed to read '{table.name}': {exception.Message}");
+                GameLogger.Error($"[EntitiesImporter] Failed to read '{table.name}': {exception.Message}");
             }
         }
     }
@@ -169,14 +169,14 @@ public class EntitiesImporter : EditorWindow
         {
             if (!relationships.TryGetValue(sheet.RelationshipId, out var targetPath))
             {
-                Debug.LogWarning($"[EntitiesImporter] Relationship '{sheet.RelationshipId}' not found for sheet '{sheet.Name}'.");
+                GameLogger.Warn($"[EntitiesImporter] Relationship '{sheet.RelationshipId}' not found for sheet '{sheet.Name}'.");
                 continue;
             }
 
             var worksheetEntry = archive.GetEntry(targetPath);
             if (worksheetEntry == null)
             {
-                Debug.LogWarning($"[EntitiesImporter] Worksheet '{targetPath}' not found for sheet '{sheet.Name}'.");
+                GameLogger.Warn($"[EntitiesImporter] Worksheet '{targetPath}' not found for sheet '{sheet.Name}'.");
                 continue;
             }
 

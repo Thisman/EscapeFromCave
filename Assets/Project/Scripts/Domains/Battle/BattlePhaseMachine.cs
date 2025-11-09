@@ -44,7 +44,7 @@ public sealed class BattlePhaseMachine
         _ctx.BattleTacticUIController.OnBattleRoundsStart += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
         {
-            Debug.LogWarning("Failed to place battle units on the grid.");
+            GameLogger.Warn("Failed to place battle units on the grid.");
         }
         _ctx.BattleGridDragAndDropController.enabled = true;
     }

@@ -13,13 +13,13 @@ public sealed class ShowDialogEffect : EffectDefinitionSO
     {
         if (ctx == null)
         {
-            Debug.LogWarning("[ShowDialogEffect] Interaction context is null. Skipping dialog display.");
+            GameLogger.Warn("[ShowDialogEffect] Interaction context is null. Skipping dialog display.");
             return EffectResult.Continue;
         }
 
         if (ctx.DialogManager == null)
         {
-            Debug.LogWarning("[ShowDialogEffect] DialogController is missing in the context. Assign it in the scene lifetime scope.");
+            GameLogger.Warn("[ShowDialogEffect] DialogController is missing in the context. Assign it in the scene lifetime scope.");
             return EffectResult.Continue;
         }
 

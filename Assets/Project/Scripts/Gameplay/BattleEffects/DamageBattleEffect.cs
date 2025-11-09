@@ -12,24 +12,24 @@ public sealed class DamageBattleEffect : BattleEffectDefinitionSO, IBattleDamage
     {
         if (target == null)
         {
-            Debug.LogWarning($"{nameof(DamageBattleEffect)} '{name}' received a null target.");
+            GameLogger.Warn($"{nameof(DamageBattleEffect)} '{name}' received a null target.");
             return;
         }
 
         var squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
         if (squadController == null)
         {
-            Debug.LogWarning($"{nameof(DamageBattleEffect)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
+            GameLogger.Warn($"{nameof(DamageBattleEffect)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
             return;
         }
 
         if (Damage <= 0)
         {
-            Debug.Log($"{nameof(DamageBattleEffect)} '{name}' applied to '{target.name}' with non-positive damage value {Damage}. No damage dealt.");
+            GameLogger.Log($"{nameof(DamageBattleEffect)} '{name}' applied to '{target.name}' with non-positive damage value {Damage}. No damage dealt.");
             return;
         }
 
-        Debug.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
+        GameLogger.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
         _ = new DefaultBattleDamageResolver().ResolveDamage(this, squadController);
     }
 

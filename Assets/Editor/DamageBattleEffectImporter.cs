@@ -36,21 +36,21 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
         var battleEffectSettings = settings.BattleEffect;
         if (battleEffectSettings == null)
         {
-            Debug.LogWarning("[DamageBattleEffectImporter] Battle effect settings are not configured.");
+            GameLogger.Warn("[DamageBattleEffectImporter] Battle effect settings are not configured.");
             return;
         }
 
         var folderAsset = battleEffectSettings.Folder;
         if (folderAsset == null)
         {
-            Debug.LogWarning("[DamageBattleEffectImporter] Target folder is not assigned.");
+            GameLogger.Warn("[DamageBattleEffectImporter] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            Debug.LogWarning($"[DamageBattleEffectImporter] '{folderPath}' is not a valid folder.");
+            GameLogger.Warn($"[DamageBattleEffectImporter] '{folderPath}' is not a valid folder.");
             return;
         }
 
@@ -60,7 +60,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -70,14 +70,14 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             var id = row.GetValueOrDefault("ID");
             if (string.IsNullOrWhiteSpace(id))
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber} skipped: ID is empty.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Row {row.RowNumber} skipped: ID is empty.");
                 continue;
             }
 
             var assetFileName = SanitizeFileName(id);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
                 continue;
             }
 
@@ -109,7 +109,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(triggerValue))
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Row {row.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Row {row.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
                 effect.Trigger = BattleEffectTrigger.OnAttach;
             }
             else
@@ -143,7 +143,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return Mathf.RoundToInt(floatParsed);
         }
 
-        Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        GameLogger.Warn($"[DamageBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
 
@@ -161,7 +161,7 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             return true;
         }
 
-        Debug.LogWarning($"[DamageBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        GameLogger.Warn($"[DamageBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -179,13 +179,13 @@ public sealed class DamageBattleEffectImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                Debug.LogWarning($"[DamageBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                GameLogger.Warn($"[DamageBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 
