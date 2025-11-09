@@ -15,13 +15,15 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] private GameObject descriptionRoot;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
-    public event Action<BattleAbilityDefinitionSO> OnClick;
+    public event Action<BattleAbilityItemView, BattleAbilityDefinitionSO> OnClick;
 
     private BattleAbilityDefinitionSO _definition;
     private Vector3 _initialScale;
     private Tween _highlightTween;
+    private bool _isSelected;
 
     public BattleAbilityDefinitionSO Definition => _definition;
+    public bool IsSelected => _isSelected;
 
     private void Awake()
     {
@@ -45,6 +47,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
         KillHighlightTween();
         transform.localScale = _initialScale;
+        SetSelected(false);
         HideDescription();
     }
 
@@ -53,6 +56,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         _definition = abilityDefinition;
 
         ResetHighlight(force: true);
+        SetSelected(false);
 
         if (icon != null)
         {
@@ -76,12 +80,13 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void HandleClick()
     {
-        OnClick?.Invoke(_definition);
+        HideDescription();
+        OnClick?.Invoke(this, _definition);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_definition == null)
+        if (_definition == null || _isSelected)
             return;
 
         UpdateDescriptionText();
@@ -160,6 +165,19 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
             return;
 
         descriptionText.text = FormatDescription(_definition);
+    }
+
+    public void SetSelected(bool selected)
+    {
+        if (_isSelected == selected)
+            return;
+
+        _isSelected = selected;
+
+        if (_isSelected)
+        {
+            HideDescription();
+        }
     }
 
     private string FormatDescription(BattleAbilityDefinitionSO abilityDefinition)
