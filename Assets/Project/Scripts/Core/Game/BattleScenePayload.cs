@@ -4,17 +4,45 @@ using UnityEngine;
 
 public readonly struct BattleSquadSetup
 {
-    public BattleSquadSetup(UnitDefinitionSO definition, int count)
+    private const int MaxAdditionalUnits = 5;
+
+    private static readonly UnitDefinitionSO[] EmptyAdditionalUnits = Array.Empty<UnitDefinitionSO>();
+
+    public BattleSquadSetup(UnitDefinitionSO definition, int count, IReadOnlyList<UnitDefinitionSO> additionalUnits = null)
     {
         Definition = definition;
         Count = Math.Max(0, count);
+        AdditionalUnits = PrepareAdditionalUnits(additionalUnits);
     }
 
     public UnitDefinitionSO Definition { get; }
 
     public int Count { get; }
 
+    public IReadOnlyList<UnitDefinitionSO> AdditionalUnits { get; }
+
     public bool IsValid => Definition != null && Count > 0;
+
+    public bool HasAdditionalUnits => AdditionalUnits.Count > 0;
+
+    public bool HasAnyUnits => IsValid || HasAdditionalUnits;
+
+    private static IReadOnlyList<UnitDefinitionSO> PrepareAdditionalUnits(IReadOnlyList<UnitDefinitionSO> additionalUnits)
+    {
+        if (additionalUnits == null || additionalUnits.Count == 0)
+            return EmptyAdditionalUnits;
+
+        var buffer = new List<UnitDefinitionSO>(Math.Min(additionalUnits.Count, MaxAdditionalUnits));
+
+        for (int i = 0; i < additionalUnits.Count && buffer.Count < MaxAdditionalUnits; i++)
+        {
+            var candidate = additionalUnits[i];
+            if (candidate != null)
+                buffer.Add(candidate);
+        }
+
+        return buffer.Count > 0 ? buffer.ToArray() : EmptyAdditionalUnits;
+    }
 }
 
 public sealed class BattleSceneData

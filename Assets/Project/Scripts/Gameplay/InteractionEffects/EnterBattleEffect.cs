@@ -16,13 +16,13 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         var enemyObject = ResolveEnemyObject(ctx, targets);
         var enemySetup = ResolveEnemy(enemyObject);
 
-        if (!heroSetup.IsValid && armySetups.Count == 0)
+        if (!heroSetup.HasAnyUnits && armySetups.Count == 0)
         {
             Debug.LogWarning("[EnterBattleEffect] No hero or army data found for battle. Aborting battle start.");
             return EffectResult.Continue;
         }
 
-        if (!enemySetup.IsValid)
+        if (!enemySetup.HasAnyUnits)
         {
             Debug.LogWarning("[EnterBattleEffect] No enemy data found for battle. Aborting battle start.");
             return EffectResult.Continue;
@@ -50,11 +50,11 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
 
         if (actor.TryGetComponent<PlayerController>(out var playerController))
         {
-            if (TryCreateSetup(playerController.GetPlayer(), out var setup))
+            if (TryCreateSetup(actor, playerController.GetPlayer(), out var setup))
                 return setup;
         }
 
-        if (TryResolveSquadModel(actor, out var squadModel) && TryCreateSetup(squadModel, out var fallbackSetup))
+        if (TryResolveSquadModel(actor, out var squadModel) && TryCreateSetup(actor, squadModel, out var fallbackSetup))
             return fallbackSetup;
 
         return default;
@@ -69,12 +69,12 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
 
         if (actor.TryGetComponent<PlayerArmyController>(out var armyController))
         {
-            foreach (var squad in armyController.Army.GetSquads())
-            {
-                if (TryCreateSetup(squad, out var setup))
-                    result.Add(setup);
+                foreach (var squad in armyController.Army.GetSquads())
+                {
+                    if (TryCreateSetup(null, squad, out var setup))
+                        result.Add(setup);
+                }
             }
-        }
 
         return result;
     }
@@ -102,7 +102,7 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         if (enemy == null)
             return default;
 
-        if (TryResolveSquadModel(enemy, out var squadModel) && TryCreateSetup(squadModel, out var setup))
+        if (TryResolveSquadModel(enemy, out var squadModel) && TryCreateSetup(enemy, squadModel, out var setup))
             return setup;
 
         return default;
@@ -132,16 +132,29 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         return model != null;
     }
 
-    private static bool TryCreateSetup(IReadOnlySquadModel model, out BattleSquadSetup setup)
+    private static bool TryCreateSetup(GameObject source, IReadOnlySquadModel model, out BattleSquadSetup setup)
     {
         if (model != null && model.Count > 0)
         {
-            setup = new BattleSquadSetup(model.Definition, model.Count);
+            var additionalUnits = ResolveAdditionalUnits(source);
+            setup = new BattleSquadSetup(model.Definition, model.Count, additionalUnits);
             return true;
         }
 
         setup = default;
         return false;
+    }
+
+    private static IReadOnlyList<UnitDefinitionSO> ResolveAdditionalUnits(GameObject source)
+    {
+        if (source == null)
+            return Array.Empty<UnitDefinitionSO>();
+
+        var squadController = source.GetComponentInParent<SquadController>();
+        if (squadController == null)
+            return Array.Empty<UnitDefinitionSO>();
+
+        return squadController.GetAdditionalUnitDefinitions();
     }
 
     private static void HandleBattleResult(InteractionContext ctx, BattleResult result)

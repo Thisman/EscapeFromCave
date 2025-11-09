@@ -173,12 +173,30 @@ public class BattleSceneManager : MonoBehaviour
 
     private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
     {
-        if (!setup.IsValid)
+        if (!setup.HasAnyUnits)
+            return;
+
+        if (setup.IsValid)
+            SpawnSquad(buffer, setup.Definition, setup.Count);
+
+        if (setup.HasAdditionalUnits)
+        {
+            var additionalUnits = setup.AdditionalUnits;
+            for (int i = 0; i < additionalUnits.Count; i++)
+            {
+                SpawnSquad(buffer, additionalUnits[i], 1);
+            }
+        }
+    }
+
+    private void SpawnSquad(List<BattleSquadController> buffer, UnitDefinitionSO definition, int count)
+    {
+        if (definition == null || count <= 0)
             return;
 
         GameObject instance = _objectResolver.Instantiate(_battleSquadPrefab);
         BattleSquadController controller = instance.GetComponent<BattleSquadController>();
-        SquadModel squadModel = new(setup.Definition, setup.Count);
+        SquadModel squadModel = new(definition, count);
         BattleSquadModel battleModel = new(squadModel);
         controller.Initialize(battleModel);
 
