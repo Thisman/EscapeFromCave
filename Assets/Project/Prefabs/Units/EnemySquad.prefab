@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationController
   _spriteRenderer: {fileID: 5439797107561190270}
   _unitController: {fileID: 4035285883418965749}
+  _scaleAmplitude: 0.03
+  _scaleFrequency: 6
 --- !u!114 &-3009412262272902082
 MonoBehaviour:
   m_ObjectHideFlags: 0
