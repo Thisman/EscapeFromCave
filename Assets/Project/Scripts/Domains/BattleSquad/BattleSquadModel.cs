@@ -71,39 +71,58 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public bool IsEmpty => Count <= 0;
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(BattleDamageData damageData)
     {
+        if (damageData == null)
+            return;
+
+        int damage = damageData.Value;
         if (damage <= 0 || _squadHealth <= 0) return;
 
-        // 1) Промах атакующего
-        float pMiss = Mathf.Clamp01(MissChance);
-        if (UnityEngine.Random.value < pMiss)
+        // 1) Промах атакующего (магический урон не может промахнуться)
+        bool canMiss = damageData.DamageType != DamageType.Magical;
+        if (canMiss)
         {
-            Debug.Log($"[Battle]: {UnitName} dodge damage");
-            return;
+            float pMiss = Mathf.Clamp01(MissChance);
+            if (UnityEngine.Random.value < pMiss)
+            {
+                Debug.Log($"[Battle]: {UnitName} dodge damage");
+                return;
+            }
         }
 
-        // 2) Процентная защита отряда (0..1)
-        float absDef = Mathf.Clamp01(AbsoluteDefense);
+        // 2) Защита от урона в зависимости от его типа (0..1)
+        float defense = Mathf.Clamp01(AbsoluteDefense);
 
-        // Если у тебя absDef хранится в процентах (0..100), раскомментируй:
-        // absDef = Mathf.Clamp01(AbsoluteDefense * 0.01f);
+        switch (damageData.DamageType)
+        {
+            case DamageType.Physical:
+                defense += Mathf.Clamp01(PhysicalDefense);
+                break;
+            case DamageType.Magical:
+                defense += Mathf.Clamp01(MagicDefense);
+                break;
+        }
+
+        defense = Mathf.Clamp01(defense);
+
+        // Если защита хранится в процентах (0..100), конвертируй каждую составляющую в диапазон 0..1 перед суммированием.
 
         // 3) Применяем процент ко всему входящему урону один раз
         //    Вопрос округления: RoundToInt — нейтральный вариант. Если хочешь «не завышать» снижение, используй FloorToInt.
-        int afterDefense = Mathf.Max(0, Mathf.RoundToInt(damage * (1f - absDef)));
+        int afterDefense = Mathf.Max(0, Mathf.RoundToInt(damage * (1f - defense)));
 
         if (afterDefense <= 0) return;
 
         int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
 
-        Debug.Log($"[Battle]: {UnitName} took {afterDefense} dmg (raw={damage}, absDef={absDef:P0})");
+        Debug.Log($"[Battle]: {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, defense={defense:P0})");
         Debug.Log($"[Battle]: {UnitName} new health {newHealth}");
 
         SetSquadHealth(newHealth);
     }
 
-    public int ResolveDamage()
+    public BattleDamageData ResolveDamage()
     {
         var (minD, maxD) = GetBaseDamageRange();
         if (maxD < minD) (minD, maxD) = (maxD, minD);
@@ -121,8 +140,9 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
             total += Mathf.FloorToInt(dmg);
         }
 
-        Debug.Log($"[Battle]: {UnitName} resolve damage {total}");
-        return Mathf.Max(0, total);
+        total = Mathf.Max(0, total);
+        Debug.Log($"[Battle]: {UnitName} resolve damage {total} of type {DamageType}");
+        return new BattleDamageData(DamageType, total);
     }
 
     public void SetStatModifiers(object source, IReadOnlyList<BattleStatModifier> modifiers)

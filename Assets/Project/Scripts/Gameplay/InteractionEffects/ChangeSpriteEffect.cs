@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Threading.Tasks;
 
-[CreateAssetMenu(menuName = "Gameplay/Effects/Change Sprite")]
+[CreateAssetMenu(fileName = "ChangeSpriteEffect", menuName = "Gameplay/Effects/Change Sprite")]
 public class ChangeSpriteEffect : EffectDefinitionSO
 {
     public Sprite newSprite;

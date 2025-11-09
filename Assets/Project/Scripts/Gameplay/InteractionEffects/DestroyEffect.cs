@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DestroyEffect", menuName = "Gameplay/Effects/Destroy", order = 0)]
+[CreateAssetMenu(fileName = "DestroyEffect", menuName = "Gameplay/Effects/Destroy")]
 public class DestroyEffect : EffectDefinitionSO
 {
     [Min(0f)] public float delay = 0f;
