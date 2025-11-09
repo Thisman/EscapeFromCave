@@ -44,7 +44,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         }
 
         KillHighlightTween();
-        transform.localScale = _initialScale;
+        _button.transform.localScale = _initialScale;
         HideDescription();
     }
 
@@ -106,7 +106,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         if (force || !gameObject.activeInHierarchy || _highlightTweenDuration <= 0f)
         {
             KillHighlightTween();
-            transform.localScale = _initialScale;
+            _button.transform.localScale = _initialScale;
             return;
         }
 
@@ -140,18 +140,12 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void ShowDescription()
     {
-        if (_descriptionRoot != null)
-        {
-            _descriptionRoot.SetActive(true);
-        }
+        _descriptionRoot.SetActive(true);
     }
 
     private void HideDescription()
     {
-        if (_descriptionRoot != null)
-        {
-            _descriptionRoot.SetActive(false);
-        }
+        _descriptionRoot.SetActive(false);
     }
 
     private void UpdateDescriptionText()
