@@ -11,24 +11,12 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
 
     public override async Task<EffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        var heroSetup = ResolveHero(ctx.Actor);
-        var armySetups = ResolveArmy(ctx.Actor);
-        var enemyObject = ResolveEnemyObject(ctx, targets);
-        var enemySetup = ResolveEnemy(enemyObject);
+        BattleSquadSetup heroSetup = ResolveHero(ctx.Actor);
+        List<BattleSquadSetup> armySetups = ResolveArmy(ctx.Actor);
+        GameObject enemyObject = ResolveEnemyObject(ctx, targets);
+        List<BattleSquadSetup> enemiesSetup = ResolveEnemy(enemyObject);
 
-        if (!heroSetup.IsValid && armySetups.Count == 0)
-        {
-            Debug.LogWarning("[EnterBattleEffect] No hero or army data found for battle. Aborting battle start.");
-            return EffectResult.Continue;
-        }
-
-        if (!enemySetup.IsValid)
-        {
-            Debug.LogWarning("[EnterBattleEffect] No enemy data found for battle. Aborting battle start.");
-            return EffectResult.Continue;
-        }
-
-        var data = new BattleSceneData(heroSetup, armySetups, enemySetup, ctx.Actor, enemyObject);
+        var data = new BattleSceneData(heroSetup, armySetups, enemiesSetup, ctx.Actor, enemyObject);
         var payload = new BattleScenePayload(data);
 
         var inputRouter = ctx.InputRouter;
@@ -97,15 +85,24 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         return null;
     }
 
-    private static BattleSquadSetup ResolveEnemy(GameObject enemy)
+    private static List<BattleSquadSetup> ResolveEnemy(GameObject enemy)
     {
-        if (enemy == null)
-            return default;
+        List<BattleSquadSetup> enemies = new();
 
         if (TryResolveSquadModel(enemy, out var squadModel) && TryCreateSetup(squadModel, out var setup))
-            return setup;
+            enemies.Add(setup);
 
-        return default;
+        AdditionalSquadSetup[] additionalSquads = enemy.GetComponent<SquadController>().GetAdditionalSquads();
+        for (int i = 0; i < additionalSquads.Length; i++)
+        {
+            AdditionalSquadSetup additinalSquad = additionalSquads[i];
+            if (TryCreateSetup(additinalSquad, out var additionalSetup))
+            {
+                enemies.Add(additionalSetup);
+            }
+        }
+
+        return enemies;
     }
 
     private static bool TryResolveSquadModel(GameObject source, out IReadOnlySquadModel model)
@@ -142,6 +139,12 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
 
         setup = default;
         return false;
+    }
+
+    private static bool TryCreateSetup(AdditionalSquadSetup additionalSquad, out BattleSquadSetup setup)
+    {
+        setup = new BattleSquadSetup(additionalSquad.Definition, additionalSquad.Count);
+        return true;
     }
 
     private static void HandleBattleResult(InteractionContext ctx, BattleResult result)
@@ -264,5 +267,4 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
             armyController.Army.ClearSlot(slot);
         }
     }
-
 }

@@ -81,7 +81,13 @@ public class BattleSceneManager : MonoBehaviour
                 }
             }
 
-            TryAddUnit(collectedUnits, _battleData.Enemy);
+            if (_battleData.Enemies != null)
+            {
+                foreach (var squad in _battleData.Enemies)
+                {
+                    TryAddUnit(collectedUnits, squad);
+                }
+            }
         }
         else
         {

@@ -21,7 +21,7 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
         if (IsSameSide(actor.Kind, target.Kind))
             return false;
 
-        if (actor.AttackKind == AttackKind.Range)
+        if (actor.AttackKind == AttackKind.Range || actor.AttackKind == AttackKind.Magic)
             return true;
 
         var grid = _context.BattleGridController;

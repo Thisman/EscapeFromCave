@@ -22,13 +22,13 @@ public sealed class BattleSceneData
     public BattleSceneData(
         BattleSquadSetup hero,
         IReadOnlyList<BattleSquadSetup> army,
-        BattleSquadSetup enemy,
+        IReadOnlyList<BattleSquadSetup> enemies,
         GameObject heroSource,
         GameObject enemySource)
     {
         Hero = hero;
         Army = army != null ? new List<BattleSquadSetup>(army) : Array.Empty<BattleSquadSetup>();
-        Enemy = enemy;
+        Enemies = enemies;
         HeroSource = heroSource;
         EnemySource = enemySource;
     }
@@ -37,7 +37,7 @@ public sealed class BattleSceneData
 
     public IReadOnlyList<BattleSquadSetup> Army { get; }
 
-    public BattleSquadSetup Enemy { get; }
+    public IReadOnlyList<BattleSquadSetup> Enemies { get; }
 
     public GameObject HeroSource { get; }
 
