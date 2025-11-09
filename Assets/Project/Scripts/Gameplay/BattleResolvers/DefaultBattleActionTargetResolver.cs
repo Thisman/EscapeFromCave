@@ -12,11 +12,17 @@ public sealed class DefaultBattleActionTargetResolver : IBattleActionTargetResol
 
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        if (actor.AttackKind == AttackKind.Range)
-            return true;
+        if (actor == null)
+            throw new ArgumentNullException(nameof(actor));
 
         if (target == null)
             throw new ArgumentNullException(nameof(target));
+
+        if (IsSameSide(actor.Kind, target.Kind))
+            return false;
+
+        if (actor.AttackKind == AttackKind.Range)
+            return true;
 
         var grid = _context.BattleGridController;
         if (grid == null)

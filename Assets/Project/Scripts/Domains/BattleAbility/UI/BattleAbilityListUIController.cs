@@ -13,7 +13,6 @@ public class BattleAbilityListUIController : MonoBehaviour
 
     private BattleAbilityManager _abilityManager;
     private IReadOnlySquadModel _owner;
-    private BattleAbilityItemView _selectedItemView;
 
     public void Render(BattleAbilityDefinitionSO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
     {
@@ -90,10 +89,7 @@ public class BattleAbilityListUIController : MonoBehaviour
             }
 
             itemView.ResetHighlight();
-            itemView.SetSelected(false);
         }
-
-        _selectedItemView = null;
     }
 
     public void RefreshAvailability()
@@ -112,14 +108,6 @@ public class BattleAbilityListUIController : MonoBehaviour
     {
         if (itemView == null)
             return;
-
-        if (_selectedItemView != null && _selectedItemView != itemView)
-        {
-            _selectedItemView.SetSelected(false);
-        }
-
-        _selectedItemView = itemView;
-        _selectedItemView.SetSelected(true);
 
         OnSelectAbility?.Invoke(ability);
     }
@@ -141,7 +129,6 @@ public class BattleAbilityListUIController : MonoBehaviour
         abilityItemViews.Clear();
         _abilityManager = null;
         _owner = null;
-        _selectedItemView = null;
     }
 
     private void SetActive(bool isActive)

@@ -7,23 +7,21 @@ using UnityEngine.UI;
 
 public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private Button button;
-    [SerializeField] private float highlightScaleMultiplier = 1.1f;
-    [SerializeField] private float highlightTweenDuration = 0.2f;
-    [SerializeField] private Ease highlightTweenEase = Ease.OutBack;
-    [SerializeField] private GameObject descriptionRoot;
-    [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Button _button;
+    [SerializeField] private float _highlightScaleMultiplier = 1.1f;
+    [SerializeField] private float _highlightTweenDuration = 0.2f;
+    [SerializeField] private Ease _highlightTweenEase = Ease.OutBack;
+    [SerializeField] private GameObject _descriptionRoot;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
 
     public event Action<BattleAbilityItemView, BattleAbilityDefinitionSO> OnClick;
 
     private BattleAbilityDefinitionSO _definition;
     private Vector3 _initialScale;
     private Tween _highlightTween;
-    private bool _isSelected;
 
     public BattleAbilityDefinitionSO Definition => _definition;
-    public bool IsSelected => _isSelected;
 
     private void Awake()
     {
@@ -32,22 +30,21 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void OnEnable()
     {
-        if (button != null)
+        if (_button != null)
         {
-            button.onClick.AddListener(HandleClick);
+            _button.onClick.AddListener(HandleClick);
         }
     }
 
     private void OnDisable()
     {
-        if (button != null)
+        if (_button != null)
         {
-            button.onClick.RemoveListener(HandleClick);
+            _button.onClick.RemoveListener(HandleClick);
         }
 
         KillHighlightTween();
         transform.localScale = _initialScale;
-        SetSelected(false);
         HideDescription();
     }
 
@@ -56,11 +53,10 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         _definition = abilityDefinition;
 
         ResetHighlight(force: true);
-        SetSelected(false);
 
-        if (icon != null)
+        if (_icon != null)
         {
-            icon.sprite = _definition != null ? _definition.Icon : null;
+            _icon.sprite = _definition != null ? _definition.Icon : null;
         }
 
         SetInteractable(true);
@@ -70,7 +66,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void Highlight()
     {
-        TweenScale(_initialScale * highlightScaleMultiplier);
+        TweenScale(_initialScale * _highlightScaleMultiplier);
     }
 
     public void ResetHighlight()
@@ -80,13 +76,12 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void HandleClick()
     {
-        HideDescription();
         OnClick?.Invoke(this, _definition);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_definition == null || _isSelected)
+        if (_definition == null)
             return;
 
         UpdateDescriptionText();
@@ -100,15 +95,15 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void SetInteractable(bool interactable)
     {
-        if (button == null)
+        if (_button == null)
             return;
 
-        button.interactable = interactable;
+        _button.interactable = interactable;
     }
 
     private void ResetHighlight(bool force)
     {
-        if (force || !gameObject.activeInHierarchy || highlightTweenDuration <= 0f)
+        if (force || !gameObject.activeInHierarchy || _highlightTweenDuration <= 0f)
         {
             KillHighlightTween();
             transform.localScale = _initialScale;
@@ -120,17 +115,17 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void TweenScale(Vector3 targetScale)
     {
-        if (!gameObject.activeInHierarchy || highlightTweenDuration <= 0f)
+        if (!_button.gameObject.activeInHierarchy || _highlightTweenDuration <= 0f)
         {
             KillHighlightTween();
-            transform.localScale = targetScale;
+            _button.transform.localScale = targetScale;
             return;
         }
 
         KillHighlightTween();
-        _highlightTween = transform
-            .DOScale(targetScale, highlightTweenDuration)
-            .SetEase(highlightTweenEase)
+        _highlightTween = _button.transform
+            .DOScale(targetScale, _highlightTweenDuration)
+            .SetEase(_highlightTweenEase)
             .OnComplete(() => _highlightTween = null);
     }
 
@@ -145,39 +140,26 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
 
     private void ShowDescription()
     {
-        if (descriptionRoot != null)
+        if (_descriptionRoot != null)
         {
-            descriptionRoot.SetActive(true);
+            _descriptionRoot.SetActive(true);
         }
     }
 
     private void HideDescription()
     {
-        if (descriptionRoot != null)
+        if (_descriptionRoot != null)
         {
-            descriptionRoot.SetActive(false);
+            _descriptionRoot.SetActive(false);
         }
     }
 
     private void UpdateDescriptionText()
     {
-        if (descriptionText == null || _definition == null)
+        if (_descriptionText == null || _definition == null)
             return;
 
-        descriptionText.text = FormatDescription(_definition);
-    }
-
-    public void SetSelected(bool selected)
-    {
-        if (_isSelected == selected)
-            return;
-
-        _isSelected = selected;
-
-        if (_isSelected)
-        {
-            HideDescription();
-        }
+        _descriptionText.text = FormatDescription(_definition);
     }
 
     private string FormatDescription(BattleAbilityDefinitionSO abilityDefinition)

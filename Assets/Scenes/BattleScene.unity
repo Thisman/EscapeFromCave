@@ -2615,7 +2615,7 @@ GameObject:
   - component: {fileID: 1145523333}
   - component: {fileID: 1145523332}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BattleControllersContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3151,6 +3151,7 @@ MonoBehaviour:
   - {fileID: 1380674231}
   - {fileID: 472718453}
   - {fileID: 449870186}
+  _activeSlotColor: {r: 1, g: 0.92, b: 0.016, a: 0.35}
 --- !u!156049354 &1416069489
 Grid:
   m_ObjectHideFlags: 0
@@ -6254,7 +6255,7 @@ GameObject:
   - component: {fileID: 1784712939}
   - component: {fileID: 1784712940}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: AbilityListContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6272,7 +6273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e10e508374c748a69b59d1505f592b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityListUIController
-  abilityItemViewPrefab: {fileID: 902547387070871509, guid: feac5500a6dc56243afae33fc76d5513, type: 3}
+  abilityItemViewPrefab: {fileID: 108125183816328083, guid: feac5500a6dc56243afae33fc76d5513, type: 3}
   contentRoot: {fileID: 1784712943}
 --- !u!114 &1784712940
 MonoBehaviour:
@@ -6673,7 +6674,7 @@ GameObject:
   - component: {fileID: 1979865046}
   - component: {fileID: 1979865045}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: ActionListContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
