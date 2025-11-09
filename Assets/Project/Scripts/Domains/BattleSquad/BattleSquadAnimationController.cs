@@ -9,6 +9,8 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _damageTextUI;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BattleSquadController _unitController;
+    [SerializeField] private float _scaleAmplitude = 0.1f;
+    [SerializeField] private float _scaleFrequency = 2f;
 
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField] private Color _dodgeFlashColor = Color.white;
@@ -26,6 +28,19 @@ public class BattleSquadAnimationController : MonoBehaviour
     private Vector2 _damageTextInitialPosition;
     private Color _damageTextVisibleColor = Color.white;
     private Color _damageTextHiddenColor = new(1f, 1f, 1f, 0f);
+    private Vector3 _initialScale;
+    private bool _isScaleAnimationPaused;
+
+    private void Awake()
+    {
+        _initialScale = transform.localScale;
+    }
+
+    private void OnEnable()
+    {
+        _initialScale = transform.localScale;
+        _isScaleAnimationPaused = false;
+    }
 
     private void Start()
     {
@@ -70,6 +85,14 @@ public class BattleSquadAnimationController : MonoBehaviour
         }
 
         _unitController.GetSquadModel().Changed -= HandleModelChanged;
+
+        transform.localScale = _initialScale;
+        _isScaleAnimationPaused = false;
+    }
+
+    private void Update()
+    {
+        AnimateScale();
     }
 
     public void PlayDamageFlash(Action onComplete)
@@ -96,6 +119,7 @@ public class BattleSquadAnimationController : MonoBehaviour
             RestoreShakeTarget();
             _flashRoutine = null;
             _flashCompletion = null;
+            ResumeScaleAnimation();
         }
 
         if (_damageTextRoutine != null)
@@ -154,6 +178,7 @@ public class BattleSquadAnimationController : MonoBehaviour
             _damageShakeInitialLocalPosition = _shakeTarget.localPosition;
 
         _flashCompletion = onComplete;
+        PauseScaleAnimation();
         _flashRoutine = StartCoroutine(FlashRoutine(flashColor, useShake));
     }
 
@@ -245,6 +270,7 @@ public class BattleSquadAnimationController : MonoBehaviour
         _flashCompletion = null;
         _flashRoutine = null;
         completion?.Invoke();
+        ResumeScaleAnimation();
     }
 
     private void ApplyShake(Transform target)
@@ -275,5 +301,33 @@ public class BattleSquadAnimationController : MonoBehaviour
     private void HandleModelChanged(IReadOnlySquadModel model)
     {
         _countTextUI.text = model.Count.ToString();
+    }
+
+    private void AnimateScale()
+    {
+        if (_isScaleAnimationPaused)
+            return;
+
+        if (_scaleAmplitude <= 0f || _scaleFrequency <= 0f)
+        {
+            transform.localScale = _initialScale;
+            return;
+        }
+
+        float scaleOffset = Mathf.Sin(Time.time * _scaleFrequency) * _scaleAmplitude;
+        var targetScale = _initialScale;
+        targetScale.y = _initialScale.y * (1f + scaleOffset);
+        transform.localScale = targetScale;
+    }
+
+    private void PauseScaleAnimation()
+    {
+        _isScaleAnimationPaused = true;
+        transform.localScale = _initialScale;
+    }
+
+    private void ResumeScaleAnimation()
+    {
+        _isScaleAnimationPaused = false;
     }
 }
