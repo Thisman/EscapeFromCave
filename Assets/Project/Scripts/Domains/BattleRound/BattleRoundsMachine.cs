@@ -8,8 +8,10 @@ public sealed class BattleRoundsMachine
 {
     private readonly BattleContext _ctx;
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
+    private readonly Color _activeTurnSlotColor = new(1f, 0.92f, 0.016f, 0.35f);
     private bool _battleFinished;
     private bool _playerRequestedFlee;
+    private Transform _highlightedSlot;
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -98,6 +100,8 @@ public sealed class BattleRoundsMachine
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
 
+        HighlightActiveUnitSlot();
+
         var abilities = _ctx.ActiveUnit.Abilities;
         var activeUnit = _ctx.ActiveUnit;
         var abilityManager = _ctx.BattleAbilityManager;
@@ -142,6 +146,8 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnEnd()
     {
+        ClearActiveUnitSlotHighlight();
+
         _ctx.BattleQueueController.NextTurn();
         _ctx.ActiveUnit = null;
 
@@ -154,6 +160,66 @@ public sealed class BattleRoundsMachine
         }
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private void HighlightActiveUnitSlot()
+    {
+        ClearActiveUnitSlotHighlight();
+
+        var activeUnitModel = _ctx.ActiveUnit;
+        if (activeUnitModel == null)
+            return;
+
+        var controller = FindControllerForModel(activeUnitModel);
+        if (controller == null)
+            return;
+
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+            return;
+
+        if (!gridController.TryGetSlotForOccupant(controller.transform, out var slot) || slot == null)
+            return;
+
+        gridController.HighlightSlot(slot, _activeTurnSlotColor);
+        _highlightedSlot = slot;
+    }
+
+    private void ClearActiveUnitSlotHighlight()
+    {
+        if (_highlightedSlot == null)
+            return;
+
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+        {
+            _highlightedSlot = null;
+            return;
+        }
+
+        gridController.ResetSlotHighlight(_highlightedSlot);
+        _highlightedSlot = null;
+    }
+
+    private BattleSquadController FindControllerForModel(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return null;
+
+        var units = _ctx.BattleUnits;
+        if (units == null)
+            return null;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            if (unitController.GetSquadModel() == model)
+                return unitController;
+        }
+
+        return null;
     }
 
     private void OnRoundEnd()
