@@ -9,10 +9,10 @@ public class DangeonSceneManager : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private ArmyRoasterView _armyRoasterView;
 
-    [Inject] private readonly InputService _inputService;
     [Inject] private readonly GameSession _gameSession;
-    [Inject] private readonly IObjectResolver _objectResolver;
     [Inject] private readonly AudioManager _audioManager;
+    [Inject] private readonly InputService _inputService;
+    [Inject] private readonly IObjectResolver _objectResolver;
 
     private void Start()
     {
@@ -27,8 +27,8 @@ public class DangeonSceneManager : MonoBehaviour
 
     private PlayerController InitializePlayer()
     {
-        Vector3 spawnPosition = _playerSpawnPoint != null ? _playerSpawnPoint.position : transform.position;
-        Quaternion spawnRotation = _playerSpawnPoint != null ? _playerSpawnPoint.rotation : transform.rotation;
+        Vector3 spawnPosition = _playerSpawnPoint.position;
+        Quaternion spawnRotation = _playerSpawnPoint.rotation;
 
         GameObject playerInstance = _objectResolver.Instantiate(_playerPrefab, spawnPosition, spawnRotation);
         PlayerController playerController = playerInstance.GetComponent<PlayerController>();
@@ -48,11 +48,8 @@ public class DangeonSceneManager : MonoBehaviour
 
         foreach (var definition in _gameSession.SelectedAllySquads)
         {
-            if (definition != null)
-            {
-                const int defaultAmount = 10;
-                armyController.Army.TryAddSquad(definition, defaultAmount);
-            }
+            const int defaultAmount = 10;
+            armyController.Army.TryAddSquad(definition, defaultAmount);
         }
 
         return armyController;
