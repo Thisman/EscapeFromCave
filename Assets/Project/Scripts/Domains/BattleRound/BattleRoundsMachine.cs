@@ -98,6 +98,8 @@ public sealed class BattleRoundsMachine
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
 
+        HighlightActiveUnitSlot();
+
         var abilities = _ctx.ActiveUnit.Abilities;
         var activeUnit = _ctx.ActiveUnit;
         var abilityManager = _ctx.BattleAbilityManager;
@@ -142,6 +144,8 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnEnd()
     {
+        ClearActiveUnitSlotHighlight();
+
         _ctx.BattleQueueController.NextTurn();
         _ctx.ActiveUnit = null;
 
@@ -154,6 +158,55 @@ public sealed class BattleRoundsMachine
         }
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
+    }
+
+    private void HighlightActiveUnitSlot()
+    {
+        var activeUnitModel = _ctx.ActiveUnit;
+        if (activeUnitModel == null)
+            return;
+
+        var controller = FindControllerForModel(activeUnitModel);
+        if (controller == null)
+            return;
+
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+            return;
+
+        gridController.ClearActiveSlot();
+
+        if (!gridController.TryGetSlotForOccupant(controller.transform, out var slot) || slot == null)
+            return;
+
+        gridController.SetActiveSlot(slot);
+    }
+
+    private void ClearActiveUnitSlotHighlight()
+    {
+        var gridController = _ctx.BattleGridController;
+        gridController?.ClearActiveSlot();
+    }
+
+    private BattleSquadController FindControllerForModel(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return null;
+
+        var units = _ctx.BattleUnits;
+        if (units == null)
+            return null;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            if (unitController.GetSquadModel() == model)
+                return unitController;
+        }
+
+        return null;
     }
 
     private void OnRoundEnd()
