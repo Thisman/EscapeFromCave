@@ -37,21 +37,21 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
         var battleEffectSettings = settings.BattleEffect;
         if (battleEffectSettings == null)
         {
-            Debug.LogWarning("[StatModifierBattleEffectImporter] Battle effect settings are not configured.");
+            GameLogger.Warn("[StatModifierBattleEffectImporter] Battle effect settings are not configured.");
             return;
         }
 
         var folderAsset = battleEffectSettings.Folder;
         if (folderAsset == null)
         {
-            Debug.LogWarning("[StatModifierBattleEffectImporter] Target folder is not assigned.");
+            GameLogger.Warn("[StatModifierBattleEffectImporter] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            Debug.LogWarning($"[StatModifierBattleEffectImporter] '{folderPath}' is not a valid folder.");
+            GameLogger.Warn($"[StatModifierBattleEffectImporter] '{folderPath}' is not a valid folder.");
             return;
         }
 
@@ -61,7 +61,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                Debug.LogWarning($"[StatModifierBattleEffectImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                GameLogger.Warn($"[StatModifierBattleEffectImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -81,7 +81,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             var assetFileName = SanitizeFileName(group.Key);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                Debug.LogWarning($"[StatModifierBattleEffectImporter] Rows with ID '{group.Key}' skipped: not a valid file name.");
+                GameLogger.Warn($"[StatModifierBattleEffectImporter] Rows with ID '{group.Key}' skipped: not a valid file name.");
                 continue;
             }
 
@@ -113,7 +113,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(triggerValue))
             {
-                Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
+                GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
                 effect.Trigger = BattleEffectTrigger.OnAttach;
             }
             else
@@ -131,20 +131,20 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
                 var statName = row.GetValueOrDefault("Stat");
                 if (string.IsNullOrWhiteSpace(statName))
                 {
-                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat is empty. Skipping modifier.");
+                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat is empty. Skipping modifier.");
                     continue;
                 }
 
                 if (!Enum.TryParse(statName, true, out BattleSquadStat stat))
                 {
-                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat '{statName}' is invalid. Skipping modifier.");
+                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat '{statName}' is invalid. Skipping modifier.");
                     continue;
                 }
 
                 var valueText = row.GetValueOrDefault("Value");
                 if (!TryParseFloat(valueText, out var value))
                 {
-                    Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Value '{valueText}' is invalid. Skipping modifier.");
+                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Value '{valueText}' is invalid. Skipping modifier.");
                     continue;
                 }
 
@@ -175,7 +175,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return Mathf.RoundToInt(floatParsed);
         }
 
-        Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
 
@@ -193,7 +193,7 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             return true;
         }
 
-        Debug.LogWarning($"[StatModifierBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -211,13 +211,13 @@ public sealed class StatModifierBattleEffectImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                Debug.LogWarning($"[StatModifierBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
+                GameLogger.Warn($"[StatModifierBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                Debug.LogWarning($"[StatModifierBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                GameLogger.Warn($"[StatModifierBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 

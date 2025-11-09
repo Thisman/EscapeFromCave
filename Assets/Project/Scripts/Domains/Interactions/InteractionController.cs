@@ -14,7 +14,7 @@ public class InteractionController : MonoBehaviour
     {
         if (!_cooldown.Ready(ctx.Time))
         {
-            Debug.LogWarning($"[InteractionController] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
+            GameLogger.Warn($"[InteractionController] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
             return false;
         }
 
@@ -22,7 +22,7 @@ public class InteractionController : MonoBehaviour
         {
             if (!Definition.Conditions.All(c => c.IsMet(ctx)))
             {
-                Debug.LogWarning($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor.name ?? "<null>"}' on '{name}'.");
+                GameLogger.Warn($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor.name ?? "<null>"}' on '{name}'.");
                 return false;
             }
         }
@@ -31,7 +31,7 @@ public class InteractionController : MonoBehaviour
         int targetCount = targets?.Count ?? 0;
         if (targetCount == 0)
         {
-            Debug.LogWarning($"[InteractionController] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
+            GameLogger.Warn($"[InteractionController] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
         }
 
         _cooldown.Start(ctx.Time, Definition.Cooldown);

@@ -67,7 +67,7 @@ public sealed class PlayerInteraction : MonoBehaviour
         {
             if (_lastWarnedCollider != collider)
             {
-                Debug.LogWarning($"[PlayerInteraction] Collider '{collider.name}' does not provide an InteractionController.");
+                GameLogger.Warn($"[PlayerInteraction] Collider '{collider.name}' does not provide an InteractionController.");
                 _lastWarnedCollider = collider;
             }
             return;
@@ -79,7 +79,7 @@ public sealed class PlayerInteraction : MonoBehaviour
         {
             _currentTarget = target;
             var targetName = (_currentTarget as MonoBehaviour)?.name ?? _currentTarget.ToString();
-            Debug.Log($"[PlayerInteraction] '{name}' switched interaction target to '{targetName}'.");
+            GameLogger.Log($"[PlayerInteraction] '{name}' switched interaction target to '{targetName}'.");
         }
 
         for (int i = 0; i < _hits.Length - 1; i++)
@@ -91,7 +91,7 @@ public sealed class PlayerInteraction : MonoBehaviour
         if (_currentTarget == null || !_currentTarget.gameObject.activeSelf)
         {
             _currentTarget = null;
-            Debug.LogWarning($"[PlayerInteraction] Interact input received for '{name}', but no interaction target is selected.");
+            GameLogger.Warn($"[PlayerInteraction] Interact input received for '{name}', but no interaction target is selected.");
             return;
         }
 

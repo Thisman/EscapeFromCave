@@ -118,7 +118,7 @@ public sealed class BattleRoundsMachine
         {
             if (action == null)
             {
-                Debug.LogWarning("[CombatLoop] Battle action controller returned no action. Skipping turn.");
+                GameLogger.Warn("[CombatLoop] Battle action controller returned no action. Skipping turn.");
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 return;
             }
@@ -130,7 +130,7 @@ public sealed class BattleRoundsMachine
             }
             catch (Exception exception)
             {
-                Debug.LogException(exception);
+                GameLogger.Exception(exception);
                 DetachCurrentAction();
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
             }

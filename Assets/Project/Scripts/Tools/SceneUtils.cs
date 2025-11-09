@@ -8,7 +8,7 @@ public static class SceneUtils
         var scene = SceneManager.GetSceneByName(sceneName);
         if (!scene.isLoaded)
         {
-            Debug.LogWarning($"[SceneUtils] Attempted to change activation state for scene '{sceneName}', but it is not loaded.");
+            GameLogger.Warn($"[SceneUtils] Attempted to change activation state for scene '{sceneName}', but it is not loaded.");
             return;
         }
 

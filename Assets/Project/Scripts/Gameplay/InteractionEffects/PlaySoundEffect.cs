@@ -19,7 +19,7 @@ public sealed class PlaySoundEffect : EffectDefinitionSO
     {
         if (_clip == null)
         {
-            Debug.LogWarning("[PlaySoundEffect] Audio clip is not assigned. Unable to play sound.");
+            GameLogger.Warn("[PlaySoundEffect] Audio clip is not assigned. Unable to play sound.");
             return EffectResult.Continue;
         }
 

@@ -37,35 +37,35 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
         var abilitySettings = settings.BattleAbility;
         if (abilitySettings == null)
         {
-            Debug.LogWarning("[BattleAbilityDefinitionSOImporter] Battle ability settings are not configured.");
+            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Battle ability settings are not configured.");
             return;
         }
 
         var folderAsset = abilitySettings.Folder;
         if (folderAsset == null)
         {
-            Debug.LogWarning("[BattleAbilityDefinitionSOImporter] Target folder is not assigned.");
+            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] '{folderPath}' is not a valid folder.");
+            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] '{folderPath}' is not a valid folder.");
             return;
         }
 
         var effectsFolderAsset = abilitySettings.EffectsFolder;
         if (effectsFolderAsset == null)
         {
-            Debug.LogWarning("[BattleAbilityDefinitionSOImporter] Effects folder is not assigned.");
+            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Effects folder is not assigned.");
             return;
         }
 
         var effectsFolderPath = AssetDatabase.GetAssetPath(effectsFolderAsset);
         if (string.IsNullOrEmpty(effectsFolderPath) || !AssetDatabase.IsValidFolder(effectsFolderPath))
         {
-            Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] '{effectsFolderPath}' is not a valid effects folder.");
+            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] '{effectsFolderPath}' is not a valid effects folder.");
             return;
         }
 
@@ -74,14 +74,14 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
         var effects = LoadEffects(effectsFolderPath);
         if (effects.Count == 0)
         {
-            Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] No BattleEffectDefinitionSO assets were found in '{effectsFolderPath}'.");
+            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] No BattleEffectDefinitionSO assets were found in '{effectsFolderPath}'.");
         }
 
         foreach (var column in RequiredColumns)
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -91,14 +91,14 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             var id = row.GetValueOrDefault("ID");
             if (string.IsNullOrWhiteSpace(id))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID is empty.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID is empty.");
                 continue;
             }
 
             var assetFileName = SanitizeFileName(id);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
                 continue;
             }
 
@@ -133,7 +133,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(abilityTypeValue))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityType '{abilityTypeValue}' is invalid. Defaulting to Active.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityType '{abilityTypeValue}' is invalid. Defaulting to Active.");
                 ability.AbilityType = BattleAbilityType.Active;
             }
             else
@@ -148,7 +148,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(abilityTargetTypeValue))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityTargetType '{abilityTargetTypeValue}' is invalid. Defaulting to SingleEnemy.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityTargetType '{abilityTargetTypeValue}' is invalid. Defaulting to SingleEnemy.");
                 ability.AbilityTargetType = BattleAbilityTargetType.SingleEnemy;
             }
             else
@@ -174,7 +174,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
                     }
                     else
                     {
-                        Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: Effect '{effectName}' not found in effects folder '{effectsFolderPath}'.");
+                        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: Effect '{effectName}' not found in effects folder '{effectsFolderPath}'.");
                     }
                 }
 
@@ -207,7 +207,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
 
             if (result.ContainsKey(effect.name))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Duplicate effect '{effect.name}' found in '{folderPath}'. Using the first occurrence.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Duplicate effect '{effect.name}' found in '{folderPath}'. Using the first occurrence.");
                 continue;
             }
 
@@ -231,7 +231,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             return true;
         }
 
-        Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -249,13 +249,13 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Sprites array contains an unassigned entry at index {i}.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 
@@ -282,7 +282,7 @@ public sealed class BattleAbilityDefinitionSOImporter : IEntitiesSheetImporter
             return Mathf.RoundToInt(floatParsed);
         }
 
-        Debug.LogWarning($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
 

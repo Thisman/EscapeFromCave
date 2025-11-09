@@ -32,21 +32,21 @@ public sealed class StatModifierBattleEffect : BattleEffectDefinitionSO
 
         if (target == null)
         {
-            Debug.LogWarning($"{nameof(StatModifierBattleEffect)} '{name}' received a null target.");
+            GameLogger.Warn($"{nameof(StatModifierBattleEffect)} '{name}' received a null target.");
             return false;
         }
 
         var squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
         if (squadController == null)
         {
-            Debug.LogWarning($"{nameof(StatModifierBattleEffect)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
+            GameLogger.Warn($"{nameof(StatModifierBattleEffect)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
             return false;
         }
 
         model = squadController.GetSquadModel() as BattleSquadModel;
         if (model == null)
         {
-            Debug.LogWarning($"{nameof(StatModifierBattleEffect)} '{name}' requires a {nameof(BattleSquadModel)} on '{target.name}'.");
+            GameLogger.Warn($"{nameof(StatModifierBattleEffect)} '{name}' requires a {nameof(BattleSquadModel)} on '{target.name}'.");
             return false;
         }
 
