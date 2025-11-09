@@ -34,8 +34,6 @@ public class BattleSquadAnimationController : MonoBehaviour
     private float _scaleAnimationStartTime;
     private bool _isAvailabilityOverrideActive;
     private Color _availabilitySpriteRestoreColor;
-    private Color _availabilityCountRestoreColor;
-    private Color _availabilityDamageTextRestoreColor;
 
     private void Awake()
     {
@@ -167,22 +165,6 @@ public class BattleSquadAnimationController : MonoBehaviour
             _spriteRenderer.color = color;
         }
 
-        if (_countTextUI != null)
-        {
-            _availabilityCountRestoreColor = _countTextUI.color;
-            var color = _availabilityCountRestoreColor;
-            color.a *= alphaMultiplier;
-            _countTextUI.color = color;
-        }
-
-        if (_damageTextUI != null)
-        {
-            _availabilityDamageTextRestoreColor = _damageTextUI.color;
-            var color = _availabilityDamageTextRestoreColor;
-            color.a *= alphaMultiplier;
-            _damageTextUI.color = color;
-        }
-
         _isAvailabilityOverrideActive = true;
     }
 
@@ -193,12 +175,6 @@ public class BattleSquadAnimationController : MonoBehaviour
 
         if (_spriteRenderer != null)
             _spriteRenderer.color = _availabilitySpriteRestoreColor;
-
-        if (_countTextUI != null)
-            _countTextUI.color = _availabilityCountRestoreColor;
-
-        if (_damageTextUI != null)
-            _damageTextUI.color = _availabilityDamageTextRestoreColor;
 
         _isAvailabilityOverrideActive = false;
     }
