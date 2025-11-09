@@ -145,16 +145,36 @@ public sealed class EnterBattleEffect : EffectDefinitionSO
         return false;
     }
 
-    private static IReadOnlyList<UnitDefinitionSO> ResolveAdditionalUnits(GameObject source)
+    private static IReadOnlyList<AdditionalSquadSetup> ResolveAdditionalUnits(GameObject source)
     {
         if (source == null)
-            return Array.Empty<UnitDefinitionSO>();
+            return Array.Empty<AdditionalSquadSetup>();
 
         var squadController = source.GetComponentInParent<SquadController>();
         if (squadController == null)
-            return Array.Empty<UnitDefinitionSO>();
+            return Array.Empty<AdditionalSquadSetup>();
 
-        return squadController.GetAdditionalUnitDefinitions();
+        return ConvertAdditionalDefinitions(squadController.GetAdditionalUnitDefinitions());
+    }
+
+    private static IReadOnlyList<AdditionalSquadSetup> ConvertAdditionalDefinitions(
+        IReadOnlyList<SquadController.AdditionalUnitDefinition> definitions)
+    {
+        if (definitions == null || definitions.Count == 0)
+            return Array.Empty<AdditionalSquadSetup>();
+
+        var buffer = new List<AdditionalSquadSetup>(definitions.Count);
+
+        for (int i = 0; i < definitions.Count; i++)
+        {
+            var definition = definitions[i];
+            if (definition == null || !definition.IsValid)
+                continue;
+
+            buffer.Add(new AdditionalSquadSetup(definition.Definition, definition.Count));
+        }
+
+        return buffer.Count > 0 ? buffer.ToArray() : Array.Empty<AdditionalSquadSetup>();
     }
 
     private static void HandleBattleResult(InteractionContext ctx, BattleResult result)

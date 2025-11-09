@@ -2,13 +2,28 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public readonly struct AdditionalSquadSetup
+{
+    public AdditionalSquadSetup(UnitDefinitionSO definition, int count)
+    {
+        Definition = definition;
+        Count = Math.Max(0, count);
+    }
+
+    public UnitDefinitionSO Definition { get; }
+
+    public int Count { get; }
+
+    public bool IsValid => Definition != null && Count > 0;
+}
+
 public readonly struct BattleSquadSetup
 {
     private const int MaxAdditionalUnits = 5;
 
-    private static readonly UnitDefinitionSO[] EmptyAdditionalUnits = Array.Empty<UnitDefinitionSO>();
+    private static readonly AdditionalSquadSetup[] EmptyAdditionalUnits = Array.Empty<AdditionalSquadSetup>();
 
-    public BattleSquadSetup(UnitDefinitionSO definition, int count, IReadOnlyList<UnitDefinitionSO> additionalUnits = null)
+    public BattleSquadSetup(UnitDefinitionSO definition, int count, IReadOnlyList<AdditionalSquadSetup> additionalUnits = null)
     {
         Definition = definition;
         Count = Math.Max(0, count);
@@ -19,7 +34,7 @@ public readonly struct BattleSquadSetup
 
     public int Count { get; }
 
-    public IReadOnlyList<UnitDefinitionSO> AdditionalUnits { get; }
+    public IReadOnlyList<AdditionalSquadSetup> AdditionalUnits { get; }
 
     public bool IsValid => Definition != null && Count > 0;
 
@@ -27,17 +42,17 @@ public readonly struct BattleSquadSetup
 
     public bool HasAnyUnits => IsValid || HasAdditionalUnits;
 
-    private static IReadOnlyList<UnitDefinitionSO> PrepareAdditionalUnits(IReadOnlyList<UnitDefinitionSO> additionalUnits)
+    private static IReadOnlyList<AdditionalSquadSetup> PrepareAdditionalUnits(IReadOnlyList<AdditionalSquadSetup> additionalUnits)
     {
         if (additionalUnits == null || additionalUnits.Count == 0)
             return EmptyAdditionalUnits;
 
-        var buffer = new List<UnitDefinitionSO>(Math.Min(additionalUnits.Count, MaxAdditionalUnits));
+        var buffer = new List<AdditionalSquadSetup>(Math.Min(additionalUnits.Count, MaxAdditionalUnits));
 
         for (int i = 0; i < additionalUnits.Count && buffer.Count < MaxAdditionalUnits; i++)
         {
             var candidate = additionalUnits[i];
-            if (candidate != null)
+            if (candidate.IsValid)
                 buffer.Add(candidate);
         }
 

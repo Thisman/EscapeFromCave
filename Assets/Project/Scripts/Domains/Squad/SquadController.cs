@@ -8,9 +8,9 @@ public class SquadController : MonoBehaviour
 
     [SerializeField] private int _count = 1;
     [SerializeField] private UnitDefinitionSO _unitDefinition;
-    [SerializeField] private UnitDefinitionSO[] _additionalUnitDefinitions = Array.Empty<UnitDefinitionSO>();
+    [SerializeField] private AdditionalUnitDefinition[] _additionalUnitDefinitions = Array.Empty<AdditionalUnitDefinition>();
 
-    private static readonly UnitDefinitionSO[] EmptyAdditionalDefinitions = Array.Empty<UnitDefinitionSO>();
+    private static readonly AdditionalUnitDefinition[] EmptyAdditionalDefinitions = Array.Empty<AdditionalUnitDefinition>();
 
     private SquadModel _squadModel;
 
@@ -24,7 +24,7 @@ public class SquadController : MonoBehaviour
         return _squadModel;
     }
 
-    public IReadOnlyList<UnitDefinitionSO> GetAdditionalUnitDefinitions()
+    public IReadOnlyList<AdditionalUnitDefinition> GetAdditionalUnitDefinitions()
     {
         if (_additionalUnitDefinitions == null || _additionalUnitDefinitions.Length == 0)
             return EmptyAdditionalDefinitions;
@@ -46,6 +46,34 @@ public class SquadController : MonoBehaviour
         if (_additionalUnitDefinitions.Length > MaxAdditionalUnitDefinitions)
         {
             Array.Resize(ref _additionalUnitDefinitions, MaxAdditionalUnitDefinitions);
+        }
+
+        for (int i = 0; i < _additionalUnitDefinitions.Length; i++)
+        {
+            if (_additionalUnitDefinitions[i] == null)
+                _additionalUnitDefinitions[i] = new AdditionalUnitDefinition();
+
+            _additionalUnitDefinitions[i].Normalize();
+        }
+    }
+
+    [Serializable]
+    public sealed class AdditionalUnitDefinition
+    {
+        [SerializeField] private UnitDefinitionSO _definition;
+        [Min(1)]
+        [SerializeField] private int _count = 1;
+
+        public UnitDefinitionSO Definition => _definition;
+
+        public int Count => Mathf.Max(1, _count);
+
+        public bool IsValid => _definition != null && _count > 0;
+
+        public void Normalize()
+        {
+            if (_count < 1)
+                _count = 1;
         }
     }
 }

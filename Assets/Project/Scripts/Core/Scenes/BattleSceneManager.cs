@@ -184,7 +184,11 @@ public class BattleSceneManager : MonoBehaviour
             var additionalUnits = setup.AdditionalUnits;
             for (int i = 0; i < additionalUnits.Count; i++)
             {
-                SpawnSquad(buffer, additionalUnits[i], 1);
+                var additional = additionalUnits[i];
+                if (!additional.IsValid)
+                    continue;
+
+                SpawnSquad(buffer, additional.Definition, additional.Count);
             }
         }
     }
