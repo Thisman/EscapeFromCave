@@ -3,9 +3,18 @@ using System.Threading.Tasks;
 
 public sealed class DefaultBattleDamageResolver : IBattleDamageResolver
 {
-    public async Task ResolveDamage(BattleSquadController actor, BattleSquadController target)
+    public async Task ResolveDamage(IBattleDamageSource actor, IBattleDamageReceiver target)
     {
-        int damage = actor.ResolveDamage();
+        if (actor == null)
+            throw new ArgumentNullException(nameof(actor));
+
+        if (target == null)
+            throw new ArgumentNullException(nameof(target));
+
+        var damage = actor.ResolveDamage();
+        if (damage == null || damage.Value <= 0)
+            return;
+
         await target.ApplyDamage(damage);
     }
 }

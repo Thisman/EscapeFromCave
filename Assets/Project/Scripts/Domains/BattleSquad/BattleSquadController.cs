@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BattleSquadController : MonoBehaviour
+public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver
 {
     private BattleSquadModel _squadModel;
 
@@ -24,17 +24,21 @@ public class BattleSquadController : MonoBehaviour
         return _squadModel;
     }
 
-    public int ResolveDamage()
+    public BattleDamageData ResolveDamage()
     {
-        return (int)_squadModel?.ResolveDamage();
+        return _squadModel?.ResolveDamage() ?? new BattleDamageData(DamageType.Physical, 0);
     }
 
-    public async Task ApplyDamage(int damage)
+    public async Task ApplyDamage(BattleDamageData damageData)
     {
+        if (damageData == null)
+            return;
+
+        int damage = damageData.Value;
         if (damage <= 0)
             return;
 
-        _squadModel?.ApplyDamage(damage);
+        _squadModel?.ApplyDamage(damageData);
 
         var animationController = GetComponentInChildren<BattleSquadAnimationController>();
         if (animationController == null)

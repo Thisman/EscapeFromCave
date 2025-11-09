@@ -71,8 +71,12 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public bool IsEmpty => Count <= 0;
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(BattleDamageData damageData)
     {
+        if (damageData == null)
+            return;
+
+        int damage = damageData.Value;
         if (damage <= 0 || _squadHealth <= 0) return;
 
         // 1) Промах атакующего
@@ -97,13 +101,13 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
         int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
 
-        Debug.Log($"[Battle]: {UnitName} took {afterDefense} dmg (raw={damage}, absDef={absDef:P0})");
+        Debug.Log($"[Battle]: {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, absDef={absDef:P0})");
         Debug.Log($"[Battle]: {UnitName} new health {newHealth}");
 
         SetSquadHealth(newHealth);
     }
 
-    public int ResolveDamage()
+    public BattleDamageData ResolveDamage()
     {
         var (minD, maxD) = GetBaseDamageRange();
         if (maxD < minD) (minD, maxD) = (maxD, minD);
@@ -121,8 +125,9 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
             total += Mathf.FloorToInt(dmg);
         }
 
-        Debug.Log($"[Battle]: {UnitName} resolve damage {total}");
-        return Mathf.Max(0, total);
+        total = Mathf.Max(0, total);
+        Debug.Log($"[Battle]: {UnitName} resolve damage {total} of type {DamageType}");
+        return new BattleDamageData(DamageType, total);
     }
 
     public void SetStatModifiers(object source, IReadOnlyList<BattleStatModifier> modifiers)

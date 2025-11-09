@@ -1,10 +1,11 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DamageBattleEffect", menuName = "Gameplay/Battle Effects/Damage Effect")]
-public sealed class DamageBattleEffect : BattleEffectDefinitionSO
+public sealed class DamageBattleEffect : BattleEffectDefinitionSO, IBattleDamageSource
 {
     [Min(0)]
     public int Damage;
+    public DamageType DamageType = DamageType.Physical;
 
     public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
@@ -27,7 +28,13 @@ public sealed class DamageBattleEffect : BattleEffectDefinitionSO
             return;
         }
 
-        Debug.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} damage to '{target.name}'.");
-        _ = squadController.ApplyDamage(Damage);
+        Debug.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} {DamageType} damage to '{target.name}'.");
+        var resolver = new DefaultBattleDamageResolver();
+        _ = resolver.ResolveDamage(this, squadController);
+    }
+
+    public BattleDamageData ResolveDamage()
+    {
+        return new BattleDamageData(DamageType, Damage);
     }
 }
