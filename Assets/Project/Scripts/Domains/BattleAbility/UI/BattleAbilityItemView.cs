@@ -1,15 +1,19 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BattleAbilityItemView : MonoBehaviour
+public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image icon;
     [SerializeField] private Button button;
     [SerializeField] private float highlightScaleMultiplier = 1.1f;
     [SerializeField] private float highlightTweenDuration = 0.2f;
     [SerializeField] private Ease highlightTweenEase = Ease.OutBack;
+    [SerializeField] private GameObject descriptionRoot;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     public event Action<BattleAbilityDefinitionSO> OnClick;
 
@@ -41,6 +45,7 @@ public class BattleAbilityItemView : MonoBehaviour
 
         KillHighlightTween();
         transform.localScale = _initialScale;
+        HideDescription();
     }
 
     public void Render(BattleAbilityDefinitionSO abilityDefinition)
@@ -55,6 +60,8 @@ public class BattleAbilityItemView : MonoBehaviour
         }
 
         SetInteractable(true);
+        UpdateDescriptionText();
+        HideDescription();
     }
 
     public void Highlight()
@@ -70,6 +77,20 @@ public class BattleAbilityItemView : MonoBehaviour
     private void HandleClick()
     {
         OnClick?.Invoke(_definition);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (_definition == null)
+            return;
+
+        UpdateDescriptionText();
+        ShowDescription();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideDescription();
     }
 
     public void SetInteractable(bool interactable)
@@ -115,5 +136,54 @@ public class BattleAbilityItemView : MonoBehaviour
 
         _highlightTween.Kill();
         _highlightTween = null;
+    }
+
+    private void ShowDescription()
+    {
+        if (descriptionRoot != null)
+        {
+            descriptionRoot.SetActive(true);
+        }
+    }
+
+    private void HideDescription()
+    {
+        if (descriptionRoot != null)
+        {
+            descriptionRoot.SetActive(false);
+        }
+    }
+
+    private void UpdateDescriptionText()
+    {
+        if (descriptionText == null || _definition == null)
+            return;
+
+        descriptionText.text = FormatDescription(_definition);
+    }
+
+    private string FormatDescription(BattleAbilityDefinitionSO abilityDefinition)
+    {
+        string cooldownLabel = GetCooldownText(abilityDefinition.Cooldown);
+        return $"{abilityDefinition.AbilityName}\n{abilityDefinition.Description}\nПерезарядка: {abilityDefinition.Cooldown} {cooldownLabel}";
+    }
+
+    private string GetCooldownText(int cooldown)
+    {
+        int absoluteCooldown = Mathf.Abs(cooldown);
+        int lastTwoDigits = absoluteCooldown % 100;
+        int lastDigit = absoluteCooldown % 10;
+
+        if (lastDigit == 1 && lastTwoDigits != 11)
+        {
+            return "раунд";
+        }
+
+        if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 12 || lastTwoDigits > 14))
+        {
+            return "раунда";
+        }
+
+        return "раундов";
     }
 }
