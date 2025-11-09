@@ -35,17 +35,21 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
             return;
 
         int damage = damageData.Value;
-        if (damage <= 0)
-            return;
 
-        _squadModel?.ApplyDamage(damageData);
+        bool damageApplied = damage > 0;
+        if (_squadModel != null)
+            damageApplied = _squadModel.ApplyDamage(damageData);
 
         var animationController = GetComponentInChildren<BattleSquadAnimationController>();
         if (animationController == null)
             return;
 
         var completionSource = new TaskCompletionSource<bool>();
-        animationController.PlayDamageFlash(damage, () => completionSource.TrySetResult(true));
+        if (damageApplied)
+            animationController.PlayDamageFlash(damage, () => completionSource.TrySetResult(true));
+        else
+            animationController.PlayDodgeFlash(() => completionSource.TrySetResult(true));
+
         await completionSource.Task;
     }
 }

@@ -71,13 +71,13 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public bool IsEmpty => Count <= 0;
 
-    public void ApplyDamage(BattleDamageData damageData)
+    public bool ApplyDamage(BattleDamageData damageData)
     {
         if (damageData == null)
-            return;
+            return false;
 
         int damage = damageData.Value;
-        if (damage <= 0 || _squadHealth <= 0) return;
+        if (damage <= 0 || _squadHealth <= 0) return false;
 
         // 1) Промах атакующего (магический урон не может промахнуться)
         bool canMiss = damageData.DamageType != DamageType.Magical;
@@ -87,7 +87,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
             if (UnityEngine.Random.value < pMiss)
             {
                 Debug.Log($"[Battle]: {UnitName} dodge damage");
-                return;
+                return false;
             }
         }
 
@@ -112,14 +112,16 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         //    Вопрос округления: RoundToInt — нейтральный вариант. Если хочешь «не завышать» снижение, используй FloorToInt.
         int afterDefense = Mathf.Max(0, Mathf.RoundToInt(damage * (1f - defense)));
 
-        if (afterDefense <= 0) return;
+        if (afterDefense <= 0) return false;
 
         int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
 
         Debug.Log($"[Battle]: {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, defense={defense:P0})");
         Debug.Log($"[Battle]: {UnitName} new health {newHealth}");
 
+        bool changed = newHealth != _squadHealth;
         SetSquadHealth(newHealth);
+        return changed;
     }
 
     public BattleDamageData ResolveDamage()

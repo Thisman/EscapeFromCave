@@ -487,8 +487,11 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 6778397580762529526}
   _unitController: {fileID: 8431889633247697648}
   _damageFlashColor: {r: 1, g: 0, b: 0, a: 0.09803922}
+  _dodgeFlashColor: {r: 1, g: 1, b: 1, a: 1}
   _damageFlashDuration: 0.5
   _damageFlashFrequency: 6
+  _shakeTarget: {fileID: 6195033524485483423}
+  _damageShakeAmplitude: 0.1
   _damageTextOffset: {x: 0, y: 50}
 --- !u!114 &-561371190395345101
 MonoBehaviour:
