@@ -26,7 +26,7 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
 
     public BattleDamageData ResolveDamage()
     {
-        return _squadModel?.ResolveDamage() ?? new BattleDamageData(DamageType.Physical, 0);
+        return _squadModel.ResolveDamage();
     }
 
     public async Task ApplyDamage(BattleDamageData damageData)

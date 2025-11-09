@@ -5,7 +5,8 @@ public sealed class DamageBattleEffect : BattleEffectDefinitionSO, IBattleDamage
 {
     [Min(0)]
     public int Damage;
-    public DamageType DamageType = DamageType.Physical;
+
+    private const DamageType _effectDamageType = DamageType.Magical;
 
     public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
@@ -28,13 +29,12 @@ public sealed class DamageBattleEffect : BattleEffectDefinitionSO, IBattleDamage
             return;
         }
 
-        Debug.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} {DamageType} damage to '{target.name}'.");
-        var resolver = new DefaultBattleDamageResolver();
-        _ = resolver.ResolveDamage(this, squadController);
+        Debug.Log($"{nameof(DamageBattleEffect)} '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
+        _ = new DefaultBattleDamageResolver().ResolveDamage(this, squadController);
     }
 
     public BattleDamageData ResolveDamage()
     {
-        return new BattleDamageData(DamageType, Damage);
+        return new BattleDamageData(_effectDamageType, Damage);
     }
 }
