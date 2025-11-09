@@ -17,4 +17,10 @@ public static class SceneUtils
             root.SetActive(active);
         }
     }
+
+    public static string TryGetSourceSceneName(GameObject source)
+    {
+        Scene scene = source.scene;
+        return scene.IsValid() ? scene.name : null;
+    }
 }

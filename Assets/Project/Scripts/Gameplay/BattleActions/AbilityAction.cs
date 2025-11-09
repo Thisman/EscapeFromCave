@@ -61,7 +61,7 @@ public sealed class AbilityAction : IBattleAction, IDisposable
 
         _ability.Apply(_ctx, unit);
 
-        var abilityManager = _ctx?.BattleAbilityManager;
+        var abilityManager = _ctx?.BattleAbilitiesManager;
         var caster = _ctx?.ActiveUnit;
         if (abilityManager != null && caster != null)
         {

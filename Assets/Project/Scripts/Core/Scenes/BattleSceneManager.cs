@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using System.Collections.Generic;
 
 public class BattleSceneManager : MonoBehaviour
 {
@@ -57,7 +56,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
         {
-            Debug.LogWarning("[BattleSceneManager] Battle scene payload was not found. Using empty battle setup.");
+            GameLogger.Warn("Battle scene payload was not found. Using empty battle setup.");
             return;
         }
 
@@ -91,7 +90,7 @@ public class BattleSceneManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[BattleSceneManager] Battle data was not resolved. No units will be spawned.");
+            GameLogger.Warn("Battle data was not resolved. No units will be spawned.");
         }
 
         _battleContext.BattleUnits = collectedUnits;
@@ -99,14 +98,15 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleContext()
     {
+        BattleEffectsManager battleEffectsManager = new();
+        BattleAbilityManager battleAbilitiesManager = new();
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
         BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
-        BattleEffectsManager battleEffectsManager = new();
-        BattleAbilityManager battleAbilityManager = new();
 
         _battleContext = new BattleContext
         {
+            InputService = _inputService,
             PanelManager = _panelManager,
             BattleQueueUIController = _queueUIController,
             BattleGridDragAndDropController = _battleGridDragAndDropController,
@@ -114,14 +114,13 @@ public class BattleSceneManager : MonoBehaviour
             BattleGridController = _battleGridController,
             BattleQueueController = _battleQueueController,
 
-            BattleActionControllerResolver = actionControllerResolver,
-            BattleAbilityManager = battleAbilityManager,
             BattleEffectsManager = battleEffectsManager,
+            BattleAbilitiesManager = battleAbilitiesManager,
+            BattleActionControllerResolver = actionControllerResolver,
 
             BattleTacticUIController = _tacticUIController,
             BattleCombatUIController = _combatUIController,
             BattleResultsUIController = _resultsUIController,
-            InputService = _inputService,
         };
     }
 
@@ -133,11 +132,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializePanelController()
     {
-        if (_tacticUIController == null && _combatUIController == null && _resultsUIController == null)
-        {
-            return;
-        }
-
         _panelManager = new PanelManager(
             ("tactic", new[] { _tacticUIController.gameObject }),
             ("rounds", new[] {
@@ -177,7 +171,7 @@ public class BattleSceneManager : MonoBehaviour
         _ = _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
     }
 
-    private void TryAddUnit(List<BattleSquadController> buffer, BattleSquadSetup setup)
+    private void TryAddUnit(List<BattleSquadController> squads, BattleSquadSetup setup)
     {
         if (!setup.IsValid)
             return;
@@ -188,31 +182,15 @@ public class BattleSceneManager : MonoBehaviour
         BattleSquadModel battleModel = new(squadModel);
         controller.Initialize(battleModel);
 
-        buffer.Add(controller);
+        squads.Add(controller);
     }
 
     private static string ResolveOriginSceneName(BattleSceneData data)
     {
-        if (data == null)
-            return null;
-
-        var heroScene = TryGetSourceSceneName(data.HeroSource);
+        string heroScene = SceneUtils.TryGetSourceSceneName(data.HeroSource);
         if (!string.IsNullOrEmpty(heroScene))
             return heroScene;
 
-        var enemyScene = TryGetSourceSceneName(data.EnemySource);
-        if (!string.IsNullOrEmpty(enemyScene))
-            return enemyScene;
-
         return null;
-    }
-
-    private static string TryGetSourceSceneName(GameObject source)
-    {
-        if (source == null)
-            return null;
-
-        var scene = source.scene;
-        return scene.IsValid() ? scene.name : null;
     }
 }

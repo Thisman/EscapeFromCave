@@ -73,7 +73,7 @@ public sealed class BattleRoundsMachine
 
         _ctx.BattleQueueController.Build(unitModels);
         _ctx.BattleQueueUIController.Render(_ctx.BattleQueueController);
-        _ctx.BattleAbilityManager.OnTick();
+        _ctx.BattleAbilitiesManager.OnTick();
         _ctx.BattleEffectsManager.OnTick();
 
         _sm.Fire(BattleRoundTrigger.InitTurn);
@@ -102,7 +102,7 @@ public sealed class BattleRoundsMachine
 
         var abilities = _ctx.ActiveUnit.Abilities;
         var activeUnit = _ctx.ActiveUnit;
-        var abilityManager = _ctx.BattleAbilityManager;
+        var abilityManager = _ctx.BattleAbilitiesManager;
         _ctx.BattleCombatUIController?.RenderAbilityList(abilities, abilityManager, activeUnit);
 
         _sm.Fire(BattleRoundTrigger.NextTurn);

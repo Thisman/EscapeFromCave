@@ -51,7 +51,7 @@ public class PlayerBattleActionController : IBattleActionController
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
-        var abilityManager = _ctx.BattleAbilityManager;
+        var abilityManager = _ctx.BattleAbilitiesManager;
         var activeUnit = _ctx.ActiveUnit;
         if (abilityManager != null && activeUnit != null && !abilityManager.IsAbilityReady(activeUnit, ability))
         {
