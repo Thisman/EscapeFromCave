@@ -4,10 +4,11 @@ public class SquadAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SquadController _unitController;
-    [SerializeField] private float _scaleAmplitude = 0.1f;
-    [SerializeField] private float _scaleFrequency = 2f;
+    [SerializeField] private float _scaleAmplitude = 0.03f;
+    [SerializeField] private float _scaleFrequency = 6f;
 
     private Vector3 _initialScale;
+    private float _scaleAnimationStartTime;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class SquadAnimationController : MonoBehaviour
     private void OnEnable()
     {
         _initialScale = transform.localScale;
+        ScheduleScaleAnimation();
     }
 
     private void Start()
@@ -47,9 +49,21 @@ public class SquadAnimationController : MonoBehaviour
             return;
         }
 
-        var scaleOffset = Mathf.Sin(Time.time * _scaleFrequency) * _scaleAmplitude;
+        float elapsed = Time.time - _scaleAnimationStartTime;
+        if (elapsed < 0f)
+        {
+            transform.localScale = _initialScale;
+            return;
+        }
+
+        var scaleOffset = Mathf.Sin(elapsed * _scaleFrequency) * _scaleAmplitude;
         var targetScale = _initialScale;
         targetScale.y = _initialScale.y * (1f + scaleOffset);
         transform.localScale = targetScale;
+    }
+
+    private void ScheduleScaleAnimation()
+    {
+        _scaleAnimationStartTime = Time.time + UnityEngine.Random.Range(0f, 0.5f);
     }
 }

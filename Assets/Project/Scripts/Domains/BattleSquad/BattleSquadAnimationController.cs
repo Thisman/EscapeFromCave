@@ -9,8 +9,8 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _damageTextUI;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private BattleSquadController _unitController;
-    [SerializeField] private float _scaleAmplitude = 0.1f;
-    [SerializeField] private float _scaleFrequency = 2f;
+    [SerializeField] private float _scaleAmplitude = 0.03f;
+    [SerializeField] private float _scaleFrequency = 6f;
 
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField] private Color _dodgeFlashColor = Color.white;
@@ -30,6 +30,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     private Color _damageTextHiddenColor = new(1f, 1f, 1f, 0f);
     private Vector3 _initialScale;
     private bool _isScaleAnimationPaused;
+    private float _scaleAnimationStartTime;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     {
         _initialScale = transform.localScale;
         _isScaleAnimationPaused = false;
+        ScheduleScaleAnimation();
     }
 
     private void Start()
@@ -314,7 +316,14 @@ public class BattleSquadAnimationController : MonoBehaviour
             return;
         }
 
-        float scaleOffset = Mathf.Sin(Time.time * _scaleFrequency) * _scaleAmplitude;
+        float elapsed = Time.time - _scaleAnimationStartTime;
+        if (elapsed < 0f)
+        {
+            transform.localScale = _initialScale;
+            return;
+        }
+
+        float scaleOffset = Mathf.Sin(elapsed * _scaleFrequency) * _scaleAmplitude;
         var targetScale = _initialScale;
         targetScale.y = _initialScale.y * (1f + scaleOffset);
         transform.localScale = targetScale;
@@ -329,5 +338,11 @@ public class BattleSquadAnimationController : MonoBehaviour
     private void ResumeScaleAnimation()
     {
         _isScaleAnimationPaused = false;
+        _scaleAnimationStartTime = Time.time;
+    }
+
+    private void ScheduleScaleAnimation()
+    {
+        _scaleAnimationStartTime = Time.time + UnityEngine.Random.Range(0f, 0.5f);
     }
 }
