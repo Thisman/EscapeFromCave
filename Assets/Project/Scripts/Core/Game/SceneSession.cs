@@ -19,12 +19,11 @@ public sealed class SceneSession
         if (Payload is ISceneLoadingPayload<TPayload> typedPayload)
         {
             payload = typedPayload.GetData();
-            Debug.Log($"[SceneSession] Successfully resolved payload to type {typeof(TPayload).Name}.");
             return true;
         }
 
         payload = default;
-        Debug.LogWarning($"[SceneSession] Unable to resolve payload to type {typeof(TPayload).Name}. Actual type: {Payload?.GetType().Name ?? "<null>"}.");
+        GameLogger.Warn($"Unable to resolve payload to type {typeof(TPayload).Name}. Actual type: {Payload?.GetType().Name ?? "<null>"}.");
         return false;
     }
 }
