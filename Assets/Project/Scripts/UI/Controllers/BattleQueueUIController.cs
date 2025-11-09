@@ -6,6 +6,10 @@ public sealed class BattleQueueUIController : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private BattleQueueItemView _itemPrefab;
 
+    private const float FirstItemScale = 1.5f;
+    private static readonly Vector3 FirstItemScaleVector = Vector3.one * FirstItemScale;
+    private static readonly Vector3 DefaultItemScale = Vector3.one;
+
     private readonly List<BattleQueueItemView> _items = new();
 
     private void Awake()
@@ -41,6 +45,7 @@ public sealed class BattleQueueUIController : MonoBehaviour
         {
             var view = _items[i];
             view.gameObject.SetActive(true);
+            view.transform.localScale = i == 0 ? FirstItemScaleVector : DefaultItemScale;
             view.Render(queue[i]);
         }
 
