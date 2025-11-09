@@ -31,7 +31,7 @@ public class DangeonSceneManager : MonoBehaviour
 
         GameObject playerInstance = _objectResolver.Instantiate(_playerPrefab, spawnPosition, spawnRotation);
         PlayerController playerController = playerInstance.GetComponent<PlayerController>();
-        SquadModel squadModel = new(_gameSession.HeroDefinition, 1);
+        SquadModel squadModel = new(_gameSession.SelectedHero, 1);
 
         playerController.Initialize(squadModel);
 
@@ -45,7 +45,7 @@ public class DangeonSceneManager : MonoBehaviour
 
         armyController.Initialize(armyModel);
 
-        foreach (var definition in _gameSession.ArmyDefinition)
+        foreach (var definition in _gameSession.SelectedAllySquads)
         {
             if (definition != null)
             {

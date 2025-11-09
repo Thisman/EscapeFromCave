@@ -3,30 +3,27 @@ using UnityEngine;
 
 public sealed class GameSession
 {
-    private UnitDefinitionSO _heroDifinition;
+    private UnitDefinitionSO _selectedHero;
 
-    private readonly List<UnitDefinitionSO> _armyDefinition = new();
+    private readonly List<UnitDefinitionSO> _selectedAllySquads = new();
 
-    public UnitDefinitionSO HeroDefinition => _heroDifinition;
+    public UnitDefinitionSO SelectedHero => _selectedHero;
 
-    public IReadOnlyList<UnitDefinitionSO> ArmyDefinition => _armyDefinition;
+    public IReadOnlyList<UnitDefinitionSO> SelectedAllySquads => _selectedAllySquads;
 
-    public void SelectHeroAndArmy(UnitDefinitionSO heroDefinition, List<UnitDefinitionSO> armyDefinition)
+    public void SaveSelectedHeroSquads(UnitDefinitionSO heroDefinition, List<UnitDefinitionSO> armyDefinition)
     {
-        _heroDifinition = heroDefinition;
-        _armyDefinition.Clear();
-        if (armyDefinition != null)
-        {
-            _armyDefinition.AddRange(armyDefinition);
-        }
+        _selectedHero = heroDefinition;
+        _selectedAllySquads.Clear();
+        _selectedAllySquads.AddRange(armyDefinition);
 
-        Debug.Log($"[GameSession] Selection updated. Hero: {_heroDifinition?.name ?? "<null>"}, Army size: {_armyDefinition.Count}.");
+        GameLogger.Log($"Selection updated. Hero: {_selectedHero.name}, Army size: {_selectedAllySquads.Count}.");
     }
 
     public void Clear()
     {
-        _heroDifinition = null;
-        _armyDefinition.Clear();
-        Debug.Log("[GameSession] Selection cleared.");
+        _selectedHero = null;
+        _selectedAllySquads.Clear();
+        GameLogger.Log("Selection cleared.");
     }
 }
