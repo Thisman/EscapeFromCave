@@ -19,6 +19,7 @@ public sealed class BattleGridController : MonoBehaviour
     [SerializeField] private Transform[] _allySlots = Array.Empty<Transform>();
     [SerializeField] private Transform[] _enemySlots = Array.Empty<Transform>();
     [SerializeField] private Color _activeSlotColor = new(1f, 0.92f, 0.016f, 0.35f);
+    [SerializeField] private Color _availableActionSlotColor = new(0.22f, 0.67f, 0.97f, 0.35f);
 
     private readonly Dictionary<Transform, Transform> _slotOccupants = new();
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
@@ -26,6 +27,7 @@ public sealed class BattleGridController : MonoBehaviour
     private Transform _activeSlot;
 
     public Transform ActiveSlot => _activeSlot;
+    public Color AvailableActionSlotColor => _availableActionSlotColor;
 
     private void Awake()
     {

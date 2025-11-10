@@ -495,7 +495,6 @@ MonoBehaviour:
   _shakeTarget: {fileID: 6195033524485483423}
   _damageShakeAmplitude: 0.1
   _damageTextOffset: {x: 0, y: 50}
-  _unavailableAlpha: 0.25
 --- !u!114 &-561371190395345101
 MonoBehaviour:
   m_ObjectHideFlags: 0
