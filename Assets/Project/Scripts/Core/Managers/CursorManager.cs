@@ -83,12 +83,31 @@ public sealed class CursorManager : MonoBehaviour
             return false;
         }
 
+        var texture = cursorData.Texture;
+        if (texture == null)
+        {
+            if (_missingCursorNames.Add(cursorName))
+            {
+                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryApplyCursor)}] Cursor '{cursorName}' does not have a valid texture.");
+            }
+            return false;
+        }
+
+        if (!texture.isReadable)
+        {
+            if (_missingCursorNames.Add(cursorName))
+            {
+                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryApplyCursor)}] Cursor texture '{texture.name}' is not CPU accessible.");
+            }
+            return false;
+        }
+
         if (string.Equals(_currentCursorKey, cursorData.Name, StringComparison.OrdinalIgnoreCase))
         {
             return true;
         }
 
-        Cursor.SetCursor(cursorData.Texture, cursorData.Hotspot, CursorMode.Auto);
+        Cursor.SetCursor(texture, cursorData.Hotspot, CursorMode.Auto);
         _currentCursorKey = cursorData.Name;
         return true;
     }
@@ -257,7 +276,11 @@ public sealed class CursorManager : MonoBehaviour
 
         if (isFullTexture)
         {
-            return sprite.texture;
+            var fullTexture = sprite.texture;
+            if (fullTexture != null && fullTexture.isReadable)
+            {
+                return fullTexture;
+            }
         }
 
         if (TryCopyTextureRegion(sprite, out var copiedTexture))
