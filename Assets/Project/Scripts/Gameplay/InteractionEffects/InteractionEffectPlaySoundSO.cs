@@ -16,7 +16,7 @@ public sealed class InteractionEffectPlaySoundSO : InteractionEffectSO
     {
         if (_clip == null)
         {
-            GameLogger.Warn("[PlaySoundEffect] Audio clip is not assigned. Unable to play sound.");
+            Debug.LogWarning($"[{nameof(InteractionEffectPlaySoundSO)}.{nameof(Apply)}] Audio clip is not assigned. Unable to play sound.");
             return InteractionEffectResult.Continue;
         }
 

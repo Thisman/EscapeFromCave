@@ -29,7 +29,7 @@ public sealed class SceneLoader
         SceneSession session = new(payload);
         _sessions.Add(sceneName, session);
 
-        GameLogger.Log($"Loading scene '{sceneName}' with payload of type {payload.GetType().Name}.");
+        Debug.Log($"[{nameof(SceneLoader)}.{nameof(LoadAdditiveWithDataAsync)}] Loading scene '{sceneName}' with payload of type {payload.GetType().Name}.");
 
         try
         {
@@ -38,7 +38,7 @@ public sealed class SceneLoader
 
             if (result == null)
             {
-                GameLogger.Warn($"Scene '{sceneName}' completed without close data.");
+                Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(LoadAdditiveWithDataAsync)}] Scene '{sceneName}' completed without close data.");
                 return default;
             }
 
@@ -50,13 +50,13 @@ public sealed class SceneLoader
         finally
         {
             _sessions.Remove(sceneName);
-            GameLogger.Log($"Scene '{sceneName}' session was removed.");
+            Debug.Log($"[{nameof(SceneLoader)}.{nameof(LoadAdditiveWithDataAsync)}] Scene '{sceneName}' session was removed.");
         }
     }
 
     public async Task LoadAdditiveAsync(string sceneName)
     {
-        GameLogger.Log($"Loading additive scene '{sceneName}'.");
+        Debug.Log($"[{nameof(SceneLoader)}.{nameof(LoadAdditiveAsync)}] Loading additive scene '{sceneName}'.");
 
         AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (!sceneLoading.isDone)
@@ -65,7 +65,7 @@ public sealed class SceneLoader
         Scene loadedScene = SceneManager.GetSceneByName(sceneName);
         if (!loadedScene.IsValid() || !loadedScene.isLoaded)
         {
-            GameLogger.Error($"Scene '{sceneName}' failed to load correctly.");
+            Debug.LogError($"[{nameof(SceneLoader)}.{nameof(LoadAdditiveAsync)}] Scene '{sceneName}' failed to load correctly.");
             return;
         }
 
@@ -94,7 +94,7 @@ public sealed class SceneLoader
 
         await UnloadAdditiveAsync(sceneName, returnToScene).ConfigureAwait(false);
         session.CompletionSource.TrySetResult(closeData);
-        GameLogger.Log($"Scene '{sceneName}' was unloaded with close data of type {closeData?.GetType().Name ?? "<null>"}.");
+        Debug.Log($"[{nameof(SceneLoader)}.{nameof(UnloadAdditiveWithDataAsync)}] Scene '{sceneName}' was unloaded with close data of type {closeData?.GetType().Name ?? "<null>"}.");
     }
 
     public async Task UnloadAdditiveAsync(string sceneName, string returnToScene = null)
@@ -102,7 +102,7 @@ public sealed class SceneLoader
         Scene scene = SceneManager.GetSceneByName(sceneName);
         if (!scene.isLoaded)
         {
-            GameLogger.Warn($"Attempted to unload scene '{sceneName}' but it is not loaded.");
+            Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(UnloadAdditiveAsync)}] Attempted to unload scene '{sceneName}' but it is not loaded.");
             return;
         }
 
@@ -119,7 +119,7 @@ public sealed class SceneLoader
             }
             else
             {
-                GameLogger.Warn($"Requested to activate return scene '{returnToScene}', but it is not loaded.");
+                Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(UnloadAdditiveAsync)}] Requested to activate return scene '{returnToScene}', but it is not loaded.");
             }
         }
     }
@@ -128,18 +128,18 @@ public sealed class SceneLoader
     {
         if (_sessions.TryGetValue(sceneName, out var session) && session.TryGetPayload(out payload))
         {
-            GameLogger.Log($"Payload for scene '{sceneName}' resolved as type {typeof(TPayload).Name}.");
+            Debug.Log($"[{nameof(SceneLoader)}.{nameof(TryGetScenePayload)}] Payload for scene '{sceneName}' resolved as type {typeof(TPayload).Name}.");
             return true;
         }
 
         payload = default;
-        GameLogger.Warn($"Failed to resolve payload for scene '{sceneName}' as type {typeof(TPayload).Name}.");
+        Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(TryGetScenePayload)}] Failed to resolve payload for scene '{sceneName}' as type {typeof(TPayload).Name}.");
         return false;
     }
 
     public void LoadScene(string sceneName)
     {
-        GameLogger.Log($"Loading scene '{sceneName}' in single mode.");
+        Debug.Log($"[{nameof(SceneLoader)}.{nameof(LoadScene)}] Loading scene '{sceneName}' in single mode.");
 
         SceneManager.LoadScene(sceneName);
         Scene active = SceneManager.GetActiveScene();
@@ -150,7 +150,7 @@ public sealed class SceneLoader
         }
         else
         {
-            GameLogger.Warn($"Scene '{sceneName}' was requested to load, but the active scene after load is '{active.name}'.");
+            Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(LoadScene)}] Scene '{sceneName}' was requested to load, but the active scene after load is '{active.name}'.");
         }
     }
 
@@ -158,7 +158,7 @@ public sealed class SceneLoader
     {
         if (!sceneToActivate.IsValid() || !sceneToActivate.isLoaded)
         {
-            GameLogger.Warn($"Cannot change activation state for scene '{sceneToActivate.name}' because it is invalid or not loaded.");
+            Debug.LogWarning($"[{nameof(SceneLoader)}.{nameof(ActivateTargetScene)}] Cannot change activation state for scene '{sceneToActivate.name}' because it is invalid or not loaded.");
             return;
         }
 
@@ -167,16 +167,16 @@ public sealed class SceneLoader
         if (isActive)
         {
             SceneManager.SetActiveScene(sceneToActivate);
-            GameLogger.Log($"Scene '{sceneToActivate.name}' set as active scene.");
+            Debug.Log($"[{nameof(SceneLoader)}.{nameof(ActivateTargetScene)}] Scene '{sceneToActivate.name}' set as active scene.");
         }
 
         if (!isRootScene || isActive)
         {
             SceneUtils.SetSceneActiveObjects(sceneToActivate.name, isActive);
-            GameLogger.Log($"Scene '{sceneToActivate.name}' root objects set active: {isActive}.");
+            Debug.Log($"[{nameof(SceneLoader)}.{nameof(ActivateTargetScene)}] Scene '{sceneToActivate.name}' root objects set active: {isActive}.");
             return;
         }
 
-        GameLogger.Log($"Skipping deactivation of root scene '{sceneToActivate.name}'.");
+        Debug.Log($"[{nameof(SceneLoader)}.{nameof(ActivateTargetScene)}] Skipping deactivation of root scene '{sceneToActivate.name}'.");
     }
 }

@@ -29,7 +29,7 @@ public class BattleAbilityListUIController : MonoBehaviour
 
         if (abilityItemViewPrefab == null)
         {
-            GameLogger.Warn("BattleAbilityListUIController: ability item prefab is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleAbilityListUIController)}.{nameof(Render)}] Ability item prefab is not assigned.");
             SetActive(false);
             return;
         }

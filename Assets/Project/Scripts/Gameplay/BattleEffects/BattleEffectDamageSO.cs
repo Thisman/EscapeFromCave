@@ -12,7 +12,7 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageSource
     {
         BattleSquadController squadController = target.GetComponent<BattleSquadController>();
 
-        GameLogger.Log($"{nameof(BattleEffectDamageSO)} '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
+        Debug.Log($"[{nameof(BattleEffectDamageSO)}.{nameof(Apply)}] '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
         _ = new BattleDamageDefaultResolver().ResolveDamage(this, squadController);
     }
 

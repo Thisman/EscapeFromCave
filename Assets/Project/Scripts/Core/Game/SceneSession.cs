@@ -23,7 +23,7 @@ public sealed class SceneSession
         }
 
         payload = default;
-        GameLogger.Warn($"Unable to resolve payload to type {typeof(TPayload).Name}. Actual type: {Payload?.GetType().Name ?? "<null>"}.");
+        Debug.LogWarning($"[{nameof(SceneSession)}.{nameof(TryGetPayload)}] Unable to resolve payload to type {typeof(TPayload).Name}. Actual type: {Payload?.GetType().Name ?? "<null>"}.");
         return false;
     }
 }

@@ -86,7 +86,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
             float pMiss = Mathf.Clamp01(MissChance);
             if (UnityEngine.Random.value < pMiss)
             {
-                GameLogger.Log($"[Battle]: {UnitName} dodge damage");
+                Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} dodged incoming damage.");
                 return false;
             }
         }
@@ -116,8 +116,8 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
         int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
 
-        GameLogger.Log($"[Battle]: {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, defense={defense:P0})");
-        GameLogger.Log($"[Battle]: {UnitName} new health {newHealth}");
+        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, defense={defense:P0}).");
+        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} new health {newHealth}.");
 
         bool changed = newHealth != _squadHealth;
         SetSquadHealth(newHealth);
@@ -143,7 +143,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         }
 
         total = Mathf.Max(0, total);
-        GameLogger.Log($"[Battle]: {UnitName} resolve damage {total} of type {DamageType}");
+        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ResolveDamage)}] {UnitName} resolved {total} damage of type {DamageType}.");
         return new BattleDamageData(DamageType, total);
     }
 

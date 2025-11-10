@@ -17,13 +17,13 @@ public sealed class GameSession
         _selectedAllySquads.Clear();
         _selectedAllySquads.AddRange(armyDefinition);
 
-        GameLogger.Log($"Selection updated. Hero: {_selectedHero.name}, Army size: {_selectedAllySquads.Count}.");
+        Debug.Log($"[{nameof(GameSession)}.{nameof(SaveSelectedHeroSquads)}] Selection updated. Hero: {_selectedHero.name}, Army size: {_selectedAllySquads.Count}.");
     }
 
     public void Clear()
     {
         _selectedHero = null;
         _selectedAllySquads.Clear();
-        GameLogger.Log("Selection cleared.");
+        Debug.Log($"[{nameof(GameSession)}.{nameof(Clear)}] Selection cleared.");
     }
 }

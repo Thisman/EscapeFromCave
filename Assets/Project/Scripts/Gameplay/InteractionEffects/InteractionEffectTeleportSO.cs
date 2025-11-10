@@ -16,7 +16,7 @@ public sealed class InteractionEffectTeleportSO : InteractionEffectSO
     {
         if (_points == null || _points.Length == 0)
         {
-            GameLogger.Warn("[TeleportEffect] No teleport points configured. Unable to teleport player.");
+            Debug.LogWarning($"[{nameof(InteractionEffectTeleportSO)}.{nameof(Apply)}] No teleport points configured. Unable to teleport player.");
             return Task.FromResult(InteractionEffectResult.Continue);
         }
 

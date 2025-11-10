@@ -37,7 +37,7 @@ public sealed class DialogManager : MonoBehaviour
     {
         if (_canvas == null || _text == null)
         {
-            GameLogger.Warn("Missing canvas or text reference. Unable to show dialog.");
+            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(Show)}] Missing canvas or text reference. Unable to show dialog.");
             return;
         }
 
@@ -70,7 +70,7 @@ public sealed class DialogManager : MonoBehaviour
     {
         if (_canvas == null || _text == null)
         {
-            GameLogger.Warn("Missing canvas or text reference. Unable to show dialog.");
+            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(ShowForDurationAsync)}] Missing canvas or text reference. Unable to show dialog.");
             return Task.CompletedTask;
         }
 
