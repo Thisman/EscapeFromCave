@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
+using UnityEngine.InputSystem;
 
 public sealed class CursorManager : MonoBehaviour
 {
@@ -168,9 +169,14 @@ public sealed class CursorManager : MonoBehaviour
             return null;
         }
 
+        if (!TryGetPointerScreenPosition(out var pointerPosition))
+        {
+            return null;
+        }
+
         var pointerEventData = new PointerEventData(eventSystem)
         {
-            position = Input.mousePosition
+            position = pointerPosition
         };
 
         _uiRaycastResults.Clear();
@@ -208,8 +214,12 @@ public sealed class CursorManager : MonoBehaviour
             return null;
         }
 
-        var mousePosition = Input.mousePosition;
-        var ray = camera.ScreenPointToRay(mousePosition);
+        if (!TryGetPointerScreenPosition(out var pointerPosition))
+        {
+            return null;
+        }
+
+        var ray = camera.ScreenPointToRay(new Vector3(pointerPosition.x, pointerPosition.y, 0f));
         if (Physics.Raycast(ray, out var hitInfo))
         {
             var collider = hitInfo.collider;
@@ -223,7 +233,7 @@ public sealed class CursorManager : MonoBehaviour
             }
         }
 
-        var worldPoint = camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Mathf.Abs(camera.transform.position.z)));
+        var worldPoint = camera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, Mathf.Abs(camera.transform.position.z)));
         var collider2D = Physics2D.OverlapPoint(worldPoint);
         if (collider2D != null)
         {
@@ -444,6 +454,24 @@ public sealed class CursorManager : MonoBehaviour
         var hotspotX = sprite.pivot.x;
         var hotspotY = sprite.rect.height - sprite.pivot.y;
         return new Vector2(hotspotX, hotspotY);
+    }
+
+    private static bool TryGetPointerScreenPosition(out Vector2 position)
+    {
+        if (Mouse.current != null)
+        {
+            position = Mouse.current.position.ReadValue();
+            return true;
+        }
+
+        if (Pointer.current != null)
+        {
+            position = Pointer.current.position.ReadValue();
+            return true;
+        }
+
+        position = default;
+        return false;
     }
 
     private void DisposeGeneratedTextures()
