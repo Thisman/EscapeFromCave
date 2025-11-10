@@ -52,12 +52,14 @@ public sealed class BattlePhaseMachine
     private void OnEnterRounds()
     {
         _ctx.PanelManager?.Show("rounds");
+        _ctx.BattleSquadInfoManager?.Enable();
         _battleRoundsMachine.Reset();
         _battleRoundsMachine.BeginRound();
     }
 
     private void OnEnterResults()
     {
+        _ctx.BattleSquadInfoManager?.Disable();
         _ctx.IsFinished = true;
         _ctx.PanelManager?.Show("results");
         _ctx.BattleResultsUIController?.Render(_ctx.BattleResult);

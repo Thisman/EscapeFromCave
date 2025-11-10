@@ -16,6 +16,7 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private BattleTacticUIController _tacticUIController;
     [Inject] readonly private BattleCombatUIController _combatUIController;
     [Inject] readonly private BattleResultsUIController _resultsUIController;
+    [Inject] readonly private BattleSquadInfoUIController _squadInfoUIController;
 
     [Inject] readonly private BattleGridController _battleGridController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
@@ -28,6 +29,7 @@ public class BattleSceneManager : MonoBehaviour
     private BattleContext _battleContext;
     private BattleRoundsMachine _battleRoundMachine;
     private BattlePhaseMachine _battlePhaseMachine;
+    private BattleSquadInfoManager _battleSquadInfoManager;
 
     private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
@@ -50,6 +52,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         _ = _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
         UnsubscribeFromUiEvents();
+        _battleSquadInfoManager?.Dispose();
     }
 
     private void InitializeBattleData()
@@ -122,6 +125,9 @@ public class BattleSceneManager : MonoBehaviour
             BattleCombatUIController = _combatUIController,
             BattleResultsUIController = _resultsUIController,
         };
+
+        _battleSquadInfoManager = new BattleSquadInfoManager(_squadInfoUIController);
+        _battleContext.BattleSquadInfoManager = _battleSquadInfoManager;
     }
 
     private void InitializeStateMachines()
