@@ -4,6 +4,7 @@ using UnityEngine;
 
 public sealed class BattleSquadInfoUIController : MonoBehaviour
 {
+    private const float StatFontSize = 20f;
     [SerializeField] private GameObject _friendlyPanel;
     [SerializeField] private GameObject _enemyPanel;
 
@@ -115,6 +116,7 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
 
         var text = go.AddComponent<TextMeshProUGUI>();
         text.text = content;
+        text.fontSize = StatFontSize;
     }
 
     private GameObject ResolveTargetPanel(IReadOnlySquadModel model, out Transform container)
