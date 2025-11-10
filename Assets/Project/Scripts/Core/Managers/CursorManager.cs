@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
 
 public sealed class CursorManager : MonoBehaviour
@@ -254,6 +255,11 @@ public sealed class CursorManager : MonoBehaviour
             return PrepareGeneratedTexture(sprite, copiedTexture);
         }
 
+        if (TryBlitTextureRegion(sprite, out var blittedTexture))
+        {
+            return PrepareGeneratedTexture(sprite, blittedTexture);
+        }
+
         if (TryReadPixels(sprite, out var readableTexture))
         {
             return PrepareGeneratedTexture(sprite, readableTexture);
@@ -280,6 +286,17 @@ public sealed class CursorManager : MonoBehaviour
             return false;
         }
 
+        var sourceTexture = sprite.texture;
+        if (sourceTexture == null)
+        {
+            return false;
+        }
+
+        if (GraphicsFormatUtility.IsCompressedFormat(sourceTexture.graphicsFormat))
+        {
+            return false;
+        }
+
         var rect = sprite.rect;
         var width = (int)rect.width;
         var height = (int)rect.height;
@@ -287,7 +304,7 @@ public sealed class CursorManager : MonoBehaviour
         var originY = (int)rect.y;
 
         var requiresMatchingFormat = (SystemInfo.copyTextureSupport & CopyTextureSupport.DifferentTypes) == 0;
-        var sourceFormat = sprite.texture.format;
+        var sourceFormat = sourceTexture.format;
 
         if (!TryCreateTexture(width, height, requiresMatchingFormat ? sourceFormat : TextureFormat.RGBA32, !requiresMatchingFormat, out texture))
         {
@@ -296,7 +313,7 @@ public sealed class CursorManager : MonoBehaviour
 
         try
         {
-            Graphics.CopyTexture(sprite.texture, 0, 0, originX, originY, width, height, texture, 0, 0, 0, 0);
+            Graphics.CopyTexture(sourceTexture, 0, 0, originX, originY, width, height, texture, 0, 0, 0, 0);
             return true;
         }
         catch (Exception copyException)
@@ -308,9 +325,66 @@ public sealed class CursorManager : MonoBehaviour
         }
     }
 
+    private bool TryBlitTextureRegion(Sprite sprite, out Texture2D texture)
+    {
+        texture = null;
+
+        var sourceTexture = sprite.texture;
+        if (sourceTexture == null)
+        {
+            return false;
+        }
+
+        if (!TryCreateTexture((int)sprite.rect.width, (int)sprite.rect.height, TextureFormat.RGBA32, false, out texture))
+        {
+            return false;
+        }
+
+        RenderTexture renderTexture = null;
+        var previousActive = RenderTexture.active;
+
+        try
+        {
+            renderTexture = RenderTexture.GetTemporary(sourceTexture.width, sourceTexture.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default);
+            Graphics.Blit(sourceTexture, renderTexture);
+
+            RenderTexture.active = renderTexture;
+
+            var rect = sprite.rect;
+            var readRect = new Rect(rect.x, rect.y, rect.width, rect.height);
+
+            texture.ReadPixels(readRect, 0, 0);
+            texture.Apply();
+
+            return true;
+        }
+        catch (Exception blitException)
+        {
+            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryBlitTextureRegion)}] Failed to blit texture for '{sprite.name}': {blitException.Message}");
+            Destroy(texture);
+            texture = null;
+            return false;
+        }
+        finally
+        {
+            RenderTexture.active = previousActive;
+
+            if (renderTexture != null)
+            {
+                RenderTexture.ReleaseTemporary(renderTexture);
+            }
+        }
+    }
+
     private bool TryReadPixels(Sprite sprite, out Texture2D texture)
     {
         texture = null;
+
+        var sourceTexture = sprite.texture;
+        if (sourceTexture == null || !sourceTexture.isReadable)
+        {
+            return false;
+        }
 
         if (!TryCreateTexture((int)sprite.rect.width, (int)sprite.rect.height, TextureFormat.RGBA32, true, out texture))
         {
@@ -319,7 +393,7 @@ public sealed class CursorManager : MonoBehaviour
 
         try
         {
-            var pixels = sprite.texture.GetPixels(
+            var pixels = sourceTexture.GetPixels(
                 (int)sprite.rect.x,
                 (int)sprite.rect.y,
                 (int)sprite.rect.width,
