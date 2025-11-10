@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public sealed class CursorManager : MonoBehaviour
 {
-    [SerializeField] private Sprite[] _availableCursors = Array.Empty<Sprite>();
+    [SerializeField] private Texture2D[] _availableCursors = Array.Empty<Texture2D>();
     [SerializeField] private string _defaultCursorName;
 
     private readonly Dictionary<string, CursorData> _cursorCache = new(StringComparer.OrdinalIgnoreCase);
@@ -103,14 +103,14 @@ public sealed class CursorManager : MonoBehaviour
             return;
         }
 
-        foreach (var sprite in _availableCursors)
+        foreach (var texture in _availableCursors)
         {
-            if (sprite == null)
+            if (texture == null)
             {
                 continue;
             }
 
-            var cursorName = sprite.name;
+            var cursorName = texture.name;
             if (string.IsNullOrEmpty(cursorName))
             {
                 continue;
@@ -122,28 +122,13 @@ public sealed class CursorManager : MonoBehaviour
                 continue;
             }
 
-            if (!IsFullTexture(sprite))
-            {
-                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(BuildCursorCache)}] Cursor sprite '{cursorName}' must cover the entire texture when using Texture Type Cursor.");
-                continue;
-            }
-
-            var texture = sprite.texture;
-            if (texture == null)
-            {
-                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(BuildCursorCache)}] Cursor sprite '{cursorName}' does not have a texture.");
-                continue;
-            }
-
             if (!texture.isReadable)
             {
                 Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(BuildCursorCache)}] Cursor texture '{texture.name}' is not CPU accessible. Enable Read/Write in the import settings.");
                 continue;
             }
 
-            var hotspot = CalculateHotspot(sprite);
-
-            _cursorCache[cursorName] = new CursorData(cursorName, texture, hotspot);
+            _cursorCache[cursorName] = new CursorData(cursorName, texture, Vector2.zero);
         }
     }
 
@@ -242,29 +227,6 @@ public sealed class CursorManager : MonoBehaviour
         }
 
         return null;
-    }
-
-    private static Vector2 CalculateHotspot(Sprite sprite)
-    {
-        var hotspotX = sprite.pivot.x;
-        var hotspotY = sprite.rect.height - sprite.pivot.y;
-        return new Vector2(hotspotX, hotspotY);
-    }
-
-    private static bool IsFullTexture(Sprite sprite)
-    {
-        if (sprite == null || sprite.texture == null)
-        {
-            return false;
-        }
-
-        var rect = sprite.rect;
-        var texture = sprite.texture;
-
-        return Mathf.Approximately(rect.width, texture.width) &&
-               Mathf.Approximately(rect.height, texture.height) &&
-               Mathf.Approximately(rect.x, 0f) &&
-               Mathf.Approximately(rect.y, 0f);
     }
 
     private static bool TryGetPointerScreenPosition(out Vector2 position)
