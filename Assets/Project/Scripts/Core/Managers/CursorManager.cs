@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public sealed class CursorManager : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public sealed class CursorManager : MonoBehaviour
 
     private readonly Dictionary<string, CursorData> _cursorCache = new(StringComparer.OrdinalIgnoreCase);
     private readonly List<Texture2D> _generatedTextures = new();
+    private readonly List<RaycastResult> _uiRaycastResults = new();
+    private readonly HashSet<string> _missingCursorNames = new(StringComparer.OrdinalIgnoreCase);
+
+    private const string DefaultCursorKey = "__DEFAULT__";
+
+    private string _currentCursorKey = DefaultCursorKey;
+    private Camera _mainCamera;
 
     private void Awake()
     {
@@ -17,46 +25,85 @@ public sealed class CursorManager : MonoBehaviour
 
     private void Start()
     {
-        SetDefaultCursor();
+        _mainCamera = Camera.main;
+        ApplyDefaultCursorIfNeeded();
+    }
+
+    private void Update()
+    {
+        UpdateCursorFromPointer();
     }
 
     private void OnDestroy()
     {
         DisposeGeneratedTextures();
         _cursorCache.Clear();
+        _uiRaycastResults.Clear();
+        _missingCursorNames.Clear();
     }
 
-    public void ShowCursor(string cursorName)
+    private void UpdateCursorFromPointer()
     {
-        _ = TrySetCursor(cursorName);
+        var cursorSource = FindCursorSourceUnderPointer();
+        if (cursorSource == null)
+        {
+            ApplyDefaultCursorIfNeeded();
+            return;
+        }
+
+        var cursorState = cursorSource.GetCursorState();
+        if (cursorState == null || string.IsNullOrWhiteSpace(cursorState.Cursor))
+        {
+            ApplyDefaultCursorIfNeeded();
+            return;
+        }
+
+        if (!TryApplyCursor(cursorState.Cursor))
+        {
+            ApplyDefaultCursorIfNeeded();
+        }
     }
 
-    public bool TrySetCursor(string cursorName)
+    private bool TryApplyCursor(string cursorName)
     {
         if (string.IsNullOrWhiteSpace(cursorName))
         {
-            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TrySetCursor)}] Cursor name is empty.");
             return false;
         }
 
         if (!_cursorCache.TryGetValue(cursorName, out var cursorData))
         {
-            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TrySetCursor)}] Cursor '{cursorName}' is not registered.");
+            if (_missingCursorNames.Add(cursorName))
+            {
+                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryApplyCursor)}] Cursor '{cursorName}' is not registered.");
+            }
             return false;
         }
 
+        if (string.Equals(_currentCursorKey, cursorData.Name, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
         Cursor.SetCursor(cursorData.Texture, cursorData.Hotspot, CursorMode.Auto);
+        _currentCursorKey = cursorData.Name;
         return true;
     }
 
-    public void SetDefaultCursor()
+    private void ApplyDefaultCursorIfNeeded()
     {
-        if (!string.IsNullOrWhiteSpace(_defaultCursorName) && TrySetCursor(_defaultCursorName))
+        if (!string.IsNullOrWhiteSpace(_defaultCursorName) && TryApplyCursor(_defaultCursorName))
+        {
+            return;
+        }
+
+        if (string.Equals(_currentCursorKey, DefaultCursorKey, StringComparison.Ordinal))
         {
             return;
         }
 
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        _currentCursorKey = DefaultCursorKey;
     }
 
     private void BuildCursorCache()
@@ -91,8 +138,96 @@ public sealed class CursorManager : MonoBehaviour
             var texture = CreateTexture(sprite);
             var hotspot = CalculateHotspot(sprite);
 
-            _cursorCache[cursorName] = new CursorData(texture, hotspot);
+            _cursorCache[cursorName] = new CursorData(cursorName, texture, hotspot);
         }
+    }
+
+    private ICursorSource FindCursorSourceUnderPointer()
+    {
+        var uiSource = FindCursorSourceFromUI();
+        if (uiSource != null)
+        {
+            return uiSource;
+        }
+
+        return FindCursorSourceFromWorld();
+    }
+
+    private ICursorSource FindCursorSourceFromUI()
+    {
+        var eventSystem = EventSystem.current;
+        if (eventSystem == null)
+        {
+            return null;
+        }
+
+        var pointerEventData = new PointerEventData(eventSystem)
+        {
+            position = Input.mousePosition
+        };
+
+        _uiRaycastResults.Clear();
+        eventSystem.RaycastAll(pointerEventData, _uiRaycastResults);
+
+        for (var i = 0; i < _uiRaycastResults.Count; i++)
+        {
+            var raycastResult = _uiRaycastResults[i];
+            var raycastObject = raycastResult.gameObject;
+            if (raycastObject == null)
+            {
+                continue;
+            }
+
+            if (raycastObject.TryGetComponent<ICursorSource>(out var source))
+            {
+                return source;
+            }
+
+            source = raycastObject.GetComponentInParent<ICursorSource>();
+            if (source != null)
+            {
+                return source;
+            }
+        }
+
+        return null;
+    }
+
+    private ICursorSource FindCursorSourceFromWorld()
+    {
+        var camera = _mainCamera != null ? _mainCamera : Camera.main;
+        if (camera == null)
+        {
+            return null;
+        }
+
+        var mousePosition = Input.mousePosition;
+        var ray = camera.ScreenPointToRay(mousePosition);
+        if (Physics.Raycast(ray, out var hitInfo))
+        {
+            var collider = hitInfo.collider;
+            if (collider != null)
+            {
+                var source = collider.GetComponent<ICursorSource>() ?? collider.GetComponentInParent<ICursorSource>();
+                if (source != null)
+                {
+                    return source;
+                }
+            }
+        }
+
+        var worldPoint = camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Mathf.Abs(camera.transform.position.z)));
+        var collider2D = Physics2D.OverlapPoint(worldPoint);
+        if (collider2D != null)
+        {
+            var source = collider2D.GetComponent<ICursorSource>() ?? collider2D.GetComponentInParent<ICursorSource>();
+            if (source != null)
+            {
+                return source;
+            }
+        }
+
+        return null;
     }
 
     private Texture2D CreateTexture(Sprite sprite)
@@ -152,12 +287,14 @@ public sealed class CursorManager : MonoBehaviour
 
     private readonly struct CursorData
     {
-        public CursorData(Texture2D texture, Vector2 hotspot)
+        public CursorData(string name, Texture2D texture, Vector2 hotspot)
         {
+            Name = name;
             Texture = texture;
             Hotspot = hotspot;
         }
 
+        public string Name { get; }
         public Texture2D Texture { get; }
         public Vector2 Hotspot { get; }
     }
