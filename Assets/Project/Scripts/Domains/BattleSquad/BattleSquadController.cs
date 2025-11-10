@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver
 {
     private BattleSquadModel _squadModel;
+    private bool _isValidTarget;
 
     private void OnDestroy()
     {
@@ -22,6 +23,16 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
     public IReadOnlySquadModel GetSquadModel()
     {
         return _squadModel;
+    }
+
+    public bool IsValidTarget()
+    {
+        return _isValidTarget;
+    }
+
+    public void SetTargetValidity(bool isValid)
+    {
+        _isValidTarget = isValid;
     }
 
     public BattleDamageData ResolveDamage()

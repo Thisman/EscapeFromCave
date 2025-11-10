@@ -58,6 +58,7 @@ public sealed class BattleRoundsMachine
         _playerRequestedFlee = false;
         _sm.Activate();
         _ctx.BattleCombatUIController.OnLeaveCombat += HandleLeaveCombat;
+        UpdateTargetValidity(null, null);
     }
 
     public void BeginRound() => _sm.Fire(BattleRoundTrigger.InitTurn);
@@ -256,6 +257,7 @@ public sealed class BattleRoundsMachine
 
         _ctx.BattleCombatUIController?.ResetAbilityHighlight();
         ClearActionSlotHighlights();
+        UpdateTargetValidity(null, null);
 
         _ctx.CurrentAction = null;
     }
@@ -285,6 +287,7 @@ public sealed class BattleRoundsMachine
     private void OnActionCancelled()
     {
         ClearActionSlotHighlights();
+        UpdateTargetValidity(null, null);
 
         if (!_ctx.ActiveUnit.IsFriendly())
             return;
@@ -421,18 +424,12 @@ public sealed class BattleRoundsMachine
 
     private void ApplyActionSlotHighlights(IBattleAction action)
     {
-        if (action == null)
-            return;
-
-        var gridController = _ctx.BattleGridController;
-        if (gridController == null)
-            return;
+        ClearActionSlotHighlights();
+        UpdateTargetValidity(null, null);
 
         var activeUnit = _ctx.ActiveUnit;
-        if (activeUnit == null)
+        if (action == null || activeUnit == null)
             return;
-
-        ClearActionSlotHighlights();
 
         if (!activeUnit.IsFriendly())
             return;
@@ -444,6 +441,12 @@ public sealed class BattleRoundsMachine
         if (targetResolver == null)
             return;
 
+        UpdateTargetValidity(targetResolver, activeUnit);
+
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+            return;
+
         var units = _ctx.BattleUnits;
         if (units == null)
             return;
@@ -452,32 +455,13 @@ public sealed class BattleRoundsMachine
 
         foreach (var unitController in units)
         {
-            if (unitController == null)
-                continue;
-
-            var targetModel = unitController.GetSquadModel();
-            if (targetModel == null)
+            if (unitController == null || !unitController.IsValidTarget())
                 continue;
 
             if (!gridController.TryGetSlotForOccupant(unitController.transform, out var slot) || slot == null)
                 continue;
 
-            bool isAvailable = false;
-
-            try
-            {
-                isAvailable = targetResolver.ResolveTarget(activeUnit, targetModel);
-            }
-            catch (Exception exception)
-            {
-                Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(ApplyActionSlotHighlights)}] Unexpected exception while resolving targets: {exception}");
-                continue;
-            }
-
-            if (isAvailable)
-            {
-                availableSlots.Add(slot);
-            }
+            availableSlots.Add(slot);
         }
 
         gridController.HighlightSlots(availableSlots, BattleGridSlotHighlightMode.Available);
@@ -491,6 +475,40 @@ public sealed class BattleRoundsMachine
 
         gridController.ResetAllSlotHighlights(keepActiveHighlight: false);
         HighlightActiveUnitSlot();
+    }
+
+    private void UpdateTargetValidity(IBattleActionTargetResolver targetResolver, IReadOnlySquadModel actor)
+    {
+        var units = _ctx.BattleUnits;
+        if (units == null)
+            return;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            bool isValid = false;
+
+            if (targetResolver != null && actor != null)
+            {
+                var targetModel = unitController.GetSquadModel();
+
+                if (targetModel != null)
+                {
+                    try
+                    {
+                        isValid = targetResolver.ResolveTarget(actor, targetModel);
+                    }
+                    catch (Exception exception)
+                    {
+                        Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(UpdateTargetValidity)}] Failed to resolve target: {exception}");
+                    }
+                }
+            }
+
+            unitController.SetTargetValidity(isValid);
+        }
     }
 
     private void HandleLeaveCombat()
