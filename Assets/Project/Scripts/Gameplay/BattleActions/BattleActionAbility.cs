@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
 
-public sealed class BattleActionAbility : IBattleAction, IDisposable
+public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleActionTargetResolverProvider
 {
     private readonly BattleAbilitySO _ability;
+    private readonly IBattleActionTargetResolver _targetResolver;
     private IActionTargetPicker _targetPicker;
     private bool _disposed;
     private bool _resolved;
@@ -15,12 +16,19 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable
 
     public BattleAbilitySO Ability => _ability;
 
-    public BattleActionAbility(BattleContext ctx, BattleAbilitySO ability, IActionTargetPicker targetPicker)
+    public BattleActionAbility(
+        BattleContext ctx,
+        BattleAbilitySO ability,
+        IBattleActionTargetResolver targetResolver,
+        IActionTargetPicker targetPicker)
     {
         _ctx = ctx;
         _ability = ability ?? throw new ArgumentNullException(nameof(ability));
+        _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));
         _targetPicker = targetPicker ?? throw new ArgumentNullException(nameof(targetPicker));
     }
+
+    public IBattleActionTargetResolver TargetResolver => _targetResolver;
 
     public void Resolve()
     {
@@ -54,6 +62,19 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable
 
         var targetModel = unit.GetSquadModel();
         if (targetModel == null)
+        {
+            CompleteResolve();
+            return;
+        }
+
+        var actorModel = _ctx?.ActiveUnit;
+        if (actorModel == null)
+        {
+            CompleteResolve();
+            return;
+        }
+
+        if (!_targetResolver.ResolveTarget(actorModel, targetModel))
         {
             CompleteResolve();
             return;

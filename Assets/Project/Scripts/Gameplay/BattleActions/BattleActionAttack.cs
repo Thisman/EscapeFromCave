@@ -1,6 +1,6 @@
 using System;
 
-public sealed class BattleActionAttack : IBattleAction, IDisposable
+public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActionTargetResolverProvider
 {
     private readonly BattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
@@ -12,6 +12,8 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable
 
     public event Action OnResolve;
     public event Action OnCancel;
+
+    public IBattleActionTargetResolver TargetResolver => _targetResolver;
 
     public BattleActionAttack(
         BattleContext context,
