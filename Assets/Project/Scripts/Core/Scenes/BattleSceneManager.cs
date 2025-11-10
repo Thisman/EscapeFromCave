@@ -56,7 +56,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
         {
-            GameLogger.Warn("Battle scene payload was not found. Using empty battle setup.");
+            Debug.LogWarning($"[{nameof(BattleSceneManager)}.{nameof(InitializeBattleData)}] Battle scene payload was not found. Using empty battle setup.");
             return;
         }
 
@@ -90,7 +90,7 @@ public class BattleSceneManager : MonoBehaviour
         }
         else
         {
-            GameLogger.Warn("Battle data was not resolved. No units will be spawned.");
+            Debug.LogWarning($"[{nameof(BattleSceneManager)}.{nameof(InitializeBattleUnits)}] Battle data was not resolved. No units will be spawned.");
         }
 
         _battleContext.BattleUnits = collectedUnits;

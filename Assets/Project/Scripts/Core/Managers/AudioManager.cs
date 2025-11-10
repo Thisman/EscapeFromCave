@@ -75,7 +75,7 @@ public sealed class AudioManager : MonoBehaviour
 
         if (!_trackSources.TryGetValue(trackName, out source) || source == null)
         {
-            GameLogger.Warn($"Source for track '{trackName}' is not registered.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(TryGetSource)}] Source for track '{trackName}' is not registered.");
             return false;
         }
 
@@ -93,7 +93,7 @@ public sealed class AudioManager : MonoBehaviour
 
         if (!_tracks.TryGetValue(trackName, out var trackState) || trackState == null)
         {
-            GameLogger.Warn($"Track '{trackName}' is not registered.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(TryGetTrack)}] Track '{trackName}' is not registered.");
             return false;
         }
 
@@ -105,7 +105,7 @@ public sealed class AudioManager : MonoBehaviour
     {
         if (clip == null)
         {
-            GameLogger.Warn("Attempted to play an empty clip at point.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(PlayClipAtPoint)}] Attempted to play an empty clip at point.");
             return;
         }
 
@@ -120,7 +120,7 @@ public sealed class AudioManager : MonoBehaviour
 
         if (!Directory.Exists(fullPath))
         {
-            GameLogger.Warn($"Unable to find audio folder '{fullPath}'.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(LoadFolderAsync)}] Unable to find audio folder '{fullPath}'.");
             return Array.Empty<string>();
         }
 
@@ -231,7 +231,7 @@ public sealed class AudioManager : MonoBehaviour
 
         if (!_clipPaths.TryGetValue(clipName, out var filePath))
         {
-            GameLogger.Warn($"Clip '{clipName}' is not registered. Load a folder containing the clip first.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(GetClipAsync)}] Clip '{clipName}' is not registered. Load a folder containing the clip first.");
             return null;
         }
 
@@ -265,7 +265,7 @@ public sealed class AudioManager : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                GameLogger.Error($"Failed to load clip '{clipName}' from '{filePath}': {request.error}");
+                Debug.LogError($"[{nameof(AudioManager)}.{nameof(LoadClipInternalAsync)}] Failed to load clip '{clipName}' from '{filePath}': {request.error}");
                 _clipHandles.Remove(clipName);
                 return null;
             }
@@ -282,7 +282,7 @@ public sealed class AudioManager : MonoBehaviour
         }
         catch (Exception exception)
         {
-            GameLogger.Error($"Unexpected error while loading clip '{clipName}': {exception}");
+            Debug.LogError($"[{nameof(AudioManager)}.{nameof(LoadClipInternalAsync)}] Unexpected error while loading clip '{clipName}': {exception}");
             _clipHandles.Remove(clipName);
             return null;
         }
@@ -307,7 +307,7 @@ public sealed class AudioManager : MonoBehaviour
 
             if (_tracks.ContainsKey(definition.Name))
             {
-                GameLogger.Warn($"Duplicate track name '{definition.Name}' detected. Skipping.");
+                Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(InitialiseTracks)}] Duplicate track name '{definition.Name}' detected. Skipping.");
                 continue;
             }
 
@@ -392,13 +392,13 @@ public sealed class AudioManager : MonoBehaviour
     {
         if (!_tracks.TryGetValue(trackName, out var track) || track == null)
         {
-            GameLogger.Warn($"Track '{trackName}' is not registered.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(SetTrackClipAsync)}] Track '{trackName}' is not registered.");
             return false;
         }
 
         if (string.IsNullOrWhiteSpace(clipName))
         {
-            GameLogger.Warn("Clip name is empty. Unable to play audio.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(SetTrackClipAsync)}] Clip name is empty. Unable to play audio.");
             return false;
         }
 
@@ -406,7 +406,7 @@ public sealed class AudioManager : MonoBehaviour
 
         if (clip == null)
         {
-            GameLogger.Warn($"Clip '{clipName}' is not loaded.");
+            Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(SetTrackClipAsync)}] Clip '{clipName}' is not loaded.");
             return false;
         }
 
@@ -477,7 +477,7 @@ public sealed class AudioManager : MonoBehaviour
         {
             if (owner == null)
             {
-                GameLogger.Warn("[AudioManager] Owner is missing. Unable to play audio.");
+                Debug.LogWarning($"[{nameof(AudioManager)}.{nameof(AudioTrackState.PlayAsync)}] Owner is missing. Unable to play audio.");
                 return;
             }
 

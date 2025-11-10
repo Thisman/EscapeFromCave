@@ -3123,8 +3123,6 @@ MonoBehaviour:
   _camera: {fileID: 809895849}
   _draggableTag: Draggable
   _gridController: {fileID: 1416069488}
-  _validSlotColor: {r: 0, g: 1, b: 0, a: 0.09803922}
-  _invalidSlotColor: {r: 1, g: 0, b: 0, a: 0.09803922}
 --- !u!114 &1416069488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3149,9 @@ MonoBehaviour:
   - {fileID: 1380674231}
   - {fileID: 472718453}
   - {fileID: 449870186}
-  _activeSlotColor: {r: 1, g: 0.92, b: 0.016, a: 0.35}
+  _availableHighlightColor: {r: 0.35, g: 0.8, b: 0.4, a: 0.35}
+  _unavailableHighlightColor: {r: 0.85, g: 0.2, b: 0.2, a: 0.35}
+  _activeHighlightColor: {r: 1, g: 1, b: 1, a: 0.5686275}
 --- !u!156049354 &1416069489
 Grid:
   m_ObjectHideFlags: 0

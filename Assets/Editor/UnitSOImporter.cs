@@ -46,35 +46,35 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
         var unitSettings = settings.Unit;
         if (unitSettings == null)
         {
-            GameLogger.Warn("[UnitDefinitionSOImporter] Unit settings are not configured.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Unit settings are not configured.");
             return;
         }
 
         var folderAsset = unitSettings.Folder;
         if (folderAsset == null)
         {
-            GameLogger.Warn("[UnitDefinitionSOImporter] Target folder is not assigned.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            GameLogger.Warn($"[UnitDefinitionSOImporter] '{folderPath}' is not a valid folder.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] '{folderPath}' is not a valid folder.");
             return;
         }
 
         var abilitiesFolderAsset = unitSettings.AbilitiesFolder;
         if (abilitiesFolderAsset == null)
         {
-            GameLogger.Warn("[UnitDefinitionSOImporter] Abilities folder is not assigned.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Abilities folder is not assigned.");
             return;
         }
 
         var abilitiesFolderPath = AssetDatabase.GetAssetPath(abilitiesFolderAsset);
         if (string.IsNullOrEmpty(abilitiesFolderPath) || !AssetDatabase.IsValidFolder(abilitiesFolderPath))
         {
-            GameLogger.Warn($"[UnitDefinitionSOImporter] '{abilitiesFolderPath}' is not a valid abilities folder.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] '{abilitiesFolderPath}' is not a valid abilities folder.");
             return;
         }
 
@@ -82,14 +82,14 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
         var abilities = LoadAbilities(abilitiesFolderPath);
         if (abilities.Count == 0)
         {
-            GameLogger.Warn($"[UnitDefinitionSOImporter] No BattleAbilityDefinitionSO assets were found in '{abilitiesFolderPath}'.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] No BattleAbilityDefinitionSO assets were found in '{abilitiesFolderPath}'.");
         }
 
         foreach (var column in RequiredColumns)
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -99,14 +99,14 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             var id = row.GetValueOrDefault("ID");
             if (string.IsNullOrWhiteSpace(id))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber} skipped: ID is empty.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber} skipped: ID is empty.");
                 continue;
             }
 
             var assetFileName = SanitizeFileName(id);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
                 continue;
             }
 
@@ -137,7 +137,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(kindValue))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber}: Kind '{kindValue}' is invalid. Defaulting to Neutral.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Kind '{kindValue}' is invalid. Defaulting to Neutral.");
                 unit.Kind = UnitKind.Neutral;
             }
             else
@@ -152,7 +152,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(attackKindValue))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber}: AttackKind '{attackKindValue}' is invalid. Defaulting to Melee.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: AttackKind '{attackKindValue}' is invalid. Defaulting to Melee.");
                 unit.AttackKind = AttackKind.Melee;
             }
             else
@@ -167,7 +167,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(damageTypeValue))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber}: DamageType '{damageTypeValue}' is invalid. Defaulting to Physical.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: DamageType '{damageTypeValue}' is invalid. Defaulting to Physical.");
                 unit.DamageType = DamageType.Physical;
             }
             else
@@ -201,7 +201,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
                     var lookupKey = SanitizeFileName(abilityName);
                     if (string.IsNullOrEmpty(lookupKey))
                     {
-                        GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber}: Ability '{abilityName}' is not a valid reference.");
+                        Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Ability '{abilityName}' is not a valid reference.");
                         continue;
                     }
 
@@ -211,7 +211,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
                     }
                     else
                     {
-                        GameLogger.Warn($"[UnitDefinitionSOImporter] Row {row.RowNumber}: Ability '{abilityName}' not found in abilities folder '{abilitiesFolderPath}'.");
+                        Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Ability '{abilityName}' not found in abilities folder '{abilitiesFolderPath}'.");
                     }
                 }
 
@@ -274,7 +274,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
                 return;
             }
 
-            GameLogger.Warn($"[UnitDefinitionSOImporter] Duplicate ability '{sanitized}' found in '{folderPath}'. Using the first occurrence.");
+            Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(AddAbility)}] Duplicate ability '{sanitized}' found in '{folderPath}'. Using the first occurrence.");
             return;
         }
 
@@ -295,7 +295,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             return true;
         }
 
-        GameLogger.Warn($"[UnitDefinitionSOImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(TryResolveSprite)}] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -313,13 +313,13 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Sprites array contains an unassigned entry at index {i}.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(BuildSpriteLookup)}] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                GameLogger.Warn($"[UnitDefinitionSOImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(BuildSpriteLookup)}] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 
@@ -346,7 +346,7 @@ public sealed class UnitSOImporter : IEntitiesSheetImporter
             return parsedInt;
         }
 
-        GameLogger.Warn($"[UnitDefinitionSOImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        Debug.LogWarning($"[{nameof(UnitSOImporter)}.{nameof(ParseFloat)}] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0f;
     }
 

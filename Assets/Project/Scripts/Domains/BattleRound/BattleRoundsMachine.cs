@@ -118,7 +118,7 @@ public sealed class BattleRoundsMachine
         {
             if (action == null)
             {
-                GameLogger.Warn("[CombatLoop] Battle action controller returned no action. Skipping turn.");
+                Debug.LogWarning($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Battle action controller returned no action. Skipping turn.");
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 return;
             }
@@ -130,7 +130,7 @@ public sealed class BattleRoundsMachine
             }
             catch (Exception exception)
             {
-                GameLogger.Exception(exception);
+                Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Unexpected exception while resolving action: {exception}");
                 DetachCurrentAction();
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
             }
@@ -471,7 +471,7 @@ public sealed class BattleRoundsMachine
             }
             catch (Exception exception)
             {
-                GameLogger.Exception(exception);
+                Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(ApplyActionSlotHighlights)}] Unexpected exception while resolving targets: {exception}");
                 continue;
             }
 

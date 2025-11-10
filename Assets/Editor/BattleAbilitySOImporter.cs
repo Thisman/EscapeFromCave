@@ -37,35 +37,35 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
         var abilitySettings = settings.BattleAbility;
         if (abilitySettings == null)
         {
-            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Battle ability settings are not configured.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Battle ability settings are not configured.");
             return;
         }
 
         var folderAsset = abilitySettings.Folder;
         if (folderAsset == null)
         {
-            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Target folder is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] '{folderPath}' is not a valid folder.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] '{folderPath}' is not a valid folder.");
             return;
         }
 
         var effectsFolderAsset = abilitySettings.EffectsFolder;
         if (effectsFolderAsset == null)
         {
-            GameLogger.Warn("[BattleAbilityDefinitionSOImporter] Effects folder is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Effects folder is not assigned.");
             return;
         }
 
         var effectsFolderPath = AssetDatabase.GetAssetPath(effectsFolderAsset);
         if (string.IsNullOrEmpty(effectsFolderPath) || !AssetDatabase.IsValidFolder(effectsFolderPath))
         {
-            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] '{effectsFolderPath}' is not a valid effects folder.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] '{effectsFolderPath}' is not a valid effects folder.");
             return;
         }
 
@@ -74,14 +74,14 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
         var effects = LoadEffects(effectsFolderPath);
         if (effects.Count == 0)
         {
-            GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] No BattleEffectDefinitionSO assets were found in '{effectsFolderPath}'.");
+            Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] No BattleEffectDefinitionSO assets were found in '{effectsFolderPath}'.");
         }
 
         foreach (var column in RequiredColumns)
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -91,14 +91,14 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             var id = row.GetValueOrDefault("ID");
             if (string.IsNullOrWhiteSpace(id))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID is empty.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Row {row.RowNumber} skipped: ID is empty.");
                 continue;
             }
 
             var assetFileName = SanitizeFileName(id);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Row {row.RowNumber} skipped: ID '{id}' is not a valid file name.");
                 continue;
             }
 
@@ -133,7 +133,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(abilityTypeValue))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityType '{abilityTypeValue}' is invalid. Defaulting to Active.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Row {row.RowNumber}: AbilityType '{abilityTypeValue}' is invalid. Defaulting to Active.");
                 ability.AbilityType = BattleAbilityType.Active;
             }
             else
@@ -148,7 +148,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(abilityTargetTypeValue))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: AbilityTargetType '{abilityTargetTypeValue}' is invalid. Defaulting to SingleEnemy.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Row {row.RowNumber}: AbilityTargetType '{abilityTargetTypeValue}' is invalid. Defaulting to SingleEnemy.");
                 ability.AbilityTargetType = BattleAbilityTargetType.SingleEnemy;
             }
             else
@@ -174,7 +174,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
                     }
                     else
                     {
-                        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {row.RowNumber}: Effect '{effectName}' not found in effects folder '{effectsFolderPath}'.");
+                        Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Effect '{effectName}' not found in effects folder '{effectsFolderPath}'.");
                     }
                 }
 
@@ -207,7 +207,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
 
             if (result.ContainsKey(effect.name))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Duplicate effect '{effect.name}' found in '{folderPath}'. Using the first occurrence.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(LoadEffects)}] Duplicate effect '{effect.name}' found in '{folderPath}'. Using the first occurrence.");
                 continue;
             }
 
@@ -231,7 +231,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             return true;
         }
 
-        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(TryResolveSprite)}] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -249,13 +249,13 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Sprites array contains an unassigned entry at index {i}.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(BuildSpriteLookup)}] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(BuildSpriteLookup)}] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 
@@ -282,7 +282,7 @@ public sealed class BattleAbilitySOImporter : IEntitiesSheetImporter
             return Mathf.RoundToInt(floatParsed);
         }
 
-        GameLogger.Warn($"[BattleAbilityDefinitionSOImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        Debug.LogWarning($"[{nameof(BattleAbilitySOImporter)}.{nameof(ParseInt)}] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
 

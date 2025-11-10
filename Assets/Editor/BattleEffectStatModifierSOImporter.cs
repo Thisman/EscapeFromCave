@@ -37,21 +37,21 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
         var battleEffectSettings = settings.BattleEffect;
         if (battleEffectSettings == null)
         {
-            GameLogger.Warn("[StatModifierBattleEffectImporter] Battle effect settings are not configured.");
+            Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Battle effect settings are not configured.");
             return;
         }
 
         var folderAsset = battleEffectSettings.Folder;
         if (folderAsset == null)
         {
-            GameLogger.Warn("[StatModifierBattleEffectImporter] Target folder is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Target folder is not assigned.");
             return;
         }
 
         var folderPath = AssetDatabase.GetAssetPath(folderAsset);
         if (string.IsNullOrEmpty(folderPath) || !AssetDatabase.IsValidFolder(folderPath))
         {
-            GameLogger.Warn($"[StatModifierBattleEffectImporter] '{folderPath}' is not a valid folder.");
+            Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] '{folderPath}' is not a valid folder.");
             return;
         }
 
@@ -61,7 +61,7 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
         {
             if (!sheet.Headers.Any(header => string.Equals(header, column, StringComparison.OrdinalIgnoreCase)))
             {
-                GameLogger.Warn($"[StatModifierBattleEffectImporter] Sheet '{sheet.Name}' is missing required column '{column}'.");
+                Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Sheet '{sheet.Name}' is missing required column '{column}'.");
                 return;
             }
         }
@@ -81,7 +81,7 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
             var assetFileName = SanitizeFileName(group.Key);
             if (string.IsNullOrEmpty(assetFileName))
             {
-                GameLogger.Warn($"[StatModifierBattleEffectImporter] Rows with ID '{group.Key}' skipped: not a valid file name.");
+                Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Rows with ID '{group.Key}' skipped: not a valid file name.");
                 continue;
             }
 
@@ -113,7 +113,7 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
             }
             else if (!string.IsNullOrWhiteSpace(triggerValue))
             {
-                GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {firstRow.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
+                Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Row {firstRow.RowNumber}: Trigger '{triggerValue}' is invalid. Defaulting to OnAttach.");
                 effect.Trigger = BattleEffectTrigger.OnAttach;
             }
             else
@@ -131,20 +131,20 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
                 var statName = row.GetValueOrDefault("Stat");
                 if (string.IsNullOrWhiteSpace(statName))
                 {
-                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat is empty. Skipping modifier.");
+                    Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Stat is empty. Skipping modifier.");
                     continue;
                 }
 
                 if (!Enum.TryParse(statName, true, out BattleSquadStat stat))
                 {
-                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Stat '{statName}' is invalid. Skipping modifier.");
+                    Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Stat '{statName}' is invalid. Skipping modifier.");
                     continue;
                 }
 
                 var valueText = row.GetValueOrDefault("Value");
                 if (!TryParseFloat(valueText, out var value))
                 {
-                    GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {row.RowNumber}: Value '{valueText}' is invalid. Skipping modifier.");
+                    Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(Import)}] Row {row.RowNumber}: Value '{valueText}' is invalid. Skipping modifier.");
                     continue;
                 }
 
@@ -175,7 +175,7 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
             return Mathf.RoundToInt(floatParsed);
         }
 
-        GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
+        Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(ParseInt)}] Row {rowNumber}: Unable to parse '{columnName}' value '{value}'. Using 0.");
         return 0;
     }
 
@@ -193,7 +193,7 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
             return true;
         }
 
-        GameLogger.Warn($"[StatModifierBattleEffectImporter] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
+        Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(TryResolveSprite)}] Row {rowNumber}: Icon '{value}' not found in configured sprites.");
         return false;
     }
 
@@ -211,13 +211,13 @@ public sealed class BattleEffectStatModifierSOImporter : IEntitiesSheetImporter
             var sprite = sprites[i];
             if (sprite == null)
             {
-                GameLogger.Warn($"[StatModifierBattleEffectImporter] Sprites array contains an unassigned entry at index {i}.");
+                Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(BuildSpriteLookup)}] Sprites array contains an unassigned entry at index {i}.");
                 continue;
             }
 
             if (result.ContainsKey(sprite.name))
             {
-                GameLogger.Warn($"[StatModifierBattleEffectImporter] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
+                Debug.LogWarning($"[{nameof(BattleEffectStatModifierSOImporter)}.{nameof(BuildSpriteLookup)}] Duplicate sprite name '{sprite.name}' found. Using the first occurrence.");
                 continue;
             }
 
