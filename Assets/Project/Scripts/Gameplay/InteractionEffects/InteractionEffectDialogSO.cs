@@ -11,30 +11,15 @@ public sealed class InteractionEffectDialogSO : InteractionEffectSO
 
     public override async Task<InteractionEffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        if (ctx == null)
-        {
-            GameLogger.Warn("[ShowDialogEffect] Interaction context is null. Skipping dialog display.");
-            return InteractionEffectResult.Continue;
-        }
-
-        if (ctx.DialogManager == null)
-        {
-            GameLogger.Warn("[ShowDialogEffect] DialogController is missing in the context. Assign it in the scene lifetime scope.");
-            return InteractionEffectResult.Continue;
-        }
-
-        var message = Message ?? string.Empty;
-        var inputRouter = ctx.InputService;
-
-        inputRouter?.EnterDialog();
+        ctx.InputService.EnterDialog();
 
         try
         {
-            await ctx.DialogManager.ShowForDurationAsync(message, _secondsPerCharacter);
+            await ctx.DialogManager.ShowForDurationAsync(Message, _secondsPerCharacter);
         }
         finally
         {
-            inputRouter?.EnterGameplay();
+            ctx.InputService.EnterGameplay();
         }
 
         return InteractionEffectResult.Continue;

@@ -7,9 +7,9 @@ public class SquadModel : IReadOnlySquadModel
     [SerializeField] private UnitSO _unitDefinition;
     [SerializeField, Min(0)] private int _count;
 
-    public UnitSO Definition => _unitDefinition;
-
     public event Action<IReadOnlySquadModel> Changed;
+
+    public UnitSO Definition => _unitDefinition;
 
     public SquadModel(UnitSO definition, int initialCount = 0)
     {

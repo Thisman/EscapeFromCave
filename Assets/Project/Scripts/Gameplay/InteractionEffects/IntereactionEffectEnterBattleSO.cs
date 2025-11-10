@@ -92,10 +92,10 @@ public sealed class IntereactionEffectEnterBattleSO : InteractionEffectSO
         if (TryResolveSquadModel(enemy, out var squadModel) && TryCreateSetup(squadModel, out var setup))
             enemies.Add(setup);
 
-        AdditionalSquadSetup[] additionalSquads = enemy.GetComponent<SquadController>().GetAdditionalSquads();
+        AdditionalSquad[] additionalSquads = enemy.GetComponent<SquadController>().GetAdditionalSquads();
         for (int i = 0; i < additionalSquads.Length; i++)
         {
-            AdditionalSquadSetup additinalSquad = additionalSquads[i];
+            AdditionalSquad additinalSquad = additionalSquads[i];
             if (TryCreateSetup(additinalSquad, out var additionalSetup))
             {
                 enemies.Add(additionalSetup);
@@ -141,7 +141,7 @@ public sealed class IntereactionEffectEnterBattleSO : InteractionEffectSO
         return false;
     }
 
-    private static bool TryCreateSetup(AdditionalSquadSetup additionalSquad, out BattleSquadSetup setup)
+    private static bool TryCreateSetup(AdditionalSquad additionalSquad, out BattleSquadSetup setup)
     {
         setup = new BattleSquadSetup(additionalSquad.Definition, additionalSquad.Count);
         return true;

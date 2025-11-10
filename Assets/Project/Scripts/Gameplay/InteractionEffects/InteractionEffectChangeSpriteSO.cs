@@ -19,18 +19,12 @@ public class InteractionEffectChangeSpriteSO : InteractionEffectSO
             return Task.FromResult(InteractionEffectResult.Continue);
         }
 
-        if (targets == null || targets.Count == 0)
-            return Task.FromResult(InteractionEffectResult.Continue);
-
         foreach (var target in targets)
         {
-            if (target == null)
-                continue;
-
             if (!includeInactive && !target.activeInHierarchy)
                 continue;
 
-            var renderer = target.GetComponentInChildren<SpriteRenderer>();
+            SpriteRenderer renderer = target.GetComponentInChildren<SpriteRenderer>();
             if (renderer == null)
             {
                 continue;
@@ -42,8 +36,7 @@ public class InteractionEffectChangeSpriteSO : InteractionEffectSO
             }
             else
             {
-                var runner = ctx.Actor.GetComponent<MonoBehaviour>();
-                if (runner != null)
+                if (ctx.Actor.TryGetComponent<MonoBehaviour>(out var runner))
                     runner.StartCoroutine(DelayedChange(renderer, delay));
                 else
                     ApplySprite(renderer); // fallback

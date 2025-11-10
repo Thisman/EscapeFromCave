@@ -11,9 +11,6 @@ public class InteractionEffectDestroySO : InteractionEffectSO
 
     public override Task<InteractionEffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        if (targets == null || targets.Count == 0)
-            return Task.FromResult(InteractionEffectResult.Continue);
-
         foreach (var target in targets)
         {
             if (target == null)

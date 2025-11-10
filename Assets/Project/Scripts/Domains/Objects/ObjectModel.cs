@@ -7,6 +7,6 @@ public class ObjectModel : IReadOnlyObjectModel
 
     public ObjectModel(ObjectSO definition)
     {
-        Definition = definition ?? throw new ArgumentNullException(nameof(definition));
+        Definition = definition != null ? definition : throw new ArgumentNullException(nameof(definition));
     }
 }

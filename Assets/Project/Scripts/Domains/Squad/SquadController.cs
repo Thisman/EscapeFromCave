@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class AdditionalSquadSetup
+public class AdditionalSquad
 {
-    public AdditionalSquadSetup(UnitSO definition, int count)
+    public AdditionalSquad(UnitSO definition, int count)
     {
         _definition = definition;
         _count = Math.Max(0, count);
@@ -23,7 +23,7 @@ public class SquadController : MonoBehaviour
 {
     [SerializeField] private int _count = 1;
     [SerializeField] private UnitSO _unitDefinition;
-    [SerializeField] private AdditionalSquadSetup[] _additionalSquads = Array.Empty<AdditionalSquadSetup>();
+    [SerializeField] private AdditionalSquad[] _additionalSquads = Array.Empty<AdditionalSquad>();
 
     private SquadModel _squadModel;
 
@@ -37,7 +37,7 @@ public class SquadController : MonoBehaviour
         return _squadModel;
     }
 
-    public AdditionalSquadSetup[] GetAdditionalSquads()
+    public AdditionalSquad[] GetAdditionalSquads()
     {
         return _additionalSquads;
     }

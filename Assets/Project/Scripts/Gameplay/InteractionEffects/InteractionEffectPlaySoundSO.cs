@@ -6,14 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlaySoundEffect", menuName = "Gameplay/Effects/Play Sound")]
 public sealed class InteractionEffectPlaySoundSO : InteractionEffectSO
 {
-    [SerializeField]
-    private AudioClip _clip;
+    [SerializeField] private AudioClip _clip;
 
-    [SerializeField, Range(0f, 1f)]
-    private float _volume = 1f;
+    [SerializeField, Range(0f, 1f)] private float _volume = 1f;
 
-    [SerializeField]
-    private bool _waitForCompletion = false;
+    [SerializeField] private bool _waitForCompletion = false;
 
     public override async Task<InteractionEffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
@@ -23,12 +20,12 @@ public sealed class InteractionEffectPlaySoundSO : InteractionEffectSO
             return InteractionEffectResult.Continue;
         }
 
-        var position = ctx?.Actor != null ? ctx.Actor.transform.position : Vector3.zero;
+        var position = ctx.Actor.transform.position;
         AudioSource.PlayClipAtPoint(_clip, position, Mathf.Clamp01(_volume));
 
         if (_waitForCompletion)
         {
-            var duration = Mathf.Max(0f, _clip.length);
+            float duration = Mathf.Max(0f, _clip.length);
             if (duration > 0f)
             {
                 await Task.Delay(TimeSpan.FromSeconds(duration));
