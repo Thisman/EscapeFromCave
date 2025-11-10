@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public sealed class CursorManager : MonoBehaviour
 {
@@ -136,6 +137,11 @@ public sealed class CursorManager : MonoBehaviour
             }
 
             var texture = CreateTexture(sprite);
+            if (texture == null)
+            {
+                continue;
+            }
+
             var hotspot = CalculateHotspot(sprite);
 
             _cursorCache[cursorName] = new CursorData(cursorName, texture, hotspot);
@@ -243,25 +249,120 @@ public sealed class CursorManager : MonoBehaviour
             return sprite.texture;
         }
 
-        var width = (int)sprite.rect.width;
-        var height = (int)sprite.rect.height;
-        var texture = new Texture2D(width, height, TextureFormat.RGBA32, false)
+        if (TryCopyTextureRegion(sprite, out var copiedTexture))
         {
-            name = $"{sprite.name}_Cursor"
-        };
+            return PrepareGeneratedTexture(sprite, copiedTexture);
+        }
 
-        var pixels = sprite.texture.GetPixels(
-            (int)sprite.rect.x,
-            (int)sprite.rect.y,
-            width,
-            height);
+        if (TryReadPixels(sprite, out var readableTexture))
+        {
+            return PrepareGeneratedTexture(sprite, readableTexture);
+        }
 
-        texture.SetPixels(pixels);
-        texture.Apply();
+        Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(CreateTexture)}] Unable to create cursor texture for sprite '{sprite.name}'. Cursor will be skipped.");
+        return null;
+    }
+
+    private Texture2D PrepareGeneratedTexture(Sprite sourceSprite, Texture2D texture)
+    {
+        texture.name = $"{sourceSprite.name}_Cursor";
         texture.hideFlags = HideFlags.HideAndDontSave;
         _generatedTextures.Add(texture);
-
         return texture;
+    }
+
+    private bool TryCopyTextureRegion(Sprite sprite, out Texture2D texture)
+    {
+        texture = null;
+
+        if (SystemInfo.copyTextureSupport == CopyTextureSupport.None)
+        {
+            return false;
+        }
+
+        var rect = sprite.rect;
+        var width = (int)rect.width;
+        var height = (int)rect.height;
+        var originX = (int)rect.x;
+        var originY = (int)rect.y;
+
+        var requiresMatchingFormat = (SystemInfo.copyTextureSupport & CopyTextureSupport.DifferentTypes) == 0;
+        var sourceFormat = sprite.texture.format;
+
+        if (!TryCreateTexture(width, height, requiresMatchingFormat ? sourceFormat : TextureFormat.RGBA32, !requiresMatchingFormat, out texture))
+        {
+            return false;
+        }
+
+        try
+        {
+            Graphics.CopyTexture(sprite.texture, 0, 0, originX, originY, width, height, texture, 0, 0, 0, 0);
+            return true;
+        }
+        catch (Exception copyException)
+        {
+            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryCopyTextureRegion)}] Failed to copy texture data for '{sprite.name}': {copyException.Message}");
+            Destroy(texture);
+            texture = null;
+            return false;
+        }
+    }
+
+    private bool TryReadPixels(Sprite sprite, out Texture2D texture)
+    {
+        texture = null;
+
+        if (!TryCreateTexture((int)sprite.rect.width, (int)sprite.rect.height, TextureFormat.RGBA32, true, out texture))
+        {
+            return false;
+        }
+
+        try
+        {
+            var pixels = sprite.texture.GetPixels(
+                (int)sprite.rect.x,
+                (int)sprite.rect.y,
+                (int)sprite.rect.width,
+                (int)sprite.rect.height);
+
+            texture.SetPixels(pixels);
+            texture.Apply();
+            return true;
+        }
+        catch (Exception readException)
+        {
+            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryReadPixels)}] Failed to read pixels for '{sprite.name}': {readException.Message}");
+            Destroy(texture);
+            texture = null;
+            return false;
+        }
+    }
+
+    private static bool TryCreateTexture(int width, int height, TextureFormat format, bool allowFallbackToRgba32, out Texture2D texture)
+    {
+        texture = null;
+
+        if (!SystemInfo.SupportsTextureFormat(format))
+        {
+            if (!allowFallbackToRgba32 || !SystemInfo.SupportsTextureFormat(TextureFormat.RGBA32))
+            {
+                Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryCreateTexture)}] Texture format '{format}' is not supported.");
+                return false;
+            }
+
+            format = TextureFormat.RGBA32;
+        }
+
+        try
+        {
+            texture = new Texture2D(width, height, format, false);
+            return true;
+        }
+        catch (Exception createException)
+        {
+            Debug.LogWarning($"[{nameof(CursorManager)}.{nameof(TryCreateTexture)}] Unable to create texture ({width}x{height}, {format}): {createException.Message}");
+            return false;
+        }
     }
 
     private static Vector2 CalculateHotspot(Sprite sprite)
