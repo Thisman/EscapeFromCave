@@ -10,24 +10,7 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageSource
 
     public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (target == null)
-        {
-            GameLogger.Warn($"{nameof(BattleEffectDamageSO)} '{name}' received a null target.");
-            return;
-        }
-
-        var squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
-        if (squadController == null)
-        {
-            GameLogger.Warn($"{nameof(BattleEffectDamageSO)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
-            return;
-        }
-
-        if (Damage <= 0)
-        {
-            GameLogger.Log($"{nameof(BattleEffectDamageSO)} '{name}' applied to '{target.name}' with non-positive damage value {Damage}. No damage dealt.");
-            return;
-        }
+        BattleSquadController squadController = target.GetComponent<BattleSquadController>();
 
         GameLogger.Log($"{nameof(BattleEffectDamageSO)} '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
         _ = new BattleDamageDefaultResolver().ResolveDamage(this, squadController);

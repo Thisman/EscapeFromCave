@@ -16,9 +16,6 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (target == null)
-            return;
-
         if (!TryResolveModel(target, out var model))
             return;
 
@@ -27,27 +24,9 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 
     private bool TryResolveModel(BattleSquadEffectsController target, out BattleSquadModel model)
     {
-        model = null;
-
-        if (target == null)
-        {
-            GameLogger.Warn($"{nameof(BattleEffectStatsModifierSO)} '{name}' received a null target.");
-            return false;
-        }
-
-        var squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
-        if (squadController == null)
-        {
-            GameLogger.Warn($"{nameof(BattleEffectStatsModifierSO)} '{name}' could not find a {nameof(BattleSquadController)} on '{target.name}'.");
-            return false;
-        }
+        BattleSquadController squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
 
         model = squadController.GetSquadModel() as BattleSquadModel;
-        if (model == null)
-        {
-            GameLogger.Warn($"{nameof(BattleEffectStatsModifierSO)} '{name}' requires a {nameof(BattleSquadModel)} on '{target.name}'.");
-            return false;
-        }
 
         return true;
     }
