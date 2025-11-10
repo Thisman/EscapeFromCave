@@ -5,7 +5,7 @@ public sealed class BattleEffectsManager
 {
     private readonly Dictionary<BattleSquadEffectsController, List<BattleEffectState>> _activeEffects = new();
 
-    public void AddEffect(BattleContext _ctx, BattleEffectDefinitionSO effect, BattleSquadEffectsController target)
+    public void AddEffect(BattleContext _ctx, BattleEffectSO effect, BattleSquadEffectsController target)
     {
         if (effect == null)
             throw new ArgumentNullException(nameof(effect));
@@ -24,7 +24,7 @@ public sealed class BattleEffectsManager
         effects.Add(new BattleEffectState(effect, _ctx));
     }
 
-    public void RemoveEffect(BattleEffectDefinitionSO effect, BattleSquadEffectsController target)
+    public void RemoveEffect(BattleEffectSO effect, BattleSquadEffectsController target)
     {
         if (effect == null)
             throw new ArgumentNullException(nameof(effect));
@@ -107,13 +107,13 @@ public sealed class BattleEffectsManager
 
     private sealed class BattleEffectState
     {
-        public BattleEffectState(BattleEffectDefinitionSO effect, BattleContext context)
+        public BattleEffectState(BattleEffectSO effect, BattleContext context)
         {
             Effect = effect;
             Context = context;
         }
 
-        public BattleEffectDefinitionSO Effect { get; }
+        public BattleEffectSO Effect { get; }
 
         public BattleContext Context { get; }
 

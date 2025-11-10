@@ -4,13 +4,13 @@ using UnityEngine;
 
 public readonly struct BattleSquadSetup
 {
-    public BattleSquadSetup(UnitDefinitionSO definition, int count)
+    public BattleSquadSetup(UnitSO definition, int count)
     {
         Definition = definition;
         Count = Math.Max(0, count);
     }
 
-    public UnitDefinitionSO Definition { get; }
+    public UnitSO Definition { get; }
 
     public int Count { get; }
 

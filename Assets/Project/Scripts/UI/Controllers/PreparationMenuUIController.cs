@@ -11,9 +11,9 @@ public class PreparationMenuUIController : MonoBehaviour
     [SerializeField] private HeroCarouselItemView _heroCarouselItemPrefab;
     [SerializeField] private SquadCarouselItemView _squadCarouselItemPrefab;
 
-    public Action<UnitDefinitionSO, List<UnitDefinitionSO>> OnStartGame;
+    public Action<UnitSO, List<UnitSO>> OnStartGame;
 
-    public void PopulateCarousels(UnitDefinitionSO[] heroDefinitions, UnitDefinitionSO[] squadDefinitions)
+    public void PopulateCarousels(UnitSO[] heroDefinitions, UnitSO[] squadDefinitions)
     {
         PopulateHeroCarousel(heroDefinitions);
         PopulateSquadCarousels(squadDefinitions);
@@ -31,12 +31,12 @@ public class PreparationMenuUIController : MonoBehaviour
 
     private void HandleStartGame()
     {
-        UnitDefinitionSO selectedHero = GetSelectedHero();
-        List<UnitDefinitionSO> selectedSquads = GetSelectedArmy();
+        UnitSO selectedHero = GetSelectedHero();
+        List<UnitSO> selectedSquads = GetSelectedArmy();
         OnStartGame?.Invoke(selectedHero, selectedSquads);
     }
 
-    private UnitDefinitionSO GetSelectedHero()
+    private UnitSO GetSelectedHero()
     {
         GameObject selectedObject = _heroCarouselWidget.GetCurrentObject();
         if (selectedObject == null)
@@ -49,9 +49,9 @@ public class PreparationMenuUIController : MonoBehaviour
         return heroItemView.GetDefinition();
     }
 
-    private List<UnitDefinitionSO> GetSelectedArmy()
+    private List<UnitSO> GetSelectedArmy()
     {
-        List<UnitDefinitionSO> selectedSquads = new();
+        List<UnitSO> selectedSquads = new();
 
         for (int i = 0; i < _squadCarouselsWidget.Length; i++)
         {
@@ -68,14 +68,14 @@ public class PreparationMenuUIController : MonoBehaviour
         return selectedSquads;
     }
 
-    private void PopulateHeroCarousel(UnitDefinitionSO[] heroDefinitions)
+    private void PopulateHeroCarousel(UnitSO[] heroDefinitions)
     {
         if (_heroCarouselWidget == null || _heroCarouselItemPrefab == null)
             return;
 
         ClearContent(_heroCarouselWidget.Content);
 
-        foreach (UnitDefinitionSO hero in heroDefinitions)
+        foreach (UnitSO hero in heroDefinitions)
         {
             if (hero == null)
                 continue;
@@ -87,7 +87,7 @@ public class PreparationMenuUIController : MonoBehaviour
         _heroCarouselWidget.RefreshItems();
     }
 
-    private void PopulateSquadCarousels(UnitDefinitionSO[] squadDefinitions)
+    private void PopulateSquadCarousels(UnitSO[] squadDefinitions)
     {
         if (_squadCarouselsWidget == null || _squadCarouselItemPrefab == null)
             return;
@@ -99,7 +99,7 @@ public class PreparationMenuUIController : MonoBehaviour
 
             ClearContent(carousel.Content);
 
-            foreach (UnitDefinitionSO squadUnit in squadDefinitions)
+            foreach (UnitSO squadUnit in squadDefinitions)
             {
                 if (squadUnit == null)
                     continue;

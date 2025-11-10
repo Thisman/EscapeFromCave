@@ -9,7 +9,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     private readonly Dictionary<object, Dictionary<BattleSquadStat, float>> _statModifiersBySource = new();
     private readonly Dictionary<BattleSquadStat, float> _aggregatedModifiers = new();
 
-    public UnitDefinitionSO Definition => _sourceModel.Definition;
+    public UnitSO Definition => _sourceModel.Definition;
 
     public event Action<IReadOnlySquadModel> Changed;
 
@@ -55,7 +55,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public float MissChance => GetModifiedStat(BattleSquadStat.MissChance, _sourceModel.MissChance);
 
-    public BattleAbilityDefinitionSO[] Abilities => _sourceModel.Abilities;
+    public BattleAbilitySO[] Abilities => _sourceModel.Abilities;
 
     public bool IsFriendly() => _sourceModel.IsFriendly();
 

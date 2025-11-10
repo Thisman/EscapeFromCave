@@ -228,7 +228,7 @@ public sealed class BattleRoundsMachine
         action.OnResolve += OnActionResolved;
         action.OnCancel += OnActionCancelled;
 
-        if (action is AbilityAction abilityAction)
+        if (action is BattleActionAbility abilityAction)
         {
             _ctx.BattleCombatUIController?.HighlightAbility(abilityAction.Ability);
         }
@@ -264,12 +264,12 @@ public sealed class BattleRoundsMachine
 
         switch (resolvedAction)
         {
-            case DefendAction:
+            case BattleActionDefend:
                 _ctx.DefendedUnitsThisRound.Add(_ctx.ActiveUnit);
                 _ctx.BattleQueueController.AddLast(_ctx.ActiveUnit);
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
-            case SkipTurnAction:
+            case BattleActionSkipTurn:
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             default:

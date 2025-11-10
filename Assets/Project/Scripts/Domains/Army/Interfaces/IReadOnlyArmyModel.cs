@@ -9,7 +9,7 @@ public interface IReadOnlyArmyModel
 
     bool SetSlot(int index, SquadModel squad);
 
-    bool TryAddSquad(UnitDefinitionSO def, int amount);
+    bool TryAddSquad(UnitSO def, int amount);
 
     bool ClearSlot(int index);
 }

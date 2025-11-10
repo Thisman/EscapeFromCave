@@ -3,15 +3,15 @@ using UnityEngine;
 
 public sealed class GameSession
 {
-    private UnitDefinitionSO _selectedHero;
+    private UnitSO _selectedHero;
 
-    private readonly List<UnitDefinitionSO> _selectedAllySquads = new();
+    private readonly List<UnitSO> _selectedAllySquads = new();
 
-    public UnitDefinitionSO SelectedHero => _selectedHero;
+    public UnitSO SelectedHero => _selectedHero;
 
-    public IReadOnlyList<UnitDefinitionSO> SelectedAllySquads => _selectedAllySquads;
+    public IReadOnlyList<UnitSO> SelectedAllySquads => _selectedAllySquads;
 
-    public void SaveSelectedHeroSquads(UnitDefinitionSO heroDefinition, List<UnitDefinitionSO> armyDefinition)
+    public void SaveSelectedHeroSquads(UnitSO heroDefinition, List<UnitSO> armyDefinition)
     {
         _selectedHero = heroDefinition;
         _selectedAllySquads.Clear();

@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ObjectModel : IReadOnlyObjectModel
 {
-    public ObjectDefinitionSO Definition { get; }
+    public ObjectSO Definition { get; }
 
-    public ObjectModel(ObjectDefinitionSO definition)
+    public ObjectModel(ObjectSO definition)
     {
         Definition = definition ?? throw new ArgumentNullException(nameof(definition));
     }

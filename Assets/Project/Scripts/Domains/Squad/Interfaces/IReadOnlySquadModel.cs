@@ -5,7 +5,7 @@ public interface IReadOnlySquadModel
 {
     public event Action<IReadOnlySquadModel> Changed;
 
-    public UnitDefinitionSO Definition { get; }
+    public UnitSO Definition { get; }
 
     public int Count { get; }
 
@@ -41,7 +41,7 @@ public interface IReadOnlySquadModel
 
     public float MissChance { get; }
 
-    public BattleAbilityDefinitionSO[] Abilities { get; }
+    public BattleAbilitySO[] Abilities { get; }
 
     public bool IsFriendly ();
 

@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class BattleSquadEffectsController: MonoBehaviour
 {
-    private readonly List<BattleEffectDefinitionSO> _effects = new();
+    private readonly List<BattleEffectSO> _effects = new();
 
-    public IReadOnlyList<BattleEffectDefinitionSO> Effects => _effects;
+    public IReadOnlyList<BattleEffectSO> Effects => _effects;
 
-    public void AddEffect(BattleEffectDefinitionSO effect)
+    public void AddEffect(BattleEffectSO effect)
     {
         _effects.Add(effect);
     }
 
-    public void RemoveEffect(BattleEffectDefinitionSO effect)
+    public void RemoveEffect(BattleEffectSO effect)
     {
         _effects.Remove(effect);
     }

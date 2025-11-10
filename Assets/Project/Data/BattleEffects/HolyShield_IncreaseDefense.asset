@@ -11,12 +11,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a5e9a72f7b24ac7a31402f7a613c9a8, type: 3}
   m_Name: HolyShield_IncreaseDefense
-  m_EditorClassIdentifier: Assembly-CSharp::StatModifierBattleEffect
+  m_EditorClassIdentifier: Assembly-CSharp::BattleEffectStatsModifierSO
   Name: Increase Defense
   Description: 
   Icon: {fileID: 0}
   Trigger: 0
   MaxTick: 2
-  _statModifiers:
+  StatsModifier:
   - Stat: 3
     Value: 0.2

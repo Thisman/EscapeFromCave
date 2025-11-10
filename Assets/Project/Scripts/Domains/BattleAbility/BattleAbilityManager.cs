@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public sealed class BattleAbilityManager
 {
-    private readonly Dictionary<IReadOnlySquadModel, Dictionary<BattleAbilityDefinitionSO, AbilityCooldownState>> _cooldowns = new();
+    private readonly Dictionary<IReadOnlySquadModel, Dictionary<BattleAbilitySO, AbilityCooldownState>> _cooldowns = new();
 
-    public bool IsAbilityReady(IReadOnlySquadModel unit, BattleAbilityDefinitionSO ability)
+    public bool IsAbilityReady(IReadOnlySquadModel unit, BattleAbilitySO ability)
     {
         if (!TryGetState(unit, ability, out AbilityCooldownState state))
             return true;
@@ -13,7 +13,7 @@ public sealed class BattleAbilityManager
         return state.RemainingCooldown <= 0;
     }
 
-    public int GetRemainingCooldown(IReadOnlySquadModel unit, BattleAbilityDefinitionSO ability)
+    public int GetRemainingCooldown(IReadOnlySquadModel unit, BattleAbilitySO ability)
     {
         if (!TryGetState(unit, ability, out AbilityCooldownState state))
             return 0;
@@ -21,7 +21,7 @@ public sealed class BattleAbilityManager
         return Math.Max(0, state.RemainingCooldown);
     }
 
-    public void TriggerCooldown(IReadOnlySquadModel unit, BattleAbilityDefinitionSO ability)
+    public void TriggerCooldown(IReadOnlySquadModel unit, BattleAbilitySO ability)
     {
         if (!TryGetState(unit, ability, out AbilityCooldownState state))
             return;
@@ -69,7 +69,7 @@ public sealed class BattleAbilityManager
         }
     }
 
-    private bool TryGetState(IReadOnlySquadModel unit, BattleAbilityDefinitionSO ability, out AbilityCooldownState state)
+    private bool TryGetState(IReadOnlySquadModel unit, BattleAbilitySO ability, out AbilityCooldownState state)
     {
         state = null;
 
@@ -97,7 +97,7 @@ public sealed class BattleAbilityManager
 
         if (!_cooldowns.TryGetValue(unit, out var abilityStates) || abilityStates == null)
         {
-            abilityStates = new Dictionary<BattleAbilityDefinitionSO, AbilityCooldownState>();
+            abilityStates = new Dictionary<BattleAbilitySO, AbilityCooldownState>();
             _cooldowns[unit] = abilityStates;
         }
 
@@ -120,12 +120,12 @@ public sealed class BattleAbilityManager
 
     private sealed class AbilityCooldownState
     {
-        public AbilityCooldownState(BattleAbilityDefinitionSO ability)
+        public AbilityCooldownState(BattleAbilitySO ability)
         {
             Ability = ability;
         }
 
-        public BattleAbilityDefinitionSO Ability { get; }
+        public BattleAbilitySO Ability { get; }
 
         public int RemainingCooldown { get; set; }
     }

@@ -1,4 +1,4 @@
 public interface IReadOnlyObjectModel
 {
-    ObjectDefinitionSO Definition { get; }
+    ObjectSO Definition { get; }
 }

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beba5f1d77ee04346b0c07345d9784af, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a87cc639edc3544f8181f3a0fcde88c, type: 3}
   m_Name: FireSword
-  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityDefinitionSO
+  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilitySO
   Id: FireSword
   AbilityName: Fire Sword
   Description: "\u041C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u043E \u043D\u0430\u043D\u043E\u0441\u0438\u0442

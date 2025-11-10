@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    [SerializeField] public InteractationDefinitionSO Definition;
+    [SerializeField] public InteractionSO Definition;
 
     private CooldownState _cooldown;
 
@@ -40,7 +40,7 @@ public class InteractionController : MonoBehaviour
         foreach (var eff in Definition.Effects)
         {
             var result = await eff.Apply(ctx, targets);
-            if (result == EffectResult.Break)
+            if (result == InteractionEffectResult.Break)
             {
                 break;
             }

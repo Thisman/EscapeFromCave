@@ -12,14 +12,14 @@ public class BattleCombatUIController : MonoBehaviour
     public Action OnLeaveCombat;
     public Action OnDefend;
     public Action OnSkipTurn;
-    public Action<BattleAbilityDefinitionSO> OnSelectAbility;
+    public Action<BattleAbilitySO> OnSelectAbility;
 
     public void SetDefendButtonInteractable(bool interactable)
     {
         _defendButton.interactable = interactable;
     }
 
-    public void RenderAbilityList(BattleAbilityDefinitionSO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
+    public void RenderAbilityList(BattleAbilitySO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
     {
         _abilityListController?.Render(abilities, abilityManager, owner);
     }
@@ -29,7 +29,7 @@ public class BattleCombatUIController : MonoBehaviour
         _abilityListController?.RefreshAvailability();
     }
 
-    public void HighlightAbility(BattleAbilityDefinitionSO ability)
+    public void HighlightAbility(BattleAbilitySO ability)
     {
         if (ability == null)
         {
@@ -72,7 +72,7 @@ public class BattleCombatUIController : MonoBehaviour
 
     private void HandleSkipTurnClicked() => OnSkipTurn?.Invoke();
 
-    private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
+    private void HandleAbilitySelected(BattleAbilitySO ability)
     {
         OnSelectAbility?.Invoke(ability);
     }

@@ -59,10 +59,10 @@ public class EntitiesImporter : EditorWindow
 {
     private static readonly IEntitiesSheetImporter[] SheetImporters =
     {
-        new DamageBattleEffectImporter(),
-        new StatModifierBattleEffectImporter(),
-        new BattleAbilityDefinitionSOImporter(),
-        new UnitDefinitionSOImporter(),
+        new BattleEffectDamageSOImporter(),
+        new BattleEffectStatModifierSOImporter(),
+        new BattleAbilitySOImporter(),
+        new UnitSOImporter(),
     };
 
     private EntitiesImporterSettings settings;
