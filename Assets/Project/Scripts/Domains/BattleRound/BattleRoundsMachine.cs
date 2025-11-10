@@ -144,6 +144,7 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnEnd()
     {
+        ClearActionSlotHighlights();
         ClearActiveUnitSlotHighlight();
 
         _ctx.BattleQueueController.NextTurn();
@@ -236,6 +237,8 @@ public sealed class BattleRoundsMachine
         {
             _ctx.BattleCombatUIController?.ResetAbilityHighlight();
         }
+
+        ApplyActionSlotHighlights(action);
     }
 
     private void DetachCurrentAction()
@@ -252,6 +255,7 @@ public sealed class BattleRoundsMachine
         }
 
         _ctx.BattleCombatUIController?.ResetAbilityHighlight();
+        ClearActionSlotHighlights();
 
         _ctx.CurrentAction = null;
     }
@@ -280,6 +284,8 @@ public sealed class BattleRoundsMachine
 
     private void OnActionCancelled()
     {
+        ClearActionSlotHighlights();
+
         if (!_ctx.ActiveUnit.IsFriendly())
             return;
 
@@ -411,6 +417,92 @@ public sealed class BattleRoundsMachine
             gridController.TryRemoveOccupant(defeatedTransform, out _);
             UnityEngine.Object.Destroy(defeatedUnit.gameObject);
         }
+    }
+
+    private void ApplyActionSlotHighlights(IBattleAction action)
+    {
+        if (action == null)
+            return;
+
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+            return;
+
+        var activeUnit = _ctx.ActiveUnit;
+        if (activeUnit == null)
+            return;
+
+        ClearActionSlotHighlights();
+
+        if (!activeUnit.IsFriendly())
+            return;
+
+        if (action is not IBattleActionTargetResolverProvider resolverProvider)
+            return;
+
+        var targetResolver = resolverProvider.TargetResolver;
+        if (targetResolver == null)
+            return;
+
+        var units = _ctx.BattleUnits;
+        if (units == null)
+            return;
+
+        var availableSlots = new List<Transform>();
+        var unavailableSlots = new List<Transform>();
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            var targetModel = unitController.GetSquadModel();
+            if (targetModel == null)
+                continue;
+
+            if (!gridController.TryGetSlotForOccupant(unitController.transform, out var slot) || slot == null)
+                continue;
+
+            bool isAvailable = false;
+
+            try
+            {
+                isAvailable = targetResolver.ResolveTarget(activeUnit, targetModel);
+            }
+            catch (Exception exception)
+            {
+                GameLogger.Exception(exception);
+                continue;
+            }
+
+            if (isAvailable)
+            {
+                availableSlots.Add(slot);
+            }
+            else
+            {
+                unavailableSlots.Add(slot);
+            }
+        }
+
+        var activeSlot = gridController.ActiveSlot;
+        if (activeSlot != null)
+        {
+            unavailableSlots.Remove(activeSlot);
+        }
+
+        gridController.HighlightSlots(unavailableSlots, BattleGridSlotHighlightMode.Unavailable);
+        gridController.HighlightSlots(availableSlots, BattleGridSlotHighlightMode.Available);
+    }
+
+    private void ClearActionSlotHighlights()
+    {
+        var gridController = _ctx.BattleGridController;
+        if (gridController == null)
+            return;
+
+        gridController.ResetAllSlotHighlights(keepActiveHighlight: false);
+        HighlightActiveUnitSlot();
     }
 
     private void HandleLeaveCombat()

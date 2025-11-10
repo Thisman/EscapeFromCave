@@ -14,12 +14,21 @@ public enum BattleGridRow
     Front
 }
 
+public enum BattleGridSlotHighlightMode
+{
+    None,
+    Available,
+    Unavailable,
+    Active
+}
+
 public sealed class BattleGridController : MonoBehaviour
 {
     [SerializeField] private Transform[] _allySlots = Array.Empty<Transform>();
     [SerializeField] private Transform[] _enemySlots = Array.Empty<Transform>();
-    [SerializeField] private Color _activeSlotColor = new(1f, 0.92f, 0.016f, 0.35f);
-    [SerializeField] private Color _availableActionSlotColor = new(0.22f, 0.67f, 0.97f, 0.35f);
+    [SerializeField] private Color _availableHighlightColor = new(0.35f, 0.8f, 0.4f, 0.35f);
+    [SerializeField] private Color _unavailableHighlightColor = new(0.85f, 0.2f, 0.2f, 0.35f);
+    [SerializeField] private Color _activeHighlightColor = new(1f, 0.92f, 0.016f, 0.35f);
 
     private readonly Dictionary<Transform, Transform> _slotOccupants = new();
     private readonly Dictionary<Transform, Transform> _occupantSlots = new();
@@ -27,7 +36,6 @@ public sealed class BattleGridController : MonoBehaviour
     private Transform _activeSlot;
 
     public Transform ActiveSlot => _activeSlot;
-    public Color AvailableActionSlotColor => _availableActionSlotColor;
 
     private void Awake()
     {
@@ -96,7 +104,7 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
-    public void HighlightSlot(Transform slot, Color color)
+    public void HighlightSlot(Transform slot, BattleGridSlotHighlightMode mode)
     {
         if (!TryResolveSlot(slot, out var resolvedSlot))
             return;
@@ -104,16 +112,50 @@ public sealed class BattleGridController : MonoBehaviour
         if (!TryGetVisualState(resolvedSlot, out var visualState))
             return;
 
-        visualState.Setter?.Invoke(color);
+        if (mode == BattleGridSlotHighlightMode.None)
+        {
+            ResetSlotHighlight(resolvedSlot, keepActiveHighlight: false);
+            return;
+        }
+
+        visualState.Setter?.Invoke(GetColorForMode(mode));
     }
 
-    public void ResetSlotHighlight(Transform slot)
+    public void HighlightSlots(IEnumerable<Transform> slots, BattleGridSlotHighlightMode mode)
+    {
+        if (slots == null)
+            return;
+
+        foreach (var slot in slots)
+        {
+            HighlightSlot(slot, mode);
+        }
+    }
+
+    public void ResetAllSlotHighlights(bool keepActiveHighlight = true)
+    {
+        foreach (var slot in EnumerateSlots())
+        {
+            if (slot == null)
+                continue;
+
+            ResetSlotHighlight(slot, keepActiveHighlight);
+        }
+    }
+
+    public void ResetSlotHighlight(Transform slot, bool keepActiveHighlight = true)
     {
         if (!TryResolveSlot(slot, out var resolvedSlot))
             return;
 
         if (!TryGetVisualState(resolvedSlot, out var visualState))
             return;
+
+        if (keepActiveHighlight && resolvedSlot == _activeSlot)
+        {
+            HighlightSlot(resolvedSlot, BattleGridSlotHighlightMode.Active);
+            return;
+        }
 
         visualState.Setter?.Invoke(visualState.OriginalColor);
     }
@@ -125,14 +167,14 @@ public sealed class BattleGridController : MonoBehaviour
 
         if (_activeSlot == resolvedSlot)
         {
-            HighlightSlot(resolvedSlot, _activeSlotColor);
+            HighlightSlot(resolvedSlot, BattleGridSlotHighlightMode.Active);
             return;
         }
 
         ClearActiveSlot();
 
         _activeSlot = resolvedSlot;
-        HighlightSlot(resolvedSlot, _activeSlotColor);
+        HighlightSlot(resolvedSlot, BattleGridSlotHighlightMode.Active);
     }
 
     public void ClearActiveSlot()
@@ -140,7 +182,7 @@ public sealed class BattleGridController : MonoBehaviour
         if (_activeSlot == null)
             return;
 
-        ResetSlotHighlight(_activeSlot);
+        ResetSlotHighlight(_activeSlot, keepActiveHighlight: false);
         _activeSlot = null;
     }
 
@@ -608,5 +650,16 @@ public sealed class BattleGridController : MonoBehaviour
             OriginalColor = originalColor;
             Setter = setter;
         }
+    }
+
+    private Color GetColorForMode(BattleGridSlotHighlightMode mode)
+    {
+        return mode switch
+        {
+            BattleGridSlotHighlightMode.Active => _activeHighlightColor,
+            BattleGridSlotHighlightMode.Available => _availableHighlightColor,
+            BattleGridSlotHighlightMode.Unavailable => _unavailableHighlightColor,
+            _ => _availableHighlightColor
+        };
     }
 }
