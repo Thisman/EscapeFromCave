@@ -12,7 +12,6 @@ public sealed class PlayerInteraction : MonoBehaviour
     [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
 
     [Inject] private readonly SceneLoader _sceneLoader;
-    [Inject] private readonly InputRouter _inputRouter;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly DialogManager _dialogManager;
 
@@ -68,7 +67,7 @@ public sealed class PlayerInteraction : MonoBehaviour
         {
             if (_lastWarnedCollider != collider)
             {
-                Debug.LogWarning($"[PlayerInteraction] Collider '{collider.name}' does not provide an InteractionController.");
+                Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] Collider '{collider.name}' does not provide an InteractionController.");
                 _lastWarnedCollider = collider;
             }
             return;
@@ -80,7 +79,7 @@ public sealed class PlayerInteraction : MonoBehaviour
         {
             _currentTarget = target;
             var targetName = (_currentTarget as MonoBehaviour)?.name ?? _currentTarget.ToString();
-            Debug.Log($"[PlayerInteraction] '{name}' switched interaction target to '{targetName}'.");
+            Debug.Log($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] '{name}' switched interaction target to '{targetName}'.");
         }
 
         for (int i = 0; i < _hits.Length - 1; i++)
@@ -92,18 +91,18 @@ public sealed class PlayerInteraction : MonoBehaviour
         if (_currentTarget == null || !_currentTarget.gameObject.activeSelf)
         {
             _currentTarget = null;
-            Debug.LogWarning($"[PlayerInteraction] Interact input received for '{name}', but no interaction target is selected.");
+            Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(OnInteractPressed)}] Interact input received for '{name}', but no interaction target is selected.");
             return;
         }
 
         var ctxData = new InteractionContext
         {
             Actor = _actor,
-            Target = _currentTarget.gameObject,
             Time = Time.time,
             SceneLoader = _sceneLoader,
-            InputRouter = _inputRouter,
+            InputService = _inputService,
             DialogManager = _dialogManager,
+            Target = _currentTarget.gameObject,
         };
 
         await _currentTarget.TryInteract(ctxData);

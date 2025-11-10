@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8213997057954841995}
   - component: {fileID: -3009412262272902082}
   - component: {fileID: 8819193310141489975}
+  - component: {fileID: 3160330748179631601}
   m_Layer: 3
   m_Name: EnemySquad
   m_TagString: Interactable
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SquadController
   _count: 1
   _unitDefinition: {fileID: 11400000, guid: c9813b369caed014e8586b1a50b699d8, type: 2}
+  _additionalSquads: []
 --- !u!114 &-8213997057954841995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +181,19 @@ MonoBehaviour:
     - rid: 3912552087046062150
       type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
+--- !u!114 &3160330748179631601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999093162817123816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfd7fc6a453bc6489e09fb5e9fcfc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultCursorSource
+  CursorOnHover: mark_question
 --- !u!1 &8285867190387786310
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,12 +11,10 @@ public class PreparationSceneManager : MonoBehaviour
     [Inject] private readonly SceneLoader _sceneLoader;
 
     [SerializeField] private PreparationMenuUIController _preparationSceneUIController;
-#if UNITY_EDITOR
     [SerializeField] private DefaultAsset _unitsFolder;
-#endif
 
-    private UnitDefinitionSO[] _heroDefinitions = System.Array.Empty<UnitDefinitionSO>();
-    private UnitDefinitionSO[] _squadDefinitions = System.Array.Empty<UnitDefinitionSO>();
+    private UnitSO[] _heroDefinitions = System.Array.Empty<UnitSO>();
+    private UnitSO[] _squadDefinitions = System.Array.Empty<UnitSO>();
 
     private void Awake()
     {
@@ -34,43 +32,24 @@ public class PreparationSceneManager : MonoBehaviour
         _preparationSceneUIController.OnStartGame -= HandleStartGame;
     }
 
-    private async void HandleStartGame(UnitDefinitionSO selectedHero, List<UnitDefinitionSO> selectedSquads)
+    private async void HandleStartGame(UnitSO selectedHero, List<UnitSO> selectedSquads)
     {
-        _gameSession.SelectHeroAndArmy(selectedHero, selectedSquads);
+        _gameSession.SaveSelectedHeroSquads(selectedHero, selectedSquads);
         await _sceneLoader.LoadAdditiveAsync("Dangeon_Level_1");
         await _sceneLoader.UnloadAdditiveAsync("PreparationScene");
     }
 
     private void LoadUnits()
     {
-#if UNITY_EDITOR
-        if (_unitsFolder == null)
-        {
-            Debug.LogWarning("Units folder is not assigned for PreparationSceneManager.");
-            _heroDefinitions = System.Array.Empty<UnitDefinitionSO>();
-            _squadDefinitions = System.Array.Empty<UnitDefinitionSO>();
-            return;
-        }
-
         string folderPath = AssetDatabase.GetAssetPath(_unitsFolder);
-        if (string.IsNullOrEmpty(folderPath))
-        {
-            Debug.LogWarning("Unable to resolve folder path for units.");
-            _heroDefinitions = System.Array.Empty<UnitDefinitionSO>();
-            _squadDefinitions = System.Array.Empty<UnitDefinitionSO>();
-            return;
-        }
-
-        string[] guids = AssetDatabase.FindAssets("t:UnitDefinitionSO", new[] { folderPath });
-        List<UnitDefinitionSO> heroes = new();
-        List<UnitDefinitionSO> allies = new();
+        string[] guids = AssetDatabase.FindAssets("t:UnitSO", new[] { folderPath });
+        List<UnitSO> heroes = new();
+        List<UnitSO> allies = new();
 
         foreach (string guid in guids)
         {
             string assetPath = AssetDatabase.GUIDToAssetPath(guid);
-            UnitDefinitionSO definition = AssetDatabase.LoadAssetAtPath<UnitDefinitionSO>(assetPath);
-            if (definition == null)
-                continue;
+            UnitSO definition = AssetDatabase.LoadAssetAtPath<UnitSO>(assetPath);
 
             if (definition.Kind == UnitKind.Hero)
                 heroes.Add(definition);
@@ -80,9 +59,5 @@ public class PreparationSceneManager : MonoBehaviour
 
         _heroDefinitions = heroes.ToArray();
         _squadDefinitions = allies.ToArray();
-#else
-        _heroDefinitions = System.Array.Empty<UnitDefinitionSO>();
-        _squadDefinitions = System.Array.Empty<UnitDefinitionSO>();
-#endif
     }
 }

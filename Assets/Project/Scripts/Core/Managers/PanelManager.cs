@@ -29,7 +29,7 @@ public class PanelManager
     {
         if (!_layers.TryGetValue(layerName, out _))
         {
-            Debug.LogWarning($"Unknow layer name: {layerName}");
+            Debug.LogWarning($"[{nameof(PanelManager)}.{nameof(Show)}] Unknown layer name: {layerName}");
             return;
         }
 

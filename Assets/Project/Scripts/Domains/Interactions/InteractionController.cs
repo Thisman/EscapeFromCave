@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    [SerializeField] public InteractationDefinitionSO Definition;
+    [SerializeField] public InteractionSO Definition;
 
     private CooldownState _cooldown;
 
@@ -14,7 +14,7 @@ public class InteractionController : MonoBehaviour
     {
         if (!_cooldown.Ready(ctx.Time))
         {
-            Debug.LogWarning($"[InteractionController] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
+            Debug.LogWarning($"[{nameof(InteractionController)}.{nameof(TryInteract)}] Interaction '{Definition.name}' on '{name}' is on cooldown. Remaining: {_cooldown.Remaining(ctx.Time):F2}s.");
             return false;
         }
 
@@ -22,7 +22,7 @@ public class InteractionController : MonoBehaviour
         {
             if (!Definition.Conditions.All(c => c.IsMet(ctx)))
             {
-                Debug.LogWarning($"[InteractionController] Conditions for '{Definition.name}' failed for actor '{ctx.Actor.name ?? "<null>"}' on '{name}'.");
+                Debug.LogWarning($"[{nameof(InteractionController)}.{nameof(TryInteract)}] Conditions for '{Definition.name}' failed for actor '{ctx.Actor.name ?? "<null>"}' on '{name}'.");
                 return false;
             }
         }
@@ -31,7 +31,7 @@ public class InteractionController : MonoBehaviour
         int targetCount = targets?.Count ?? 0;
         if (targetCount == 0)
         {
-            Debug.LogWarning($"[InteractionController] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
+            Debug.LogWarning($"[{nameof(InteractionController)}.{nameof(TryInteract)}] Target resolver '{Definition.TargetResolver.name}' resolved no targets for '{Definition.name}'.");
         }
 
         _cooldown.Start(ctx.Time, Definition.Cooldown);
@@ -40,7 +40,7 @@ public class InteractionController : MonoBehaviour
         foreach (var eff in Definition.Effects)
         {
             var result = await eff.Apply(ctx, targets);
-            if (result == EffectResult.Break)
+            if (result == InteractionEffectResult.Break)
             {
                 break;
             }

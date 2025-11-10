@@ -8,7 +8,7 @@ public sealed class UnitStatsInfoView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _defenseTextUI;
     [SerializeField] private TextMeshProUGUI _initiativeTextUI;
 
-    public void Render(UnitDefinitionSO unitDefinition)
+    public void Render(UnitSO unitDefinition)
     {
         _healthTextUI.text = "Здоровье: " + unitDefinition.BaseHealth.ToString();
         _damageTextUI.text = "Урон: " + unitDefinition.MinDamage.ToString() + " - " + unitDefinition.MinDamage.ToString();

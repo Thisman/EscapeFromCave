@@ -7,14 +7,14 @@ public class BattleAbilityListUIController : MonoBehaviour
     [SerializeField] private BattleAbilityItemView abilityItemViewPrefab;
     [SerializeField] private Transform contentRoot;
 
-    public event Action<BattleAbilityDefinitionSO> OnSelectAbility;
+    public event Action<BattleAbilitySO> OnSelectAbility;
 
     private readonly List<BattleAbilityItemView> abilityItemViews = new();
 
     private BattleAbilityManager _abilityManager;
     private IReadOnlySquadModel _owner;
 
-    public void Render(BattleAbilityDefinitionSO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
+    public void Render(BattleAbilitySO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
     {
         ClearItems();
 
@@ -29,7 +29,7 @@ public class BattleAbilityListUIController : MonoBehaviour
 
         if (abilityItemViewPrefab == null)
         {
-            Debug.LogWarning("BattleAbilityListUIController: ability item prefab is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleAbilityListUIController)}.{nameof(Render)}] Ability item prefab is not assigned.");
             SetActive(false);
             return;
         }
@@ -38,7 +38,7 @@ public class BattleAbilityListUIController : MonoBehaviour
 
         for (int i = 0; i < abilities.Length; i++)
         {
-            BattleAbilityDefinitionSO ability = abilities[i];
+            BattleAbilitySO ability = abilities[i];
             if (ability == null)
             {
                 continue;
@@ -54,7 +54,7 @@ public class BattleAbilityListUIController : MonoBehaviour
         SetActive(abilityItemViews.Count > 0);
     }
 
-    public BattleAbilityItemView FindItem(BattleAbilityDefinitionSO ability)
+    public BattleAbilityItemView FindItem(BattleAbilitySO ability)
     {
         if (ability == null)
         {
@@ -104,7 +104,7 @@ public class BattleAbilityListUIController : MonoBehaviour
         }
     }
 
-    private void HandleAbilitySelected(BattleAbilityItemView itemView, BattleAbilityDefinitionSO ability)
+    private void HandleAbilitySelected(BattleAbilityItemView itemView, BattleAbilitySO ability)
     {
         if (itemView == null)
             return;
@@ -150,7 +150,7 @@ public class BattleAbilityListUIController : MonoBehaviour
             return;
         }
 
-        BattleAbilityDefinitionSO ability = itemView.Definition;
+        BattleAbilitySO ability = itemView.Definition;
         bool isReady = ability != null && _abilityManager.IsAbilityReady(_owner, ability);
         itemView.SetInteractable(isReady);
     }

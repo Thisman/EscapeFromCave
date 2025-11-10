@@ -20,7 +20,7 @@ MonoBehaviour:
     folder: {fileID: 102900000, guid: 37eb46a814c53f848b44274ecbb367cb, type: 3}
     sprites: []
   battleAbility:
-    folder: {fileID: 102900000, guid: 1e73f7738a0e3d34b9165445cac1dd47, type: 3}
+    folder: {fileID: 102900000, guid: 42d36d6607a2a214e811d63e83cd2955, type: 3}
     sprites:
     - {fileID: -6619492975346507483, guid: 56aa7d23134f4304fb04e83ce7373d59, type: 3}
     - {fileID: 4589782827064144943, guid: 56aa7d23134f4304fb04e83ce7373d59, type: 3}
@@ -267,7 +267,7 @@ MonoBehaviour:
     effectsFolder: {fileID: 102900000, guid: 37eb46a814c53f848b44274ecbb367cb, type: 3}
   unit:
     folder: {fileID: 102900000, guid: b4b97a38da29edb4d9311cd745e80232, type: 3}
-    abilitiesFolder: {fileID: 102900000, guid: 1e73f7738a0e3d34b9165445cac1dd47, type: 3}
+    abilitiesFolder: {fileID: 102900000, guid: 42d36d6607a2a214e811d63e83cd2955, type: 3}
     sprites:
     - {fileID: -1662613486703163539, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
     - {fileID: -5918137915363136097, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}

@@ -4,14 +4,14 @@ using UnityEngine;
 [Serializable]
 public class SquadModel : IReadOnlySquadModel
 {
-    [SerializeField] private UnitDefinitionSO _unitDefinition;
+    [SerializeField] private UnitSO _unitDefinition;
     [SerializeField, Min(0)] private int _count;
-
-    public UnitDefinitionSO Definition => _unitDefinition;
 
     public event Action<IReadOnlySquadModel> Changed;
 
-    public SquadModel(UnitDefinitionSO definition, int initialCount = 0)
+    public UnitSO Definition => _unitDefinition;
+
+    public SquadModel(UnitSO definition, int initialCount = 0)
     {
         _unitDefinition = definition;
         _count = initialCount;
@@ -54,7 +54,7 @@ public class SquadModel : IReadOnlySquadModel
 
     public float MissChance => _unitDefinition.BaseMissChance;
 
-    public BattleAbilityDefinitionSO[] Abilities => _unitDefinition.Abilities;
+    public BattleAbilitySO[] Abilities => _unitDefinition.Abilities;
 
     public bool IsFriendly () => _unitDefinition.IsFriendly();
 

@@ -7,8 +7,6 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private string _draggableTag = "Draggable";
     [SerializeField] private BattleGridController _gridController;
-    [SerializeField] private Color _validSlotColor = Color.green;
-    [SerializeField] private Color _invalidSlotColor = Color.red;
 
     private Transform _originSlot;
     private Transform _hoveredSlot;
@@ -77,7 +75,9 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         if (_hoveredSlot != null)
         {
             bool isValid = IsSlotValidForDraggedObject(_hoveredSlot);
-            _gridController.HighlightSlot(_hoveredSlot, isValid ? _validSlotColor : _invalidSlotColor);
+            _gridController.HighlightSlot(
+                _hoveredSlot,
+                isValid ? BattleGridSlotHighlightMode.Available : BattleGridSlotHighlightMode.Unavailable);
         }
     }
 

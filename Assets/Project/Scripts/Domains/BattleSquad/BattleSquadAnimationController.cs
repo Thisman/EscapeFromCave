@@ -139,6 +139,7 @@ public class BattleSquadAnimationController : MonoBehaviour
         _spriteRenderer.flipX = flipped;
     }
 
+
     private void StartFlashRoutine(Color flashColor, bool useShake, bool showDamageText, int damage, Action onComplete)
     {
         if (_spriteRenderer == null)

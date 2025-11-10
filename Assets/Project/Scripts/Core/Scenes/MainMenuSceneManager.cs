@@ -6,7 +6,7 @@ public class MainMenuSceneManager : MonoBehaviour
     [SerializeField] private MainMenuUIController _mainMenuSceneUIController;
 
     [Inject] private readonly SceneLoader _sceneLoader;
-    [Inject] private readonly InputRouter _inputRouter;
+    [Inject] private readonly InputService _inputService;
     [Inject] private readonly AudioManager _audioManager;
 
     public void Start()
@@ -16,7 +16,7 @@ public class MainMenuSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputRouter.EnterMenu();
+        _inputService.EnterMenu();
         _mainMenuSceneUIController.OnStartGame += HandleStartGame;
     }
 

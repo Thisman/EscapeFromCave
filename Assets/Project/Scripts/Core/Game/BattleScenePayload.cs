@@ -4,13 +4,13 @@ using UnityEngine;
 
 public readonly struct BattleSquadSetup
 {
-    public BattleSquadSetup(UnitDefinitionSO definition, int count)
+    public BattleSquadSetup(UnitSO definition, int count)
     {
         Definition = definition;
         Count = Math.Max(0, count);
     }
 
-    public UnitDefinitionSO Definition { get; }
+    public UnitSO Definition { get; }
 
     public int Count { get; }
 
@@ -27,7 +27,7 @@ public sealed class BattleSceneData
         GameObject enemySource)
     {
         Hero = hero;
-        Army = army != null ? new List<BattleSquadSetup>(army) : Array.Empty<BattleSquadSetup>();
+        Army = army;
         Enemies = enemies;
         HeroSource = heroSource;
         EnemySource = enemySource;

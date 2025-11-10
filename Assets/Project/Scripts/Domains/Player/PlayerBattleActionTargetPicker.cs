@@ -25,6 +25,7 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
 
         _isActive = true;
         InputSystem.onAfterUpdate += OnAfterInputUpdate;
+
     }
 
     private void OnAfterInputUpdate()

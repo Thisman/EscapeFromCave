@@ -8,6 +8,7 @@ public sealed class RootLifetimeScope : LifetimeScope
 {
     [SerializeField] private InputActionAsset InputActions;
     [SerializeField] private AudioManager AudioManager;
+    [SerializeField] private CursorManager CursorManager;
 
     protected override void Configure(IContainerBuilder builder)
     {
@@ -16,9 +17,9 @@ public sealed class RootLifetimeScope : LifetimeScope
 
         builder.RegisterInstance(InputActions).As<InputActionAsset>();
         builder.Register<InputService>(Lifetime.Singleton);
-        builder.Register<InputRouter>(Lifetime.Singleton);
 
         builder.RegisterInstance(AudioManager).As<AudioManager>();
+        builder.RegisterInstance(CursorManager).As<CursorManager>();
     }
 
     protected override void Awake()

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HeroCarouselItemView : MonoBehaviour
 {
-    [SerializeField] private UnitDefinitionSO Definition;
+    [SerializeField] private UnitSO Definition;
     [SerializeField] private UnitStatsInfoView statsInfoViewUI;
     [SerializeField] private Image icon;
     [SerializeField] private RectTransform abilityList;
@@ -13,13 +13,13 @@ public class HeroCarouselItemView : MonoBehaviour
         Render();
     }
 
-    public void SetDefinition(UnitDefinitionSO definition)
+    public void SetDefinition(UnitSO definition)
     {
         Definition = definition;
         Render();
     }
 
-    public UnitDefinitionSO GetDefinition()
+    public UnitSO GetDefinition()
     {
         return Definition;
     }
@@ -46,7 +46,7 @@ public class HeroCarouselItemView : MonoBehaviour
             Destroy(abilityList.GetChild(i).gameObject);
         }
 
-        foreach (BattleAbilityDefinitionSO ability in Definition.Abilities)
+        foreach (BattleAbilitySO ability in Definition.Abilities)
         {
             if (ability == null)
             {

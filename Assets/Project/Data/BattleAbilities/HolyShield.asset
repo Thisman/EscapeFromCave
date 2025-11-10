@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beba5f1d77ee04346b0c07345d9784af, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a87cc639edc3544f8181f3a0fcde88c, type: 3}
   m_Name: HolyShield
-  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilityDefinitionSO
+  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilitySO
   Id: HolyShield
   AbilityName: Holy Shield
   Description: "\u0414\u0430\u0435\u0442 \u0437\u0430\u0449\u0438\u0442\u0443 \u0434\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u043C\u0443

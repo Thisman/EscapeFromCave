@@ -28,7 +28,7 @@ public class BattleResultsUIController : MonoBehaviour
     {
         if (_statusText == null)
         {
-            Debug.LogWarning("[BattleResultsUIController] Status text reference is missing.");
+            Debug.LogWarning($"[{nameof(BattleResultsUIController)}.{nameof(Render)}] Status text reference is missing.");
             return;
         }
 

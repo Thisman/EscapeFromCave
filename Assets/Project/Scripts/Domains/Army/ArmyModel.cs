@@ -43,7 +43,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return true;
     }
 
-    public bool TryAddSquad(UnitDefinitionSO def, int amount)
+    public bool TryAddSquad(UnitSO def, int amount)
     {
         if (!def || amount <= 0) return false;
 
@@ -65,7 +65,7 @@ public class ArmyModel : IReadOnlyArmyModel
         return false;
     }
 
-    private SquadModel FindFirstSquad(UnitDefinitionSO def)
+    private SquadModel FindFirstSquad(UnitSO def)
     {
         for (int i = 0; i < _slots.Count; i++)
         {

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SquadCarouselItemView : MonoBehaviour
 {
-    [SerializeField] private UnitDefinitionSO Definition;
+    [SerializeField] private UnitSO Definition;
     [SerializeField] private UnitStatsInfoView statsInfoViewUI;
     [SerializeField] private Image icon;
 
@@ -12,13 +12,13 @@ public class SquadCarouselItemView : MonoBehaviour
         Render();
     }
 
-    public void SetDefinition(UnitDefinitionSO definition)
+    public void SetDefinition(UnitSO definition)
     {
         Definition = definition;
         Render();
     }
 
-    public UnitDefinitionSO GetDefinition()
+    public UnitSO GetDefinition()
     {
         return Definition;
     }

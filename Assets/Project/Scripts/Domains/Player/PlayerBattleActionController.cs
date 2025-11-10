@@ -17,11 +17,11 @@ public class PlayerBattleActionController : IBattleActionController
         SubscribeUIEvents();
         UpdateDefendAvailability();
 
-        var targetResolver = new DefaultBattleActionTargetResolver(ctx);
-        var damageResolver = new DefaultBattleDamageResolver();
+        var targetResolver = new BattleActionDefaultTargetResolver(ctx);
+        var damageResolver = new BattleDamageDefaultResolver();
         var targetPicker = new PlayerBattleActionTargetPicker(ctx, targetResolver);
 
-        onActionReady.Invoke(new AttackAction(ctx, targetResolver, damageResolver, targetPicker));
+        onActionReady.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
     }
 
     private void HandleDefend()
@@ -34,7 +34,7 @@ public class PlayerBattleActionController : IBattleActionController
 
         UnsubscribeUIEvents();
         _ctx.BattleCombatUIController.SetDefendButtonInteractable(false);
-        var defendAction = new DefendAction();
+        var defendAction = new BattleActionDefend();
         _onActionReady.Invoke(defendAction);
     }
 
@@ -42,16 +42,16 @@ public class PlayerBattleActionController : IBattleActionController
     {
         UnsubscribeUIEvents();
         _ctx.BattleCombatUIController.SetDefendButtonInteractable(false);
-        var skipTurnAction = new SkipTurnAction();
+        var skipTurnAction = new BattleActionSkipTurn();
         _onActionReady.Invoke(skipTurnAction);
     }
 
-    private void HandleAbilitySelected(BattleAbilityDefinitionSO ability)
+    private void HandleAbilitySelected(BattleAbilitySO ability)
     {
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
-        var abilityManager = _ctx.BattleAbilityManager;
+        var abilityManager = _ctx.BattleAbilitiesManager;
         var activeUnit = _ctx.ActiveUnit;
         if (abilityManager != null && activeUnit != null && !abilityManager.IsAbilityReady(activeUnit, ability))
         {
@@ -69,7 +69,7 @@ public class PlayerBattleActionController : IBattleActionController
         };
 
         var targetPicker = new PlayerBattleActionTargetPicker(_ctx, targetResolver);
-        var abilityAction = new AbilityAction(_ctx, ability, targetPicker);
+        var abilityAction = new BattleActionAbility(_ctx, ability, targetResolver, targetPicker);
         _onActionReady.Invoke(abilityAction);
     }
 
@@ -135,7 +135,7 @@ public class PlayerBattleActionController : IBattleActionController
         if (!context.performed)
             return;
 
-        if (_ctx?.CurrentAction is AbilityAction abilityAction)
+        if (_ctx?.CurrentAction is BattleActionAbility abilityAction)
         {
             abilityAction.Dispose();
         }

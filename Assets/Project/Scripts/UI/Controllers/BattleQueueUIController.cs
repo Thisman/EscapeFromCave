@@ -22,7 +22,7 @@ public sealed class BattleQueueUIController : MonoBehaviour
     {
         if (battleQueueController == null)
         {
-            Debug.LogWarning("[BattleQueueUI] BattleQueueController is missing.");
+            Debug.LogWarning($"[{nameof(BattleQueueUIController)}.{nameof(Render)}] BattleQueueController is missing.");
             ClearItems();
             return;
         }
@@ -30,7 +30,7 @@ public sealed class BattleQueueUIController : MonoBehaviour
         var queue = battleQueueController.GetQueue();
         if (queue == null)
         {
-            Debug.LogWarning("[BattleQueueUI] Queue data is missing.");
+            Debug.LogWarning($"[{nameof(BattleQueueUIController)}.{nameof(Render)}] Queue data is missing.");
             ClearItems();
             return;
         }
@@ -57,7 +57,7 @@ public sealed class BattleQueueUIController : MonoBehaviour
     {
         if (_itemPrefab == null)
         {
-            Debug.LogWarning("[BattleQueueUI] Item prefab is not assigned.");
+            Debug.LogWarning($"[{nameof(BattleQueueUIController)}.{nameof(EnsureCapacity)}] Item prefab is not assigned.");
             return false;
         }
 

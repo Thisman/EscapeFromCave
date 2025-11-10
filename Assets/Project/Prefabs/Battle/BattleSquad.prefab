@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 8431889633247697648}
   - component: {fileID: 7984291329870025893}
   - component: {fileID: -561371190395345101}
+  - component: {fileID: -1991373796701066971}
   m_Layer: 0
   m_Name: BattleSquad
   m_TagString: Draggable
@@ -486,6 +487,8 @@ MonoBehaviour:
   _damageTextUI: {fileID: 138420671304901146}
   _spriteRenderer: {fileID: 6778397580762529526}
   _unitController: {fileID: 8431889633247697648}
+  _scaleAmplitude: 0.03
+  _scaleFrequency: 6
   _damageFlashColor: {r: 1, g: 0, b: 0, a: 0.09803922}
   _dodgeFlashColor: {r: 1, g: 1, b: 1, a: 1}
   _damageFlashDuration: 0.5
@@ -505,6 +508,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a147469977773b94cba5f1f4013df893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSquadEffectsController
+--- !u!114 &-1991373796701066971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2995498901232598968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe13e4c836c4f938d5c8cc2b11d890e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleSquadCursorSource
+  CursorOnHover: pointer_c
+  _targetCursorName: tool_sword_a
+  _defaultCursorName: pointer_c
 --- !u!1 &4040300121593027273
 GameObject:
   m_ObjectHideFlags: 0

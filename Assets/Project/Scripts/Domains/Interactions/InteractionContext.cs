@@ -14,5 +14,5 @@ public sealed class InteractionContext
 
     public DialogManager DialogManager;
 
-    public InputRouter InputRouter;
+    public InputService InputService;
 }

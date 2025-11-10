@@ -4,12 +4,6 @@ public sealed class BattleActionEnemyTargetResolver : IBattleActionTargetResolve
 {
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        if (actor == null)
-            throw new ArgumentNullException(nameof(actor));
-
-        if (target == null)
-            return false;
-
         return IsEnemy(actor.Kind, target.Kind);
     }
 

@@ -59,10 +59,10 @@ public class EntitiesImporter : EditorWindow
 {
     private static readonly IEntitiesSheetImporter[] SheetImporters =
     {
-        new DamageBattleEffectImporter(),
-        new StatModifierBattleEffectImporter(),
-        new BattleAbilityDefinitionSOImporter(),
-        new UnitDefinitionSOImporter(),
+        new BattleEffectDamageSOImporter(),
+        new BattleEffectStatModifierSOImporter(),
+        new BattleAbilitySOImporter(),
+        new UnitSOImporter(),
     };
 
     private EntitiesImporterSettings settings;
@@ -91,7 +91,7 @@ public class EntitiesImporter : EditorWindow
     {
         if (settings == null)
         {
-            Debug.LogWarning("[EntitiesImporter] Settings asset is not assigned.");
+            Debug.LogWarning($"[{nameof(EntitiesImporter)}.{nameof(Import)}] Settings asset is not assigned.");
             return;
         }
 
@@ -105,14 +105,14 @@ public class EntitiesImporter : EditorWindow
             var assetPath = AssetDatabase.GetAssetPath(table);
             if (string.IsNullOrEmpty(assetPath))
             {
-                Debug.LogWarning($"[EntitiesImporter] Unable to resolve path for asset '{table.name}'.");
+                Debug.LogWarning($"[{nameof(EntitiesImporter)}.{nameof(Import)}] Unable to resolve path for asset '{table.name}'.");
                 continue;
             }
 
             var absolutePath = Path.GetFullPath(Path.Combine(Application.dataPath, "..", assetPath));
             if (!File.Exists(absolutePath))
             {
-                Debug.LogWarning($"[EntitiesImporter] File not found at '{absolutePath}'.");
+                Debug.LogWarning($"[{nameof(EntitiesImporter)}.{nameof(Import)}] File not found at '{absolutePath}'.");
                 continue;
             }
 
@@ -120,7 +120,7 @@ public class EntitiesImporter : EditorWindow
             {
                 foreach (var sheet in ReadSheets(absolutePath))
                 {
-                    Debug.Log($"[EntitiesImporter] Sheet '{sheet.Name}' has {sheet.Rows.Count} data rows.");
+                    Debug.Log($"[{nameof(EntitiesImporter)}.{nameof(Import)}] Sheet '{sheet.Name}' has {sheet.Rows.Count} data rows.");
 
                     var importer = FindImporterForSheet(sheet.Name);
                     if (importer == null)
@@ -134,13 +134,13 @@ public class EntitiesImporter : EditorWindow
                     }
                     catch (Exception importerException)
                     {
-                        Debug.LogError($"[EntitiesImporter] Importer '{importer.SheetName}' failed: {importerException.Message}");
+                        Debug.LogError($"[{nameof(EntitiesImporter)}.{nameof(Import)}] Importer '{importer.SheetName}' failed: {importerException.Message}");
                     }
                 }
             }
             catch (Exception exception)
             {
-                Debug.LogError($"[EntitiesImporter] Failed to read '{table.name}': {exception.Message}");
+                Debug.LogError($"[{nameof(EntitiesImporter)}.{nameof(Import)}] Failed to read '{table.name}': {exception.Message}");
             }
         }
     }
@@ -169,14 +169,14 @@ public class EntitiesImporter : EditorWindow
         {
             if (!relationships.TryGetValue(sheet.RelationshipId, out var targetPath))
             {
-                Debug.LogWarning($"[EntitiesImporter] Relationship '{sheet.RelationshipId}' not found for sheet '{sheet.Name}'.");
+                Debug.LogWarning($"[{nameof(EntitiesImporter)}.{nameof(ReadSheets)}] Relationship '{sheet.RelationshipId}' not found for sheet '{sheet.Name}'.");
                 continue;
             }
 
             var worksheetEntry = archive.GetEntry(targetPath);
             if (worksheetEntry == null)
             {
-                Debug.LogWarning($"[EntitiesImporter] Worksheet '{targetPath}' not found for sheet '{sheet.Name}'.");
+                Debug.LogWarning($"[{nameof(EntitiesImporter)}.{nameof(ReadSheets)}] Worksheet '{targetPath}' not found for sheet '{sheet.Name}'.");
                 continue;
             }
 

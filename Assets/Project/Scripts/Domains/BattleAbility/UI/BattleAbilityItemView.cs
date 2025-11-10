@@ -15,13 +15,13 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
     [SerializeField] private GameObject _descriptionRoot;
     [SerializeField] private TextMeshProUGUI _descriptionText;
 
-    public event Action<BattleAbilityItemView, BattleAbilityDefinitionSO> OnClick;
+    public event Action<BattleAbilityItemView, BattleAbilitySO> OnClick;
 
-    private BattleAbilityDefinitionSO _definition;
+    private BattleAbilitySO _definition;
     private Vector3 _initialScale;
     private Tween _highlightTween;
 
-    public BattleAbilityDefinitionSO Definition => _definition;
+    public BattleAbilitySO Definition => _definition;
 
     private void Awake()
     {
@@ -48,7 +48,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         HideDescription();
     }
 
-    public void Render(BattleAbilityDefinitionSO abilityDefinition)
+    public void Render(BattleAbilitySO abilityDefinition)
     {
         _definition = abilityDefinition;
 
@@ -156,7 +156,7 @@ public class BattleAbilityItemView : MonoBehaviour, IPointerEnterHandler, IPoint
         _descriptionText.text = FormatDescription(_definition);
     }
 
-    private string FormatDescription(BattleAbilityDefinitionSO abilityDefinition)
+    private string FormatDescription(BattleAbilitySO abilityDefinition)
     {
         string cooldownLabel = GetCooldownText(abilityDefinition.Cooldown);
         return $"{abilityDefinition.AbilityName}\n{abilityDefinition.Description}\nПерезарядка: {abilityDefinition.Cooldown} {cooldownLabel}";

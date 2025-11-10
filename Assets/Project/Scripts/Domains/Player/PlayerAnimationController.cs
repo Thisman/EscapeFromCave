@@ -16,7 +16,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer.sprite = _gameSession.HeroDefinition.Icon;
+        _spriteRenderer.sprite = _gameSession.SelectedHero.Icon;
         _initialScale = transform.localScale;
     }
 

@@ -44,7 +44,7 @@ public sealed class ArmyRoasterView : MonoBehaviour
     {
         if (_playerArmyController == null)
         {
-            Debug.LogWarning("[ArmyPanelUI] PlayerArmyController не назначен");
+            Debug.LogWarning($"[{nameof(ArmyRoasterView)}.{nameof(Rebuild)}] PlayerArmyController не назначен");
             ClearAll();
             return;
         }
