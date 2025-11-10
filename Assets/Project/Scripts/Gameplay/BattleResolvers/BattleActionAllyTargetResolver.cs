@@ -4,15 +4,10 @@ public sealed class BattleActionAllyTargetResolver : IBattleActionTargetResolver
 {
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
-        if (actor == null)
-            throw new ArgumentNullException(nameof(actor));
-
-        if (target == null)
-            return false;
-
         return IsSameSide(actor.Kind, target.Kind);
     }
 
+    // TODO: вынести куда-то в утилиты или модель юнитов
     private static bool IsSameSide(UnitKind actorKind, UnitKind targetKind)
     {
         return actorKind switch
