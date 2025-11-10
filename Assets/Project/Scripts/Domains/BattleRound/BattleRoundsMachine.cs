@@ -449,7 +449,6 @@ public sealed class BattleRoundsMachine
             return;
 
         var availableSlots = new List<Transform>();
-        var unavailableSlots = new List<Transform>();
 
         foreach (var unitController in units)
         {
@@ -479,19 +478,8 @@ public sealed class BattleRoundsMachine
             {
                 availableSlots.Add(slot);
             }
-            else
-            {
-                unavailableSlots.Add(slot);
-            }
         }
 
-        var activeSlot = gridController.ActiveSlot;
-        if (activeSlot != null)
-        {
-            unavailableSlots.Remove(activeSlot);
-        }
-
-        gridController.HighlightSlots(unavailableSlots, BattleGridSlotHighlightMode.Unavailable);
         gridController.HighlightSlots(availableSlots, BattleGridSlotHighlightMode.Available);
     }
 
