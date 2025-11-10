@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class AIActionTargetPicker : IActionTargetPicker
@@ -74,8 +75,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
 
     private BattleSquadController SelectTargetWithHighestInitiative(IReadOnlySquadModel actor)
     {
-        var units = _context.BattleUnits;
-        var actorType = actor.Kind;
+        IReadOnlyList<BattleSquadController> units = _context.BattleUnits;
 
         BattleSquadController bestTarget = null;
         float bestInitiative = float.MinValue;
