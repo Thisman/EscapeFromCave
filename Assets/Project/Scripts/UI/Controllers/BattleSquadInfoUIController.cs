@@ -114,6 +114,13 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
         var go = new GameObject("Stat", typeof(RectTransform));
         go.transform.SetParent(container, false);
 
+        var rectTransform = go.GetComponent<RectTransform>();
+        rectTransform.anchorMin = new Vector2(0f, 0.5f);
+        rectTransform.anchorMax = new Vector2(1f, 0.5f);
+        rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        rectTransform.offsetMin = new Vector2(0f, rectTransform.offsetMin.y);
+        rectTransform.offsetMax = new Vector2(0f, rectTransform.offsetMax.y);
+
         var text = go.AddComponent<TextMeshProUGUI>();
         text.text = content;
         text.fontSize = StatFontSize;
