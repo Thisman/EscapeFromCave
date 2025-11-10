@@ -40,6 +40,7 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterTactics()
     {
+        _ctx.BattleSquadInfoManager?.Enable();
         _ctx.PanelManager?.Show("tactic");
         _ctx.BattleTacticUIController.OnBattleRoundsStart += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
@@ -52,7 +53,6 @@ public sealed class BattlePhaseMachine
     private void OnEnterRounds()
     {
         _ctx.PanelManager?.Show("rounds");
-        _ctx.BattleSquadInfoManager?.Enable();
         _battleRoundsMachine.Reset();
         _battleRoundsMachine.BeginRound();
     }

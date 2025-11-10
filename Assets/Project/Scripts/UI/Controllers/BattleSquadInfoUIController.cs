@@ -62,13 +62,13 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
             $"Название: {model.UnitName}",
             $"Количество: {model.Count}",
             $"Здоровье: {FormatValue(model.Health)}",
-            $"Физическая защита: {FormatValue(model.PhysicalDefense)}",
-            $"Магическая защита: {FormatValue(model.MagicDefense)}",
-            $"Абсолютная защита: {FormatValue(model.AbsoluteDefense)}"
+            $"Физическая защита: {FormatPercent(model.PhysicalDefense)}",
+            $"Магическая защита: {FormatPercent(model.MagicDefense)}",
+            $"Абсолютная защита: {FormatPercent(model.AbsoluteDefense)}"
         };
 
-        var damage = model.GetBaseDamageRange();
-        entries.Add($"Урон: {FormatValue(damage.min)} - {FormatValue(damage.max)}");
+        var (min, max) = model.GetBaseDamageRange();
+        entries.Add($"Урон: {FormatValue(min)} - {FormatValue(max)}");
         entries.Add($"Скорость: {FormatValue(model.Speed)}");
         entries.Add($"Инициатива: {FormatValue(model.Initiative)}");
         entries.Add($"Шанс критического удара: {FormatPercent(model.CritChance)}");
