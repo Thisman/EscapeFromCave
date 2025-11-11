@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project/UI/Widgets/SquadInfoPopup/SquadInfoPopup.uss?fileID=7433441132597879392&amp;guid=0494c17d9bda4f6488fe2cebb9719bc3&amp;type=3#SquadInfoPopup" />
+    <ui:VisualElement name="Body" class="body" style="flex-grow: 1;" />
+</ui:UXML>

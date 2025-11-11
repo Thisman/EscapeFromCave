@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Project/UI/PreparationMenuScene/PreparationMenuScene.uss?fileID=7433441132597879392&amp;guid=ed3fdf715f1a2c44bafc95867e4ec746&amp;type=3#PreparationMenuScene" />
     <Style src="project://database/Assets/Project/UI/Global/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <Style src="project://database/Assets/Project/UI/PreparationMenuScene/PreparationMenuScene.uss?fileID=7433441132597879392&amp;guid=ed3fdf715f1a2c44bafc95867e4ec746&amp;type=3#PreparationMenuScene" />
     <ui:VisualElement name="Body" style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
         <ui:VisualElement name="TitleContainer" style="flex-grow: 0; height: 100px; justify-content: center; align-items: center; font-size: 28px; -unity-font-style: bold; margin-bottom: 16px;">
             <ui:Label text="Выбор команды" name="Title" style="color: rgb(255, 255, 255);" />
@@ -44,7 +44,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 100px; justify-content: center; align-items: flex-end;">
+        <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 150px; justify-content: center; align-items: flex-end;">
             <ui:Button text="Спуститься в пещеру" name="DiveIntoCaveButton" class="button" />
         </ui:VisualElement>
     </ui:VisualElement>
