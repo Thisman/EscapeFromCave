@@ -15,8 +15,6 @@ public class DangeonSceneManager : MonoBehaviour
     [Inject] private readonly IObjectResolver _objectResolver;
     [Inject] private readonly DangeonLevelSceneUIController _uiController;
     
-    private PlayerArmyController _playerArmyController;
-
     private void Start()
     {
         _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
@@ -24,23 +22,12 @@ public class DangeonSceneManager : MonoBehaviour
 
         PlayerController playerController = InitializePlayer();
         PlayerArmyController playerArmyController = InitializeArmy(playerController);
-        _playerArmyController = playerArmyController;
 
         _armyRoasterView.Render(playerArmyController);
 
         if (_uiController != null)
         {
-            _uiController.RenderArmy(playerArmyController.Army);
-        }
-
-        playerArmyController.ArmyChanged += HandleArmyChanged;
-    }
-
-    private void OnDestroy()
-    {
-        if (_playerArmyController != null)
-        {
-            _playerArmyController.ArmyChanged -= HandleArmyChanged;
+            _uiController.BindArmyController(playerArmyController);
         }
     }
 
@@ -74,11 +61,4 @@ public class DangeonSceneManager : MonoBehaviour
         return armyController;
     }
 
-    private void HandleArmyChanged(IReadOnlyArmyModel army)
-    {
-        if (_uiController == null)
-            return;
-
-        _uiController.RenderArmy(army);
-    }
 }

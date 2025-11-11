@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public sealed class DangeonLevelSceneUIController : MonoBehaviour
@@ -9,42 +8,46 @@ public sealed class DangeonLevelSceneUIController : MonoBehaviour
     [SerializeField] private UIDocument _document;
 
     private readonly List<SquadIconEntry> _squadIcons = new();
+    private PlayerArmyController _armyController;
     private IReadOnlyArmyModel _currentArmy;
-    private IReadOnlySquadModel _currentDisplayedModel;
-    private IReadOnlySquadModel _subscribedModel;
     private bool _initialized;
 
     private VisualElement _root;
     private VisualElement _squadsContainer;
-    private VisualElement _squadInfoPanel;
-    private VisualElement _enemyInfoPanel;
     private VisualElement _dialogContainer;
     private Label _dialogLabel;
 
     private void Awake()
     {
         Initialize();
-        HideSquadInfo();
         HideDialog();
-    }
-
-    private void OnEnable()
-    {
-        Initialize();
-        InputSystem.onAfterUpdate += HandleAfterInputUpdate;
-    }
-
-    private void OnDisable()
-    {
-        InputSystem.onAfterUpdate -= HandleAfterInputUpdate;
-        HideSquadInfo();
     }
 
     private void OnDestroy()
     {
+        BindArmyController(null);
         SubscribeToArmy(null);
-        InputSystem.onAfterUpdate -= HandleAfterInputUpdate;
-        UpdateModelSubscription(null);
+    }
+
+    public void BindArmyController(PlayerArmyController controller)
+    {
+        if (ReferenceEquals(_armyController, controller))
+            return;
+
+        if (_armyController != null)
+            _armyController.ArmyChanged -= HandleArmyChanged;
+
+        _armyController = controller;
+
+        if (_armyController != null)
+        {
+            _armyController.ArmyChanged += HandleArmyChanged;
+            RenderArmy(_armyController.Army);
+        }
+        else
+        {
+            RenderArmy(null);
+        }
     }
 
     public void RenderArmy(IReadOnlyArmyModel army)
@@ -103,8 +106,6 @@ public sealed class DangeonLevelSceneUIController : MonoBehaviour
             return;
 
         _squadsContainer = _root.Q<VisualElement>("SquadsContainer");
-        _squadInfoPanel = _root.Q<VisualElement>("SquadInfoPanel");
-        _enemyInfoPanel = _root.Q<VisualElement>("EnemyInfoPanel");
         _dialogContainer = _root.Q<VisualElement>("DialogContainer");
 
         _squadIcons.Clear();
@@ -124,9 +125,6 @@ public sealed class DangeonLevelSceneUIController : MonoBehaviour
 
         if (_dialogContainer != null)
             _dialogContainer.style.display = DisplayStyle.None;
-
-        HidePanel(_squadInfoPanel);
-        HidePanel(_enemyInfoPanel);
 
         _initialized = true;
     }
@@ -188,266 +186,6 @@ public sealed class DangeonLevelSceneUIController : MonoBehaviour
             _squadsContainer.Add(element);
             _squadIcons.Add(new SquadIconEntry(element));
         }
-    }
-
-    private void HandleAfterInputUpdate()
-    {
-        var model = ResolveHoveredSquadModel();
-
-        if (ReferenceEquals(model, _currentDisplayedModel))
-        {
-            if (model != null && IsModelDestroyed(model))
-            {
-                HideSquadInfo();
-            }
-
-            return;
-        }
-
-        if (model == null)
-        {
-            HideSquadInfo();
-            return;
-        }
-
-        if (IsModelDestroyed(model))
-        {
-            HideSquadInfo();
-            return;
-        }
-
-        RenderSquadInfo(model);
-    }
-
-    private IReadOnlySquadModel ResolveHoveredSquadModel()
-    {
-        if (!TryGetPointerScreenPosition(out var screenPosition))
-            return null;
-
-        var uiModel = FindModelOnUI(screenPosition);
-        if (uiModel != null)
-            return uiModel;
-
-        var provider = FindProviderInWorld(screenPosition);
-        return provider?.GetSquadModel();
-    }
-
-    private IReadOnlySquadModel FindModelOnUI(Vector2 screenPosition)
-    {
-        var panel = _root?.panel;
-        if (panel == null)
-            return null;
-
-        Vector2 panelPosition = RuntimePanelUtils.ScreenToPanel(panel, screenPosition);
-        VisualElement picked = panel.Pick(panelPosition);
-
-        while (picked != null)
-        {
-            if (picked.userData is IReadOnlySquadModel model && model != null && !model.IsEmpty)
-                return model;
-
-            picked = picked.parent;
-        }
-
-        return null;
-    }
-
-    private static ISquadModelProvider FindProviderInWorld(Vector2 screenPosition)
-    {
-        var camera = Camera.main;
-        if (camera == null)
-            return null;
-
-        Ray ray = camera.ScreenPointToRay(screenPosition);
-        var provider = FindProviderInWorld2D(ray);
-        if (provider != null)
-            return provider;
-
-        return FindProviderInWorld3D(ray);
-    }
-
-    private static ISquadModelProvider FindProviderInWorld2D(Ray ray)
-    {
-        RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll(ray, 1000f);
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var transform = hits[i].transform;
-            if (transform == null)
-                continue;
-
-            var provider = transform.GetComponentInParent<ISquadModelProvider>();
-            if (provider != null)
-                return provider;
-        }
-
-        return null;
-    }
-
-    private static ISquadModelProvider FindProviderInWorld3D(Ray ray)
-    {
-        RaycastHit[] hits = Physics.RaycastAll(ray, 1000f);
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var transform = hits[i].transform;
-            if (transform == null)
-                continue;
-
-            var provider = transform.GetComponentInParent<ISquadModelProvider>();
-            if (provider != null)
-                return provider;
-        }
-
-        return null;
-    }
-
-    private static bool TryGetPointerScreenPosition(out Vector2 position)
-    {
-        var mouse = Mouse.current;
-        if (mouse == null)
-        {
-            position = default;
-            return false;
-        }
-
-        position = mouse.position.ReadValue();
-        return true;
-    }
-
-    private void RenderSquadInfo(IReadOnlySquadModel model)
-    {
-        _currentDisplayedModel = model;
-        UpdateModelSubscription(model);
-
-        VisualElement targetPanel = model.IsEnemy() ? _enemyInfoPanel : _squadInfoPanel;
-        VisualElement oppositePanel = model.IsEnemy() ? _squadInfoPanel : _enemyInfoPanel;
-
-        if (oppositePanel != null)
-            HidePanel(oppositePanel);
-
-        if (targetPanel == null)
-            return;
-
-        targetPanel.style.display = DisplayStyle.Flex;
-        targetPanel.Clear();
-
-        foreach (string entry in BuildEntries(model))
-        {
-            var label = new Label(entry)
-            {
-                name = "SquadInfoEntry"
-            };
-            targetPanel.Add(label);
-        }
-    }
-
-    private void HideSquadInfo()
-    {
-        _currentDisplayedModel = null;
-        UpdateModelSubscription(null);
-        HidePanel(_squadInfoPanel);
-        HidePanel(_enemyInfoPanel);
-    }
-
-    private static void HidePanel(VisualElement panel)
-    {
-        if (panel == null)
-            return;
-
-        panel.Clear();
-        panel.style.display = DisplayStyle.None;
-    }
-
-    private void UpdateModelSubscription(IReadOnlySquadModel model)
-    {
-        if (ReferenceEquals(_subscribedModel, model))
-            return;
-
-        if (_subscribedModel != null)
-            _subscribedModel.Changed -= HandleSquadModelChanged;
-
-        _subscribedModel = model;
-
-        if (_subscribedModel != null)
-            _subscribedModel.Changed += HandleSquadModelChanged;
-    }
-
-    private void HandleSquadModelChanged(IReadOnlySquadModel model)
-    {
-        if (!ReferenceEquals(model, _subscribedModel))
-            return;
-
-        if (model == null || model.IsEmpty || IsModelDestroyed(model))
-        {
-            HideSquadInfo();
-            return;
-        }
-
-        RenderSquadInfo(model);
-    }
-
-    private static bool IsModelDestroyed(IReadOnlySquadModel model)
-    {
-        if (model is UnityEngine.Object unityObject)
-            return unityObject == null;
-
-        return false;
-    }
-
-    private static IReadOnlyList<string> BuildEntries(IReadOnlySquadModel model)
-    {
-        var entries = new List<string>
-        {
-            $"Название: {model.UnitName}",
-            $"Количество: {model.Count}",
-            $"Здоровье: {FormatValue(model.Health)}",
-            $"Физическая защита: {FormatPercent(model.PhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(model.MagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(model.AbsoluteDefense)}",
-            $"Тип атаки: {FormatAttackKind(model.AttackKind)}",
-            $"Тип урона: {FormatDamageType(model.DamageType)}"
-        };
-
-        var (min, max) = model.GetBaseDamageRange();
-        entries.Add($"Урон: {FormatValue(min)} - {FormatValue(max)}");
-        entries.Add($"Скорость: {FormatValue(model.Speed)}");
-        entries.Add($"Инициатива: {FormatValue(model.Initiative)}");
-        entries.Add($"Шанс критического удара: {FormatPercent(model.CritChance)}");
-        entries.Add($"Критический множитель: {FormatValue(model.CritMultiplier)}");
-        entries.Add($"Шанс промаха: {FormatPercent(model.MissChance)}");
-
-        return entries;
-    }
-
-    private static string FormatValue(float value)
-    {
-        return value.ToString("0.##");
-    }
-
-    private static string FormatPercent(float value)
-    {
-        return value.ToString("P0");
-    }
-
-    private static string FormatAttackKind(AttackKind attackKind)
-    {
-        return attackKind switch
-        {
-            AttackKind.Melee => "Ближняя",
-            AttackKind.Range => "Дальняя",
-            AttackKind.Magic => "Магическая",
-            _ => attackKind.ToString()
-        };
-    }
-
-    private static string FormatDamageType(DamageType damageType)
-    {
-        return damageType switch
-        {
-            DamageType.Physical => "Физический",
-            DamageType.Magical => "Магический",
-            DamageType.Pure => "Чистый",
-            _ => damageType.ToString()
-        };
     }
 
     private sealed class SquadIconEntry
