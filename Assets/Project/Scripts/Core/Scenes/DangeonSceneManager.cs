@@ -13,6 +13,9 @@ public class DangeonSceneManager : MonoBehaviour
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly IObjectResolver _objectResolver;
+    [Inject] private readonly SquadInfoUIController _squadInfoUIController;
+
+    private SquadInfoUIManager _squadInfoUIManager;
 
     private void Start()
     {
@@ -23,6 +26,14 @@ public class DangeonSceneManager : MonoBehaviour
         PlayerArmyController playerArmyController = InitializeArmy(playerController);
 
         _armyRoasterView.Render(playerArmyController);
+
+        _squadInfoUIManager = new SquadInfoUIManager(_squadInfoUIController);
+        _squadInfoUIManager.Enable();
+    }
+
+    private void OnDestroy()
+    {
+        _squadInfoUIManager?.Dispose();
     }
 
     private PlayerController InitializePlayer()
