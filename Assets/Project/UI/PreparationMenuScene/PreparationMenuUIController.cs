@@ -72,13 +72,15 @@ public class PreparationMenuUIController : MonoBehaviour
         _heroFrames.Clear();
         _squadPanels.Clear();
 
-        foreach (VisualElement panelElement in _root.Query<VisualElement>(className: "squadPanel"))
-        {
-            if (panelElement == null)
-                continue;
+        _root
+            .Query<VisualElement>(className: "squadPanel")
+            .ForEach(panelElement =>
+            {
+                if (panelElement == null)
+                    return;
 
-            _squadPanels.Add(new SquadPanel(this, panelElement));
-        }
+                _squadPanels.Add(new SquadPanel(this, panelElement));
+            });
 
         _initialized = true;
     }
