@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public sealed class BattleSquadInfoUIController : MonoBehaviour
+public sealed class SquadInfoUIController : MonoBehaviour
 {
     private const float StatFontSize = 20f;
     private const float StatWidth = 400f;
@@ -210,7 +210,7 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
         var containerTransform = panel.transform.Find("Container");
         if (containerTransform == null)
         {
-            Debug.LogWarning($"[{nameof(BattleSquadInfoUIController)}.{nameof(ResolveContainer)}] Container transform was not found for '{panel.name}'.");
+            Debug.LogWarning($"[{nameof(SquadInfoUIController)}.{nameof(ResolveContainer)}] Container transform was not found for '{panel.name}'.");
         }
 
         return containerTransform;

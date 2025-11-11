@@ -19,7 +19,7 @@ public class AdditionalSquad
     public int Count => _count;
 }
 
-public class SquadController : MonoBehaviour
+public class SquadController : MonoBehaviour, ISquadModelProvider
 {
     [SerializeField] private int _count = 1;
     [SerializeField] private UnitSO _unitDefinition;
