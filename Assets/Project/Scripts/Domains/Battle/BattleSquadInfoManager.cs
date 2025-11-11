@@ -45,7 +45,6 @@ public sealed class BattleSquadInfoManager : IDisposable
             return;
 
         var hovered = FindUnitUnderPointer();
-        Debug.Log(hovered);
         if (hovered == _currentHovered)
             return;
 

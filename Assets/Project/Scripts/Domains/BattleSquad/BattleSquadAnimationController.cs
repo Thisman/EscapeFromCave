@@ -12,11 +12,11 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField] private float _scaleAmplitude = 0.03f;
     [SerializeField] private float _scaleFrequency = 6f;
 
+    [SerializeField] private Transform _shakeTarget;
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField] private Color _dodgeFlashColor = Color.white;
-    [SerializeField, Min(0f)] private float _damageFlashDuration = 0.5f;
-    [SerializeField, Min(0f)] private float _damageFlashFrequency = 6f;
-    [SerializeField] private Transform _shakeTarget;
+    [SerializeField, Min(0f)] private float _flashDuration = 0.5f;
+    [SerializeField, Min(0f)] private float _flashFrequency = 6f;
     [SerializeField, Min(0f)] private float _damageShakeAmplitude = 0.1f;
     [SerializeField] private Vector2 _damageTextOffset = new(0f, 50f);
 
@@ -189,8 +189,8 @@ public class BattleSquadAnimationController : MonoBehaviour
     {
         _flashRestoreColor = _spriteRenderer.color;
 
-        float duration = Mathf.Max(_damageFlashDuration, 0f);
-        float frequency = Mathf.Max(_damageFlashFrequency, Mathf.Epsilon);
+        float duration = Mathf.Max(_flashDuration, 0f);
+        float frequency = Mathf.Max(_flashFrequency, Mathf.Epsilon);
 
         var shakeTarget = _shakeTarget;
 
@@ -223,7 +223,7 @@ public class BattleSquadAnimationController : MonoBehaviour
 
     private IEnumerator DamageTextRoutine(int damage)
     {
-        float duration = Mathf.Max(_damageFlashDuration, 0f);
+        float duration = Mathf.Max(_flashDuration, 0f);
         if (duration <= Mathf.Epsilon)
         {
             ResetDamageText();
