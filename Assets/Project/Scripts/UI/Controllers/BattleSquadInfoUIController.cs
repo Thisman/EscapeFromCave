@@ -11,6 +11,7 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
 
     private Transform _friendlyContainer;
     private Transform _enemyContainer;
+    private IReadOnlySquadModel _currentModel;
 
     private void Awake()
     {
@@ -21,27 +22,84 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
 
     public void Render(IReadOnlySquadModel squadModel)
     {
-        if (squadModel == null)
+        if (!ReferenceEquals(_currentModel, squadModel))
         {
-            Hide();
+            SubscribeToModel(squadModel);
+        }
+
+        if (_currentModel == null || IsModelDestroyed(_currentModel))
+        {
+            HidePanels();
             return;
         }
 
-        var panel = ResolveTargetPanel(squadModel, out var container);
-        if (panel == null || container == null)
-        {
-            Hide();
-            return;
-        }
-
-        ShowExclusivePanel(panel);
-        PopulatePanel(container, squadModel);
+        RenderCurrentModel();
     }
 
     public void Hide()
     {
+        HidePanels();
+        SubscribeToModel(null);
+    }
+
+    private void OnDestroy()
+    {
+        SubscribeToModel(null);
+    }
+
+    private void RenderCurrentModel()
+    {
+        if (_currentModel == null)
+        {
+            HidePanels();
+            return;
+        }
+
+        var panel = ResolveTargetPanel(_currentModel, out var container);
+        if (panel == null || container == null)
+        {
+            HidePanels();
+            return;
+        }
+
+        ShowExclusivePanel(panel);
+        PopulatePanel(container, _currentModel);
+    }
+
+    private void HidePanels()
+    {
         HidePanel(_friendlyPanel, _friendlyContainer);
         HidePanel(_enemyPanel, _enemyContainer);
+    }
+
+    private void SubscribeToModel(IReadOnlySquadModel newModel)
+    {
+        if (_currentModel != null)
+            _currentModel.Changed -= HandleModelChanged;
+
+        _currentModel = newModel;
+
+        if (_currentModel == null || IsModelDestroyed(_currentModel))
+        {
+            _currentModel = null;
+            return;
+        }
+
+        _currentModel.Changed += HandleModelChanged;
+    }
+
+    private void HandleModelChanged(IReadOnlySquadModel model)
+    {
+        if (!ReferenceEquals(model, _currentModel))
+            return;
+
+        if (_currentModel == null || IsModelDestroyed(_currentModel))
+        {
+            Hide();
+            return;
+        }
+
+        RenderCurrentModel();
     }
 
     private void PopulatePanel(Transform container, IReadOnlySquadModel squadModel)
@@ -66,6 +124,9 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
             $"Магическая защита: {FormatPercent(model.MagicDefense)}",
             $"Абсолютная защита: {FormatPercent(model.AbsoluteDefense)}"
         };
+
+        entries.Add($"Тип атаки: {FormatAttackKind(model.AttackKind)}");
+        entries.Add($"Тип урона: {FormatDamageType(model.DamageType)}");
 
         var (min, max) = model.GetBaseDamageRange();
         entries.Add($"Урон: {FormatValue(min)} - {FormatValue(max)}");
@@ -155,6 +216,14 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
         return containerTransform;
     }
 
+    private static bool IsModelDestroyed(IReadOnlySquadModel model)
+    {
+        if (model is Object unityObject)
+            return unityObject == null;
+
+        return false;
+    }
+
     private static string FormatValue(float value)
     {
         return value.ToString("0.##");
@@ -163,5 +232,27 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
     private static string FormatPercent(float value)
     {
         return value.ToString("P0");
+    }
+
+    private static string FormatAttackKind(AttackKind attackKind)
+    {
+        return attackKind switch
+        {
+            AttackKind.Melee => "Ближняя",
+            AttackKind.Range => "Дальняя",
+            AttackKind.Magic => "Магическая",
+            _ => attackKind.ToString()
+        };
+    }
+
+    private static string FormatDamageType(DamageType damageType)
+    {
+        return damageType switch
+        {
+            DamageType.Physical => "Физический",
+            DamageType.Magical => "Магический",
+            DamageType.Pure => "Чистый",
+            _ => damageType.ToString()
+        };
     }
 }

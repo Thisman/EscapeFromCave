@@ -44,6 +44,16 @@ public sealed class BattleSquadInfoManager : IDisposable
         if (!_isEnabled)
             return;
 
+        if (_currentHovered != null)
+        {
+            var currentModel = _currentHovered.GetSquadModel();
+            if (currentModel == null)
+            {
+                _currentHovered = null;
+                _uiController.Hide();
+            }
+        }
+
         var hovered = FindUnitUnderPointer();
         if (hovered == _currentHovered)
             return;
