@@ -45,6 +45,7 @@ public sealed class BattleSquadInfoManager : IDisposable
             return;
 
         var hovered = FindUnitUnderPointer();
+        Debug.Log(hovered);
         if (hovered == _currentHovered)
             return;
 
@@ -75,14 +76,8 @@ public sealed class BattleSquadInfoManager : IDisposable
             return null;
 
         Ray ray = camera.ScreenPointToRay(screenPosition);
-        if (Physics.Raycast(ray, out var hitInfo))
-        {
-            var unit = hitInfo.transform.GetComponentInParent<BattleSquadController>();
-            if (unit != null)
-                return unit;
-        }
-
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        int mask = LayerMask.GetMask("Units");
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray, 1000f, mask);
         if (hit2D.transform != null)
         {
             var unit2D = hit2D.transform.GetComponentInParent<BattleSquadController>();

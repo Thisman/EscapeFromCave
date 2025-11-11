@@ -34,12 +34,12 @@ public class BattleSquadAnimationController : MonoBehaviour
 
     private void Awake()
     {
-        _initialScale = transform.localScale;
+        _initialScale = _spriteRenderer.transform.localScale;
     }
 
     private void OnEnable()
     {
-        _initialScale = transform.localScale;
+        _initialScale = _spriteRenderer.transform.localScale;
         _isScaleAnimationPaused = false;
         ScheduleScaleAnimation();
     }
@@ -88,7 +88,7 @@ public class BattleSquadAnimationController : MonoBehaviour
 
         _unitController.GetSquadModel().Changed -= HandleModelChanged;
 
-        transform.localScale = _initialScale;
+        _spriteRenderer.transform.localScale = _initialScale;
         _isScaleAnimationPaused = false;
     }
 
@@ -313,27 +313,27 @@ public class BattleSquadAnimationController : MonoBehaviour
 
         if (_scaleAmplitude <= 0f || _scaleFrequency <= 0f)
         {
-            transform.localScale = _initialScale;
+            _spriteRenderer.transform.localScale = _initialScale;
             return;
         }
 
         float elapsed = Time.time - _scaleAnimationStartTime;
         if (elapsed < 0f)
         {
-            transform.localScale = _initialScale;
+            _spriteRenderer.transform.localScale = _initialScale;
             return;
         }
 
         float scaleOffset = Mathf.Sin(elapsed * _scaleFrequency) * _scaleAmplitude;
         var targetScale = _initialScale;
         targetScale.y = _initialScale.y * (1f + scaleOffset);
-        transform.localScale = targetScale;
+        _spriteRenderer.transform.localScale = targetScale;
     }
 
     private void PauseScaleAnimation()
     {
         _isScaleAnimationPaused = true;
-        transform.localScale = _initialScale;
+        _spriteRenderer.transform.localScale = _initialScale;
     }
 
     private void ResumeScaleAnimation()

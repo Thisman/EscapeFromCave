@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8441182419984222507}
   - component: {fileID: 1224826540807075199}
   - component: {fileID: 138420671304901146}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7317003270402197141}
   - component: {fileID: 5010605526121082939}
   - component: {fileID: 145468481203025259}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 6290842461481361155}
   - component: {fileID: 8528886551895686514}
   - component: {fileID: 4346124194050648611}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 7984291329870025893}
   - component: {fileID: -561371190395345101}
   - component: {fileID: -1991373796701066971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BattleSquad
   m_TagString: Draggable
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6195033524485483423}
   - component: {fileID: 6778397580762529526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
