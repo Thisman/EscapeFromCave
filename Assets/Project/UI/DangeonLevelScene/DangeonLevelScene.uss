@@ -1,0 +1,28 @@
+:root {
+}
+
+.squadIcon {
+    background-color: rgb(255, 255, 255);
+    width: 64px;
+    height: 64px;
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+.squadInfoPanel {
+    background-color: rgba(0, 0, 0, 0.78);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    width: 400px;
+    height: 500px;
+    position: absolute;
+}

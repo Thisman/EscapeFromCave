@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project/UI/Global/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <Style src="project://database/Assets/Project/UI/DangeonLevelScene/DangeonLevelScene.uss?fileID=7433441132597879392&amp;guid=cbc4e2e44e33b064bbd3b0e223f99c7e&amp;type=3#DangeonLevelScene" />
+    <ui:VisualElement name="Body" style="flex-grow: 1;">
+        <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row; justify-content: flex-start; align-items: center;">
+            <ui:VisualElement name="SquadInfoPanel" class="squadInfoPanel" />
+            <ui:VisualElement name="EnemyInfoPanel" class="squadInfoPanel" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Bottom" style="flex-grow: 0; height: 100px; flex-direction: row;">
+            <ui:VisualElement name="SquadsContainer" style="flex-grow: 0; width: 250px; align-items: center; justify-content: center; margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px; flex-direction: row;">
+                <ui:VisualElement name="SquadIcon" class="squadIcon" style="flex-grow: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <ui:VisualElement name="SquadIcon" class="squadIcon" style="flex-grow: 0;" />
+                <ui:VisualElement name="SquadIcon" class="squadIcon" style="flex-grow: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="DialogContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.82);" />
+            <ui:VisualElement name="Space" style="flex-grow: 0; width: 250px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
