@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public sealed class DialogManager : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private DangeonLevelSceneUIController _dangeonLevelSceneUIController;
     [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
     [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
@@ -19,17 +16,6 @@ public sealed class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_canvas != null)
-        {
-            _canvas.enabled = false;
-        }
-
-        if (_text != null)
-        {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
-
         ResolveUIController()?.HideDialog();
     }
 
@@ -88,54 +74,29 @@ public sealed class DialogManager : MonoBehaviour
 
     private IEnumerator TypeText(string message, float secondsPerCharacter)
     {
-        if (_dialogLabel != null)
+        if (_dialogLabel == null)
         {
-            if (secondsPerCharacter <= 0f)
-            {
-                _dialogLabel.text = message;
-                _typingRoutine = null;
-                yield break;
-            }
+            _typingRoutine = null;
+            yield break;
+        }
 
-            var delay = secondsPerCharacter;
-            _dialogLabel.text = string.Empty;
-
-            for (var i = 1; i <= message.Length; i++)
-            {
-                _dialogLabel.text = message.Substring(0, i);
-                yield return new WaitForSeconds(delay);
-            }
-
+        if (secondsPerCharacter <= 0f)
+        {
             _dialogLabel.text = message;
             _typingRoutine = null;
             yield break;
         }
 
-        if (_text == null)
-        {
-            _typingRoutine = null;
-            yield break;
-        }
-
-        _text.text = message;
-
-        if (secondsPerCharacter <= 0f)
-        {
-            _text.maxVisibleCharacters = message.Length;
-            _typingRoutine = null;
-            yield break;
-        }
-
         var delay = secondsPerCharacter;
-        _text.maxVisibleCharacters = 0;
+        _dialogLabel.text = string.Empty;
 
         for (var i = 1; i <= message.Length; i++)
         {
-            _text.maxVisibleCharacters = i;
+            _dialogLabel.text = message.Substring(0, i);
             yield return new WaitForSeconds(delay);
         }
 
-        _text.maxVisibleCharacters = message.Length;
+        _dialogLabel.text = message;
         _typingRoutine = null;
     }
 
@@ -198,17 +159,6 @@ public sealed class DialogManager : MonoBehaviour
             _dialogLabel.text = string.Empty;
         }
 
-        if (_text != null)
-        {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
-
-        if (_canvas != null)
-        {
-            _canvas.enabled = false;
-        }
-
         ResolveUIController()?.HideDialog();
 
         CompleteDisplay(completion);
@@ -266,27 +216,8 @@ public sealed class DialogManager : MonoBehaviour
             {
                 _dialogLabel = label;
                 _dialogLabel.text = string.Empty;
-
-                if (_canvas != null)
-                    _canvas.enabled = false;
-
-                if (_text != null)
-                {
-                    _text.text = string.Empty;
-                    _text.maxVisibleCharacters = 0;
-                }
-
                 return true;
             }
-        }
-
-        if (_canvas != null && _text != null)
-        {
-            _canvas.enabled = true;
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-            _dialogLabel = null;
-            return true;
         }
 
         return false;
