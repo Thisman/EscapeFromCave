@@ -12,7 +12,7 @@ public class BattleLifetimeScope : LifetimeScope
     [SerializeField] private BattleTacticUIController _tacticUIController;
     [SerializeField] private BattleCombatUIController _combatUIController;
     [SerializeField] private BattleResultsUIController _resultsUIController;
-    [SerializeField] private BattleSquadInfoUIController _squadInfoUIController;
+    [SerializeField] private SquadInfoUIController _squadInfoUIController;
 
     protected override void Configure(IContainerBuilder builder)
     {

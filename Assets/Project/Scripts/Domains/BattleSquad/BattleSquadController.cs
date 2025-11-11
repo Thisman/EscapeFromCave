@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver
+public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver, ISquadModelProvider
 {
     private BattleSquadModel _squadModel;
     private bool _isValidTarget;

@@ -23,7 +23,7 @@ public sealed class BattleContext
 
     public BattleResultsUIController BattleResultsUIController { get; set; }
 
-    public BattleSquadInfoManager BattleSquadInfoManager { get; set; }
+    public SquadInfoUIManager SquadInfoUIManager { get; set; }
 
     public IReadOnlyList<BattleSquadController> BattleUnits { get; set; } = Array.Empty<BattleSquadController>();
 

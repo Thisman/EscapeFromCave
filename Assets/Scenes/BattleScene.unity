@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1664e5f6f06ba4741b1972fc02828435, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleSquadInfoUIController
+  m_EditorClassIdentifier: Assembly-CSharp::SquadInfoUIController
   _friendlyPanel: {fileID: 1604435602}
   _enemyPanel: {fileID: 2137581519}
 --- !u!4 &780018609
