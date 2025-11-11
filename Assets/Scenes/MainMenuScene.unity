@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf87da93e643f74587450a641a8d21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuSceneController
-  _mainMenuSceneUIController: {fileID: 0}
+  _mainMenuSceneUIController: {fileID: 1886317128}
 --- !u!4 &160164383
 Transform:
   m_ObjectHideFlags: 0
@@ -3510,6 +3510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1886317127}
   - component: {fileID: 1886317126}
+  - component: {fileID: 1886317128}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -3555,6 +3556,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886317128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886317125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe47265c0ebf22c45a7f37647612a225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUIController
+  _uiDocument: {fileID: 1886317126}
 --- !u!1 &1962800760
 GameObject:
   m_ObjectHideFlags: 0

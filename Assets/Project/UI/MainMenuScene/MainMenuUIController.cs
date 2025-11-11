@@ -1,21 +1,46 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class MainMenuUIController : MonoBehaviour
 {
-    [SerializeField] private Button _startButton;
+    [SerializeField] private UIDocument _uiDocument;
+
+    private Button _startButton;
 
     public Action OnStartGame;
 
     private void OnEnable()
     {
-        _startButton.onClick.AddListener(() => OnStartGame?.Invoke());
+        if (_uiDocument == null)
+        {
+            _uiDocument = GetComponent<UIDocument>();
+        }
+
+        var root = _uiDocument?.rootVisualElement;
+        if (root == null)
+        {
+            return;
+        }
+
+        _startButton = root.Q<Button>("StartGameButton");
+        if (_startButton != null)
+        {
+            _startButton.clicked += HandleStartButtonClicked;
+        }
     }
 
     private void OnDisable()
     {
-        _startButton.onClick.RemoveAllListeners();
+        if (_startButton != null)
+        {
+            _startButton.clicked -= HandleStartButtonClicked;
+            _startButton = null;
+        }
+    }
+
+    private void HandleStartButtonClicked()
+    {
+        OnStartGame?.Invoke();
     }
 }
