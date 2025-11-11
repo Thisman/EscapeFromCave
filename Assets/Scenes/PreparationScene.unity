@@ -5673,11 +5673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8a03dbee103dd498f911d9a1615a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreparationMenuUIController
-  _startButton: {fileID: 0}
-  _heroCarouselWidget: {fileID: 0}
-  _squadCarouselsWidget: []
-  _heroCarouselItemPrefab: {fileID: 0}
-  _squadCarouselItemPrefab: {fileID: 0}
+  _document: {fileID: 1784271261}
 --- !u!114 &1784271261
 MonoBehaviour:
   m_ObjectHideFlags: 0
