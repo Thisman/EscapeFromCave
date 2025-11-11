@@ -107,7 +107,7 @@ public class PreparationMenuUIController : MonoBehaviour
                 continue;
 
             VisualElement frame = new();
-            frame.AddToClassList("heroFrame");
+            frame.AddToClassList("squadIcon");
             frame.tooltip = heroDefinition.UnitName;
 
             if (heroDefinition.Icon != null)
@@ -178,9 +178,9 @@ public class PreparationMenuUIController : MonoBehaviour
                 continue;
 
             if (heroFrame.DefinitionIndex == _selectedHeroIndex)
-                heroFrame.Element.AddToClassList("heroFrame_active");
+                heroFrame.Element.AddToClassList("squadIcon_active");
             else
-                heroFrame.Element.RemoveFromClassList("heroFrame_active");
+                heroFrame.Element.RemoveFromClassList("squadIcon_active");
         }
 
         UnitSO selectedHero = index >= 0 && index < _heroDefinitions.Length ? _heroDefinitions[index] : null;
@@ -314,11 +314,73 @@ public class PreparationMenuUIController : MonoBehaviour
 
     private static IEnumerable<string> BuildUnitStats(UnitSO unit)
     {
-        yield return $"Имя: {unit.UnitName}";
-        yield return $"Здоровье: {unit.BaseHealth}";
-        yield return $"Урон: {unit.MinDamage} - {unit.MaxDamage}";
-        yield return $"Физ. защита: {unit.BasePhysicalDefense}";
-        yield return $"Скорость: {unit.Speed}";
+        if (unit == null)
+            yield break;
+
+        foreach (string entry in BuildUnitStatEntries(unit))
+            yield return entry;
+    }
+
+    private static IReadOnlyList<string> BuildUnitStatEntries(UnitSO unit)
+    {
+        List<string> entries = new()
+        {
+            $"Название: {unit.UnitName}",
+            $"Количество: {FormatValue(GetDefaultCount(unit))}",
+            $"Здоровье: {FormatValue(unit.BaseHealth)}",
+            $"Физическая защита: {FormatPercent(unit.BasePhysicalDefense)}",
+            $"Магическая защита: {FormatPercent(unit.BaseMagicDefense)}",
+            $"Абсолютная защита: {FormatPercent(unit.BaseAbsoluteDefense)}",
+            $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
+            $"Тип урона: {FormatDamageType(unit.DamageType)}",
+        };
+
+        (float minDamage, float maxDamage) = unit.GetBaseDamageRange();
+        entries.Add($"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}");
+        entries.Add($"Скорость: {FormatValue(unit.Speed)}");
+        entries.Add($"Инициатива: {FormatValue(unit.Speed)}");
+        entries.Add($"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}");
+        entries.Add($"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}");
+        entries.Add($"Шанс промаха: {FormatPercent(unit.BaseMissChance)}");
+
+        return entries;
+    }
+
+    private static float GetDefaultCount(UnitSO _)
+    {
+        return 1f;
+    }
+
+    private static string FormatValue(float value)
+    {
+        return value.ToString("0.##");
+    }
+
+    private static string FormatPercent(float value)
+    {
+        return value.ToString("P0");
+    }
+
+    private static string FormatAttackKind(AttackKind attackKind)
+    {
+        return attackKind switch
+        {
+            AttackKind.Melee => "Ближняя",
+            AttackKind.Range => "Дальняя",
+            AttackKind.Magic => "Магическая",
+            _ => attackKind.ToString()
+        };
+    }
+
+    private static string FormatDamageType(DamageType damageType)
+    {
+        return damageType switch
+        {
+            DamageType.Physical => "Физический",
+            DamageType.Magical => "Магический",
+            DamageType.Pure => "Чистый",
+            _ => damageType.ToString()
+        };
     }
 
     private static int WrapIndex(int index, int length)
