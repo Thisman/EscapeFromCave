@@ -1,32 +1,25 @@
 using System.Collections;
+using System.Text;
 using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public sealed class DialogManager : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private TextMeshProUGUI _text;
+    private const string DialogContainerName = "DialogContainer";
+    private const string DialogLabelName = "DialogLabel";
+
+    [SerializeField] private UIDocument _document;
     [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
     [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
 
+    private VisualElement _dialogContainer;
+    private Label _dialogLabel;
     private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
     private TaskCompletionSource<bool> _displayCompletion;
 
-    private void Awake()
-    {
-        if (_canvas != null)
-        {
-            _canvas.enabled = false;
-        }
-
-        if (_text != null)
-        {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
-    }
+    private void Awake() => TryResolveDocument();
 
     public void Show(string message)
     {
@@ -35,15 +28,13 @@ public sealed class DialogManager : MonoBehaviour
 
     public void Show(string message, float secondsPerCharacter)
     {
-        if (_canvas == null || _text == null)
-        {
-            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(Show)}] Missing canvas or text reference. Unable to show dialog.");
+        if (!EnsureDialogElements())
             return;
-        }
 
         if (_typingRoutine != null)
         {
             StopCoroutine(_typingRoutine);
+            _typingRoutine = null;
         }
 
         if (_displayRoutine != null)
@@ -57,7 +48,7 @@ public sealed class DialogManager : MonoBehaviour
         var messageToShow = message ?? string.Empty;
         var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
 
-        _canvas.enabled = true;
+        _dialogContainer.style.display = DisplayStyle.Flex;
         _typingRoutine = StartCoroutine(TypeText(messageToShow, resolvedSecondsPerCharacter));
     }
 
@@ -68,11 +59,8 @@ public sealed class DialogManager : MonoBehaviour
 
     public Task ShowForDurationAsync(string message, float secondsPerCharacter)
     {
-        if (_canvas == null || _text == null)
-        {
-            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(ShowForDurationAsync)}] Missing canvas or text reference. Unable to show dialog.");
+        if (!EnsureDialogElements())
             return Task.CompletedTask;
-        }
 
         var messageToShow = message ?? string.Empty;
         var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
@@ -103,25 +91,32 @@ public sealed class DialogManager : MonoBehaviour
 
     private IEnumerator TypeText(string message, float secondsPerCharacter)
     {
-        _text.text = message;
+        if (_dialogLabel == null)
+        {
+            _typingRoutine = null;
+            yield break;
+        }
 
         if (secondsPerCharacter <= 0f)
         {
-            _text.maxVisibleCharacters = message.Length;
+            _dialogLabel.text = message;
             _typingRoutine = null;
             yield break;
         }
 
         var delay = secondsPerCharacter;
-        _text.maxVisibleCharacters = 0;
+        var builder = new StringBuilder(message.Length);
 
-        for (var i = 1; i <= message.Length; i++)
+        _dialogLabel.text = string.Empty;
+
+        foreach (char character in message)
         {
-            _text.maxVisibleCharacters = i;
+            builder.Append(character);
+            _dialogLabel.text = builder.ToString();
             yield return new WaitForSeconds(delay);
         }
 
-        _text.maxVisibleCharacters = message.Length;
+        _dialogLabel.text = message;
         _typingRoutine = null;
     }
 
@@ -159,6 +154,51 @@ public sealed class DialogManager : MonoBehaviour
         return _defaultSecondsPerCharacter;
     }
 
+    private bool EnsureDialogElements()
+    {
+        if (_dialogContainer != null && _dialogLabel != null)
+            return true;
+
+        if (!TryResolveDocument())
+        {
+            Debug.LogWarning($"[{nameof(DialogManager)}] Missing UIDocument reference. Unable to locate dialog container.");
+            return false;
+        }
+
+        var root = _document.rootVisualElement;
+
+        if (root == null)
+        {
+            Debug.LogWarning($"[{nameof(DialogManager)}] UIDocument root visual element is not ready. Unable to locate dialog container.");
+            return false;
+        }
+
+        _dialogContainer = root.Q<VisualElement>(DialogContainerName);
+
+        if (_dialogContainer == null)
+        {
+            Debug.LogWarning($"[{nameof(DialogManager)}] '{DialogContainerName}' element not found in the UI document.");
+            return false;
+        }
+
+        _dialogLabel = _dialogContainer.Q<Label>(DialogLabelName);
+
+        if (_dialogLabel == null)
+        {
+            _dialogLabel = new Label
+            {
+                name = DialogLabelName
+            };
+
+            _dialogContainer.Add(_dialogLabel);
+        }
+
+        _dialogContainer.style.display = DisplayStyle.None;
+        _dialogLabel.text = string.Empty;
+
+        return true;
+    }
+
     private void HideInternal(TaskCompletionSource<bool> completion)
     {
         if (!ReferenceEquals(_displayCompletion, completion) && completion != null)
@@ -179,15 +219,14 @@ public sealed class DialogManager : MonoBehaviour
             _displayRoutine = null;
         }
 
-        if (_text != null)
+        if (_dialogLabel != null)
         {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
+            _dialogLabel.text = string.Empty;
         }
 
-        if (_canvas != null)
+        if (_dialogContainer != null)
         {
-            _canvas.enabled = false;
+            _dialogContainer.style.display = DisplayStyle.None;
         }
 
         CompleteDisplay(completion);
@@ -206,5 +245,19 @@ public sealed class DialogManager : MonoBehaviour
         {
             _displayCompletion = null;
         }
+    }
+
+    private bool TryResolveDocument()
+    {
+        if (_document != null)
+            return true;
+
+        _document = GetComponent<UIDocument>();
+
+        if (_document != null)
+            return true;
+
+        _document = FindObjectOfType<UIDocument>(true);
+        return _document != null;
     }
 }
