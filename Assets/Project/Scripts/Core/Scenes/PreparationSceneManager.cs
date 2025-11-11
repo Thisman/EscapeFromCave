@@ -19,20 +19,20 @@ public class PreparationSceneManager : MonoBehaviour
     private void Awake()
     {
         LoadUnits();
-        _preparationSceneUIController.PopulateCarousels(_heroDefinitions, _squadDefinitions);
+        _preparationSceneUIController.Render(_heroDefinitions, _squadDefinitions);
     }
 
     private void OnEnable()
     {
-        _preparationSceneUIController.OnStartGame += HandleStartGame;
+        _preparationSceneUIController.OnDiveIntoCave += HandleDiveIntoCave;
     }
 
     private void OnDisable()
     {
-        _preparationSceneUIController.OnStartGame -= HandleStartGame;
+        _preparationSceneUIController.OnDiveIntoCave -= HandleDiveIntoCave;
     }
 
-    private async void HandleStartGame(UnitSO selectedHero, List<UnitSO> selectedSquads)
+    private async void HandleDiveIntoCave(UnitSO selectedHero, List<UnitSO> selectedSquads)
     {
         _gameSession.SaveSelectedHeroSquads(selectedHero, selectedSquads);
         await _sceneLoader.LoadAdditiveAsync("Dangeon_Level_1");

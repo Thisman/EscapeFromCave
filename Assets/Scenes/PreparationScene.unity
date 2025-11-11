@@ -5547,7 +5547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc16bdddfd6f2e47a55f48d0becd005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreStartSceneManager
-  _preparationSceneUIController: {fileID: 0}
+  _preparationSceneUIController: {fileID: 1784271263}
   _unitsFolder: {fileID: 102900000, guid: b4b97a38da29edb4d9311cd745e80232, type: 3}
 --- !u!1 &1217272344
 GameObject:
@@ -5653,7 +5653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784271262}
   - component: {fileID: 1784271261}
-  - component: {fileID: 1784271260}
+  - component: {fileID: 1784271263}
   m_Layer: 5
   m_Name: PreparationMenuUI
   m_TagString: Untagged
@@ -5661,23 +5661,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1784271260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784271259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe8a03dbee103dd498f911d9a1615a78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PreparationMenuUIController
-  _startButton: {fileID: 0}
-  _heroCarouselWidget: {fileID: 0}
-  _squadCarouselsWidget: []
-  _heroCarouselItemPrefab: {fileID: 0}
-  _squadCarouselItemPrefab: {fileID: 0}
 --- !u!114 &1784271261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5716,6 +5699,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784271263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784271259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8a03dbee103dd498f911d9a1615a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PreparationMenuUIController
+  _document: {fileID: 1784271261}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
