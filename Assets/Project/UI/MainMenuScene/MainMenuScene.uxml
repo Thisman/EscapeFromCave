@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Project/UI/MainMenuScene/MainMenuScene.uss?fileID=7433441132597879392&amp;guid=3e6016ee8e598b34ebcb58b541066eec&amp;type=3#MainMenuScene" />
+    <Style src="project://database/Assets/Project/UI/Global/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <ui:VisualElement name="Body" style="flex-grow: 1;">
+        <ui:VisualElement name="Container" style="flex-grow: 1; top: auto; flex-shrink: 1; width: 600px; justify-content: center; padding-left: 32px;">
+            <ui:Label text="Escape From Cave" name="GameTitle" style="font-size: 56px; margin-bottom: 64px; flex-grow: 0; flex-shrink: 1; color: rgb(255, 255, 255); -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(0, 0, 0); -unity-font-style: bold;" />
+            <ui:Button text="Начать игру" name="StartGameButton" class="button" style="margin-bottom: 32px; flex-shrink: 1; flex-grow: 0;" />
+            <ui:Button text="Сбежать" name="EndGameButton" class="button" style="flex-shrink: 1; flex-grow: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
