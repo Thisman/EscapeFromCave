@@ -125,6 +125,9 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
             $"Абсолютная защита: {FormatPercent(model.AbsoluteDefense)}"
         };
 
+        entries.Add($"Тип атаки: {FormatAttackKind(model.AttackKind)}");
+        entries.Add($"Тип урона: {FormatDamageType(model.DamageType)}");
+
         var (min, max) = model.GetBaseDamageRange();
         entries.Add($"Урон: {FormatValue(min)} - {FormatValue(max)}");
         entries.Add($"Скорость: {FormatValue(model.Speed)}");
@@ -229,5 +232,27 @@ public sealed class BattleSquadInfoUIController : MonoBehaviour
     private static string FormatPercent(float value)
     {
         return value.ToString("P0");
+    }
+
+    private static string FormatAttackKind(AttackKind attackKind)
+    {
+        return attackKind switch
+        {
+            AttackKind.Melee => "Ближняя",
+            AttackKind.Range => "Дальняя",
+            AttackKind.Magic => "Магическая",
+            _ => attackKind.ToString()
+        };
+    }
+
+    private static string FormatDamageType(DamageType damageType)
+    {
+        return damageType switch
+        {
+            DamageType.Physical => "Физический",
+            DamageType.Magical => "Магический",
+            DamageType.Pure => "Чистый",
+            _ => damageType.ToString()
+        };
     }
 }
