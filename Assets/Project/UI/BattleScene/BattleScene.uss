@@ -39,29 +39,33 @@
 
 .button-row {
     display: flex;
-    gap: 16px;
+}
+
+.button-row .button {
+    margin-right: 16px;
 }
 
 .queue-list {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    gap: 16px;
-    margin-right: 32px;
+    margin-right: 0;
 }
 
 .queue-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 16px;
+    background-size: 100% 100%;
 }
 
 .queue-item__icon {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
     background-color: rgba(0, 0, 0, 0.35);
     background-position: center;
-    background-size: cover;
+    background-size: 64% 64%;
     background-repeat: no-repeat;
     border-radius: 12px;
     border-top-width: 2px;
@@ -77,7 +81,7 @@
 .queue-item__count {
     margin-top: 4px;
     color: rgb(255, 255, 255);
-    unity-text-align: middle-center;
+    -unity-text-align: middle-center;
     font-size: 14px;
 }
 
@@ -91,14 +95,16 @@
 .action-buttons {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+}
+
+.action-buttons .button {
+    margin-right: 16px;
 }
 
 .ability-list {
     display: none;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
     margin-left: 16px;
 }
 
@@ -121,7 +127,11 @@
     border-right-color: rgba(255, 255, 255, 0.2);
     border-bottom-color: rgba(255, 255, 255, 0.2);
     border-left-color: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
+    cursor: link;
+}
+
+.ability-list .ability-item {
+    margin-right: 16px;
 }
 
 .ability-item__icon {
@@ -141,8 +151,8 @@
 }
 
 .ability-item--selected {
-    border-top-color: #f5d96b;
-    border-right-color: #f5d96b;
-    border-bottom-color: #f5d96b;
-    border-left-color: #f5d96b;
+    border-top-color: rgb(245, 217, 107);
+    border-right-color: rgb(245, 217, 107);
+    border-bottom-color: rgb(245, 217, 107);
+    border-left-color: rgb(245, 217, 107);
 }
