@@ -160,7 +160,7 @@ public sealed class BattleUIController : MonoBehaviour
 
     public void ShowResult(BattleResult result)
     {
-        if (_resultStatusLabel == null || result == null)
+        if (_resultStatusLabel == null)
             return;
 
         _resultStatusLabel.text = result.Status switch
