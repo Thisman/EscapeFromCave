@@ -41,9 +41,7 @@ public sealed class DungeonUIController : MonoBehaviour
             if (_dialogLabel == null)
             {
                 _dialogLabel = new Label { name = "DialogLabel" };
-                _dialogLabel.style.whiteSpace = WhiteSpace.Normal;
-                _dialogLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
-                _dialogLabel.style.flexGrow = 1f;
+                _dialogLabel.AddToClassList("dialog-text");
                 _dialogContainer.Add(_dialogLabel);
             }
         }
@@ -222,23 +220,7 @@ public sealed class DungeonUIController : MonoBehaviour
             name = $"Squad_{squad?.UnitName ?? "Unknown"}"
         };
 
-        root.style.flexDirection = FlexDirection.Row;
-        root.style.alignItems = Align.Center;
-        root.style.marginBottom = 4f;
-        root.style.marginTop = 4f;
-        root.style.paddingLeft = 4f;
-        root.style.paddingRight = 4f;
-        root.style.paddingTop = 2f;
-        root.style.paddingBottom = 2f;
-        root.style.backgroundColor = new Color(0f, 0f, 0f, 0.35f);
-        root.style.borderBottomWidth = 1f;
-        root.style.borderTopWidth = 1f;
-        root.style.borderLeftWidth = 1f;
-        root.style.borderRightWidth = 1f;
-        root.style.borderBottomColor = new Color(1f, 1f, 1f, 0.2f);
-        root.style.borderTopColor = new Color(1f, 1f, 1f, 0.2f);
-        root.style.borderLeftColor = new Color(1f, 1f, 1f, 0.2f);
-        root.style.borderRightColor = new Color(1f, 1f, 1f, 0.2f);
+        root.AddToClassList("squad-entry");
 
         var icon = new Image
         {
@@ -246,18 +228,16 @@ public sealed class DungeonUIController : MonoBehaviour
             scaleMode = ScaleMode.ScaleToFit
         };
 
+        icon.AddToClassList("squad-entry__icon");
         icon.style.width = _iconSize;
         icon.style.height = _iconSize;
-        icon.style.marginRight = 8f;
 
         var countLabel = new Label
         {
             name = "SquadCount"
         };
 
-        countLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
-        countLabel.style.fontSize = 18f;
-        countLabel.style.unityFontStyleAndWeight = FontStyle.Bold;
+        countLabel.AddToClassList("squad-entry__count");
 
         root.Add(icon);
         root.Add(countLabel);

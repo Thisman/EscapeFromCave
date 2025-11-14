@@ -140,11 +140,6 @@ public sealed class DialogManager : MonoBehaviour
             _displayRoutine = null;
         }
 
-        if (_uiController != null)
-        {
-            _uiController.RenderDialog(string.Empty, 0f);
-        }
-
         CompleteDisplay(completion);
     }
 

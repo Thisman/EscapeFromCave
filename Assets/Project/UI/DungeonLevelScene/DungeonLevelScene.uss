@@ -1,3 +1,25 @@
 :root {
+}
 
+.squad-entry {
+    flex-direction: row;
+    align-items: center;
+    margin: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.squad-entry__icon {
+    margin-right: 8px;
+}
+
+.squad-entry__count {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+
+.dialog-text {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    -unity-text-align: upper-center;
 }
