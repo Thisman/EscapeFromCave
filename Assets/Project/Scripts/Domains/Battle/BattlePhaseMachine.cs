@@ -40,8 +40,9 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterTactics()
     {
-        _ctx.PanelManager?.Show("tactic");
-        _ctx.BattleTacticUIController.OnBattleRoundsStart += HandleStartBattleRounds;
+        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.TacticPanel);
+        if (_ctx.BattleUIController != null)
+            _ctx.BattleUIController.OnStartCombat += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
         {
             Debug.LogWarning($"[{nameof(BattlePhaseMachine)}.{nameof(OnEnterTactics)}] Failed to place battle units on the grid.");
@@ -51,7 +52,7 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterRounds()
     {
-        _ctx.PanelManager?.Show("rounds");
+        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.CombatPanel);
         _battleRoundsMachine.Reset();
         _battleRoundsMachine.BeginRound();
     }
@@ -59,14 +60,15 @@ public sealed class BattlePhaseMachine
     private void OnEnterResults()
     {
         _ctx.IsFinished = true;
-        _ctx.PanelManager?.Show("results");
-        _ctx.BattleResultsUIController?.Render(_ctx.BattleResult);
+        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.ResultPanel);
+        _ctx.BattleUIController?.ShowResult(_ctx.BattleResult);
     }
 
     private void OnExitTactics()
     {
         _ctx.BattleGridController.DisableSlotsCollider();
-        _ctx.BattleTacticUIController.OnBattleRoundsStart -= HandleStartBattleRounds;
+        if (_ctx.BattleUIController != null)
+            _ctx.BattleUIController.OnStartCombat -= HandleStartBattleRounds;
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 

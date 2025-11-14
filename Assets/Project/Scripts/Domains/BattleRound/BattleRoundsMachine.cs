@@ -57,7 +57,8 @@ public sealed class BattleRoundsMachine
         _battleFinished = false;
         _playerRequestedFlee = false;
         _sm.Activate();
-        _ctx.BattleCombatUIController.OnLeaveCombat += HandleLeaveCombat;
+        if (_ctx.BattleUIController != null)
+            _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
         UpdateTargetValidity(null, null);
     }
 
@@ -73,7 +74,7 @@ public sealed class BattleRoundsMachine
                 .Where(model => model != null);
 
         _ctx.BattleQueueController.Build(unitModels);
-        _ctx.BattleQueueUIController.Render(_ctx.BattleQueueController);
+        _ctx.BattleUIController?.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
         _ctx.BattleEffectsManager.OnTick();
 
@@ -90,7 +91,7 @@ public sealed class BattleRoundsMachine
             return;
         }
 
-        _ctx.BattleQueueUIController.Render(_ctx.BattleQueueController);
+        _ctx.BattleUIController?.RenderQueue(_ctx.BattleQueueController);
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
@@ -104,7 +105,7 @@ public sealed class BattleRoundsMachine
         var abilities = _ctx.ActiveUnit.Abilities;
         var activeUnit = _ctx.ActiveUnit;
         var abilityManager = _ctx.BattleAbilitiesManager;
-        _ctx.BattleCombatUIController?.RenderAbilityList(abilities, abilityManager, activeUnit);
+        _ctx.BattleUIController?.RenderAbilityList(abilities, abilityManager, activeUnit);
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
@@ -232,11 +233,11 @@ public sealed class BattleRoundsMachine
 
         if (action is BattleActionAbility abilityAction)
         {
-            _ctx.BattleCombatUIController?.HighlightAbility(abilityAction.Ability);
+            _ctx.BattleUIController?.HighlightAbility(abilityAction.Ability);
         }
         else
         {
-            _ctx.BattleCombatUIController?.ResetAbilityHighlight();
+            _ctx.BattleUIController?.ResetAbilityHighlight();
         }
 
         ApplyActionSlotHighlights(action);
@@ -255,7 +256,7 @@ public sealed class BattleRoundsMachine
             disposable.Dispose();
         }
 
-        _ctx.BattleCombatUIController?.ResetAbilityHighlight();
+        _ctx.BattleUIController?.ResetAbilityHighlight();
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
 
@@ -292,7 +293,7 @@ public sealed class BattleRoundsMachine
         if (!_ctx.ActiveUnit.IsFriendly())
             return;
 
-        _ctx.BattleCombatUIController?.ResetAbilityHighlight();
+        _ctx.BattleUIController?.ResetAbilityHighlight();
 
         OnWaitTurnAction();
     }
@@ -354,7 +355,8 @@ public sealed class BattleRoundsMachine
 
         _battleFinished = true;
 
-        _ctx.BattleCombatUIController.OnLeaveCombat -= HandleLeaveCombat;
+        if (_ctx.BattleUIController != null)
+            _ctx.BattleUIController.OnLeaveCombat -= HandleLeaveCombat;
         _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
 
         if (_sm.CanFire(BattleRoundTrigger.EndRound))
