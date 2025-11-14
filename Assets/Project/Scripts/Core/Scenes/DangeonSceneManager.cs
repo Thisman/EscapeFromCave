@@ -6,8 +6,6 @@ public class DangeonSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
-    [SerializeField] private ArmyRoasterView _armyRoasterView;
-
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
@@ -23,8 +21,6 @@ public class DangeonSceneManager : MonoBehaviour
 
         PlayerController playerController = InitializePlayer();
         _playerArmyController = InitializeArmy(playerController);
-
-        _armyRoasterView.Render(_playerArmyController);
         SubscribeToArmyChanges(_playerArmyController);
     }
 
