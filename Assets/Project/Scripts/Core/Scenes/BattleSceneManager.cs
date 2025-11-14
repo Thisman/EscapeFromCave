@@ -10,19 +10,14 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private SceneLoader _sceneLoader;
     [Inject] readonly private IObjectResolver _objectResolver;
 
-    [Inject] readonly private BattleQueueUIController _queueUIController;
+    [Inject] readonly private BattleUIController _battleUIController;
     [Inject] readonly private BattleQueueController _battleQueueController;
-
-    [Inject] readonly private BattleTacticUIController _tacticUIController;
-    [Inject] readonly private BattleCombatUIController _combatUIController;
-    [Inject] readonly private BattleResultsUIController _resultsUIController;
     [Inject] readonly private BattleGridController _battleGridController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     [Inject] readonly private InputService _inputService;
     [Inject] readonly private AudioManager _audioManager;
 
-    private PanelManager _panelManager;
     private BattleSceneData _battleData;
     private BattleContext _battleContext;
     private BattleRoundsMachine _battleRoundMachine;
@@ -32,7 +27,6 @@ public class BattleSceneManager : MonoBehaviour
 
     private void Start()
     {
-        InitializePanelController();
         SubscribeToUiEvents();
 
         InitializeBattleData();
@@ -105,8 +99,7 @@ public class BattleSceneManager : MonoBehaviour
         _battleContext = new BattleContext
         {
             InputService = _inputService,
-            PanelManager = _panelManager,
-            BattleQueueUIController = _queueUIController,
+            BattleUIController = _battleUIController,
             BattleGridDragAndDropController = _battleGridDragAndDropController,
 
             BattleGridController = _battleGridController,
@@ -115,10 +108,6 @@ public class BattleSceneManager : MonoBehaviour
             BattleEffectsManager = battleEffectsManager,
             BattleAbilitiesManager = battleAbilitiesManager,
             BattleActionControllerResolver = actionControllerResolver,
-
-            BattleTacticUIController = _tacticUIController,
-            BattleCombatUIController = _combatUIController,
-            BattleResultsUIController = _resultsUIController,
         };
 
     }
@@ -129,31 +118,19 @@ public class BattleSceneManager : MonoBehaviour
         _battlePhaseMachine = new BattlePhaseMachine(_battleContext, _battleRoundMachine);
     }
 
-    private void InitializePanelController()
-    {
-        _panelManager = new PanelManager(
-            ("tactic", new[] { _tacticUIController.gameObject }),
-            ("rounds", new[] {
-                _combatUIController.gameObject,
-                _queueUIController.gameObject
-            }),
-            ("results", new[] { _resultsUIController.gameObject })
-        );
-    }
-
     private void SubscribeToUiEvents()
     {
-        if (_resultsUIController != null)
+        if (_battleUIController != null)
         {
-            _resultsUIController.OnExitBattle += ExitBattle;
+            _battleUIController.OnFinishBattle += ExitBattle;
         }
     }
 
     private void UnsubscribeFromUiEvents()
     {
-        if (_resultsUIController != null)
+        if (_battleUIController != null)
         {
-            _resultsUIController.OnExitBattle -= ExitBattle;
+            _battleUIController.OnFinishBattle -= ExitBattle;
         }
     }
 
