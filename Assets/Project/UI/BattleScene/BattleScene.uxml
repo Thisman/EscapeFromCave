@@ -8,19 +8,26 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="CombatPanel" class="panel">
-            <ui:VisualElement name="Top" class="top" style="flex-grow: 0; flex-direction: row; align-items: center;">
-                <ui:VisualElement name="ActionList" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
-                    <ui:Button text="Защищаться" name="DefendButton" class="button" style="margin-right: 16px;" />
-                    <ui:Button text="Пропустить ход" name="SkipTurnButton" class="button" />
+            <ui:VisualElement name="Top" class="top top-row">
+                <ui:VisualElement name="QueueList" class="queue-list" />
+                <ui:VisualElement name="ActionList" class="action-list">
+                    <ui:VisualElement class="action-buttons">
+                        <ui:Button text="Защищаться" name="DefendButton" class="button" />
+                        <ui:Button text="Пропустить ход" name="SkipTurnButton" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="AbilityList" class="ability-list" />
                 </ui:VisualElement>
                 <ui:VisualElement class="button-row">
                     <ui:Button text="Сбежать" name="LeaveCombatButton" class="button" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="Bottom" class="bottom" style="flex-grow: 0; flex-direction: row; align-items: center;">
-                <ui:VisualElement name="ActionList" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
-                    <ui:Button text="Защищаться" name="DefendButton" class="button" style="margin-right: 16px;" />
-                    <ui:Button text="Пропустить ход" name="SkipTurnButton" class="button" />
+                <ui:VisualElement name="ActionList" class="action-list">
+                    <ui:VisualElement class="action-buttons">
+                        <ui:Button text="Защищаться" name="DefendButton" class="button" />
+                        <ui:Button text="Пропустить ход" name="SkipTurnButton" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="AbilityList" class="ability-list" />
                 </ui:VisualElement>
                 <ui:VisualElement class="button-row">
                     <ui:Button text="Сбежать" name="LeaveCombatButton" class="button" />
