@@ -12,7 +12,6 @@ public class BattleLifetimeScope : LifetimeScope
     [SerializeField] private BattleTacticUIController _tacticUIController;
     [SerializeField] private BattleCombatUIController _combatUIController;
     [SerializeField] private BattleResultsUIController _resultsUIController;
-    [SerializeField] private SquadInfoUIController _squadInfoUIController;
 
     protected override void Configure(IContainerBuilder builder)
     {
@@ -25,6 +24,5 @@ public class BattleLifetimeScope : LifetimeScope
         builder.RegisterInstance(_combatUIController).AsSelf();
         builder.RegisterInstance(_tacticUIController).AsSelf();
         builder.RegisterInstance(_resultsUIController).AsSelf();
-        builder.RegisterInstance(_squadInfoUIController).AsSelf();
     }
 }

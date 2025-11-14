@@ -23,8 +23,6 @@ public sealed class BattleContext
 
     public BattleResultsUIController BattleResultsUIController { get; set; }
 
-    public SquadInfoUIManager SquadInfoUIManager { get; set; }
-
     public IReadOnlyList<BattleSquadController> BattleUnits { get; set; } = Array.Empty<BattleSquadController>();
 
     public IReadOnlySquadModel ActiveUnit { get; set; }
@@ -41,4 +39,3 @@ public sealed class BattleContext
 
     public ISet<IReadOnlySquadModel> DefendedUnitsThisRound { get; } = new HashSet<IReadOnlySquadModel>();
 }
-

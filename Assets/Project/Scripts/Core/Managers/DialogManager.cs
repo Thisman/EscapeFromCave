@@ -1,31 +1,25 @@
 using System.Collections;
 using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 
 public sealed class DialogManager : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private DungeonUIController _uiController;
     [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
     [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
 
-    private Coroutine _typingRoutine;
     private Coroutine _displayRoutine;
     private TaskCompletionSource<bool> _displayCompletion;
+    private float _activeSecondsPerCharacter;
 
     private void Awake()
     {
-        if (_canvas != null)
+        if (_uiController == null)
         {
-            _canvas.enabled = false;
+            _uiController = GetComponent<DungeonUIController>();
         }
 
-        if (_text != null)
-        {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
+        Hide();
     }
 
     public void Show(string message)
@@ -35,15 +29,10 @@ public sealed class DialogManager : MonoBehaviour
 
     public void Show(string message, float secondsPerCharacter)
     {
-        if (_canvas == null || _text == null)
+        if (_uiController == null)
         {
-            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(Show)}] Missing canvas or text reference. Unable to show dialog.");
+            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(Show)}] Missing UI controller. Unable to show dialog.");
             return;
-        }
-
-        if (_typingRoutine != null)
-        {
-            StopCoroutine(_typingRoutine);
         }
 
         if (_displayRoutine != null)
@@ -55,10 +44,9 @@ public sealed class DialogManager : MonoBehaviour
         CompleteDisplay(_displayCompletion);
 
         var messageToShow = message ?? string.Empty;
-        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
+        _activeSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
 
-        _canvas.enabled = true;
-        _typingRoutine = StartCoroutine(TypeText(messageToShow, resolvedSecondsPerCharacter));
+        _uiController.RenderDialog(messageToShow, _activeSecondsPerCharacter);
     }
 
     public void Hide()
@@ -68,25 +56,23 @@ public sealed class DialogManager : MonoBehaviour
 
     public Task ShowForDurationAsync(string message, float secondsPerCharacter)
     {
-        if (_canvas == null || _text == null)
+        if (_uiController == null)
         {
-            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(ShowForDurationAsync)}] Missing canvas or text reference. Unable to show dialog.");
+            Debug.LogWarning($"[{nameof(DialogManager)}.{nameof(ShowForDurationAsync)}] Missing UI controller. Unable to show dialog.");
             return Task.CompletedTask;
         }
 
         var messageToShow = message ?? string.Empty;
-        var resolvedSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
-
-        Show(messageToShow, resolvedSecondsPerCharacter);
+        Show(messageToShow, secondsPerCharacter);
 
         var completion = new TaskCompletionSource<bool>();
         _displayCompletion = completion;
 
-        var displayDuration = Mathf.Max(0f, CalculateTypingDuration(messageToShow, resolvedSecondsPerCharacter));
+        var displayDuration = Mathf.Max(0f, CalculateTypingDuration(messageToShow, _activeSecondsPerCharacter));
 
-        if (resolvedSecondsPerCharacter > 0f && !Mathf.Approximately(displayDuration, 0f))
+        if (_activeSecondsPerCharacter > 0f && !Mathf.Approximately(displayDuration, 0f))
         {
-            displayDuration += resolvedSecondsPerCharacter;
+            displayDuration += _activeSecondsPerCharacter;
         }
 
         displayDuration += _delayBetweenShow;
@@ -99,30 +85,6 @@ public sealed class DialogManager : MonoBehaviour
         }
 
         return completion.Task;
-    }
-
-    private IEnumerator TypeText(string message, float secondsPerCharacter)
-    {
-        _text.text = message;
-
-        if (secondsPerCharacter <= 0f)
-        {
-            _text.maxVisibleCharacters = message.Length;
-            _typingRoutine = null;
-            yield break;
-        }
-
-        var delay = secondsPerCharacter;
-        _text.maxVisibleCharacters = 0;
-
-        for (var i = 1; i <= message.Length; i++)
-        {
-            _text.maxVisibleCharacters = i;
-            yield return new WaitForSeconds(delay);
-        }
-
-        _text.maxVisibleCharacters = message.Length;
-        _typingRoutine = null;
     }
 
     private IEnumerator DisplayRoutine(float duration, TaskCompletionSource<bool> completion)
@@ -156,6 +118,11 @@ public sealed class DialogManager : MonoBehaviour
             return overrideSecondsPerCharacter;
         }
 
+        if (_uiController != null)
+        {
+            return _uiController.DialogSecondsPerCharacter;
+        }
+
         return _defaultSecondsPerCharacter;
     }
 
@@ -167,27 +134,15 @@ public sealed class DialogManager : MonoBehaviour
             return;
         }
 
-        if (_typingRoutine != null)
-        {
-            StopCoroutine(_typingRoutine);
-            _typingRoutine = null;
-        }
-
         if (_displayRoutine != null)
         {
             StopCoroutine(_displayRoutine);
             _displayRoutine = null;
         }
 
-        if (_text != null)
+        if (_uiController != null)
         {
-            _text.text = string.Empty;
-            _text.maxVisibleCharacters = 0;
-        }
-
-        if (_canvas != null)
-        {
-            _canvas.enabled = false;
+            _uiController.RenderDialog(string.Empty, 0f);
         }
 
         CompleteDisplay(completion);
