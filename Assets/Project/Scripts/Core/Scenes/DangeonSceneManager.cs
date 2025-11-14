@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using VContainer;
 using VContainer.Unity;
 
@@ -7,15 +6,13 @@ public class DangeonSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
-    [SerializeField] private ArmyRoasterView _armyRoasterView;
-
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly IObjectResolver _objectResolver;
-    [Inject] private readonly SquadInfoUIController _squadInfoUIController;
+    [Inject] private readonly DungeonUIController _dungeonUIController;
 
-    private SquadInfoUIManager _squadInfoUIManager;
+    private PlayerArmyController _playerArmyController;
 
     private void Start()
     {
@@ -23,17 +20,18 @@ public class DangeonSceneManager : MonoBehaviour
         _inputService.EnterGameplay();
 
         PlayerController playerController = InitializePlayer();
-        PlayerArmyController playerArmyController = InitializeArmy(playerController);
-
-        _armyRoasterView.Render(playerArmyController);
-
-        _squadInfoUIManager = new SquadInfoUIManager(_squadInfoUIController);
-        _squadInfoUIManager.Enable();
+        _playerArmyController = InitializeArmy(playerController);
+        SubscribeToArmyChanges(_playerArmyController);
     }
 
     private void OnDestroy()
     {
-        _squadInfoUIManager?.Dispose();
+        if (_playerArmyController != null)
+        {
+            _playerArmyController.ArmyChanged -= HandleArmyChanged;
+        }
+
+        _dungeonUIController?.RenderSquads(null);
     }
 
     private PlayerController InitializePlayer()
@@ -64,5 +62,32 @@ public class DangeonSceneManager : MonoBehaviour
         }
 
         return armyController;
+    }
+
+    private void SubscribeToArmyChanges(PlayerArmyController armyController)
+    {
+        if (armyController == null)
+        {
+            return;
+        }
+
+        armyController.ArmyChanged += HandleArmyChanged;
+        HandleArmyChanged(armyController.Army);
+    }
+
+    private void HandleArmyChanged(IReadOnlyArmyModel army)
+    {
+        if (_dungeonUIController == null)
+        {
+            return;
+        }
+
+        if (army == null)
+        {
+            _dungeonUIController.RenderSquads(null);
+            return;
+        }
+
+        _dungeonUIController.RenderSquads(army.GetSquads());
     }
 }
