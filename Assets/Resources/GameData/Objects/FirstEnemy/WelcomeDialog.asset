@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763ac8fe9256cff41b477ca5899ba156, type: 3}
   m_Name: WelcomeDialog
   m_EditorClassIdentifier: Assembly-CSharp::InteractionEffectDialogSO
-  Message: "... \u0432 \u0442\u0435\u043C\u043D\u043E\u0442\u0435 \u043F\u043E\u0441\u043B\u044B\u0448\u0430\u043B
-    \u0448\u0443\u043C... \u043E\u0440\u043A\u0438..."
+  Message: "\u0412 \u0442\u0435\u043C\u043D\u043E\u0442\u0435 \u043F\u043E\u0441\u043B\u044B\u0448\u0430\u043B\u0441\u044F
+    \u0448\u0443\u043C... \u041E\u0440\u043A\u0438!"
   _secondsPerCharacter: 0.05
