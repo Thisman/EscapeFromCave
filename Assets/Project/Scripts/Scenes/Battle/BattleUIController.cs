@@ -30,6 +30,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string BattleCardVisibleClassName = "battle-card--visible";
     private const string BattleCardLeftClassName = "battle-card--left";
     private const string BattleCardRightClassName = "battle-card--right";
+    private const string UnitsLayerName = "Units";
 
     private const string VictoryStatusText = "Победа";
     private const string DefeatStatusText = "Поражение";
@@ -65,6 +66,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private readonly List<Label> _squadInfoLabels = new();
     private IReadOnlySquadModel _displayedSquadModel;
     private Camera _mainCamera;
+    private int _unitsLayerMask;
 
     private bool _isAttached;
 
@@ -78,6 +80,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private void Awake()
     {
         _mainCamera = Camera.main;
+        _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
         TryRegisterLifecycleCallbacks();
     }
 
@@ -757,15 +760,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return null;
 
         Ray ray = camera.ScreenPointToRay(new Vector3(pointerPosition.x, pointerPosition.y, 0f));
-        if (Physics.Raycast(ray, out RaycastHit hitInfo) && hitInfo.transform != null)
-        {
-            BattleSquadController squad = hitInfo.transform.GetComponentInParent<BattleSquadController>();
-            if (squad != null)
-                return squad;
-        }
-
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
-        if (hit2D.transform != null)
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray, Mathf.Infinity, GetUnitsLayerMask());
+        if (hit2D.collider is BoxCollider2D && hit2D.transform != null)
         {
             BattleSquadController squad = hit2D.transform.GetComponentInParent<BattleSquadController>();
             if (squad != null)
@@ -779,18 +775,34 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     {
         if (Mouse.current != null)
         {
-            position = Mouse.current.position.ReadValue();
+            position = ConvertPointerToScreen(Mouse.current.position.ReadValue());
             return true;
         }
 
         if (Pointer.current != null)
         {
-            position = Pointer.current.position.ReadValue();
+            position = ConvertPointerToScreen(Pointer.current.position.ReadValue());
             return true;
         }
 
         position = Vector2.zero;
         return false;
+    }
+
+    private static Vector2 ConvertPointerToScreen(Vector2 pointerPosition)
+    {
+        if (Screen.height > 0f)
+            pointerPosition.y = Screen.height - pointerPosition.y;
+
+        return pointerPosition;
+    }
+
+    private int GetUnitsLayerMask()
+    {
+        if (_unitsLayerMask == 0 && LayerMask.NameToLayer(UnitsLayerName) != -1)
+            _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
+
+        return _unitsLayerMask;
     }
 
     private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)
