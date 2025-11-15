@@ -8,26 +8,6 @@
     align-items: center;
 }
 
-.card {
-    width: 400px;
-    height: 600px;
-    background-color: rgb(34, 34, 0);
-    margin-top: 32px;
-    margin-right: 32px;
-    margin-bottom: 32px;
-    margin-left: 32px;
-    text-shadow: 0 0 0 rgb(0, 0, 0);
-    border-top-width: 3px;
-    border-right-width: 3px;
-    border-bottom-width: 3px;
-    border-left-width: 3px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    transition-duration: 0.3s;
-}
-
 .hero-panel .card:hover {
     transition-duration: 0s;
     border-left-color: rgb(255, 255, 255);
@@ -57,62 +37,4 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-}
-
-.card-header {
-    height: 200px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.card-title {
-    color: rgb(255, 255, 255);
-    font-size: 40px;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    margin-left: 16px;
-}
-
-.card-icon {
-    width: 128px;
-    height: 128px;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    margin-left: 16px;
-}
-
-.card-info {
-}
-
-.info-line {
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    -unity-text-align: upper-left;
-    padding-top: 8px;
-    padding-right: 8px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-}
-
-.controls {
-    position: absolute;
-    flex-grow: 1;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.control-button {
-    opacity: 0.5;
-    transition-timing-function: ease-in-out-bounce;
-    height: 80px;
-    width: 100%;
-}
-
-.control-button:hover {
-    opacity: 1;
 }

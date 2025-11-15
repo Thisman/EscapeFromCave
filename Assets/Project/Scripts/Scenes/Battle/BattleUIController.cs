@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public sealed class BattleUIController : MonoBehaviour, ISceneUIController
@@ -22,6 +24,11 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string AbilityItemIconClassName = "ability-item__icon";
     private const string AbilityItemCooldownClassName = "ability-item--cooldown";
     private const string AbilityItemSelectedClassName = "ability-item--selected";
+
+    private const string HoverCardElementName = "HoverCard";
+    private const string HoverCardVisibleClassName = "hover-card--visible";
+    private const string HoverCardEnemyClassName = "hover-card--enemy";
+    private const string HoverCardFriendlyClassName = "hover-card--friendly";
 
     private const string VictoryStatusText = "Победа";
     private const string DefeatStatusText = "Поражение";
@@ -52,6 +59,15 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
 
+    private VisualElement _hoverCard;
+    private VisualElement _hoverCardIcon;
+    private Label _hoverCardTitle;
+    private readonly List<Label> _hoverCardInfoLabels = new();
+    private BattleSquadController _currentHoveredSquad;
+    private IReadOnlySquadModel _currentHoveredModel;
+    private bool _isHoverCardDirty;
+    private Camera _mainCamera;
+
     private bool _isAttached;
 
     public event Action OnStartCombat;
@@ -80,6 +96,14 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
             root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
         }
+    }
+
+    private void Update()
+    {
+        if (!_isAttached)
+            return;
+
+        UpdateHoverCard();
     }
 
     public void AttachToPanel(UIDocument document)
@@ -155,6 +179,11 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _currentAbilityManager = null;
         _currentAbilityOwner = null;
         _highlightedAbility = null;
+        _hoverCard = body.Q<VisualElement>(HoverCardElementName);
+        InitializeHoverCardElements();
+        HideHoverCard();
+        _isHoverCardDirty = false;
+        _mainCamera = Camera.main;
         _currentPanel = null;
 
         _startCombatButton?.RegisterCallback<ClickEvent>(HandleStartCombatClicked);
@@ -212,6 +241,13 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _currentAbilityManager = null;
         _currentAbilityOwner = null;
         _highlightedAbility = null;
+
+        HideHoverCard();
+        _hoverCardInfoLabels.Clear();
+        _hoverCardIcon = null;
+        _hoverCardTitle = null;
+        _hoverCard = null;
+        _mainCamera = null;
 
         _resultStatusLabel = null;
         _panels.Clear();
@@ -414,6 +450,293 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private void HandleSkipTurnClicked(ClickEvent evt)
     {
         OnSkipTurn?.Invoke();
+    }
+
+    private void UpdateHoverCard()
+    {
+        if (_hoverCard == null)
+            return;
+
+        BattleSquadController squad = FindSquadUnderPointer();
+        if (squad == null)
+        {
+            HideHoverCard();
+            return;
+        }
+
+        IReadOnlySquadModel model = squad.GetSquadModel();
+        if (model == null)
+        {
+            HideHoverCard();
+            return;
+        }
+
+        if (!ReferenceEquals(_currentHoveredSquad, squad) || !ReferenceEquals(_currentHoveredModel, model))
+        {
+            UnsubscribeFromHoveredModel();
+            _currentHoveredSquad = squad;
+            _currentHoveredModel = model;
+            SubscribeToHoveredModel(model);
+            _isHoverCardDirty = true;
+        }
+
+        if (_isHoverCardDirty)
+        {
+            RenderHoverCard(model);
+            _isHoverCardDirty = false;
+        }
+
+        ApplyHoverCardOrientation(model);
+        ShowHoverCard();
+    }
+
+    private void InitializeHoverCardElements()
+    {
+        _hoverCardIcon = null;
+        _hoverCardTitle = null;
+        _hoverCardInfoLabels.Clear();
+
+        if (_hoverCard == null)
+            return;
+
+        _hoverCardIcon = _hoverCard.Q<VisualElement>("Icon");
+        _hoverCardTitle = _hoverCard.Q<Label>("Title");
+
+        VisualElement infoContainer = _hoverCard.Q<VisualElement>("Info");
+        infoContainer?.Query<Label>().ForEach(label =>
+        {
+            if (label == null)
+                return;
+
+            label.text = string.Empty;
+            label.style.display = DisplayStyle.None;
+            _hoverCardInfoLabels.Add(label);
+        });
+
+        if (_hoverCardIcon != null)
+        {
+            _hoverCardIcon.style.backgroundImage = StyleKeyword.Null;
+            _hoverCardIcon.tooltip = string.Empty;
+        }
+
+        if (_hoverCardTitle != null)
+            _hoverCardTitle.text = string.Empty;
+    }
+
+    private void RenderHoverCard(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return;
+
+        if (_hoverCardIcon != null)
+        {
+            if (model.Icon != null)
+                _hoverCardIcon.style.backgroundImage = new StyleBackground(model.Icon);
+            else
+                _hoverCardIcon.style.backgroundImage = StyleKeyword.Null;
+
+            _hoverCardIcon.tooltip = model.UnitName ?? string.Empty;
+        }
+
+        if (_hoverCardTitle != null)
+            _hoverCardTitle.text = model.UnitName ?? string.Empty;
+
+        IReadOnlyList<string> stats = BuildSquadStatEntries(model);
+        int statsCount = stats.Count;
+
+        for (int i = 0; i < _hoverCardInfoLabels.Count; i++)
+        {
+            Label label = _hoverCardInfoLabels[i];
+            if (label == null)
+                continue;
+
+            if (i < statsCount)
+            {
+                label.text = stats[i];
+                label.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                label.text = string.Empty;
+                label.style.display = DisplayStyle.None;
+            }
+        }
+    }
+
+    private void ApplyHoverCardOrientation(IReadOnlySquadModel model)
+    {
+        if (_hoverCard == null || model == null)
+            return;
+
+        _hoverCard.RemoveFromClassList(HoverCardEnemyClassName);
+        _hoverCard.RemoveFromClassList(HoverCardFriendlyClassName);
+
+        bool isEnemy = model.IsEnemy();
+        string orientationClass = isEnemy ? HoverCardEnemyClassName : HoverCardFriendlyClassName;
+        _hoverCard.AddToClassList(orientationClass);
+    }
+
+    private void ShowHoverCard()
+    {
+        if (_hoverCard == null)
+            return;
+
+        if (!_hoverCard.ClassListContains(HoverCardVisibleClassName))
+            _hoverCard.AddToClassList(HoverCardVisibleClassName);
+    }
+
+    private void HideHoverCard()
+    {
+        UnsubscribeFromHoveredModel();
+        _currentHoveredSquad = null;
+        _isHoverCardDirty = false;
+
+        if (_hoverCard == null)
+            return;
+
+        _hoverCard.RemoveFromClassList(HoverCardVisibleClassName);
+        _hoverCard.RemoveFromClassList(HoverCardEnemyClassName);
+        _hoverCard.RemoveFromClassList(HoverCardFriendlyClassName);
+    }
+
+    private void SubscribeToHoveredModel(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return;
+
+        model.Changed -= HandleHoveredModelChanged;
+        model.Changed += HandleHoveredModelChanged;
+    }
+
+    private void UnsubscribeFromHoveredModel()
+    {
+        if (_currentHoveredModel == null)
+            return;
+
+        _currentHoveredModel.Changed -= HandleHoveredModelChanged;
+        _currentHoveredModel = null;
+    }
+
+    private void HandleHoveredModelChanged(IReadOnlySquadModel _)
+    {
+        _isHoverCardDirty = true;
+    }
+
+    private BattleSquadController FindSquadUnderPointer()
+    {
+        if (!TryGetPointerScreenPosition(out Vector2 pointerPosition))
+            return null;
+
+        Camera camera = _mainCamera != null ? _mainCamera : Camera.main;
+        if (camera == null)
+            return null;
+
+        _mainCamera = camera;
+
+        Ray ray = camera.ScreenPointToRay(new Vector3(pointerPosition.x, pointerPosition.y, 0f));
+        if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        {
+            Transform hitTransform = hitInfo.transform;
+            if (hitTransform != null)
+            {
+                BattleSquadController controller = hitTransform.GetComponentInParent<BattleSquadController>();
+                if (controller != null)
+                    return controller;
+            }
+        }
+
+        Vector3 worldPoint = camera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, Mathf.Abs(camera.transform.position.z)));
+        Collider2D hit2D = Physics2D.OverlapPoint(worldPoint);
+        if (hit2D != null)
+        {
+            Transform hitTransform2D = hit2D.transform;
+            if (hitTransform2D != null)
+            {
+                BattleSquadController controller2D = hitTransform2D.GetComponentInParent<BattleSquadController>();
+                if (controller2D != null)
+                    return controller2D;
+            }
+        }
+
+        return null;
+    }
+
+    private static bool TryGetPointerScreenPosition(out Vector2 position)
+    {
+        if (Mouse.current != null)
+        {
+            position = Mouse.current.position.ReadValue();
+            return true;
+        }
+
+        if (Pointer.current != null)
+        {
+            position = Pointer.current.position.ReadValue();
+            return true;
+        }
+
+        position = default;
+        return false;
+    }
+
+    private IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return Array.Empty<string>();
+
+        List<string> entries = new()
+        {
+            $"Название: {model.UnitName}",
+            $"Количество: {model.Count}",
+            $"Здоровье: {FormatValue(model.Health)}",
+            $"Физическая защита: {FormatPercent(model.PhysicalDefense)}",
+            $"Магическая защита: {FormatPercent(model.MagicDefense)}",
+            $"Абсолютная защита: {FormatPercent(model.AbsoluteDefense)}",
+            $"Тип атаки: {FormatAttackKind(model.AttackKind)}",
+            $"Тип урона: {FormatDamageType(model.DamageType)}",
+        };
+
+        (float minDamage, float maxDamage) = model.GetBaseDamageRange();
+        entries.Add($"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}");
+        entries.Add($"Скорость: {FormatValue(model.Speed)}");
+        entries.Add($"Инициатива: {FormatValue(model.Initiative)}");
+        entries.Add($"Шанс критического удара: {FormatPercent(model.CritChance)}");
+        entries.Add($"Критический множитель: {FormatValue(model.CritMultiplier)}");
+        entries.Add($"Шанс промаха: {FormatPercent(model.MissChance)}");
+
+        return entries;
+    }
+
+    private static string FormatValue(float value)
+    {
+        return value.ToString("0.##", CultureInfo.InvariantCulture);
+    }
+
+    private static string FormatPercent(float value)
+    {
+        return value.ToString("P0", CultureInfo.InvariantCulture);
+    }
+
+    private static string FormatAttackKind(AttackKind attackKind)
+    {
+        return attackKind switch
+        {
+            AttackKind.Melee => "Ближняя",
+            AttackKind.Range => "Дальняя",
+            AttackKind.Magic => "Магическая",
+            _ => attackKind.ToString()
+        };
+    }
+
+    private static string FormatDamageType(DamageType damageType)
+    {
+        return damageType switch
+        {
+            DamageType.Physical => "Физический",
+            DamageType.Magical => "Магический",
+            DamageType.Pure => "Чистый",
+            _ => damageType.ToString()
+        };
     }
 
     private VisualElement CreateQueueItem(IReadOnlySquadModel unit)

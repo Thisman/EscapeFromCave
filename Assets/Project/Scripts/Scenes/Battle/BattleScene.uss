@@ -111,3 +111,35 @@
     border-bottom-color: rgb(245, 217, 107);
     border-left-color: rgb(245, 217, 107);
 }
+
+.hover-card-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+    display: flex;
+}
+
+.hover-card {
+    display: none;
+    pointer-events: none;
+    align-self: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.hover-card--visible {
+    display: flex;
+}
+
+.hover-card--enemy {
+    margin-left: 32px;
+    margin-right: auto;
+}
+
+.hover-card--friendly {
+    margin-left: auto;
+    margin-right: 32px;
+}
