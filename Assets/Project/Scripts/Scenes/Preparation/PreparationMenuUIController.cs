@@ -9,12 +9,13 @@ public class PreparationMenuUIController : MonoBehaviour
 
     public Action<UnitSO, List<UnitSO>> OnDiveIntoCave;
 
-    private readonly List<HeroFrame> _heroFrames = new();
-    private readonly List<SquadPanel> _squadPanels = new();
+    private readonly List<HeroCard> _heroCards = new();
+    private readonly List<SquadCard> _squadCards = new();
 
     private VisualElement _root;
-    private VisualElement _heroSelectionContainer;
-    private VisualElement _heroStatsContainer;
+    private VisualElement _heroPanel;
+    private VisualElement _squadPanel;
+    private Button _goToSquadsSelectionButton;
     private Button _diveIntoCaveButton;
 
     private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
@@ -32,12 +33,20 @@ public class PreparationMenuUIController : MonoBehaviour
     {
         Initialize();
 
+        if (_goToSquadsSelectionButton != null)
+            _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
+
         if (_diveIntoCaveButton != null)
             _diveIntoCaveButton.clicked += HandleDiveIntoCave;
+
+        ShowHeroSelection();
     }
 
     private void OnDisable()
     {
+        if (_goToSquadsSelectionButton != null)
+            _goToSquadsSelectionButton.clicked -= HandleGoToSquadsSelection;
+
         if (_diveIntoCaveButton != null)
             _diveIntoCaveButton.clicked -= HandleDiveIntoCave;
     }
@@ -50,6 +59,7 @@ public class PreparationMenuUIController : MonoBehaviour
         Initialize();
         RenderHeroes();
         RenderSquads();
+        ShowHeroSelection();
     }
 
     private void Initialize()
@@ -65,219 +75,165 @@ public class PreparationMenuUIController : MonoBehaviour
         if (_root == null)
             return;
 
-        _heroSelectionContainer = _root.Q<VisualElement>("HeroSelection");
-        _heroStatsContainer = _root.Q<VisualElement>("HeroStats");
-        _diveIntoCaveButton = _root.Q<Button>();
+        _heroPanel = _root.Q<VisualElement>("SelectHeroPanel");
+        _squadPanel = _root.Q<VisualElement>("SelectSquadsPanel");
+        _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
+        _diveIntoCaveButton = _root.Q<Button>("DiveIntoCaveButton");
 
-        _heroFrames.Clear();
-        _squadPanels.Clear();
-
-        _root
-            .Query<VisualElement>(className: "squadPanel")
-            .ForEach(panelElement =>
-            {
-                if (panelElement == null)
-                    return;
-
-                _squadPanels.Add(new SquadPanel(this, panelElement));
-            });
+        InitializeHeroCards();
+        InitializeSquadCards();
 
         _initialized = true;
     }
 
+    private void InitializeHeroCards()
+    {
+        _heroCards.Clear();
+
+        VisualElement content = _heroPanel?.Q<VisualElement>("Content");
+        content?.Query<VisualElement>(className: "card").ForEach(cardElement =>
+        {
+            if (cardElement == null)
+                return;
+
+            _heroCards.Add(new HeroCard(this, cardElement));
+        });
+    }
+
+    private void InitializeSquadCards()
+    {
+        _squadCards.Clear();
+
+        VisualElement content = _squadPanel?.Q<VisualElement>("Content");
+        content?.Query<VisualElement>(className: "card").ForEach(cardElement =>
+        {
+            if (cardElement == null)
+                return;
+
+            _squadCards.Add(new SquadCard(this, cardElement));
+        });
+    }
+
     private void RenderHeroes()
     {
-        if (_heroSelectionContainer == null)
-            return;
-
-        _heroSelectionContainer.Clear();
-        _heroFrames.Clear();
-
-        if (_heroDefinitions.Length == 0)
+        if (_heroCards.Count == 0)
         {
             _selectedHeroIndex = -1;
-            UpdateHeroStats(null);
             return;
         }
 
-        for (int i = 0; i < _heroDefinitions.Length; i++)
+        _selectedHeroIndex = _heroDefinitions.Length > 0 ? 0 : -1;
+
+        for (int i = 0; i < _heroCards.Count; i++)
         {
-            UnitSO heroDefinition = _heroDefinitions[i];
-            if (heroDefinition == null)
-                continue;
+            HeroCard card = _heroCards[i];
+            UnitSO hero = i < _heroDefinitions.Length ? _heroDefinitions[i] : null;
+            IReadOnlyList<string> stats = hero != null ? BuildUnitStatEntries(hero) : Array.Empty<string>();
+            int definitionIndex = hero != null ? i : -1;
 
-            VisualElement frame = new();
-            frame.AddToClassList("squadIcon");
-            frame.tooltip = heroDefinition.UnitName;
-
-            if (heroDefinition.Icon != null)
-                frame.style.backgroundImage = new StyleBackground(heroDefinition.Icon);
-            else
-                frame.style.backgroundImage = new StyleBackground();
-
-            int index = i;
-            frame.RegisterCallback<ClickEvent>(_ => SelectHero(index));
-
-            _heroFrames.Add(new HeroFrame(frame, i));
-            _heroSelectionContainer.Add(frame);
+            card.Bind(hero, definitionIndex, stats);
         }
 
-        if (_heroFrames.Count == 0)
-        {
-            _selectedHeroIndex = -1;
-            UpdateHeroStats(null);
-            return;
-        }
-
-        bool hasSelectedHero = false;
-        foreach (HeroFrame heroFrame in _heroFrames)
-        {
-            if (heroFrame.DefinitionIndex == _selectedHeroIndex)
-            {
-                hasSelectedHero = true;
-                break;
-            }
-        }
-
-        if (!hasSelectedHero)
-            _selectedHeroIndex = _heroFrames[0].DefinitionIndex;
-
-        SelectHero(_selectedHeroIndex);
-    }
-
-    private void SelectHero(int index)
-    {
-        if (_heroFrames.Count == 0 || _heroDefinitions.Length == 0)
-        {
-            _selectedHeroIndex = -1;
-            UpdateHeroStats(null);
-            return;
-        }
-
-        HeroFrame selectedFrame = null;
-        foreach (HeroFrame heroFrame in _heroFrames)
-        {
-            if (heroFrame.DefinitionIndex == index)
-            {
-                selectedFrame = heroFrame;
-                break;
-            }
-        }
-
-        if (selectedFrame == null)
-        {
-            selectedFrame = _heroFrames[0];
-            index = selectedFrame.DefinitionIndex;
-        }
-
-        _selectedHeroIndex = index;
-
-        foreach (HeroFrame heroFrame in _heroFrames)
-        {
-            if (heroFrame.Element == null)
-                continue;
-
-            if (heroFrame.DefinitionIndex == _selectedHeroIndex)
-                heroFrame.Element.AddToClassList("squadIcon_active");
-            else
-                heroFrame.Element.RemoveFromClassList("squadIcon_active");
-        }
-
-        UnitSO selectedHero = index >= 0 && index < _heroDefinitions.Length ? _heroDefinitions[index] : null;
-        UpdateHeroStats(selectedHero);
-    }
-
-    private void UpdateHeroStats(UnitSO hero)
-    {
-        if (_heroStatsContainer == null)
-            return;
-
-        _heroStatsContainer.Clear();
-
-        if (hero == null)
-            return;
-
-        foreach (string stat in BuildUnitStats(hero))
-        {
-            Label statLabel = new(stat);
-            statLabel.AddToClassList("heroStatInfo");
-            _heroStatsContainer.Add(statLabel);
-        }
+        UpdateHeroSelection();
     }
 
     private void RenderSquads()
     {
-        if (_squadPanels.Count == 0)
+        if (_squadCards.Count == 0)
             return;
 
         if (_squadDefinitions.Length == 0)
         {
-            foreach (SquadPanel panel in _squadPanels)
-            {
-                panel.SelectedIndex = -1;
-                ClearSquadPanel(panel);
-            }
+            foreach (SquadCard card in _squadCards)
+                card.UpdateContent(null, -1, Array.Empty<string>());
 
             return;
         }
 
-        for (int i = 0; i < _squadPanels.Count; i++)
+        for (int i = 0; i < _squadCards.Count; i++)
         {
-            SquadPanel panel = _squadPanels[i];
-            int defaultIndex = panel.SelectedIndex >= 0 ? panel.SelectedIndex : i;
-            panel.SelectedIndex = WrapIndex(defaultIndex, _squadDefinitions.Length);
-            RenderSquadPanel(panel);
+            SquadCard card = _squadCards[i];
+            int index = card.HasValidSelection(_squadDefinitions.Length)
+                ? card.SelectedDefinitionIndex
+                : WrapIndex(i, _squadDefinitions.Length);
+
+            SetSquadCardContent(card, index);
         }
     }
 
-    private void ChangeSquadSelection(SquadPanel panel, int direction)
+    private void ChangeSquadSelection(SquadCard card, int direction)
     {
-        if (_squadDefinitions.Length == 0)
+        if (card == null || _squadDefinitions.Length == 0)
             return;
 
-        panel.SelectedIndex = WrapIndex(panel.SelectedIndex + direction, _squadDefinitions.Length);
-        RenderSquadPanel(panel);
-    }
-
-    private void RenderSquadPanel(SquadPanel panel)
-    {
-        if (panel.IconElement == null || panel.StatsContainer == null)
-            return;
-
-        panel.StatsContainer.Clear();
-
-        if (panel.SelectedIndex < 0 || panel.SelectedIndex >= _squadDefinitions.Length)
-        {
-            panel.IconElement.style.backgroundImage = new StyleBackground();
-            return;
-        }
-
-        UnitSO squad = _squadDefinitions[panel.SelectedIndex];
-
-        if (squad != null && squad.Icon != null)
-            panel.IconElement.style.backgroundImage = new StyleBackground(squad.Icon);
+        int newIndex;
+        if (card.HasValidSelection(_squadDefinitions.Length))
+            newIndex = WrapIndex(card.SelectedDefinitionIndex + direction, _squadDefinitions.Length);
         else
-            panel.IconElement.style.backgroundImage = new StyleBackground();
+            newIndex = direction >= 0 ? 0 : _squadDefinitions.Length - 1;
 
-        panel.IconElement.tooltip = squad != null ? squad.UnitName : string.Empty;
+        SetSquadCardContent(card, newIndex);
+    }
 
-        if (squad == null)
+    private void SetSquadCardContent(SquadCard card, int index)
+    {
+        if (card == null)
             return;
 
-        foreach (string stat in BuildUnitStats(squad))
+        UnitSO squad = index >= 0 && index < _squadDefinitions.Length ? _squadDefinitions[index] : null;
+        IReadOnlyList<string> stats = squad != null ? BuildUnitStatEntries(squad) : Array.Empty<string>();
+        card.UpdateContent(squad, squad != null ? index : -1, stats);
+    }
+
+    private void SelectHero(int index)
+    {
+        if (_heroDefinitions.Length == 0)
         {
-            Label statLabel = new(stat);
-            statLabel.AddToClassList("squadStatInfo");
-            panel.StatsContainer.Add(statLabel);
+            _selectedHeroIndex = -1;
+        }
+        else
+        {
+            if (index < 0 || index >= _heroDefinitions.Length)
+                index = 0;
+
+            _selectedHeroIndex = index;
+        }
+
+        UpdateHeroSelection();
+    }
+
+    private void UpdateHeroSelection()
+    {
+        foreach (HeroCard card in _heroCards)
+        {
+            bool isSelected = card.DefinitionIndex >= 0 && card.DefinitionIndex == _selectedHeroIndex;
+            card.UpdateSelected(isSelected);
         }
     }
 
-    private void ClearSquadPanel(SquadPanel panel)
+    private void ShowHeroSelection()
     {
-        if (panel.IconElement != null)
-            panel.IconElement.style.backgroundImage = new StyleBackground();
+        SetPanelActive(_heroPanel, true);
+        SetPanelActive(_squadPanel, false);
+    }
 
-        panel.StatsContainer?.Clear();
+    private void ShowSquadSelection()
+    {
+        SetPanelActive(_heroPanel, false);
+        SetPanelActive(_squadPanel, true);
+    }
+
+    private static void SetPanelActive(VisualElement panel, bool isActive)
+    {
+        if (panel == null)
+            return;
+
+        panel.EnableInClassList("panel__active", isActive);
+    }
+
+    private void HandleGoToSquadsSelection()
+    {
+        ShowSquadSelection();
     }
 
     private void HandleDiveIntoCave()
@@ -299,12 +255,13 @@ public class PreparationMenuUIController : MonoBehaviour
     {
         List<UnitSO> selectedSquads = new();
 
-        foreach (SquadPanel panel in _squadPanels)
+        foreach (SquadCard card in _squadCards)
         {
-            if (panel.SelectedIndex < 0 || panel.SelectedIndex >= _squadDefinitions.Length)
+            int index = card.SelectedDefinitionIndex;
+            if (index < 0 || index >= _squadDefinitions.Length)
                 continue;
 
-            UnitSO squad = _squadDefinitions[panel.SelectedIndex];
+            UnitSO squad = _squadDefinitions[index];
             if (squad != null)
                 selectedSquads.Add(squad);
         }
@@ -312,17 +269,11 @@ public class PreparationMenuUIController : MonoBehaviour
         return selectedSquads;
     }
 
-    private static IEnumerable<string> BuildUnitStats(UnitSO unit)
-    {
-        if (unit == null)
-            yield break;
-
-        foreach (string entry in BuildUnitStatEntries(unit))
-            yield return entry;
-    }
-
     private static IReadOnlyList<string> BuildUnitStatEntries(UnitSO unit)
     {
+        if (unit == null)
+            return Array.Empty<string>();
+
         List<string> entries = new()
         {
             $"Название: {unit.UnitName}",
@@ -395,52 +346,136 @@ public class PreparationMenuUIController : MonoBehaviour
         return result;
     }
 
-    private sealed class HeroFrame
+    private abstract class CardView
     {
-        public HeroFrame(VisualElement element, int definitionIndex)
+        private readonly List<Label> _infoLabels = new();
+
+        protected CardView(VisualElement root)
         {
-            Element = element;
-            DefinitionIndex = definitionIndex;
+            Root = root;
+            Icon = root?.Q<VisualElement>("Icon");
+            Title = root?.Q<Label>("Title");
+
+            VisualElement infoContainer = root?.Q<VisualElement>("Info");
+            infoContainer?.Query<Label>().ForEach(label =>
+            {
+                if (label == null)
+                    return;
+
+                _infoLabels.Add(label);
+            });
         }
 
-        public VisualElement Element { get; }
-        public int DefinitionIndex { get; }
+        protected void ApplyUnit(UnitSO unit, IReadOnlyList<string> stats)
+        {
+            if (Icon != null)
+            {
+                if (unit != null && unit.Icon != null)
+                    Icon.style.backgroundImage = new StyleBackground(unit.Icon);
+                else
+                    Icon.style.backgroundImage = new StyleBackground();
+
+                Icon.tooltip = unit != null ? unit.UnitName : string.Empty;
+            }
+
+            if (Title != null)
+                Title.text = unit != null ? unit.UnitName : string.Empty;
+
+            int statsCount = stats?.Count ?? 0;
+            for (int i = 0; i < _infoLabels.Count; i++)
+            {
+                Label label = _infoLabels[i];
+                if (label == null)
+                    continue;
+
+                if (i < statsCount)
+                {
+                    label.text = stats[i];
+                    label.style.display = DisplayStyle.Flex;
+                }
+                else
+                {
+                    label.text = string.Empty;
+                    label.style.display = DisplayStyle.None;
+                }
+            }
+
+            Root?.EnableInClassList("card__selected", false);
+        }
+
+        protected VisualElement Root { get; }
+        protected VisualElement Icon { get; }
+        protected Label Title { get; }
     }
 
-    private sealed class SquadPanel
+    private sealed class HeroCard : CardView
     {
         private readonly PreparationMenuUIController _controller;
 
-        public SquadPanel(PreparationMenuUIController controller, VisualElement root)
+        public HeroCard(PreparationMenuUIController controller, VisualElement root)
+            : base(root)
         {
             _controller = controller;
-            Root = root;
-            IconElement = root?.Q<VisualElement>("Squad");
-            StatsContainer = root?.Q<VisualElement>("SquadStats");
-            PrevButton = root?.Q<VisualElement>("PrevSquadButton");
-            NextButton = root?.Q<VisualElement>("NextSquadButton");
 
-            PrevButton?.RegisterCallback<ClickEvent>(HandlePrevClicked);
-            NextButton?.RegisterCallback<ClickEvent>(HandleNextClicked);
+            if (Root != null)
+                Root.AddManipulator(new Clickable(HandleClick));
         }
 
-        public VisualElement Root { get; }
-        public VisualElement IconElement { get; }
-        public VisualElement StatsContainer { get; }
-        public VisualElement PrevButton { get; }
-        public VisualElement NextButton { get; }
-        public int SelectedIndex { get; set; } = -1;
+        public int DefinitionIndex { get; private set; } = -1;
 
-        private void HandlePrevClicked(ClickEvent evt)
+        public void Bind(UnitSO hero, int definitionIndex, IReadOnlyList<string> stats)
         {
-            evt?.StopPropagation();
-            _controller.ChangeSquadSelection(this, -1);
+            DefinitionIndex = definitionIndex;
+            ApplyUnit(hero, stats);
+            Root?.SetEnabled(hero != null);
         }
 
-        private void HandleNextClicked(ClickEvent evt)
+        public void UpdateSelected(bool isSelected)
         {
-            evt?.StopPropagation();
-            _controller.ChangeSquadSelection(this, 1);
+            Root?.EnableInClassList("card__selected", isSelected);
+        }
+
+        private void HandleClick()
+        {
+            if (DefinitionIndex < 0)
+                return;
+
+            _controller.SelectHero(DefinitionIndex);
+        }
+    }
+
+    private sealed class SquadCard : CardView
+    {
+        private readonly PreparationMenuUIController _controller;
+        private readonly VisualElement _prevButton;
+        private readonly VisualElement _nextButton;
+
+        public SquadCard(PreparationMenuUIController controller, VisualElement root)
+            : base(root)
+        {
+            _controller = controller;
+            _prevButton = root?.Q<VisualElement>("PrevButton");
+            _nextButton = root?.Q<VisualElement>("NextButton");
+
+            if (_prevButton != null)
+                _prevButton.AddManipulator(new Clickable(() => _controller.ChangeSquadSelection(this, -1)));
+
+            if (_nextButton != null)
+                _nextButton.AddManipulator(new Clickable(() => _controller.ChangeSquadSelection(this, 1)));
+        }
+
+        public int SelectedDefinitionIndex { get; private set; } = -1;
+
+        public void UpdateContent(UnitSO squad, int index, IReadOnlyList<string> stats)
+        {
+            SelectedDefinitionIndex = index;
+            ApplyUnit(squad, stats);
+            Root?.SetEnabled(squad != null);
+        }
+
+        public bool HasValidSelection(int definitionsLength)
+        {
+            return definitionsLength > 0 && SelectedDefinitionIndex >= 0 && SelectedDefinitionIndex < definitionsLength;
         }
     }
 }
