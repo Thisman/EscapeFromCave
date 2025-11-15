@@ -33,10 +33,10 @@
                 <ui:Button text="Закончить" name="FinishBattleButton" class="button" style="position: absolute; bottom: 32px;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="SquadInfoCard" class="card battle-card battle-card--hidden battle-card--right">
+        <ui:VisualElement name="SquadInfoCard" class="card battle-card battle-card--hidden battle-card--right" style="height: 700px;">
             <ui:VisualElement name="Header" class="card-header">
                 <ui:VisualElement name="Icon" class="card-icon" />
-                <ui:Label text="Имя отряда" selectable="true" focusable="true" name="Title" class="card-title" />
+                <ui:Label text="FFFFFFFFFFFFFFFFFFFFFFFFFF" selectable="false" focusable="false" name="Title" class="card-title" style="flex-grow: 1; flex-wrap: nowrap;" />
             </ui:VisualElement>
             <ui:VisualElement name="Info" class="card-info" style="flex-grow: 1;">
                 <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />

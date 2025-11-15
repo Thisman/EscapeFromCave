@@ -752,57 +752,26 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     private BattleSquadController FindSquadUnderPointer()
     {
-        if (!TryGetPointerScreenPosition(out Vector2 pointerPosition))
+        if (!InputUtils.TryGetPointerScreenPosition(out Vector2 screenPos))
             return null;
 
-        Camera camera = _mainCamera != null ? _mainCamera : Camera.main;
+        var camera = Camera.main;
         if (camera == null)
             return null;
 
-        Ray ray = camera.ScreenPointToRay(new Vector3(pointerPosition.x, pointerPosition.y, 0f));
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray, Mathf.Infinity, GetUnitsLayerMask());
-        if (hit2D.collider is BoxCollider2D && hit2D.transform != null)
-        {
-            BattleSquadController squad = hit2D.transform.GetComponentInParent<BattleSquadController>();
-            if (squad != null)
-                return squad;
-        }
+        // Стандартный путь: screenPos уже в нужной системе координат
+        Ray ray = camera.ScreenPointToRay(new Vector3(screenPos.x, screenPos.y, 0f));
+
+        // 3D
+        if (Physics.Raycast(ray, out var hit3D) && hit3D.transform != null)
+            return hit3D.transform.GetComponentInParent<BattleSquadController>();
+
+        // 2D
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        if (hit2D.transform != null)
+            return hit2D.transform.GetComponentInParent<BattleSquadController>();
 
         return null;
-    }
-
-    private static bool TryGetPointerScreenPosition(out Vector2 position)
-    {
-        if (Mouse.current != null)
-        {
-            position = ConvertPointerToScreen(Mouse.current.position.ReadValue());
-            return true;
-        }
-
-        if (Pointer.current != null)
-        {
-            position = ConvertPointerToScreen(Pointer.current.position.ReadValue());
-            return true;
-        }
-
-        position = Vector2.zero;
-        return false;
-    }
-
-    private static Vector2 ConvertPointerToScreen(Vector2 pointerPosition)
-    {
-        if (Screen.height > 0f)
-            pointerPosition.y = Screen.height - pointerPosition.y;
-
-        return pointerPosition;
-    }
-
-    private int GetUnitsLayerMask()
-    {
-        if (_unitsLayerMask == 0 && LayerMask.NameToLayer(UnitsLayerName) != -1)
-            _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
-
-        return _unitsLayerMask;
     }
 
     private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)

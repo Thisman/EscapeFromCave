@@ -69,20 +69,26 @@
 
 .card-title {
     color: rgb(255, 255, 255);
-    font-size: 40px;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    margin-left: 16px;
+    font-size: 30px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    overflow: hidden;
+    -unity-text-align: middle-center;
+    text-overflow: ellipsis;
+    width: 270px;
+    flex-grow: 1;
 }
 
 .card-icon {
     width: 128px;
     height: 128px;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    margin-left: 16px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    flex-shrink: 0;
 }
 
 .card-info {
