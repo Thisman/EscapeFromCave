@@ -752,24 +752,33 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     private BattleSquadController FindSquadUnderPointer()
     {
+        // Получаем экранную позицию указателя
         if (!InputUtils.TryGetPointerScreenPosition(out Vector2 screenPos))
             return null;
 
-        var camera = Camera.main;
-        if (camera == null)
+        Camera cam = Camera.main;
+        if (cam == null)
             return null;
 
-        // Стандартный путь: screenPos уже в нужной системе координат
-        Ray ray = camera.ScreenPointToRay(new Vector3(screenPos.x, screenPos.y, 0f));
+        // Конвертация экран → мир
+        // Для 2D правильный вариант: задаём Z = расстояние до плоскости мира
+        // Если твои отряды находятся в Z = 0, то nearClipPlane подходит идеально
+        Vector3 worldPoint = cam.ScreenToWorldPoint(new Vector3(
+            screenPos.x,
+            screenPos.y,
+            cam.nearClipPlane
+        ));
 
-        // 3D
-        if (Physics.Raycast(ray, out var hit3D) && hit3D.transform != null)
-            return hit3D.transform.GetComponentInParent<BattleSquadController>();
+        // Только слой Units
+        int mask = LayerMask.GetMask("Units");
 
-        // 2D
-        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
-        if (hit2D.transform != null)
-            return hit2D.transform.GetComponentInParent<BattleSquadController>();
+        // Точечный Raycast (как OverlapPoint, но с LayerMask)
+        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 0f, mask);
+
+        if (hit.collider != null)
+        {
+            return hit.collider.GetComponentInParent<BattleSquadController>();
+        }
 
         return null;
     }
