@@ -3,23 +3,30 @@ using System.Threading.Tasks;
 
 public class AIBattleActionController : IBattleActionController
 {
-    private readonly int _actionDelayMilliseconds;
-
-    public AIBattleActionController(int actionDelayMilliseconds = 750)
-    {
-        _actionDelayMilliseconds = Math.Max(0, actionDelayMilliseconds);
-    }
+    private const int MinActionDelayMilliseconds = 500;
+    private const int MaxActionDelayMilliseconds = 1250;
+    private static readonly Random DelayRandomizer = new();
 
     public async void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {
-        if (_actionDelayMilliseconds > 0)
-        {
-            await Task.Delay(_actionDelayMilliseconds);
-        }
+        int delay = GetRandomActionDelay();
+        await Task.Delay(delay);
 
         var targetResolver = new BattleActionDefaultTargetResolver(ctx);
         var damageResolver = new BattleDamageDefaultResolver();
         var targetPicker = new AIActionTargetPicker(ctx);
         onActionReady?.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
+    }
+
+    private static int GetRandomActionDelay()
+    {
+        int min = Math.Max(0, MinActionDelayMilliseconds);
+        int max = Math.Max(min, MaxActionDelayMilliseconds);
+
+        lock (DelayRandomizer)
+        {
+            // Random.Next upper bound is exclusive, so add 1 to make it inclusive.
+            return DelayRandomizer.Next(min, max + 1);
+        }
     }
 }
