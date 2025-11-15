@@ -134,58 +134,7 @@ public sealed class CursorManager : MonoBehaviour
 
     private ICursorSource FindCursorSourceUnderPointer()
     {
-        var uiSource = FindCursorSourceFromUI();
-        if (uiSource != null)
-        {
-            return uiSource;
-        }
-
         return FindCursorSourceFromWorld();
-    }
-
-    private ICursorSource FindCursorSourceFromUI()
-    {
-        var eventSystem = EventSystem.current;
-        if (eventSystem == null)
-        {
-            return null;
-        }
-
-        if (!TryGetPointerScreenPosition(out var pointerPosition))
-        {
-            return null;
-        }
-
-        var pointerEventData = new PointerEventData(eventSystem)
-        {
-            position = pointerPosition
-        };
-
-        _uiRaycastResults.Clear();
-        eventSystem.RaycastAll(pointerEventData, _uiRaycastResults);
-
-        for (var i = 0; i < _uiRaycastResults.Count; i++)
-        {
-            var raycastResult = _uiRaycastResults[i];
-            var raycastObject = raycastResult.gameObject;
-            if (raycastObject == null)
-            {
-                continue;
-            }
-
-            if (raycastObject.TryGetComponent<ICursorSource>(out var source))
-            {
-                return source;
-            }
-
-            source = raycastObject.GetComponentInParent<ICursorSource>();
-            if (source != null)
-            {
-                return source;
-            }
-        }
-
-        return null;
     }
 
     private ICursorSource FindCursorSourceFromWorld()
