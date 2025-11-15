@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: faee4238ea4155c47a4f9199987e5c74
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5376177583296623409
+    second: watter-around straight walls_0
+  - first:
+      213: -3213576552133296253
+    second: watter-around straight walls_1
+  - first:
+      213: -1186809807777591282
+    second: watter-around straight walls_2
+  - first:
+      213: 2294023242253701228
+    second: watter-around straight walls_3
+  - first:
+      213: 4522927991990671295
+    second: watter-around straight walls_4
+  - first:
+      213: 570324901132456877
+    second: watter-around straight walls_5
+  - first:
+      213: -7755765208443878688
+    second: watter-around straight walls_6
+  - first:
+      213: -1349045312217662359
+    second: watter-around straight walls_7
+  - first:
+      213: 9197163842064840773
+    second: watter-around straight walls_8
+  - first:
+      213: 5812849206833288166
+    second: watter-around straight walls_9
+  - first:
+      213: -8026199416109292897
+    second: watter-around straight walls_10
+  - first:
+      213: 8123295070634628978
+    second: watter-around straight walls_11
+  - first:
+      213: -4384487156530463551
+    second: watter-around straight walls_12
+  - first:
+      213: -2342515141253652111
+    second: watter-around straight walls_13
+  - first:
+      213: 7625614377927313011
+    second: watter-around straight walls_14
+  - first:
+      213: -982923169724370895
+    second: watter-around straight walls_15
+  - first:
+      213: -6174647703596257901
+    second: watter-around straight walls_16
+  - first:
+      213: 5008193899017355717
+    second: watter-around straight walls_17
+  - first:
+      213: -6721244362630130507
+    second: watter-around straight walls_18
+  - first:
+      213: 8898763525971933835
+    second: watter-around straight walls_19
+  - first:
+      213: -343142473671757496
+    second: watter-around straight walls_20
+  - first:
+      213: -7220443635543785781
+    second: watter-around straight walls_21
+  - first:
+      213: 8500022672270574906
+    second: watter-around straight walls_22
+  - first:
+      213: -3708132596029233233
+    second: watter-around straight walls_23
+  - first:
+      213: 6708665548081591401
+    second: watter-around straight walls_24
+  - first:
+      213: 7385740497255816440
+    second: watter-around straight walls_25
+  - first:
+      213: 8440044102862377248
+    second: watter-around straight walls_26
+  - first:
+      213: -1917135313903151052
+    second: watter-around straight walls_27
+  - first:
+      213: -5605277588417987558
+    second: watter-around straight walls_28
+  - first:
+      213: -6374852710129729165
+    second: watter-around straight walls_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: watter-around straight walls_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 44
+        width: 112
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13330dd17050c9a40800000000000000
+      internalID: 5376177583296623409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 108
+        width: 450
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ff19fe6251763d0800000000000000
+      internalID: -3213576552133296253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_2
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00977f84ca978fe0800000000000000
+      internalID: -1186809807777591282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_3
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60950d0cf106df10800000000000000
+      internalID: 2294023242253701228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_4
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb756439b0ba4ce30800000000000000
+      internalID: 4522927991990671295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_5
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da35f82d9733ae700800000000000000
+      internalID: 570324901132456877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_6
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e28e5d72acfd5490800000000000000
+      internalID: -7755765208443878688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_7
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 140
+        width: 8
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c3c53af6a374de0800000000000000
+      internalID: -1349045312217662359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_8
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 140
+        width: 7
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548775329c3e2af70800000000000000
+      internalID: 9197163842064840773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e3953a4e836ba050800000000000000
+      internalID: 5812849206833288166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_10
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92ab5ad7263d9090800000000000000
+      internalID: -8026199416109292897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_11
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277dbd2e3ddbbb070800000000000000
+      internalID: 8123295070634628978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_12
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc3db0492c2723c0800000000000000
+      internalID: -4384487156530463551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_13
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1712a94e3e6bd7fd0800000000000000
+      internalID: -2342515141253652111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376087edfdf93d960800000000000000
+      internalID: 7625614377927313011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_15
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 63
+        width: 8
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 130f31bb594fb52f0800000000000000
+      internalID: -982923169724370895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_16
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 76
+        width: 449
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39da6f5d0ae3f4aa0800000000000000
+      internalID: -6174647703596257901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_17
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 0
+        width: 449
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1453d01dda08540800000000000000
+      internalID: 5008193899017355717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b495d4ecd759b2a0800000000000000
+      internalID: -6721244362630130507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_19
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a72c97742ce7b70800000000000000
+      internalID: 8898763525971933835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_20
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 841327dfcb9ec3bf0800000000000000
+      internalID: -343142473671757496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_21
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcebeaed4c4dbcb90800000000000000
+      internalID: -7220443635543785781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_22
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35447bd59526f570800000000000000
+      internalID: 8500022672270574906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_23
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa761a9ec011a8cc0800000000000000
+      internalID: -3708132596029233233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_24
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 31
+        width: 9
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964fd4e95c7f91d50800000000000000
+      internalID: 6708665548081591401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_25
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc5626d9db6f7660800000000000000
+      internalID: 7385740497255816440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_26
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0211ebfe46f012570800000000000000
+      internalID: 8440044102862377248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_27
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4381274e697f465e0800000000000000
+      internalID: -1917135313903151052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_28
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c33ea3bbd0632b0800000000000000
+      internalID: -5605277588417987558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: watter-around straight walls_29
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371084d4c39f787a0800000000000000
+      internalID: -6374852710129729165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      watter-around straight walls_0: 5376177583296623409
+      watter-around straight walls_1: -3213576552133296253
+      watter-around straight walls_10: -8026199416109292897
+      watter-around straight walls_11: 8123295070634628978
+      watter-around straight walls_12: -4384487156530463551
+      watter-around straight walls_13: -2342515141253652111
+      watter-around straight walls_14: 7625614377927313011
+      watter-around straight walls_15: -982923169724370895
+      watter-around straight walls_16: -6174647703596257901
+      watter-around straight walls_17: 5008193899017355717
+      watter-around straight walls_18: -6721244362630130507
+      watter-around straight walls_19: 8898763525971933835
+      watter-around straight walls_2: -1186809807777591282
+      watter-around straight walls_20: -343142473671757496
+      watter-around straight walls_21: -7220443635543785781
+      watter-around straight walls_22: 8500022672270574906
+      watter-around straight walls_23: -3708132596029233233
+      watter-around straight walls_24: 6708665548081591401
+      watter-around straight walls_25: 7385740497255816440
+      watter-around straight walls_26: 8440044102862377248
+      watter-around straight walls_27: -1917135313903151052
+      watter-around straight walls_28: -5605277588417987558
+      watter-around straight walls_29: -6374852710129729165
+      watter-around straight walls_3: 2294023242253701228
+      watter-around straight walls_4: 4522927991990671295
+      watter-around straight walls_5: 570324901132456877
+      watter-around straight walls_6: -7755765208443878688
+      watter-around straight walls_7: -1349045312217662359
+      watter-around straight walls_8: 9197163842064840773
+      watter-around straight walls_9: 5812849206833288166
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

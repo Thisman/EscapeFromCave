@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 6566fd03f91c8b24d985e8486a66ab18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8270651276470736574
+    second: moose3-attack-no effects-347x192_0
+  - first:
+      213: 2606357254180023948
+    second: moose3-attack-no effects-347x192_1
+  - first:
+      213: 5451336385723826448
+    second: moose3-attack-no effects-347x192_2
+  - first:
+      213: 5366240920224909975
+    second: moose3-attack-no effects-347x192_3
+  - first:
+      213: 1310770341378904322
+    second: moose3-attack-no effects-347x192_4
+  - first:
+      213: 8000153153998627569
+    second: moose3-attack-no effects-347x192_5
+  - first:
+      213: -65855849913408501
+    second: moose3-attack-no effects-347x192_6
+  - first:
+      213: 4929283967021442584
+    second: moose3-attack-no effects-347x192_7
+  - first:
+      213: -4140257099861679161
+    second: moose3-attack-no effects-347x192_8
+  - first:
+      213: -339994951943585184
+    second: moose3-attack-no effects-347x192_9
+  - first:
+      213: -1019821717167138402
+    second: moose3-attack-no effects-347x192_10
+  - first:
+      213: -2854973550326356349
+    second: moose3-attack-no effects-347x192_11
+  - first:
+      213: 7970311270542466564
+    second: moose3-attack-no effects-347x192_12
+  - first:
+      213: 5301519229522953998
+    second: moose3-attack-no effects-347x192_13
+  - first:
+      213: 1886206147727409269
+    second: moose3-attack-no effects-347x192_14
+  - first:
+      213: -5954983456261859380
+    second: moose3-attack-no effects-347x192_15
+  - first:
+      213: -494173552428314866
+    second: moose3-attack-no effects-347x192_16
+  - first:
+      213: -6465201184243131804
+    second: moose3-attack-no effects-347x192_17
+  - first:
+      213: 3201888118898479984
+    second: moose3-attack-no effects-347x192_18
+  - first:
+      213: -1078460126619920456
+    second: moose3-attack-no effects-347x192_19
+  - first:
+      213: -965149911152879120
+    second: moose3-attack-no effects-347x192_20
+  - first:
+      213: 8709409853038700239
+    second: moose3-attack-no effects-347x192_21
+  - first:
+      213: 3395329205263067790
+    second: moose3-attack-no effects-347x192_22
+  - first:
+      213: 2270827277148655020
+    second: moose3-attack-no effects-347x192_23
+  - first:
+      213: 2016061418209704433
+    second: moose3-attack-no effects-347x192_24
+  - first:
+      213: 8466746853803465321
+    second: moose3-attack-no effects-347x192_25
+  - first:
+      213: 6954048332866484252
+    second: moose3-attack-no effects-347x192_26
+  - first:
+      213: -2193910976544205869
+    second: moose3-attack-no effects-347x192_27
+  - first:
+      213: 6726858029351173093
+    second: moose3-attack-no effects-347x192_28
+  - first:
+      213: 5952231206670963844
+    second: moose3-attack-no effects-347x192_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_0
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 69
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 249a4dcdb7eb83d80800000000000000
+      internalID: -8270651276470736574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_1
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 69
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ea9251d14ab2420800000000000000
+      internalID: 2606357254180023948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_2
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 69
+        width: 100
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0110b367f8907ab40800000000000000
+      internalID: 5451336385723826448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_3
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 69
+        width: 127
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79acb257fa7b87a40800000000000000
+      internalID: 5366240920224909975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_4
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 69
+        width: 126
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201d1044eaac03210800000000000000
+      internalID: 1310770341378904322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_5
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 69
+        width: 124
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f22fcc28e0460f60800000000000000
+      internalID: 8000153153998627569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_6
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 69
+        width: 122
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04a7831478061ff0800000000000000
+      internalID: -65855849913408501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_7
+      rect:
+        serializedVersion: 2
+        x: 2524
+        y: 69
+        width: 87
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816675bc6a5586440800000000000000
+      internalID: 4929283967021442584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_8
+      rect:
+        serializedVersion: 2
+        x: 2888
+        y: 69
+        width: 75
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3a4fb8a1ada86c0800000000000000
+      internalID: -4140257099861679161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_9
+      rect:
+        serializedVersion: 2
+        x: 3279
+        y: 67
+        width: 119
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0620aff7468184bf0800000000000000
+      internalID: -339994951943585184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_10
+      rect:
+        serializedVersion: 2
+        x: 3624
+        y: 67
+        width: 121
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99160e2d8dd8d1f0800000000000000
+      internalID: -1019821717167138402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_11
+      rect:
+        serializedVersion: 2
+        x: 3972
+        y: 67
+        width: 120
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38669a9aea81168d0800000000000000
+      internalID: -2854973550326356349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_12
+      rect:
+        serializedVersion: 2
+        x: 4323
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ed9fd3fdb3c9e60800000000000000
+      internalID: 7970311270542466564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_13
+      rect:
+        serializedVersion: 2
+        x: 4670
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e074e9d86a7c29940800000000000000
+      internalID: 5301519229522953998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_14
+      rect:
+        serializedVersion: 2
+        x: 5017
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57043707f762d2a10800000000000000
+      internalID: 1886206147727409269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_15
+      rect:
+        serializedVersion: 2
+        x: 5364
+        y: 67
+        width: 115
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc71f2ee816ab5da0800000000000000
+      internalID: -5954983456261859380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_16
+      rect:
+        serializedVersion: 2
+        x: 5711
+        y: 67
+        width: 114
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0f0e16b5c75429f0800000000000000
+      internalID: -494173552428314866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_17
+      rect:
+        serializedVersion: 2
+        x: 6058
+        y: 67
+        width: 111
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ad0cbe6cdf646a0800000000000000
+      internalID: -6465201184243131804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_18
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 68
+        width: 109
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073dc71a7446f6c20800000000000000
+      internalID: 3201888118898479984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_19
+      rect:
+        serializedVersion: 2
+        x: 6752
+        y: 69
+        width: 95
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b795609a3a8801f0800000000000000
+      internalID: -1078460126619920456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_20
+      rect:
+        serializedVersion: 2
+        x: 7103
+        y: 69
+        width: 90
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f99bb6f4491b92f0800000000000000
+      internalID: -965149911152879120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_21
+      rect:
+        serializedVersion: 2
+        x: 7446
+        y: 69
+        width: 52
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6a8aded1a0ed870800000000000000
+      internalID: 8709409853038700239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_22
+      rect:
+        serializedVersion: 2
+        x: 7750
+        y: 69
+        width: 72
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ae6374ce1ae1f20800000000000000
+      internalID: 3395329205263067790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_23
+      rect:
+        serializedVersion: 2
+        x: 8078
+        y: 69
+        width: 94
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cad86b09069938f10800000000000000
+      internalID: 2270827277148655020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_24
+      rect:
+        serializedVersion: 2
+        x: 8422
+        y: 69
+        width: 94
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f972c5ad2d7afb10800000000000000
+      internalID: 2016061418209704433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_25
+      rect:
+        serializedVersion: 2
+        x: 8777
+        y: 69
+        width: 80
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a9c10a76def7570800000000000000
+      internalID: 8466746853803465321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_26
+      rect:
+        serializedVersion: 2
+        x: 9143
+        y: 69
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1877675d1eb18060800000000000000
+      internalID: 6954048332866484252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_27
+      rect:
+        serializedVersion: 2
+        x: 9491
+        y: 69
+        width: 60
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d390463799ad81e0800000000000000
+      internalID: -2193910976544205869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_28
+      rect:
+        serializedVersion: 2
+        x: 9839
+        y: 69
+        width: 67
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebf5fdbcb99a5d50800000000000000
+      internalID: 6726858029351173093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose3-attack-no effects-347x192_29
+      rect:
+        serializedVersion: 2
+        x: 10186
+        y: 69
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4841e960fb29a9250800000000000000
+      internalID: 5952231206670963844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      moose3-attack-no effects-347x192_0: -8270651276470736574
+      moose3-attack-no effects-347x192_1: 2606357254180023948
+      moose3-attack-no effects-347x192_10: -1019821717167138402
+      moose3-attack-no effects-347x192_11: -2854973550326356349
+      moose3-attack-no effects-347x192_12: 7970311270542466564
+      moose3-attack-no effects-347x192_13: 5301519229522953998
+      moose3-attack-no effects-347x192_14: 1886206147727409269
+      moose3-attack-no effects-347x192_15: -5954983456261859380
+      moose3-attack-no effects-347x192_16: -494173552428314866
+      moose3-attack-no effects-347x192_17: -6465201184243131804
+      moose3-attack-no effects-347x192_18: 3201888118898479984
+      moose3-attack-no effects-347x192_19: -1078460126619920456
+      moose3-attack-no effects-347x192_2: 5451336385723826448
+      moose3-attack-no effects-347x192_20: -965149911152879120
+      moose3-attack-no effects-347x192_21: 8709409853038700239
+      moose3-attack-no effects-347x192_22: 3395329205263067790
+      moose3-attack-no effects-347x192_23: 2270827277148655020
+      moose3-attack-no effects-347x192_24: 2016061418209704433
+      moose3-attack-no effects-347x192_25: 8466746853803465321
+      moose3-attack-no effects-347x192_26: 6954048332866484252
+      moose3-attack-no effects-347x192_27: -2193910976544205869
+      moose3-attack-no effects-347x192_28: 6726858029351173093
+      moose3-attack-no effects-347x192_29: 5952231206670963844
+      moose3-attack-no effects-347x192_3: 5366240920224909975
+      moose3-attack-no effects-347x192_4: 1310770341378904322
+      moose3-attack-no effects-347x192_5: 8000153153998627569
+      moose3-attack-no effects-347x192_6: -65855849913408501
+      moose3-attack-no effects-347x192_7: 4929283967021442584
+      moose3-attack-no effects-347x192_8: -4140257099861679161
+      moose3-attack-no effects-347x192_9: -339994951943585184
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

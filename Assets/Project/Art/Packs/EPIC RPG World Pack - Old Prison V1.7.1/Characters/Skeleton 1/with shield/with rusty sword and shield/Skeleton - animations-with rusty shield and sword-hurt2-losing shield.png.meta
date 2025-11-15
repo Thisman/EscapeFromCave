@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 5dd589d1ea0de554cb9bf37e9db7b8c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3044777899691856849
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_0
+  - first:
+      213: 8620362111941972060
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_1
+  - first:
+      213: 2252026070954655917
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_2
+  - first:
+      213: -5097528372391192218
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_3
+  - first:
+      213: 3365424812361497453
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_4
+  - first:
+      213: 7313785183919173992
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_5
+  - first:
+      213: 8680769664569716895
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_6
+  - first:
+      213: -7134624985137721235
+    second: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 71
+        width: 77
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d3d71b2e59314a20800000000000000
+      internalID: 3044777899691856849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 71
+        width: 83
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c50998d0bada1a770800000000000000
+      internalID: 8620362111941972060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_2
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 71
+        width: 86
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0cb20a7cdc04f10800000000000000
+      internalID: 2252026070954655917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 71
+        width: 78
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669d52304f0f149b0800000000000000
+      internalID: -5097528372391192218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_4
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 71
+        width: 84
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6bb71b390464be20800000000000000
+      internalID: 3365424812361497453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_5
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 71
+        width: 85
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861740befd8cf7560800000000000000
+      internalID: 7313785183919173992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_6
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 71
+        width: 83
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f903aa9640a487870800000000000000
+      internalID: 8680769664569716895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty shield and sword-hurt2-losing shield_7
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 71
+        width: 82
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d605d3b7068bcfc90800000000000000
+      internalID: -7134624985137721235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_0: 3044777899691856849
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_1: 8620362111941972060
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_2: 2252026070954655917
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_3: -5097528372391192218
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_4: 3365424812361497453
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_5: 7313785183919173992
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_6: 8680769664569716895
+      Skeleton - animations-with rusty shield and sword-hurt2-losing shield_7: -7134624985137721235
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

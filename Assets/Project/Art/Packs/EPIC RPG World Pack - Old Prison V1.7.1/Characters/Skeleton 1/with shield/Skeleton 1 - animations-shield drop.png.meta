@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: e1b5831a201d284408417497f559e63c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1570204605947484790
+    second: Skeleton 1 - animations-shield drop_0
+  - first:
+      213: -8287525439058792009
+    second: Skeleton 1 - animations-shield drop_1
+  - first:
+      213: -1428896504579266773
+    second: Skeleton 1 - animations-shield drop_2
+  - first:
+      213: -1287042167617145666
+    second: Skeleton 1 - animations-shield drop_3
+  - first:
+      213: 1036294613365490789
+    second: Skeleton 1 - animations-shield drop_4
+  - first:
+      213: -9173613783981234997
+    second: Skeleton 1 - animations-shield drop_5
+  - first:
+      213: -3084722006284849666
+    second: Skeleton 1 - animations-shield drop_6
+  - first:
+      213: -5733748004935308562
+    second: Skeleton 1 - animations-shield drop_7
+  - first:
+      213: -7896325221858509294
+    second: Skeleton 1 - animations-shield drop_8
+  - first:
+      213: 5209716868608182734
+    second: Skeleton 1 - animations-shield drop_9
+  - first:
+      213: 7508577289201173207
+    second: Skeleton 1 - animations-shield drop_10
+  - first:
+      213: 8418815361585401625
+    second: Skeleton 1 - animations-shield drop_11
+  - first:
+      213: 7993876228682535680
+    second: Skeleton 1 - animations-shield drop_12
+  - first:
+      213: -8035118371293147550
+    second: Skeleton 1 - animations-shield drop_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 16
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a9e2215cc7ac510800000000000000
+      internalID: 1570204605947484790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 13
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b133e9b58bccfc80800000000000000
+      internalID: -8287525439058792009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 9
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2761cf133a8b2ce0800000000000000
+      internalID: -1428896504579266773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 7
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb43b34b7f1832ee0800000000000000
+      internalID: -1287042167617145666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_4
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 9
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5640d48d578a16e00800000000000000
+      internalID: 1036294613365490789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_5
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 9
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4eb2b0ed6c0b080800000000000000
+      internalID: -9173613783981234997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_6
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 8
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efdaf88cdadd035d0800000000000000
+      internalID: -3084722006284849666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_7
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 2
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeae9367192ad60b0800000000000000
+      internalID: -5733748004935308562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_8
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e7a281c0e9a6290800000000000000
+      internalID: -7896325221858509294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_9
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec940c5c3e1ac4840800000000000000
+      internalID: 5209716868608182734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_10
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2c66b2343d33860800000000000000
+      internalID: 7508577289201173207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_11
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f46e077f3a5d470800000000000000
+      internalID: 8418815361585401625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_12
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003df0d9314ffee60800000000000000
+      internalID: 7993876228682535680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton 1 - animations-shield drop_13
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 2
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26e4bd6c9668d7090800000000000000
+      internalID: -8035118371293147550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Skeleton 1 - animations-shield drop_0: 1570204605947484790
+      Skeleton 1 - animations-shield drop_1: -8287525439058792009
+      Skeleton 1 - animations-shield drop_10: 7508577289201173207
+      Skeleton 1 - animations-shield drop_11: 8418815361585401625
+      Skeleton 1 - animations-shield drop_12: 7993876228682535680
+      Skeleton 1 - animations-shield drop_13: -8035118371293147550
+      Skeleton 1 - animations-shield drop_2: -1428896504579266773
+      Skeleton 1 - animations-shield drop_3: -1287042167617145666
+      Skeleton 1 - animations-shield drop_4: 1036294613365490789
+      Skeleton 1 - animations-shield drop_5: -9173613783981234997
+      Skeleton 1 - animations-shield drop_6: -3084722006284849666
+      Skeleton 1 - animations-shield drop_7: -5733748004935308562
+      Skeleton 1 - animations-shield drop_8: -7896325221858509294
+      Skeleton 1 - animations-shield drop_9: 5209716868608182734
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

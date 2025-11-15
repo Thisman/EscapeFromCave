@@ -1,0 +1,1274 @@
+fileFormatVersion: 2
+guid: 389675523ce402b4fa76de9fe6cc9754
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6295830805671574964
+    second: Mage Skeleton - animations-death_0
+  - first:
+      213: 994186309471565929
+    second: Mage Skeleton - animations-death_1
+  - first:
+      213: 328150674280356557
+    second: Mage Skeleton - animations-death_2
+  - first:
+      213: 4262069033772744745
+    second: Mage Skeleton - animations-death_3
+  - first:
+      213: 4055167669544556428
+    second: Mage Skeleton - animations-death_4
+  - first:
+      213: -7570003650300664271
+    second: Mage Skeleton - animations-death_5
+  - first:
+      213: 5644894401149652889
+    second: Mage Skeleton - animations-death_6
+  - first:
+      213: 8973816705139381475
+    second: Mage Skeleton - animations-death_7
+  - first:
+      213: 777639902761042573
+    second: Mage Skeleton - animations-death_8
+  - first:
+      213: 7809694283065382919
+    second: Mage Skeleton - animations-death_9
+  - first:
+      213: -549851559145620401
+    second: Mage Skeleton - animations-death_10
+  - first:
+      213: 8757997275131318222
+    second: Mage Skeleton - animations-death_11
+  - first:
+      213: -8459198229350737773
+    second: Mage Skeleton - animations-death_12
+  - first:
+      213: -7464503622615242657
+    second: Mage Skeleton - animations-death_13
+  - first:
+      213: 2675840179230624803
+    second: Mage Skeleton - animations-death_14
+  - first:
+      213: -4316239274436582864
+    second: Mage Skeleton - animations-death_15
+  - first:
+      213: 8537765943258057155
+    second: Mage Skeleton - animations-death_16
+  - first:
+      213: -7860069628383572204
+    second: Mage Skeleton - animations-death_17
+  - first:
+      213: 3850977136915131499
+    second: Mage Skeleton - animations-death_18
+  - first:
+      213: 8857753571928112654
+    second: Mage Skeleton - animations-death_19
+  - first:
+      213: -6043187965598426199
+    second: Mage Skeleton - animations-death_20
+  - first:
+      213: -8482568894231982005
+    second: Mage Skeleton - animations-death_21
+  - first:
+      213: 7696911747638061750
+    second: Mage Skeleton - animations-death_22
+  - first:
+      213: -3770699019443978717
+    second: Mage Skeleton - animations-death_23
+  - first:
+      213: 5830926995656562712
+    second: Mage Skeleton - animations-death_24
+  - first:
+      213: -9144711975268172310
+    second: Mage Skeleton - animations-death_25
+  - first:
+      213: 5781049317972465075
+    second: Mage Skeleton - animations-death_26
+  - first:
+      213: -149785352953286814
+    second: Mage Skeleton - animations-death_27
+  - first:
+      213: 7862395799596113882
+    second: Mage Skeleton - animations-death_28
+  - first:
+      213: 5750461072081308584
+    second: Mage Skeleton - animations-death_29
+  - first:
+      213: -7459440396389331276
+    second: Mage Skeleton - animations-death_30
+  - first:
+      213: 4892790638974899255
+    second: Mage Skeleton - animations-death_31
+  - first:
+      213: -919057432705810835
+    second: Mage Skeleton - animations-death_32
+  - first:
+      213: -6624420159399395912
+    second: Mage Skeleton - animations-death_33
+  - first:
+      213: 1959170674793525627
+    second: Mage Skeleton - animations-death_34
+  - first:
+      213: 8319350473312847913
+    second: Mage Skeleton - animations-death_35
+  - first:
+      213: -8457570458631691386
+    second: Mage Skeleton - animations-death_36
+  - first:
+      213: -1285050494858918189
+    second: Mage Skeleton - animations-death_37
+  - first:
+      213: -8074276328575221724
+    second: Mage Skeleton - animations-death_38
+  - first:
+      213: 8872366266618557079
+    second: Mage Skeleton - animations-death_39
+  - first:
+      213: -4150802058076064906
+    second: Mage Skeleton - animations-death_40
+  - first:
+      213: 7525360783601509838
+    second: Mage Skeleton - animations-death_41
+  - first:
+      213: -3955027859569156141
+    second: Mage Skeleton - animations-death_42
+  - first:
+      213: 3200586796122778995
+    second: Mage Skeleton - animations-death_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_0
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 71
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c420cfd2d37b0a8a0800000000000000
+      internalID: -6295830805671574964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_1
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 115
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968fb985e2f0ccd00800000000000000
+      internalID: 994186309471565929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_2
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 113
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca1945bc43dd8400800000000000000
+      internalID: 328150674280356557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_3
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 129
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920873e6439e52b30800000000000000
+      internalID: 4262069033772744745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_4
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 111
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c871adf9289d64830800000000000000
+      internalID: 4055167669544556428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_5
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 114
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1362b63a9c1f1f690800000000000000
+      internalID: -7570003650300664271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_6
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 117
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99fcd17cc81b65e40800000000000000
+      internalID: 5644894401149652889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_7
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 115
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e49c4d7fb6698c70800000000000000
+      internalID: 8973816705139381475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_8
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 53
+        width: 71
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d82cd371f5bbaca00800000000000000
+      internalID: 777639902761042573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 71
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 708d28aa29b916c60800000000000000
+      internalID: 7809694283065382919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_10
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 71
+        width: 68
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c3ee19be88e58f0800000000000000
+      internalID: -549851559145620401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_11
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 93
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf8a00be18aa8970800000000000000
+      internalID: 8757997275131318222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_12
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 71
+        width: 67
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3989fe67704ea9a80800000000000000
+      internalID: -8459198229350737773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_13
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 71
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58e66df081c86890800000000000000
+      internalID: -7464503622615242657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_14
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 88
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c42ce377e722520800000000000000
+      internalID: 2675840179230624803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_15
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 58
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0322e919f33a914c0800000000000000
+      internalID: -4316239274436582864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_16
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 54
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9035fe3ec3c7670800000000000000
+      internalID: 8537765943258057155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_17
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 80
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f4c52415c6be290800000000000000
+      internalID: -7860069628383572204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_18
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 74
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c2afb7d4b617530800000000000000
+      internalID: 3850977136915131499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_19
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 55
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ef8ba71ff0dea70800000000000000
+      internalID: 8857753571928112654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_20
+      rect:
+        serializedVersion: 2
+        x: 2063
+        y: 54
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab179f3098422ca0800000000000000
+      internalID: -6043187965598426199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_21
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 54
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b405684888cd74a80800000000000000
+      internalID: -8482568894231982005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_22
+      rect:
+        serializedVersion: 2
+        x: 2503
+        y: 54
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ba6f79547ce0da60800000000000000
+      internalID: 7696911747638061750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_23
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 54
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32eb0274839cbabc0800000000000000
+      internalID: -3770699019443978717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_24
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818585f753d9be050800000000000000
+      internalID: 5830926995656562712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_25
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 70
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed31e4c8e4771180800000000000000
+      internalID: -9144711975268172310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_26
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 56
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b553c2b9b96a3050800000000000000
+      internalID: 5781049317972465075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_27
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 63
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26fa9acd30bdbedf0800000000000000
+      internalID: -149785352953286814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_28
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 58
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf137ea257dc1d60800000000000000
+      internalID: 7862395799596113882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_29
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 62
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab4e18b0edbdcf40800000000000000
+      internalID: 5750461072081308584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_30
+      rect:
+        serializedVersion: 2
+        x: 2049
+        y: 56
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bec3063b7eba7890800000000000000
+      internalID: -7459440396389331276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_31
+      rect:
+        serializedVersion: 2
+        x: 2097
+        y: 61
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 734947cb92fa6e340800000000000000
+      internalID: 4892790638974899255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_32
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 62
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e3363622ade33f0800000000000000
+      internalID: -919057432705810835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_33
+      rect:
+        serializedVersion: 2
+        x: 2269
+        y: 56
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bdff0476f45114a0800000000000000
+      internalID: -6624420159399395912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_34
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 60
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b713e6d395f503b10800000000000000
+      internalID: 1959170674793525627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_35
+      rect:
+        serializedVersion: 2
+        x: 2489
+        y: 56
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9284acb7d25447370800000000000000
+      internalID: 8319350473312847913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_36
+      rect:
+        serializedVersion: 2
+        x: 2537
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683ab6e5a7ca0aa80800000000000000
+      internalID: -8457570458631691386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_37
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 56
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d68e7722659a2ee0800000000000000
+      internalID: -1285050494858918189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_38
+      rect:
+        serializedVersion: 2
+        x: 2757
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 420cde0657862ff80800000000000000
+      internalID: -8074276328575221724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_39
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79235f69c1af02b70800000000000000
+      internalID: 8872366266618557079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_40
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 60
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6737a6325836566c0800000000000000
+      internalID: -4150802058076064906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_41
+      rect:
+        serializedVersion: 2
+        x: 2554
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec52939f2c37f6860800000000000000
+      internalID: 7525360783601509838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_42
+      rect:
+        serializedVersion: 2
+        x: 2765
+        y: 60
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df5b99cd1bec19c0800000000000000
+      internalID: -3955027859569156141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-death_43
+      rect:
+        serializedVersion: 2
+        x: 2774
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37d24bfcbb4ca6c20800000000000000
+      internalID: 3200586796122778995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mage Skeleton - animations-death_0: -6295830805671574964
+      Mage Skeleton - animations-death_1: 994186309471565929
+      Mage Skeleton - animations-death_10: -549851559145620401
+      Mage Skeleton - animations-death_11: 8757997275131318222
+      Mage Skeleton - animations-death_12: -8459198229350737773
+      Mage Skeleton - animations-death_13: -7464503622615242657
+      Mage Skeleton - animations-death_14: 2675840179230624803
+      Mage Skeleton - animations-death_15: -4316239274436582864
+      Mage Skeleton - animations-death_16: 8537765943258057155
+      Mage Skeleton - animations-death_17: -7860069628383572204
+      Mage Skeleton - animations-death_18: 3850977136915131499
+      Mage Skeleton - animations-death_19: 8857753571928112654
+      Mage Skeleton - animations-death_2: 328150674280356557
+      Mage Skeleton - animations-death_20: -6043187965598426199
+      Mage Skeleton - animations-death_21: -8482568894231982005
+      Mage Skeleton - animations-death_22: 7696911747638061750
+      Mage Skeleton - animations-death_23: -3770699019443978717
+      Mage Skeleton - animations-death_24: 5830926995656562712
+      Mage Skeleton - animations-death_25: -9144711975268172310
+      Mage Skeleton - animations-death_26: 5781049317972465075
+      Mage Skeleton - animations-death_27: -149785352953286814
+      Mage Skeleton - animations-death_28: 7862395799596113882
+      Mage Skeleton - animations-death_29: 5750461072081308584
+      Mage Skeleton - animations-death_3: 4262069033772744745
+      Mage Skeleton - animations-death_30: -7459440396389331276
+      Mage Skeleton - animations-death_31: 4892790638974899255
+      Mage Skeleton - animations-death_32: -919057432705810835
+      Mage Skeleton - animations-death_33: -6624420159399395912
+      Mage Skeleton - animations-death_34: 1959170674793525627
+      Mage Skeleton - animations-death_35: 8319350473312847913
+      Mage Skeleton - animations-death_36: -8457570458631691386
+      Mage Skeleton - animations-death_37: -1285050494858918189
+      Mage Skeleton - animations-death_38: -8074276328575221724
+      Mage Skeleton - animations-death_39: 8872366266618557079
+      Mage Skeleton - animations-death_4: 4055167669544556428
+      Mage Skeleton - animations-death_40: -4150802058076064906
+      Mage Skeleton - animations-death_41: 7525360783601509838
+      Mage Skeleton - animations-death_42: -3955027859569156141
+      Mage Skeleton - animations-death_43: 3200586796122778995
+      Mage Skeleton - animations-death_5: -7570003650300664271
+      Mage Skeleton - animations-death_6: 5644894401149652889
+      Mage Skeleton - animations-death_7: 8973816705139381475
+      Mage Skeleton - animations-death_8: 777639902761042573
+      Mage Skeleton - animations-death_9: 7809694283065382919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

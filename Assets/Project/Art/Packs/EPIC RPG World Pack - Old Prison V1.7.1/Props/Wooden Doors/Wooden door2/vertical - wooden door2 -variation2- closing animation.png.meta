@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: b8df1776e74d2c540a39ddd1ad967249
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1051250979972892064
+    second: vertical - wooden door2 -variation2- closing animation_0
+  - first:
+      213: 8430840899048867490
+    second: vertical - wooden door2 -variation2- closing animation_1
+  - first:
+      213: -957251203016266129
+    second: vertical - wooden door2 -variation2- closing animation_2
+  - first:
+      213: 585810157794576628
+    second: vertical - wooden door2 -variation2- closing animation_3
+  - first:
+      213: 4249041637194965286
+    second: vertical - wooden door2 -variation2- closing animation_4
+  - first:
+      213: -2118177878613147109
+    second: vertical - wooden door2 -variation2- closing animation_5
+  - first:
+      213: -3149167244550417831
+    second: vertical - wooden door2 -variation2- closing animation_6
+  - first:
+      213: 4245730924045083005
+    second: vertical - wooden door2 -variation2- closing animation_7
+  - first:
+      213: 1246691317406359307
+    second: vertical - wooden door2 -variation2- closing animation_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 56
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a3fe0bdc43961f0800000000000000
+      internalID: -1051250979972892064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 8
+        width: 52
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a684a1112d500570800000000000000
+      internalID: 8430840899048867490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 8
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e66634a1927b2f0800000000000000
+      internalID: -957251203016266129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_3
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 8
+        width: 40
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f849291c37312800800000000000000
+      internalID: 585810157794576628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_4
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 8
+        width: 30
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 621a9dc4bd0a7fa30800000000000000
+      internalID: 4249041637194965286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_5
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 8
+        width: 14
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b124c262178ba92e0800000000000000
+      internalID: -2118177878613147109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_6
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 8
+        width: 14
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952d64a7319eb44d0800000000000000
+      internalID: -3149167244550417831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_7
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 8
+        width: 14
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d712993d7cddbea30800000000000000
+      internalID: 4245730924045083005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vertical - wooden door2 -variation2- closing animation_8
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 8
+        width: 14
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0fd19ed5232d4110800000000000000
+      internalID: 1246691317406359307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vertical - wooden door2 -variation2- closing animation_0: -1051250979972892064
+      vertical - wooden door2 -variation2- closing animation_1: 8430840899048867490
+      vertical - wooden door2 -variation2- closing animation_2: -957251203016266129
+      vertical - wooden door2 -variation2- closing animation_3: 585810157794576628
+      vertical - wooden door2 -variation2- closing animation_4: 4249041637194965286
+      vertical - wooden door2 -variation2- closing animation_5: -2118177878613147109
+      vertical - wooden door2 -variation2- closing animation_6: -3149167244550417831
+      vertical - wooden door2 -variation2- closing animation_7: 4245730924045083005
+      vertical - wooden door2 -variation2- closing animation_8: 1246691317406359307
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

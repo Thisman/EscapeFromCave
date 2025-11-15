@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 3f6e9c73df1a06f4e826494aaf51730e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7267772870926787686
+    second: blood pool - guide_0
+  - first:
+      213: -8255645061418994698
+    second: blood pool - guide_1
+  - first:
+      213: -244043153036167018
+    second: blood pool - guide_2
+  - first:
+      213: -3363708576534732710
+    second: blood pool - guide_3
+  - first:
+      213: 2928697929932815163
+    second: blood pool - guide_4
+  - first:
+      213: -6307885611052709865
+    second: blood pool - guide_5
+  - first:
+      213: -6644744092705004492
+    second: blood pool - guide_6
+  - first:
+      213: 3845016885932624612
+    second: blood pool - guide_7
+  - first:
+      213: 6235619913824329876
+    second: blood pool - guide_8
+  - first:
+      213: 5778320578880322177
+    second: blood pool - guide_9
+  - first:
+      213: 7208281664776995763
+    second: blood pool - guide_10
+  - first:
+      213: -8828192916650626800
+    second: blood pool - guide_11
+  - first:
+      213: 1855946621121036068
+    second: blood pool - guide_12
+  - first:
+      213: -4401526122664129868
+    second: blood pool - guide_13
+  - first:
+      213: 8380568083269862415
+    second: blood pool - guide_14
+  - first:
+      213: 1780960776729777801
+    second: blood pool - guide_15
+  - first:
+      213: 3211363770195455978
+    second: blood pool - guide_16
+  - first:
+      213: 4472860763945990713
+    second: blood pool - guide_17
+  - first:
+      213: -6055100963283744145
+    second: blood pool - guide_18
+  - first:
+      213: 8457068389337786771
+    second: blood pool - guide_19
+  - first:
+      213: -9173112150234613013
+    second: blood pool - guide_20
+  - first:
+      213: -3956868026462533849
+    second: blood pool - guide_21
+  - first:
+      213: -8355203536392367606
+    second: blood pool - guide_22
+  - first:
+      213: 4780609350845334035
+    second: blood pool - guide_23
+  - first:
+      213: -965054957533490374
+    second: blood pool - guide_24
+  - first:
+      213: 1275528978469391686
+    second: blood pool - guide_25
+  - first:
+      213: -2142200895825158484
+    second: blood pool - guide_26
+  - first:
+      213: 5207896843478686292
+    second: blood pool - guide_27
+  - first:
+      213: -4497697780132461401
+    second: blood pool - guide_28
+  - first:
+      213: -364811437490506131
+    second: blood pool - guide_29
+  - first:
+      213: 7780798179524269363
+    second: blood pool - guide_30
+  - first:
+      213: -3775422347262032183
+    second: blood pool - guide_31
+  - first:
+      213: -9104213673593775696
+    second: blood pool - guide_32
+  - first:
+      213: 393885652565773400
+    second: blood pool - guide_33
+  - first:
+      213: 5639370700074545866
+    second: blood pool - guide_34
+  - first:
+      213: 6998268764444881115
+    second: blood pool - guide_35
+  - first:
+      213: -2778525914627848802
+    second: blood pool - guide_36
+  - first:
+      213: 7336109504514872725
+    second: blood pool - guide_37
+  - first:
+      213: 1491957000327705169
+    second: blood pool - guide_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood pool - guide_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 127
+        width: 162
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664efc77be05cd460800000000000000
+      internalID: 7267772870926787686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 226
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3b9629e8e0e6d80800000000000000
+      internalID: -8255645061418994698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_2
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 95
+        width: 226
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698b9699b0cfc9cf0800000000000000
+      internalID: -244043153036167018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_3
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 95
+        width: 226
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5066bf0fd4b151d0800000000000000
+      internalID: -3363708576534732710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b31181043d4a820800000000000000
+      internalID: 2928697929932815163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 110
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718c7651573e578a0800000000000000
+      internalID: -6307885611052709865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 110
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43461faf37029c3a0800000000000000
+      internalID: -6644744092705004492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_7
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 110
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea84696c7e3c5530800000000000000
+      internalID: 3845016885932624612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 110
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 490e9dd164f598650800000000000000
+      internalID: 6235619913824329876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_9
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 108
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18abd7e93f7b03050800000000000000
+      internalID: 5778320578880322177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_10
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 108
+        width: 58
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b38ef5abf5f80460800000000000000
+      internalID: 7208281664776995763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 86
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0117b6ae055fb7580800000000000000
+      internalID: -8828192916650626800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 86
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f71026e95a1c910800000000000000
+      internalID: 1855946621121036068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_13
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 86
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba800dcf43aae2c0800000000000000
+      internalID: -4401526122664129868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 84
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04c6430542cd4470800000000000000
+      internalID: 8380568083269862415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 84
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 986d1e7f36e37b810800000000000000
+      internalID: 1780960776729777801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_16
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 86
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef2f0f955e019c20800000000000000
+      internalID: 3211363770195455978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_17
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 86
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a78c4aa2bc21e30800000000000000
+      internalID: 4472860763945990713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 86
+        width: 36
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ac85451c5f7fba0800000000000000
+      internalID: -6055100963283744145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 69
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399e9a384ea8d5570800000000000000
+      internalID: 8457068389337786771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_20
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 69
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea3270c91f82b080800000000000000
+      internalID: -9173112150234613013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_21
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 69
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727899b8e716619c0800000000000000
+      internalID: -3956868026462533849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_22
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 69
+        width: 29
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02de33c6aa5c0c80800000000000000
+      internalID: -8355203536392367606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_23
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 68
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3120c0730e2285240800000000000000
+      internalID: 4780609350845334035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_24
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 68
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a339c7311af6b92f0800000000000000
+      internalID: -965054957533490374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_25
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 68
+        width: 55
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d826e09d693b110800000000000000
+      internalID: 1275528978469391686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_26
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 68
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae51d692af5542e0800000000000000
+      internalID: -2142200895825158484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_27
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 68
+        width: 45
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45adc66269a264840800000000000000
+      internalID: 5207896843478686292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51
+        width: 49
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a44424e2b7f491c0800000000000000
+      internalID: -4497697780132461401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_29
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 51
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66f0623eedefeaf0800000000000000
+      internalID: -364811437490506131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_30
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 51
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335dc8748b2fafb60800000000000000
+      internalID: 7780798179524269363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_31
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 51
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c60062d0610b9bc0800000000000000
+      internalID: -3775422347262032183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_32
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 49
+        width: 62
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9503a66e557a180800000000000000
+      internalID: -9104213673593775696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_33
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 51
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c4e430aec577500800000000000000
+      internalID: 393885652565773400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_34
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 51
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac270b6e5c1134e40800000000000000
+      internalID: 5639370700074545866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_35
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0f273ec58de1160800000000000000
+      internalID: 6998268764444881115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_36
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 34
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e95c363e661b079d0800000000000000
+      internalID: -2778525914627848802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_37
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 34
+        width: 44
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595d9f9d9b81fc560800000000000000
+      internalID: 7336109504514872725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - guide_38
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 34
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152b0b0bcfe74b410800000000000000
+      internalID: 1491957000327705169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blood pool - guide_0: 7267772870926787686
+      blood pool - guide_1: -8255645061418994698
+      blood pool - guide_10: 7208281664776995763
+      blood pool - guide_11: -8828192916650626800
+      blood pool - guide_12: 1855946621121036068
+      blood pool - guide_13: -4401526122664129868
+      blood pool - guide_14: 8380568083269862415
+      blood pool - guide_15: 1780960776729777801
+      blood pool - guide_16: 3211363770195455978
+      blood pool - guide_17: 4472860763945990713
+      blood pool - guide_18: -6055100963283744145
+      blood pool - guide_19: 8457068389337786771
+      blood pool - guide_2: -244043153036167018
+      blood pool - guide_20: -9173112150234613013
+      blood pool - guide_21: -3956868026462533849
+      blood pool - guide_22: -8355203536392367606
+      blood pool - guide_23: 4780609350845334035
+      blood pool - guide_24: -965054957533490374
+      blood pool - guide_25: 1275528978469391686
+      blood pool - guide_26: -2142200895825158484
+      blood pool - guide_27: 5207896843478686292
+      blood pool - guide_28: -4497697780132461401
+      blood pool - guide_29: -364811437490506131
+      blood pool - guide_3: -3363708576534732710
+      blood pool - guide_30: 7780798179524269363
+      blood pool - guide_31: -3775422347262032183
+      blood pool - guide_32: -9104213673593775696
+      blood pool - guide_33: 393885652565773400
+      blood pool - guide_34: 5639370700074545866
+      blood pool - guide_35: 6998268764444881115
+      blood pool - guide_36: -2778525914627848802
+      blood pool - guide_37: 7336109504514872725
+      blood pool - guide_38: 1491957000327705169
+      blood pool - guide_4: 2928697929932815163
+      blood pool - guide_5: -6307885611052709865
+      blood pool - guide_6: -6644744092705004492
+      blood pool - guide_7: 3845016885932624612
+      blood pool - guide_8: 6235619913824329876
+      blood pool - guide_9: 5778320578880322177
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

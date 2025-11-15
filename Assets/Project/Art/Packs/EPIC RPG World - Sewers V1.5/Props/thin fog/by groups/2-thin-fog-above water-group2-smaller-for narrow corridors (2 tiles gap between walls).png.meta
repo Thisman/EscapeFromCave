@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: fb84de38e30687345b67db6a62d53d84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7002278317241379233
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_0
+  - first:
+      213: -1764069165939683371
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_1
+  - first:
+      213: 5645006779758266115
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_2
+  - first:
+      213: -6332219199671531417
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_3
+  - first:
+      213: 6551167987713817565
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_4
+  - first:
+      213: -45504364221441940
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_5
+  - first:
+      213: 4354858986241469189
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_6
+  - first:
+      213: -7175115495832946661
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_7
+  - first:
+      213: -8657949619386092880
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_8
+  - first:
+      213: 7854157521753603463
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_9
+  - first:
+      213: 8003232797260918578
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_10
+  - first:
+      213: -7692163059066519425
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_11
+  - first:
+      213: -5577118272597023130
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_12
+  - first:
+      213: 4326567770830228917
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_13
+  - first:
+      213: -2063849951788113018
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_14
+  - first:
+      213: -7893054275899691570
+    second: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+      between walls)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56586a58f8e2de90800000000000000
+      internalID: -7002278317241379233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df02f4a074c487e0800000000000000
+      internalID: -1764069165939683371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307c926f1c7175e40800000000000000
+      internalID: 5645006779758266115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_3
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 25
+        width: 103
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7688babff207f18a0800000000000000
+      internalID: -6332219199671531417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_4
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 25
+        width: 103
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbb793439c6aea50800000000000000
+      internalID: 6551167987713817565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_5
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 25
+        width: 103
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68d9d695065e5ff0800000000000000
+      internalID: -45504364221441940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_6
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 25
+        width: 103
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b27d9cc219f6c30800000000000000
+      internalID: 4354858986241469189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_7
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 25
+        width: 103
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18f970d87edc6c90800000000000000
+      internalID: -7175115495832946661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_8
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 25
+        width: 103
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2734561b8c8d780800000000000000
+      internalID: -8657949619386092880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_9
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 25
+        width: 103
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78df51627a29ffc60800000000000000
+      internalID: 7854157521753603463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_10
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 25
+        width: 103
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f2e7f73d1311f60800000000000000
+      internalID: 8003232797260918578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_11
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 25
+        width: 103
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7045fdd372ff3590800000000000000
+      internalID: -7692163059066519425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_12
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 25
+        width: 103
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 666a38bda781a92b0800000000000000
+      internalID: -5577118272597023130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_13
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd4df4e67e0b0c30800000000000000
+      internalID: 4326567770830228917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_14
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68366f1576bbb53e0800000000000000
+      internalID: -2063849951788113018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap
+        between walls)_15
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 25
+        width: 102
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecdee1c84fc367290800000000000000
+      internalID: -7893054275899691570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_0: -7002278317241379233
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_1: -1764069165939683371
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_10: 8003232797260918578
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_11: -7692163059066519425
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_12: -5577118272597023130
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_13: 4326567770830228917
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_14: -2063849951788113018
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_15: -7893054275899691570
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_2: 5645006779758266115
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_3: -6332219199671531417
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_4: 6551167987713817565
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_5: -45504364221441940
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_6: 4354858986241469189
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_7: -7175115495832946661
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_8: -8657949619386092880
+      2-thin-fog-above water-group2-smaller-for narrow corridors (2 tiles gap between walls)_9: 7854157521753603463
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1118 @@
+fileFormatVersion: 2
+guid: 456e800d14ce2c8419e8e822a70170df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5263421192966364893
+    second: altar-lightning fx_0
+  - first:
+      213: 1851117561541966143
+    second: altar-lightning fx_1
+  - first:
+      213: 6720041169866974008
+    second: altar-lightning fx_2
+  - first:
+      213: -22195772483668113
+    second: altar-lightning fx_3
+  - first:
+      213: 2238100432164243233
+    second: altar-lightning fx_4
+  - first:
+      213: -7477096517196437897
+    second: altar-lightning fx_5
+  - first:
+      213: -6596430220586757449
+    second: altar-lightning fx_6
+  - first:
+      213: -3739551032538099678
+    second: altar-lightning fx_7
+  - first:
+      213: 8556762755758278528
+    second: altar-lightning fx_8
+  - first:
+      213: 8856083433045833652
+    second: altar-lightning fx_9
+  - first:
+      213: -2507446003140719977
+    second: altar-lightning fx_10
+  - first:
+      213: -5318209142930660896
+    second: altar-lightning fx_11
+  - first:
+      213: 4034958582502394795
+    second: altar-lightning fx_12
+  - first:
+      213: 6327990858973649438
+    second: altar-lightning fx_13
+  - first:
+      213: 8219442655429345055
+    second: altar-lightning fx_14
+  - first:
+      213: 3945237464960798984
+    second: altar-lightning fx_15
+  - first:
+      213: 8049017730690677123
+    second: altar-lightning fx_16
+  - first:
+      213: -7711523098503306003
+    second: altar-lightning fx_17
+  - first:
+      213: -5620389558528540917
+    second: altar-lightning fx_18
+  - first:
+      213: -3166210457650964332
+    second: altar-lightning fx_19
+  - first:
+      213: 1010386884344947386
+    second: altar-lightning fx_20
+  - first:
+      213: 3906444102881637943
+    second: altar-lightning fx_21
+  - first:
+      213: -8171824525902607412
+    second: altar-lightning fx_22
+  - first:
+      213: -5135306509944191617
+    second: altar-lightning fx_23
+  - first:
+      213: -7992060038175027243
+    second: altar-lightning fx_24
+  - first:
+      213: -6904096949134117456
+    second: altar-lightning fx_25
+  - first:
+      213: 8187911456176841274
+    second: altar-lightning fx_26
+  - first:
+      213: -1276041094250743919
+    second: altar-lightning fx_27
+  - first:
+      213: -8211586436838119966
+    second: altar-lightning fx_28
+  - first:
+      213: -1658207753258602297
+    second: altar-lightning fx_29
+  - first:
+      213: 3790195729527918225
+    second: altar-lightning fx_30
+  - first:
+      213: 2846516734016811089
+    second: altar-lightning fx_31
+  - first:
+      213: 4243488607730137788
+    second: altar-lightning fx_32
+  - first:
+      213: 8791564472593481096
+    second: altar-lightning fx_33
+  - first:
+      213: 5433885203209975879
+    second: altar-lightning fx_34
+  - first:
+      213: -9044765940786903760
+    second: altar-lightning fx_35
+  - first:
+      213: 1965411340027436470
+    second: altar-lightning fx_36
+  - first:
+      213: 8637092867409599305
+    second: altar-lightning fx_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: altar-lightning fx_0
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 49
+        width: 80
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3212af1df4294f6b0800000000000000
+      internalID: -5263421192966364893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_1
+      rect:
+        serializedVersion: 2
+        x: 2743
+        y: 32
+        width: 110
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3932355d9d70b910800000000000000
+      internalID: 1851117561541966143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_2
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 44
+        width: 69
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833ebe5f6d1624d50800000000000000
+      internalID: 6720041169866974008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_3
+      rect:
+        serializedVersion: 2
+        x: 3191
+        y: 31
+        width: 110
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f677891001521bff0800000000000000
+      internalID: -22195772483668113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_4
+      rect:
+        serializedVersion: 2
+        x: 3415
+        y: 44
+        width: 110
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1274cce2c745f0f10800000000000000
+      internalID: 2238100432164243233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_5
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 123
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776223d35540c3890800000000000000
+      internalID: -7477096517196437897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_6
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 118
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2564ce9a5c474a0800000000000000
+      internalID: -6596430220586757449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_7
+      rect:
+        serializedVersion: 2
+        x: 3652
+        y: 123
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2201f1e16227a1cc0800000000000000
+      internalID: -3739551032538099678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_8
+      rect:
+        serializedVersion: 2
+        x: 3667
+        y: 123
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087c344046abfb670800000000000000
+      internalID: 8556762755758278528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_9
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 124
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b73be7f5f027ea70800000000000000
+      internalID: 8856083433045833652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_10
+      rect:
+        serializedVersion: 2
+        x: 3685
+        y: 117
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a03592523c33dd0800000000000000
+      internalID: -2507446003140719977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_11
+      rect:
+        serializedVersion: 2
+        x: 3716
+        y: 113
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e1226a26fce136b0800000000000000
+      internalID: -5318209142930660896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_12
+      rect:
+        serializedVersion: 2
+        x: 3728
+        y: 125
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab0871e37d0ff730800000000000000
+      internalID: 4034958582502394795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_13
+      rect:
+        serializedVersion: 2
+        x: 3733
+        y: 120
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a1b0bb82a81d750800000000000000
+      internalID: 6327990858973649438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_14
+      rect:
+        serializedVersion: 2
+        x: 3740
+        y: 126
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1f3f80fb83511270800000000000000
+      internalID: 8219442655429345055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_15
+      rect:
+        serializedVersion: 2
+        x: 3864
+        y: 44
+        width: 316
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8011d85529c40c630800000000000000
+      internalID: 3945237464960798984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_16
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 59
+        width: 1573
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38973a40bfad3bf60800000000000000
+      internalID: 8049017730690677123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_17
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 111
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4ad7c699a2bf490800000000000000
+      internalID: -7711523098503306003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_18
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 111
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f7790897d5002b0800000000000000
+      internalID: -5620389558528540917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_19
+      rect:
+        serializedVersion: 2
+        x: 3659
+        y: 115
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49856933d5c5f04d0800000000000000
+      internalID: -3166210457650964332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_20
+      rect:
+        serializedVersion: 2
+        x: 3670
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2281f948d950e00800000000000000
+      internalID: 1010386884344947386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_21
+      rect:
+        serializedVersion: 2
+        x: 3699
+        y: 99
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736fd2fd63a763630800000000000000
+      internalID: 3906444102881637943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_22
+      rect:
+        serializedVersion: 2
+        x: 3709
+        y: 111
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb00cec3e8d79e80800000000000000
+      internalID: -8171824525902607412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_23
+      rect:
+        serializedVersion: 2
+        x: 3666
+        y: 92
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75860eefe9bbb8b0800000000000000
+      internalID: -5135306509944191617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_24
+      rect:
+        serializedVersion: 2
+        x: 3676
+        y: 99
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df8bf03dbf761190800000000000000
+      internalID: -7992060038175027243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_25
+      rect:
+        serializedVersion: 2
+        x: 3680
+        y: 95
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5b00c7768bf20a0800000000000000
+      internalID: -6904096949134117456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_26
+      rect:
+        serializedVersion: 2
+        x: 3704
+        y: 83
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a32a5c5861e41a170800000000000000
+      internalID: 8187911456176841274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_27
+      rect:
+        serializedVersion: 2
+        x: 3649
+        y: 80
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1973262b2679a4ee0800000000000000
+      internalID: -1276041094250743919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_28
+      rect:
+        serializedVersion: 2
+        x: 3666
+        y: 84
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e529dd74a59a0e80800000000000000
+      internalID: -8211586436838119966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_29
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 46
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0f83f75dcdcf8e0800000000000000
+      internalID: -1658207753258602297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_30
+      rect:
+        serializedVersion: 2
+        x: 3653
+        y: 63
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ec6b74fea799430800000000000000
+      internalID: 3790195729527918225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_31
+      rect:
+        serializedVersion: 2
+        x: 3930
+        y: 68
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150f64a53ebd08720800000000000000
+      internalID: 2846516734016811089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_32
+      rect:
+        serializedVersion: 2
+        x: 3949
+        y: 65
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbafb20e766e3ea30800000000000000
+      internalID: 4243488607730137788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_33
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 55
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88df0e0ee49e10a70800000000000000
+      internalID: 8791564472593481096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_34
+      rect:
+        serializedVersion: 2
+        x: 3952
+        y: 51
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748f4976dc9096b40800000000000000
+      internalID: 5433885203209975879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_35
+      rect:
+        serializedVersion: 2
+        x: 3421
+        y: 32
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03548de4c498a7280800000000000000
+      internalID: -9044765940786903760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_36
+      rect:
+        serializedVersion: 2
+        x: 3425
+        y: 40
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd1cd7533b864b10800000000000000
+      internalID: 1965411340027436470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-lightning fx_37
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 36
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b520e933e1dd770800000000000000
+      internalID: 8637092867409599305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      altar-lightning fx_0: -5263421192966364893
+      altar-lightning fx_1: 1851117561541966143
+      altar-lightning fx_10: -2507446003140719977
+      altar-lightning fx_11: -5318209142930660896
+      altar-lightning fx_12: 4034958582502394795
+      altar-lightning fx_13: 6327990858973649438
+      altar-lightning fx_14: 8219442655429345055
+      altar-lightning fx_15: 3945237464960798984
+      altar-lightning fx_16: 8049017730690677123
+      altar-lightning fx_17: -7711523098503306003
+      altar-lightning fx_18: -5620389558528540917
+      altar-lightning fx_19: -3166210457650964332
+      altar-lightning fx_2: 6720041169866974008
+      altar-lightning fx_20: 1010386884344947386
+      altar-lightning fx_21: 3906444102881637943
+      altar-lightning fx_22: -8171824525902607412
+      altar-lightning fx_23: -5135306509944191617
+      altar-lightning fx_24: -7992060038175027243
+      altar-lightning fx_25: -6904096949134117456
+      altar-lightning fx_26: 8187911456176841274
+      altar-lightning fx_27: -1276041094250743919
+      altar-lightning fx_28: -8211586436838119966
+      altar-lightning fx_29: -1658207753258602297
+      altar-lightning fx_3: -22195772483668113
+      altar-lightning fx_30: 3790195729527918225
+      altar-lightning fx_31: 2846516734016811089
+      altar-lightning fx_32: 4243488607730137788
+      altar-lightning fx_33: 8791564472593481096
+      altar-lightning fx_34: 5433885203209975879
+      altar-lightning fx_35: -9044765940786903760
+      altar-lightning fx_36: 1965411340027436470
+      altar-lightning fx_37: 8637092867409599305
+      altar-lightning fx_4: 2238100432164243233
+      altar-lightning fx_5: -7477096517196437897
+      altar-lightning fx_6: -6596430220586757449
+      altar-lightning fx_7: -3739551032538099678
+      altar-lightning fx_8: 8556762755758278528
+      altar-lightning fx_9: 8856083433045833652
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

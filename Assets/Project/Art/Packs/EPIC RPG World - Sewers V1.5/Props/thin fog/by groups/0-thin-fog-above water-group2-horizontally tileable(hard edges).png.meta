@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d9b87a62a9b80ea4abbe579b08527eed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 739719047520352158
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_0
+  - first:
+      213: -2040710595971374938
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_1
+  - first:
+      213: 966040545024529817
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_2
+  - first:
+      213: -4695766638407461509
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_3
+  - first:
+      213: 6959583735691898443
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_4
+  - first:
+      213: 1788505853765209086
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_5
+  - first:
+      213: 5676508425392109453
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_6
+  - first:
+      213: -690444187881024501
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_7
+  - first:
+      213: 5490043145921479292
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_8
+  - first:
+      213: -7470443914915944538
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_9
+  - first:
+      213: -8418586522711080346
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_10
+  - first:
+      213: 526929506047563119
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_11
+  - first:
+      213: 870269429119976114
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_12
+  - first:
+      213: -8912679806105682034
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_13
+  - first:
+      213: 1043681996020590220
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_14
+  - first:
+      213: 2209170152701147293
+    second: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e977a05fd82044a00800000000000000
+      internalID: 739719047520352158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a020cd6680fda3e0800000000000000
+      internalID: -2040710595971374938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995dfc4e1c0186d00800000000000000
+      internalID: 966040545024529817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75d7912f1945deb0800000000000000
+      internalID: -4695766638407461509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_4
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e608eb888659060800000000000000
+      internalID: 6959583735691898443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_5
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efbc16c199c02d810800000000000000
+      internalID: 1788505853765209086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_6
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d873204665207ce40800000000000000
+      internalID: 5676508425392109453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_7
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b045e145bac0b66f0800000000000000
+      internalID: -690444187881024501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_8
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72c73a572d803c40800000000000000
+      internalID: 5490043145921479292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_9
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7e4f8e6d6a35890800000000000000
+      internalID: -7470443914915944538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_10
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 24
+        width: 125
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6624ae2492c2b2b80800000000000000
+      internalID: -8418586522711080346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_11
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6513ad0897005700800000000000000
+      internalID: 526929506047563119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_12
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b204955f61d31c00800000000000000
+      internalID: 870269429119976114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_13
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ff54010fccf4480800000000000000
+      internalID: -8912679806105682034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_14
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c862747ee37eb7e00800000000000000
+      internalID: 1043681996020590220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above water-group2-horizontally tileable(hard edges)_15
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 24
+        width: 125
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98b5289c8c88ae10800000000000000
+      internalID: 2209170152701147293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_0: 739719047520352158
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_1: -2040710595971374938
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_10: -8418586522711080346
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_11: 526929506047563119
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_12: 870269429119976114
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_13: -8912679806105682034
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_14: 1043681996020590220
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_15: 2209170152701147293
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_2: 966040545024529817
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_3: -4695766638407461509
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_4: 6959583735691898443
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_5: 1788505853765209086
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_6: 5676508425392109453
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_7: -690444187881024501
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_8: 5490043145921479292
+      0-thin-fog-above water-group2-horizontally tileable(hard edges)_9: -7470443914915944538
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

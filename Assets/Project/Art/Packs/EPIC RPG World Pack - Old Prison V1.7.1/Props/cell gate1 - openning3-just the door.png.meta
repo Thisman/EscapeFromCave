@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: cdedce391175f4e43a81a04e20273b2c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8342930466542991530
+    second: cell gate1 - openning3-just the door_0
+  - first:
+      213: -7811378860626540893
+    second: cell gate1 - openning3-just the door_1
+  - first:
+      213: -5150030752996213796
+    second: cell gate1 - openning3-just the door_2
+  - first:
+      213: -4777467055215147376
+    second: cell gate1 - openning3-just the door_3
+  - first:
+      213: -8470505605080358797
+    second: cell gate1 - openning3-just the door_4
+  - first:
+      213: 1138946931669114960
+    second: cell gate1 - openning3-just the door_5
+  - first:
+      213: -6905013983874784905
+    second: cell gate1 - openning3-just the door_6
+  - first:
+      213: -3019412731223529138
+    second: cell gate1 - openning3-just the door_7
+  - first:
+      213: -2947836305701474167
+    second: cell gate1 - openning3-just the door_8
+  - first:
+      213: -341663671217947823
+    second: cell gate1 - openning3-just the door_9
+  - first:
+      213: -2174339155733968343
+    second: cell gate1 - openning3-just the door_10
+  - first:
+      213: 2566934904272737293
+    second: cell gate1 - openning3-just the door_11
+  - first:
+      213: -8700803764963106974
+    second: cell gate1 - openning3-just the door_12
+  - first:
+      213: 5530192644513647342
+    second: cell gate1 - openning3-just the door_13
+  - first:
+      213: -5479696348654891977
+    second: cell gate1 - openning3-just the door_14
+  - first:
+      213: 4675272910043395011
+    second: cell gate1 - openning3-just the door_15
+  - first:
+      213: -1394510221788118440
+    second: cell gate1 - openning3-just the door_16
+  - first:
+      213: 5192103173492818935
+    second: cell gate1 - openning3-just the door_17
+  - first:
+      213: 1181752546421705125
+    second: cell gate1 - openning3-just the door_18
+  - first:
+      213: 8588556437788834943
+    second: cell gate1 - openning3-just the door_19
+  - first:
+      213: -9095216035654350029
+    second: cell gate1 - openning3-just the door_20
+  - first:
+      213: 7790919551008016504
+    second: cell gate1 - openning3-just the door_21
+  - first:
+      213: 1583758455613969420
+    second: cell gate1 - openning3-just the door_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 10
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657cbe381f4f73c80800000000000000
+      internalID: -8342930466542991530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_1
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 12
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a60c5e0058689390800000000000000
+      internalID: -7811378860626540893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 15
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbb251f05a6788b0800000000000000
+      internalID: -5150030752996213796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_3
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 18
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09605cf760703bdb0800000000000000
+      internalID: -4777467055215147376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_4
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 22
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370ea35e708b27a80800000000000000
+      internalID: -8470505605080358797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_5
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 26
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050a820333a5ecf00800000000000000
+      internalID: 1138946931669114960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_6
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 29
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771e902bd567c20a0800000000000000
+      internalID: -6905013983874784905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_7
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 33
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4921255e14e816d0800000000000000
+      internalID: -3019412731223529138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_8
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 36
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980f9ae8f7e2717d0800000000000000
+      internalID: -2947836305701474167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_9
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 38
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bf56483ba224bf0800000000000000
+      internalID: -341663671217947823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_10
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 41
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a0149de0233d1e0800000000000000
+      internalID: -2174339155733968343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_11
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 44
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d045abaf1b59f9320800000000000000
+      internalID: 2566934904272737293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_12
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 47
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f1ef81319804780800000000000000
+      internalID: -8700803764963106974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_13
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 49
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeac6b3f8e03fbc40800000000000000
+      internalID: 5530192644513647342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_14
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 52
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c8b6d143534f3b0800000000000000
+      internalID: -5479696348654891977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_15
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 56
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3b427e0f7e1e040800000000000000
+      internalID: 4675272910043395011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_16
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 59
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8520baa7754b5ace0800000000000000
+      internalID: -1394510221788118440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_17
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 61
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3c73dc35e0e0840800000000000000
+      internalID: 5192103173492818935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_18
+      rect:
+        serializedVersion: 2
+        x: 2332
+        y: 64
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a901e50ead666010800000000000000
+      internalID: 1181752546421705125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_19
+      rect:
+        serializedVersion: 2
+        x: 2460
+        y: 68
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c3cc7739ea03770800000000000000
+      internalID: 8588556437788834943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_20
+      rect:
+        serializedVersion: 2
+        x: 2588
+        y: 72
+        width: 74
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33bc26f343d47c180800000000000000
+      internalID: -9095216035654350029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_21
+      rect:
+        serializedVersion: 2
+        x: 2716
+        y: 70
+        width: 74
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8788a77bd08ee1c60800000000000000
+      internalID: 7790919551008016504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate1 - openning3-just the door_22
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 71
+        width: 74
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0454ec9ce3aaf510800000000000000
+      internalID: 1583758455613969420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cell gate1 - openning3-just the door_0: -8342930466542991530
+      cell gate1 - openning3-just the door_1: -7811378860626540893
+      cell gate1 - openning3-just the door_10: -2174339155733968343
+      cell gate1 - openning3-just the door_11: 2566934904272737293
+      cell gate1 - openning3-just the door_12: -8700803764963106974
+      cell gate1 - openning3-just the door_13: 5530192644513647342
+      cell gate1 - openning3-just the door_14: -5479696348654891977
+      cell gate1 - openning3-just the door_15: 4675272910043395011
+      cell gate1 - openning3-just the door_16: -1394510221788118440
+      cell gate1 - openning3-just the door_17: 5192103173492818935
+      cell gate1 - openning3-just the door_18: 1181752546421705125
+      cell gate1 - openning3-just the door_19: 8588556437788834943
+      cell gate1 - openning3-just the door_2: -5150030752996213796
+      cell gate1 - openning3-just the door_20: -9095216035654350029
+      cell gate1 - openning3-just the door_21: 7790919551008016504
+      cell gate1 - openning3-just the door_22: 1583758455613969420
+      cell gate1 - openning3-just the door_3: -4777467055215147376
+      cell gate1 - openning3-just the door_4: -8470505605080358797
+      cell gate1 - openning3-just the door_5: 1138946931669114960
+      cell gate1 - openning3-just the door_6: -6905013983874784905
+      cell gate1 - openning3-just the door_7: -3019412731223529138
+      cell gate1 - openning3-just the door_8: -2947836305701474167
+      cell gate1 - openning3-just the door_9: -341663671217947823
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

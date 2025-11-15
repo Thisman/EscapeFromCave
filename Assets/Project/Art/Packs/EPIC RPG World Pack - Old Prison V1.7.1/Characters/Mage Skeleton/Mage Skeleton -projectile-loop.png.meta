@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: fe86704409516684f996d86d676d7052
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 822735027703761384
+    second: Mage Skeleton -projectile-loop_0
+  - first:
+      213: 1215684369460121293
+    second: Mage Skeleton -projectile-loop_1
+  - first:
+      213: -2936587608170341768
+    second: Mage Skeleton -projectile-loop_2
+  - first:
+      213: -2300775599949219733
+    second: Mage Skeleton -projectile-loop_3
+  - first:
+      213: -3336088641136289959
+    second: Mage Skeleton -projectile-loop_4
+  - first:
+      213: -7136797488933534821
+    second: Mage Skeleton -projectile-loop_5
+  - first:
+      213: -7379880922466093248
+    second: Mage Skeleton -projectile-loop_6
+  - first:
+      213: 6490200001469484882
+    second: Mage Skeleton -projectile-loop_7
+  - first:
+      213: -1239216905605409279
+    second: Mage Skeleton -projectile-loop_8
+  - first:
+      213: 2112775020955183452
+    second: Mage Skeleton -projectile-loop_9
+  - first:
+      213: -1420973184008925286
+    second: Mage Skeleton -projectile-loop_10
+  - first:
+      213: -8313567414014938387
+    second: Mage Skeleton -projectile-loop_11
+  - first:
+      213: -5382967346523853993
+    second: Mage Skeleton -projectile-loop_12
+  - first:
+      213: 6584104465186578733
+    second: Mage Skeleton -projectile-loop_13
+  - first:
+      213: -6923198040682443304
+    second: Mage Skeleton -projectile-loop_14
+  - first:
+      213: 3850065503041329294
+    second: Mage Skeleton -projectile-loop_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 21
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9cd8e0621fa6b00800000000000000
+      internalID: 822735027703761384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 15
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce4aa83e7afed010800000000000000
+      internalID: 1215684369460121293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 21
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a513b01252f37d0800000000000000
+      internalID: -2936587608170341768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 18
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68f32928c00210e0800000000000000
+      internalID: -2300775599949219733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 18
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9571bd56e05d3b1d0800000000000000
+      internalID: -3336088641136289959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 21
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9387360f7005fc90800000000000000
+      internalID: -7136797488933534821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 21
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047f9bbb665659990800000000000000
+      internalID: -7379880922466093248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_7
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 16
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f04d8c382d11a50800000000000000
+      internalID: 6490200001469484882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_8
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 16
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1061bbd3aca6dcee0800000000000000
+      internalID: -1239216905605409279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 33
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c592a5600b5125d10800000000000000
+      internalID: 2112775020955183452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_10
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 15
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9fcac3fa60b74ce0800000000000000
+      internalID: -1420973184008925286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_11
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 21
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2706feb7640ac80800000000000000
+      internalID: -8313567414014938387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_12
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 14
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b2be0f7bbdb45b0800000000000000
+      internalID: -5382967346523853993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_13
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 32
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21628380207f5b50800000000000000
+      internalID: 6584104465186578733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_14
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 18
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd417b001cdbef90800000000000000
+      internalID: -6923198040682443304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton -projectile-loop_15
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 21
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8893ce2d2e2e6530800000000000000
+      internalID: 3850065503041329294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mage Skeleton -projectile-loop_0: 822735027703761384
+      Mage Skeleton -projectile-loop_1: 1215684369460121293
+      Mage Skeleton -projectile-loop_10: -1420973184008925286
+      Mage Skeleton -projectile-loop_11: -8313567414014938387
+      Mage Skeleton -projectile-loop_12: -5382967346523853993
+      Mage Skeleton -projectile-loop_13: 6584104465186578733
+      Mage Skeleton -projectile-loop_14: -6923198040682443304
+      Mage Skeleton -projectile-loop_15: 3850065503041329294
+      Mage Skeleton -projectile-loop_2: -2936587608170341768
+      Mage Skeleton -projectile-loop_3: -2300775599949219733
+      Mage Skeleton -projectile-loop_4: -3336088641136289959
+      Mage Skeleton -projectile-loop_5: -7136797488933534821
+      Mage Skeleton -projectile-loop_6: -7379880922466093248
+      Mage Skeleton -projectile-loop_7: 6490200001469484882
+      Mage Skeleton -projectile-loop_8: -1239216905605409279
+      Mage Skeleton -projectile-loop_9: 2112775020955183452
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

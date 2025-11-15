@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: feed9b4cb8ab0ff47afb698f5f16433e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5795506726828341247
+    second: wooden chest anim - vertical-opening-color scheme1_0
+  - first:
+      213: -1927515919482632978
+    second: wooden chest anim - vertical-opening-color scheme1_1
+  - first:
+      213: -773126110674873959
+    second: wooden chest anim - vertical-opening-color scheme1_2
+  - first:
+      213: 7901156662071007133
+    second: wooden chest anim - vertical-opening-color scheme1_3
+  - first:
+      213: -4440667144989178237
+    second: wooden chest anim - vertical-opening-color scheme1_4
+  - first:
+      213: 7640254167670734687
+    second: wooden chest anim - vertical-opening-color scheme1_5
+  - first:
+      213: 4568249074469677791
+    second: wooden chest anim - vertical-opening-color scheme1_6
+  - first:
+      213: 5051358537555755681
+    second: wooden chest anim - vertical-opening-color scheme1_7
+  - first:
+      213: 2483184147880997034
+    second: wooden chest anim - vertical-opening-color scheme1_8
+  - first:
+      213: 1261567363591001676
+    second: wooden chest anim - vertical-opening-color scheme1_9
+  - first:
+      213: 7493800821749795079
+    second: wooden chest anim - vertical-opening-color scheme1_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 36
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108820e7659329fa0800000000000000
+      internalID: -5795506726828341247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 36
+        width: 35
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4c350db761045e0800000000000000
+      internalID: -1927515919482632978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 36
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99115a606ed4545f0800000000000000
+      internalID: -773126110674873959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_3
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 36
+        width: 33
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97147d3f1c86ad60800000000000000
+      internalID: 7901156662071007133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_4
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 36
+        width: 33
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3860c2162c49f52c0800000000000000
+      internalID: -4440667144989178237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_5
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 36
+        width: 33
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f36b98fa2a70a60800000000000000
+      internalID: 7640254167670734687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_6
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 36
+        width: 35
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdaa541645ea56f30800000000000000
+      internalID: 4568249074469677791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_7
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 36
+        width: 33
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2c520a3d70a1640800000000000000
+      internalID: 5051358537555755681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_8
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 36
+        width: 33
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0f35673da067220800000000000000
+      internalID: 2483184147880997034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_9
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 36
+        width: 33
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46511745dcf18110800000000000000
+      internalID: 1261567363591001676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wooden chest anim - vertical-opening-color scheme1_10
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 36
+        width: 33
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7094dedb4245ff760800000000000000
+      internalID: 7493800821749795079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wooden chest anim - vertical-opening-color scheme1_0: -5795506726828341247
+      wooden chest anim - vertical-opening-color scheme1_1: -1927515919482632978
+      wooden chest anim - vertical-opening-color scheme1_10: 7493800821749795079
+      wooden chest anim - vertical-opening-color scheme1_2: -773126110674873959
+      wooden chest anim - vertical-opening-color scheme1_3: 7901156662071007133
+      wooden chest anim - vertical-opening-color scheme1_4: -4440667144989178237
+      wooden chest anim - vertical-opening-color scheme1_5: 7640254167670734687
+      wooden chest anim - vertical-opening-color scheme1_6: 4568249074469677791
+      wooden chest anim - vertical-opening-color scheme1_7: 5051358537555755681
+      wooden chest anim - vertical-opening-color scheme1_8: 2483184147880997034
+      wooden chest anim - vertical-opening-color scheme1_9: 1261567363591001676
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

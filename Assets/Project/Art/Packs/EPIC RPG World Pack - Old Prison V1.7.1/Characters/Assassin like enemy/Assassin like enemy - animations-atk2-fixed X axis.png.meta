@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: f4c795e4dfa75b249bb0d1e813c2eb1d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4901651627429789007
+    second: Assassin like enemy - animations-atk2-fixed X axis_0
+  - first:
+      213: -5126587847544392079
+    second: Assassin like enemy - animations-atk2-fixed X axis_1
+  - first:
+      213: 7779932136452920730
+    second: Assassin like enemy - animations-atk2-fixed X axis_2
+  - first:
+      213: 2151843107886624174
+    second: Assassin like enemy - animations-atk2-fixed X axis_3
+  - first:
+      213: -4090888424202112117
+    second: Assassin like enemy - animations-atk2-fixed X axis_4
+  - first:
+      213: -3274113810597019386
+    second: Assassin like enemy - animations-atk2-fixed X axis_5
+  - first:
+      213: -2670839990573541490
+    second: Assassin like enemy - animations-atk2-fixed X axis_6
+  - first:
+      213: 7722800562163013931
+    second: Assassin like enemy - animations-atk2-fixed X axis_7
+  - first:
+      213: 3795282043265572661
+    second: Assassin like enemy - animations-atk2-fixed X axis_8
+  - first:
+      213: 8815925145362163956
+    second: Assassin like enemy - animations-atk2-fixed X axis_9
+  - first:
+      213: 8493222937490843650
+    second: Assassin like enemy - animations-atk2-fixed X axis_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 25
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2055e90d5d9fbb0800000000000000
+      internalID: -4901651627429789007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 28
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1763845b383bad8b0800000000000000
+      internalID: -5126587847544392079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_2
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 27
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a951ce9ee0fd7fb60800000000000000
+      internalID: 7779932136452920730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_3
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 23
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead64f9d7e1ecdd10800000000000000
+      internalID: 2151843107886624174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_4
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 18
+        width: 60
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b83fca317ae3a37c0800000000000000
+      internalID: -4090888424202112117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_5
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 20
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6010a2516d20092d0800000000000000
+      internalID: -3274113810597019386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_6
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 20
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87d4f5ed254fead0800000000000000
+      internalID: -2670839990573541490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_7
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 20
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29d9e2b136ec2b60800000000000000
+      internalID: 7722800562163013931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_8
+      rect:
+        serializedVersion: 2
+        x: 1859
+        y: 20
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f534bf8ec8ba430800000000000000
+      internalID: 3795282043265572661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_9
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 20
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8eebff535785a70800000000000000
+      internalID: 8815925145362163956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-atk2-fixed X axis_10
+      rect:
+        serializedVersion: 2
+        x: 2279
+        y: 20
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208675b334dfdd570800000000000000
+      internalID: 8493222937490843650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Assassin like enemy - animations-atk2-fixed X axis_0: -4901651627429789007
+      Assassin like enemy - animations-atk2-fixed X axis_1: -5126587847544392079
+      Assassin like enemy - animations-atk2-fixed X axis_10: 8493222937490843650
+      Assassin like enemy - animations-atk2-fixed X axis_2: 7779932136452920730
+      Assassin like enemy - animations-atk2-fixed X axis_3: 2151843107886624174
+      Assassin like enemy - animations-atk2-fixed X axis_4: -4090888424202112117
+      Assassin like enemy - animations-atk2-fixed X axis_5: -3274113810597019386
+      Assassin like enemy - animations-atk2-fixed X axis_6: -2670839990573541490
+      Assassin like enemy - animations-atk2-fixed X axis_7: 7722800562163013931
+      Assassin like enemy - animations-atk2-fixed X axis_8: 3795282043265572661
+      Assassin like enemy - animations-atk2-fixed X axis_9: 8815925145362163956
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

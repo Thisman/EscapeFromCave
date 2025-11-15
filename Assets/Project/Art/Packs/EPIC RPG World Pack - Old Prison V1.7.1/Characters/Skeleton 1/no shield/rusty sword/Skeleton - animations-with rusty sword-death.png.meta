@@ -1,0 +1,1118 @@
+fileFormatVersion: 2
+guid: f7d3907faa66d794ca9b3f1ce5c57af0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5849104049925365539
+    second: Skeleton - animations-with rusty sword-death_0
+  - first:
+      213: 3817706675513060083
+    second: Skeleton - animations-with rusty sword-death_1
+  - first:
+      213: 2017131817438276101
+    second: Skeleton - animations-with rusty sword-death_2
+  - first:
+      213: -5474529115545934383
+    second: Skeleton - animations-with rusty sword-death_3
+  - first:
+      213: -5660433549831741362
+    second: Skeleton - animations-with rusty sword-death_4
+  - first:
+      213: -6800136161110965954
+    second: Skeleton - animations-with rusty sword-death_5
+  - first:
+      213: 2174738986234429123
+    second: Skeleton - animations-with rusty sword-death_6
+  - first:
+      213: 1300348100484475443
+    second: Skeleton - animations-with rusty sword-death_7
+  - first:
+      213: -5441409827122678842
+    second: Skeleton - animations-with rusty sword-death_8
+  - first:
+      213: -4641200121167459756
+    second: Skeleton - animations-with rusty sword-death_9
+  - first:
+      213: -1613868931011709811
+    second: Skeleton - animations-with rusty sword-death_10
+  - first:
+      213: -6407578914152460945
+    second: Skeleton - animations-with rusty sword-death_11
+  - first:
+      213: -1392077727859845819
+    second: Skeleton - animations-with rusty sword-death_12
+  - first:
+      213: -795483470306507571
+    second: Skeleton - animations-with rusty sword-death_13
+  - first:
+      213: -2018038540955193822
+    second: Skeleton - animations-with rusty sword-death_14
+  - first:
+      213: -6793321240182062969
+    second: Skeleton - animations-with rusty sword-death_15
+  - first:
+      213: 4082899943192619277
+    second: Skeleton - animations-with rusty sword-death_16
+  - first:
+      213: 690090142259469390
+    second: Skeleton - animations-with rusty sword-death_17
+  - first:
+      213: 2652878388425204623
+    second: Skeleton - animations-with rusty sword-death_18
+  - first:
+      213: -7344455842943822704
+    second: Skeleton - animations-with rusty sword-death_19
+  - first:
+      213: -6144035961351745111
+    second: Skeleton - animations-with rusty sword-death_20
+  - first:
+      213: 6054300608584676963
+    second: Skeleton - animations-with rusty sword-death_21
+  - first:
+      213: 996950373701534717
+    second: Skeleton - animations-with rusty sword-death_22
+  - first:
+      213: 3717028457950614672
+    second: Skeleton - animations-with rusty sword-death_23
+  - first:
+      213: -7117518504111166085
+    second: Skeleton - animations-with rusty sword-death_24
+  - first:
+      213: 1295212572178816406
+    second: Skeleton - animations-with rusty sword-death_25
+  - first:
+      213: 7209971264958314176
+    second: Skeleton - animations-with rusty sword-death_26
+  - first:
+      213: 997470506291183749
+    second: Skeleton - animations-with rusty sword-death_27
+  - first:
+      213: -3248887621128618078
+    second: Skeleton - animations-with rusty sword-death_28
+  - first:
+      213: -3228022371636146526
+    second: Skeleton - animations-with rusty sword-death_29
+  - first:
+      213: -9155006969299142258
+    second: Skeleton - animations-with rusty sword-death_30
+  - first:
+      213: 6009896353124494324
+    second: Skeleton - animations-with rusty sword-death_31
+  - first:
+      213: 4711367509148849924
+    second: Skeleton - animations-with rusty sword-death_32
+  - first:
+      213: 4367917307803344349
+    second: Skeleton - animations-with rusty sword-death_33
+  - first:
+      213: 1619264070033729588
+    second: Skeleton - animations-with rusty sword-death_34
+  - first:
+      213: 7152445446100538335
+    second: Skeleton - animations-with rusty sword-death_35
+  - first:
+      213: -7965667702554659903
+    second: Skeleton - animations-with rusty sword-death_36
+  - first:
+      213: 1884512582722013944
+    second: Skeleton - animations-with rusty sword-death_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 71
+        width: 73
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f991eb4213c2150800000000000000
+      internalID: 5849104049925365539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 71
+        width: 80
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fae79a8ef73bf430800000000000000
+      internalID: 3817706675513060083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_2
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 71
+        width: 80
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50aeb8363ba4efb10800000000000000
+      internalID: 2017131817438276101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_3
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 71
+        width: 59
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5e95356c09604b0800000000000000
+      internalID: -5474529115545934383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_4
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 90
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40639b3da91271b0800000000000000
+      internalID: -5660433549831741362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_5
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 70
+        width: 58
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3141bca03011a1a0800000000000000
+      internalID: -6800136161110965954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_6
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 93
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce32b1f5993e2e10800000000000000
+      internalID: 2174738986234429123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_7
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 88
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a2bb535b3cb0210800000000000000
+      internalID: 1300348100484475443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_8
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 47
+        width: 59
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c37801979a3c74b0800000000000000
+      internalID: -5441409827122678842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_9
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 85
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a40567415279fb0800000000000000
+      internalID: -4641200121167459756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_10
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 50
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84f10502c26a99e0800000000000000
+      internalID: -1613868931011709811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_11
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 48
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6dc8a72de4b317a0800000000000000
+      internalID: -6407578914152460945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_12
+      rect:
+        serializedVersion: 2
+        x: 1810
+        y: 48
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5455e2b9ea85eace0800000000000000
+      internalID: -1392077727859845819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_13
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 71
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc48fa79fffd5f4f0800000000000000
+      internalID: -795483470306507571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_14
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 73
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e615793ac7ef3e0800000000000000
+      internalID: -2018038540955193822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_15
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 72
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78005d9135649b1a0800000000000000
+      internalID: -6793321240182062969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_16
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 80
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09657fbddf59a830800000000000000
+      internalID: 4082899943192619277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_17
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 74
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4cdf500451b39900800000000000000
+      internalID: 690090142259469390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_18
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 48
+        width: 66
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f832566b6dae0d420800000000000000
+      internalID: 2652878388425204623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_19
+      rect:
+        serializedVersion: 2
+        x: 2247
+        y: 48
+        width: 67
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0949accc250431a90800000000000000
+      internalID: -7344455842943822704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_20
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 48
+        width: 68
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1576c78dffbbaa0800000000000000
+      internalID: -6144035961351745111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_21
+      rect:
+        serializedVersion: 2
+        x: 2686
+        y: 48
+        width: 68
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366fe129352350450800000000000000
+      internalID: 6054300608584676963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_22
+      rect:
+        serializedVersion: 2
+        x: 1437
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df34c233511e5dd00800000000000000
+      internalID: 996950373701534717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_23
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 70
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0941a2850b9859330800000000000000
+      internalID: 3717028457950614672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_24
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 67
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d2f2871ae793d90800000000000000
+      internalID: -7117518504111166085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_25
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 63
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d9659d8f489f110800000000000000
+      internalID: 1295212572178816406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_26
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 61
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c63d985aa6fe0460800000000000000
+      internalID: 7209971264958314176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_27
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 62
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5804a61042ab7dd00800000000000000
+      internalID: 997470506291183749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_28
+      rect:
+        serializedVersion: 2
+        x: 2097
+        y: 61
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aff6730ce1a9e2d0800000000000000
+      internalID: -3248887621128618078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_29
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 62
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae0d9b71c2c333d0800000000000000
+      internalID: -3228022371636146526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_30
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 60
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89f2beaaa1e2f080800000000000000
+      internalID: -9155006969299142258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_31
+      rect:
+        serializedVersion: 2
+        x: 2537
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fba6e034e0776350800000000000000
+      internalID: 6009896353124494324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_32
+      rect:
+        serializedVersion: 2
+        x: 2757
+        y: 66
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4075225a9c3226140800000000000000
+      internalID: 4711367509148849924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_33
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd16e336a5fd9c30800000000000000
+      internalID: 4367917307803344349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_34
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 60
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438e9eba718c87610800000000000000
+      internalID: 1619264070033729588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_35
+      rect:
+        serializedVersion: 2
+        x: 2554
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3de2aec37924360800000000000000
+      internalID: 7152445446100538335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_36
+      rect:
+        serializedVersion: 2
+        x: 2765
+        y: 60
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c37d6ead63447190800000000000000
+      internalID: -7965667702554659903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton - animations-with rusty sword-death_37
+      rect:
+        serializedVersion: 2
+        x: 2774
+        y: 60
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fa46eb9532272a10800000000000000
+      internalID: 1884512582722013944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Skeleton - animations-with rusty sword-death_0: 5849104049925365539
+      Skeleton - animations-with rusty sword-death_1: 3817706675513060083
+      Skeleton - animations-with rusty sword-death_10: -1613868931011709811
+      Skeleton - animations-with rusty sword-death_11: -6407578914152460945
+      Skeleton - animations-with rusty sword-death_12: -1392077727859845819
+      Skeleton - animations-with rusty sword-death_13: -795483470306507571
+      Skeleton - animations-with rusty sword-death_14: -2018038540955193822
+      Skeleton - animations-with rusty sword-death_15: -6793321240182062969
+      Skeleton - animations-with rusty sword-death_16: 4082899943192619277
+      Skeleton - animations-with rusty sword-death_17: 690090142259469390
+      Skeleton - animations-with rusty sword-death_18: 2652878388425204623
+      Skeleton - animations-with rusty sword-death_19: -7344455842943822704
+      Skeleton - animations-with rusty sword-death_2: 2017131817438276101
+      Skeleton - animations-with rusty sword-death_20: -6144035961351745111
+      Skeleton - animations-with rusty sword-death_21: 6054300608584676963
+      Skeleton - animations-with rusty sword-death_22: 996950373701534717
+      Skeleton - animations-with rusty sword-death_23: 3717028457950614672
+      Skeleton - animations-with rusty sword-death_24: -7117518504111166085
+      Skeleton - animations-with rusty sword-death_25: 1295212572178816406
+      Skeleton - animations-with rusty sword-death_26: 7209971264958314176
+      Skeleton - animations-with rusty sword-death_27: 997470506291183749
+      Skeleton - animations-with rusty sword-death_28: -3248887621128618078
+      Skeleton - animations-with rusty sword-death_29: -3228022371636146526
+      Skeleton - animations-with rusty sword-death_3: -5474529115545934383
+      Skeleton - animations-with rusty sword-death_30: -9155006969299142258
+      Skeleton - animations-with rusty sword-death_31: 6009896353124494324
+      Skeleton - animations-with rusty sword-death_32: 4711367509148849924
+      Skeleton - animations-with rusty sword-death_33: 4367917307803344349
+      Skeleton - animations-with rusty sword-death_34: 1619264070033729588
+      Skeleton - animations-with rusty sword-death_35: 7152445446100538335
+      Skeleton - animations-with rusty sword-death_36: -7965667702554659903
+      Skeleton - animations-with rusty sword-death_37: 1884512582722013944
+      Skeleton - animations-with rusty sword-death_4: -5660433549831741362
+      Skeleton - animations-with rusty sword-death_5: -6800136161110965954
+      Skeleton - animations-with rusty sword-death_6: 2174738986234429123
+      Skeleton - animations-with rusty sword-death_7: 1300348100484475443
+      Skeleton - animations-with rusty sword-death_8: -5441409827122678842
+      Skeleton - animations-with rusty sword-death_9: -4641200121167459756
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 52c52036c1cebf342aac6e4812f04598
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5266856336974772635
+    second: Obelisk3-animation1-activating-70x150_0
+  - first:
+      213: -6408787329517691934
+    second: Obelisk3-animation1-activating-70x150_1
+  - first:
+      213: -4326310498346802113
+    second: Obelisk3-animation1-activating-70x150_2
+  - first:
+      213: 2299790647169966227
+    second: Obelisk3-animation1-activating-70x150_3
+  - first:
+      213: 2680399473047210677
+    second: Obelisk3-animation1-activating-70x150_4
+  - first:
+      213: 1556836201516347378
+    second: Obelisk3-animation1-activating-70x150_5
+  - first:
+      213: -6879441751362565257
+    second: Obelisk3-animation1-activating-70x150_6
+  - first:
+      213: 3267757445507126852
+    second: Obelisk3-animation1-activating-70x150_7
+  - first:
+      213: 7118745336398948958
+    second: Obelisk3-animation1-activating-70x150_8
+  - first:
+      213: 1798837101363449083
+    second: Obelisk3-animation1-activating-70x150_9
+  - first:
+      213: 282081531677924903
+    second: Obelisk3-animation1-activating-70x150_10
+  - first:
+      213: 226521739640817664
+    second: Obelisk3-animation1-activating-70x150_11
+  - first:
+      213: 2272122198424858116
+    second: Obelisk3-animation1-activating-70x150_12
+  - first:
+      213: -6050876873631475532
+    second: Obelisk3-animation1-activating-70x150_13
+  - first:
+      213: 4483398852219864861
+    second: Obelisk3-animation1-activating-70x150_14
+  - first:
+      213: -816371368467141053
+    second: Obelisk3-animation1-activating-70x150_15
+  - first:
+      213: 7144276252277171356
+    second: Obelisk3-animation1-activating-70x150_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b997568fee1a71940800000000000000
+      internalID: 5266856336974772635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebd21701e96f07a0800000000000000
+      internalID: -6408787329517691934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34eef5068bd5f3c0800000000000000
+      internalID: -4326310498346802113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_3
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390e456a86f7aef10800000000000000
+      internalID: 2299790647169966227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_4
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba8f1f8e11b23520800000000000000
+      internalID: 2680399473047210677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_5
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffa9dcd64efa9510800000000000000
+      internalID: 1556836201516347378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_6
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b0b0d0d205780a0800000000000000
+      internalID: -6879441751362565257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_7
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44617975518695d20800000000000000
+      internalID: 3267757445507126852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_8
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a278eaa2ddac260800000000000000
+      internalID: 7118745336398948958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_9
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfccf8320d0c6f810800000000000000
+      internalID: 1798837101363449083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_10
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e5c5598a72ae300800000000000000
+      internalID: 282081531677924903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008c1317254c42300800000000000000
+      internalID: 226521739640817664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_12
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ea46be913388f10800000000000000
+      internalID: 2272122198424858116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_13
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b8d197da87f60ca0800000000000000
+      internalID: -6050876873631475532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_14
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1785f4808b383e30800000000000000
+      internalID: 4483398852219864861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_15
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e67b1d09aaba4f0800000000000000
+      internalID: -816371368467141053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk3-animation1-activating-70x150_16
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 12
+        width: 48
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c946d324661952360800000000000000
+      internalID: 7144276252277171356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Obelisk3-animation1-activating-70x150_0: 5266856336974772635
+      Obelisk3-animation1-activating-70x150_1: -6408787329517691934
+      Obelisk3-animation1-activating-70x150_10: 282081531677924903
+      Obelisk3-animation1-activating-70x150_11: 226521739640817664
+      Obelisk3-animation1-activating-70x150_12: 2272122198424858116
+      Obelisk3-animation1-activating-70x150_13: -6050876873631475532
+      Obelisk3-animation1-activating-70x150_14: 4483398852219864861
+      Obelisk3-animation1-activating-70x150_15: -816371368467141053
+      Obelisk3-animation1-activating-70x150_16: 7144276252277171356
+      Obelisk3-animation1-activating-70x150_2: -4326310498346802113
+      Obelisk3-animation1-activating-70x150_3: 2299790647169966227
+      Obelisk3-animation1-activating-70x150_4: 2680399473047210677
+      Obelisk3-animation1-activating-70x150_5: 1556836201516347378
+      Obelisk3-animation1-activating-70x150_6: -6879441751362565257
+      Obelisk3-animation1-activating-70x150_7: 3267757445507126852
+      Obelisk3-animation1-activating-70x150_8: 7118745336398948958
+      Obelisk3-animation1-activating-70x150_9: 1798837101363449083
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

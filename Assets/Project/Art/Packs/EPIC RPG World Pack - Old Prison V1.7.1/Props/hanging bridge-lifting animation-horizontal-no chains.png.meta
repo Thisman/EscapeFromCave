@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: fd706df0bb809a0468e9cb09440e20db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6608333162303715327
+    second: hanging bridge-lifting animation-horizontal-no chains_0
+  - first:
+      213: -8015623736105714584
+    second: hanging bridge-lifting animation-horizontal-no chains_1
+  - first:
+      213: 6859128232383030170
+    second: hanging bridge-lifting animation-horizontal-no chains_2
+  - first:
+      213: -6609445455431508252
+    second: hanging bridge-lifting animation-horizontal-no chains_3
+  - first:
+      213: -8199067882994308893
+    second: hanging bridge-lifting animation-horizontal-no chains_4
+  - first:
+      213: 7734685626635046301
+    second: hanging bridge-lifting animation-horizontal-no chains_5
+  - first:
+      213: 453937528865351930
+    second: hanging bridge-lifting animation-horizontal-no chains_6
+  - first:
+      213: -6808536183854192906
+    second: hanging bridge-lifting animation-horizontal-no chains_7
+  - first:
+      213: -5259360471483996426
+    second: hanging bridge-lifting animation-horizontal-no chains_8
+  - first:
+      213: 8128993864480886440
+    second: hanging bridge-lifting animation-horizontal-no chains_9
+  - first:
+      213: -2855967773794317324
+    second: hanging bridge-lifting animation-horizontal-no chains_10
+  - first:
+      213: 6982752480870535092
+    second: hanging bridge-lifting animation-horizontal-no chains_11
+  - first:
+      213: 1068415491612708287
+    second: hanging bridge-lifting animation-horizontal-no chains_12
+  - first:
+      213: 5364984322766341247
+    second: hanging bridge-lifting animation-horizontal-no chains_13
+  - first:
+      213: 4785983079734040784
+    second: hanging bridge-lifting animation-horizontal-no chains_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_0
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 72
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1080477500c7a44a0800000000000000
+      internalID: -6608333162303715327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_1
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 88
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86cba3c3ea8c2c090800000000000000
+      internalID: -8015623736105714584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_2
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 104
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a932b0049c4803f50800000000000000
+      internalID: 6859128232383030170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_3
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 116
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee5faa60688644a0800000000000000
+      internalID: -6609445455431508252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_4
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 126
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e86fc0733f073e80800000000000000
+      internalID: -8199067882994308893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_5
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 130
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9dc6e8e89f175b60800000000000000
+      internalID: 7734685626635046301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_6
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 128
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8ec3607c5bc4600800000000000000
+      internalID: 453937528865351930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_7
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 130
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f62af8f9683381a0800000000000000
+      internalID: -6808536183854192906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f62777348ff207b0800000000000000
+      internalID: -5259360471483996426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_9
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 4
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae86b9b9dcffc070800000000000000
+      internalID: 8128993864480886440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_10
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 8
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbc609f0709d58d0800000000000000
+      internalID: -2855967773794317324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_11
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 14
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf04c89268b7e060800000000000000
+      internalID: 6982752480870535092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_12
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 24
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd891a9a36c3de00800000000000000
+      internalID: 1068415491612708287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_13
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 40
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74070011d0447a40800000000000000
+      internalID: 5364984322766341247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-lifting animation-horizontal-no chains_14
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 56
+        width: 113
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d8d398f04a3b6240800000000000000
+      internalID: 4785983079734040784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hanging bridge-lifting animation-horizontal-no chains_0: -6608333162303715327
+      hanging bridge-lifting animation-horizontal-no chains_1: -8015623736105714584
+      hanging bridge-lifting animation-horizontal-no chains_10: -2855967773794317324
+      hanging bridge-lifting animation-horizontal-no chains_11: 6982752480870535092
+      hanging bridge-lifting animation-horizontal-no chains_12: 1068415491612708287
+      hanging bridge-lifting animation-horizontal-no chains_13: 5364984322766341247
+      hanging bridge-lifting animation-horizontal-no chains_14: 4785983079734040784
+      hanging bridge-lifting animation-horizontal-no chains_2: 6859128232383030170
+      hanging bridge-lifting animation-horizontal-no chains_3: -6609445455431508252
+      hanging bridge-lifting animation-horizontal-no chains_4: -8199067882994308893
+      hanging bridge-lifting animation-horizontal-no chains_5: 7734685626635046301
+      hanging bridge-lifting animation-horizontal-no chains_6: 453937528865351930
+      hanging bridge-lifting animation-horizontal-no chains_7: -6808536183854192906
+      hanging bridge-lifting animation-horizontal-no chains_8: -5259360471483996426
+      hanging bridge-lifting animation-horizontal-no chains_9: 8128993864480886440
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

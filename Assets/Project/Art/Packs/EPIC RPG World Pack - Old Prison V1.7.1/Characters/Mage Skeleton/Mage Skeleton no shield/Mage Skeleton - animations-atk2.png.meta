@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: f5293b3002b19f44ca1a5eb7786f8d29
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5460164608820948572
+    second: Mage Skeleton - animations-atk2_0
+  - first:
+      213: -2902441626933963383
+    second: Mage Skeleton - animations-atk2_1
+  - first:
+      213: -3214490224598742200
+    second: Mage Skeleton - animations-atk2_2
+  - first:
+      213: -1597893388526163280
+    second: Mage Skeleton - animations-atk2_3
+  - first:
+      213: 8098466788996806857
+    second: Mage Skeleton - animations-atk2_4
+  - first:
+      213: -3628184103469522106
+    second: Mage Skeleton - animations-atk2_5
+  - first:
+      213: -446218846300910754
+    second: Mage Skeleton - animations-atk2_6
+  - first:
+      213: -7454419069281837174
+    second: Mage Skeleton - animations-atk2_7
+  - first:
+      213: -7655338761162823204
+    second: Mage Skeleton - animations-atk2_8
+  - first:
+      213: -8274187400436345436
+    second: Mage Skeleton - animations-atk2_9
+  - first:
+      213: 6228670650827749080
+    second: Mage Skeleton - animations-atk2_10
+  - first:
+      213: 3698440758163183026
+    second: Mage Skeleton - animations-atk2_11
+  - first:
+      213: 2703275638687410610
+    second: Mage Skeleton - animations-atk2_12
+  - first:
+      213: -8174870965323004625
+    second: Mage Skeleton - animations-atk2_13
+  - first:
+      213: 8600631395513918121
+    second: Mage Skeleton - animations-atk2_14
+  - first:
+      213: -2750803341058762426
+    second: Mage Skeleton - animations-atk2_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 71
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1511ca7399934b0800000000000000
+      internalID: -5460164608820948572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_1
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 71
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9855b45d7b478b7d0800000000000000
+      internalID: -2902441626933963383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 71
+        width: 46
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b83dcfb26d363d0800000000000000
+      internalID: -3214490224598742200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_3
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 71
+        width: 31
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bae3fbdd6423d9e0800000000000000
+      internalID: -1597893388526163280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_4
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 71
+        width: 30
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c8f37713a8836070800000000000000
+      internalID: 8098466788996806857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_5
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 71
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643eaf4e7c916adc0800000000000000
+      internalID: -3628184103469522106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_6
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 71
+        width: 30
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b462ec256bec9f0800000000000000
+      internalID: -446218846300910754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_7
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 71
+        width: 30
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fde880a559c8890800000000000000
+      internalID: -7454419069281837174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_8
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 69
+        width: 29
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd96c99d4f5c2c590800000000000000
+      internalID: -7655338761162823204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_9
+      rect:
+        serializedVersion: 2
+        x: 2078
+        y: 69
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a59af7d56e2c2d80800000000000000
+      internalID: -8274187400436345436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_10
+      rect:
+        serializedVersion: 2
+        x: 2298
+        y: 69
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d63d7db4fea07650800000000000000
+      internalID: 6228670650827749080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_11
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 69
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b5942d3640835330800000000000000
+      internalID: 3698440758163183026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_12
+      rect:
+        serializedVersion: 2
+        x: 2725
+        y: 71
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b92eedeed6f38520800000000000000
+      internalID: 2703275638687410610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_13
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 71
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25844b5b260d8e80800000000000000
+      internalID: -8174870965323004625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_14
+      rect:
+        serializedVersion: 2
+        x: 3158
+        y: 71
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2eda5afa49b5770800000000000000
+      internalID: 8600631395513918121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage Skeleton - animations-atk2_15
+      rect:
+        serializedVersion: 2
+        x: 3375
+        y: 71
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6491c398fee23d9d0800000000000000
+      internalID: -2750803341058762426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mage Skeleton - animations-atk2_0: -5460164608820948572
+      Mage Skeleton - animations-atk2_1: -2902441626933963383
+      Mage Skeleton - animations-atk2_10: 6228670650827749080
+      Mage Skeleton - animations-atk2_11: 3698440758163183026
+      Mage Skeleton - animations-atk2_12: 2703275638687410610
+      Mage Skeleton - animations-atk2_13: -8174870965323004625
+      Mage Skeleton - animations-atk2_14: 8600631395513918121
+      Mage Skeleton - animations-atk2_15: -2750803341058762426
+      Mage Skeleton - animations-atk2_2: -3214490224598742200
+      Mage Skeleton - animations-atk2_3: -1597893388526163280
+      Mage Skeleton - animations-atk2_4: 8098466788996806857
+      Mage Skeleton - animations-atk2_5: -3628184103469522106
+      Mage Skeleton - animations-atk2_6: -446218846300910754
+      Mage Skeleton - animations-atk2_7: -7454419069281837174
+      Mage Skeleton - animations-atk2_8: -7655338761162823204
+      Mage Skeleton - animations-atk2_9: -8274187400436345436
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

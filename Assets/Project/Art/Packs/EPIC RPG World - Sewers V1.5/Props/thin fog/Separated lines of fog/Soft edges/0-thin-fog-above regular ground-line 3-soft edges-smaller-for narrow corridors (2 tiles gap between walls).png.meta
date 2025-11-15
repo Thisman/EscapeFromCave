@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: 02b7b8bf723665c49884c0af0743532a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2585358269957619623
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_0
+  - first:
+      213: 7187220623378458447
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_1
+  - first:
+      213: 4736280522868766023
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_2
+  - first:
+      213: 258249643823688589
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_3
+  - first:
+      213: 7274646123664645270
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_4
+  - first:
+      213: -9106687063183293565
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_5
+  - first:
+      213: -3459561903462977759
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_6
+  - first:
+      213: -3263151845448821746
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_7
+  - first:
+      213: -261445289713076676
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_8
+  - first:
+      213: -8116829588324708154
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_9
+  - first:
+      213: 7394182886160566726
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_10
+  - first:
+      213: -6980931696612910839
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_11
+  - first:
+      213: -2346344102093560262
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_12
+  - first:
+      213: 2763577075650432576
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_13
+  - first:
+      213: 2097895863433469664
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_14
+  - first:
+      213: -330566611939552172
+    second: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+      corridors (2 tiles gap between walls)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 15
+        width: 100
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950ce0ee956fe1cd0800000000000000
+      internalID: -2585358269957619623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47a5d2d3132eb360800000000000000
+      internalID: 7187220623378458447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_2
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745b13aaa06aab140800000000000000
+      internalID: 4736280522868766023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_3
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b6b7bceac759300800000000000000
+      internalID: 258249643823688589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_4
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c14b35b1cb4f460800000000000000
+      internalID: 7274646123664645270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_5
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38380568d5c8e9180800000000000000
+      internalID: -9106687063183293565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_6
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f6d9147ca2dffc0800000000000000
+      internalID: -3459561903462977759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_7
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e04dcdb7fa4f6b2d0800000000000000
+      internalID: -3263151845448821746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_8
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36f37ae4e82f5cf0800000000000000
+      internalID: -261445289713076676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_9
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c096858e7a3b5f80800000000000000
+      internalID: -8116829588324708154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_10
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c98fdda82a6d9660800000000000000
+      internalID: 7394182886160566726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_11
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 15
+        width: 99
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9095f16cb9fbe1f90800000000000000
+      internalID: -6980931696612910839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_12
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 15
+        width: 100
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3661e9787c107fd0800000000000000
+      internalID: -2346344102093560262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_13
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 15
+        width: 100
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e8e8f45b23a5620800000000000000
+      internalID: 2763577075650432576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_14
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 15
+        width: 100
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee96b33c293d1d10800000000000000
+      internalID: 2097895863433469664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow
+        corridors (2 tiles gap between walls)_15
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 15
+        width: 100
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4541db8fa67996bf0800000000000000
+      internalID: -330566611939552172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_0: -2585358269957619623
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_1: 7187220623378458447
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_10: 7394182886160566726
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_11: -6980931696612910839
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_12: -2346344102093560262
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_13: 2763577075650432576
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_14: 2097895863433469664
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_15: -330566611939552172
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_2: 4736280522868766023
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_3: 258249643823688589
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_4: 7274646123664645270
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_5: -9106687063183293565
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_6: -3459561903462977759
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_7: -3263151845448821746
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_8: -261445289713076676
+      0-thin-fog-above regular ground-line 3-soft edges-smaller-for narrow corridors (2 tiles gap between walls)_9: -8116829588324708154
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

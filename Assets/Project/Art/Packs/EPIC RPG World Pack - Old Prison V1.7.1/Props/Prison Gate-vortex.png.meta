@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 9c2a8581b4c7a2a46b887b64a877d535
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6164051405529190218
+    second: Prison Gate-vortex_0
+  - first:
+      213: -888679122820510487
+    second: Prison Gate-vortex_1
+  - first:
+      213: -2095381339369047818
+    second: Prison Gate-vortex_2
+  - first:
+      213: 7211494968487702335
+    second: Prison Gate-vortex_3
+  - first:
+      213: -1092366557144648135
+    second: Prison Gate-vortex_4
+  - first:
+      213: -3310967166392917542
+    second: Prison Gate-vortex_5
+  - first:
+      213: 4606889009040181173
+    second: Prison Gate-vortex_6
+  - first:
+      213: -7528260152021329998
+    second: Prison Gate-vortex_7
+  - first:
+      213: -2463453756673829065
+    second: Prison Gate-vortex_8
+  - first:
+      213: -1214659672838200646
+    second: Prison Gate-vortex_9
+  - first:
+      213: 1851540124052968558
+    second: Prison Gate-vortex_10
+  - first:
+      213: 6864243563944989737
+    second: Prison Gate-vortex_11
+  - first:
+      213: 1459704381484396616
+    second: Prison Gate-vortex_12
+  - first:
+      213: -8407967631428983423
+    second: Prison Gate-vortex_13
+  - first:
+      213: 2238497922823062226
+    second: Prison Gate-vortex_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Prison Gate-vortex_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 35
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b07f2cb7e3e47aa0800000000000000
+      internalID: -6164051405529190218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 35
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec4af4db07caa3f0800000000000000
+      internalID: -888679122820510487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_2
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 35
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8fced06c5bbe2e0800000000000000
+      internalID: -2095381339369047818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_3
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 35
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fe9383770641460800000000000000
+      internalID: 7211494968487702335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_4
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 37
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93670e4676227d0f0800000000000000
+      internalID: -1092366557144648135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_5
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 37
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad12b2887e41d02d0800000000000000
+      internalID: -3310967166392917542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_6
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 37
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b7cd773525feef30800000000000000
+      internalID: 4606889009040181173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_7
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 37
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b75a06374f368790800000000000000
+      internalID: -7528260152021329998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_8
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 36
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737dad83cdd00ddd0800000000000000
+      internalID: -2463453756673829065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_9
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 37
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2ac7d8679a42fe0800000000000000
+      internalID: -1214659672838200646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_10
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 34
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e645f85deedf1b910800000000000000
+      internalID: 1851540124052968558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_11
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 34
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924d3b03721b24f50800000000000000
+      internalID: 6864243563944989737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_12
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 34
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840757fa669e14410800000000000000
+      internalID: 1459704381484396616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_13
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 34
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18561bd8cf5e05b80800000000000000
+      internalID: -8407967631428983423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-vortex_14
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 35
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d28150300eb01f10800000000000000
+      internalID: 2238497922823062226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Prison Gate-vortex_0: -6164051405529190218
+      Prison Gate-vortex_1: -888679122820510487
+      Prison Gate-vortex_10: 1851540124052968558
+      Prison Gate-vortex_11: 6864243563944989737
+      Prison Gate-vortex_12: 1459704381484396616
+      Prison Gate-vortex_13: -8407967631428983423
+      Prison Gate-vortex_14: 2238497922823062226
+      Prison Gate-vortex_2: -2095381339369047818
+      Prison Gate-vortex_3: 7211494968487702335
+      Prison Gate-vortex_4: -1092366557144648135
+      Prison Gate-vortex_5: -3310967166392917542
+      Prison Gate-vortex_6: 4606889009040181173
+      Prison Gate-vortex_7: -7528260152021329998
+      Prison Gate-vortex_8: -2463453756673829065
+      Prison Gate-vortex_9: -1214659672838200646
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 5838b7c5fe463234eb0eca6c803869de
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6531437132537964840
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_0
+  - first:
+      213: -7863297017378092883
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_1
+  - first:
+      213: -8404886234773652140
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_2
+  - first:
+      213: 6167854512821658935
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_3
+  - first:
+      213: -977528679373974786
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_4
+  - first:
+      213: 5276355573614378941
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_5
+  - first:
+      213: 7037146218307476976
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_6
+  - first:
+      213: 7354927953027604918
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_7
+  - first:
+      213: -6549317466928561945
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_8
+  - first:
+      213: -7256100812419191157
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_9
+  - first:
+      213: 3080232778500586656
+    second: horizontal-rolling wood trunk with metal skewers-style1-standard animation_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d65742788cab55a0800000000000000
+      internalID: -6531437132537964840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da84ac33605ffd290800000000000000
+      internalID: -7863297017378092883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45dfebe1088db5b80800000000000000
+      internalID: -8404886234773652140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_3
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 31
+        width: 130
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735660f200f989550800000000000000
+      internalID: 6167854512821658935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_4
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2582468de1f62f0800000000000000
+      internalID: -977528679373974786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_5
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 31
+        width: 130
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbfffe95071693940800000000000000
+      internalID: 5276355573614378941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_6
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd53be7337f8a160800000000000000
+      internalID: 7037146218307476976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_7
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b12dc45104f11660800000000000000
+      internalID: 7354927953027604918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_8
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 31
+        width: 130
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e0467ea6762c15a0800000000000000
+      internalID: -6549317466928561945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_9
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ea45d61c62d4b90800000000000000
+      internalID: -7256100812419191157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-rolling wood trunk with metal skewers-style1-standard animation_10
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 31
+        width: 130
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acba0c646f2fba20800000000000000
+      internalID: 3080232778500586656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_0: -6531437132537964840
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_1: -7863297017378092883
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_10: 3080232778500586656
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_2: -8404886234773652140
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_3: 6167854512821658935
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_4: -977528679373974786
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_5: 5276355573614378941
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_6: 7037146218307476976
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_7: 7354927953027604918
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_8: -6549317466928561945
+      horizontal-rolling wood trunk with metal skewers-style1-standard animation_9: -7256100812419191157
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: ad3d5617405558d438da2b7acaca46e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8520629049393342367
+    second: moose6-attack-only smear effects-347x192_0
+  - first:
+      213: 4696801900171932077
+    second: moose6-attack-only smear effects-347x192_1
+  - first:
+      213: -7732692458560227395
+    second: moose6-attack-only smear effects-347x192_2
+  - first:
+      213: 8768498436544374136
+    second: moose6-attack-only smear effects-347x192_3
+  - first:
+      213: -5179295176656425559
+    second: moose6-attack-only smear effects-347x192_4
+  - first:
+      213: -2702202583444209749
+    second: moose6-attack-only smear effects-347x192_5
+  - first:
+      213: 3059407471566069754
+    second: moose6-attack-only smear effects-347x192_6
+  - first:
+      213: -2571534306909766012
+    second: moose6-attack-only smear effects-347x192_7
+  - first:
+      213: 3944868314434324637
+    second: moose6-attack-only smear effects-347x192_8
+  - first:
+      213: -1739992678618739154
+    second: moose6-attack-only smear effects-347x192_9
+  - first:
+      213: 6299589440880366714
+    second: moose6-attack-only smear effects-347x192_10
+  - first:
+      213: 8122496718245178217
+    second: moose6-attack-only smear effects-347x192_11
+  - first:
+      213: -2279763687800067252
+    second: moose6-attack-only smear effects-347x192_12
+  - first:
+      213: 4754436666050626254
+    second: moose6-attack-only smear effects-347x192_13
+  - first:
+      213: -2198102808453612592
+    second: moose6-attack-only smear effects-347x192_14
+  - first:
+      213: 5737771933184418868
+    second: moose6-attack-only smear effects-347x192_15
+  - first:
+      213: 1532911925472532860
+    second: moose6-attack-only smear effects-347x192_16
+  - first:
+      213: 123207110624926913
+    second: moose6-attack-only smear effects-347x192_17
+  - first:
+      213: -1996852643419786327
+    second: moose6-attack-only smear effects-347x192_18
+  - first:
+      213: -9067128852129655015
+    second: moose6-attack-only smear effects-347x192_19
+  - first:
+      213: 1368938461342105441
+    second: moose6-attack-only smear effects-347x192_20
+  - first:
+      213: -8790361104285029615
+    second: moose6-attack-only smear effects-347x192_21
+  - first:
+      213: -1168799958708575466
+    second: moose6-attack-only smear effects-347x192_22
+  - first:
+      213: 6746571753170448533
+    second: moose6-attack-only smear effects-347x192_23
+  - first:
+      213: -1356309515720934030
+    second: moose6-attack-only smear effects-347x192_24
+  - first:
+      213: 215124136426851397
+    second: moose6-attack-only smear effects-347x192_25
+  - first:
+      213: -1133341982651855318
+    second: moose6-attack-only smear effects-347x192_26
+  - first:
+      213: -7947487524861051994
+    second: moose6-attack-only smear effects-347x192_27
+  - first:
+      213: 5821802363061320682
+    second: moose6-attack-only smear effects-347x192_28
+  - first:
+      213: 2040717916849063587
+    second: moose6-attack-only smear effects-347x192_29
+  - first:
+      213: 7613159216225448667
+    second: moose6-attack-only smear effects-347x192_30
+  - first:
+      213: 5019336604425124536
+    second: moose6-attack-only smear effects-347x192_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_0
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 69
+        width: 122
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f97e6f7e9fa5f3670800000000000000
+      internalID: 8520629049393342367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_1
+      rect:
+        serializedVersion: 2
+        x: 2501
+        y: 69
+        width: 110
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1b02881746e2140800000000000000
+      internalID: 4696801900171932077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_2
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 69
+        width: 101
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7fc22bd25ffa490800000000000000
+      internalID: -7732692458560227395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_3
+      rect:
+        serializedVersion: 2
+        x: 3269
+        y: 67
+        width: 129
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875abcbded6ffa970800000000000000
+      internalID: 8768498436544374136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_4
+      rect:
+        serializedVersion: 2
+        x: 3276
+        y: 165
+        width: 26
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9adef785a727f18b0800000000000000
+      internalID: -5179295176656425559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_5
+      rect:
+        serializedVersion: 2
+        x: 7750
+        y: 69
+        width: 73
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf3aa63119df7ad0800000000000000
+      internalID: -2702202583444209749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_6
+      rect:
+        serializedVersion: 2
+        x: 8078
+        y: 69
+        width: 94
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff1fddc2e2357a20800000000000000
+      internalID: 3059407471566069754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_7
+      rect:
+        serializedVersion: 2
+        x: 8422
+        y: 69
+        width: 94
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48eb9e42c23105cd0800000000000000
+      internalID: -2571534306909766012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_8
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 69
+        width: 100
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d984d87c4dcfeb630800000000000000
+      internalID: 3944868314434324637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_9
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 69
+        width: 127
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e462fa0ed4ad7e0800000000000000
+      internalID: -1739992678618739154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_10
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 69
+        width: 126
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74d9764833ac6750800000000000000
+      internalID: 6299589440880366714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_11
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 69
+        width: 124
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ba74cfab7e8b070800000000000000
+      internalID: 8122496718245178217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_12
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 154
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ba7d03107ac50e0800000000000000
+      internalID: -2279763687800067252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_13
+      rect:
+        serializedVersion: 2
+        x: 7446
+        y: 69
+        width: 52
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec24a0b25f62bf140800000000000000
+      internalID: 4754436666050626254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_14
+      rect:
+        serializedVersion: 2
+        x: 8777
+        y: 69
+        width: 80
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db755a4425ce71e0800000000000000
+      internalID: -2198102808453612592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_15
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 69
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434e9a75c29a0af40800000000000000
+      internalID: 5737771933184418868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_16
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 69
+        width: 60
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7910c5464ff54510800000000000000
+      internalID: 1532911925472532860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_17
+      rect:
+        serializedVersion: 2
+        x: 3624
+        y: 67
+        width: 121
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccd99ed638b5b100800000000000000
+      internalID: 123207110624926913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_18
+      rect:
+        serializedVersion: 2
+        x: 3972
+        y: 67
+        width: 120
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3f920c911c944e0800000000000000
+      internalID: -1996852643419786327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_19
+      rect:
+        serializedVersion: 2
+        x: 4323
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 917dd1449561b2280800000000000000
+      internalID: -9067128852129655015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_20
+      rect:
+        serializedVersion: 2
+        x: 4670
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f7aa317427ff210800000000000000
+      internalID: 1368938461342105441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_21
+      rect:
+        serializedVersion: 2
+        x: 5017
+        y: 67
+        width: 116
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b2ea3262d520680800000000000000
+      internalID: -8790361104285029615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_22
+      rect:
+        serializedVersion: 2
+        x: 5364
+        y: 67
+        width: 115
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6132faf41a697cfe0800000000000000
+      internalID: -1168799958708575466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_23
+      rect:
+        serializedVersion: 2
+        x: 5711
+        y: 67
+        width: 114
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590b86fb343a0ad50800000000000000
+      internalID: 6746571753170448533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_24
+      rect:
+        serializedVersion: 2
+        x: 6058
+        y: 67
+        width: 111
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27db8f57eab6d2de0800000000000000
+      internalID: -1356309515720934030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_25
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 68
+        width: 109
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cc55623464cf200800000000000000
+      internalID: 215124136426851397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_26
+      rect:
+        serializedVersion: 2
+        x: 6752
+        y: 69
+        width: 95
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ecff2b87f8540f0800000000000000
+      internalID: -1133341982651855318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_27
+      rect:
+        serializedVersion: 2
+        x: 7103
+        y: 69
+        width: 90
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abfec7243ad4b190800000000000000
+      internalID: -7947487524861051994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_28
+      rect:
+        serializedVersion: 2
+        x: 9143
+        y: 69
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebbcca67623bc050800000000000000
+      internalID: 5821802363061320682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_29
+      rect:
+        serializedVersion: 2
+        x: 9491
+        y: 69
+        width: 60
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a640981226125c10800000000000000
+      internalID: 2040717916849063587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_30
+      rect:
+        serializedVersion: 2
+        x: 9839
+        y: 69
+        width: 67
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2fb9d88ff57a960800000000000000
+      internalID: 7613159216225448667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moose6-attack-only smear effects-347x192_31
+      rect:
+        serializedVersion: 2
+        x: 10186
+        y: 69
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8baffd25c0448a540800000000000000
+      internalID: 5019336604425124536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      moose6-attack-only smear effects-347x192_0: 8520629049393342367
+      moose6-attack-only smear effects-347x192_1: 4696801900171932077
+      moose6-attack-only smear effects-347x192_10: 6299589440880366714
+      moose6-attack-only smear effects-347x192_11: 8122496718245178217
+      moose6-attack-only smear effects-347x192_12: -2279763687800067252
+      moose6-attack-only smear effects-347x192_13: 4754436666050626254
+      moose6-attack-only smear effects-347x192_14: -2198102808453612592
+      moose6-attack-only smear effects-347x192_15: 5737771933184418868
+      moose6-attack-only smear effects-347x192_16: 1532911925472532860
+      moose6-attack-only smear effects-347x192_17: 123207110624926913
+      moose6-attack-only smear effects-347x192_18: -1996852643419786327
+      moose6-attack-only smear effects-347x192_19: -9067128852129655015
+      moose6-attack-only smear effects-347x192_2: -7732692458560227395
+      moose6-attack-only smear effects-347x192_20: 1368938461342105441
+      moose6-attack-only smear effects-347x192_21: -8790361104285029615
+      moose6-attack-only smear effects-347x192_22: -1168799958708575466
+      moose6-attack-only smear effects-347x192_23: 6746571753170448533
+      moose6-attack-only smear effects-347x192_24: -1356309515720934030
+      moose6-attack-only smear effects-347x192_25: 215124136426851397
+      moose6-attack-only smear effects-347x192_26: -1133341982651855318
+      moose6-attack-only smear effects-347x192_27: -7947487524861051994
+      moose6-attack-only smear effects-347x192_28: 5821802363061320682
+      moose6-attack-only smear effects-347x192_29: 2040717916849063587
+      moose6-attack-only smear effects-347x192_3: 8768498436544374136
+      moose6-attack-only smear effects-347x192_30: 7613159216225448667
+      moose6-attack-only smear effects-347x192_31: 5019336604425124536
+      moose6-attack-only smear effects-347x192_4: -5179295176656425559
+      moose6-attack-only smear effects-347x192_5: -2702202583444209749
+      moose6-attack-only smear effects-347x192_6: 3059407471566069754
+      moose6-attack-only smear effects-347x192_7: -2571534306909766012
+      moose6-attack-only smear effects-347x192_8: 3944868314434324637
+      moose6-attack-only smear effects-347x192_9: -1739992678618739154
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

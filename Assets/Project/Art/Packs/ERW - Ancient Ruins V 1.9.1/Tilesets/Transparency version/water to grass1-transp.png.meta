@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: dd722f8d4de5ad242b1bb5dd26128c08
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5318606005951972760
+    second: water to grass1-transp_0
+  - first:
+      213: -3843586265973947478
+    second: water to grass1-transp_1
+  - first:
+      213: 2532737884200103752
+    second: water to grass1-transp_2
+  - first:
+      213: 8619735016472997303
+    second: water to grass1-transp_3
+  - first:
+      213: -2495063399886611202
+    second: water to grass1-transp_4
+  - first:
+      213: -1097192277165340744
+    second: water to grass1-transp_5
+  - first:
+      213: 8189979257111114706
+    second: water to grass1-transp_6
+  - first:
+      213: -7202135784399579290
+    second: water to grass1-transp_7
+  - first:
+      213: 4244031915041806992
+    second: water to grass1-transp_8
+  - first:
+      213: 3340237128389445848
+    second: water to grass1-transp_9
+  - first:
+      213: -7119098798201397427
+    second: water to grass1-transp_10
+  - first:
+      213: 8823440037268784854
+    second: water to grass1-transp_11
+  - first:
+      213: 2984959533883060386
+    second: water to grass1-transp_12
+  - first:
+      213: -3278191273623711457
+    second: water to grass1-transp_13
+  - first:
+      213: 4817884523924217465
+    second: water to grass1-transp_14
+  - first:
+      213: 1091157501705099422
+    second: water to grass1-transp_15
+  - first:
+      213: 7900566763664869254
+    second: water to grass1-transp_16
+  - first:
+      213: 5029261433633572472
+    second: water to grass1-transp_17
+  - first:
+      213: -6197106462634164060
+    second: water to grass1-transp_18
+  - first:
+      213: 3522591340241745791
+    second: water to grass1-transp_19
+  - first:
+      213: 3483562378699506425
+    second: water to grass1-transp_20
+  - first:
+      213: -5330613649589270714
+    second: water to grass1-transp_21
+  - first:
+      213: 5639530902401227974
+    second: water to grass1-transp_22
+  - first:
+      213: 2850984094421142141
+    second: water to grass1-transp_23
+  - first:
+      213: 6611371222930758437
+    second: water to grass1-transp_24
+  - first:
+      213: 9126761647513514679
+    second: water to grass1-transp_25
+  - first:
+      213: 7658993436024101945
+    second: water to grass1-transp_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: water to grass1-transp_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 81
+        width: 133
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a39fa44048036b0800000000000000
+      internalID: -5318606005951972760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 150
+        width: 514
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa38d01c7a6d8aac0800000000000000
+      internalID: -3843586265973947478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_2
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84febe8cfa7162320800000000000000
+      internalID: 2532737884200103752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd6ed204537f9770800000000000000
+      internalID: 8619735016472997303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_4
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc1ea5ae01cf5dd0800000000000000
+      internalID: -2495063399886611202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_5
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b70245ef6df5c0f0800000000000000
+      internalID: -1097192277165340744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_6
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3fce1fdb6a8a170800000000000000
+      internalID: 8189979257111114706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_7
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667dbb2a9afdc0c90800000000000000
+      internalID: -7202135784399579290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_8
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 215
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09adc777a84d5ea30800000000000000
+      internalID: 4244031915041806992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_9
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 151
+        width: 226
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8493f88f7ea5e20800000000000000
+      internalID: 3340237128389445848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f9b449c51e33d90800000000000000
+      internalID: -7119098798201397427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_11
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d68d5e17f7237a70800000000000000
+      internalID: 8823440037268784854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_12
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0f30e81e4bc6920800000000000000
+      internalID: 2984959533883060386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_13
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f119fddb7668182d0800000000000000
+      internalID: -3278191273623711457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_14
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97eda51c2709cd240800000000000000
+      internalID: 4817884523924217465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_15
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98922377f1942f00800000000000000
+      internalID: 1091157501705099422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_16
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6878080dc9374ad60800000000000000
+      internalID: 7900566763664869254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_17
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 63
+        width: 514
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8760d42b0a68bc540800000000000000
+      internalID: 5029261433633572472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 31
+        width: 226
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0c96381847ff9a0800000000000000
+      internalID: -6197106462634164060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_19
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77f9f31922c2e030800000000000000
+      internalID: 3522591340241745791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_20
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f28c47d689185030800000000000000
+      internalID: 3483562378699506425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_21
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6470265e02bd506b0800000000000000
+      internalID: -5330613649589270714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_22
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cc9679e973a34e40800000000000000
+      internalID: 5639530902401227974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_23
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ac240cdeab09720800000000000000
+      internalID: 2850984094421142141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_24
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b1705491f40cb50800000000000000
+      internalID: 6611371222930758437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_25
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 31
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2b3bddc55c8ae70800000000000000
+      internalID: 9126761647513514679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water to grass1-transp_26
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 31
+        width: 226
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93cd34373f53a4a60800000000000000
+      internalID: 7658993436024101945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      water to grass1-transp_0: -5318606005951972760
+      water to grass1-transp_1: -3843586265973947478
+      water to grass1-transp_10: -7119098798201397427
+      water to grass1-transp_11: 8823440037268784854
+      water to grass1-transp_12: 2984959533883060386
+      water to grass1-transp_13: -3278191273623711457
+      water to grass1-transp_14: 4817884523924217465
+      water to grass1-transp_15: 1091157501705099422
+      water to grass1-transp_16: 7900566763664869254
+      water to grass1-transp_17: 5029261433633572472
+      water to grass1-transp_18: -6197106462634164060
+      water to grass1-transp_19: 3522591340241745791
+      water to grass1-transp_2: 2532737884200103752
+      water to grass1-transp_20: 3483562378699506425
+      water to grass1-transp_21: -5330613649589270714
+      water to grass1-transp_22: 5639530902401227974
+      water to grass1-transp_23: 2850984094421142141
+      water to grass1-transp_24: 6611371222930758437
+      water to grass1-transp_25: 9126761647513514679
+      water to grass1-transp_26: 7658993436024101945
+      water to grass1-transp_3: 8619735016472997303
+      water to grass1-transp_4: -2495063399886611202
+      water to grass1-transp_5: -1097192277165340744
+      water to grass1-transp_6: 8189979257111114706
+      water to grass1-transp_7: -7202135784399579290
+      water to grass1-transp_8: 4244031915041806992
+      water to grass1-transp_9: 3340237128389445848
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
