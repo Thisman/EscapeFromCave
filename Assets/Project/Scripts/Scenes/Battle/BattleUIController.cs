@@ -734,8 +734,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return;
 
         bool isFriendly = squad.IsFriendly() || squad.IsAlly() || squad.IsHero();
-        _squadInfoCard.EnableInClassList(BattleCardRightClassName, isFriendly);
-        _squadInfoCard.EnableInClassList(BattleCardLeftClassName, !isFriendly);
+        _squadInfoCard.EnableInClassList(BattleCardLeftClassName, isFriendly);
+        _squadInfoCard.EnableInClassList(BattleCardRightClassName, !isFriendly);
     }
 
     private void UnsubscribeFromDisplayedSquad()
