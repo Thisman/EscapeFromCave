@@ -17,7 +17,7 @@ public sealed class AudioManager : MonoBehaviour
         public const string BackgroundEffect = "BackgroundEffect";
     }
 
-    private const string AudioRootFolder = "Project/Audio";
+    private const string AudioRootFolder = "Resources/Audio";
 
     private static readonly HashSet<string> SupportedExtensions = new(StringComparer.OrdinalIgnoreCase)
     {
