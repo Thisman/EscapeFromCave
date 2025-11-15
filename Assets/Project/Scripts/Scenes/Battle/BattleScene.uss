@@ -1,50 +1,6 @@
 :root {
 }
 
-.panel {
-    display: flex;
-    visibility: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.panel-active {
-    visibility: visible;
-}
-
-.top {
-    height: 150px;
-}
-
-.top-row {
-    flex-grow: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.bottom {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    height: 150px;
-    justify-content: center;
-    align-items: flex-end;
-    padding-top: 16px;
-    padding-right: 16px;
-    padding-bottom: 16px;
-    padding-left: 16px;
-}
-
-.button-row {
-    display: flex;
-}
-
-.button-row .button {
-    margin-right: 16px;
-}
-
 .queue-list {
     display: flex;
     flex-direction: row;

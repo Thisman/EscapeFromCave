@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/Project/Scripts/Scenes/Dungeon/DungeonLevelScene.uss?fileID=7433441132597879392&amp;guid=0441ac71ac33dd14ca8587b7c3cbc49c&amp;type=3#DungeonLevelScene" />
     <ui:VisualElement name="Body" style="flex-grow: 1; justify-content: flex-end;">
         <ui:VisualElement name="Bottom" class="bottom" style="flex-direction: row; align-items: center;">
-            <ui:VisualElement name="SquadsList" class="squad-list" style="border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px;" />
+            <ui:VisualElement name="SquadsList" class="squad-list" style="border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; width: 30%;" />
             <ui:VisualElement name="Dialog" style="flex-grow: 1; width: 40%;" />
             <ui:VisualElement name="Space" style="flex-grow: 1; width: 30%;" />
         </ui:VisualElement>
