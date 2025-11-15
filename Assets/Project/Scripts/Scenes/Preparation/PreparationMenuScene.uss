@@ -109,6 +109,8 @@
 .control-button {
     opacity: 0.5;
     transition-timing-function: ease-in-out-bounce;
+    height: 80px;
+    width: 100%;
 }
 
 .control-button:hover {
