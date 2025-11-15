@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public sealed class BattleUIController : MonoBehaviour, ISceneUIController
@@ -22,6 +23,14 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string AbilityItemIconClassName = "ability-item__icon";
     private const string AbilityItemCooldownClassName = "ability-item--cooldown";
     private const string AbilityItemSelectedClassName = "ability-item--selected";
+
+    private const string SquadInfoCardElementName = "SquadInfoCard";
+    private const string CardInfoElementName = "Info";
+    private const string BattleCardHiddenClassName = "battle-card--hidden";
+    private const string BattleCardVisibleClassName = "battle-card--visible";
+    private const string BattleCardLeftClassName = "battle-card--left";
+    private const string BattleCardRightClassName = "battle-card--right";
+    private const string UnitsLayerName = "Units";
 
     private const string VictoryStatusText = "Победа";
     private const string DefeatStatusText = "Поражение";
@@ -51,6 +60,13 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private BattleAbilityManager _currentAbilityManager;
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
+    private VisualElement _squadInfoCard;
+    private VisualElement _squadInfoCardIcon;
+    private Label _squadInfoCardTitle;
+    private readonly List<Label> _squadInfoLabels = new();
+    private IReadOnlySquadModel _displayedSquadModel;
+    private Camera _mainCamera;
+    private int _unitsLayerMask;
 
     private bool _isAttached;
 
@@ -63,6 +79,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     private void Awake()
     {
+        _mainCamera = Camera.main;
+        _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
         TryRegisterLifecycleCallbacks();
     }
 
@@ -80,6 +98,11 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
             root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
         }
+    }
+
+    private void Update()
+    {
+        UpdateSquadInfoCardFromPointer();
     }
 
     public void AttachToPanel(UIDocument document)
@@ -157,6 +180,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _highlightedAbility = null;
         _currentPanel = null;
 
+        InitializeSquadInfoCard(body);
+
         _startCombatButton?.RegisterCallback<ClickEvent>(HandleStartCombatClicked);
         _leaveCombatButton?.RegisterCallback<ClickEvent>(HandleLeaveCombatClicked);
         _finishBattleButton?.RegisterCallback<ClickEvent>(HandleFinishBattleClicked);
@@ -212,6 +237,12 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _currentAbilityManager = null;
         _currentAbilityOwner = null;
         _highlightedAbility = null;
+
+        HideSquadInfoCard();
+        _squadInfoCard = null;
+        _squadInfoCardIcon = null;
+        _squadInfoCardTitle = null;
+        _squadInfoLabels.Clear();
 
         _resultStatusLabel = null;
         _panels.Clear();
@@ -563,5 +594,243 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return "раунда";
 
         return "раундов";
+    }
+
+    private void InitializeSquadInfoCard(VisualElement body)
+    {
+        _squadInfoCard = body?.Q<VisualElement>(SquadInfoCardElementName);
+        _squadInfoCardIcon = _squadInfoCard?.Q<VisualElement>("Icon");
+        _squadInfoCardTitle = _squadInfoCard?.Q<Label>("Title");
+
+        _squadInfoLabels.Clear();
+        VisualElement infoContainer = _squadInfoCard?.Q<VisualElement>(CardInfoElementName);
+        infoContainer?.Query<Label>().ForEach(label =>
+        {
+            if (label != null)
+                _squadInfoLabels.Add(label);
+        });
+
+        HideSquadInfoCard();
+    }
+
+    private void UpdateSquadInfoCardFromPointer()
+    {
+        if (!_isAttached || _squadInfoCard == null)
+            return;
+
+        BattleSquadController squadController = FindSquadUnderPointer();
+        if (squadController == null)
+        {
+            if (_displayedSquadModel != null)
+                HideSquadInfoCard();
+            return;
+        }
+
+        IReadOnlySquadModel squad = squadController.GetSquadModel();
+        if (squad == null)
+        {
+            if (_displayedSquadModel != null)
+                HideSquadInfoCard();
+            return;
+        }
+
+        ShowSquadInfoCard(squad);
+    }
+
+    private void ShowSquadInfoCard(IReadOnlySquadModel squad)
+    {
+        if (squad == null || _squadInfoCard == null)
+        {
+            HideSquadInfoCard();
+            return;
+        }
+
+        if (!ReferenceEquals(_displayedSquadModel, squad))
+        {
+            UnsubscribeFromDisplayedSquad();
+            _displayedSquadModel = squad;
+            _displayedSquadModel.Changed += HandleDisplayedSquadChanged;
+        }
+
+        UpdateSquadInfoContent(squad);
+        UpdateSquadCardPosition(squad);
+
+        _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, false);
+        _squadInfoCard.EnableInClassList(BattleCardVisibleClassName, true);
+    }
+
+    private void HideSquadInfoCard()
+    {
+        UnsubscribeFromDisplayedSquad();
+
+        if (_squadInfoCard == null)
+            return;
+
+        _squadInfoCard.EnableInClassList(BattleCardVisibleClassName, false);
+        _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, true);
+    }
+
+    private void HandleDisplayedSquadChanged(IReadOnlySquadModel squad)
+    {
+        if (squad == null || !ReferenceEquals(_displayedSquadModel, squad))
+            return;
+
+        UpdateSquadInfoContent(squad);
+    }
+
+    private void UpdateSquadInfoContent(IReadOnlySquadModel squad)
+    {
+        if (squad == null)
+            return;
+
+        UpdateSquadInfoIcon(squad);
+        UpdateSquadInfoTitle(squad);
+        UpdateSquadInfoLabels(BuildSquadStatEntries(squad));
+    }
+
+    private void UpdateSquadInfoIcon(IReadOnlySquadModel squad)
+    {
+        if (_squadInfoCardIcon == null)
+            return;
+
+        if (squad.Icon != null)
+            _squadInfoCardIcon.style.backgroundImage = new StyleBackground(squad.Icon);
+        else
+            _squadInfoCardIcon.style.backgroundImage = new StyleBackground();
+
+        _squadInfoCardIcon.tooltip = !string.IsNullOrWhiteSpace(squad.UnitName) ? squad.UnitName : string.Empty;
+    }
+
+    private void UpdateSquadInfoTitle(IReadOnlySquadModel squad)
+    {
+        if (_squadInfoCardTitle == null)
+            return;
+
+        _squadInfoCardTitle.text = squad.UnitName ?? string.Empty;
+    }
+
+    private void UpdateSquadInfoLabels(IReadOnlyList<string> entries)
+    {
+        int entryCount = entries?.Count ?? 0;
+        for (int i = 0; i < _squadInfoLabels.Count; i++)
+        {
+            Label label = _squadInfoLabels[i];
+            if (label == null)
+                continue;
+
+            if (i < entryCount)
+            {
+                label.text = entries[i];
+                label.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                label.text = string.Empty;
+                label.style.display = DisplayStyle.None;
+            }
+        }
+    }
+
+    private void UpdateSquadCardPosition(IReadOnlySquadModel squad)
+    {
+        if (_squadInfoCard == null)
+            return;
+
+        bool isFriendly = squad.IsFriendly() || squad.IsAlly() || squad.IsHero();
+        _squadInfoCard.EnableInClassList(BattleCardLeftClassName, isFriendly);
+        _squadInfoCard.EnableInClassList(BattleCardRightClassName, !isFriendly);
+    }
+
+    private void UnsubscribeFromDisplayedSquad()
+    {
+        if (_displayedSquadModel == null)
+            return;
+
+        _displayedSquadModel.Changed -= HandleDisplayedSquadChanged;
+        _displayedSquadModel = null;
+    }
+
+    private BattleSquadController FindSquadUnderPointer()
+    {
+        if (!InputUtils.TryGetPointerScreenPosition(out Vector2 screenPos))
+            return null;
+
+        var camera = Camera.main;
+        if (camera == null)
+            return null;
+
+        // Стандартный путь: screenPos уже в нужной системе координат
+        Ray ray = camera.ScreenPointToRay(new Vector3(screenPos.x, screenPos.y, 0f));
+
+        // 3D
+        if (Physics.Raycast(ray, out var hit3D) && hit3D.transform != null)
+            return hit3D.transform.GetComponentInParent<BattleSquadController>();
+
+        // 2D
+        RaycastHit2D hit2D = Physics2D.GetRayIntersection(ray);
+        if (hit2D.transform != null)
+            return hit2D.transform.GetComponentInParent<BattleSquadController>();
+
+        return null;
+    }
+
+    private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)
+    {
+        if (squad == null)
+            return Array.Empty<string>();
+
+        List<string> entries = new()
+        {
+            $"Название: {squad.UnitName}",
+            $"Количество: {FormatValue(squad.Count)}",
+            $"Здоровье: {FormatValue(squad.Health)}",
+            $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
+            $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
+            $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
+            $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
+            $"Тип урона: {FormatDamageType(squad.DamageType)}",
+        };
+
+        (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
+        entries.Add($"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}");
+        entries.Add($"Скорость: {FormatValue(squad.Speed)}");
+        entries.Add($"Инициатива: {FormatValue(squad.Initiative)}");
+        entries.Add($"Шанс критического удара: {FormatPercent(squad.CritChance)}");
+        entries.Add($"Критический множитель: {FormatValue(squad.CritMultiplier)}");
+        entries.Add($"Шанс промаха: {FormatPercent(squad.MissChance)}");
+
+        return entries;
+    }
+
+    private static string FormatValue(float value)
+    {
+        return value.ToString("0.##");
+    }
+
+    private static string FormatPercent(float value)
+    {
+        return value.ToString("P0");
+    }
+
+    private static string FormatAttackKind(AttackKind attackKind)
+    {
+        return attackKind switch
+        {
+            AttackKind.Melee => "Ближняя",
+            AttackKind.Range => "Дальняя",
+            AttackKind.Magic => "Магическая",
+            _ => attackKind.ToString()
+        };
+    }
+
+    private static string FormatDamageType(DamageType damageType)
+    {
+        return damageType switch
+        {
+            DamageType.Physical => "Физический",
+            DamageType.Magical => "Магический",
+            DamageType.Pure => "Чистый",
+            _ => damageType.ToString()
+        };
     }
 }

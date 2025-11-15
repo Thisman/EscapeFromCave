@@ -111,3 +111,33 @@
     border-bottom-color: rgb(245, 217, 107);
     border-left-color: rgb(245, 217, 107);
 }
+
+.battle-card {
+    position: absolute;
+    top: 32px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    pointer-events: none;
+    z-index: 10;
+    flex-direction: column;
+}
+
+.battle-card--hidden {
+    display: none;
+}
+
+.battle-card--visible {
+    display: flex;
+}
+
+.battle-card--left {
+    left: 32px;
+    right: auto;
+}
+
+.battle-card--right {
+    right: 32px;
+    left: auto;
+}
