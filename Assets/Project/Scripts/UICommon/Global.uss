@@ -26,8 +26,41 @@
     font-size: 20px;
 }
 
-.dialog-text {
+.panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+}
+
+.panel__active {
+    visibility: visible;
 }
 
 .top {
+    position: absolute;
+    top: 0;
+    height: 150px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    flex-grow: 1;
+    left: 0;
+    right: 0;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+}
+
+.control-button {
 }
