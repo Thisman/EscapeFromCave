@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PreparationMenuUIController : MonoBehaviour
+public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _document;
 
@@ -22,33 +22,27 @@ public class PreparationMenuUIController : MonoBehaviour
     private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
 
     private int _selectedHeroIndex = -1;
-    private bool _initialized;
+    private bool _isAttached;
 
     private void Awake()
     {
-        Initialize();
+        TryRegisterLifecycleCallbacks();
     }
 
     private void OnEnable()
     {
-        Initialize();
-
-        if (_goToSquadsSelectionButton != null)
-            _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
-
-        if (_diveIntoCaveButton != null)
-            _diveIntoCaveButton.clicked += HandleDiveIntoCave;
-
-        ShowHeroSelection();
+        TryRegisterLifecycleCallbacks();
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        if (_goToSquadsSelectionButton != null)
-            _goToSquadsSelectionButton.clicked -= HandleGoToSquadsSelection;
+        DetachFromPanel();
 
-        if (_diveIntoCaveButton != null)
-            _diveIntoCaveButton.clicked -= HandleDiveIntoCave;
+        if (_document?.rootVisualElement is { } root)
+        {
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+        }
     }
 
     public void Render(UnitSO[] heroDefinitions, UnitSO[] squadDefinitions)
@@ -56,22 +50,24 @@ public class PreparationMenuUIController : MonoBehaviour
         _heroDefinitions = heroDefinitions ?? Array.Empty<UnitSO>();
         _squadDefinitions = squadDefinitions ?? Array.Empty<UnitSO>();
 
-        Initialize();
+        if (!_isAttached)
+            return;
+
         RenderHeroes();
         RenderSquads();
         ShowHeroSelection();
     }
 
-    private void Initialize()
+    public void AttachToPanel(UIDocument document)
     {
-        if (_initialized)
+        if (document == null)
             return;
 
-        _document ??= GetComponent<UIDocument>();
-        if (_document == null)
-            return;
+        if (_isAttached)
+            DetachFromPanel();
 
-        _root = _document.rootVisualElement;
+        _document = document;
+        _root = document.rootVisualElement;
         if (_root == null)
             return;
 
@@ -83,7 +79,78 @@ public class PreparationMenuUIController : MonoBehaviour
         InitializeHeroCards();
         InitializeSquadCards();
 
-        _initialized = true;
+        if (_goToSquadsSelectionButton != null)
+            _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
+
+        if (_diveIntoCaveButton != null)
+            _diveIntoCaveButton.clicked += HandleDiveIntoCave;
+
+        RenderHeroes();
+        RenderSquads();
+        ShowHeroSelection();
+
+        _isAttached = true;
+    }
+
+    public void DetachFromPanel()
+    {
+        if (!_isAttached)
+            return;
+
+        if (_goToSquadsSelectionButton != null)
+        {
+            _goToSquadsSelectionButton.clicked -= HandleGoToSquadsSelection;
+            _goToSquadsSelectionButton = null;
+        }
+
+        if (_diveIntoCaveButton != null)
+        {
+            _diveIntoCaveButton.clicked -= HandleDiveIntoCave;
+            _diveIntoCaveButton = null;
+        }
+
+        foreach (HeroCard card in _heroCards)
+            card.Dispose();
+
+        foreach (SquadCard card in _squadCards)
+            card.Dispose();
+
+        _heroCards.Clear();
+        _squadCards.Clear();
+
+        _heroPanel = null;
+        _squadPanel = null;
+        _root = null;
+
+        _isAttached = false;
+    }
+
+    private void TryRegisterLifecycleCallbacks()
+    {
+        if (_document == null)
+            _document = GetComponent<UIDocument>();
+
+        if (_document?.rootVisualElement is { } root)
+        {
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+
+            if (!_isAttached && root.panel != null)
+                AttachToPanel(_document);
+        }
+    }
+
+    private void HandleAttachToPanel(AttachToPanelEvent _)
+    {
+        if (!_isAttached)
+            AttachToPanel(_document);
+    }
+
+    private void HandleDetachFromPanel(DetachFromPanelEvent _)
+    {
+        DetachFromPanel();
     }
 
     private void InitializeHeroCards()
@@ -411,6 +478,7 @@ public class PreparationMenuUIController : MonoBehaviour
     private sealed class HeroCard : CardView
     {
         private readonly PreparationMenuUIController _controller;
+        private readonly Clickable _clickable;
 
         public HeroCard(PreparationMenuUIController controller, VisualElement root)
             : base(root)
@@ -418,7 +486,10 @@ public class PreparationMenuUIController : MonoBehaviour
             _controller = controller;
 
             if (Root != null)
-                Root.AddManipulator(new Clickable(HandleClick));
+            {
+                _clickable = new Clickable(HandleClick);
+                Root.AddManipulator(_clickable);
+            }
         }
 
         public int DefinitionIndex { get; private set; } = -1;
@@ -435,6 +506,12 @@ public class PreparationMenuUIController : MonoBehaviour
             Root?.EnableInClassList("card__selected", isSelected);
         }
 
+        public void Dispose()
+        {
+            if (Root != null && _clickable != null)
+                Root.RemoveManipulator(_clickable);
+        }
+
         private void HandleClick()
         {
             if (DefinitionIndex < 0)
@@ -449,6 +526,8 @@ public class PreparationMenuUIController : MonoBehaviour
         private readonly PreparationMenuUIController _controller;
         private readonly VisualElement _prevButton;
         private readonly VisualElement _nextButton;
+        private readonly Clickable _prevClickable;
+        private readonly Clickable _nextClickable;
 
         public SquadCard(PreparationMenuUIController controller, VisualElement root)
             : base(root)
@@ -458,10 +537,16 @@ public class PreparationMenuUIController : MonoBehaviour
             _nextButton = root?.Q<VisualElement>("NextButton");
 
             if (_prevButton != null)
-                _prevButton.AddManipulator(new Clickable(() => _controller.ChangeSquadSelection(this, -1)));
+            {
+                _prevClickable = new Clickable(() => _controller.ChangeSquadSelection(this, -1));
+                _prevButton.AddManipulator(_prevClickable);
+            }
 
             if (_nextButton != null)
-                _nextButton.AddManipulator(new Clickable(() => _controller.ChangeSquadSelection(this, 1)));
+            {
+                _nextClickable = new Clickable(() => _controller.ChangeSquadSelection(this, 1));
+                _nextButton.AddManipulator(_nextClickable);
+            }
         }
 
         public int SelectedDefinitionIndex { get; private set; } = -1;
@@ -476,6 +561,15 @@ public class PreparationMenuUIController : MonoBehaviour
         public bool HasValidSelection(int definitionsLength)
         {
             return definitionsLength > 0 && SelectedDefinitionIndex >= 0 && SelectedDefinitionIndex < definitionsLength;
+        }
+
+        public void Dispose()
+        {
+            if (_prevButton != null && _prevClickable != null)
+                _prevButton.RemoveManipulator(_prevClickable);
+
+            if (_nextButton != null && _nextClickable != null)
+                _nextButton.RemoveManipulator(_nextClickable);
         }
     }
 }

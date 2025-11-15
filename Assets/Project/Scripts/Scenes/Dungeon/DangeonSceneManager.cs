@@ -14,6 +14,16 @@ public class DangeonSceneManager : MonoBehaviour
 
     private PlayerArmyController _playerArmyController;
 
+    private void OnEnable()
+    {
+        SubscribeToArmyChanges(_playerArmyController);
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeFromArmyChanges(_playerArmyController);
+    }
+
     private void Start()
     {
         _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
@@ -26,10 +36,7 @@ public class DangeonSceneManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_playerArmyController != null)
-        {
-            _playerArmyController.ArmyChanged -= HandleArmyChanged;
-        }
+        UnsubscribeFromArmyChanges(_playerArmyController);
 
         _dungeonUIController?.RenderSquads(null);
     }
@@ -71,8 +78,19 @@ public class DangeonSceneManager : MonoBehaviour
             return;
         }
 
+        UnsubscribeFromArmyChanges(armyController);
         armyController.ArmyChanged += HandleArmyChanged;
         HandleArmyChanged(armyController.Army);
+    }
+
+    private void UnsubscribeFromArmyChanges(PlayerArmyController armyController)
+    {
+        if (armyController == null)
+        {
+            return;
+        }
+
+        armyController.ArmyChanged -= HandleArmyChanged;
     }
 
     private void HandleArmyChanged(IReadOnlyArmyModel army)

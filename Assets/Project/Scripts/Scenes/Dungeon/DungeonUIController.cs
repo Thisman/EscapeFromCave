@@ -4,7 +4,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class DungeonUIController : MonoBehaviour
+public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
@@ -18,20 +18,49 @@ public sealed class DungeonUIController : MonoBehaviour
     private readonly Dictionary<IReadOnlySquadModel, SquadEntry> _squadEntries = new();
     private readonly List<IReadOnlySquadModel> _orderedSquads = new();
     private readonly List<IReadOnlySquadModel> _buffer = new();
+    private readonly List<IReadOnlySquadModel> _lastRenderedSquads = new();
 
     private Coroutine _dialogRoutine;
     private readonly StringBuilder _dialogBuilder = new();
+    private bool _isAttached;
 
     public float DialogSecondsPerCharacter => _dialogSecondsPerCharacter;
 
     private void Awake()
     {
-        if (_uiDocument == null)
+        TryRegisterLifecycleCallbacks();
+    }
+
+    private void OnEnable()
+    {
+        TryRegisterLifecycleCallbacks();
+    }
+
+    private void OnDestroy()
+    {
+        DetachFromPanel();
+
+        if (_uiDocument?.rootVisualElement is { } root)
         {
-            _uiDocument = GetComponent<UIDocument>();
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+        }
+    }
+
+    public void AttachToPanel(UIDocument document)
+    {
+        if (document == null)
+        {
+            return;
         }
 
-        _root = _uiDocument != null ? _uiDocument.rootVisualElement : null;
+        if (_isAttached)
+        {
+            DetachFromPanel();
+        }
+
+        _uiDocument = document;
+        _root = document.rootVisualElement;
         _squadsList = _root?.Q<VisualElement>("SquadsList");
         _dialogContainer = _root?.Q<VisualElement>("Dialog");
 
@@ -44,29 +73,38 @@ public sealed class DungeonUIController : MonoBehaviour
                 _dialogLabel.AddToClassList("dialog-text");
                 _dialogContainer.Add(_dialogLabel);
             }
+
+            SetDialogVisibility(false);
         }
+        else
+        {
+            _dialogLabel = null;
+        }
+
+        _isAttached = true;
+
+        RenderSquads(_lastRenderedSquads);
     }
 
-    private void OnDisable()
+    public void DetachFromPanel()
     {
-        ClearTrackedSquads();
-        StopDialogRoutine();
-    }
+        if (!_isAttached)
+        {
+            return;
+        }
 
-    private void OnDestroy()
-    {
+        HideDialog();
         ClearTrackedSquads();
-        StopDialogRoutine();
+
+        _dialogContainer = null;
+        _dialogLabel = null;
+        _squadsList = null;
+        _root = null;
+        _isAttached = false;
     }
 
     public void RenderSquads(IEnumerable<IReadOnlySquadModel> squads)
     {
-        if (_squadsList == null)
-        {
-            Debug.LogWarning($"[{nameof(DungeonUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
-            return;
-        }
-
         _buffer.Clear();
 
         if (squads != null)
@@ -85,6 +123,17 @@ public sealed class DungeonUIController : MonoBehaviour
 
                 _buffer.Add(squad);
             }
+        }
+
+        if (_squadsList == null)
+        {
+            _lastRenderedSquads.Clear();
+            _lastRenderedSquads.AddRange(_buffer);
+            if (_isAttached)
+            {
+                Debug.LogWarning($"[{nameof(DungeonUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
+            }
+            return;
         }
 
         for (int i = _orderedSquads.Count - 1; i >= 0; i--)
@@ -121,6 +170,9 @@ public sealed class DungeonUIController : MonoBehaviour
                 _orderedSquads.Add(squad);
             }
         }
+
+        _lastRenderedSquads.Clear();
+        _lastRenderedSquads.AddRange(_orderedSquads);
     }
 
     public void RenderDialog(string text, float? overrideSecondsPerCharacter = null)
@@ -132,6 +184,7 @@ public sealed class DungeonUIController : MonoBehaviour
         }
 
         StopDialogRoutine();
+        SetDialogVisibility(true);
 
         var message = text ?? string.Empty;
         var secondsPerCharacter = overrideSecondsPerCharacter.HasValue
@@ -139,6 +192,19 @@ public sealed class DungeonUIController : MonoBehaviour
             : _dialogSecondsPerCharacter;
 
         _dialogRoutine = StartCoroutine(TypeDialogRoutine(message, secondsPerCharacter));
+    }
+
+    public void HideDialog()
+    {
+        if (_dialogContainer == null || _dialogLabel == null)
+        {
+            return;
+        }
+
+        StopDialogRoutine();
+        _dialogBuilder.Clear();
+        _dialogLabel.text = string.Empty;
+        SetDialogVisibility(false);
     }
 
     private IEnumerator TypeDialogRoutine(string message, float secondsPerCharacter)
@@ -170,6 +236,51 @@ public sealed class DungeonUIController : MonoBehaviour
             StopCoroutine(_dialogRoutine);
             _dialogRoutine = null;
         }
+    }
+
+    private void SetDialogVisibility(bool isVisible)
+    {
+        if (_dialogContainer == null)
+        {
+            return;
+        }
+
+        _dialogContainer.style.display = isVisible ? DisplayStyle.Flex : DisplayStyle.None;
+        _dialogContainer.visible = isVisible;
+    }
+
+    private void TryRegisterLifecycleCallbacks()
+    {
+        if (_uiDocument == null)
+        {
+            _uiDocument = GetComponent<UIDocument>();
+        }
+
+        if (_uiDocument?.rootVisualElement is { } root)
+        {
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+
+            if (!_isAttached && root.panel != null)
+            {
+                AttachToPanel(_uiDocument);
+            }
+        }
+    }
+
+    private void HandleAttachToPanel(AttachToPanelEvent _)
+    {
+        if (!_isAttached)
+        {
+            AttachToPanel(_uiDocument);
+        }
+    }
+
+    private void HandleDetachFromPanel(DetachFromPanelEvent _)
+    {
+        DetachFromPanel();
     }
 
     private void HandleSquadChanged(IReadOnlySquadModel squad)
