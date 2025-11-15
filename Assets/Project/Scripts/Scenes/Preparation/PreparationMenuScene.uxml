@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Project/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
     <Style src="project://database/Assets/Project/Scripts/UICommon/Card.uss?fileID=7433441132597879392&amp;guid=0a99c30db0a84673a577a55217ea8f9a&amp;type=3#Card" />
     <Style src="project://database/Assets/Project/Scripts/Scenes/Preparation/PreparationMenuScene.uss?fileID=7433441132597879392&amp;guid=ed3fdf715f1a2c44bafc95867e4ec746&amp;type=3#PreparationMenuScene" />
-    <ui:Template src="project://database/Assets/Project/Scripts/UICommon/Card.uxml?fileID=9197481961782285770&amp;guid=d8b430733be5494e8436afced416d881&amp;type=3#Card" name="CommonCard" />
+    <ui:Template src="project://database/Assets/Project/Scripts/UICommon/Card.uxml?fileID=9197481961782285770&amp;guid=d8b430733be5494e8436afced416d881&amp;type=3" name="CommonCard" />
     <ui:VisualElement name="Body" style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
         <ui:VisualElement name="SelectHeroPanel" class="panel hero-panel" style="flex-grow: 1;">
             <ui:VisualElement name="Content" class="content" style="flex-grow: 1;">

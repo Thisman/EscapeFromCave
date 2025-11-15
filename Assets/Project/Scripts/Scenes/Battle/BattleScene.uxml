@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Project/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
     <Style src="project://database/Assets/Project/Scripts/UICommon/Card.uss?fileID=7433441132597879392&amp;guid=0a99c30db0a84673a577a55217ea8f9a&amp;type=3#Card" />
     <Style src="project://database/Assets/Project/Scripts/Scenes/Battle/BattleScene.uss?fileID=7433441132597879392&amp;guid=4fec363ae62083a40a0695cff64d28cf&amp;type=3#BattleScene" />
-    <ui:Template src="project://database/Assets/Project/Scripts/UICommon/Card.uxml?fileID=9197481961782285770&amp;guid=d8b430733be5494e8436afced416d881&amp;type=3#Card" name="CommonCard" />
+    <ui:Template src="project://database/Assets/Project/Scripts/UICommon/Card.uxml?fileID=9197481961782285770&amp;guid=d8b430733be5494e8436afced416d881&amp;type=3" name="CommonCard" />
     <ui:VisualElement name="Body" style="flex-grow: 1;">
         <ui:VisualElement name="TacticPanel" enabled="true" usage-hints="None" class="panel panel__active">
             <ui:VisualElement name="Top" class="top" style="flex-grow: 1; justify-content: center; align-items: center;">

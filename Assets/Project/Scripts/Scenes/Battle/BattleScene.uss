@@ -118,13 +118,13 @@
     right: 0;
     top: 0;
     bottom: 0;
-    pointer-events: none;
+    picking-mode: Ignore;
     display: flex;
 }
 
 .hover-card {
     display: none;
-    pointer-events: none;
+    picking-mode: Ignore;
     align-self: center;
     margin-top: 32px;
     margin-bottom: 32px;
