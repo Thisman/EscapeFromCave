@@ -44,19 +44,21 @@ public sealed class DungeonUIController : MonoBehaviour
                 _dialogLabel.AddToClassList("dialog-text");
                 _dialogContainer.Add(_dialogLabel);
             }
+
+            SetDialogVisibility(false);
         }
     }
 
     private void OnDisable()
     {
         ClearTrackedSquads();
-        StopDialogRoutine();
+        HideDialog();
     }
 
     private void OnDestroy()
     {
         ClearTrackedSquads();
-        StopDialogRoutine();
+        HideDialog();
     }
 
     public void RenderSquads(IEnumerable<IReadOnlySquadModel> squads)
@@ -132,6 +134,7 @@ public sealed class DungeonUIController : MonoBehaviour
         }
 
         StopDialogRoutine();
+        SetDialogVisibility(true);
 
         var message = text ?? string.Empty;
         var secondsPerCharacter = overrideSecondsPerCharacter.HasValue
@@ -139,6 +142,19 @@ public sealed class DungeonUIController : MonoBehaviour
             : _dialogSecondsPerCharacter;
 
         _dialogRoutine = StartCoroutine(TypeDialogRoutine(message, secondsPerCharacter));
+    }
+
+    public void HideDialog()
+    {
+        if (_dialogContainer == null || _dialogLabel == null)
+        {
+            return;
+        }
+
+        StopDialogRoutine();
+        _dialogBuilder.Clear();
+        _dialogLabel.text = string.Empty;
+        SetDialogVisibility(false);
     }
 
     private IEnumerator TypeDialogRoutine(string message, float secondsPerCharacter)
@@ -170,6 +186,17 @@ public sealed class DungeonUIController : MonoBehaviour
             StopCoroutine(_dialogRoutine);
             _dialogRoutine = null;
         }
+    }
+
+    private void SetDialogVisibility(bool isVisible)
+    {
+        if (_dialogContainer == null)
+        {
+            return;
+        }
+
+        _dialogContainer.style.display = isVisible ? DisplayStyle.Flex : DisplayStyle.None;
+        _dialogContainer.visible = isVisible;
     }
 
     private void HandleSquadChanged(IReadOnlySquadModel squad)

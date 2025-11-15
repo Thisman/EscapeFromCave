@@ -140,6 +140,11 @@ public sealed class DialogManager : MonoBehaviour
             _displayRoutine = null;
         }
 
+        if (_uiController != null)
+        {
+            _uiController.HideDialog();
+        }
+
         CompleteDisplay(completion);
     }
 
