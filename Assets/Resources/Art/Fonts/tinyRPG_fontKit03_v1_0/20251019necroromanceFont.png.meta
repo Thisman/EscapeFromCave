@@ -1,0 +1,3874 @@
+fileFormatVersion: 2
+guid: 9c268b8341664ef4d921ec9d4a59d41c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5675627180567866839
+    second: 20251019necroromanceFont_0
+  - first:
+      213: -2255936790440287326
+    second: 20251019necroromanceFont_1
+  - first:
+      213: 1791737834123186078
+    second: 20251019necroromanceFont_2
+  - first:
+      213: -2941451200630120621
+    second: 20251019necroromanceFont_3
+  - first:
+      213: 4656762046715323381
+    second: 20251019necroromanceFont_4
+  - first:
+      213: 5450945920409454373
+    second: 20251019necroromanceFont_5
+  - first:
+      213: -7076635773549829655
+    second: 20251019necroromanceFont_6
+  - first:
+      213: -8797313969603493333
+    second: 20251019necroromanceFont_7
+  - first:
+      213: 3790330192212326023
+    second: 20251019necroromanceFont_8
+  - first:
+      213: -3852438396689075020
+    second: 20251019necroromanceFont_9
+  - first:
+      213: -8011601096027406212
+    second: 20251019necroromanceFont_10
+  - first:
+      213: 3888083587807060400
+    second: 20251019necroromanceFont_11
+  - first:
+      213: 2990382059182885919
+    second: 20251019necroromanceFont_12
+  - first:
+      213: 7765843577915702303
+    second: 20251019necroromanceFont_13
+  - first:
+      213: 1239891116097576716
+    second: 20251019necroromanceFont_14
+  - first:
+      213: -8415316280046385393
+    second: 20251019necroromanceFont_15
+  - first:
+      213: 2570894013594609975
+    second: 20251019necroromanceFont_16
+  - first:
+      213: 3444419673764419255
+    second: 20251019necroromanceFont_17
+  - first:
+      213: 1002468241020855166
+    second: 20251019necroromanceFont_18
+  - first:
+      213: 7928862059034452971
+    second: 20251019necroromanceFont_19
+  - first:
+      213: 4095468877211107777
+    second: 20251019necroromanceFont_20
+  - first:
+      213: 4137599308297807097
+    second: 20251019necroromanceFont_21
+  - first:
+      213: -2172008124942303016
+    second: 20251019necroromanceFont_22
+  - first:
+      213: -8621865434846013982
+    second: 20251019necroromanceFont_23
+  - first:
+      213: 3448958387578578023
+    second: 20251019necroromanceFont_24
+  - first:
+      213: -7924232079711120277
+    second: 20251019necroromanceFont_25
+  - first:
+      213: 5690912251559322839
+    second: 20251019necroromanceFont_26
+  - first:
+      213: 8116218502094385353
+    second: 20251019necroromanceFont_27
+  - first:
+      213: -4549134946808496368
+    second: 20251019necroromanceFont_28
+  - first:
+      213: -5003316463152026491
+    second: 20251019necroromanceFont_29
+  - first:
+      213: 7947233466755912394
+    second: 20251019necroromanceFont_30
+  - first:
+      213: -1778932295157138949
+    second: 20251019necroromanceFont_31
+  - first:
+      213: 5507740060140461062
+    second: 20251019necroromanceFont_32
+  - first:
+      213: 1723217018642849843
+    second: 20251019necroromanceFont_33
+  - first:
+      213: 2401282394354002826
+    second: 20251019necroromanceFont_34
+  - first:
+      213: 7295655065609372130
+    second: 20251019necroromanceFont_35
+  - first:
+      213: 7635886251999024578
+    second: 20251019necroromanceFont_36
+  - first:
+      213: -3199456369851201304
+    second: 20251019necroromanceFont_37
+  - first:
+      213: 2071778053536499107
+    second: 20251019necroromanceFont_38
+  - first:
+      213: -6206558839021139987
+    second: 20251019necroromanceFont_39
+  - first:
+      213: -8192130642544490849
+    second: 20251019necroromanceFont_40
+  - first:
+      213: 2018876619240877044
+    second: 20251019necroromanceFont_41
+  - first:
+      213: -3341897822021367258
+    second: 20251019necroromanceFont_42
+  - first:
+      213: -4622031987015606909
+    second: 20251019necroromanceFont_43
+  - first:
+      213: 5460284082075359465
+    second: 20251019necroromanceFont_44
+  - first:
+      213: 5560033747602300223
+    second: 20251019necroromanceFont_45
+  - first:
+      213: 261252089041146560
+    second: 20251019necroromanceFont_46
+  - first:
+      213: -512569745171111555
+    second: 20251019necroromanceFont_47
+  - first:
+      213: 2967100199953432275
+    second: 20251019necroromanceFont_48
+  - first:
+      213: -3648029575990249214
+    second: 20251019necroromanceFont_49
+  - first:
+      213: 1759828941354263606
+    second: 20251019necroromanceFont_50
+  - first:
+      213: 2373778865900117026
+    second: 20251019necroromanceFont_51
+  - first:
+      213: 6396009743640843636
+    second: 20251019necroromanceFont_52
+  - first:
+      213: 8356756797366037354
+    second: 20251019necroromanceFont_53
+  - first:
+      213: 8951992446767368305
+    second: 20251019necroromanceFont_54
+  - first:
+      213: 2651520701054121400
+    second: 20251019necroromanceFont_55
+  - first:
+      213: -3772928047495463724
+    second: 20251019necroromanceFont_56
+  - first:
+      213: 1281859830532160828
+    second: 20251019necroromanceFont_57
+  - first:
+      213: -8282093890529196009
+    second: 20251019necroromanceFont_58
+  - first:
+      213: 1512951773553034716
+    second: 20251019necroromanceFont_59
+  - first:
+      213: 4874155501088434691
+    second: 20251019necroromanceFont_60
+  - first:
+      213: 6174884271202191381
+    second: 20251019necroromanceFont_61
+  - first:
+      213: -4819167622909242002
+    second: 20251019necroromanceFont_62
+  - first:
+      213: -4235164598336753773
+    second: 20251019necroromanceFont_63
+  - first:
+      213: 420657428053517851
+    second: 20251019necroromanceFont_64
+  - first:
+      213: -8970856978657341994
+    second: 20251019necroromanceFont_65
+  - first:
+      213: -324920574511226066
+    second: 20251019necroromanceFont_66
+  - first:
+      213: -6571314994699986848
+    second: 20251019necroromanceFont_67
+  - first:
+      213: -3420002515106825813
+    second: 20251019necroromanceFont_68
+  - first:
+      213: 5745142930154816402
+    second: 20251019necroromanceFont_69
+  - first:
+      213: -328279448171293910
+    second: 20251019necroromanceFont_70
+  - first:
+      213: 1096467407121200049
+    second: 20251019necroromanceFont_71
+  - first:
+      213: 7060940599971937997
+    second: 20251019necroromanceFont_72
+  - first:
+      213: 8719866530782876612
+    second: 20251019necroromanceFont_73
+  - first:
+      213: -8363560155226175710
+    second: 20251019necroromanceFont_74
+  - first:
+      213: -1196317156248891232
+    second: 20251019necroromanceFont_75
+  - first:
+      213: 4258803934062834632
+    second: 20251019necroromanceFont_76
+  - first:
+      213: -4418620523048985291
+    second: 20251019necroromanceFont_77
+  - first:
+      213: 1045266417928846289
+    second: 20251019necroromanceFont_78
+  - first:
+      213: -8929058835194290685
+    second: 20251019necroromanceFont_79
+  - first:
+      213: -7291428427314401081
+    second: 20251019necroromanceFont_80
+  - first:
+      213: 416816037258076703
+    second: 20251019necroromanceFont_81
+  - first:
+      213: 3572905586526935728
+    second: 20251019necroromanceFont_82
+  - first:
+      213: 6982135272010452915
+    second: 20251019necroromanceFont_83
+  - first:
+      213: 6556109515568919307
+    second: 20251019necroromanceFont_84
+  - first:
+      213: -405128216707771077
+    second: 20251019necroromanceFont_85
+  - first:
+      213: -4520503571203076739
+    second: 20251019necroromanceFont_86
+  - first:
+      213: 6799306352781880375
+    second: 20251019necroromanceFont_87
+  - first:
+      213: -5725407997436539888
+    second: 20251019necroromanceFont_88
+  - first:
+      213: 8752444961044660786
+    second: 20251019necroromanceFont_89
+  - first:
+      213: 3373748401009006672
+    second: 20251019necroromanceFont_90
+  - first:
+      213: 7485513710697667463
+    second: 20251019necroromanceFont_91
+  - first:
+      213: 6156297087523707718
+    second: 20251019necroromanceFont_92
+  - first:
+      213: -3244091686006997078
+    second: 20251019necroromanceFont_93
+  - first:
+      213: -3098980865045616334
+    second: 20251019necroromanceFont_94
+  - first:
+      213: 3657620561156205622
+    second: 20251019necroromanceFont_95
+  - first:
+      213: -9149653387544106699
+    second: 20251019necroromanceFont_96
+  - first:
+      213: 6328142434101243558
+    second: 20251019necroromanceFont_97
+  - first:
+      213: -3721793639740555235
+    second: 20251019necroromanceFont_98
+  - first:
+      213: -7700855737068677206
+    second: 20251019necroromanceFont_99
+  - first:
+      213: -2386212163630036676
+    second: 20251019necroromanceFont_100
+  - first:
+      213: 3502213287713027026
+    second: 20251019necroromanceFont_101
+  - first:
+      213: -674661464286724010
+    second: 20251019necroromanceFont_102
+  - first:
+      213: 4703624163973227452
+    second: 20251019necroromanceFont_103
+  - first:
+      213: -7434467661228773849
+    second: 20251019necroromanceFont_104
+  - first:
+      213: 8904439903025900675
+    second: 20251019necroromanceFont_105
+  - first:
+      213: 3951063577682221744
+    second: 20251019necroromanceFont_106
+  - first:
+      213: -7026566253647519205
+    second: 20251019necroromanceFont_107
+  - first:
+      213: -6087843936120487043
+    second: 20251019necroromanceFont_108
+  - first:
+      213: 3712170907378097886
+    second: 20251019necroromanceFont_109
+  - first:
+      213: 623780408753869668
+    second: 20251019necroromanceFont_110
+  - first:
+      213: -6027129596863020683
+    second: 20251019necroromanceFont_111
+  - first:
+      213: 4133422659026127054
+    second: 20251019necroromanceFont_112
+  - first:
+      213: 1385691061479353159
+    second: 20251019necroromanceFont_113
+  - first:
+      213: -2458910216212516435
+    second: 20251019necroromanceFont_114
+  - first:
+      213: 7052638491504406530
+    second: 20251019necroromanceFont_115
+  - first:
+      213: 222664511965440280
+    second: 20251019necroromanceFont_116
+  - first:
+      213: 3072246096073230211
+    second: 20251019necroromanceFont_117
+  - first:
+      213: 5821384928018305013
+    second: 20251019necroromanceFont_118
+  - first:
+      213: 5246772725423452438
+    second: 20251019necroromanceFont_119
+  - first:
+      213: 3883742025733963656
+    second: 20251019necroromanceFont_120
+  - first:
+      213: 1545211590494234314
+    second: 20251019necroromanceFont_121
+  - first:
+      213: -1949657504835789755
+    second: 20251019necroromanceFont_122
+  - first:
+      213: 7761363927703863605
+    second: 20251019necroromanceFont_123
+  - first:
+      213: 4847290101260369811
+    second: 20251019necroromanceFont_124
+  - first:
+      213: -7894873923560252219
+    second: 20251019necroromanceFont_125
+  - first:
+      213: 5596099194936111593
+    second: 20251019necroromanceFont_126
+  - first:
+      213: 9163297915028673393
+    second: 20251019necroromanceFont_127
+  - first:
+      213: -5023309534681140131
+    second: 20251019necroromanceFont_128
+  - first:
+      213: 2380520736704695565
+    second: 20251019necroromanceFont_129
+  - first:
+      213: -952804877892024249
+    second: 20251019necroromanceFont_130
+  - first:
+      213: -7992600470910584267
+    second: 20251019necroromanceFont_131
+  - first:
+      213: -4538854774381969943
+    second: 20251019necroromanceFont_132
+  - first:
+      213: 6218649191776933763
+    second: 20251019necroromanceFont_133
+  - first:
+      213: 3558098488806010980
+    second: 20251019necroromanceFont_134
+  - first:
+      213: -7504067738903252559
+    second: 20251019necroromanceFont_135
+  - first:
+      213: -2312135932074256060
+    second: 20251019necroromanceFont_136
+  - first:
+      213: 4497454447158561911
+    second: 20251019necroromanceFont_137
+  - first:
+      213: -3317143378285537787
+    second: 20251019necroromanceFont_138
+  - first:
+      213: -2988193686814219301
+    second: 20251019necroromanceFont_139
+  - first:
+      213: 7009216496870914445
+    second: 20251019necroromanceFont_140
+  - first:
+      213: -952638120637619681
+    second: 20251019necroromanceFont_141
+  - first:
+      213: -4989956168289484992
+    second: 20251019necroromanceFont_142
+  - first:
+      213: 2746637115781746051
+    second: 20251019necroromanceFont_143
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ddac4799d0e3ce40800000000000000
+      internalID: 5675627180567866839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 81
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3621a017d41b0e0800000000000000
+      internalID: -2255936790440287326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f4a8d21188dd810800000000000000
+      internalID: 1791737834123186078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f9b4ea7bddd27d0800000000000000
+      internalID: -2941451200630120621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 81
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3ecfda86420a040800000000000000
+      internalID: 4656762046715323381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527cedb2f66a5ab40800000000000000
+      internalID: 5450945920409454373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_6
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1adb0f14dbacd90800000000000000
+      internalID: -7076635773549829655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 96
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b22c3380e89a9e580800000000000000
+      internalID: -8797313969603493333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_8
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786f0405a35f99430800000000000000
+      internalID: 3790330192212326023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_9
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 81
+        width: 10
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4b54670b3698ac0800000000000000
+      internalID: -3852438396689075020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_10
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 96
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70082d104311d090800000000000000
+      internalID: -8011601096027406212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_11
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 81
+        width: 8
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b124445c6f35f530800000000000000
+      internalID: 3888083587807060400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_12
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 95
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c0c4c93a8ff7920800000000000000
+      internalID: 2990382059182885919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 65
+        width: 11
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cf9e2c691d5cb60800000000000000
+      internalID: 7765843577915702303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_14
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 97
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f982f966af43110800000000000000
+      internalID: 1239891116097576716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 81
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f070647fd6ac63b80800000000000000
+      internalID: -8415316280046385393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 96
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7392c73fb76ada320800000000000000
+      internalID: 2570894013594609975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_17
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b65818a1790dcf20800000000000000
+      internalID: 3444419673764419255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_18
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73a8accd8b79ed00800000000000000
+      internalID: 1002468241020855166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_19
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 96
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be322d5a80af80e60800000000000000
+      internalID: 7928862059034452971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_20
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c106debe3706d830800000000000000
+      internalID: 4095468877211107777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_21
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 96
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f42ef126a4bb6930800000000000000
+      internalID: 4137599308297807097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_22
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d04d8f3e1a7bd1e0800000000000000
+      internalID: -2172008124942303016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_23
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 97
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5d8ce411bf85880800000000000000
+      internalID: -8621865434846013982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_24
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764a9b051692ddf20800000000000000
+      internalID: 3448958387578578023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_25
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64501b68e8770290800000000000000
+      internalID: -7924232079711120277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_26
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 96
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4ac128a8e2afe40800000000000000
+      internalID: 5690912251559322839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_27
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0f9c0e9b992a070800000000000000
+      internalID: 8116218502094385353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_28
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 97
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ff9244ed93ed0c0800000000000000
+      internalID: -4549134946808496368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_29
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ca5fa7f26a09ab0800000000000000
+      internalID: -5003316463152026491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac215155bbe3a4e60800000000000000
+      internalID: 7947233466755912394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 9
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf930b3b086ff47e0800000000000000
+      internalID: -1778932295157138949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_32
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c5cd7476c6f6c40800000000000000
+      internalID: 5507740060140461062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 81
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3306d1b9fb81ae710800000000000000
+      internalID: 1723217018642849843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_34
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 52
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8baed87d91135120800000000000000
+      internalID: 2401282394354002826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_35
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 65
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e10d6dc0af5f3560800000000000000
+      internalID: 7295655065609372130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 81
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c5d0bbe61e18f960800000000000000
+      internalID: 7635886251999024578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e888a0126f3993d0800000000000000
+      internalID: -3199456369851201304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_38
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 79
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a54e76b92f60cc10800000000000000
+      internalID: 2071778053536499107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_39
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 49
+        width: 8
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de78592ae9fddd9a0800000000000000
+      internalID: -6206558839021139987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 79
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f960b899594bf4e80800000000000000
+      internalID: -8192130642544490849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 49
+        width: 9
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fba137b69d740c10800000000000000
+      internalID: 2018876619240877044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_42
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ac3c213a13f91d0800000000000000
+      internalID: -3341897822021367258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_43
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 33
+        width: 10
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d1179756e3bdfb0800000000000000
+      internalID: -4622031987015606909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 79
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e852dc5173d6cb40800000000000000
+      internalID: 5460284082075359465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_45
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 65
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3dd4013c35392d40800000000000000
+      internalID: 5560033747602300223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_46
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 73
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2502c046720a300800000000000000
+      internalID: 261252089041146560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_47
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 81
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71a670588cf2e8f0800000000000000
+      internalID: -512569745171111555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_48
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3def63759e14d2920800000000000000
+      internalID: 2967100199953432275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_49
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 81
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2097bf0cd689f5dc0800000000000000
+      internalID: -3648029575990249214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_50
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 64
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6346fd2291b2c6810800000000000000
+      internalID: 1759828941354263606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_51
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 81
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c5e4d3d4b51f020800000000000000
+      internalID: 2373778865900117026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_52
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 65
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47556ad69f033c850800000000000000
+      internalID: 6396009743640843636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_53
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 79
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b655df70a29f370800000000000000
+      internalID: 8356756797366037354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_54
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 65
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1788c8d53bddb3c70800000000000000
+      internalID: 8951992446767368305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_55
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 73
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5fcec77081cc420800000000000000
+      internalID: 2651520701054121400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_56
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 81
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dcbced3eedd3abc0800000000000000
+      internalID: -3772928047495463724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_57
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 65
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d36ba69b41ac110800000000000000
+      internalID: 1281859830532160828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_58
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 81
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718039aac77101d80800000000000000
+      internalID: -8282093890529196009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_59
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 65
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd50de04f951ff410800000000000000
+      internalID: 1512951773553034716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_60
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 81
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a64669a9a74a340800000000000000
+      internalID: 4874155501088434691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_61
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518472a578891b550800000000000000
+      internalID: 6174884271202191381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_62
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 81
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e655e6b7490ee1db0800000000000000
+      internalID: -4819167622909242002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_63
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 68
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39fe3d69c3ca935c0800000000000000
+      internalID: -4235164598336753773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_64
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16624bb3b976d500800000000000000
+      internalID: 420657428053517851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_65
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 60
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd8b488b1d118380800000000000000
+      internalID: -8970856978657341994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_66
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23ea008576ad7bf0800000000000000
+      internalID: -324920574511226066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_67
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06895b124dffdc4a0800000000000000
+      internalID: -6571314994699986848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_68
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 81
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba97d1c15d5b980d0800000000000000
+      internalID: -3420002515106825813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_69
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 65
+        width: 9
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29389bf4e09dabf40800000000000000
+      internalID: 5745142930154816402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_70
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 68
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2350b8c497b17bf0800000000000000
+      internalID: -328279448171293910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_71
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 49
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b3b0452c4f673f00800000000000000
+      internalID: 1096467407121200049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_72
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 49
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcef571b0108df160800000000000000
+      internalID: 7060940599971937997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 49
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c39120f860330970800000000000000
+      internalID: 8719866530782876612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_74
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 33
+        width: 7
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2270222d95aaeeb80800000000000000
+      internalID: -8363560155226175710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_75
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 33
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0541f72e3d56fe0800000000000000
+      internalID: -1196317156248891232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_76
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 49
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3f9d92d9f4a1b30800000000000000
+      internalID: 4258803934062834632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_77
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 49
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d1a6e8b08eda2c0800000000000000
+      internalID: -4418620523048985291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_78
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 33
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db3b40e448818e00800000000000000
+      internalID: 1045266417928846289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_79
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 33
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e5ead2c4c951480800000000000000
+      internalID: -8929058835194290685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_80
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c07dbc1a74afca90800000000000000
+      internalID: -7291428427314401081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_81
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12247d3af3d8c500800000000000000
+      internalID: 416816037258076703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_82
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 48
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba52fc63b2859130800000000000000
+      internalID: 3572905586526935728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_83
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 48
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf88e5790785e060800000000000000
+      internalID: 6982135272010452915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_84
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 48
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b033b006edafbfa50800000000000000
+      internalID: 6556109515568919307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_85
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 48
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3555aa8802b06af0800000000000000
+      internalID: -405128216707771077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_86
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 33
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d4e80e3f1f341c0800000000000000
+      internalID: -4520503571203076739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_87
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 49
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73cee948a1dfb5e50800000000000000
+      internalID: 6799306352781880375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_88
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 48
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c4d96c2c34b80b0800000000000000
+      internalID: -5725407997436539888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_89
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 49
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2328933d15ee67970800000000000000
+      internalID: 8752444961044660786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_90
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 49
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0581fabbb46f1de20800000000000000
+      internalID: 3373748401009006672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_91
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 58
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b53775f03e1e760800000000000000
+      internalID: 7485513710697667463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_92
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 49
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b5f99659f8f6550800000000000000
+      internalID: 6156297087523707718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_93
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 58
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf31ccaccbaaf2d0800000000000000
+      internalID: -3244091686006997078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239293582553ef4d0800000000000000
+      internalID: -3098980865045616334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_95
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 33
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c61ee758a72c230800000000000000
+      internalID: 3657620561156205622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_96
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 33
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539eb7198b6e50180800000000000000
+      internalID: -9149653387544106699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_97
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 33
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae2ea0140412d750800000000000000
+      internalID: 6328142434101243558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_98
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 17
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10c4ff4768895cc0800000000000000
+      internalID: -3721793639740555235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_99
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 33
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa71e7d0280112590800000000000000
+      internalID: -7700855737068677206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_100
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 17
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c398d1c0ea872eed0800000000000000
+      internalID: -2386212163630036676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_101
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 33
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3b9cdfd6c5a9030800000000000000
+      internalID: 3502213287713027026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_102
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6508b8509fe13a6f0800000000000000
+      internalID: -674661464286724010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_103
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 33
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb3619a9141a64140800000000000000
+      internalID: 4703624163973227452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_104
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 17
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e64563d0773d890800000000000000
+      internalID: -7434467661228773849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_105
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38c2caff9ece29b70800000000000000
+      internalID: 8904439903025900675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_106
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 17
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba9bb8e36ff4d630800000000000000
+      internalID: 3951063577682221744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_107
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b12a79c783f9c7e90800000000000000
+      internalID: -7026566253647519205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_108
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 17
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d73c583e132a38ba0800000000000000
+      internalID: -6087843936120487043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_109
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 17
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede9fc7b5c7448330800000000000000
+      internalID: 3712170907378097886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_110
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 33
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4635f911afc18a800800000000000000
+      internalID: 623780408753869668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_111
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5718cb390955b5ca0800000000000000
+      internalID: -6027129596863020683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_112
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec88dc1320edc5930800000000000000
+      internalID: 4133422659026127054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_113
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 15
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b29efbda6fa3310800000000000000
+      internalID: 1385691061479353159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_114
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 33
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1f21caf2230edd0800000000000000
+      internalID: -2458910216212516435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_115
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 33
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 200fd5f675100e160800000000000000
+      internalID: 7052638491504406530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_116
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 16
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81929c3a130171300800000000000000
+      internalID: 222664511965440280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_117
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 33
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38786030c8fc2aa20800000000000000
+      internalID: 3072246096073230211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_118
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 16
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff085fbfb6b9c050800000000000000
+      internalID: 5821384928018305013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_119
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 33
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611b214cef740d840800000000000000
+      internalID: 5246772725423452438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_120
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 33
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ff023abc2d5e530800000000000000
+      internalID: 3883742025733963656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_121
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 17
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6a93231c1b17510800000000000000
+      internalID: 1545211590494234314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_122
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 33
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c969e34dc61f4e0800000000000000
+      internalID: -1949657504835789755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_123
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 15
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531c15bee57e5bb60800000000000000
+      internalID: 7761363927703863605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_124
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 33
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f34e04aa8054340800000000000000
+      internalID: 4847290101260369811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_125
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc52bfcef5cf6290800000000000000
+      internalID: -7894873923560252219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e13402819659ad40800000000000000
+      internalID: 5596099194936111593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_127
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1739c5c87e29a2f70800000000000000
+      internalID: 9163297915028673393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_128
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d547f74c79e994ab0800000000000000
+      internalID: -5023309534681140131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_129
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d0cbb5ffe490120800000000000000
+      internalID: 2380520736704695565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_130
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 17
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7488cf00305f6c2f0800000000000000
+      internalID: -952804877892024249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_131
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 17
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a31c3e734941190800000000000000
+      internalID: -7992600470910584267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_132
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed70ed61afb201c0800000000000000
+      internalID: -4538854774381969943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_133
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38752aafd741d4650800000000000000
+      internalID: 6218649191776933763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_134
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 17
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460f22559b7e06130800000000000000
+      internalID: 3558098488806010980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_135
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1f33456223cd790800000000000000
+      internalID: -7504067738903252559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_136
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4491c48be94a9efd0800000000000000
+      internalID: -2312135932074256060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_137
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77c036cbdfa2a6e30800000000000000
+      internalID: 4497454447158561911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_138
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 15
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50650442ca327f1d0800000000000000
+      internalID: -3317143378285537787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_139
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 17
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3af598cadc786d0800000000000000
+      internalID: -2988193686814219301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_140
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 17
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d897cc9744db54160800000000000000
+      internalID: 7009216496870914445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_141
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 17
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1226e33dac87c2f0800000000000000
+      internalID: -952638120637619681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_142
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ff5588d4d10cab0800000000000000
+      internalID: -4989956168289484992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019necroromanceFont_143
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d031d87e30e1620800000000000000
+      internalID: 2746637115781746051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      20251019necroromanceFont_0: 5675627180567866839
+      20251019necroromanceFont_1: -2255936790440287326
+      20251019necroromanceFont_10: -8011601096027406212
+      20251019necroromanceFont_100: -2386212163630036676
+      20251019necroromanceFont_101: 3502213287713027026
+      20251019necroromanceFont_102: -674661464286724010
+      20251019necroromanceFont_103: 4703624163973227452
+      20251019necroromanceFont_104: -7434467661228773849
+      20251019necroromanceFont_105: 8904439903025900675
+      20251019necroromanceFont_106: 3951063577682221744
+      20251019necroromanceFont_107: -7026566253647519205
+      20251019necroromanceFont_108: -6087843936120487043
+      20251019necroromanceFont_109: 3712170907378097886
+      20251019necroromanceFont_11: 3888083587807060400
+      20251019necroromanceFont_110: 623780408753869668
+      20251019necroromanceFont_111: -6027129596863020683
+      20251019necroromanceFont_112: 4133422659026127054
+      20251019necroromanceFont_113: 1385691061479353159
+      20251019necroromanceFont_114: -2458910216212516435
+      20251019necroromanceFont_115: 7052638491504406530
+      20251019necroromanceFont_116: 222664511965440280
+      20251019necroromanceFont_117: 3072246096073230211
+      20251019necroromanceFont_118: 5821384928018305013
+      20251019necroromanceFont_119: 5246772725423452438
+      20251019necroromanceFont_12: 2990382059182885919
+      20251019necroromanceFont_120: 3883742025733963656
+      20251019necroromanceFont_121: 1545211590494234314
+      20251019necroromanceFont_122: -1949657504835789755
+      20251019necroromanceFont_123: 7761363927703863605
+      20251019necroromanceFont_124: 4847290101260369811
+      20251019necroromanceFont_125: -7894873923560252219
+      20251019necroromanceFont_126: 5596099194936111593
+      20251019necroromanceFont_127: 9163297915028673393
+      20251019necroromanceFont_128: -5023309534681140131
+      20251019necroromanceFont_129: 2380520736704695565
+      20251019necroromanceFont_13: 7765843577915702303
+      20251019necroromanceFont_130: -952804877892024249
+      20251019necroromanceFont_131: -7992600470910584267
+      20251019necroromanceFont_132: -4538854774381969943
+      20251019necroromanceFont_133: 6218649191776933763
+      20251019necroromanceFont_134: 3558098488806010980
+      20251019necroromanceFont_135: -7504067738903252559
+      20251019necroromanceFont_136: -2312135932074256060
+      20251019necroromanceFont_137: 4497454447158561911
+      20251019necroromanceFont_138: -3317143378285537787
+      20251019necroromanceFont_139: -2988193686814219301
+      20251019necroromanceFont_14: 1239891116097576716
+      20251019necroromanceFont_140: 7009216496870914445
+      20251019necroromanceFont_141: -952638120637619681
+      20251019necroromanceFont_142: -4989956168289484992
+      20251019necroromanceFont_143: 2746637115781746051
+      20251019necroromanceFont_15: -8415316280046385393
+      20251019necroromanceFont_16: 2570894013594609975
+      20251019necroromanceFont_17: 3444419673764419255
+      20251019necroromanceFont_18: 1002468241020855166
+      20251019necroromanceFont_19: 7928862059034452971
+      20251019necroromanceFont_2: 1791737834123186078
+      20251019necroromanceFont_20: 4095468877211107777
+      20251019necroromanceFont_21: 4137599308297807097
+      20251019necroromanceFont_22: -2172008124942303016
+      20251019necroromanceFont_23: -8621865434846013982
+      20251019necroromanceFont_24: 3448958387578578023
+      20251019necroromanceFont_25: -7924232079711120277
+      20251019necroromanceFont_26: 5690912251559322839
+      20251019necroromanceFont_27: 8116218502094385353
+      20251019necroromanceFont_28: -4549134946808496368
+      20251019necroromanceFont_29: -5003316463152026491
+      20251019necroromanceFont_3: -2941451200630120621
+      20251019necroromanceFont_30: 7947233466755912394
+      20251019necroromanceFont_31: -1778932295157138949
+      20251019necroromanceFont_32: 5507740060140461062
+      20251019necroromanceFont_33: 1723217018642849843
+      20251019necroromanceFont_34: 2401282394354002826
+      20251019necroromanceFont_35: 7295655065609372130
+      20251019necroromanceFont_36: 7635886251999024578
+      20251019necroromanceFont_37: -3199456369851201304
+      20251019necroromanceFont_38: 2071778053536499107
+      20251019necroromanceFont_39: -6206558839021139987
+      20251019necroromanceFont_4: 4656762046715323381
+      20251019necroromanceFont_40: -8192130642544490849
+      20251019necroromanceFont_41: 2018876619240877044
+      20251019necroromanceFont_42: -3341897822021367258
+      20251019necroromanceFont_43: -4622031987015606909
+      20251019necroromanceFont_44: 5460284082075359465
+      20251019necroromanceFont_45: 5560033747602300223
+      20251019necroromanceFont_46: 261252089041146560
+      20251019necroromanceFont_47: -512569745171111555
+      20251019necroromanceFont_48: 2967100199953432275
+      20251019necroromanceFont_49: -3648029575990249214
+      20251019necroromanceFont_5: 5450945920409454373
+      20251019necroromanceFont_50: 1759828941354263606
+      20251019necroromanceFont_51: 2373778865900117026
+      20251019necroromanceFont_52: 6396009743640843636
+      20251019necroromanceFont_53: 8356756797366037354
+      20251019necroromanceFont_54: 8951992446767368305
+      20251019necroromanceFont_55: 2651520701054121400
+      20251019necroromanceFont_56: -3772928047495463724
+      20251019necroromanceFont_57: 1281859830532160828
+      20251019necroromanceFont_58: -8282093890529196009
+      20251019necroromanceFont_59: 1512951773553034716
+      20251019necroromanceFont_6: -7076635773549829655
+      20251019necroromanceFont_60: 4874155501088434691
+      20251019necroromanceFont_61: 6174884271202191381
+      20251019necroromanceFont_62: -4819167622909242002
+      20251019necroromanceFont_63: -4235164598336753773
+      20251019necroromanceFont_64: 420657428053517851
+      20251019necroromanceFont_65: -8970856978657341994
+      20251019necroromanceFont_66: -324920574511226066
+      20251019necroromanceFont_67: -6571314994699986848
+      20251019necroromanceFont_68: -3420002515106825813
+      20251019necroromanceFont_69: 5745142930154816402
+      20251019necroromanceFont_7: -8797313969603493333
+      20251019necroromanceFont_70: -328279448171293910
+      20251019necroromanceFont_71: 1096467407121200049
+      20251019necroromanceFont_72: 7060940599971937997
+      20251019necroromanceFont_73: 8719866530782876612
+      20251019necroromanceFont_74: -8363560155226175710
+      20251019necroromanceFont_75: -1196317156248891232
+      20251019necroromanceFont_76: 4258803934062834632
+      20251019necroromanceFont_77: -4418620523048985291
+      20251019necroromanceFont_78: 1045266417928846289
+      20251019necroromanceFont_79: -8929058835194290685
+      20251019necroromanceFont_8: 3790330192212326023
+      20251019necroromanceFont_80: -7291428427314401081
+      20251019necroromanceFont_81: 416816037258076703
+      20251019necroromanceFont_82: 3572905586526935728
+      20251019necroromanceFont_83: 6982135272010452915
+      20251019necroromanceFont_84: 6556109515568919307
+      20251019necroromanceFont_85: -405128216707771077
+      20251019necroromanceFont_86: -4520503571203076739
+      20251019necroromanceFont_87: 6799306352781880375
+      20251019necroromanceFont_88: -5725407997436539888
+      20251019necroromanceFont_89: 8752444961044660786
+      20251019necroromanceFont_9: -3852438396689075020
+      20251019necroromanceFont_90: 3373748401009006672
+      20251019necroromanceFont_91: 7485513710697667463
+      20251019necroromanceFont_92: 6156297087523707718
+      20251019necroromanceFont_93: -3244091686006997078
+      20251019necroromanceFont_94: -3098980865045616334
+      20251019necroromanceFont_95: 3657620561156205622
+      20251019necroromanceFont_96: -9149653387544106699
+      20251019necroromanceFont_97: 6328142434101243558
+      20251019necroromanceFont_98: -3721793639740555235
+      20251019necroromanceFont_99: -7700855737068677206
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

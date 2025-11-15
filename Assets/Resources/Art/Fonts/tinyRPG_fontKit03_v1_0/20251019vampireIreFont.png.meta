@@ -1,0 +1,4056 @@
+fileFormatVersion: 2
+guid: 2f48f50e7aefd7f4b916f07dfd4de37f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7486511804462057152
+    second: 20251019vampireIreFont_0
+  - first:
+      213: -8325458639104626247
+    second: 20251019vampireIreFont_1
+  - first:
+      213: -2071711281778493269
+    second: 20251019vampireIreFont_2
+  - first:
+      213: 6988652914765943196
+    second: 20251019vampireIreFont_3
+  - first:
+      213: -5495462030556606533
+    second: 20251019vampireIreFont_4
+  - first:
+      213: 5383528867028377626
+    second: 20251019vampireIreFont_5
+  - first:
+      213: 5357058735516412624
+    second: 20251019vampireIreFont_6
+  - first:
+      213: -2862194694293932715
+    second: 20251019vampireIreFont_7
+  - first:
+      213: 2353902570615189090
+    second: 20251019vampireIreFont_8
+  - first:
+      213: 1570911024717113703
+    second: 20251019vampireIreFont_9
+  - first:
+      213: -500846185871284169
+    second: 20251019vampireIreFont_10
+  - first:
+      213: -9167516767336906946
+    second: 20251019vampireIreFont_11
+  - first:
+      213: 5489404119612615976
+    second: 20251019vampireIreFont_12
+  - first:
+      213: 7617077109912331609
+    second: 20251019vampireIreFont_13
+  - first:
+      213: -591902151736922094
+    second: 20251019vampireIreFont_14
+  - first:
+      213: -2886136571031853127
+    second: 20251019vampireIreFont_15
+  - first:
+      213: 3175584998950411900
+    second: 20251019vampireIreFont_16
+  - first:
+      213: -5805858378431443903
+    second: 20251019vampireIreFont_17
+  - first:
+      213: 4921475745397686239
+    second: 20251019vampireIreFont_18
+  - first:
+      213: 4777874042760717756
+    second: 20251019vampireIreFont_19
+  - first:
+      213: 6655119084156575028
+    second: 20251019vampireIreFont_20
+  - first:
+      213: 4679955492901868289
+    second: 20251019vampireIreFont_21
+  - first:
+      213: 8852673436738905649
+    second: 20251019vampireIreFont_22
+  - first:
+      213: -3042703171045584925
+    second: 20251019vampireIreFont_23
+  - first:
+      213: 2199169886125311330
+    second: 20251019vampireIreFont_24
+  - first:
+      213: 944853365745831353
+    second: 20251019vampireIreFont_25
+  - first:
+      213: 3626793970256567898
+    second: 20251019vampireIreFont_26
+  - first:
+      213: 4235255579646190135
+    second: 20251019vampireIreFont_27
+  - first:
+      213: 4787139565742204217
+    second: 20251019vampireIreFont_28
+  - first:
+      213: -654312494209405373
+    second: 20251019vampireIreFont_29
+  - first:
+      213: -4207118223598025146
+    second: 20251019vampireIreFont_30
+  - first:
+      213: 7883841156482751970
+    second: 20251019vampireIreFont_31
+  - first:
+      213: 834171377559838383
+    second: 20251019vampireIreFont_32
+  - first:
+      213: -1406405318793771312
+    second: 20251019vampireIreFont_33
+  - first:
+      213: 5093160495054417595
+    second: 20251019vampireIreFont_34
+  - first:
+      213: -193374537663942104
+    second: 20251019vampireIreFont_35
+  - first:
+      213: 5587679178038143667
+    second: 20251019vampireIreFont_36
+  - first:
+      213: -4950931910320775547
+    second: 20251019vampireIreFont_37
+  - first:
+      213: 6333709612696377628
+    second: 20251019vampireIreFont_38
+  - first:
+      213: -77601603996595058
+    second: 20251019vampireIreFont_39
+  - first:
+      213: 8173002503943258688
+    second: 20251019vampireIreFont_40
+  - first:
+      213: -5185044234221067985
+    second: 20251019vampireIreFont_41
+  - first:
+      213: 8044271063345097015
+    second: 20251019vampireIreFont_42
+  - first:
+      213: -4428675347942151593
+    second: 20251019vampireIreFont_43
+  - first:
+      213: -4614274941210904772
+    second: 20251019vampireIreFont_44
+  - first:
+      213: 4261451072099213220
+    second: 20251019vampireIreFont_45
+  - first:
+      213: 7551977228085419049
+    second: 20251019vampireIreFont_46
+  - first:
+      213: 9080789829410253811
+    second: 20251019vampireIreFont_47
+  - first:
+      213: 7002769966158146007
+    second: 20251019vampireIreFont_48
+  - first:
+      213: -2722009102869971575
+    second: 20251019vampireIreFont_49
+  - first:
+      213: -6096399179592874309
+    second: 20251019vampireIreFont_50
+  - first:
+      213: -5940639234578119135
+    second: 20251019vampireIreFont_51
+  - first:
+      213: 5425293885912014741
+    second: 20251019vampireIreFont_52
+  - first:
+      213: -2866125357569765414
+    second: 20251019vampireIreFont_53
+  - first:
+      213: 8547687485564963444
+    second: 20251019vampireIreFont_54
+  - first:
+      213: 2713050811933519681
+    second: 20251019vampireIreFont_55
+  - first:
+      213: 6694339511045603743
+    second: 20251019vampireIreFont_56
+  - first:
+      213: 7078756105011638077
+    second: 20251019vampireIreFont_57
+  - first:
+      213: -703655863552625004
+    second: 20251019vampireIreFont_58
+  - first:
+      213: -7448395800841685204
+    second: 20251019vampireIreFont_59
+  - first:
+      213: -5384032664947764171
+    second: 20251019vampireIreFont_60
+  - first:
+      213: -1989541502849718373
+    second: 20251019vampireIreFont_61
+  - first:
+      213: 3105400193004076806
+    second: 20251019vampireIreFont_62
+  - first:
+      213: -2224643071984713972
+    second: 20251019vampireIreFont_63
+  - first:
+      213: 3085328814026026083
+    second: 20251019vampireIreFont_64
+  - first:
+      213: 2233290736519870984
+    second: 20251019vampireIreFont_65
+  - first:
+      213: -2343453522660690107
+    second: 20251019vampireIreFont_66
+  - first:
+      213: 5881246994992024818
+    second: 20251019vampireIreFont_67
+  - first:
+      213: -8320982042460909099
+    second: 20251019vampireIreFont_68
+  - first:
+      213: 5864385212521794295
+    second: 20251019vampireIreFont_69
+  - first:
+      213: -4524263408598180344
+    second: 20251019vampireIreFont_70
+  - first:
+      213: -7355032137250004025
+    second: 20251019vampireIreFont_71
+  - first:
+      213: 8793059588898027391
+    second: 20251019vampireIreFont_72
+  - first:
+      213: -6387503228231598591
+    second: 20251019vampireIreFont_73
+  - first:
+      213: 351623092768127346
+    second: 20251019vampireIreFont_74
+  - first:
+      213: 4065266898336448837
+    second: 20251019vampireIreFont_75
+  - first:
+      213: -4750823663929503347
+    second: 20251019vampireIreFont_76
+  - first:
+      213: 3688968495128755790
+    second: 20251019vampireIreFont_77
+  - first:
+      213: -8382818904465374229
+    second: 20251019vampireIreFont_78
+  - first:
+      213: 7196110882394746120
+    second: 20251019vampireIreFont_79
+  - first:
+      213: 801334381695181432
+    second: 20251019vampireIreFont_80
+  - first:
+      213: -3460228185329679047
+    second: 20251019vampireIreFont_81
+  - first:
+      213: 1475053805184778853
+    second: 20251019vampireIreFont_82
+  - first:
+      213: -7898078717908485799
+    second: 20251019vampireIreFont_83
+  - first:
+      213: 6752555970332425499
+    second: 20251019vampireIreFont_84
+  - first:
+      213: -1435297792826476282
+    second: 20251019vampireIreFont_85
+  - first:
+      213: 8248032648358727950
+    second: 20251019vampireIreFont_86
+  - first:
+      213: -6168342113398399474
+    second: 20251019vampireIreFont_87
+  - first:
+      213: -7306563003100151261
+    second: 20251019vampireIreFont_88
+  - first:
+      213: 638676281509270690
+    second: 20251019vampireIreFont_89
+  - first:
+      213: -2909400729816711714
+    second: 20251019vampireIreFont_90
+  - first:
+      213: -5845318715621429669
+    second: 20251019vampireIreFont_91
+  - first:
+      213: 4576840105365894373
+    second: 20251019vampireIreFont_92
+  - first:
+      213: -3114625347688236217
+    second: 20251019vampireIreFont_93
+  - first:
+      213: 7959788418213553507
+    second: 20251019vampireIreFont_94
+  - first:
+      213: -836816758512208674
+    second: 20251019vampireIreFont_95
+  - first:
+      213: 2036844758495113982
+    second: 20251019vampireIreFont_96
+  - first:
+      213: 2766963971789962461
+    second: 20251019vampireIreFont_97
+  - first:
+      213: 2311523721855248630
+    second: 20251019vampireIreFont_98
+  - first:
+      213: 1062171495558100574
+    second: 20251019vampireIreFont_99
+  - first:
+      213: -575879985987353434
+    second: 20251019vampireIreFont_100
+  - first:
+      213: -83097405644182500
+    second: 20251019vampireIreFont_101
+  - first:
+      213: -5730756468234785244
+    second: 20251019vampireIreFont_102
+  - first:
+      213: -5930558025830714526
+    second: 20251019vampireIreFont_103
+  - first:
+      213: -2748764690751616928
+    second: 20251019vampireIreFont_104
+  - first:
+      213: -8144075312764176135
+    second: 20251019vampireIreFont_105
+  - first:
+      213: -1525664327198013228
+    second: 20251019vampireIreFont_106
+  - first:
+      213: 6350740748075093596
+    second: 20251019vampireIreFont_107
+  - first:
+      213: 1634736960290262823
+    second: 20251019vampireIreFont_108
+  - first:
+      213: 89547199098796982
+    second: 20251019vampireIreFont_109
+  - first:
+      213: -3772914294214557080
+    second: 20251019vampireIreFont_110
+  - first:
+      213: 1375107200673250655
+    second: 20251019vampireIreFont_111
+  - first:
+      213: 925678732561522857
+    second: 20251019vampireIreFont_112
+  - first:
+      213: -4463830815772197091
+    second: 20251019vampireIreFont_113
+  - first:
+      213: 3829330110431386513
+    second: 20251019vampireIreFont_114
+  - first:
+      213: 574815548762247734
+    second: 20251019vampireIreFont_115
+  - first:
+      213: -5590245973245197519
+    second: 20251019vampireIreFont_116
+  - first:
+      213: 4049533934092194698
+    second: 20251019vampireIreFont_117
+  - first:
+      213: 5041166746167022476
+    second: 20251019vampireIreFont_118
+  - first:
+      213: -1844115141282680532
+    second: 20251019vampireIreFont_119
+  - first:
+      213: 152334769259772337
+    second: 20251019vampireIreFont_120
+  - first:
+      213: 3352911302482392710
+    second: 20251019vampireIreFont_121
+  - first:
+      213: 2385886980605428206
+    second: 20251019vampireIreFont_122
+  - first:
+      213: -4057190041088850556
+    second: 20251019vampireIreFont_123
+  - first:
+      213: 1148480019921727506
+    second: 20251019vampireIreFont_124
+  - first:
+      213: 1414005353111009286
+    second: 20251019vampireIreFont_125
+  - first:
+      213: -1706049039193977591
+    second: 20251019vampireIreFont_126
+  - first:
+      213: -4069411931043409279
+    second: 20251019vampireIreFont_127
+  - first:
+      213: 7730428938637421741
+    second: 20251019vampireIreFont_128
+  - first:
+      213: -4376852699440388951
+    second: 20251019vampireIreFont_129
+  - first:
+      213: -8092035822381316164
+    second: 20251019vampireIreFont_130
+  - first:
+      213: 5399043784908462541
+    second: 20251019vampireIreFont_131
+  - first:
+      213: 727760900582017262
+    second: 20251019vampireIreFont_132
+  - first:
+      213: -6581289437510046164
+    second: 20251019vampireIreFont_133
+  - first:
+      213: 3699908079085954650
+    second: 20251019vampireIreFont_134
+  - first:
+      213: 2431879000783788126
+    second: 20251019vampireIreFont_135
+  - first:
+      213: -5660098660709950626
+    second: 20251019vampireIreFont_136
+  - first:
+      213: 499631874970627417
+    second: 20251019vampireIreFont_137
+  - first:
+      213: 7810869083962213556
+    second: 20251019vampireIreFont_138
+  - first:
+      213: -8861810676769719157
+    second: 20251019vampireIreFont_139
+  - first:
+      213: 9167093129069708676
+    second: 20251019vampireIreFont_140
+  - first:
+      213: 7926338545074882309
+    second: 20251019vampireIreFont_141
+  - first:
+      213: 3126562791328924728
+    second: 20251019vampireIreFont_142
+  - first:
+      213: 1913238815814592540
+    second: 20251019vampireIreFont_143
+  - first:
+      213: 337414293454126559
+    second: 20251019vampireIreFont_144
+  - first:
+      213: -8792743391052587873
+    second: 20251019vampireIreFont_145
+  - first:
+      213: -1843927401519980278
+    second: 20251019vampireIreFont_146
+  - first:
+      213: -3210786716253692856
+    second: 20251019vampireIreFont_147
+  - first:
+      213: 8756889326631212781
+    second: 20251019vampireIreFont_148
+  - first:
+      213: 633401198425739180
+    second: 20251019vampireIreFont_149
+  - first:
+      213: -5963658996058385087
+    second: 20251019vampireIreFont_150
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6cab722de65e760800000000000000
+      internalID: 7486511804462057152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b136f75a77067c80800000000000000
+      internalID: -8325458639104626247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba87c6cc09dcf33e0800000000000000
+      internalID: -2071711281778493269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c915f1b6cceacf060800000000000000
+      internalID: 6988652914765943196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbfc60046623cb3b0800000000000000
+      internalID: -5495462030556606533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a10a94d3bf226ba40800000000000000
+      internalID: 5383528867028377626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0daeb5b7988185a40800000000000000
+      internalID: 5357058735516412624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_7
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 97
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5553a9017117748d0800000000000000
+      internalID: -2862194694293932715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_8
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 97
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ea56d9aedbaa020800000000000000
+      internalID: 2353902570615189090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 81
+        width: 6
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7692202014ffcc510800000000000000
+      internalID: 1570911024717113703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_10
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 95
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 738680c2c03ac09f0800000000000000
+      internalID: -500846185871284169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f327a521076c080800000000000000
+      internalID: -9167516767336906946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 97
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82d631276f74e2c40800000000000000
+      internalID: 5489404119612615976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_13
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9556513464b45b960800000000000000
+      internalID: 7617077109912331609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2107ee7012429c7f0800000000000000
+      internalID: -591902151736922094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7e16e741262f7d0800000000000000
+      internalID: -2886136571031853127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_16
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 97
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7e9f784bb1f11c20800000000000000
+      internalID: 3175584998950411900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 95
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c4e59c0927d6fa0800000000000000
+      internalID: -5805858378431443903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_18
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf31278d189c4440800000000000000
+      internalID: 4921475745397686239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_19
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 96
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5ef4ca02b6e4240800000000000000
+      internalID: 4777874042760717756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_20
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 97
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d5315fb8bbb5c50800000000000000
+      internalID: 6655119084156575028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_21
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 103dd0fa9ba82f040800000000000000
+      internalID: 4679955492901868289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_22
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 96
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136eb5556930bda70800000000000000
+      internalID: 8852673436738905649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_23
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef8fdc369526c5d0800000000000000
+      internalID: -3042703171045584925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_24
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2654c371c55058e10800000000000000
+      internalID: 2199169886125311330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_25
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 97
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdcc1e412bcc1d00800000000000000
+      internalID: 944853365745831353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_26
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 97
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5edbae76e5f45230800000000000000
+      internalID: 3626793970256567898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7326dc5a286a6ca30800000000000000
+      internalID: 4235255579646190135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 65
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935284a52165f6240800000000000000
+      internalID: 4787139565742204217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_29
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 81
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e6c82d04a6be6f0800000000000000
+      internalID: -654312494209405373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 65
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6460e5214405d95c0800000000000000
+      internalID: -4207118223598025146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ed52cde2c7096d60800000000000000
+      internalID: 7883841156482751970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 52
+        width: 10
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae9041c272939b00800000000000000
+      internalID: 834171377559838383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 81
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6c31360d17b7ce0800000000000000
+      internalID: -1406405318793771312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_34
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 65
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe65cb4c7a8ea640800000000000000
+      internalID: 5093160495054417595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8227fede1eef05df0800000000000000
+      internalID: -193374537663942104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 65
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba6fcd8b9c6b8d40800000000000000
+      internalID: 5587679178038143667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_37
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 79
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e1f22a8a1ca4bb0800000000000000
+      internalID: -4950931910320775547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_38
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 49
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c199e37d55bd5e750800000000000000
+      internalID: 6333709612696377628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_39
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 49
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c48c790cd4ceef0800000000000000
+      internalID: -77601603996595058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 79
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0428ae399765c6170800000000000000
+      internalID: 8173002503943258688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_41
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 81
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f21e0929db50b08b0800000000000000
+      internalID: -5185044234221067985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_42
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 65
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73963a769edf2af60800000000000000
+      internalID: 8044271063345097015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_43
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ae0643c3f2a82c0800000000000000
+      internalID: -4428675347942151593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 79
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c373321736dc6ffb0800000000000000
+      internalID: -4614274941210904772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_45
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 65
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af5e240c27b32b30800000000000000
+      internalID: 4261451072099213220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_46
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 59
+        width: 10
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92cdedfd6430ec860800000000000000
+      internalID: 7551977228085419049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_47
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 74
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb6afddc32750e70800000000000000
+      internalID: 9080789829410253811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_48
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 81
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d961a49e26de2160800000000000000
+      internalID: 7002769966158146007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_49
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d3e0c842b793ad0800000000000000
+      internalID: -2722009102869971575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_50
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 81
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6426b0f3d356ba0800000000000000
+      internalID: -6096399179592874309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_51
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 49
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126093c471c9e8da0800000000000000
+      internalID: -5940639234578119135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_52
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f52e77b048a4b40800000000000000
+      internalID: 5425293885912014741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_53
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 55
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf80543c2a7938d0800000000000000
+      internalID: -2866125357569765414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_54
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 79
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ac6240b7c7f9670800000000000000
+      internalID: 8547687485564963444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_55
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 65
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14fe1eec651b6a520800000000000000
+      internalID: 2713050811933519681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_56
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 79
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f914cb1315217ec50800000000000000
+      internalID: 6694339511045603743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_57
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 74
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3fa8d23c2bcc3260800000000000000
+      internalID: 7078756105011638077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_58
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49633d068bc1c36f0800000000000000
+      internalID: -703655863552625004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_59
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 65
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27f1508b7bf1a890800000000000000
+      internalID: -7448395800841685204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_60
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53450ba21d21845b0800000000000000
+      internalID: -5384032664947764171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_61
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 65
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b97eeb05b8ab364e0800000000000000
+      internalID: -1989541502849718373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_62
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 81
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fff6db509981b20800000000000000
+      internalID: 3105400193004076806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_63
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 68
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f3156a9ea7021e0800000000000000
+      internalID: -2224643071984713972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_64
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c6c47a53a41da20800000000000000
+      internalID: 3085328814026026083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_65
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 67
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80aff66a71e3efe10800000000000000
+      internalID: 2233290736519870984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_66
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547fb22ff616a7fd0800000000000000
+      internalID: -2343453522660690107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_67
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 49
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc45d45bf26e9150800000000000000
+      internalID: 5881246994992024818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_68
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 81
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d196b83beee58c80800000000000000
+      internalID: -8320982042460909099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_69
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 49
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fa4a6aa74b726150800000000000000
+      internalID: 5864385212521794295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_70
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 81
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e153486669631c0800000000000000
+      internalID: -4524263408598180344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_71
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 64
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c3a1a36d3dade990800000000000000
+      internalID: -7355032137250004025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_72
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 81
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77fb15cb19370a70800000000000000
+      internalID: 8793059588898027391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_73
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e389708a70b57a0800000000000000
+      internalID: -6387503228231598591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_74
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 67
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279b443075731e400800000000000000
+      internalID: 351623092768127346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 41
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5418f7094baba6830800000000000000
+      internalID: 4065266898336448837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_76
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 49
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8156f07c0fa11eb0800000000000000
+      internalID: -4750823663929503347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_77
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 49
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4eb1c32d49d13330800000000000000
+      internalID: 3688968495128755790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_78
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 52
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be389e6de9e3aab80800000000000000
+      internalID: -8382818904465374229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_79
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 33
+        width: 9
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d267d88b8bdd360800000000000000
+      internalID: 7196110882394746120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 55
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 872af3fdf59ee1b00800000000000000
+      internalID: 801334381695181432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_81
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 49
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93541ab6ccccaffc0800000000000000
+      internalID: -3460228185329679047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_82
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 49
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56280a2ee91787410800000000000000
+      internalID: 1475053805184778853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_83
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 49
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959fdfa7043646290800000000000000
+      internalID: -7898078717908485799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_84
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d7b91e0e5e5bd50800000000000000
+      internalID: 6752555970332425499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_85
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 49
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609fcaf034cc41ce0800000000000000
+      internalID: -1435297792826476282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_86
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 49
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e011f356ef5e67270800000000000000
+      internalID: 8248032648358727950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_87
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 49
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e5ec57785a56aa0800000000000000
+      internalID: -6168342113398399474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_88
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 49
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322443719afd99a90800000000000000
+      internalID: -7306563003100151261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_89
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 49
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4d3d5b1b80dd800800000000000000
+      internalID: 638676281509270690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_90
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 49
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd330e637bbf97d0800000000000000
+      internalID: -2909400729816711714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_91
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 49
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5e2174199141eea0800000000000000
+      internalID: -5845318715621429669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_92
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 49
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e47812a3d3348f30800000000000000
+      internalID: 4576840105365894373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_93
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 49
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b7d9e8fb0a6c4d0800000000000000
+      internalID: -3114625347688236217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36523e2c469d67e60800000000000000
+      internalID: 7959788418213553507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_95
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 33
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed439ce77970364f0800000000000000
+      internalID: -836816758512208674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_96
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 33
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef2b7b42483544c10800000000000000
+      internalID: 2036844758495113982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_97
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 33
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc38d4821b366620800000000000000
+      internalID: 2766963971789962461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_98
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 33
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8221bf39e241020800000000000000
+      internalID: 2311523721855248630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_99
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 33
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56394bf8579dbe00800000000000000
+      internalID: 1062171495558100574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_100
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 33
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a487f134301208f0800000000000000
+      internalID: -575879985987353434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_101
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 33
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c62de8957c8def0800000000000000
+      internalID: -83097405644182500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_102
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42ee790ea534870b0800000000000000
+      internalID: -5730756468234785244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_103
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263b48e95ec62bda0800000000000000
+      internalID: -5930558025830714526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_104
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0680d9cc31d6ad9d0800000000000000
+      internalID: -2748764690751616928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_105
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8b9a6f6ae6afe80800000000000000
+      internalID: -8144075312764176135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_106
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 33
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d880e2b060c3dae0800000000000000
+      internalID: -1525664327198013228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_107
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 33
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e4d9d001d522850800000000000000
+      internalID: 6350740748075093596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_108
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 33
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f8d4baa90cfa610800000000000000
+      internalID: 1634736960290262823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_109
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 41
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb3ae004b22e3100800000000000000
+      internalID: 89547199098796982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_110
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 33
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862095d607ae3abc0800000000000000
+      internalID: -3772914294214557080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_111
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5df530a6bc551310800000000000000
+      internalID: 1375107200673250655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_112
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 33
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0a67e17eba8dc00800000000000000
+      internalID: 925678732561522857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_113
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fb47006894d02c0800000000000000
+      internalID: -4463830815772197091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_114
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b58ff5273842530800000000000000
+      internalID: 3829330110431386513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_115
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 33
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632585332b72af700800000000000000
+      internalID: 574815548762247734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_116
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 33
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13389add7e47b62b0800000000000000
+      internalID: -5590245973245197519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_117
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 33
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83947f58a5d23830800000000000000
+      internalID: 4049533934092194698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_118
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c831cc64272d5f540800000000000000
+      internalID: 5041166746167022476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_119
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 25
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c213deeac036866e0800000000000000
+      internalID: -1844115141282680532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_120
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 17
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b97ba06aa33d1200800000000000000
+      internalID: 152334769259772337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_121
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 17
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686fadba01fe78e20800000000000000
+      internalID: 3352911302482392710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_122
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 17
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee14731619f5c1120800000000000000
+      internalID: 2385886980605428206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_123
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 17
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48585ae4727f1b7c0800000000000000
+      internalID: -4057190041088850556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_124
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21071134e7830ff00800000000000000
+      internalID: 1148480019921727506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_125
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 17
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608beae706e8f9310800000000000000
+      internalID: 1414005353111009286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_126
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 17
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d42791075e258e0800000000000000
+      internalID: -1706049039193977591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_127
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 17
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182db6dc86b8687c0800000000000000
+      internalID: -4069411931043409279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_128
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 17
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac22e08920084b60800000000000000
+      internalID: 7730428938637421741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_129
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 25
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a465afc8ab4243c0800000000000000
+      internalID: -4376852699440388951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_130
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 17
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7c9310b4053bf80800000000000000
+      internalID: -8092035822381316164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_131
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 17
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9df3e87b14dea40800000000000000
+      internalID: 5399043784908462541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_132
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 17
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee80c98eea6891a00800000000000000
+      internalID: 727760900582017262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_133
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 17
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2eee2130209aa4a0800000000000000
+      internalID: -6581289437510046164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_134
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 17
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5624838bc6b85330800000000000000
+      internalID: 3699908079085954650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_135
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 17
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e58137a0115cfb120800000000000000
+      internalID: 2431879000783788126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_136
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 17
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b18bea14a4371b0800000000000000
+      internalID: -5660098660709950626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_137
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 15
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d261a0b8c0fe600800000000000000
+      internalID: 499631874970627417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_138
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 15
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b406a05c08c56c60800000000000000
+      internalID: 7810869083962213556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_139
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 17
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c70603426840580800000000000000
+      internalID: -8861810676769719157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_140
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 17
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485cf1da1ae083f70800000000000000
+      internalID: 9167093129069708676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_141
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 17
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 507cca449e2000e60800000000000000
+      internalID: 7926338545074882309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_142
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 17
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8344d112b48c36b20800000000000000
+      internalID: 3126562791328924728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_143
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 17
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c182e13f0903d8a10800000000000000
+      internalID: 1913238815814592540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_144
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 17
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fddf87f138cbea400800000000000000
+      internalID: 337414293454126559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_145
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 16
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c9527c876e9f580800000000000000
+      internalID: -8792743391052587873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_146
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a01eac04ccd0966e0800000000000000
+      internalID: -1843927401519980278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_147
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84cd7283e7ef073d0800000000000000
+      internalID: -3210786716253692856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_148
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de653435278b68970800000000000000
+      internalID: 8756889326631212781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_149
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf0978b80b4ac800800000000000000
+      internalID: 633401198425739180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20251019vampireIreFont_150
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145906a6db3dc3da0800000000000000
+      internalID: -5963658996058385087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      20251019vampireIreFont_0: 7486511804462057152
+      20251019vampireIreFont_1: -8325458639104626247
+      20251019vampireIreFont_10: -500846185871284169
+      20251019vampireIreFont_100: -575879985987353434
+      20251019vampireIreFont_101: -83097405644182500
+      20251019vampireIreFont_102: -5730756468234785244
+      20251019vampireIreFont_103: -5930558025830714526
+      20251019vampireIreFont_104: -2748764690751616928
+      20251019vampireIreFont_105: -8144075312764176135
+      20251019vampireIreFont_106: -1525664327198013228
+      20251019vampireIreFont_107: 6350740748075093596
+      20251019vampireIreFont_108: 1634736960290262823
+      20251019vampireIreFont_109: 89547199098796982
+      20251019vampireIreFont_11: -9167516767336906946
+      20251019vampireIreFont_110: -3772914294214557080
+      20251019vampireIreFont_111: 1375107200673250655
+      20251019vampireIreFont_112: 925678732561522857
+      20251019vampireIreFont_113: -4463830815772197091
+      20251019vampireIreFont_114: 3829330110431386513
+      20251019vampireIreFont_115: 574815548762247734
+      20251019vampireIreFont_116: -5590245973245197519
+      20251019vampireIreFont_117: 4049533934092194698
+      20251019vampireIreFont_118: 5041166746167022476
+      20251019vampireIreFont_119: -1844115141282680532
+      20251019vampireIreFont_12: 5489404119612615976
+      20251019vampireIreFont_120: 152334769259772337
+      20251019vampireIreFont_121: 3352911302482392710
+      20251019vampireIreFont_122: 2385886980605428206
+      20251019vampireIreFont_123: -4057190041088850556
+      20251019vampireIreFont_124: 1148480019921727506
+      20251019vampireIreFont_125: 1414005353111009286
+      20251019vampireIreFont_126: -1706049039193977591
+      20251019vampireIreFont_127: -4069411931043409279
+      20251019vampireIreFont_128: 7730428938637421741
+      20251019vampireIreFont_129: -4376852699440388951
+      20251019vampireIreFont_13: 7617077109912331609
+      20251019vampireIreFont_130: -8092035822381316164
+      20251019vampireIreFont_131: 5399043784908462541
+      20251019vampireIreFont_132: 727760900582017262
+      20251019vampireIreFont_133: -6581289437510046164
+      20251019vampireIreFont_134: 3699908079085954650
+      20251019vampireIreFont_135: 2431879000783788126
+      20251019vampireIreFont_136: -5660098660709950626
+      20251019vampireIreFont_137: 499631874970627417
+      20251019vampireIreFont_138: 7810869083962213556
+      20251019vampireIreFont_139: -8861810676769719157
+      20251019vampireIreFont_14: -591902151736922094
+      20251019vampireIreFont_140: 9167093129069708676
+      20251019vampireIreFont_141: 7926338545074882309
+      20251019vampireIreFont_142: 3126562791328924728
+      20251019vampireIreFont_143: 1913238815814592540
+      20251019vampireIreFont_144: 337414293454126559
+      20251019vampireIreFont_145: -8792743391052587873
+      20251019vampireIreFont_146: -1843927401519980278
+      20251019vampireIreFont_147: -3210786716253692856
+      20251019vampireIreFont_148: 8756889326631212781
+      20251019vampireIreFont_149: 633401198425739180
+      20251019vampireIreFont_15: -2886136571031853127
+      20251019vampireIreFont_150: -5963658996058385087
+      20251019vampireIreFont_16: 3175584998950411900
+      20251019vampireIreFont_17: -5805858378431443903
+      20251019vampireIreFont_18: 4921475745397686239
+      20251019vampireIreFont_19: 4777874042760717756
+      20251019vampireIreFont_2: -2071711281778493269
+      20251019vampireIreFont_20: 6655119084156575028
+      20251019vampireIreFont_21: 4679955492901868289
+      20251019vampireIreFont_22: 8852673436738905649
+      20251019vampireIreFont_23: -3042703171045584925
+      20251019vampireIreFont_24: 2199169886125311330
+      20251019vampireIreFont_25: 944853365745831353
+      20251019vampireIreFont_26: 3626793970256567898
+      20251019vampireIreFont_27: 4235255579646190135
+      20251019vampireIreFont_28: 4787139565742204217
+      20251019vampireIreFont_29: -654312494209405373
+      20251019vampireIreFont_3: 6988652914765943196
+      20251019vampireIreFont_30: -4207118223598025146
+      20251019vampireIreFont_31: 7883841156482751970
+      20251019vampireIreFont_32: 834171377559838383
+      20251019vampireIreFont_33: -1406405318793771312
+      20251019vampireIreFont_34: 5093160495054417595
+      20251019vampireIreFont_35: -193374537663942104
+      20251019vampireIreFont_36: 5587679178038143667
+      20251019vampireIreFont_37: -4950931910320775547
+      20251019vampireIreFont_38: 6333709612696377628
+      20251019vampireIreFont_39: -77601603996595058
+      20251019vampireIreFont_4: -5495462030556606533
+      20251019vampireIreFont_40: 8173002503943258688
+      20251019vampireIreFont_41: -5185044234221067985
+      20251019vampireIreFont_42: 8044271063345097015
+      20251019vampireIreFont_43: -4428675347942151593
+      20251019vampireIreFont_44: -4614274941210904772
+      20251019vampireIreFont_45: 4261451072099213220
+      20251019vampireIreFont_46: 7551977228085419049
+      20251019vampireIreFont_47: 9080789829410253811
+      20251019vampireIreFont_48: 7002769966158146007
+      20251019vampireIreFont_49: -2722009102869971575
+      20251019vampireIreFont_5: 5383528867028377626
+      20251019vampireIreFont_50: -6096399179592874309
+      20251019vampireIreFont_51: -5940639234578119135
+      20251019vampireIreFont_52: 5425293885912014741
+      20251019vampireIreFont_53: -2866125357569765414
+      20251019vampireIreFont_54: 8547687485564963444
+      20251019vampireIreFont_55: 2713050811933519681
+      20251019vampireIreFont_56: 6694339511045603743
+      20251019vampireIreFont_57: 7078756105011638077
+      20251019vampireIreFont_58: -703655863552625004
+      20251019vampireIreFont_59: -7448395800841685204
+      20251019vampireIreFont_6: 5357058735516412624
+      20251019vampireIreFont_60: -5384032664947764171
+      20251019vampireIreFont_61: -1989541502849718373
+      20251019vampireIreFont_62: 3105400193004076806
+      20251019vampireIreFont_63: -2224643071984713972
+      20251019vampireIreFont_64: 3085328814026026083
+      20251019vampireIreFont_65: 2233290736519870984
+      20251019vampireIreFont_66: -2343453522660690107
+      20251019vampireIreFont_67: 5881246994992024818
+      20251019vampireIreFont_68: -8320982042460909099
+      20251019vampireIreFont_69: 5864385212521794295
+      20251019vampireIreFont_7: -2862194694293932715
+      20251019vampireIreFont_70: -4524263408598180344
+      20251019vampireIreFont_71: -7355032137250004025
+      20251019vampireIreFont_72: 8793059588898027391
+      20251019vampireIreFont_73: -6387503228231598591
+      20251019vampireIreFont_74: 351623092768127346
+      20251019vampireIreFont_75: 4065266898336448837
+      20251019vampireIreFont_76: -4750823663929503347
+      20251019vampireIreFont_77: 3688968495128755790
+      20251019vampireIreFont_78: -8382818904465374229
+      20251019vampireIreFont_79: 7196110882394746120
+      20251019vampireIreFont_8: 2353902570615189090
+      20251019vampireIreFont_80: 801334381695181432
+      20251019vampireIreFont_81: -3460228185329679047
+      20251019vampireIreFont_82: 1475053805184778853
+      20251019vampireIreFont_83: -7898078717908485799
+      20251019vampireIreFont_84: 6752555970332425499
+      20251019vampireIreFont_85: -1435297792826476282
+      20251019vampireIreFont_86: 8248032648358727950
+      20251019vampireIreFont_87: -6168342113398399474
+      20251019vampireIreFont_88: -7306563003100151261
+      20251019vampireIreFont_89: 638676281509270690
+      20251019vampireIreFont_9: 1570911024717113703
+      20251019vampireIreFont_90: -2909400729816711714
+      20251019vampireIreFont_91: -5845318715621429669
+      20251019vampireIreFont_92: 4576840105365894373
+      20251019vampireIreFont_93: -3114625347688236217
+      20251019vampireIreFont_94: 7959788418213553507
+      20251019vampireIreFont_95: -836816758512208674
+      20251019vampireIreFont_96: 2036844758495113982
+      20251019vampireIreFont_97: 2766963971789962461
+      20251019vampireIreFont_98: 2311523721855248630
+      20251019vampireIreFont_99: 1062171495558100574
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
