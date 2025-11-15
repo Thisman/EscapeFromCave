@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 9dd29d4eff10d4345b0d9f952308306e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2507890710958643781
+    second: Prison Gate-flames_0
+  - first:
+      213: 3039062565252683342
+    second: Prison Gate-flames_1
+  - first:
+      213: 315451820442498510
+    second: Prison Gate-flames_2
+  - first:
+      213: -4313424557446744396
+    second: Prison Gate-flames_3
+  - first:
+      213: 2572026086721418332
+    second: Prison Gate-flames_4
+  - first:
+      213: -692481332060752566
+    second: Prison Gate-flames_5
+  - first:
+      213: -6663543751261711533
+    second: Prison Gate-flames_6
+  - first:
+      213: 7321080877645242225
+    second: Prison Gate-flames_7
+  - first:
+      213: 724850879481326486
+    second: Prison Gate-flames_8
+  - first:
+      213: -65179651251804984
+    second: Prison Gate-flames_9
+  - first:
+      213: -2232615674156131206
+    second: Prison Gate-flames_10
+  - first:
+      213: -6009559718218356797
+    second: Prison Gate-flames_11
+  - first:
+      213: -8352481743036027392
+    second: Prison Gate-flames_12
+  - first:
+      213: -1504329315644518455
+    second: Prison Gate-flames_13
+  - first:
+      213: 2311557522836084039
+    second: Prison Gate-flames_14
+  - first:
+      213: -7241680826171091181
+    second: Prison Gate-flames_15
+  - first:
+      213: 6333001435512534352
+    second: Prison Gate-flames_16
+  - first:
+      213: -6426285543234775975
+    second: Prison Gate-flames_17
+  - first:
+      213: 6400125059199389699
+    second: Prison Gate-flames_18
+  - first:
+      213: -1843892476848737235
+    second: Prison Gate-flames_19
+  - first:
+      213: 2744487810331801122
+    second: Prison Gate-flames_20
+  - first:
+      213: -2761485698194199074
+    second: Prison Gate-flames_21
+  - first:
+      213: -2938400411980023066
+    second: Prison Gate-flames_22
+  - first:
+      213: -5388318624698319270
+    second: Prison Gate-flames_23
+  - first:
+      213: -3115060468230687291
+    second: Prison Gate-flames_24
+  - first:
+      213: 1399116641609783830
+    second: Prison Gate-flames_25
+  - first:
+      213: -1625163015119743013
+    second: Prison Gate-flames_26
+  - first:
+      213: 5308202459040767132
+    second: Prison Gate-flames_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Prison Gate-flames_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 34
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5eecd8fae223dd0800000000000000
+      internalID: -2507890710958643781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 34
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46d21c2d4bec2a20800000000000000
+      internalID: 3039062565252683342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 34
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5b93562c5b06400800000000000000
+      internalID: 315451820442498510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 34
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6b0ffe733a324c0800000000000000
+      internalID: -4313424557446744396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 33
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c547114491ca1b320800000000000000
+      internalID: 2572026086721418332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 33
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45fdecb5efc366f0800000000000000
+      internalID: -692481332060752566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_6
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 32
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35395c063465683a0800000000000000
+      internalID: -6663543751261711533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 32
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f13fbf444b99560800000000000000
+      internalID: 7321080877645242225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_8
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 31
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b2d92d8003f0a00800000000000000
+      internalID: 724850879481326486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_9
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 31
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c46d88d37f681ff0800000000000000
+      internalID: -65179651251804984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_10
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 29
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c54fd8fd72401e0800000000000000
+      internalID: -2232615674156131206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_11
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 29
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7291bb641c99ca0800000000000000
+      internalID: -6009559718218356797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_12
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 27
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ee669ab16061c80800000000000000
+      internalID: -8352481743036027392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_13
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 27
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf4dcb257c8f1be0800000000000000
+      internalID: -1504329315644518455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_14
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 24
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745d682e15d441020800000000000000
+      internalID: 2311557522836084039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 24
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317905b18a1608b90800000000000000
+      internalID: -7241680826171091181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_16
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 22
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05573cd704753e750800000000000000
+      internalID: 6333001435512534352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_17
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 22
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954534aa85f31d6a0800000000000000
+      internalID: -6426285543234775975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_18
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 20
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300d7aff4dfc1d850800000000000000
+      internalID: 6400125059199389699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_19
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 21
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d247a69cf8d2966e0800000000000000
+      internalID: -1843892476848737235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_20
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 19
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22677316f11661620800000000000000
+      internalID: 2744487810331801122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_21
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 20
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd20d2736b3da9d0800000000000000
+      internalID: -2761485698194199074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_22
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 19
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eab114c464b837d0800000000000000
+      internalID: -2938400411980023066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_23
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 19
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e3c3662c8d835b0800000000000000
+      internalID: -5388318624698319270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_24
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 21
+        width: 295
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c57f39220515c4d0800000000000000
+      internalID: -3115060468230687291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_25
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 19
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a1d763c29aa6310800000000000000
+      internalID: 1399116641609783830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_26
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 20
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd75fa529d24279e0800000000000000
+      internalID: -1625163015119743013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prison Gate-flames_27
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 23
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9cdafe23068aa940800000000000000
+      internalID: 5308202459040767132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Prison Gate-flames_0: -2507890710958643781
+      Prison Gate-flames_1: 3039062565252683342
+      Prison Gate-flames_10: -2232615674156131206
+      Prison Gate-flames_11: -6009559718218356797
+      Prison Gate-flames_12: -8352481743036027392
+      Prison Gate-flames_13: -1504329315644518455
+      Prison Gate-flames_14: 2311557522836084039
+      Prison Gate-flames_15: -7241680826171091181
+      Prison Gate-flames_16: 6333001435512534352
+      Prison Gate-flames_17: -6426285543234775975
+      Prison Gate-flames_18: 6400125059199389699
+      Prison Gate-flames_19: -1843892476848737235
+      Prison Gate-flames_2: 315451820442498510
+      Prison Gate-flames_20: 2744487810331801122
+      Prison Gate-flames_21: -2761485698194199074
+      Prison Gate-flames_22: -2938400411980023066
+      Prison Gate-flames_23: -5388318624698319270
+      Prison Gate-flames_24: -3115060468230687291
+      Prison Gate-flames_25: 1399116641609783830
+      Prison Gate-flames_26: -1625163015119743013
+      Prison Gate-flames_27: 5308202459040767132
+      Prison Gate-flames_3: -4313424557446744396
+      Prison Gate-flames_4: 2572026086721418332
+      Prison Gate-flames_5: -692481332060752566
+      Prison Gate-flames_6: -6663543751261711533
+      Prison Gate-flames_7: 7321080877645242225
+      Prison Gate-flames_8: 724850879481326486
+      Prison Gate-flames_9: -65179651251804984
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

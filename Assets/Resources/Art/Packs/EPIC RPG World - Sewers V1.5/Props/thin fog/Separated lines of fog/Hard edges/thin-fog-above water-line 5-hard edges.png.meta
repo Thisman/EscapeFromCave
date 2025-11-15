@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: e75e71d3522cf654a988ffebdb4f9645
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 208951052722145559
+    second: thin-fog-above water-line 5-hard edges_0
+  - first:
+      213: 8487879891510072824
+    second: thin-fog-above water-line 5-hard edges_1
+  - first:
+      213: -3264279499373775641
+    second: thin-fog-above water-line 5-hard edges_2
+  - first:
+      213: -6318262713336757170
+    second: thin-fog-above water-line 5-hard edges_3
+  - first:
+      213: -5251356168082082890
+    second: thin-fog-above water-line 5-hard edges_4
+  - first:
+      213: 4361036384525647536
+    second: thin-fog-above water-line 5-hard edges_5
+  - first:
+      213: 5726395280988910115
+    second: thin-fog-above water-line 5-hard edges_6
+  - first:
+      213: -5334103573826625130
+    second: thin-fog-above water-line 5-hard edges_7
+  - first:
+      213: -2154086746576842690
+    second: thin-fog-above water-line 5-hard edges_8
+  - first:
+      213: 7571352534403882481
+    second: thin-fog-above water-line 5-hard edges_9
+  - first:
+      213: 3220198231683355458
+    second: thin-fog-above water-line 5-hard edges_10
+  - first:
+      213: 6380720905207749102
+    second: thin-fog-above water-line 5-hard edges_11
+  - first:
+      213: -5500144664282195343
+    second: thin-fog-above water-line 5-hard edges_12
+  - first:
+      213: 9078652922935821952
+    second: thin-fog-above water-line 5-hard edges_13
+  - first:
+      213: 8581267818281844427
+    second: thin-fog-above water-line 5-hard edges_14
+  - first:
+      213: -7842955825764003404
+    second: thin-fog-above water-line 5-hard edges_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71982f810e756e200800000000000000
+      internalID: 208951052722145559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f593a56ac10bc570800000000000000
+      internalID: 8487879891510072824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e47c381713f2b2d0800000000000000
+      internalID: -3264279499373775641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4487fda9850158a0800000000000000
+      internalID: -6318262713336757170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_4
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b33964536f6f17b0800000000000000
+      internalID: -5251356168082082890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_5
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be74386c73858c30800000000000000
+      internalID: 4361036384525647536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_6
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32231d61b2e387f40800000000000000
+      internalID: 5726395280988910115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_7
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6912ce69f0579f5b0800000000000000
+      internalID: -5334103573826625130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_8
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3019ee44852b12e0800000000000000
+      internalID: -2154086746576842690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_9
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd956ae309d21960800000000000000
+      internalID: 7571352534403882481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_10
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 31
+        width: 125
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243d3d9fa3170bc20800000000000000
+      internalID: 3220198231683355458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_11
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee911d55bdfdc8850800000000000000
+      internalID: 6380720905207749102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_12
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a1330a19f8ba3b0800000000000000
+      internalID: -5500144664282195343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_13
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 086c6ae8bbaddfd70800000000000000
+      internalID: 9078652922935821952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_14
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce3e2f7d99c61770800000000000000
+      internalID: 8581267818281844427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above water-line 5-hard edges_15
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 31
+        width: 125
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b19140fa39382390800000000000000
+      internalID: -7842955825764003404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thin-fog-above water-line 5-hard edges_0: 208951052722145559
+      thin-fog-above water-line 5-hard edges_1: 8487879891510072824
+      thin-fog-above water-line 5-hard edges_10: 3220198231683355458
+      thin-fog-above water-line 5-hard edges_11: 6380720905207749102
+      thin-fog-above water-line 5-hard edges_12: -5500144664282195343
+      thin-fog-above water-line 5-hard edges_13: 9078652922935821952
+      thin-fog-above water-line 5-hard edges_14: 8581267818281844427
+      thin-fog-above water-line 5-hard edges_15: -7842955825764003404
+      thin-fog-above water-line 5-hard edges_2: -3264279499373775641
+      thin-fog-above water-line 5-hard edges_3: -6318262713336757170
+      thin-fog-above water-line 5-hard edges_4: -5251356168082082890
+      thin-fog-above water-line 5-hard edges_5: 4361036384525647536
+      thin-fog-above water-line 5-hard edges_6: 5726395280988910115
+      thin-fog-above water-line 5-hard edges_7: -5334103573826625130
+      thin-fog-above water-line 5-hard edges_8: -2154086746576842690
+      thin-fog-above water-line 5-hard edges_9: 7571352534403882481
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

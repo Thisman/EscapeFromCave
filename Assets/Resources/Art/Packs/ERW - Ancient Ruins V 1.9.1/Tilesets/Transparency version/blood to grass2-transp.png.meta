@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 23bd570cd5570984f935585620042750
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5564312798391253888
+    second: blood to grass2-transp_0
+  - first:
+      213: 6399799976593367685
+    second: blood to grass2-transp_1
+  - first:
+      213: 3485258883354108329
+    second: blood to grass2-transp_2
+  - first:
+      213: -8975746621041907368
+    second: blood to grass2-transp_3
+  - first:
+      213: -4633877927269190410
+    second: blood to grass2-transp_4
+  - first:
+      213: 8089798189836189202
+    second: blood to grass2-transp_5
+  - first:
+      213: -7989484450875283850
+    second: blood to grass2-transp_6
+  - first:
+      213: 1362472007474134245
+    second: blood to grass2-transp_7
+  - first:
+      213: -7156848375298450808
+    second: blood to grass2-transp_8
+  - first:
+      213: 7485917021409204526
+    second: blood to grass2-transp_9
+  - first:
+      213: -5304856862994956717
+    second: blood to grass2-transp_10
+  - first:
+      213: 1232262996909026757
+    second: blood to grass2-transp_11
+  - first:
+      213: -4340897844105277233
+    second: blood to grass2-transp_12
+  - first:
+      213: -7032285803336957411
+    second: blood to grass2-transp_13
+  - first:
+      213: 4264084968033693233
+    second: blood to grass2-transp_14
+  - first:
+      213: 3621283563430191773
+    second: blood to grass2-transp_15
+  - first:
+      213: -330647506177735845
+    second: blood to grass2-transp_16
+  - first:
+      213: 3996451659974052803
+    second: blood to grass2-transp_17
+  - first:
+      213: -4115733019705870939
+    second: blood to grass2-transp_18
+  - first:
+      213: -8035253097142192780
+    second: blood to grass2-transp_19
+  - first:
+      213: 8205745752562974973
+    second: blood to grass2-transp_20
+  - first:
+      213: -6892468894206340901
+    second: blood to grass2-transp_21
+  - first:
+      213: 2730536091413046333
+    second: blood to grass2-transp_22
+  - first:
+      213: 8230172701082530000
+    second: blood to grass2-transp_23
+  - first:
+      213: 5303398859311652830
+    second: blood to grass2-transp_24
+  - first:
+      213: 1839405001374101524
+    second: blood to grass2-transp_25
+  - first:
+      213: 5552338627369895106
+    second: blood to grass2-transp_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood to grass2-transp_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 82
+        width: 134
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b35475209683d40800000000000000
+      internalID: 5564312798391253888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 150
+        width: 514
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582a66ecb28a0d850800000000000000
+      internalID: 6399799976593367685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_2
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1a89c1d702e5030800000000000000
+      internalID: 3485258883354108329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_3
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85962e2f00ebf6380800000000000000
+      internalID: -8975746621041907368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_4
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4b894939821bfb0800000000000000
+      internalID: -4633877927269190410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_5
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21eb8c1979cb44070800000000000000
+      internalID: 8089798189836189202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_6
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6766217d836af1190800000000000000
+      internalID: -7989484450875283850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_7
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ecb8e5721978e210800000000000000
+      internalID: 1362472007474134245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_8
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 214
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a110f3254cdac90800000000000000
+      internalID: -7156848375298450808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_9
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 150
+        width: 226
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29552f6ed153e760800000000000000
+      internalID: 7485917021409204526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e74e81acc5166b0800000000000000
+      internalID: -5304856862994956717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_11
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdee98baa0e91110800000000000000
+      internalID: 1232262996909026757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_12
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc098dbe86802c3c0800000000000000
+      internalID: -4340897844105277233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_13
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12041d025d486e90800000000000000
+      internalID: -7032285803336957411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_14
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e2bb3bfa21d2b30800000000000000
+      internalID: 4264084968033693233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_15
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92a73de632614230800000000000000
+      internalID: 3621283563430191773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_16
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 95
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53486058dd496bf0800000000000000
+      internalID: -330647506177735845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_17
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 63
+        width: 514
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb06c25c9f367730800000000000000
+      internalID: 3996451659974052803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 31
+        width: 226
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5f51aef9af1e6c0800000000000000
+      internalID: -4115733019705870939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_19
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4757b7871eb0d7090800000000000000
+      internalID: -8035253097142192780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_20
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0cfaa394aa0e170800000000000000
+      internalID: 8205745752562974973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_21
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0d66ffe080950a0800000000000000
+      internalID: -6892468894206340901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_22
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d34ee0fab10d4e520800000000000000
+      internalID: 2730536091413046333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_23
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d034206772773270800000000000000
+      internalID: 8230172701082530000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_24
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf9b77f925799940800000000000000
+      internalID: 5303398859311652830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_25
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 31
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410faf86a11e68910800000000000000
+      internalID: 1839405001374101524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood to grass2-transp_26
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 31
+        width: 226
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c40015609edd0d40800000000000000
+      internalID: 5552338627369895106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blood to grass2-transp_0: 5564312798391253888
+      blood to grass2-transp_1: 6399799976593367685
+      blood to grass2-transp_10: -5304856862994956717
+      blood to grass2-transp_11: 1232262996909026757
+      blood to grass2-transp_12: -4340897844105277233
+      blood to grass2-transp_13: -7032285803336957411
+      blood to grass2-transp_14: 4264084968033693233
+      blood to grass2-transp_15: 3621283563430191773
+      blood to grass2-transp_16: -330647506177735845
+      blood to grass2-transp_17: 3996451659974052803
+      blood to grass2-transp_18: -4115733019705870939
+      blood to grass2-transp_19: -8035253097142192780
+      blood to grass2-transp_2: 3485258883354108329
+      blood to grass2-transp_20: 8205745752562974973
+      blood to grass2-transp_21: -6892468894206340901
+      blood to grass2-transp_22: 2730536091413046333
+      blood to grass2-transp_23: 8230172701082530000
+      blood to grass2-transp_24: 5303398859311652830
+      blood to grass2-transp_25: 1839405001374101524
+      blood to grass2-transp_26: 5552338627369895106
+      blood to grass2-transp_3: -8975746621041907368
+      blood to grass2-transp_4: -4633877927269190410
+      blood to grass2-transp_5: 8089798189836189202
+      blood to grass2-transp_6: -7989484450875283850
+      blood to grass2-transp_7: 1362472007474134245
+      blood to grass2-transp_8: -7156848375298450808
+      blood to grass2-transp_9: 7485917021409204526
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

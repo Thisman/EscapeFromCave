@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: aeeeca8be3fccb542b35278453e9ae3c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4177518731719848534
+    second: portal-anim4-to grass land20_0
+  - first:
+      213: 7278893182094389017
+    second: portal-anim4-to grass land20_1
+  - first:
+      213: -6097455472744850704
+    second: portal-anim4-to grass land20_2
+  - first:
+      213: 8741988024925942698
+    second: portal-anim4-to grass land20_3
+  - first:
+      213: 4367597801298992443
+    second: portal-anim4-to grass land20_4
+  - first:
+      213: 1871294399954397759
+    second: portal-anim4-to grass land20_5
+  - first:
+      213: -4233251563723094151
+    second: portal-anim4-to grass land20_6
+  - first:
+      213: -6341956759318671924
+    second: portal-anim4-to grass land20_7
+  - first:
+      213: -9035751069950388663
+    second: portal-anim4-to grass land20_8
+  - first:
+      213: 3618671894832966540
+    second: portal-anim4-to grass land20_9
+  - first:
+      213: -268160211169961997
+    second: portal-anim4-to grass land20_10
+  - first:
+      213: -2627313009336700221
+    second: portal-anim4-to grass land20_11
+  - first:
+      213: -4594354096073679638
+    second: portal-anim4-to grass land20_12
+  - first:
+      213: 1825259082077037326
+    second: portal-anim4-to grass land20_13
+  - first:
+      213: 2220766997828434326
+    second: portal-anim4-to grass land20_14
+  - first:
+      213: 8186138012714391389
+    second: portal-anim4-to grass land20_15
+  - first:
+      213: -8655069479367562091
+    second: portal-anim4-to grass land20_16
+  - first:
+      213: -5964719578795576246
+    second: portal-anim4-to grass land20_17
+  - first:
+      213: -8417138894136343029
+    second: portal-anim4-to grass land20_18
+  - first:
+      213: -1636978169915220001
+    second: portal-anim4-to grass land20_19
+  - first:
+      213: 6741757370911521589
+    second: portal-anim4-to grass land20_20
+  - first:
+      213: -6135967624241203128
+    second: portal-anim4-to grass land20_21
+  - first:
+      213: 2802552797507818266
+    second: portal-anim4-to grass land20_22
+  - first:
+      213: 2406525273632919163
+    second: portal-anim4-to grass land20_23
+  - first:
+      213: 1868451355733752468
+    second: portal-anim4-to grass land20_24
+  - first:
+      213: 2392730585308548408
+    second: portal-anim4-to grass land20_25
+  - first:
+      213: 793445552281049037
+    second: portal-anim4-to grass land20_26
+  - first:
+      213: 1104692973955646404
+    second: portal-anim4-to grass land20_27
+  - first:
+      213: -8488681035973585664
+    second: portal-anim4-to grass land20_28
+  - first:
+      213: 7814541873645824081
+    second: portal-anim4-to grass land20_29
+  - first:
+      213: 7163357612310189716
+    second: portal-anim4-to grass land20_30
+  - first:
+      213: 105154925745408494
+    second: portal-anim4-to grass land20_31
+  - first:
+      213: 3753172528875593657
+    second: portal-anim4-to grass land20_32
+  - first:
+      213: -7127257344611931292
+    second: portal-anim4-to grass land20_33
+  - first:
+      213: -3545919173299927869
+    second: portal-anim4-to grass land20_34
+  - first:
+      213: -9131394645171797965
+    second: portal-anim4-to grass land20_35
+  - first:
+      213: -1417535530281965453
+    second: portal-anim4-to grass land20_36
+  - first:
+      213: 3315430072774435442
+    second: portal-anim4-to grass land20_37
+  - first:
+      213: -8563379996332826205
+    second: portal-anim4-to grass land20_38
+  - first:
+      213: 3399012656973736970
+    second: portal-anim4-to grass land20_39
+  - first:
+      213: 3875416510108209045
+    second: portal-anim4-to grass land20_40
+  - first:
+      213: -3548206764672851160
+    second: portal-anim4-to grass land20_41
+  - first:
+      213: -4792111141313587749
+    second: portal-anim4-to grass land20_42
+  - first:
+      213: -5550341280396801073
+    second: portal-anim4-to grass land20_43
+  - first:
+      213: -2167453930856326372
+    second: portal-anim4-to grass land20_44
+  - first:
+      213: 7888507579227092811
+    second: portal-anim4-to grass land20_45
+  - first:
+      213: -8253240646606095247
+    second: portal-anim4-to grass land20_46
+  - first:
+      213: 8564170340409831962
+    second: portal-anim4-to grass land20_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_0
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652b3be272789f930800000000000000
+      internalID: 4177518731719848534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91fafbca8c2d30560800000000000000
+      internalID: 7278893182094389017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_2
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa1841ad8c716ba0800000000000000
+      internalID: -6097455472744850704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_3
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3fd68aac7c15970800000000000000
+      internalID: 8741988024925942698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_4
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d143c4f03dc9c30800000000000000
+      internalID: 4367597801298992443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_5
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3aa57b975c28f910800000000000000
+      internalID: 1871294399954397759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_6
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9770b6ba1287045c0800000000000000
+      internalID: -4233251563723094151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_7
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd4ce3bde7dcf7a0800000000000000
+      internalID: -6341956759318671924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_8
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94650cc76409a9280800000000000000
+      internalID: -9035751069950388663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_9
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b65327aea183230800000000000000
+      internalID: 3618671894832966540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_10
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f7125e65bd474cf0800000000000000
+      internalID: -268160211169961997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_11
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c239b4fcb8e98bd0800000000000000
+      internalID: -2627313009336700221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_12
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 76
+        width: 83
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aecda23aa439d30c0800000000000000
+      internalID: -4594354096073679638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03e14ae67f945910800000000000000
+      internalID: 1825259082077037326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_14
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699797281dfb1de10800000000000000
+      internalID: 2220766997828434326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_15
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 82
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57d92a86210b9170800000000000000
+      internalID: 8186138012714391389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_16
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ca8ff3a2403e780800000000000000
+      internalID: -8655069479367562091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_17
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a447211452f093da0800000000000000
+      internalID: -5964719578795576246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_18
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 86
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0601ed85c0503b80800000000000000
+      internalID: -8417138894136343029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_19
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf522d07094849e0800000000000000
+      internalID: -1636978169915220001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_20
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b7d070c988f8d50800000000000000
+      internalID: 6741757370911521589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_21
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8483ecb94f9a8daa0800000000000000
+      internalID: -6135967624241203128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_22
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a131bb7bbeaa4e620800000000000000
+      internalID: 2802552797507818266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_23
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ec3ed6cf1b56120800000000000000
+      internalID: 2406525273632919163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_24
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a7b9acb921ee910800000000000000
+      internalID: 1868451355733752468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_25
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d47844acfa43120800000000000000
+      internalID: 2392730585308548408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_26
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc75354a682e20b00800000000000000
+      internalID: 793445552281049037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_27
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c30f7a2868a45f00800000000000000
+      internalID: 1104692973955646404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_28
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005133f9295223a80800000000000000
+      internalID: -8488681035973585664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_29
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158231d4e64d27c60800000000000000
+      internalID: 7814541873645824081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_30
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 102
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496d6d89bcb596360800000000000000
+      internalID: 7163357612310189716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_31
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9007b09d5957100800000000000000
+      internalID: 105154925745408494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_32
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 101
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf5264a782f51430800000000000000
+      internalID: 3753172528875593657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_33
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 100
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bac97f435e61d90800000000000000
+      internalID: -7127257344611931292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_34
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c406398c4d5acec0800000000000000
+      internalID: -3545919173299927869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_35
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33081ae43f4c64180800000000000000
+      internalID: -9131394645171797965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_36
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3786c0512f6e35ce0800000000000000
+      internalID: -1417535530281965453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_37
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2722e55d516c20e20800000000000000
+      internalID: 3315430072774435442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_38
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a165e99343c82980800000000000000
+      internalID: -8563379996332826205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_39
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ce9f5b008bb2f20800000000000000
+      internalID: 3399012656973736970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_40
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f0fa978ce38c530800000000000000
+      internalID: 3875416510108209045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_41
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823690a2fbc32cec0800000000000000
+      internalID: -3548206764672851160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_42
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5dfc18e400f7db0800000000000000
+      internalID: -4792111141313587749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_43
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb03cf230a39f2b0800000000000000
+      internalID: -5550341280396801073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_44
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1bd8403228abe1e0800000000000000
+      internalID: -2167453930856326372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_45
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b47bec329db997d60800000000000000
+      internalID: 7888507579227092811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_46
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c7a350c59967d80800000000000000
+      internalID: -8253240646606095247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim4-to grass land20_47
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a127018bc8b0ad670800000000000000
+      internalID: 8564170340409831962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-anim4-to grass land20_0: 4177518731719848534
+      portal-anim4-to grass land20_1: 7278893182094389017
+      portal-anim4-to grass land20_10: -268160211169961997
+      portal-anim4-to grass land20_11: -2627313009336700221
+      portal-anim4-to grass land20_12: -4594354096073679638
+      portal-anim4-to grass land20_13: 1825259082077037326
+      portal-anim4-to grass land20_14: 2220766997828434326
+      portal-anim4-to grass land20_15: 8186138012714391389
+      portal-anim4-to grass land20_16: -8655069479367562091
+      portal-anim4-to grass land20_17: -5964719578795576246
+      portal-anim4-to grass land20_18: -8417138894136343029
+      portal-anim4-to grass land20_19: -1636978169915220001
+      portal-anim4-to grass land20_2: -6097455472744850704
+      portal-anim4-to grass land20_20: 6741757370911521589
+      portal-anim4-to grass land20_21: -6135967624241203128
+      portal-anim4-to grass land20_22: 2802552797507818266
+      portal-anim4-to grass land20_23: 2406525273632919163
+      portal-anim4-to grass land20_24: 1868451355733752468
+      portal-anim4-to grass land20_25: 2392730585308548408
+      portal-anim4-to grass land20_26: 793445552281049037
+      portal-anim4-to grass land20_27: 1104692973955646404
+      portal-anim4-to grass land20_28: -8488681035973585664
+      portal-anim4-to grass land20_29: 7814541873645824081
+      portal-anim4-to grass land20_3: 8741988024925942698
+      portal-anim4-to grass land20_30: 7163357612310189716
+      portal-anim4-to grass land20_31: 105154925745408494
+      portal-anim4-to grass land20_32: 3753172528875593657
+      portal-anim4-to grass land20_33: -7127257344611931292
+      portal-anim4-to grass land20_34: -3545919173299927869
+      portal-anim4-to grass land20_35: -9131394645171797965
+      portal-anim4-to grass land20_36: -1417535530281965453
+      portal-anim4-to grass land20_37: 3315430072774435442
+      portal-anim4-to grass land20_38: -8563379996332826205
+      portal-anim4-to grass land20_39: 3399012656973736970
+      portal-anim4-to grass land20_4: 4367597801298992443
+      portal-anim4-to grass land20_40: 3875416510108209045
+      portal-anim4-to grass land20_41: -3548206764672851160
+      portal-anim4-to grass land20_42: -4792111141313587749
+      portal-anim4-to grass land20_43: -5550341280396801073
+      portal-anim4-to grass land20_44: -2167453930856326372
+      portal-anim4-to grass land20_45: 7888507579227092811
+      portal-anim4-to grass land20_46: -8253240646606095247
+      portal-anim4-to grass land20_47: 8564170340409831962
+      portal-anim4-to grass land20_5: 1871294399954397759
+      portal-anim4-to grass land20_6: -4233251563723094151
+      portal-anim4-to grass land20_7: -6341956759318671924
+      portal-anim4-to grass land20_8: -9035751069950388663
+      portal-anim4-to grass land20_9: 3618671894832966540
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

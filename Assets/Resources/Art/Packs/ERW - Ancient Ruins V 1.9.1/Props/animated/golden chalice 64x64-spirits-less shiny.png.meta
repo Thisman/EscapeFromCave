@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: c71118b1c4daa9943b9c9b83bfe84479
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6848726096726414146
+    second: golden chalice 64x64-spirits-less shiny_0
+  - first:
+      213: 2696996471634882151
+    second: golden chalice 64x64-spirits-less shiny_1
+  - first:
+      213: 4401225790134830109
+    second: golden chalice 64x64-spirits-less shiny_2
+  - first:
+      213: -8346982816027252238
+    second: golden chalice 64x64-spirits-less shiny_3
+  - first:
+      213: -8959755036574855577
+    second: golden chalice 64x64-spirits-less shiny_4
+  - first:
+      213: 3189948305145342326
+    second: golden chalice 64x64-spirits-less shiny_5
+  - first:
+      213: -3351435612340857747
+    second: golden chalice 64x64-spirits-less shiny_6
+  - first:
+      213: 679143577114889323
+    second: golden chalice 64x64-spirits-less shiny_7
+  - first:
+      213: -6695906713565392976
+    second: golden chalice 64x64-spirits-less shiny_8
+  - first:
+      213: -8656182808547181575
+    second: golden chalice 64x64-spirits-less shiny_9
+  - first:
+      213: 4643609704695584671
+    second: golden chalice 64x64-spirits-less shiny_10
+  - first:
+      213: -6287406564197444413
+    second: golden chalice 64x64-spirits-less shiny_11
+  - first:
+      213: -681660995001870354
+    second: golden chalice 64x64-spirits-less shiny_12
+  - first:
+      213: 699110719660318522
+    second: golden chalice 64x64-spirits-less shiny_13
+  - first:
+      213: -9030665852157036684
+    second: golden chalice 64x64-spirits-less shiny_14
+  - first:
+      213: 4336409676752932409
+    second: golden chalice 64x64-spirits-less shiny_15
+  - first:
+      213: 2994504183167615686
+    second: golden chalice 64x64-spirits-less shiny_16
+  - first:
+      213: 1593014125100505749
+    second: golden chalice 64x64-spirits-less shiny_17
+  - first:
+      213: -3037345036626622121
+    second: golden chalice 64x64-spirits-less shiny_18
+  - first:
+      213: 4050023385168204432
+    second: golden chalice 64x64-spirits-less shiny_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 40
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243535f49109b0f50800000000000000
+      internalID: 6848726096726414146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 44
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e674c6008ad6520800000000000000
+      internalID: 2696996471634882151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 48
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d144645998b441d30800000000000000
+      internalID: 4401225790134830109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 46
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f9e7606a5f892c80800000000000000
+      internalID: -8346982816027252238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_4
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 42
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e407ad34e88a380800000000000000
+      internalID: -8959755036574855577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_5
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 50
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6792c0c1519f44c20800000000000000
+      internalID: 3189948305145342326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_6
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 46
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6454d6311f4d71d0800000000000000
+      internalID: -3351435612340857747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_7
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 39
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ccb613c7dcc6900800000000000000
+      internalID: 679143577114889323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_8
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 46
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf08c8025c5313a0800000000000000
+      internalID: -6695906713565392976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 5
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbb3b9199f0fd780800000000000000
+      internalID: -8656182808547181575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 5
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f97dfeb6c6a617040800000000000000
+      internalID: 4643609704695584671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_11
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 5
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c45d8eba05aeb8a0800000000000000
+      internalID: -6287406564197444413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_12
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 35
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee79ca7cfe04a86f0800000000000000
+      internalID: -681660995001870354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_13
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 35
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f5508de7db3b900800000000000000
+      internalID: 699110719660318522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_14
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 5
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477fde40141aca280800000000000000
+      internalID: -9030665852157036684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_15
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 43
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ecc6f20a50e2c30800000000000000
+      internalID: 4336409676752932409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_16
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 5
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2802460bd9e8920800000000000000
+      internalID: 2994504183167615686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_17
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 5
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a9bc818e58b1610800000000000000
+      internalID: 1593014125100505749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_18
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 5
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759039f18ce29d5d0800000000000000
+      internalID: -3037345036626622121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: golden chalice 64x64-spirits-less shiny_19
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 5
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092d9f49fc2943830800000000000000
+      internalID: 4050023385168204432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      golden chalice 64x64-spirits-less shiny_0: 6848726096726414146
+      golden chalice 64x64-spirits-less shiny_1: 2696996471634882151
+      golden chalice 64x64-spirits-less shiny_10: 4643609704695584671
+      golden chalice 64x64-spirits-less shiny_11: -6287406564197444413
+      golden chalice 64x64-spirits-less shiny_12: -681660995001870354
+      golden chalice 64x64-spirits-less shiny_13: 699110719660318522
+      golden chalice 64x64-spirits-less shiny_14: -9030665852157036684
+      golden chalice 64x64-spirits-less shiny_15: 4336409676752932409
+      golden chalice 64x64-spirits-less shiny_16: 2994504183167615686
+      golden chalice 64x64-spirits-less shiny_17: 1593014125100505749
+      golden chalice 64x64-spirits-less shiny_18: -3037345036626622121
+      golden chalice 64x64-spirits-less shiny_19: 4050023385168204432
+      golden chalice 64x64-spirits-less shiny_2: 4401225790134830109
+      golden chalice 64x64-spirits-less shiny_3: -8346982816027252238
+      golden chalice 64x64-spirits-less shiny_4: -8959755036574855577
+      golden chalice 64x64-spirits-less shiny_5: 3189948305145342326
+      golden chalice 64x64-spirits-less shiny_6: -3351435612340857747
+      golden chalice 64x64-spirits-less shiny_7: 679143577114889323
+      golden chalice 64x64-spirits-less shiny_8: -6695906713565392976
+      golden chalice 64x64-spirits-less shiny_9: -8656182808547181575
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

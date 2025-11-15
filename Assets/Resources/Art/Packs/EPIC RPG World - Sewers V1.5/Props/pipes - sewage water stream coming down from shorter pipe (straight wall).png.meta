@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 6d5ffc184895e484e84c089b2fab40a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3104174075378761185
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_0
+  - first:
+      213: 5553431754630549270
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_1
+  - first:
+      213: 3950445663110659645
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_2
+  - first:
+      213: 7284273292780650016
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_3
+  - first:
+      213: -19938018186332654
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_4
+  - first:
+      213: 3088302292419099294
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_5
+  - first:
+      213: 1414106796271595263
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_6
+  - first:
+      213: -2737956639814348039
+    second: pipes - sewage water stream coming down from shorter pipe (straight wall)_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 14
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1282140022cbe4d0800000000000000
+      internalID: -3104174075378761185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 17
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fc02be1c0c11d40800000000000000
+      internalID: 5553431754630549270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 17
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e7136766dc2d630800000000000000
+      internalID: 3950445663110659645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 18
+        width: 17
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e3e0f47ffe61560800000000000000
+      internalID: 7284273292780650016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 13
+        width: 19
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2167a746a7a29bff0800000000000000
+      internalID: -19938018186332654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_5
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 17
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a3aaa829adbda20800000000000000
+      internalID: 3088302292419099294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 15
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffeeb3293aaef9310800000000000000
+      internalID: 1414106796271595263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipes - sewage water stream coming down from shorter pipe (straight wall)_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 18
+        width: 16
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2917141f2d00ad0800000000000000
+      internalID: -2737956639814348039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_0: -3104174075378761185
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_1: 5553431754630549270
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_2: 3950445663110659645
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_3: 7284273292780650016
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_4: -19938018186332654
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_5: 3088302292419099294
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_6: 1414106796271595263
+      pipes - sewage water stream coming down from shorter pipe (straight wall)_7: -2737956639814348039
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

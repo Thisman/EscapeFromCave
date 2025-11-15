@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: f567fd589bea48141960e171b98bf173
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4398957356982731839
+    second: cell gate2 - openning3_0
+  - first:
+      213: 6741062212976716537
+    second: cell gate2 - openning3_1
+  - first:
+      213: -7441384208791769675
+    second: cell gate2 - openning3_2
+  - first:
+      213: -3488477374804569261
+    second: cell gate2 - openning3_3
+  - first:
+      213: -1201580259149921627
+    second: cell gate2 - openning3_4
+  - first:
+      213: 6031341283782930150
+    second: cell gate2 - openning3_5
+  - first:
+      213: 8088388907093990026
+    second: cell gate2 - openning3_6
+  - first:
+      213: -2193570583260048826
+    second: cell gate2 - openning3_7
+  - first:
+      213: -4793458014698011689
+    second: cell gate2 - openning3_8
+  - first:
+      213: -8445574698347881878
+    second: cell gate2 - openning3_9
+  - first:
+      213: 4287309080582557067
+    second: cell gate2 - openning3_10
+  - first:
+      213: 1755667348879812972
+    second: cell gate2 - openning3_11
+  - first:
+      213: -2645872003850901554
+    second: cell gate2 - openning3_12
+  - first:
+      213: -4976380834443238520
+    second: cell gate2 - openning3_13
+  - first:
+      213: 262428106562410930
+    second: cell gate2 - openning3_14
+  - first:
+      213: 36413475400782659
+    second: cell gate2 - openning3_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cell gate2 - openning3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 2944
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f340c05d86c3c0d30800000000000000
+      internalID: 4398957356982731839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 10
+        width: 69
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa2945fd501d8d50800000000000000
+      internalID: 6741062212976716537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 12
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bde3cdfc74eab890800000000000000
+      internalID: -7441384208791769675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 15
+        width: 69
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35359c37f40769fc0800000000000000
+      internalID: -3488477374804569261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_4
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 18
+        width: 69
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a24f3cde11235fe0800000000000000
+      internalID: -1201580259149921627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_5
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 22
+        width: 69
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eea70331f0a3b350800000000000000
+      internalID: 6031341283782930150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_6
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 26
+        width: 69
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a1c8c5bdabf3070800000000000000
+      internalID: 8088388907093990026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_7
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 29
+        width: 69
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642d9033d2fde81e0800000000000000
+      internalID: -2193570583260048826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_8
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 33
+        width: 67
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d30d2c15573a7db0800000000000000
+      internalID: -4793458014698011689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_9
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 36
+        width: 63
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a92f4fe8a4bca80800000000000000
+      internalID: -8445574698347881878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_10
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 38
+        width: 61
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d0e66c4e49f7b30800000000000000
+      internalID: 4287309080582557067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_11
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 41
+        width: 59
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69abb1e6226d5810800000000000000
+      internalID: 1755667348879812972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_12
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 44
+        width: 55
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec7e0515e69f74bd0800000000000000
+      internalID: -2645872003850901554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_13
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 47
+        width: 47
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883e2ff3ff750fab0800000000000000
+      internalID: -4976380834443238520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_14
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 49
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b91bb6f8f454a300800000000000000
+      internalID: 262428106562410930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cell gate2 - openning3_15
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 52
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3431d4aecdd518000800000000000000
+      internalID: 36413475400782659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cell gate2 - openning3_0: 4398957356982731839
+      cell gate2 - openning3_1: 6741062212976716537
+      cell gate2 - openning3_10: 4287309080582557067
+      cell gate2 - openning3_11: 1755667348879812972
+      cell gate2 - openning3_12: -2645872003850901554
+      cell gate2 - openning3_13: -4976380834443238520
+      cell gate2 - openning3_14: 262428106562410930
+      cell gate2 - openning3_15: 36413475400782659
+      cell gate2 - openning3_2: -7441384208791769675
+      cell gate2 - openning3_3: -3488477374804569261
+      cell gate2 - openning3_4: -1201580259149921627
+      cell gate2 - openning3_5: 6031341283782930150
+      cell gate2 - openning3_6: 8088388907093990026
+      cell gate2 - openning3_7: -2193570583260048826
+      cell gate2 - openning3_8: -4793458014698011689
+      cell gate2 - openning3_9: -8445574698347881878
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

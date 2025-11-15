@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: a87d4b7de023d3948be0d275869f551c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -248327635790616421
+    second: Stone-golem v2-attack-224x192_0
+  - first:
+      213: 7287763446459203481
+    second: Stone-golem v2-attack-224x192_1
+  - first:
+      213: 7062255290303570239
+    second: Stone-golem v2-attack-224x192_2
+  - first:
+      213: 1628404943924557169
+    second: Stone-golem v2-attack-224x192_3
+  - first:
+      213: -6178326573360157366
+    second: Stone-golem v2-attack-224x192_4
+  - first:
+      213: -2470440761121694944
+    second: Stone-golem v2-attack-224x192_5
+  - first:
+      213: -5553449745305767297
+    second: Stone-golem v2-attack-224x192_6
+  - first:
+      213: -9097698009930438601
+    second: Stone-golem v2-attack-224x192_7
+  - first:
+      213: -3564119165261033952
+    second: Stone-golem v2-attack-224x192_8
+  - first:
+      213: 7495548904911984376
+    second: Stone-golem v2-attack-224x192_9
+  - first:
+      213: -452492005586802600
+    second: Stone-golem v2-attack-224x192_10
+  - first:
+      213: 4121903839885759167
+    second: Stone-golem v2-attack-224x192_11
+  - first:
+      213: 4479144457535250388
+    second: Stone-golem v2-attack-224x192_12
+  - first:
+      213: -1265193974675335344
+    second: Stone-golem v2-attack-224x192_13
+  - first:
+      213: -4798814560176717410
+    second: Stone-golem v2-attack-224x192_14
+  - first:
+      213: -4868012925143413228
+    second: Stone-golem v2-attack-224x192_15
+  - first:
+      213: 1777644985386819056
+    second: Stone-golem v2-attack-224x192_16
+  - first:
+      213: 7436210307815706681
+    second: Stone-golem v2-attack-224x192_17
+  - first:
+      213: -489253790277052592
+    second: Stone-golem v2-attack-224x192_18
+  - first:
+      213: -6456682412622136703
+    second: Stone-golem v2-attack-224x192_19
+  - first:
+      213: -7941968488434366886
+    second: Stone-golem v2-attack-224x192_20
+  - first:
+      213: -2788032717557713576
+    second: Stone-golem v2-attack-224x192_21
+  - first:
+      213: -5194826748009944800
+    second: Stone-golem v2-attack-224x192_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_0
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 66
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98a9c8b453cd8cf0800000000000000
+      internalID: -248327635790616421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 66
+        width: 75
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ff6490e36532560800000000000000
+      internalID: 7287763446459203481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 66
+        width: 79
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31eaa3e4cb220260800000000000000
+      internalID: 7062255290303570239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_3
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 66
+        width: 79
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 175fc193ba1499610800000000000000
+      internalID: 1628404943924557169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_4
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 66
+        width: 77
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4de28837bc224aa0800000000000000
+      internalID: -6178326573360157366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_5
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 66
+        width: 77
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b12ba773b37bdd0800000000000000
+      internalID: -2470440761121694944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_6
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 66
+        width: 77
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72f01d41ee2ee2b0800000000000000
+      internalID: -5553449745305767297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_7
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 59
+        width: 74
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73861549cdb7eb180800000000000000
+      internalID: -9097698009930438601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_8
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 49
+        width: 56
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e4471b084b98ec0800000000000000
+      internalID: -3564119165261033952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_9
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 75
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f6d8d1140a850860800000000000000
+      internalID: 7495548904911984376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_10
+      rect:
+        serializedVersion: 2
+        x: 2105
+        y: 59
+        width: 60
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8586b471bec68b9f0800000000000000
+      internalID: -452492005586802600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_11
+      rect:
+        serializedVersion: 2
+        x: 2157
+        y: 125
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb295be14b1f33930800000000000000
+      internalID: 4121903839885759167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_12
+      rect:
+        serializedVersion: 2
+        x: 2320
+        y: 44
+        width: 102
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df5c01172e192e30800000000000000
+      internalID: 4479144457535250388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_13
+      rect:
+        serializedVersion: 2
+        x: 2546
+        y: 44
+        width: 75
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 057138788c0217ee0800000000000000
+      internalID: -1265193974675335344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_14
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 66
+        width: 57
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91c1bd259f276db0800000000000000
+      internalID: -4798814560176717410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_15
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 66
+        width: 57
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e01d25908517cb0800000000000000
+      internalID: -4868012925143413228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_16
+      rect:
+        serializedVersion: 2
+        x: 3224
+        y: 66
+        width: 61
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd5cb222b67ba810800000000000000
+      internalID: 1777644985386819056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_17
+      rect:
+        serializedVersion: 2
+        x: 3444
+        y: 65
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 930147050e9b23760800000000000000
+      internalID: 7436210307815706681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_18
+      rect:
+        serializedVersion: 2
+        x: 3661
+        y: 66
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 057d5891542d539f0800000000000000
+      internalID: -489253790277052592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_19
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 69
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a35200e814566a0800000000000000
+      internalID: -6456682412622136703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_20
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 79
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a560685fcb578c190800000000000000
+      internalID: -7941968488434366886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_21
+      rect:
+        serializedVersion: 2
+        x: 2322
+        y: 65
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8553ec7d30bee49d0800000000000000
+      internalID: -2788032717557713576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-attack-224x192_22
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 45
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0296b27989448e7b0800000000000000
+      internalID: -5194826748009944800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Stone-golem v2-attack-224x192_0: -248327635790616421
+      Stone-golem v2-attack-224x192_1: 7287763446459203481
+      Stone-golem v2-attack-224x192_10: -452492005586802600
+      Stone-golem v2-attack-224x192_11: 4121903839885759167
+      Stone-golem v2-attack-224x192_12: 4479144457535250388
+      Stone-golem v2-attack-224x192_13: -1265193974675335344
+      Stone-golem v2-attack-224x192_14: -4798814560176717410
+      Stone-golem v2-attack-224x192_15: -4868012925143413228
+      Stone-golem v2-attack-224x192_16: 1777644985386819056
+      Stone-golem v2-attack-224x192_17: 7436210307815706681
+      Stone-golem v2-attack-224x192_18: -489253790277052592
+      Stone-golem v2-attack-224x192_19: -6456682412622136703
+      Stone-golem v2-attack-224x192_2: 7062255290303570239
+      Stone-golem v2-attack-224x192_20: -7941968488434366886
+      Stone-golem v2-attack-224x192_21: -2788032717557713576
+      Stone-golem v2-attack-224x192_22: -5194826748009944800
+      Stone-golem v2-attack-224x192_3: 1628404943924557169
+      Stone-golem v2-attack-224x192_4: -6178326573360157366
+      Stone-golem v2-attack-224x192_5: -2470440761121694944
+      Stone-golem v2-attack-224x192_6: -5553449745305767297
+      Stone-golem v2-attack-224x192_7: -9097698009930438601
+      Stone-golem v2-attack-224x192_8: -3564119165261033952
+      Stone-golem v2-attack-224x192_9: 7495548904911984376
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

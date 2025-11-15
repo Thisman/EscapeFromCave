@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 72a5e7af6dc523f41b6c603b057ff2e3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -918800112807585407
+    second: Ritual site-anim2-loop_0
+  - first:
+      213: -2893169145651142712
+    second: Ritual site-anim2-loop_1
+  - first:
+      213: -8502017874564850767
+    second: Ritual site-anim2-loop_2
+  - first:
+      213: -8216616388022367941
+    second: Ritual site-anim2-loop_3
+  - first:
+      213: 6810404684607994733
+    second: Ritual site-anim2-loop_4
+  - first:
+      213: -7620476390815675442
+    second: Ritual site-anim2-loop_5
+  - first:
+      213: -5755941617742738749
+    second: Ritual site-anim2-loop_6
+  - first:
+      213: 2204792286395092214
+    second: Ritual site-anim2-loop_7
+  - first:
+      213: 3019109690629527445
+    second: Ritual site-anim2-loop_8
+  - first:
+      213: -2833206698470062759
+    second: Ritual site-anim2-loop_9
+  - first:
+      213: -2186799634666303909
+    second: Ritual site-anim2-loop_10
+  - first:
+      213: 2961223649676876534
+    second: Ritual site-anim2-loop_11
+  - first:
+      213: 4442583245202354655
+    second: Ritual site-anim2-loop_12
+  - first:
+      213: 2787869918441181566
+    second: Ritual site-anim2-loop_13
+  - first:
+      213: 2604591563884265038
+    second: Ritual site-anim2-loop_14
+  - first:
+      213: 6201311435547439313
+    second: Ritual site-anim2-loop_15
+  - first:
+      213: -6610472943068526443
+    second: Ritual site-anim2-loop_16
+  - first:
+      213: -201242913676949025
+    second: Ritual site-anim2-loop_17
+  - first:
+      213: 9041959593967189913
+    second: Ritual site-anim2-loop_18
+  - first:
+      213: 2280106873765675626
+    second: Ritual site-anim2-loop_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 156
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189d3885a24cf33f0800000000000000
+      internalID: -918800112807585407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_1
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 156
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cfd75e9df569d7d0800000000000000
+      internalID: -2893169145651142712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_2
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 155
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb5a88e9c3c20a80800000000000000
+      internalID: -8502017874564850767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_3
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 153
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b390648bde6b8fd80800000000000000
+      internalID: -8216616388022367941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_4
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 152
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b37b24afa638e50800000000000000
+      internalID: 6810404684607994733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_5
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 152
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb4e2af811ae3690800000000000000
+      internalID: -7620476390815675442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_6
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 155
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca8e8e4899ce10b0800000000000000
+      internalID: -5755941617742738749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_7
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 156
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fcc91a27eef89e10800000000000000
+      internalID: 2204792286395092214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_8
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 158
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59799e7844806e920800000000000000
+      internalID: 3019109690629527445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_9
+      rect:
+        serializedVersion: 2
+        x: 2421
+        y: 158
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9554f6ac48d6ea8d0800000000000000
+      internalID: -2833206698470062759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ec2c4815de6a1e0800000000000000
+      internalID: -2186799634666303909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fad97b5831681920800000000000000
+      internalID: 2961223649676876534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_12
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd173677ce937ad30800000000000000
+      internalID: 4442583245202354655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_13
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e711fa88be080b620800000000000000
+      internalID: 2787869918441181566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_14
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4efc464a3e552420800000000000000
+      internalID: 2604591563884265038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_15
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d07f5905eb7f0650800000000000000
+      internalID: 6201311435547439313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_16
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598c11fc1e1e244a0800000000000000
+      internalID: -6610472943068526443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_17
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd988b0e2aa053df0800000000000000
+      internalID: -201242913676949025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_18
+      rect:
+        serializedVersion: 2
+        x: 2152
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f79d7285e7b7d70800000000000000
+      internalID: 9041959593967189913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ritual site-anim2-loop_19
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 101
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62cab40f1194af10800000000000000
+      internalID: 2280106873765675626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ritual site-anim2-loop_0: -918800112807585407
+      Ritual site-anim2-loop_1: -2893169145651142712
+      Ritual site-anim2-loop_10: -2186799634666303909
+      Ritual site-anim2-loop_11: 2961223649676876534
+      Ritual site-anim2-loop_12: 4442583245202354655
+      Ritual site-anim2-loop_13: 2787869918441181566
+      Ritual site-anim2-loop_14: 2604591563884265038
+      Ritual site-anim2-loop_15: 6201311435547439313
+      Ritual site-anim2-loop_16: -6610472943068526443
+      Ritual site-anim2-loop_17: -201242913676949025
+      Ritual site-anim2-loop_18: 9041959593967189913
+      Ritual site-anim2-loop_19: 2280106873765675626
+      Ritual site-anim2-loop_2: -8502017874564850767
+      Ritual site-anim2-loop_3: -8216616388022367941
+      Ritual site-anim2-loop_4: 6810404684607994733
+      Ritual site-anim2-loop_5: -7620476390815675442
+      Ritual site-anim2-loop_6: -5755941617742738749
+      Ritual site-anim2-loop_7: 2204792286395092214
+      Ritual site-anim2-loop_8: 3019109690629527445
+      Ritual site-anim2-loop_9: -2833206698470062759
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

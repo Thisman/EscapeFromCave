@@ -1,0 +1,884 @@
+fileFormatVersion: 2
+guid: c78a577bbb6733940b8be5ec867418b7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2147486689290545230
+    second: blood pool - style2 - transparency_0
+  - first:
+      213: 3660211218911893215
+    second: blood pool - style2 - transparency_1
+  - first:
+      213: 8465681193400040855
+    second: blood pool - style2 - transparency_2
+  - first:
+      213: 9081969689542922743
+    second: blood pool - style2 - transparency_3
+  - first:
+      213: -6636352228962965123
+    second: blood pool - style2 - transparency_4
+  - first:
+      213: -7846611273374786237
+    second: blood pool - style2 - transparency_5
+  - first:
+      213: 7313719473996872843
+    second: blood pool - style2 - transparency_6
+  - first:
+      213: 3793936152800090086
+    second: blood pool - style2 - transparency_7
+  - first:
+      213: -4185144134278029274
+    second: blood pool - style2 - transparency_8
+  - first:
+      213: -5252681137344655850
+    second: blood pool - style2 - transparency_9
+  - first:
+      213: -2814842539656445541
+    second: blood pool - style2 - transparency_10
+  - first:
+      213: 3227234669856240427
+    second: blood pool - style2 - transparency_11
+  - first:
+      213: 576086295477377646
+    second: blood pool - style2 - transparency_12
+  - first:
+      213: -3748116366676970023
+    second: blood pool - style2 - transparency_13
+  - first:
+      213: -1214083669795401060
+    second: blood pool - style2 - transparency_14
+  - first:
+      213: -3245388204213001770
+    second: blood pool - style2 - transparency_15
+  - first:
+      213: 417938132796116801
+    second: blood pool - style2 - transparency_16
+  - first:
+      213: 6594218264415315137
+    second: blood pool - style2 - transparency_17
+  - first:
+      213: 8687120995190122401
+    second: blood pool - style2 - transparency_18
+  - first:
+      213: 6927338406915519561
+    second: blood pool - style2 - transparency_19
+  - first:
+      213: -4796768814412895076
+    second: blood pool - style2 - transparency_20
+  - first:
+      213: 7898045019773643296
+    second: blood pool - style2 - transparency_21
+  - first:
+      213: 3348806793950291219
+    second: blood pool - style2 - transparency_22
+  - first:
+      213: 4582524816005684637
+    second: blood pool - style2 - transparency_23
+  - first:
+      213: -7386567176886491755
+    second: blood pool - style2 - transparency_24
+  - first:
+      213: -2954123263307895745
+    second: blood pool - style2 - transparency_25
+  - first:
+      213: 9080791330512321593
+    second: blood pool - style2 - transparency_26
+  - first:
+      213: 3190576466370571991
+    second: blood pool - style2 - transparency_27
+  - first:
+      213: 308749325753009669
+    second: blood pool - style2 - transparency_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 137
+        width: 136
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e48ea0b14c76dcd10800000000000000
+      internalID: 2147486689290545230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 139
+        width: 226
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd6942206beabc230800000000000000
+      internalID: 3660211218911893215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_2
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 223
+        width: 226
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d705a31342c7570800000000000000
+      internalID: 8465681193400040855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_3
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f112167053a90e70800000000000000
+      internalID: 9081969689542922743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_4
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d796a440fc0f6e3a0800000000000000
+      internalID: -6636352228962965123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_5
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d9be7be9c3b1390800000000000000
+      internalID: -7846611273374786237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_6
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cb072ac1d8f7560800000000000000
+      internalID: 7313719473996872843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_7
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7592074d4c6a430800000000000000
+      internalID: 3793936152800090086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_8
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6206c8e65916be5c0800000000000000
+      internalID: -4185144134278029274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_9
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 201
+        width: 22
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e4d22e55aba17b0800000000000000
+      internalID: -5252681137344655850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b918e15bf9bafe8d0800000000000000
+      internalID: -2814842539656445541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_11
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b233b9765d079cc20800000000000000
+      internalID: 3227234669856240427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_12
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a56e9fe6baef700800000000000000
+      internalID: 576086295477377646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_13
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5346bd5040cfbc0800000000000000
+      internalID: -3748116366676970023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_14
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c921e36b555b62fe0800000000000000
+      internalID: -1214083669795401060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_15
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d124a18f9016f2d0800000000000000
+      internalID: -3245388204213001770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_16
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 191
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14f07677480dcc500800000000000000
+      internalID: 417938132796116801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_17
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 137
+        width: 226
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c42ed5e29e538b50800000000000000
+      internalID: 6594218264415315137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_18
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 159
+        width: 226
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7252fc48ade8870800000000000000
+      internalID: 8687120995190122401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_19
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 74
+        width: 226
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 944be171499d22060800000000000000
+      internalID: 6927338406915519561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_20
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 95
+        width: 226
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c6f3b7d247e6db0800000000000000
+      internalID: -4796768814412895076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_21
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 105
+        width: 226
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02aa6af891e7b9d60800000000000000
+      internalID: 7898045019773643296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_22
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31562de490a597e20800000000000000
+      internalID: 3348806793950291219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_23
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d5e687a06689f30800000000000000
+      internalID: 4582524816005684637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_24
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595ee10d944ad7990800000000000000
+      internalID: -7386567176886491755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_25
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ca0db2b88d007d0800000000000000
+      internalID: -2954123263307895745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_26
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c32ae5a93750e70800000000000000
+      internalID: 9080791330512321593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_27
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de2dba4464374c20800000000000000
+      internalID: 3190576466370571991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood pool - style2 - transparency_28
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 31
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506462e30e5e84400800000000000000
+      internalID: 308749325753009669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      blood pool - style2 - transparency_0: 2147486689290545230
+      blood pool - style2 - transparency_1: 3660211218911893215
+      blood pool - style2 - transparency_10: -2814842539656445541
+      blood pool - style2 - transparency_11: 3227234669856240427
+      blood pool - style2 - transparency_12: 576086295477377646
+      blood pool - style2 - transparency_13: -3748116366676970023
+      blood pool - style2 - transparency_14: -1214083669795401060
+      blood pool - style2 - transparency_15: -3245388204213001770
+      blood pool - style2 - transparency_16: 417938132796116801
+      blood pool - style2 - transparency_17: 6594218264415315137
+      blood pool - style2 - transparency_18: 8687120995190122401
+      blood pool - style2 - transparency_19: 6927338406915519561
+      blood pool - style2 - transparency_2: 8465681193400040855
+      blood pool - style2 - transparency_20: -4796768814412895076
+      blood pool - style2 - transparency_21: 7898045019773643296
+      blood pool - style2 - transparency_22: 3348806793950291219
+      blood pool - style2 - transparency_23: 4582524816005684637
+      blood pool - style2 - transparency_24: -7386567176886491755
+      blood pool - style2 - transparency_25: -2954123263307895745
+      blood pool - style2 - transparency_26: 9080791330512321593
+      blood pool - style2 - transparency_27: 3190576466370571991
+      blood pool - style2 - transparency_28: 308749325753009669
+      blood pool - style2 - transparency_3: 9081969689542922743
+      blood pool - style2 - transparency_4: -6636352228962965123
+      blood pool - style2 - transparency_5: -7846611273374786237
+      blood pool - style2 - transparency_6: 7313719473996872843
+      blood pool - style2 - transparency_7: 3793936152800090086
+      blood pool - style2 - transparency_8: -4185144134278029274
+      blood pool - style2 - transparency_9: -5252681137344655850
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

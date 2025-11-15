@@ -1,0 +1,1248 @@
+fileFormatVersion: 2
+guid: 91993a640838e38488981583279ab906
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8233175228973864855
+    second: NPC Merchant-icons-all animations_0
+  - first:
+      213: 419609202725000846
+    second: NPC Merchant-icons-all animations_1
+  - first:
+      213: -3962567392222295336
+    second: NPC Merchant-icons-all animations_2
+  - first:
+      213: -8892960847330099514
+    second: NPC Merchant-icons-all animations_3
+  - first:
+      213: 581856129912271679
+    second: NPC Merchant-icons-all animations_4
+  - first:
+      213: -154320363541063752
+    second: NPC Merchant-icons-all animations_5
+  - first:
+      213: -2552083673348801375
+    second: NPC Merchant-icons-all animations_6
+  - first:
+      213: 5802090282282129325
+    second: NPC Merchant-icons-all animations_7
+  - first:
+      213: 3220986522489346669
+    second: NPC Merchant-icons-all animations_8
+  - first:
+      213: 8847205749613298723
+    second: NPC Merchant-icons-all animations_9
+  - first:
+      213: 2274567684312007700
+    second: NPC Merchant-icons-all animations_10
+  - first:
+      213: -3724842302286715715
+    second: NPC Merchant-icons-all animations_11
+  - first:
+      213: -4077089252493929369
+    second: NPC Merchant-icons-all animations_12
+  - first:
+      213: 5340870027868596042
+    second: NPC Merchant-icons-all animations_13
+  - first:
+      213: 2283659412097237417
+    second: NPC Merchant-icons-all animations_14
+  - first:
+      213: -8987974128287937409
+    second: NPC Merchant-icons-all animations_15
+  - first:
+      213: -880755636774908867
+    second: NPC Merchant-icons-all animations_16
+  - first:
+      213: 110900293616579961
+    second: NPC Merchant-icons-all animations_17
+  - first:
+      213: 7264368800517497615
+    second: NPC Merchant-icons-all animations_18
+  - first:
+      213: -8226041011901137179
+    second: NPC Merchant-icons-all animations_19
+  - first:
+      213: -3915972157521121248
+    second: NPC Merchant-icons-all animations_20
+  - first:
+      213: 4221457306063308808
+    second: NPC Merchant-icons-all animations_21
+  - first:
+      213: -1341012161236019011
+    second: NPC Merchant-icons-all animations_22
+  - first:
+      213: 6928372634052113047
+    second: NPC Merchant-icons-all animations_23
+  - first:
+      213: 7965870579201546048
+    second: NPC Merchant-icons-all animations_24
+  - first:
+      213: 3386206114939610841
+    second: NPC Merchant-icons-all animations_25
+  - first:
+      213: -7432259140382607551
+    second: NPC Merchant-icons-all animations_26
+  - first:
+      213: 4643028846366839138
+    second: NPC Merchant-icons-all animations_27
+  - first:
+      213: -6741091297229000189
+    second: NPC Merchant-icons-all animations_28
+  - first:
+      213: -7424675122521859594
+    second: NPC Merchant-icons-all animations_29
+  - first:
+      213: 3822978257978704563
+    second: NPC Merchant-icons-all animations_30
+  - first:
+      213: -4338678782373982987
+    second: NPC Merchant-icons-all animations_31
+  - first:
+      213: -2200047635030896727
+    second: NPC Merchant-icons-all animations_32
+  - first:
+      213: -5744261745818034940
+    second: NPC Merchant-icons-all animations_33
+  - first:
+      213: 7493763582882169275
+    second: NPC Merchant-icons-all animations_34
+  - first:
+      213: 6997884845848318421
+    second: NPC Merchant-icons-all animations_35
+  - first:
+      213: 288663360819821306
+    second: NPC Merchant-icons-all animations_36
+  - first:
+      213: 5734512650615073481
+    second: NPC Merchant-icons-all animations_37
+  - first:
+      213: 8537185769070908017
+    second: NPC Merchant-icons-all animations_38
+  - first:
+      213: -5332833362171914087
+    second: NPC Merchant-icons-all animations_39
+  - first:
+      213: -3585634114342324176
+    second: NPC Merchant-icons-all animations_40
+  - first:
+      213: 3846531713030824136
+    second: NPC Merchant-icons-all animations_41
+  - first:
+      213: -2030284590325284334
+    second: NPC Merchant-icons-all animations_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 170
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968a77f10c2edbd80800000000000000
+      internalID: -8233175228973864855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 171
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8698e0c850c2d500800000000000000
+      internalID: 419609202725000846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_2
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 172
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da4b0c83f12209c0800000000000000
+      internalID: -3962567392222295336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 172
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cebe6de93bd59480800000000000000
+      internalID: -8892960847330099514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_4
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 172
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33fdcd311b231800800000000000000
+      internalID: 581856129912271679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_5
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 172
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7968d627ebbddf0800000000000000
+      internalID: -154320363541063752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_6
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 171
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac78fcab6d259cd0800000000000000
+      internalID: -2552083673348801375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 170
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da71c26fe5a258050800000000000000
+      internalID: 5802090282282129325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 138
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a5c4b3d2e33bc20800000000000000
+      internalID: 3220986522489346669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3248e7831c697ca70800000000000000
+      internalID: 8847205749613298723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_10
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 140
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4140009f143e09f10800000000000000
+      internalID: 2274567684312007700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 140
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db42adf39a3be4cc0800000000000000
+      internalID: -3724842302286715715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_12
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 140
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764598b1de44b67c0800000000000000
+      internalID: -4077089252493929369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 140
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4763a24ef49e1a40800000000000000
+      internalID: 5340870027868596042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_14
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1880ec22031bf10800000000000000
+      internalID: 2283659412097237417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_15
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 138
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c0ff0962d444380800000000000000
+      internalID: -8987974128287937409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 107
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ccb103a6de6c3f0800000000000000
+      internalID: -880755636774908867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 108
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975b08eba3ff98100800000000000000
+      internalID: 110900293616579961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_18
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03a6409fe830d460800000000000000
+      internalID: 7264368800517497615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_19
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee76d9784b37dd80800000000000000
+      internalID: -8226041011901137179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_20
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02032a8021ca7a9c0800000000000000
+      internalID: -3915972157521121248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_21
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 808816abd01a59a30800000000000000
+      internalID: 4221457306063308808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_22
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 108
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db85c0a5b84c36de0800000000000000
+      internalID: -1341012161236019011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_23
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 107
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792b63cd336862060800000000000000
+      internalID: 6928372634052113047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 74
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0471b0836157c8e60800000000000000
+      internalID: 7965870579201546048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_25
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 74
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d62b3945883efe20800000000000000
+      internalID: 3386206114939610841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_26
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 73
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14738da80bf4bd890800000000000000
+      internalID: -7432259140382607551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_27
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 81
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261569dc22a5f6040800000000000000
+      internalID: 4643028846366839138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_28
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 73
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30230365e25d272a0800000000000000
+      internalID: -6741091297229000189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 73
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9976d405146f890800000000000000
+      internalID: -7424675122521859594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_30
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 73
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2ccda7872fd0530800000000000000
+      internalID: 3822978257978704563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_31
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 41
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc031e72aae9c3c0800000000000000
+      internalID: -4338678782373982987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_32
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 41
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af8b01155cd771e0800000000000000
+      internalID: -2200047635030896727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_33
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 41
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d96a760684840b0800000000000000
+      internalID: -5744261745818034940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_34
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 42
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1437466423ff760800000000000000
+      internalID: 7493763582882169275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_35
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 42
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d1d0efd03b7d1160800000000000000
+      internalID: 6997884845848318421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_36
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 42
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afaf5591cc9810400800000000000000
+      internalID: 288663360819821306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_37
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca25eb7fd4159f40800000000000000
+      internalID: 5734512650615073481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_38
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 10
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 172ddfa993d2a7670800000000000000
+      internalID: 8537185769070908017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_39
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 14
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9981469cf48fdf5b0800000000000000
+      internalID: -5332833362171914087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_40
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 11
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0387a1045c44d3ec0800000000000000
+      internalID: -3585634114342324176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_41
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 10
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c02a749630a16530800000000000000
+      internalID: 3846531713030824136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC Merchant-icons-all animations_42
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 10
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21246b80ceaf2d3e0800000000000000
+      internalID: -2030284590325284334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NPC Merchant-icons-all animations_0: -8233175228973864855
+      NPC Merchant-icons-all animations_1: 419609202725000846
+      NPC Merchant-icons-all animations_10: 2274567684312007700
+      NPC Merchant-icons-all animations_11: -3724842302286715715
+      NPC Merchant-icons-all animations_12: -4077089252493929369
+      NPC Merchant-icons-all animations_13: 5340870027868596042
+      NPC Merchant-icons-all animations_14: 2283659412097237417
+      NPC Merchant-icons-all animations_15: -8987974128287937409
+      NPC Merchant-icons-all animations_16: -880755636774908867
+      NPC Merchant-icons-all animations_17: 110900293616579961
+      NPC Merchant-icons-all animations_18: 7264368800517497615
+      NPC Merchant-icons-all animations_19: -8226041011901137179
+      NPC Merchant-icons-all animations_2: -3962567392222295336
+      NPC Merchant-icons-all animations_20: -3915972157521121248
+      NPC Merchant-icons-all animations_21: 4221457306063308808
+      NPC Merchant-icons-all animations_22: -1341012161236019011
+      NPC Merchant-icons-all animations_23: 6928372634052113047
+      NPC Merchant-icons-all animations_24: 7965870579201546048
+      NPC Merchant-icons-all animations_25: 3386206114939610841
+      NPC Merchant-icons-all animations_26: -7432259140382607551
+      NPC Merchant-icons-all animations_27: 4643028846366839138
+      NPC Merchant-icons-all animations_28: -6741091297229000189
+      NPC Merchant-icons-all animations_29: -7424675122521859594
+      NPC Merchant-icons-all animations_3: -8892960847330099514
+      NPC Merchant-icons-all animations_30: 3822978257978704563
+      NPC Merchant-icons-all animations_31: -4338678782373982987
+      NPC Merchant-icons-all animations_32: -2200047635030896727
+      NPC Merchant-icons-all animations_33: -5744261745818034940
+      NPC Merchant-icons-all animations_34: 7493763582882169275
+      NPC Merchant-icons-all animations_35: 6997884845848318421
+      NPC Merchant-icons-all animations_36: 288663360819821306
+      NPC Merchant-icons-all animations_37: 5734512650615073481
+      NPC Merchant-icons-all animations_38: 8537185769070908017
+      NPC Merchant-icons-all animations_39: -5332833362171914087
+      NPC Merchant-icons-all animations_4: 581856129912271679
+      NPC Merchant-icons-all animations_40: -3585634114342324176
+      NPC Merchant-icons-all animations_41: 3846531713030824136
+      NPC Merchant-icons-all animations_42: -2030284590325284334
+      NPC Merchant-icons-all animations_5: -154320363541063752
+      NPC Merchant-icons-all animations_6: -2552083673348801375
+      NPC Merchant-icons-all animations_7: 5802090282282129325
+      NPC Merchant-icons-all animations_8: 3220986522489346669
+      NPC Merchant-icons-all animations_9: 8847205749613298723
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

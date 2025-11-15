@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d43315a9fc9d6154f9fadda56cf429ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3948087347822511259
+    second: thin-fog-above regular ground-group1-soft edges_0
+  - first:
+      213: 2809024177770397685
+    second: thin-fog-above regular ground-group1-soft edges_1
+  - first:
+      213: 7004295399324205614
+    second: thin-fog-above regular ground-group1-soft edges_2
+  - first:
+      213: -2862872158389484312
+    second: thin-fog-above regular ground-group1-soft edges_3
+  - first:
+      213: 5899709812840883809
+    second: thin-fog-above regular ground-group1-soft edges_4
+  - first:
+      213: -1570051033860710618
+    second: thin-fog-above regular ground-group1-soft edges_5
+  - first:
+      213: 5280431593421167726
+    second: thin-fog-above regular ground-group1-soft edges_6
+  - first:
+      213: 7634366777828913176
+    second: thin-fog-above regular ground-group1-soft edges_7
+  - first:
+      213: 4880604384142486790
+    second: thin-fog-above regular ground-group1-soft edges_8
+  - first:
+      213: -8297555395116960189
+    second: thin-fog-above regular ground-group1-soft edges_9
+  - first:
+      213: -313138144406827205
+    second: thin-fog-above regular ground-group1-soft edges_10
+  - first:
+      213: 8247832573011268678
+    second: thin-fog-above regular ground-group1-soft edges_11
+  - first:
+      213: -4998502533901056887
+    second: thin-fog-above regular ground-group1-soft edges_12
+  - first:
+      213: 6279217417177479610
+    second: thin-fog-above regular ground-group1-soft edges_13
+  - first:
+      213: 8923702462550702977
+    second: thin-fog-above regular ground-group1-soft edges_14
+  - first:
+      213: -7944400985285238574
+    second: thin-fog-above regular ground-group1-soft edges_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b33da99739539c0800000000000000
+      internalID: -3948087347822511259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fffc795b98abf620800000000000000
+      internalID: 2809024177770397685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e224f9a2e81443160800000000000000
+      internalID: 7004295399324205614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_3
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4c6d9a0f80548d0800000000000000
+      internalID: -2862872158389484312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_4
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166644811daffd150800000000000000
+      internalID: 5899709812840883809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_5
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f5f7737ee063ae0800000000000000
+      internalID: -1570051033860710618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_6
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c5e9aae8cd74940800000000000000
+      internalID: 5280431593421167726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_7
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8103985c228b2f960800000000000000
+      internalID: 7634366777828913176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_8
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60de60e24d36bb340800000000000000
+      internalID: 4880604384142486790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_9
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3467de9945929dc80800000000000000
+      internalID: -8297555395116960189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_10
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 7
+        width: 125
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f8109448287abf0800000000000000
+      internalID: -313138144406827205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_11
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6449b39b600367270800000000000000
+      internalID: 8247832573011268678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_12
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98400f9bd60c1aab0800000000000000
+      internalID: -4998502533901056887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_13
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab93f42e8f2442750800000000000000
+      internalID: 6279217417177479610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_14
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18bfc912c1c57db70800000000000000
+      internalID: 8923702462550702977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thin-fog-above regular ground-group1-soft edges_15
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 7
+        width: 125
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d06fc62561dfb190800000000000000
+      internalID: -7944400985285238574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thin-fog-above regular ground-group1-soft edges_0: -3948087347822511259
+      thin-fog-above regular ground-group1-soft edges_1: 2809024177770397685
+      thin-fog-above regular ground-group1-soft edges_10: -313138144406827205
+      thin-fog-above regular ground-group1-soft edges_11: 8247832573011268678
+      thin-fog-above regular ground-group1-soft edges_12: -4998502533901056887
+      thin-fog-above regular ground-group1-soft edges_13: 6279217417177479610
+      thin-fog-above regular ground-group1-soft edges_14: 8923702462550702977
+      thin-fog-above regular ground-group1-soft edges_15: -7944400985285238574
+      thin-fog-above regular ground-group1-soft edges_2: 7004295399324205614
+      thin-fog-above regular ground-group1-soft edges_3: -2862872158389484312
+      thin-fog-above regular ground-group1-soft edges_4: 5899709812840883809
+      thin-fog-above regular ground-group1-soft edges_5: -1570051033860710618
+      thin-fog-above regular ground-group1-soft edges_6: 5280431593421167726
+      thin-fog-above regular ground-group1-soft edges_7: 7634366777828913176
+      thin-fog-above regular ground-group1-soft edges_8: 4880604384142486790
+      thin-fog-above regular ground-group1-soft edges_9: -8297555395116960189
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

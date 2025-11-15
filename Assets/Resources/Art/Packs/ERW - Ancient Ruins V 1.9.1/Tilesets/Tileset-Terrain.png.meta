@@ -1,0 +1,5226 @@
+fileFormatVersion: 2
+guid: a1c95d47a96bf8e49a934aa6d4babe12
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5605104753615672645
+    second: Tileset-Terrain_0
+  - first:
+      213: -9178219313945715778
+    second: Tileset-Terrain_1
+  - first:
+      213: 692139929447954134
+    second: Tileset-Terrain_2
+  - first:
+      213: -7656516171991713970
+    second: Tileset-Terrain_3
+  - first:
+      213: 8430913995347581427
+    second: Tileset-Terrain_4
+  - first:
+      213: -863427019268495568
+    second: Tileset-Terrain_5
+  - first:
+      213: -3704683435473324748
+    second: Tileset-Terrain_6
+  - first:
+      213: 5459104743145720177
+    second: Tileset-Terrain_7
+  - first:
+      213: -4236337210254196639
+    second: Tileset-Terrain_8
+  - first:
+      213: 7391405909642706085
+    second: Tileset-Terrain_9
+  - first:
+      213: 6652337467552854723
+    second: Tileset-Terrain_10
+  - first:
+      213: -6042148306078276270
+    second: Tileset-Terrain_11
+  - first:
+      213: 3895221386506646191
+    second: Tileset-Terrain_12
+  - first:
+      213: -2193557169412389891
+    second: Tileset-Terrain_13
+  - first:
+      213: -8789275504603736595
+    second: Tileset-Terrain_14
+  - first:
+      213: 8096310712726154549
+    second: Tileset-Terrain_15
+  - first:
+      213: 6394049597773550653
+    second: Tileset-Terrain_16
+  - first:
+      213: 226708962696311373
+    second: Tileset-Terrain_17
+  - first:
+      213: -9090955103701158082
+    second: Tileset-Terrain_18
+  - first:
+      213: -3136827168656115366
+    second: Tileset-Terrain_19
+  - first:
+      213: -3400953890889727002
+    second: Tileset-Terrain_20
+  - first:
+      213: -6333562111759401954
+    second: Tileset-Terrain_21
+  - first:
+      213: 1758117328093904032
+    second: Tileset-Terrain_22
+  - first:
+      213: 5980976717039565718
+    second: Tileset-Terrain_23
+  - first:
+      213: 2760792141135680863
+    second: Tileset-Terrain_24
+  - first:
+      213: 7345625154456938925
+    second: Tileset-Terrain_25
+  - first:
+      213: -8655679016303656834
+    second: Tileset-Terrain_26
+  - first:
+      213: 10703799441659568
+    second: Tileset-Terrain_27
+  - first:
+      213: 3037715167719904671
+    second: Tileset-Terrain_28
+  - first:
+      213: 9174616661955950528
+    second: Tileset-Terrain_29
+  - first:
+      213: -1065057766116954175
+    second: Tileset-Terrain_30
+  - first:
+      213: 4807072431518251341
+    second: Tileset-Terrain_31
+  - first:
+      213: 8657331668175331893
+    second: Tileset-Terrain_32
+  - first:
+      213: -4102869990732940629
+    second: Tileset-Terrain_33
+  - first:
+      213: -8731219122584086380
+    second: Tileset-Terrain_34
+  - first:
+      213: -1473161365922789009
+    second: Tileset-Terrain_35
+  - first:
+      213: 2014596190844832372
+    second: Tileset-Terrain_36
+  - first:
+      213: 208829367004382856
+    second: Tileset-Terrain_37
+  - first:
+      213: 1914388148790675542
+    second: Tileset-Terrain_38
+  - first:
+      213: -1831503748568592360
+    second: Tileset-Terrain_39
+  - first:
+      213: 5961082433894616849
+    second: Tileset-Terrain_40
+  - first:
+      213: 5536830633027016454
+    second: Tileset-Terrain_41
+  - first:
+      213: 8451074102445932978
+    second: Tileset-Terrain_42
+  - first:
+      213: -7929968981398991871
+    second: Tileset-Terrain_43
+  - first:
+      213: 8518423281761340020
+    second: Tileset-Terrain_44
+  - first:
+      213: -7388320449971259647
+    second: Tileset-Terrain_45
+  - first:
+      213: 4913358186053075449
+    second: Tileset-Terrain_46
+  - first:
+      213: 1473483428810329299
+    second: Tileset-Terrain_47
+  - first:
+      213: -1269284501095632098
+    second: Tileset-Terrain_48
+  - first:
+      213: 5742959756400854498
+    second: Tileset-Terrain_49
+  - first:
+      213: -8593103699069223139
+    second: Tileset-Terrain_50
+  - first:
+      213: 1118984494104956879
+    second: Tileset-Terrain_51
+  - first:
+      213: -3368544850009256718
+    second: Tileset-Terrain_52
+  - first:
+      213: 9003415970513142078
+    second: Tileset-Terrain_53
+  - first:
+      213: 6892866563089932955
+    second: Tileset-Terrain_54
+  - first:
+      213: 7979985554539192041
+    second: Tileset-Terrain_55
+  - first:
+      213: -7065916525886399968
+    second: Tileset-Terrain_56
+  - first:
+      213: 1603047605062120703
+    second: Tileset-Terrain_57
+  - first:
+      213: 8023073518092885378
+    second: Tileset-Terrain_58
+  - first:
+      213: -1171348835568882125
+    second: Tileset-Terrain_59
+  - first:
+      213: -4089804035075600388
+    second: Tileset-Terrain_60
+  - first:
+      213: -7426363442239847230
+    second: Tileset-Terrain_61
+  - first:
+      213: 6458638530669040707
+    second: Tileset-Terrain_62
+  - first:
+      213: 4159992762180389015
+    second: Tileset-Terrain_63
+  - first:
+      213: -6420834284308670057
+    second: Tileset-Terrain_64
+  - first:
+      213: -1559627459673957143
+    second: Tileset-Terrain_65
+  - first:
+      213: 426306337075041341
+    second: Tileset-Terrain_66
+  - first:
+      213: -8970000477237016947
+    second: Tileset-Terrain_67
+  - first:
+      213: 5818231742978812945
+    second: Tileset-Terrain_68
+  - first:
+      213: 8774612279482800937
+    second: Tileset-Terrain_69
+  - first:
+      213: 7312888123758109228
+    second: Tileset-Terrain_70
+  - first:
+      213: 6143638108537592344
+    second: Tileset-Terrain_71
+  - first:
+      213: -4954250355893307205
+    second: Tileset-Terrain_72
+  - first:
+      213: 258682134269231414
+    second: Tileset-Terrain_73
+  - first:
+      213: -6203058314766911060
+    second: Tileset-Terrain_74
+  - first:
+      213: -5667829968753971671
+    second: Tileset-Terrain_75
+  - first:
+      213: 3799401945529959565
+    second: Tileset-Terrain_76
+  - first:
+      213: 8066510148311617343
+    second: Tileset-Terrain_77
+  - first:
+      213: 8497748683467519595
+    second: Tileset-Terrain_78
+  - first:
+      213: -77546101939177632
+    second: Tileset-Terrain_79
+  - first:
+      213: -9064662209844310697
+    second: Tileset-Terrain_80
+  - first:
+      213: 4237095985305133645
+    second: Tileset-Terrain_81
+  - first:
+      213: 1348222760015432829
+    second: Tileset-Terrain_82
+  - first:
+      213: 5170031575217430948
+    second: Tileset-Terrain_83
+  - first:
+      213: -928943881837595949
+    second: Tileset-Terrain_84
+  - first:
+      213: 6638388388343275677
+    second: Tileset-Terrain_85
+  - first:
+      213: 4766997117078249252
+    second: Tileset-Terrain_86
+  - first:
+      213: -5484110677241601329
+    second: Tileset-Terrain_87
+  - first:
+      213: 5065518452404606428
+    second: Tileset-Terrain_88
+  - first:
+      213: -2801851242317087988
+    second: Tileset-Terrain_89
+  - first:
+      213: 8637566354174598258
+    second: Tileset-Terrain_90
+  - first:
+      213: 6342728098475325845
+    second: Tileset-Terrain_91
+  - first:
+      213: 2761692426295251272
+    second: Tileset-Terrain_92
+  - first:
+      213: 3922226433889703778
+    second: Tileset-Terrain_93
+  - first:
+      213: -6885304061007615294
+    second: Tileset-Terrain_94
+  - first:
+      213: -5111943942150868928
+    second: Tileset-Terrain_95
+  - first:
+      213: 3116428616609105024
+    second: Tileset-Terrain_96
+  - first:
+      213: -1967389815664674570
+    second: Tileset-Terrain_97
+  - first:
+      213: -2130437140661236559
+    second: Tileset-Terrain_98
+  - first:
+      213: -96837508926121568
+    second: Tileset-Terrain_99
+  - first:
+      213: 5986371914667645078
+    second: Tileset-Terrain_100
+  - first:
+      213: -3495622589717234500
+    second: Tileset-Terrain_101
+  - first:
+      213: -2505252941228474610
+    second: Tileset-Terrain_102
+  - first:
+      213: -584849085330639533
+    second: Tileset-Terrain_103
+  - first:
+      213: -1908349898203160964
+    second: Tileset-Terrain_104
+  - first:
+      213: 6520674408913653043
+    second: Tileset-Terrain_105
+  - first:
+      213: -4676817928645121262
+    second: Tileset-Terrain_106
+  - first:
+      213: 944950444312307420
+    second: Tileset-Terrain_107
+  - first:
+      213: -2828864863574283878
+    second: Tileset-Terrain_108
+  - first:
+      213: 4203013598826983106
+    second: Tileset-Terrain_109
+  - first:
+      213: 1769629553279350770
+    second: Tileset-Terrain_110
+  - first:
+      213: -3201277383511993127
+    second: Tileset-Terrain_111
+  - first:
+      213: 2399974856277980963
+    second: Tileset-Terrain_112
+  - first:
+      213: 6185128261777624972
+    second: Tileset-Terrain_113
+  - first:
+      213: -1482681860305671001
+    second: Tileset-Terrain_114
+  - first:
+      213: -3540041639295805664
+    second: Tileset-Terrain_115
+  - first:
+      213: 5021685543658707385
+    second: Tileset-Terrain_116
+  - first:
+      213: -4481509824373422455
+    second: Tileset-Terrain_117
+  - first:
+      213: 6198064474701084467
+    second: Tileset-Terrain_118
+  - first:
+      213: -585839303037737036
+    second: Tileset-Terrain_119
+  - first:
+      213: -930877131754918809
+    second: Tileset-Terrain_120
+  - first:
+      213: -2060932079307830734
+    second: Tileset-Terrain_121
+  - first:
+      213: 3739491387234348718
+    second: Tileset-Terrain_122
+  - first:
+      213: -6376922378849569229
+    second: Tileset-Terrain_123
+  - first:
+      213: 942324925273971262
+    second: Tileset-Terrain_124
+  - first:
+      213: -3439174192613482116
+    second: Tileset-Terrain_125
+  - first:
+      213: 4381154491090509893
+    second: Tileset-Terrain_126
+  - first:
+      213: -567985103400464472
+    second: Tileset-Terrain_127
+  - first:
+      213: -394003479281462032
+    second: Tileset-Terrain_128
+  - first:
+      213: 1479320426364475423
+    second: Tileset-Terrain_129
+  - first:
+      213: -7041667236086244215
+    second: Tileset-Terrain_130
+  - first:
+      213: -660301433070186034
+    second: Tileset-Terrain_131
+  - first:
+      213: 3185285778893812773
+    second: Tileset-Terrain_132
+  - first:
+      213: -8567104940275104249
+    second: Tileset-Terrain_133
+  - first:
+      213: 1714119738628640025
+    second: Tileset-Terrain_134
+  - first:
+      213: 6129304871278229515
+    second: Tileset-Terrain_135
+  - first:
+      213: -2751947680892447327
+    second: Tileset-Terrain_136
+  - first:
+      213: 8824075600814341435
+    second: Tileset-Terrain_137
+  - first:
+      213: 8609796038160084197
+    second: Tileset-Terrain_138
+  - first:
+      213: 582475901781364668
+    second: Tileset-Terrain_139
+  - first:
+      213: -1385100194478305153
+    second: Tileset-Terrain_140
+  - first:
+      213: 3943206325018900868
+    second: Tileset-Terrain_141
+  - first:
+      213: -4339961520401325318
+    second: Tileset-Terrain_142
+  - first:
+      213: 3778197768197085171
+    second: Tileset-Terrain_143
+  - first:
+      213: -5856493629459443567
+    second: Tileset-Terrain_144
+  - first:
+      213: -988518059162742288
+    second: Tileset-Terrain_145
+  - first:
+      213: -4777421771182850136
+    second: Tileset-Terrain_146
+  - first:
+      213: 8335522741147835108
+    second: Tileset-Terrain_147
+  - first:
+      213: -4674032107733105516
+    second: Tileset-Terrain_148
+  - first:
+      213: -8080837652474337597
+    second: Tileset-Terrain_149
+  - first:
+      213: 555101568162727599
+    second: Tileset-Terrain_150
+  - first:
+      213: -8377612151285568373
+    second: Tileset-Terrain_151
+  - first:
+      213: -2643944851753063467
+    second: Tileset-Terrain_152
+  - first:
+      213: -2971876506616206457
+    second: Tileset-Terrain_153
+  - first:
+      213: -5363121095555646256
+    second: Tileset-Terrain_154
+  - first:
+      213: 8479994981630213533
+    second: Tileset-Terrain_155
+  - first:
+      213: -5798678487178780377
+    second: Tileset-Terrain_156
+  - first:
+      213: -2753209714704937452
+    second: Tileset-Terrain_157
+  - first:
+      213: 7588451890257120388
+    second: Tileset-Terrain_158
+  - first:
+      213: 9023295932677884169
+    second: Tileset-Terrain_159
+  - first:
+      213: 1405246227494872822
+    second: Tileset-Terrain_160
+  - first:
+      213: -1135564130839258785
+    second: Tileset-Terrain_161
+  - first:
+      213: 1851311449114526493
+    second: Tileset-Terrain_162
+  - first:
+      213: 6019663205562740303
+    second: Tileset-Terrain_163
+  - first:
+      213: 6205306644393338649
+    second: Tileset-Terrain_164
+  - first:
+      213: 5132262410514306821
+    second: Tileset-Terrain_165
+  - first:
+      213: -6973857150427729351
+    second: Tileset-Terrain_166
+  - first:
+      213: -6166364816429784069
+    second: Tileset-Terrain_167
+  - first:
+      213: -1432511611881158393
+    second: Tileset-Terrain_168
+  - first:
+      213: -4503212915438273892
+    second: Tileset-Terrain_169
+  - first:
+      213: 8899254036510274805
+    second: Tileset-Terrain_170
+  - first:
+      213: -8848583775523023872
+    second: Tileset-Terrain_171
+  - first:
+      213: 2905821746407741201
+    second: Tileset-Terrain_172
+  - first:
+      213: 7715114015895508532
+    second: Tileset-Terrain_173
+  - first:
+      213: -8445589151047483580
+    second: Tileset-Terrain_174
+  - first:
+      213: -3934613761250242103
+    second: Tileset-Terrain_175
+  - first:
+      213: 3215279879508764951
+    second: Tileset-Terrain_176
+  - first:
+      213: 4311890541215283026
+    second: Tileset-Terrain_177
+  - first:
+      213: -3057618220661106590
+    second: Tileset-Terrain_178
+  - first:
+      213: -2725313054738589701
+    second: Tileset-Terrain_179
+  - first:
+      213: -8414525611963432557
+    second: Tileset-Terrain_180
+  - first:
+      213: -7748457130830746444
+    second: Tileset-Terrain_181
+  - first:
+      213: 8579813423424840343
+    second: Tileset-Terrain_182
+  - first:
+      213: 9182854251661192762
+    second: Tileset-Terrain_183
+  - first:
+      213: 1964963315599800513
+    second: Tileset-Terrain_184
+  - first:
+      213: -6178152398765045115
+    second: Tileset-Terrain_185
+  - first:
+      213: -5435966808223671505
+    second: Tileset-Terrain_186
+  - first:
+      213: 5548351845115041787
+    second: Tileset-Terrain_187
+  - first:
+      213: 6429294805754344848
+    second: Tileset-Terrain_188
+  - first:
+      213: 9197235315622037288
+    second: Tileset-Terrain_189
+  - first:
+      213: -5619682172451087067
+    second: Tileset-Terrain_190
+  - first:
+      213: -3766379157742629070
+    second: Tileset-Terrain_191
+  - first:
+      213: 1629209066306926701
+    second: Tileset-Terrain_192
+  - first:
+      213: -1522810254171834782
+    second: Tileset-Terrain_193
+  - first:
+      213: 1805611554326759497
+    second: Tileset-Terrain_194
+  - first:
+      213: -8395609484907274605
+    second: Tileset-Terrain_195
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tileset-Terrain_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1484
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5459d18831559cd40800000000000000
+      internalID: 5605104753615672645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_1
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1484
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebbd2a9892a60a080800000000000000
+      internalID: -9178219313945715778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1484
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6fb954999fa9900800000000000000
+      internalID: 692139929447954134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_3
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1484
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4776678b179eb590800000000000000
+      internalID: -7656516171991713970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_4
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1484
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9df802c9f900570800000000000000
+      internalID: 8430913995347581427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_5
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1484
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037e60b53bd7404f0800000000000000
+      internalID: -863427019268495568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1482
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435b65f2b02569cc0800000000000000
+      internalID: -3704683435473324748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1481
+        width: 65
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179c9de17d2a2cb40800000000000000
+      internalID: 5459104743145720177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_8
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1488
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160870a90c18535c0800000000000000
+      internalID: -4236337210254196639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_9
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 1476
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5acf9f2738c839660800000000000000
+      internalID: 7391405909642706085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_10
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1489
+        width: 80
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2728f5ea9d15c50800000000000000
+      internalID: 6652337467552854723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_11
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1489
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255e9f7d02af52ca0800000000000000
+      internalID: -6042148306078276270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_12
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1489
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2bb38963b9e0630800000000000000
+      internalID: 3895221386506646191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_13
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1487
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3c9aa506bee81e0800000000000000
+      internalID: -2193557169412389891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_14
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 1489
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de55d030f78360680800000000000000
+      internalID: -8789275504603736595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_15
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 1487
+        width: 57
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d6b3772bfdb5070800000000000000
+      internalID: 8096310712726154549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_16
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1471
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3495876b3a3cb850800000000000000
+      internalID: 6394049597773550653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_17
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 1477
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4239e4b99e652300800000000000000
+      internalID: 226708962696311373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_18
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1475
+        width: 40
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e373ed6cf7076d180800000000000000
+      internalID: -9090955103701158082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_19
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1477
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59357a4f40c774d0800000000000000
+      internalID: -3136827168656115366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_20
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1475
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e3090c84726dc0d0800000000000000
+      internalID: -3400953890889727002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_21
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1475
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c35b5e0daaa18a0800000000000000
+      internalID: -6333562111759401954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_22
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 1477
+        width: 44
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acfe7e1566166810800000000000000
+      internalID: 1758117328093904032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_23
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 1475
+        width: 44
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b7605b2a2b00350800000000000000
+      internalID: 5980976717039565718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_24
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1477
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55151733dd405620800000000000000
+      internalID: 2760792141135680863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_25
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 1477
+        width: 32
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da96490c827e0f560800000000000000
+      internalID: 7345625154456938925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_26
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 1475
+        width: 65
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e700b6f5bc9d0e780800000000000000
+      internalID: -8655679016303656834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_27
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1461
+        width: 388
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b697738c07062000800000000000000
+      internalID: 10703799441659568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_28
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1449
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95d2ccb9d1282a20800000000000000
+      internalID: 3037715167719904671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_29
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1451
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7b34eae39c25f70800000000000000
+      internalID: 9174616661955950528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_30
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1451
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cfe359ca972831f0800000000000000
+      internalID: -1065057766116954175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_31
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1451
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49f73258e626b240800000000000000
+      internalID: 4807072431518251341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_32
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1451
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532a450a845052870800000000000000
+      internalID: 8657331668175331893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_33
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1461
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baab0ca3b7daf07c0800000000000000
+      internalID: -4102869990732940629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_34
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 1462
+        width: 373
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 498174ec77a74d680800000000000000
+      internalID: -8731219122584086380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_35
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1456
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69c757fa874e8be0800000000000000
+      internalID: -1473161365922789009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_36
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1462
+        width: 305
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a4921df8845fb10800000000000000
+      internalID: 2014596190844832372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_37
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 1449
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88647fee339e5e200800000000000000
+      internalID: 208829367004382856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_38
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1451
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658c2e2e0e5419a10800000000000000
+      internalID: 1914388148790675542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_39
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1461
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810d5cd5b013596e0800000000000000
+      internalID: -1831503748568592360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_40
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1462
+        width: 292
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f0c15f3e40ab250800000000000000
+      internalID: 5961082433894616849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_41
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1450
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60793171026c6dc40800000000000000
+      internalID: 5536830633027016454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_42
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1450
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b10bc6de1f384570800000000000000
+      internalID: 8451074102445932978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_43
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1450
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10cc8d7e93713f190800000000000000
+      internalID: -7929968981398991871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_44
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1448
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a4dcb97d4873670800000000000000
+      internalID: 8518423281761340020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_45
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1450
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10775bc12b9677990800000000000000
+      internalID: -7388320449971259647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_46
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1449
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f183f5fc31cf2440800000000000000
+      internalID: 4913358186053075449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_47
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1449
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc0aa42f5dd27410800000000000000
+      internalID: 1473483428810329299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_48
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 1449
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e133941a878926ee0800000000000000
+      internalID: -1269284501095632098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_49
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1449
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e503af887713bf40800000000000000
+      internalID: 5742959756400854498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_50
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1450
+        width: 31
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f32e2c6b92fb880800000000000000
+      internalID: -8593103699069223139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_51
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1450
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcfcb40087e678f00800000000000000
+      internalID: 1118984494104956879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_52
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1450
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc0a356e468041d0800000000000000
+      internalID: -3368544850009256718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_53
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1449
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e31c38f7f1f82fc70800000000000000
+      internalID: 9003415970513142078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_54
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 1449
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92a4218e9168af50800000000000000
+      internalID: 6892866563089932955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_55
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1449
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee9e03059a9ebe60800000000000000
+      internalID: 7979985554539192041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_56
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1449
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a9af54b52d0fd90800000000000000
+      internalID: -7065916525886399968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_57
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1449
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff4b4c1bd4b2f3610800000000000000
+      internalID: 1603047605062120703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_58
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1439
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d15cc4bdea75f60800000000000000
+      internalID: 8023073518092885378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_59
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1450
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e69dba0788ebfe0800000000000000
+      internalID: -1171348835568882125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_60
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1450
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff0c5816e81e37c0800000000000000
+      internalID: -4089804035075600388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_61
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 1450
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4c85cbbc140f890800000000000000
+      internalID: -7426363442239847230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_62
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 1449
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 344dd293681b1a950800000000000000
+      internalID: 6458638530669040707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_63
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1449
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79845f960634bb930800000000000000
+      internalID: 4159992762180389015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_64
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 1449
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799d12acc3d94e6a0800000000000000
+      internalID: -6420834284308670057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 801
+        height: 1346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec5034b6171b5ae0800000000000000
+      internalID: -1559627459673957143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_66
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1424
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d341bdada5b8ae500800000000000000
+      internalID: 426306337075041341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_67
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1407
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86043f4718248380800000000000000
+      internalID: -8970000477237016947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_68
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1288
+        width: 157
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c6725a1f28eb050800000000000000
+      internalID: 5818231742978812945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_69
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1402
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b5a58d06fa5c970800000000000000
+      internalID: 8774612279482800937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_70
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 1288
+        width: 157
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2266c2d0099c7560800000000000000
+      internalID: 7312888123758109228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_71
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1402
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a9fef2f46924550800000000000000
+      internalID: 6143638108537592344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_72
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1288
+        width: 157
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb870a0dc87fe3bb0800000000000000
+      internalID: -4954250355893307205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_73
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 1402
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6318bd2d706079300800000000000000
+      internalID: 258682134269231414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_74
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 1288
+        width: 157
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9f843f35f4ae9a0800000000000000
+      internalID: -6203058314766911060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_75
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1402
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e2b114ca2d751b0800000000000000
+      internalID: -5667829968753971671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_76
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1407
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84cd3a70ff2ab430800000000000000
+      internalID: 3799401945529959565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_77
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1392
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f823fdd3002ff60800000000000000
+      internalID: 8066510148311617343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_78
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1375
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66ff9497611ee570800000000000000
+      internalID: 8497748683467519595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_79
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1369
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 067f23c2b308ceef0800000000000000
+      internalID: -77546101939177632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_80
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1369
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d825d2fb9d33280800000000000000
+      internalID: -9064662209844310697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_81
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1369
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42a85b79503dca30800000000000000
+      internalID: 4237095985305133645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_82
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1369
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c01d00579d5b210800000000000000
+      internalID: 1348222760015432829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_83
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1360
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a1636e5354afb740800000000000000
+      internalID: 5170031575217430948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_84
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 1361
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d23cc2167abb13f0800000000000000
+      internalID: -928943881837595949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_85
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1361
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d906748411b402c50800000000000000
+      internalID: 6638388388343275677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_86
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 1361
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f92c01f96c72240800000000000000
+      internalID: 4766997117078249252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_87
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 1361
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc26616256684e3b0800000000000000
+      internalID: -5484110677241601329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_88
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1343
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd553c6b1365c4640800000000000000
+      internalID: 5065518452404606428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_89
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1328
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0bf334d323dd19d0800000000000000
+      internalID: -2801851242317087988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_90
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1330
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c5178d5dcced770800000000000000
+      internalID: 8637566354174598258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_91
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1330
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 599b280b995e50850800000000000000
+      internalID: 6342728098475325845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_92
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1330
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 841173031a0835620800000000000000
+      internalID: 2761692426295251272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_93
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1330
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26794a8292c8e6630800000000000000
+      internalID: 3922226433889703778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_94
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1311
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca2619bf6c7270a0800000000000000
+      internalID: -6885304061007615294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_95
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1183
+        width: 642
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0403360a11abe09b0800000000000000
+      internalID: -5111943942150868928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_96
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 1162
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08409d4b057cf3b20800000000000000
+      internalID: 3116428616609105024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_97
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1059
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8f596e26d62b4e0800000000000000
+      internalID: -1967389815664674570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_98
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 1162
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc869645ba2f62e0800000000000000
+      internalID: -2130437140661236559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_99
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 1059
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a956877cc6f7aef0800000000000000
+      internalID: -96837508926121568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_100
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 1162
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698d32b0a8dd31350800000000000000
+      internalID: 5986371914667645078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_101
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1059
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcb21776cd0d7fc0800000000000000
+      internalID: -3495622589717234500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_102
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1162
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ff29d29bd8b3dd0800000000000000
+      internalID: -2505252941228474610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_103
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 1059
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355b7a50bd232e7f0800000000000000
+      internalID: -584849085330639533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_104
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 1136
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7e9272e0ed2485e0800000000000000
+      internalID: -1908349898203160964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_105
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 1136
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d474fa3d61e7a50800000000000000
+      internalID: 6520674408913653043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_106
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 1136
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bedeb6fda981fb0800000000000000
+      internalID: -4676817928645121262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_107
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 1136
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6259b2c632d1d00800000000000000
+      internalID: 944950444312307420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_108
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1104
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a992211056addb8d0800000000000000
+      internalID: -2828864863574283878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_109
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 1104
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cee730899a145a30800000000000000
+      internalID: 4203013598826983106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_110
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 1104
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f7bf3be3bcfe8810800000000000000
+      internalID: 1769629553279350770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_111
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 1104
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d496484e27c293d0800000000000000
+      internalID: -3201277383511993127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_112
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 1059
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 327715a8a6c6e4120800000000000000
+      internalID: 2399974856277980963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_113
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1057
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f0c75426df5d550800000000000000
+      internalID: 6185128261777624972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_114
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 1059
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aca09124b47c6be0800000000000000
+      internalID: -1482681860305671001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_115
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1057
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0279eaf82ee3fdec0800000000000000
+      internalID: -3540041639295805664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_116
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1059
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9dd7b556c90b540800000000000000
+      internalID: 5021685543658707385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_117
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1057
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9868ccc0f8a7ec1c0800000000000000
+      internalID: -4481509824373422455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_118
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1059
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337b68d0dc2f30650800000000000000
+      internalID: 6198064474701084467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_119
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1057
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b729fef14eaed7f0800000000000000
+      internalID: -585839303037737036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_120
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 864
+        width: 161
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ca6304e2cd413f0800000000000000
+      internalID: -930877131754918809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_121
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 975
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a46a271391663e0800000000000000
+      internalID: -2060932079307830734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_122
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 703
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eae6cb0aa9755e330800000000000000
+      internalID: 3739491387234348718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_123
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336be6002ee9087a0800000000000000
+      internalID: -6376922378849569229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_124
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a93f1e68fc31d00800000000000000
+      internalID: 942324925273971262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_125
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7125981b499540d0800000000000000
+      internalID: -3439174192613482116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_126
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540ae8b1cccfccc30800000000000000
+      internalID: 4381154491090509893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_127
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af0a1ace8c1e18f0800000000000000
+      internalID: -567985103400464472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_128
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f419215ce7388af0800000000000000
+      internalID: -394003479281462032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_129
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f181f6a071a978410800000000000000
+      internalID: 1479320426364475423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_130
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c929605f8f64e90800000000000000
+      internalID: -7041667236086244215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_131
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec19b25585326d6f0800000000000000
+      internalID: -660301433070186034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_132
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 524b11f1a88643c20800000000000000
+      internalID: 3185285778893812773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_133
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 895
+        width: 65
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 706886182778b1980800000000000000
+      internalID: -8567104940275104249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_134
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91d027b02d6c9c710800000000000000
+      internalID: 1714119738628640025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_135
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b083c945e4aaf0550800000000000000
+      internalID: 6129304871278229515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_136
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 977
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a512f72a2e1fc9d0800000000000000
+      internalID: -2751947680892447327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_137
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 927
+        width: 34
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3dfab9c10a657a70800000000000000
+      internalID: 8824075600814341435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_138
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 895
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ece81b41e32c7770800000000000000
+      internalID: 8609796038160084197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_139
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 863
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf47ef1fbe551800800000000000000
+      internalID: 582475901781364668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_140
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 895
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70dbc136b227cce0800000000000000
+      internalID: -1385100194478305153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_141
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 512
+        width: 156
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48933d6b24519b630800000000000000
+      internalID: 3943206325018900868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_142
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 623
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af26d95cdfb55c3c0800000000000000
+      internalID: -4339961520401325318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_143
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 351
+        width: 386
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f79f883adade6430800000000000000
+      internalID: 3778197768197085171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_144
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1905bb2b21e89bea0800000000000000
+      internalID: -5856493629459443567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_145
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1db8500141842f0800000000000000
+      internalID: -988518059162742288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_146
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8afbd62063033bdb0800000000000000
+      internalID: -4777421771182850136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_147
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea9e4305c9bda370800000000000000
+      internalID: 8335522741147835108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_148
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4944cc5ef80822fb0800000000000000
+      internalID: -4674032107733105516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_149
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c66aac18f81bdf80800000000000000
+      internalID: -8080837652474337597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_150
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa60a986fed14b700800000000000000
+      internalID: 555101568162727599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_151
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ca0a8822ebcbb80800000000000000
+      internalID: -8377612151285568373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_152
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db29816a22de4bd0800000000000000
+      internalID: -2643944851753063467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_153
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78befca1016c1c6d0800000000000000
+      internalID: -2971876506616206457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_154
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc700457cd5295b0800000000000000
+      internalID: -5363121095555646256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_155
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 640
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9df921c18efea570800000000000000
+      internalID: 8479994981630213533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_156
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 547
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721620d73a4f68fa0800000000000000
+      internalID: -5798678487178780377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_157
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 511
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e8bd20a52aac9d0800000000000000
+      internalID: -2753209714704937452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_158
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 168
+        width: 140
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ccae1f9c89f4960800000000000000
+      internalID: 7588451890257120388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_159
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9090e72e7df293d70800000000000000
+      internalID: 9023295932677884169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_160
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 265
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f62ac3afff608310800000000000000
+      internalID: 1405246227494872822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_161
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5996a1807aad30f0800000000000000
+      internalID: -1135564130839258785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_162
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 264
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13c51d44fd21b910800000000000000
+      internalID: 1851311449114526493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_163
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e6e0bbac32a8350800000000000000
+      internalID: 6019663205562740303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_164
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 917af65148dad1650800000000000000
+      internalID: 6205306644393338649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_165
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5079bc07875793740800000000000000
+      internalID: 5132262410514306821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_166
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932ff6aeed1e73f90800000000000000
+      internalID: -6973857150427729351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_167
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 127
+        width: 130
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf36c39cedbac6aa0800000000000000
+      internalID: -6166364816429784069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_168
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709833d5742be1ce0800000000000000
+      internalID: -1432511611881158393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_169
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ab95366bf5181c0800000000000000
+      internalID: -4503212915438273892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_170
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f4f72c5560808b70800000000000000
+      internalID: 8899254036510274805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_171
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0045aae10f3833580800000000000000
+      internalID: -8848583775523023872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_172
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1171d3f8b7d835820800000000000000
+      internalID: 2905821746407741201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_173
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 127
+        width: 44
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436d61f2257911b60800000000000000
+      internalID: 7715114015895508532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_174
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ffbece96d3bca80800000000000000
+      internalID: -8445589151047483580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_175
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1d05071a17569c0800000000000000
+      internalID: -3934613761250242103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_176
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719a49fd308fe9c20800000000000000
+      internalID: 3215279879508764951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_177
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 233
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257f0831a99e6db30800000000000000
+      internalID: 4311890541215283026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_178
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 232
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2689bb2ad682195d0800000000000000
+      internalID: -3057618220661106590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_179
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 255
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7529e473ebd2ad0800000000000000
+      internalID: -2725313054738589701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_180
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 255
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3914e79b989993b80800000000000000
+      internalID: -8414525611963432557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_181
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 201
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcad77ea43f77490800000000000000
+      internalID: -7748457130830746444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_182
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 200
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792ad5ec9de911770800000000000000
+      internalID: 8579813423424840343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_183
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 223
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e637ef94d007f70800000000000000
+      internalID: 9182854251661192762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_184
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 223
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c8fff689b3f44b10800000000000000
+      internalID: 1964963315599800513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_185
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 169
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ac167602bc24aa0800000000000000
+      internalID: -6178152398765045115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_186
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 167
+        width: 66
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b93092df09f84b0800000000000000
+      internalID: -5435966808223671505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_187
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 191
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf717f05b94bffc40800000000000000
+      internalID: 5548351845115041787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_188
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 191
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095704ddf81793950800000000000000
+      internalID: 6429294805754344848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_189
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 137
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827445f5ac423af70800000000000000
+      internalID: 9197235315622037288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_190
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 136
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d1578a6d0e202b0800000000000000
+      internalID: -5619682172451087067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_191
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 159
+        width: 43
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23fc0557c122bbbc0800000000000000
+      internalID: -3766379157742629070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_192
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 159
+        width: 66
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68f11e830d1c9610800000000000000
+      internalID: 1629209066306926701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_193
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 31
+        width: 130
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266f3cb5424eddae0800000000000000
+      internalID: -1522810254171834782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_194
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 127
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948ccf16422de0910800000000000000
+      internalID: 1805611554326759497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Terrain_195
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 127
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e9333c7adcc7b80800000000000000
+      internalID: -8395609484907274605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tileset-Terrain_0: 5605104753615672645
+      Tileset-Terrain_1: -9178219313945715778
+      Tileset-Terrain_10: 6652337467552854723
+      Tileset-Terrain_100: 5986371914667645078
+      Tileset-Terrain_101: -3495622589717234500
+      Tileset-Terrain_102: -2505252941228474610
+      Tileset-Terrain_103: -584849085330639533
+      Tileset-Terrain_104: -1908349898203160964
+      Tileset-Terrain_105: 6520674408913653043
+      Tileset-Terrain_106: -4676817928645121262
+      Tileset-Terrain_107: 944950444312307420
+      Tileset-Terrain_108: -2828864863574283878
+      Tileset-Terrain_109: 4203013598826983106
+      Tileset-Terrain_11: -6042148306078276270
+      Tileset-Terrain_110: 1769629553279350770
+      Tileset-Terrain_111: -3201277383511993127
+      Tileset-Terrain_112: 2399974856277980963
+      Tileset-Terrain_113: 6185128261777624972
+      Tileset-Terrain_114: -1482681860305671001
+      Tileset-Terrain_115: -3540041639295805664
+      Tileset-Terrain_116: 5021685543658707385
+      Tileset-Terrain_117: -4481509824373422455
+      Tileset-Terrain_118: 6198064474701084467
+      Tileset-Terrain_119: -585839303037737036
+      Tileset-Terrain_12: 3895221386506646191
+      Tileset-Terrain_120: -930877131754918809
+      Tileset-Terrain_121: -2060932079307830734
+      Tileset-Terrain_122: 3739491387234348718
+      Tileset-Terrain_123: -6376922378849569229
+      Tileset-Terrain_124: 942324925273971262
+      Tileset-Terrain_125: -3439174192613482116
+      Tileset-Terrain_126: 4381154491090509893
+      Tileset-Terrain_127: -567985103400464472
+      Tileset-Terrain_128: -394003479281462032
+      Tileset-Terrain_129: 1479320426364475423
+      Tileset-Terrain_13: -2193557169412389891
+      Tileset-Terrain_130: -7041667236086244215
+      Tileset-Terrain_131: -660301433070186034
+      Tileset-Terrain_132: 3185285778893812773
+      Tileset-Terrain_133: -8567104940275104249
+      Tileset-Terrain_134: 1714119738628640025
+      Tileset-Terrain_135: 6129304871278229515
+      Tileset-Terrain_136: -2751947680892447327
+      Tileset-Terrain_137: 8824075600814341435
+      Tileset-Terrain_138: 8609796038160084197
+      Tileset-Terrain_139: 582475901781364668
+      Tileset-Terrain_14: -8789275504603736595
+      Tileset-Terrain_140: -1385100194478305153
+      Tileset-Terrain_141: 3943206325018900868
+      Tileset-Terrain_142: -4339961520401325318
+      Tileset-Terrain_143: 3778197768197085171
+      Tileset-Terrain_144: -5856493629459443567
+      Tileset-Terrain_145: -988518059162742288
+      Tileset-Terrain_146: -4777421771182850136
+      Tileset-Terrain_147: 8335522741147835108
+      Tileset-Terrain_148: -4674032107733105516
+      Tileset-Terrain_149: -8080837652474337597
+      Tileset-Terrain_15: 8096310712726154549
+      Tileset-Terrain_150: 555101568162727599
+      Tileset-Terrain_151: -8377612151285568373
+      Tileset-Terrain_152: -2643944851753063467
+      Tileset-Terrain_153: -2971876506616206457
+      Tileset-Terrain_154: -5363121095555646256
+      Tileset-Terrain_155: 8479994981630213533
+      Tileset-Terrain_156: -5798678487178780377
+      Tileset-Terrain_157: -2753209714704937452
+      Tileset-Terrain_158: 7588451890257120388
+      Tileset-Terrain_159: 9023295932677884169
+      Tileset-Terrain_16: 6394049597773550653
+      Tileset-Terrain_160: 1405246227494872822
+      Tileset-Terrain_161: -1135564130839258785
+      Tileset-Terrain_162: 1851311449114526493
+      Tileset-Terrain_163: 6019663205562740303
+      Tileset-Terrain_164: 6205306644393338649
+      Tileset-Terrain_165: 5132262410514306821
+      Tileset-Terrain_166: -6973857150427729351
+      Tileset-Terrain_167: -6166364816429784069
+      Tileset-Terrain_168: -1432511611881158393
+      Tileset-Terrain_169: -4503212915438273892
+      Tileset-Terrain_17: 226708962696311373
+      Tileset-Terrain_170: 8899254036510274805
+      Tileset-Terrain_171: -8848583775523023872
+      Tileset-Terrain_172: 2905821746407741201
+      Tileset-Terrain_173: 7715114015895508532
+      Tileset-Terrain_174: -8445589151047483580
+      Tileset-Terrain_175: -3934613761250242103
+      Tileset-Terrain_176: 3215279879508764951
+      Tileset-Terrain_177: 4311890541215283026
+      Tileset-Terrain_178: -3057618220661106590
+      Tileset-Terrain_179: -2725313054738589701
+      Tileset-Terrain_18: -9090955103701158082
+      Tileset-Terrain_180: -8414525611963432557
+      Tileset-Terrain_181: -7748457130830746444
+      Tileset-Terrain_182: 8579813423424840343
+      Tileset-Terrain_183: 9182854251661192762
+      Tileset-Terrain_184: 1964963315599800513
+      Tileset-Terrain_185: -6178152398765045115
+      Tileset-Terrain_186: -5435966808223671505
+      Tileset-Terrain_187: 5548351845115041787
+      Tileset-Terrain_188: 6429294805754344848
+      Tileset-Terrain_189: 9197235315622037288
+      Tileset-Terrain_19: -3136827168656115366
+      Tileset-Terrain_190: -5619682172451087067
+      Tileset-Terrain_191: -3766379157742629070
+      Tileset-Terrain_192: 1629209066306926701
+      Tileset-Terrain_193: -1522810254171834782
+      Tileset-Terrain_194: 1805611554326759497
+      Tileset-Terrain_195: -8395609484907274605
+      Tileset-Terrain_2: 692139929447954134
+      Tileset-Terrain_20: -3400953890889727002
+      Tileset-Terrain_21: -6333562111759401954
+      Tileset-Terrain_22: 1758117328093904032
+      Tileset-Terrain_23: 5980976717039565718
+      Tileset-Terrain_24: 2760792141135680863
+      Tileset-Terrain_25: 7345625154456938925
+      Tileset-Terrain_26: -8655679016303656834
+      Tileset-Terrain_27: 10703799441659568
+      Tileset-Terrain_28: 3037715167719904671
+      Tileset-Terrain_29: 9174616661955950528
+      Tileset-Terrain_3: -7656516171991713970
+      Tileset-Terrain_30: -1065057766116954175
+      Tileset-Terrain_31: 4807072431518251341
+      Tileset-Terrain_32: 8657331668175331893
+      Tileset-Terrain_33: -4102869990732940629
+      Tileset-Terrain_34: -8731219122584086380
+      Tileset-Terrain_35: -1473161365922789009
+      Tileset-Terrain_36: 2014596190844832372
+      Tileset-Terrain_37: 208829367004382856
+      Tileset-Terrain_38: 1914388148790675542
+      Tileset-Terrain_39: -1831503748568592360
+      Tileset-Terrain_4: 8430913995347581427
+      Tileset-Terrain_40: 5961082433894616849
+      Tileset-Terrain_41: 5536830633027016454
+      Tileset-Terrain_42: 8451074102445932978
+      Tileset-Terrain_43: -7929968981398991871
+      Tileset-Terrain_44: 8518423281761340020
+      Tileset-Terrain_45: -7388320449971259647
+      Tileset-Terrain_46: 4913358186053075449
+      Tileset-Terrain_47: 1473483428810329299
+      Tileset-Terrain_48: -1269284501095632098
+      Tileset-Terrain_49: 5742959756400854498
+      Tileset-Terrain_5: -863427019268495568
+      Tileset-Terrain_50: -8593103699069223139
+      Tileset-Terrain_51: 1118984494104956879
+      Tileset-Terrain_52: -3368544850009256718
+      Tileset-Terrain_53: 9003415970513142078
+      Tileset-Terrain_54: 6892866563089932955
+      Tileset-Terrain_55: 7979985554539192041
+      Tileset-Terrain_56: -7065916525886399968
+      Tileset-Terrain_57: 1603047605062120703
+      Tileset-Terrain_58: 8023073518092885378
+      Tileset-Terrain_59: -1171348835568882125
+      Tileset-Terrain_6: -3704683435473324748
+      Tileset-Terrain_60: -4089804035075600388
+      Tileset-Terrain_61: -7426363442239847230
+      Tileset-Terrain_62: 6458638530669040707
+      Tileset-Terrain_63: 4159992762180389015
+      Tileset-Terrain_64: -6420834284308670057
+      Tileset-Terrain_65: -1559627459673957143
+      Tileset-Terrain_66: 426306337075041341
+      Tileset-Terrain_67: -8970000477237016947
+      Tileset-Terrain_68: 5818231742978812945
+      Tileset-Terrain_69: 8774612279482800937
+      Tileset-Terrain_7: 5459104743145720177
+      Tileset-Terrain_70: 7312888123758109228
+      Tileset-Terrain_71: 6143638108537592344
+      Tileset-Terrain_72: -4954250355893307205
+      Tileset-Terrain_73: 258682134269231414
+      Tileset-Terrain_74: -6203058314766911060
+      Tileset-Terrain_75: -5667829968753971671
+      Tileset-Terrain_76: 3799401945529959565
+      Tileset-Terrain_77: 8066510148311617343
+      Tileset-Terrain_78: 8497748683467519595
+      Tileset-Terrain_79: -77546101939177632
+      Tileset-Terrain_8: -4236337210254196639
+      Tileset-Terrain_80: -9064662209844310697
+      Tileset-Terrain_81: 4237095985305133645
+      Tileset-Terrain_82: 1348222760015432829
+      Tileset-Terrain_83: 5170031575217430948
+      Tileset-Terrain_84: -928943881837595949
+      Tileset-Terrain_85: 6638388388343275677
+      Tileset-Terrain_86: 4766997117078249252
+      Tileset-Terrain_87: -5484110677241601329
+      Tileset-Terrain_88: 5065518452404606428
+      Tileset-Terrain_89: -2801851242317087988
+      Tileset-Terrain_9: 7391405909642706085
+      Tileset-Terrain_90: 8637566354174598258
+      Tileset-Terrain_91: 6342728098475325845
+      Tileset-Terrain_92: 2761692426295251272
+      Tileset-Terrain_93: 3922226433889703778
+      Tileset-Terrain_94: -6885304061007615294
+      Tileset-Terrain_95: -5111943942150868928
+      Tileset-Terrain_96: 3116428616609105024
+      Tileset-Terrain_97: -1967389815664674570
+      Tileset-Terrain_98: -2130437140661236559
+      Tileset-Terrain_99: -96837508926121568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

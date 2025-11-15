@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 8442c4ac6a728e94990596d3cfacc571
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4339161168728479697
+    second: wall-2 - 3 tiles tall_0
+  - first:
+      213: -3042331662837239048
+    second: wall-2 - 3 tiles tall_1
+  - first:
+      213: -4621848181852665124
+    second: wall-2 - 3 tiles tall_2
+  - first:
+      213: -4640601448633892099
+    second: wall-2 - 3 tiles tall_3
+  - first:
+      213: 3230112746757551453
+    second: wall-2 - 3 tiles tall_4
+  - first:
+      213: -5222863546952844216
+    second: wall-2 - 3 tiles tall_5
+  - first:
+      213: 7135734494539024053
+    second: wall-2 - 3 tiles tall_6
+  - first:
+      213: 8472248127180174180
+    second: wall-2 - 3 tiles tall_7
+  - first:
+      213: -6735053889485445199
+    second: wall-2 - 3 tiles tall_8
+  - first:
+      213: -6459453683896799469
+    second: wall-2 - 3 tiles tall_9
+  - first:
+      213: -8343254832155889100
+    second: wall-2 - 3 tiles tall_10
+  - first:
+      213: -7533674651360147399
+    second: wall-2 - 3 tiles tall_11
+  - first:
+      213: -613350804028556501
+    second: wall-2 - 3 tiles tall_12
+  - first:
+      213: 803635048262433794
+    second: wall-2 - 3 tiles tall_13
+  - first:
+      213: 1496054038831915228
+    second: wall-2 - 3 tiles tall_14
+  - first:
+      213: 7475571724664913069
+    second: wall-2 - 3 tiles tall_15
+  - first:
+      213: -8524369357790100271
+    second: wall-2 - 3 tiles tall_16
+  - first:
+      213: -7121426835218784061
+    second: wall-2 - 3 tiles tall_17
+  - first:
+      213: 4245048229284320603
+    second: wall-2 - 3 tiles tall_18
+  - first:
+      213: 1451177809791237149
+    second: wall-2 - 3 tiles tall_19
+  - first:
+      213: -2850010846466624136
+    second: wall-2 - 3 tiles tall_20
+  - first:
+      213: -607788186083946398
+    second: wall-2 - 3 tiles tall_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 422
+        width: 146
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7da35d71cc73c30800000000000000
+      internalID: 4339161168728479697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 383
+        width: 353
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f2b9abb87777c5d0800000000000000
+      internalID: -3042331662837239048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 383
+        width: 26
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda03e2f095ebdfb0800000000000000
+      internalID: -4621848181852665124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_3
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 383
+        width: 26
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df28306c195499fb0800000000000000
+      internalID: -4640601448633892099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 262
+        width: 193
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d55f1f6ed6aa3dc20800000000000000
+      internalID: 3230112746757551453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_5
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 262
+        width: 194
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84cf985a649a487b0800000000000000
+      internalID: -5222863546952844216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 227
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6008e47b8370360800000000000000
+      internalID: 7135734494539024053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_7
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 226
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463fa85a8c8739570800000000000000
+      internalID: 8472248127180174180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_8
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 159
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b76b1edb284882a0800000000000000
+      internalID: -6735053889485445199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_9
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 159
+        width: 18
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f2e3029196b56a0800000000000000
+      internalID: -6459453683896799469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 166
+        width: 162
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43279c24fedc63c80800000000000000
+      internalID: -8343254832155889100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_11
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 166
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9384058d1d2037790800000000000000
+      internalID: -7533674651360147399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_12
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 166
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b7d2381b0fc77f0800000000000000
+      internalID: -613350804028556501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_13
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 165
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c7cbc81d5172b00800000000000000
+      internalID: 803635048262433794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd06d5dc83d03c410800000000000000
+      internalID: 1496054038831915228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_15
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 191
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac3b9550e09eb760800000000000000
+      internalID: 7475571724664913069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d442beab3b53b980800000000000000
+      internalID: -8524369357790100271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_17
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 159
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0a9d8360c9b2d90800000000000000
+      internalID: -7121426835218784061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_18
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 163
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5594e09fd079ea30800000000000000
+      internalID: 4245048229284320603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 481
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c3982878e932410800000000000000
+      internalID: 1451177809791237149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_20
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 3
+        width: 98
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875b8523c3ab278d0800000000000000
+      internalID: -2850010846466624136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-2 - 3 tiles tall_21
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 3
+        width: 98
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26099cd6dd3b097f0800000000000000
+      internalID: -607788186083946398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wall-2 - 3 tiles tall_0: 4339161168728479697
+      wall-2 - 3 tiles tall_1: -3042331662837239048
+      wall-2 - 3 tiles tall_10: -8343254832155889100
+      wall-2 - 3 tiles tall_11: -7533674651360147399
+      wall-2 - 3 tiles tall_12: -613350804028556501
+      wall-2 - 3 tiles tall_13: 803635048262433794
+      wall-2 - 3 tiles tall_14: 1496054038831915228
+      wall-2 - 3 tiles tall_15: 7475571724664913069
+      wall-2 - 3 tiles tall_16: -8524369357790100271
+      wall-2 - 3 tiles tall_17: -7121426835218784061
+      wall-2 - 3 tiles tall_18: 4245048229284320603
+      wall-2 - 3 tiles tall_19: 1451177809791237149
+      wall-2 - 3 tiles tall_2: -4621848181852665124
+      wall-2 - 3 tiles tall_20: -2850010846466624136
+      wall-2 - 3 tiles tall_21: -607788186083946398
+      wall-2 - 3 tiles tall_3: -4640601448633892099
+      wall-2 - 3 tiles tall_4: 3230112746757551453
+      wall-2 - 3 tiles tall_5: -5222863546952844216
+      wall-2 - 3 tiles tall_6: 7135734494539024053
+      wall-2 - 3 tiles tall_7: 8472248127180174180
+      wall-2 - 3 tiles tall_8: -6735053889485445199
+      wall-2 - 3 tiles tall_9: -6459453683896799469
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

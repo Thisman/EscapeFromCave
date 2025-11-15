@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 17fee1281022b7142a7bad851d267dd1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5419750794686032861
+    second: portal-all animations-ancient ruins-on grass_0
+  - first:
+      213: 3043016326588630963
+    second: portal-all animations-ancient ruins-on grass_1
+  - first:
+      213: -2194929807995946403
+    second: portal-all animations-ancient ruins-on grass_2
+  - first:
+      213: -2323942828467724072
+    second: portal-all animations-ancient ruins-on grass_3
+  - first:
+      213: 6954539373165824371
+    second: portal-all animations-ancient ruins-on grass_4
+  - first:
+      213: -8630678223155143076
+    second: portal-all animations-ancient ruins-on grass_5
+  - first:
+      213: 5583484265403222567
+    second: portal-all animations-ancient ruins-on grass_6
+  - first:
+      213: 5090242012816778410
+    second: portal-all animations-ancient ruins-on grass_7
+  - first:
+      213: 3871852755089665945
+    second: portal-all animations-ancient ruins-on grass_8
+  - first:
+      213: 1301187881306999509
+    second: portal-all animations-ancient ruins-on grass_9
+  - first:
+      213: 8146824655215969125
+    second: portal-all animations-ancient ruins-on grass_10
+  - first:
+      213: 3476473516234430249
+    second: portal-all animations-ancient ruins-on grass_11
+  - first:
+      213: -1227172799548112678
+    second: portal-all animations-ancient ruins-on grass_12
+  - first:
+      213: -5193771466167278905
+    second: portal-all animations-ancient ruins-on grass_13
+  - first:
+      213: -463374927965700630
+    second: portal-all animations-ancient ruins-on grass_14
+  - first:
+      213: -2622579731904374230
+    second: portal-all animations-ancient ruins-on grass_15
+  - first:
+      213: 5143095803535943711
+    second: portal-all animations-ancient ruins-on grass_16
+  - first:
+      213: 2610897234817782617
+    second: portal-all animations-ancient ruins-on grass_17
+  - first:
+      213: 541487763516461527
+    second: portal-all animations-ancient ruins-on grass_18
+  - first:
+      213: -6889030802714903387
+    second: portal-all animations-ancient ruins-on grass_19
+  - first:
+      213: -1947097371204980046
+    second: portal-all animations-ancient ruins-on grass_20
+  - first:
+      213: 8859668219369708781
+    second: portal-all animations-ancient ruins-on grass_21
+  - first:
+      213: -2761630728064891635
+    second: portal-all animations-ancient ruins-on grass_22
+  - first:
+      213: 5234865313941880988
+    second: portal-all animations-ancient ruins-on grass_23
+  - first:
+      213: 1123546750059730848
+    second: portal-all animations-ancient ruins-on grass_24
+  - first:
+      213: -4897227552920484943
+    second: portal-all animations-ancient ruins-on grass_25
+  - first:
+      213: -6588096029625039590
+    second: portal-all animations-ancient ruins-on grass_26
+  - first:
+      213: 8343172784027251350
+    second: portal-all animations-ancient ruins-on grass_27
+  - first:
+      213: 6452800666511062421
+    second: portal-all animations-ancient ruins-on grass_28
+  - first:
+      213: -5257183957160450666
+    second: portal-all animations-ancient ruins-on grass_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32419970e5d29c4b0800000000000000
+      internalID: -5419750794686032861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b78708f937fa3a20800000000000000
+      internalID: 3043016326588630963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a3c7708fa0a81e0800000000000000
+      internalID: -2194929807995946403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d06dde6f42bfbfd0800000000000000
+      internalID: -2323942828467724072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379440296bc738060800000000000000
+      internalID: 6954539373165824371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e532222eba93880800000000000000
+      internalID: -8630678223155143076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_6
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a87585b558c7d40800000000000000
+      internalID: 5583484265403222567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_7
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4a6b2342c24a640800000000000000
+      internalID: 5090242012816778410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99facb911959bb530800000000000000
+      internalID: 3871852755089665945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dac85beb7fbe0210800000000000000
+      internalID: 1301187881306999509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_10
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563ca853cd55f0170800000000000000
+      internalID: 8146824655215969125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_11
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 927d43e6e3aee3030800000000000000
+      internalID: 3476473516234430249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_12
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0c9e437d438fee0800000000000000
+      internalID: -1227172799548112678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c22a8a8e540ce7b0800000000000000
+      internalID: -5193771466167278905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_14
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed38c445f2c199f0800000000000000
+      internalID: -463374927965700630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_15
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a53bcf0a9ba9bd0800000000000000
+      internalID: -2622579731904374230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18ef8f4262ff5740800000000000000
+      internalID: 5143095803535943711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9531d52b335cb3420800000000000000
+      internalID: 2610897234817782617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d19e928040c38700800000000000000
+      internalID: 541487763516461527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac347d0cfe3560a0800000000000000
+      internalID: -6889030802714903387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_20
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2fa3ec1458af4e0800000000000000
+      internalID: -1947097371204980046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_21
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec59531e4dd3fa70800000000000000
+      internalID: 8859668219369708781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_22
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0583ec0c77bca9d0800000000000000
+      internalID: -2761630728064891635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_23
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c90058c744af5a840800000000000000
+      internalID: 5234865313941880988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7daddf0d3a79f00800000000000000
+      internalID: 1123546750059730848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b34bebbc7d890cb0800000000000000
+      internalID: -4897227552920484943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_26
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a15c908f0916294a0800000000000000
+      internalID: -6588096029625039590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_27
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692b6ab6177e8c370800000000000000
+      internalID: 8343172784027251350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_28
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595bbcd8404fc8950800000000000000
+      internalID: 6452800666511062421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-ancient ruins-on grass_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695a1927b0bba07b0800000000000000
+      internalID: -5257183957160450666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-all animations-ancient ruins-on grass_0: -5419750794686032861
+      portal-all animations-ancient ruins-on grass_1: 3043016326588630963
+      portal-all animations-ancient ruins-on grass_10: 8146824655215969125
+      portal-all animations-ancient ruins-on grass_11: 3476473516234430249
+      portal-all animations-ancient ruins-on grass_12: -1227172799548112678
+      portal-all animations-ancient ruins-on grass_13: -5193771466167278905
+      portal-all animations-ancient ruins-on grass_14: -463374927965700630
+      portal-all animations-ancient ruins-on grass_15: -2622579731904374230
+      portal-all animations-ancient ruins-on grass_16: 5143095803535943711
+      portal-all animations-ancient ruins-on grass_17: 2610897234817782617
+      portal-all animations-ancient ruins-on grass_18: 541487763516461527
+      portal-all animations-ancient ruins-on grass_19: -6889030802714903387
+      portal-all animations-ancient ruins-on grass_2: -2194929807995946403
+      portal-all animations-ancient ruins-on grass_20: -1947097371204980046
+      portal-all animations-ancient ruins-on grass_21: 8859668219369708781
+      portal-all animations-ancient ruins-on grass_22: -2761630728064891635
+      portal-all animations-ancient ruins-on grass_23: 5234865313941880988
+      portal-all animations-ancient ruins-on grass_24: 1123546750059730848
+      portal-all animations-ancient ruins-on grass_25: -4897227552920484943
+      portal-all animations-ancient ruins-on grass_26: -6588096029625039590
+      portal-all animations-ancient ruins-on grass_27: 8343172784027251350
+      portal-all animations-ancient ruins-on grass_28: 6452800666511062421
+      portal-all animations-ancient ruins-on grass_29: -5257183957160450666
+      portal-all animations-ancient ruins-on grass_3: -2323942828467724072
+      portal-all animations-ancient ruins-on grass_4: 6954539373165824371
+      portal-all animations-ancient ruins-on grass_5: -8630678223155143076
+      portal-all animations-ancient ruins-on grass_6: 5583484265403222567
+      portal-all animations-ancient ruins-on grass_7: 5090242012816778410
+      portal-all animations-ancient ruins-on grass_8: 3871852755089665945
+      portal-all animations-ancient ruins-on grass_9: 1301187881306999509
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

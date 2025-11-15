@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: d8b2c0aa0114b654fb870434e8be92bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7041769787634760368
+    second: portal-all animations-crypt_0
+  - first:
+      213: 9012448666462870233
+    second: portal-all animations-crypt_1
+  - first:
+      213: -1550334540643011779
+    second: portal-all animations-crypt_2
+  - first:
+      213: -5575077593725778484
+    second: portal-all animations-crypt_3
+  - first:
+      213: -2665251283765326117
+    second: portal-all animations-crypt_4
+  - first:
+      213: 327495568091301320
+    second: portal-all animations-crypt_5
+  - first:
+      213: -7054079793276623329
+    second: portal-all animations-crypt_6
+  - first:
+      213: 2570904025651858636
+    second: portal-all animations-crypt_7
+  - first:
+      213: 6161337457618767971
+    second: portal-all animations-crypt_8
+  - first:
+      213: 6455613815347176017
+    second: portal-all animations-crypt_9
+  - first:
+      213: -8544302045667006721
+    second: portal-all animations-crypt_10
+  - first:
+      213: 2419630011313156376
+    second: portal-all animations-crypt_11
+  - first:
+      213: 8864482684742305131
+    second: portal-all animations-crypt_12
+  - first:
+      213: 3994022990874784102
+    second: portal-all animations-crypt_13
+  - first:
+      213: -6253642863823353373
+    second: portal-all animations-crypt_14
+  - first:
+      213: 8990342140681229447
+    second: portal-all animations-crypt_15
+  - first:
+      213: 2397032982451946807
+    second: portal-all animations-crypt_16
+  - first:
+      213: 3891963328069903620
+    second: portal-all animations-crypt_17
+  - first:
+      213: -6802257295580806041
+    second: portal-all animations-crypt_18
+  - first:
+      213: -3626632176477769351
+    second: portal-all animations-crypt_19
+  - first:
+      213: 6527317187468270165
+    second: portal-all animations-crypt_20
+  - first:
+      213: 6071371610394634888
+    second: portal-all animations-crypt_21
+  - first:
+      213: 155957248288490055
+    second: portal-all animations-crypt_22
+  - first:
+      213: 7783393012552541452
+    second: portal-all animations-crypt_23
+  - first:
+      213: 3928508119863572268
+    second: portal-all animations-crypt_24
+  - first:
+      213: 9045574947111903664
+    second: portal-all animations-crypt_25
+  - first:
+      213: 782520838571185340
+    second: portal-all animations-crypt_26
+  - first:
+      213: 1205248566493673900
+    second: portal-all animations-crypt_27
+  - first:
+      213: 6253167472795039138
+    second: portal-all animations-crypt_28
+  - first:
+      213: -8367093000877492900
+    second: portal-all animations-crypt_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-all animations-crypt_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ba3c0e105469b160800000000000000
+      internalID: 7041769787634760368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da56f8ef46a21d70800000000000000
+      internalID: 9012448666462870233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3374f503fa1c7ae0800000000000000
+      internalID: -1550334540643011779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc54cbe677851a2b0800000000000000
+      internalID: -5575077593725778484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde830a1410230bd0800000000000000
+      internalID: -2665251283765326117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5c899eb7f7b8400800000000000000
+      internalID: 327495568091301320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_6
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f166c785dcfda1e90800000000000000
+      internalID: -7054079793276623329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_7
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccc990179fada320800000000000000
+      internalID: 2570904025651858636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360dca606c7718550800000000000000
+      internalID: 6161337457618767971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1526fdecf82f69950800000000000000
+      internalID: 6455613815347176017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_10
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6ef522f8a8c6980800000000000000
+      internalID: -8544302045667006721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_11
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811f130fca0449120800000000000000
+      internalID: 2419630011313156376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_12
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b658aa52908f40b70800000000000000
+      internalID: 8864482684742305131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661b5dbbfbe9d6730800000000000000
+      internalID: 3994022990874784102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_14
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e907a5d2f89639a0800000000000000
+      internalID: -6253642863823353373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_15
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78497884b8c14cc70800000000000000
+      internalID: 8990342140681229447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73581f92cc8f34120800000000000000
+      internalID: 2397032982451946807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4052470c608030630800000000000000
+      internalID: 3891963328069903620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764c81297078991a0800000000000000
+      internalID: -6802257295580806041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9717a0e004d9badc0800000000000000
+      internalID: -3626632176477769351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_20
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a19571660b59a50800000000000000
+      internalID: 6527317187468270165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_21
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88aa6f8ef48d14450800000000000000
+      internalID: 6071371610394634888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_22
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74202608a421a2200800000000000000
+      internalID: 155957248288490055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_23
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05a37ce4ba240c60800000000000000
+      internalID: 7783393012552541452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27b4b5225dd48630800000000000000
+      internalID: 3928508119863572268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b127c72d76588d70800000000000000
+      internalID: 9045574947111903664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_26
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb450648e821cda00800000000000000
+      internalID: 782520838571185340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_27
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca977ef7f27e9b010800000000000000
+      internalID: 1205248566493673900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_28
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a5b9f09fa6b7c650800000000000000
+      internalID: 6253167472795039138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-crypt_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c553a081f3d12eb80800000000000000
+      internalID: -8367093000877492900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-all animations-crypt_0: 7041769787634760368
+      portal-all animations-crypt_1: 9012448666462870233
+      portal-all animations-crypt_10: -8544302045667006721
+      portal-all animations-crypt_11: 2419630011313156376
+      portal-all animations-crypt_12: 8864482684742305131
+      portal-all animations-crypt_13: 3994022990874784102
+      portal-all animations-crypt_14: -6253642863823353373
+      portal-all animations-crypt_15: 8990342140681229447
+      portal-all animations-crypt_16: 2397032982451946807
+      portal-all animations-crypt_17: 3891963328069903620
+      portal-all animations-crypt_18: -6802257295580806041
+      portal-all animations-crypt_19: -3626632176477769351
+      portal-all animations-crypt_2: -1550334540643011779
+      portal-all animations-crypt_20: 6527317187468270165
+      portal-all animations-crypt_21: 6071371610394634888
+      portal-all animations-crypt_22: 155957248288490055
+      portal-all animations-crypt_23: 7783393012552541452
+      portal-all animations-crypt_24: 3928508119863572268
+      portal-all animations-crypt_25: 9045574947111903664
+      portal-all animations-crypt_26: 782520838571185340
+      portal-all animations-crypt_27: 1205248566493673900
+      portal-all animations-crypt_28: 6253167472795039138
+      portal-all animations-crypt_29: -8367093000877492900
+      portal-all animations-crypt_3: -5575077593725778484
+      portal-all animations-crypt_4: -2665251283765326117
+      portal-all animations-crypt_5: 327495568091301320
+      portal-all animations-crypt_6: -7054079793276623329
+      portal-all animations-crypt_7: 2570904025651858636
+      portal-all animations-crypt_8: 6161337457618767971
+      portal-all animations-crypt_9: 6455613815347176017
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

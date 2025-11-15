@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: fee0e108d140ccc489cc7ccee48f1218
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8327534721442116215
+    second: portal-all animations-sewers-on grass_0
+  - first:
+      213: -8182820054229786904
+    second: portal-all animations-sewers-on grass_1
+  - first:
+      213: -3729694400843283412
+    second: portal-all animations-sewers-on grass_2
+  - first:
+      213: -4577274056737404725
+    second: portal-all animations-sewers-on grass_3
+  - first:
+      213: 5076375177619276486
+    second: portal-all animations-sewers-on grass_4
+  - first:
+      213: -1525834599222558007
+    second: portal-all animations-sewers-on grass_5
+  - first:
+      213: 7886714419468926239
+    second: portal-all animations-sewers-on grass_6
+  - first:
+      213: 2862190254939589396
+    second: portal-all animations-sewers-on grass_7
+  - first:
+      213: 3943380918015869576
+    second: portal-all animations-sewers-on grass_8
+  - first:
+      213: 9076610843850602100
+    second: portal-all animations-sewers-on grass_9
+  - first:
+      213: 500056504043779043
+    second: portal-all animations-sewers-on grass_10
+  - first:
+      213: 3244880658614254067
+    second: portal-all animations-sewers-on grass_11
+  - first:
+      213: 3387382285771967166
+    second: portal-all animations-sewers-on grass_12
+  - first:
+      213: 4495474287503470561
+    second: portal-all animations-sewers-on grass_13
+  - first:
+      213: -954355327584018191
+    second: portal-all animations-sewers-on grass_14
+  - first:
+      213: 1070973648293083569
+    second: portal-all animations-sewers-on grass_15
+  - first:
+      213: -3904035874763971813
+    second: portal-all animations-sewers-on grass_16
+  - first:
+      213: 5925651529345921899
+    second: portal-all animations-sewers-on grass_17
+  - first:
+      213: -6844495645379494535
+    second: portal-all animations-sewers-on grass_18
+  - first:
+      213: 4718577012175206009
+    second: portal-all animations-sewers-on grass_19
+  - first:
+      213: 618358104663858339
+    second: portal-all animations-sewers-on grass_20
+  - first:
+      213: -8248597559907738382
+    second: portal-all animations-sewers-on grass_21
+  - first:
+      213: -1200326135896412932
+    second: portal-all animations-sewers-on grass_22
+  - first:
+      213: -8916612201066621281
+    second: portal-all animations-sewers-on grass_23
+  - first:
+      213: -3268773792326218476
+    second: portal-all animations-sewers-on grass_24
+  - first:
+      213: -1067662955973714970
+    second: portal-all animations-sewers-on grass_25
+  - first:
+      213: 7812498957603384413
+    second: portal-all animations-sewers-on grass_26
+  - first:
+      213: 1289158362273409228
+    second: portal-all animations-sewers-on grass_27
+  - first:
+      213: -5197074047012946354
+    second: portal-all animations-sewers-on grass_28
+  - first:
+      213: -4581231883388441608
+    second: portal-all animations-sewers-on grass_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d06b1ca47ae6c80800000000000000
+      internalID: -8327534721442116215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eed0bed388c07e80800000000000000
+      internalID: -8182820054229786904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2409f404b67d3cc0800000000000000
+      internalID: -3729694400843283412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc84e803f714a70c0800000000000000
+      internalID: -4577274056737404725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c28b980458e27640800000000000000
+      internalID: 5076375177619276486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2c657248523dae0800000000000000
+      internalID: -1525834599222558007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_6
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d75699afc337d60800000000000000
+      internalID: 7886714419468926239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_7
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41b42415fda88b720800000000000000
+      internalID: 2862190254939589396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882c3605d04b9b630800000000000000
+      internalID: 3943380918015869576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4767c28f87996fd70800000000000000
+      internalID: 9076610843850602100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_10
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e33723bdbe80f600800000000000000
+      internalID: 500056504043779043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_11
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9fc3354c1280d20800000000000000
+      internalID: 3244880658614254067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_12
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba83e5ed36620f20800000000000000
+      internalID: 3387382285771967166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1efeb83eb02236e30800000000000000
+      internalID: 4495474287503470561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_14
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f06addc2e271c2f0800000000000000
+      internalID: -954355327584018191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_15
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9305edbdcdcde00800000000000000
+      internalID: 1070973648293083569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13ef4e6e0412d9c0800000000000000
+      internalID: -3904035874763971813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63f965aba42c3250800000000000000
+      internalID: 5925651529345921899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d727669777301a0800000000000000
+      internalID: -6844495645379494535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976f600eac0cb7140800000000000000
+      internalID: 4718577012175206009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_20
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac19748b69d49800800000000000000
+      internalID: 618358104663858339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_21
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc9b82e838178d80800000000000000
+      internalID: -8248597559907738382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_22
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfce64f2db5975fe0800000000000000
+      internalID: -1200326135896412932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_23
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9692830274d14480800000000000000
+      internalID: -8916612201066621281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d0a49fd8bf2a2d0800000000000000
+      internalID: -3268773792326218476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ebd751c236ee21f0800000000000000
+      internalID: -1067662955973714970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_26
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c2f08d8629b6c60800000000000000
+      internalID: 7812498957603384413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_27
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8e78243b204e110800000000000000
+      internalID: 1289158362273409228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_28
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e346480b840e7b0800000000000000
+      internalID: -5197074047012946354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers-on grass_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb20fcdfd13c60c0800000000000000
+      internalID: -4581231883388441608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-all animations-sewers-on grass_0: -8327534721442116215
+      portal-all animations-sewers-on grass_1: -8182820054229786904
+      portal-all animations-sewers-on grass_10: 500056504043779043
+      portal-all animations-sewers-on grass_11: 3244880658614254067
+      portal-all animations-sewers-on grass_12: 3387382285771967166
+      portal-all animations-sewers-on grass_13: 4495474287503470561
+      portal-all animations-sewers-on grass_14: -954355327584018191
+      portal-all animations-sewers-on grass_15: 1070973648293083569
+      portal-all animations-sewers-on grass_16: -3904035874763971813
+      portal-all animations-sewers-on grass_17: 5925651529345921899
+      portal-all animations-sewers-on grass_18: -6844495645379494535
+      portal-all animations-sewers-on grass_19: 4718577012175206009
+      portal-all animations-sewers-on grass_2: -3729694400843283412
+      portal-all animations-sewers-on grass_20: 618358104663858339
+      portal-all animations-sewers-on grass_21: -8248597559907738382
+      portal-all animations-sewers-on grass_22: -1200326135896412932
+      portal-all animations-sewers-on grass_23: -8916612201066621281
+      portal-all animations-sewers-on grass_24: -3268773792326218476
+      portal-all animations-sewers-on grass_25: -1067662955973714970
+      portal-all animations-sewers-on grass_26: 7812498957603384413
+      portal-all animations-sewers-on grass_27: 1289158362273409228
+      portal-all animations-sewers-on grass_28: -5197074047012946354
+      portal-all animations-sewers-on grass_29: -4581231883388441608
+      portal-all animations-sewers-on grass_3: -4577274056737404725
+      portal-all animations-sewers-on grass_4: 5076375177619276486
+      portal-all animations-sewers-on grass_5: -1525834599222558007
+      portal-all animations-sewers-on grass_6: 7886714419468926239
+      portal-all animations-sewers-on grass_7: 2862190254939589396
+      portal-all animations-sewers-on grass_8: 3943380918015869576
+      portal-all animations-sewers-on grass_9: 9076610843850602100
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

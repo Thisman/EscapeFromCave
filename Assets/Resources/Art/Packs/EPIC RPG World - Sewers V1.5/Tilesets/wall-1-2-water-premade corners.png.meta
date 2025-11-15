@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 8b84ab2d7ff6dec4e900dc718540b27d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3710753229688963153
+    second: wall-1-2-water-premade corners_0
+  - first:
+      213: 382027360158288298
+    second: wall-1-2-water-premade corners_1
+  - first:
+      213: -4068020863095127759
+    second: wall-1-2-water-premade corners_2
+  - first:
+      213: -8126345683779155260
+    second: wall-1-2-water-premade corners_3
+  - first:
+      213: 4989635715365541616
+    second: wall-1-2-water-premade corners_4
+  - first:
+      213: -602180550738766614
+    second: wall-1-2-water-premade corners_5
+  - first:
+      213: 753831863024562691
+    second: wall-1-2-water-premade corners_6
+  - first:
+      213: -2063217069172331792
+    second: wall-1-2-water-premade corners_7
+  - first:
+      213: 6472286461202516864
+    second: wall-1-2-water-premade corners_8
+  - first:
+      213: -8265482999086455864
+    second: wall-1-2-water-premade corners_9
+  - first:
+      213: -3029237903967173621
+    second: wall-1-2-water-premade corners_10
+  - first:
+      213: -9040482854154997325
+    second: wall-1-2-water-premade corners_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 415
+        width: 61
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1508eb8e66e3f7330800000000000000
+      internalID: 3710753229688963153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 415
+        width: 61
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa907b82cdb3d4500800000000000000
+      internalID: 382027360158288298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 415
+        width: 93
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131465c049c7b87c0800000000000000
+      internalID: -4068020863095127759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_3
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 415
+        width: 93
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca8054e7ab693f80800000000000000
+      internalID: -8126345683779155260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 223
+        width: 66
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f617f43f3fbe3540800000000000000
+      internalID: 4989635715365541616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 223
+        width: 66
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae41196caff94a7f0800000000000000
+      internalID: -602180550738766614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 191
+        width: 66
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30233ffd516267a00800000000000000
+      internalID: 753831863024562691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_7
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 191
+        width: 66
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fae579c10bfd53e0800000000000000
+      internalID: -2063217069172331792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 232
+        width: 93
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bcb8cae3e22d950800000000000000
+      internalID: 6472286461202516864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_9
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 232
+        width: 93
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3eb66310b1b4d80800000000000000
+      internalID: -8265482999086455864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 31
+        width: 93
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0443e90d2cf5f5d0800000000000000
+      internalID: -3029237903967173621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-1-2-water-premade corners_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 31
+        width: 93
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1f4102eb0c98280800000000000000
+      internalID: -9040482854154997325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wall-1-2-water-premade corners_0: 3710753229688963153
+      wall-1-2-water-premade corners_1: 382027360158288298
+      wall-1-2-water-premade corners_10: -3029237903967173621
+      wall-1-2-water-premade corners_11: -9040482854154997325
+      wall-1-2-water-premade corners_2: -4068020863095127759
+      wall-1-2-water-premade corners_3: -8126345683779155260
+      wall-1-2-water-premade corners_4: 4989635715365541616
+      wall-1-2-water-premade corners_5: -602180550738766614
+      wall-1-2-water-premade corners_6: 753831863024562691
+      wall-1-2-water-premade corners_7: -2063217069172331792
+      wall-1-2-water-premade corners_8: 6472286461202516864
+      wall-1-2-water-premade corners_9: -8265482999086455864
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

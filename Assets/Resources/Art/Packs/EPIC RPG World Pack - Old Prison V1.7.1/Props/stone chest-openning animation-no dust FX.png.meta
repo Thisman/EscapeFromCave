@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 0c2c3439378f5f243925d97f117b17b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3867183615786615842
+    second: stone chest-openning animation-no dust FX_0
+  - first:
+      213: -6812306056591863848
+    second: stone chest-openning animation-no dust FX_1
+  - first:
+      213: -238360341141871037
+    second: stone chest-openning animation-no dust FX_2
+  - first:
+      213: 564761567618501494
+    second: stone chest-openning animation-no dust FX_3
+  - first:
+      213: 2314996228088975182
+    second: stone chest-openning animation-no dust FX_4
+  - first:
+      213: 5405774596953954127
+    second: stone chest-openning animation-no dust FX_5
+  - first:
+      213: 4314792612206256576
+    second: stone chest-openning animation-no dust FX_6
+  - first:
+      213: -473737481366848237
+    second: stone chest-openning animation-no dust FX_7
+  - first:
+      213: 3162861549219259585
+    second: stone chest-openning animation-no dust FX_8
+  - first:
+      213: 3399261331124288587
+    second: stone chest-openning animation-no dust FX_9
+  - first:
+      213: -3136685829346098079
+    second: stone chest-openning animation-no dust FX_10
+  - first:
+      213: -5170258212750502885
+    second: stone chest-openning animation-no dust FX_11
+  - first:
+      213: 3074176883221754320
+    second: stone chest-openning animation-no dust FX_12
+  - first:
+      213: -6851475263514659033
+    second: stone chest-openning animation-no dust FX_13
+  - first:
+      213: -6973310234258577621
+    second: stone chest-openning animation-no dust FX_14
+  - first:
+      213: 7346380455645859791
+    second: stone chest-openning animation-no dust FX_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_0
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 18
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2240c24620ffaa530800000000000000
+      internalID: 3867183615786615842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 18
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df89931cb3d571a0800000000000000
+      internalID: -6812306056591863848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 18
+        width: 65
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346a2b9588c21bcf0800000000000000
+      internalID: -238360341141871037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 18
+        width: 66
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b81bc47af66d700800000000000000
+      internalID: 564761567618501494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_4
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 18
+        width: 69
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4fcc97ddc4802020800000000000000
+      internalID: 2314996228088975182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_5
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 18
+        width: 73
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47554bda5b250b40800000000000000
+      internalID: 5405774596953954127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_6
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 18
+        width: 78
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1a802250931eb30800000000000000
+      internalID: 4314792612206256576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_7
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 18
+        width: 83
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d375a4542fc69f0800000000000000
+      internalID: -473737481366848237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_8
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 18
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4a4fa42ddb4eb20800000000000000
+      internalID: 3162861549219259585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_9
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 18
+        width: 93
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c726cab2a9c2f20800000000000000
+      internalID: 3399261331124288587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_10
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 18
+        width: 98
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16403d96bd04874d0800000000000000
+      internalID: -3136685829346098079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_11
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 17
+        width: 104
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14d5f77c8d8f38b0800000000000000
+      internalID: -5170258212750502885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_12
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 17
+        width: 104
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1762d669ba9aa20800000000000000
+      internalID: 3074176883221754320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_13
+      rect:
+        serializedVersion: 2
+        x: 2226
+        y: 17
+        width: 106
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72735da6c8baae0a0800000000000000
+      internalID: -6851475263514659033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_14
+      rect:
+        serializedVersion: 2
+        x: 2394
+        y: 16
+        width: 107
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27eb62c943d93f90800000000000000
+      internalID: -6973310234258577621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone chest-openning animation-no dust FX_15
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 16
+        width: 108
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcfc4a30a1693f560800000000000000
+      internalID: 7346380455645859791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stone chest-openning animation-no dust FX_0: 3867183615786615842
+      stone chest-openning animation-no dust FX_1: -6812306056591863848
+      stone chest-openning animation-no dust FX_10: -3136685829346098079
+      stone chest-openning animation-no dust FX_11: -5170258212750502885
+      stone chest-openning animation-no dust FX_12: 3074176883221754320
+      stone chest-openning animation-no dust FX_13: -6851475263514659033
+      stone chest-openning animation-no dust FX_14: -6973310234258577621
+      stone chest-openning animation-no dust FX_15: 7346380455645859791
+      stone chest-openning animation-no dust FX_2: -238360341141871037
+      stone chest-openning animation-no dust FX_3: 564761567618501494
+      stone chest-openning animation-no dust FX_4: 2314996228088975182
+      stone chest-openning animation-no dust FX_5: 5405774596953954127
+      stone chest-openning animation-no dust FX_6: 4314792612206256576
+      stone chest-openning animation-no dust FX_7: -473737481366848237
+      stone chest-openning animation-no dust FX_8: 3162861549219259585
+      stone chest-openning animation-no dust FX_9: 3399261331124288587
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

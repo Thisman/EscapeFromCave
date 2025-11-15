@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 29cdfdc5cfc988547b947cc1fedf0434
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5079845690633941266
+    second: portal-all animations-sewers_0
+  - first:
+      213: -492427543939497631
+    second: portal-all animations-sewers_1
+  - first:
+      213: 9110894418371143906
+    second: portal-all animations-sewers_2
+  - first:
+      213: 6739007223349371057
+    second: portal-all animations-sewers_3
+  - first:
+      213: 5423068388907554376
+    second: portal-all animations-sewers_4
+  - first:
+      213: -4134936491656071412
+    second: portal-all animations-sewers_5
+  - first:
+      213: 7075081698281932261
+    second: portal-all animations-sewers_6
+  - first:
+      213: -6122794332711771775
+    second: portal-all animations-sewers_7
+  - first:
+      213: 3920993236241550388
+    second: portal-all animations-sewers_8
+  - first:
+      213: -1469863685652920201
+    second: portal-all animations-sewers_9
+  - first:
+      213: -5001985514334814681
+    second: portal-all animations-sewers_10
+  - first:
+      213: -154266052776752467
+    second: portal-all animations-sewers_11
+  - first:
+      213: 4892255453199427337
+    second: portal-all animations-sewers_12
+  - first:
+      213: 2928216994142319158
+    second: portal-all animations-sewers_13
+  - first:
+      213: 4023030256656059799
+    second: portal-all animations-sewers_14
+  - first:
+      213: 7729179810584463996
+    second: portal-all animations-sewers_15
+  - first:
+      213: -999725869961076903
+    second: portal-all animations-sewers_16
+  - first:
+      213: -5479267180890073350
+    second: portal-all animations-sewers_17
+  - first:
+      213: 5597937640568115644
+    second: portal-all animations-sewers_18
+  - first:
+      213: 186254805164190296
+    second: portal-all animations-sewers_19
+  - first:
+      213: -4825551507437354226
+    second: portal-all animations-sewers_20
+  - first:
+      213: 6792633699637058127
+    second: portal-all animations-sewers_21
+  - first:
+      213: 8113351613153133153
+    second: portal-all animations-sewers_22
+  - first:
+      213: -5035580201668180870
+    second: portal-all animations-sewers_23
+  - first:
+      213: -1800754066332361510
+    second: portal-all animations-sewers_24
+  - first:
+      213: 5076100212721188143
+    second: portal-all animations-sewers_25
+  - first:
+      213: 914512698867370781
+    second: portal-all animations-sewers_26
+  - first:
+      213: -1339535439081324096
+    second: portal-all animations-sewers_27
+  - first:
+      213: 6174829591722908159
+    second: portal-all animations-sewers_28
+  - first:
+      213: 4580546649740592727
+    second: portal-all animations-sewers_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-all animations-sewers_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee07ff2243c089b0800000000000000
+      internalID: -5079845690633941266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1614eddf1cb8a29f0800000000000000
+      internalID: -492427543939497631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8e911b336607e70800000000000000
+      internalID: 9110894418371143906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0e7866d53c58d50800000000000000
+      internalID: 6739007223349371057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8461c7197fb924b40800000000000000
+      internalID: 5423068388907554376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c073a0e2b21cd96c0800000000000000
+      internalID: -4134936491656071412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_6
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e546f6b15dbf2260800000000000000
+      internalID: 7075081698281932261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_7
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 181a0fd8ef6770ba0800000000000000
+      internalID: -6122794332711771775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c03e4f29a2a6630800000000000000
+      internalID: 3920993236241550388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778496cf3cef99be0800000000000000
+      internalID: -1469863685652920201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_10
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e7c662da0659ab0800000000000000
+      internalID: -5001985514334814681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_11
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa0753a7dfebddf0800000000000000
+      internalID: -154266052776752467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_12
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9076b661a68c4e340800000000000000
+      internalID: 4892255453199427337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6327d1187dd13a820800000000000000
+      internalID: 2928216994142319158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_14
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d02a814bca4d730800000000000000
+      internalID: 4023030256656059799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_15
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a02073610934b60800000000000000
+      internalID: 7729179810584463996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f93383e924022f0800000000000000
+      internalID: -999725869961076903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af65795878bb5f3b0800000000000000
+      internalID: -5479267180890073350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1d9dcff9edfad40800000000000000
+      internalID: 5597937640568115644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a658b22c5b59200800000000000000
+      internalID: 186254805164190296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_20
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0388d98872380db0800000000000000
+      internalID: -4825551507437354226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_21
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ad6346c58444e50800000000000000
+      internalID: 6792633699637058127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_22
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 162c5d74e4a689070800000000000000
+      internalID: 8113351613153133153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_23
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7404997c760e1ab0800000000000000
+      internalID: -5035580201668180870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc5b6ca7bf6207e0800000000000000
+      internalID: -1800754066332361510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2df787cf3ee17640800000000000000
+      internalID: 5076100212721188143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_26
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1bc29e447001bc00800000000000000
+      internalID: 914512698867370781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_27
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1c2858d93096de0800000000000000
+      internalID: -1339535439081324096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_28
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9d63b4cc661b550800000000000000
+      internalID: 6174829591722908159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-sewers_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756c4eeb8ee519f30800000000000000
+      internalID: 4580546649740592727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-all animations-sewers_0: -5079845690633941266
+      portal-all animations-sewers_1: -492427543939497631
+      portal-all animations-sewers_10: -5001985514334814681
+      portal-all animations-sewers_11: -154266052776752467
+      portal-all animations-sewers_12: 4892255453199427337
+      portal-all animations-sewers_13: 2928216994142319158
+      portal-all animations-sewers_14: 4023030256656059799
+      portal-all animations-sewers_15: 7729179810584463996
+      portal-all animations-sewers_16: -999725869961076903
+      portal-all animations-sewers_17: -5479267180890073350
+      portal-all animations-sewers_18: 5597937640568115644
+      portal-all animations-sewers_19: 186254805164190296
+      portal-all animations-sewers_2: 9110894418371143906
+      portal-all animations-sewers_20: -4825551507437354226
+      portal-all animations-sewers_21: 6792633699637058127
+      portal-all animations-sewers_22: 8113351613153133153
+      portal-all animations-sewers_23: -5035580201668180870
+      portal-all animations-sewers_24: -1800754066332361510
+      portal-all animations-sewers_25: 5076100212721188143
+      portal-all animations-sewers_26: 914512698867370781
+      portal-all animations-sewers_27: -1339535439081324096
+      portal-all animations-sewers_28: 6174829591722908159
+      portal-all animations-sewers_29: 4580546649740592727
+      portal-all animations-sewers_3: 6739007223349371057
+      portal-all animations-sewers_4: 5423068388907554376
+      portal-all animations-sewers_5: -4134936491656071412
+      portal-all animations-sewers_6: 7075081698281932261
+      portal-all animations-sewers_7: -6122794332711771775
+      portal-all animations-sewers_8: 3920993236241550388
+      portal-all animations-sewers_9: -1469863685652920201
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

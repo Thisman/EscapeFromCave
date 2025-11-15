@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: b33516b343bd2fc488e78aa9b166c0ac
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1044285460956656545
+    second: Obelisk5-animation2-activated-100x150_0
+  - first:
+      213: 571287182871303125
+    second: Obelisk5-animation2-activated-100x150_1
+  - first:
+      213: -3823354014519175710
+    second: Obelisk5-animation2-activated-100x150_2
+  - first:
+      213: -905250395200593597
+    second: Obelisk5-animation2-activated-100x150_3
+  - first:
+      213: -7474932109184082610
+    second: Obelisk5-animation2-activated-100x150_4
+  - first:
+      213: -4859843374471688135
+    second: Obelisk5-animation2-activated-100x150_5
+  - first:
+      213: 7152724146583366848
+    second: Obelisk5-animation2-activated-100x150_6
+  - first:
+      213: 3457918533040834552
+    second: Obelisk5-animation2-activated-100x150_7
+  - first:
+      213: -3166047618055448448
+    second: Obelisk5-animation2-activated-100x150_8
+  - first:
+      213: 2325246398532871139
+    second: Obelisk5-animation2-activated-100x150_9
+  - first:
+      213: -2903226456760642939
+    second: Obelisk5-animation2-activated-100x150_10
+  - first:
+      213: -3919613926386313446
+    second: Obelisk5-animation2-activated-100x150_11
+  - first:
+      213: 2731399037490485652
+    second: Obelisk5-animation2-activated-100x150_12
+  - first:
+      213: -8713432205242007927
+    second: Obelisk5-animation2-activated-100x150_13
+  - first:
+      213: -8339065118001930187
+    second: Obelisk5-animation2-activated-100x150_14
+  - first:
+      213: -4544644815821748913
+    second: Obelisk5-animation2-activated-100x150_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5cc297f7e3f181f0800000000000000
+      internalID: -1044285460956656545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d317cf7aae9de700800000000000000
+      internalID: 571287182871303125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e55502e7c7b0fac0800000000000000
+      internalID: -3823354014519175710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_3
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3416941df87ef63f0800000000000000
+      internalID: -905250395200593597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ddbefb9d4b34890800000000000000
+      internalID: -7474932109184082610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_5
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9305490133e5e8cb0800000000000000
+      internalID: -4859843374471688135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_6
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cce57de6b4934360800000000000000
+      internalID: 7152724146583366848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_7
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f78320c59efcff20800000000000000
+      internalID: 3457918533040834552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_8
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08855df3770ff04d0800000000000000
+      internalID: -3166047618055448448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_9
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e3eecf974fe44020800000000000000
+      internalID: 2325246398532871139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_10
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58214466beaa5b7d0800000000000000
+      internalID: -2903226456760642939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_11
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17d115a6ebba99c0800000000000000
+      internalID: -3919613926386313446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_12
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499d679f3f0e7e520800000000000000
+      internalID: 2731399037490485652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_13
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ef918339ba31780800000000000000
+      internalID: -8713432205242007927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_14
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530e4aa1570b54c80800000000000000
+      internalID: -8339065118001930187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Obelisk5-animation2-activated-100x150_15
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 7
+        width: 46
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45cf9a5e9d2ee0c0800000000000000
+      internalID: -4544644815821748913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Obelisk5-animation2-activated-100x150_0: -1044285460956656545
+      Obelisk5-animation2-activated-100x150_1: 571287182871303125
+      Obelisk5-animation2-activated-100x150_10: -2903226456760642939
+      Obelisk5-animation2-activated-100x150_11: -3919613926386313446
+      Obelisk5-animation2-activated-100x150_12: 2731399037490485652
+      Obelisk5-animation2-activated-100x150_13: -8713432205242007927
+      Obelisk5-animation2-activated-100x150_14: -8339065118001930187
+      Obelisk5-animation2-activated-100x150_15: -4544644815821748913
+      Obelisk5-animation2-activated-100x150_2: -3823354014519175710
+      Obelisk5-animation2-activated-100x150_3: -905250395200593597
+      Obelisk5-animation2-activated-100x150_4: -7474932109184082610
+      Obelisk5-animation2-activated-100x150_5: -4859843374471688135
+      Obelisk5-animation2-activated-100x150_6: 7152724146583366848
+      Obelisk5-animation2-activated-100x150_7: 3457918533040834552
+      Obelisk5-animation2-activated-100x150_8: -3166047618055448448
+      Obelisk5-animation2-activated-100x150_9: 2325246398532871139
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

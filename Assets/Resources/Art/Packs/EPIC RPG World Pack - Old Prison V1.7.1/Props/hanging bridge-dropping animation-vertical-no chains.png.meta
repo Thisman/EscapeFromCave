@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 393e8fe3b39989349a4003f79d3bafc5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6475459027322150960
+    second: hanging bridge-dropping animation-vertical-no chains_0
+  - first:
+      213: -7124701774212870243
+    second: hanging bridge-dropping animation-vertical-no chains_1
+  - first:
+      213: -4017841669033298691
+    second: hanging bridge-dropping animation-vertical-no chains_2
+  - first:
+      213: -6259287366904544622
+    second: hanging bridge-dropping animation-vertical-no chains_3
+  - first:
+      213: 2126435794396743098
+    second: hanging bridge-dropping animation-vertical-no chains_4
+  - first:
+      213: 8804591943462931865
+    second: hanging bridge-dropping animation-vertical-no chains_5
+  - first:
+      213: 3920979351765295388
+    second: hanging bridge-dropping animation-vertical-no chains_6
+  - first:
+      213: -3737416999144867213
+    second: hanging bridge-dropping animation-vertical-no chains_7
+  - first:
+      213: -1562136030094264093
+    second: hanging bridge-dropping animation-vertical-no chains_8
+  - first:
+      213: -7856256068331619587
+    second: hanging bridge-dropping animation-vertical-no chains_9
+  - first:
+      213: 5559344106447565236
+    second: hanging bridge-dropping animation-vertical-no chains_10
+  - first:
+      213: -8164741534191326767
+    second: hanging bridge-dropping animation-vertical-no chains_11
+  - first:
+      213: 8616737548918151529
+    second: hanging bridge-dropping animation-vertical-no chains_12
+  - first:
+      213: 3702348832665655268
+    second: hanging bridge-dropping animation-vertical-no chains_13
+  - first:
+      213: -5359420999274567943
+    second: hanging bridge-dropping animation-vertical-no chains_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 130
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03022294da37dd950800000000000000
+      internalID: 6475459027322150960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 128
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f42711c79ff1d90800000000000000
+      internalID: -7124701774212870243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_2
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 126
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4f1891a42cd38c0800000000000000
+      internalID: -4017841669033298691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_3
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 116
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 292809c8d4b8229a0800000000000000
+      internalID: -6259287366904544622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_4
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 104
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab581b2b61e928d10800000000000000
+      internalID: 2126435794396743098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_5
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 88
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99dcf5e49b1303a70800000000000000
+      internalID: 8804591943462931865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_6
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 72
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11ac9932fd1a6630800000000000000
+      internalID: 3920979351765295388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_7
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 56
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ab67c7a07022cc0800000000000000
+      internalID: -3737416999144867213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_8
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 40
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e87463ae8d225ae0800000000000000
+      internalID: -1562136030094264093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_9
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 24
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa3696eab8f8f290800000000000000
+      internalID: -7856256068331619587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_10
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 14
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1f7f89202c62d40800000000000000
+      internalID: 5559344106447565236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_11
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 8
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9e5a355d201be80800000000000000
+      internalID: -8164741534191326767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_12
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 4
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9695906b52dc49770800000000000000
+      internalID: 8616737548918151529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_13
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 1
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e75e9db5a2616330800000000000000
+      internalID: 3702348832665655268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-vertical-no chains_14
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 2
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f668702ff28f95b0800000000000000
+      internalID: -5359420999274567943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hanging bridge-dropping animation-vertical-no chains_0: 6475459027322150960
+      hanging bridge-dropping animation-vertical-no chains_1: -7124701774212870243
+      hanging bridge-dropping animation-vertical-no chains_10: 5559344106447565236
+      hanging bridge-dropping animation-vertical-no chains_11: -8164741534191326767
+      hanging bridge-dropping animation-vertical-no chains_12: 8616737548918151529
+      hanging bridge-dropping animation-vertical-no chains_13: 3702348832665655268
+      hanging bridge-dropping animation-vertical-no chains_14: -5359420999274567943
+      hanging bridge-dropping animation-vertical-no chains_2: -4017841669033298691
+      hanging bridge-dropping animation-vertical-no chains_3: -6259287366904544622
+      hanging bridge-dropping animation-vertical-no chains_4: 2126435794396743098
+      hanging bridge-dropping animation-vertical-no chains_5: 8804591943462931865
+      hanging bridge-dropping animation-vertical-no chains_6: 3920979351765295388
+      hanging bridge-dropping animation-vertical-no chains_7: -3737416999144867213
+      hanging bridge-dropping animation-vertical-no chains_8: -1562136030094264093
+      hanging bridge-dropping animation-vertical-no chains_9: -7856256068331619587
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

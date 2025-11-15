@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 77dd9071aace2854791798adc82e5da5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1568301986719946074
+    second: Stone-golem v2-hurt-224x192_0
+  - first:
+      213: 9014210117891379370
+    second: Stone-golem v2-hurt-224x192_1
+  - first:
+      213: -883017326094381859
+    second: Stone-golem v2-hurt-224x192_2
+  - first:
+      213: 5950094441694057163
+    second: Stone-golem v2-hurt-224x192_3
+  - first:
+      213: -7444024919833017249
+    second: Stone-golem v2-hurt-224x192_4
+  - first:
+      213: 2462883774229877267
+    second: Stone-golem v2-hurt-224x192_5
+  - first:
+      213: -8352534852357656112
+    second: Stone-golem v2-hurt-224x192_6
+  - first:
+      213: -8842611237406529729
+    second: Stone-golem v2-hurt-224x192_7
+  - first:
+      213: 8559546411447515848
+    second: Stone-golem v2-hurt-224x192_8
+  - first:
+      213: 2212137736791461353
+    second: Stone-golem v2-hurt-224x192_9
+  - first:
+      213: 2878537806957399207
+    second: Stone-golem v2-hurt-224x192_10
+  - first:
+      213: 7784332671436684526
+    second: Stone-golem v2-hurt-224x192_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 66
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a555bf2095ab3c510800000000000000
+      internalID: 1568301986719946074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 66
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa0d5a7c758e81d70800000000000000
+      internalID: 9014210117891379370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 66
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc01ab9b64eeb3f0800000000000000
+      internalID: -883017326094381859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 66
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc25339ae5bf29250800000000000000
+      internalID: 5950094441694057163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_4
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 66
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54823a86c281b890800000000000000
+      internalID: -7444024919833017249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_5
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 66
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3129b066ebbed2220800000000000000
+      internalID: 2462883774229877267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_6
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 66
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d1f62f2ec5d51c80800000000000000
+      internalID: -8352534852357656112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_7
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 66
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37a1830eebb84580800000000000000
+      internalID: -8842611237406529729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_8
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 66
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca7ccc5c1e99c670800000000000000
+      internalID: 8559546411447515848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_9
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 65
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed01bb1d8713be10800000000000000
+      internalID: 2212137736791461353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_10
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 66
+        width: 71
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac4a3062ee92f720800000000000000
+      internalID: 2878537806957399207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone-golem v2-hurt-224x192_11
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 66
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec737e4251870c60800000000000000
+      internalID: 7784332671436684526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Stone-golem v2-hurt-224x192_0: 1568301986719946074
+      Stone-golem v2-hurt-224x192_1: 9014210117891379370
+      Stone-golem v2-hurt-224x192_10: 2878537806957399207
+      Stone-golem v2-hurt-224x192_11: 7784332671436684526
+      Stone-golem v2-hurt-224x192_2: -883017326094381859
+      Stone-golem v2-hurt-224x192_3: 5950094441694057163
+      Stone-golem v2-hurt-224x192_4: -7444024919833017249
+      Stone-golem v2-hurt-224x192_5: 2462883774229877267
+      Stone-golem v2-hurt-224x192_6: -8352534852357656112
+      Stone-golem v2-hurt-224x192_7: -8842611237406529729
+      Stone-golem v2-hurt-224x192_8: 8559546411447515848
+      Stone-golem v2-hurt-224x192_9: 2212137736791461353
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

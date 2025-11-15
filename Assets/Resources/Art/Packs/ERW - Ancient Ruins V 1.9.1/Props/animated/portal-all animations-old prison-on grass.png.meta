@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: e0dd6d0569617254686798203e3dfba7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1136902058282114928
+    second: portal-all animations-old prison-on grass_0
+  - first:
+      213: 3160943896546977368
+    second: portal-all animations-old prison-on grass_1
+  - first:
+      213: -8769406009092671792
+    second: portal-all animations-old prison-on grass_2
+  - first:
+      213: -5934941758406699842
+    second: portal-all animations-old prison-on grass_3
+  - first:
+      213: -4077223131656594882
+    second: portal-all animations-old prison-on grass_4
+  - first:
+      213: -5376331571497117423
+    second: portal-all animations-old prison-on grass_5
+  - first:
+      213: 9156802204666429860
+    second: portal-all animations-old prison-on grass_6
+  - first:
+      213: -5683695055358421604
+    second: portal-all animations-old prison-on grass_7
+  - first:
+      213: -5448953458682002332
+    second: portal-all animations-old prison-on grass_8
+  - first:
+      213: 5142908799871424675
+    second: portal-all animations-old prison-on grass_9
+  - first:
+      213: -7113234002619550695
+    second: portal-all animations-old prison-on grass_10
+  - first:
+      213: 6444131368408623505
+    second: portal-all animations-old prison-on grass_11
+  - first:
+      213: -7767956694829529849
+    second: portal-all animations-old prison-on grass_12
+  - first:
+      213: 1028952132564610521
+    second: portal-all animations-old prison-on grass_13
+  - first:
+      213: 7059156860595953232
+    second: portal-all animations-old prison-on grass_14
+  - first:
+      213: -7300577973385521903
+    second: portal-all animations-old prison-on grass_15
+  - first:
+      213: -6997058131332902053
+    second: portal-all animations-old prison-on grass_16
+  - first:
+      213: 6227119480031874566
+    second: portal-all animations-old prison-on grass_17
+  - first:
+      213: 2812757601059541381
+    second: portal-all animations-old prison-on grass_18
+  - first:
+      213: -2721121802608225028
+    second: portal-all animations-old prison-on grass_19
+  - first:
+      213: 2511954783184205110
+    second: portal-all animations-old prison-on grass_20
+  - first:
+      213: -9071179585242703052
+    second: portal-all animations-old prison-on grass_21
+  - first:
+      213: -6002213170381859107
+    second: portal-all animations-old prison-on grass_22
+  - first:
+      213: -1414229995611546283
+    second: portal-all animations-old prison-on grass_23
+  - first:
+      213: -699615950165289529
+    second: portal-all animations-old prison-on grass_24
+  - first:
+      213: 2116916263382502724
+    second: portal-all animations-old prison-on grass_25
+  - first:
+      213: 1777056688970702909
+    second: portal-all animations-old prison-on grass_26
+  - first:
+      213: -3574193129248875665
+    second: portal-all animations-old prison-on grass_27
+  - first:
+      213: -6718075912316386039
+    second: portal-all animations-old prison-on grass_28
+  - first:
+      213: -5931905023856651276
+    second: portal-all animations-old prison-on grass_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fd050066617cf00800000000000000
+      internalID: 1136902058282114928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8562f9cf9bdeddb20800000000000000
+      internalID: 3160943896546977368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_2
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6fad072bfcc4680800000000000000
+      internalID: -8769406009092671792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb459875ae9d2ada0800000000000000
+      internalID: -5934941758406699842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_4
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a5a9fe92bca67c0800000000000000
+      internalID: -4077223131656594882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_5
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1195236bbee6365b0800000000000000
+      internalID: -5376331571497117423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_6
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a108af171f731f70800000000000000
+      internalID: 9156802204666429860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_7
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 585
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9597bde5757f11b0800000000000000
+      internalID: -5683695055358421604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4648f99f2bd6164b0800000000000000
+      internalID: -5448953458682002332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a811902e484f5740800000000000000
+      internalID: 5142908799871424675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_10
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914b1a5bc57b84d90800000000000000
+      internalID: -7113234002619550695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_11
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199a2fb46572e6950800000000000000
+      internalID: 6444131368408623505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_12
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705811eda8ca23490800000000000000
+      internalID: -7767956694829529849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dde4605382974e00800000000000000
+      internalID: 1028952132564610521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_14
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e559183c927f160800000000000000
+      internalID: 7059156860595953232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_15
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 393
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115905963032faa90800000000000000
+      internalID: -7300577973385521903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53d42993b475ee90800000000000000
+      internalID: -6997058131332902053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60e0735ac2c2b6650800000000000000
+      internalID: 6227119480031874566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5811f62b22ce80720800000000000000
+      internalID: 2812757601059541381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_19
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf457fc3322ac3ad0800000000000000
+      internalID: -2721121802608225028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_20
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 635b98ff0914cd220800000000000000
+      internalID: 2511954783184205110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_21
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b55d77a32bc1280800000000000000
+      internalID: -9071179585242703052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_22
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd6d7313cead3bca0800000000000000
+      internalID: -6002213170381859107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_23
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 201
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d1fd8df45af5ce0800000000000000
+      internalID: -1414229995611546283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5533300077a46f0800000000000000
+      internalID: -699615950165289529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_25
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d492a202cc06d10800000000000000
+      internalID: 2116916263382502724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_26
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30a4d3b4af59a810800000000000000
+      internalID: 1777056688970702909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_27
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b9a7c294ae56ec0800000000000000
+      internalID: -3574193129248875665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_28
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90506483d8994c2a0800000000000000
+      internalID: -6718075912316386039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-all animations-old prison-on grass_29
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 9
+        width: 243
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f35ba33fc3adada0800000000000000
+      internalID: -5931905023856651276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-all animations-old prison-on grass_0: 1136902058282114928
+      portal-all animations-old prison-on grass_1: 3160943896546977368
+      portal-all animations-old prison-on grass_10: -7113234002619550695
+      portal-all animations-old prison-on grass_11: 6444131368408623505
+      portal-all animations-old prison-on grass_12: -7767956694829529849
+      portal-all animations-old prison-on grass_13: 1028952132564610521
+      portal-all animations-old prison-on grass_14: 7059156860595953232
+      portal-all animations-old prison-on grass_15: -7300577973385521903
+      portal-all animations-old prison-on grass_16: -6997058131332902053
+      portal-all animations-old prison-on grass_17: 6227119480031874566
+      portal-all animations-old prison-on grass_18: 2812757601059541381
+      portal-all animations-old prison-on grass_19: -2721121802608225028
+      portal-all animations-old prison-on grass_2: -8769406009092671792
+      portal-all animations-old prison-on grass_20: 2511954783184205110
+      portal-all animations-old prison-on grass_21: -9071179585242703052
+      portal-all animations-old prison-on grass_22: -6002213170381859107
+      portal-all animations-old prison-on grass_23: -1414229995611546283
+      portal-all animations-old prison-on grass_24: -699615950165289529
+      portal-all animations-old prison-on grass_25: 2116916263382502724
+      portal-all animations-old prison-on grass_26: 1777056688970702909
+      portal-all animations-old prison-on grass_27: -3574193129248875665
+      portal-all animations-old prison-on grass_28: -6718075912316386039
+      portal-all animations-old prison-on grass_29: -5931905023856651276
+      portal-all animations-old prison-on grass_3: -5934941758406699842
+      portal-all animations-old prison-on grass_4: -4077223131656594882
+      portal-all animations-old prison-on grass_5: -5376331571497117423
+      portal-all animations-old prison-on grass_6: 9156802204666429860
+      portal-all animations-old prison-on grass_7: -5683695055358421604
+      portal-all animations-old prison-on grass_8: -5448953458682002332
+      portal-all animations-old prison-on grass_9: 5142908799871424675
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

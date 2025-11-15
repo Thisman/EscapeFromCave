@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: a8a2efd1761a53a44b1e14ef3de8562a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6890590095734019640
+    second: hanging bridge-dropping animation-horizontal_0
+  - first:
+      213: 6444256124870780390
+    second: hanging bridge-dropping animation-horizontal_1
+  - first:
+      213: -2843131875041439581
+    second: hanging bridge-dropping animation-horizontal_2
+  - first:
+      213: 2061531375854493622
+    second: hanging bridge-dropping animation-horizontal_3
+  - first:
+      213: -3933352259275279161
+    second: hanging bridge-dropping animation-horizontal_4
+  - first:
+      213: -297015611040139830
+    second: hanging bridge-dropping animation-horizontal_5
+  - first:
+      213: 7623635558386346176
+    second: hanging bridge-dropping animation-horizontal_6
+  - first:
+      213: 1828424557455010317
+    second: hanging bridge-dropping animation-horizontal_7
+  - first:
+      213: -16211280092234999
+    second: hanging bridge-dropping animation-horizontal_8
+  - first:
+      213: 8373162176657054986
+    second: hanging bridge-dropping animation-horizontal_9
+  - first:
+      213: -8082858941190341493
+    second: hanging bridge-dropping animation-horizontal_10
+  - first:
+      213: 3822980060880098257
+    second: hanging bridge-dropping animation-horizontal_11
+  - first:
+      213: -869031035906768251
+    second: hanging bridge-dropping animation-horizontal_12
+  - first:
+      213: -1407337056344239093
+    second: hanging bridge-dropping animation-horizontal_13
+  - first:
+      213: -289437155193276726
+    second: hanging bridge-dropping animation-horizontal_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 130
+        width: 113
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c9e2fad0d4bf50a0800000000000000
+      internalID: -6890590095734019640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 128
+        width: 113
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e5ee8c6dc89e6950800000000000000
+      internalID: 6444256124870780390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_2
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 126
+        width: 113
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0909a8f9a2b88d0800000000000000
+      internalID: -2843131875041439581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_3
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 116
+        width: 113
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bf11272dd70c9c10800000000000000
+      internalID: 2061531375854493622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_4
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 104
+        width: 113
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4ba61c5fce969c0800000000000000
+      internalID: -3933352259275279161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_5
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 88
+        width: 113
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5f43b10e9c0ebf0800000000000000
+      internalID: -297015611040139830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_6
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 72
+        width: 113
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8a7aa06289cc960800000000000000
+      internalID: 7623635558386346176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_7
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 56
+        width: 113
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ae4b5927edf5910800000000000000
+      internalID: 1828424557455010317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_8
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 40
+        width: 113
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90b7fb83de766cff0800000000000000
+      internalID: -16211280092234999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_9
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 24
+        width: 113
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d516203a2733470800000000000000
+      internalID: 8373162176657054986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_10
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 14
+        width: 113
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c72c82e9ae3df80800000000000000
+      internalID: -8082858941190341493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_11
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 8
+        width: 113
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d3d8204c14fd0530800000000000000
+      internalID: 3822980060880098257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_12
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 4
+        width: 113
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 582ccfd80e490f3f0800000000000000
+      internalID: -869031035906768251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_13
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 1
+        width: 113
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b049b555762287ce0800000000000000
+      internalID: -1407337056344239093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanging bridge-dropping animation-horizontal_14
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 2
+        width: 113
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac6b7ebd076bbfbf0800000000000000
+      internalID: -289437155193276726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      hanging bridge-dropping animation-horizontal_0: -6890590095734019640
+      hanging bridge-dropping animation-horizontal_1: 6444256124870780390
+      hanging bridge-dropping animation-horizontal_10: -8082858941190341493
+      hanging bridge-dropping animation-horizontal_11: 3822980060880098257
+      hanging bridge-dropping animation-horizontal_12: -869031035906768251
+      hanging bridge-dropping animation-horizontal_13: -1407337056344239093
+      hanging bridge-dropping animation-horizontal_14: -289437155193276726
+      hanging bridge-dropping animation-horizontal_2: -2843131875041439581
+      hanging bridge-dropping animation-horizontal_3: 2061531375854493622
+      hanging bridge-dropping animation-horizontal_4: -3933352259275279161
+      hanging bridge-dropping animation-horizontal_5: -297015611040139830
+      hanging bridge-dropping animation-horizontal_6: 7623635558386346176
+      hanging bridge-dropping animation-horizontal_7: 1828424557455010317
+      hanging bridge-dropping animation-horizontal_8: -16211280092234999
+      hanging bridge-dropping animation-horizontal_9: 8373162176657054986
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 8d8ecb2a4ac411246a5aef9fa6c0ee42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4276608461783693253
+    second: horizontal-wooden door -variation2- opening animation_0
+  - first:
+      213: 2259943099885791691
+    second: horizontal-wooden door -variation2- opening animation_1
+  - first:
+      213: 716888535467855297
+    second: horizontal-wooden door -variation2- opening animation_2
+  - first:
+      213: -2967092994964417742
+    second: horizontal-wooden door -variation2- opening animation_3
+  - first:
+      213: 6387036453157764510
+    second: horizontal-wooden door -variation2- opening animation_4
+  - first:
+      213: -4008862112027964159
+    second: horizontal-wooden door -variation2- opening animation_5
+  - first:
+      213: -7407441031637531728
+    second: horizontal-wooden door -variation2- opening animation_6
+  - first:
+      213: -4444108491827199834
+    second: horizontal-wooden door -variation2- opening animation_7
+  - first:
+      213: 9063589336315515439
+    second: horizontal-wooden door -variation2- opening animation_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 17
+        width: 60
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3804ff234f66a4c0800000000000000
+      internalID: -4276608461783693253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 17
+        width: 56
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9a941964eec5f10800000000000000
+      internalID: 2259943099885791691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_2
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 17
+        width: 50
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd8c142356e2f900800000000000000
+      internalID: 716888535467855297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_3
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 17
+        width: 41
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233989334a4c2d6d0800000000000000
+      internalID: -2967092994964417742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_4
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 17
+        width: 31
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d70fd60df43a850800000000000000
+      internalID: 6387036453157764510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_5
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 17
+        width: 13
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d0d032629ad58c0800000000000000
+      internalID: -4008862112027964159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_6
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 17
+        width: 12
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b38796c0ab733990800000000000000
+      internalID: -7407441031637531728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_7
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 17
+        width: 13
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0c7516fda5352c0800000000000000
+      internalID: -4444108491827199834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horizontal-wooden door -variation2- opening animation_8
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 17
+        width: 12
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f22da1dfa7658cd70800000000000000
+      internalID: 9063589336315515439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      horizontal-wooden door -variation2- opening animation_0: -4276608461783693253
+      horizontal-wooden door -variation2- opening animation_1: 2259943099885791691
+      horizontal-wooden door -variation2- opening animation_2: 716888535467855297
+      horizontal-wooden door -variation2- opening animation_3: -2967092994964417742
+      horizontal-wooden door -variation2- opening animation_4: 6387036453157764510
+      horizontal-wooden door -variation2- opening animation_5: -4008862112027964159
+      horizontal-wooden door -variation2- opening animation_6: -7407441031637531728
+      horizontal-wooden door -variation2- opening animation_7: -4444108491827199834
+      horizontal-wooden door -variation2- opening animation_8: 9063589336315515439
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 18eba6d885a4cab498ee96907cc97f4f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3479517465979198744
+    second: altar-grass_0
+  - first:
+      213: 6952657442136518690
+    second: altar-grass_1
+  - first:
+      213: -4668121836641724879
+    second: altar-grass_2
+  - first:
+      213: -2932642594684824747
+    second: altar-grass_3
+  - first:
+      213: -2679891945735994492
+    second: altar-grass_4
+  - first:
+      213: 3750027842552524828
+    second: altar-grass_5
+  - first:
+      213: -4749857579784644904
+    second: altar-grass_6
+  - first:
+      213: -28888573956187060
+    second: altar-grass_7
+  - first:
+      213: 8356457928631844977
+    second: altar-grass_8
+  - first:
+      213: -2754756632040633430
+    second: altar-grass_9
+  - first:
+      213: -4443687331901350904
+    second: altar-grass_10
+  - first:
+      213: 4640422716169042994
+    second: altar-grass_11
+  - first:
+      213: -3280141538627794397
+    second: altar-grass_12
+  - first:
+      213: -188589655045980768
+    second: altar-grass_13
+  - first:
+      213: 6626729431474690320
+    second: altar-grass_14
+  - first:
+      213: -778710777679786704
+    second: altar-grass_15
+  - first:
+      213: -2225111409280529266
+    second: altar-grass_16
+  - first:
+      213: -6574001957662634338
+    second: altar-grass_17
+  - first:
+      213: -135997852715749801
+    second: altar-grass_18
+  - first:
+      213: -8145405928621800519
+    second: altar-grass_19
+  - first:
+      213: -6623049613123720859
+    second: altar-grass_20
+  - first:
+      213: 7044986686256800015
+    second: altar-grass_21
+  - first:
+      213: -1473097855065609103
+    second: altar-grass_22
+  - first:
+      213: 5048899030208158414
+    second: altar-grass_23
+  - first:
+      213: 5571016633735900176
+    second: altar-grass_24
+  - first:
+      213: 8356289417651407061
+    second: altar-grass_25
+  - first:
+      213: 2823030419176643132
+    second: altar-grass_26
+  - first:
+      213: 8604700439986886409
+    second: altar-grass_27
+  - first:
+      213: -1697181899356427442
+    second: altar-grass_28
+  - first:
+      213: -3642496744255972605
+    second: altar-grass_29
+  - first:
+      213: -6272524788693423766
+    second: altar-grass_30
+  - first:
+      213: 2568092664336985740
+    second: altar-grass_31
+  - first:
+      213: 4702489380762753081
+    second: altar-grass_32
+  - first:
+      213: 2698531816126763394
+    second: altar-grass_33
+  - first:
+      213: -109563702152094345
+    second: altar-grass_34
+  - first:
+      213: 8152271151860183964
+    second: altar-grass_35
+  - first:
+      213: -6374055159711352437
+    second: altar-grass_36
+  - first:
+      213: -5407871933552089287
+    second: altar-grass_37
+  - first:
+      213: 7798640048900749421
+    second: altar-grass_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: altar-grass_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d157533bab94030800000000000000
+      internalID: 3479517465979198744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220f58b5b1dcc7060800000000000000
+      internalID: 6952657442136518690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_2
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136d9be1cef773fb0800000000000000
+      internalID: -4668121836641724879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_3
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55391a219192d47d0800000000000000
+      internalID: -2932642594684824747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_4
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483c9f9597c1fcad0800000000000000
+      internalID: -2679891945735994492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_5
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10fa2d4476ca0430800000000000000
+      internalID: 3750027842552524828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_6
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d65d3f62bd151eb0800000000000000
+      internalID: -4749857579784644904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_7
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c164bbefd599ff0800000000000000
+      internalID: -28888573956187060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_8
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1700990363a18f370800000000000000
+      internalID: 8356457928631844977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_9
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab0190407325c9d0800000000000000
+      internalID: -2754756632040633430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_10
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80cdd115ae9d452c0800000000000000
+      internalID: -4443687331901350904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_11
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23cb8e4dfd7166040800000000000000
+      internalID: 4640422716169042994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_12
+      rect:
+        serializedVersion: 2
+        x: 2704
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a461946a89a72d0800000000000000
+      internalID: -3280141538627794397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_13
+      rect:
+        serializedVersion: 2
+        x: 2928
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0adbbaa35bef16df0800000000000000
+      internalID: -188589655045980768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_14
+      rect:
+        serializedVersion: 2
+        x: 3152
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019dca9de4fd6fb50800000000000000
+      internalID: 6626729431474690320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_15
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03dc0a96ca67135f0800000000000000
+      internalID: -778710777679786704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_16
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c4a2066f0de11e0800000000000000
+      internalID: -2225111409280529266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_17
+      rect:
+        serializedVersion: 2
+        x: 3824
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ecbc0dc0474c4a0800000000000000
+      internalID: -6574001957662634338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_18
+      rect:
+        serializedVersion: 2
+        x: 4048
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e69aa6ca6dc1ef0800000000000000
+      internalID: -135997852715749801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_19
+      rect:
+        serializedVersion: 2
+        x: 4272
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b30321d674b5fe80800000000000000
+      internalID: -8145405928621800519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_20
+      rect:
+        serializedVersion: 2
+        x: 4496
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569e8ff97733614a0800000000000000
+      internalID: -6623049613123720859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_21
+      rect:
+        serializedVersion: 2
+        x: 4720
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0161b1b012d4c160800000000000000
+      internalID: 7044986686256800015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_22
+      rect:
+        serializedVersion: 2
+        x: 4944
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17cac6d3e418e8be0800000000000000
+      internalID: -1473097855065609103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_23
+      rect:
+        serializedVersion: 2
+        x: 5168
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca1f52faea411640800000000000000
+      internalID: 5048899030208158414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_24
+      rect:
+        serializedVersion: 2
+        x: 5392
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01cee93ac1a305d40800000000000000
+      internalID: 5571016633735900176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_25
+      rect:
+        serializedVersion: 2
+        x: 5616
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d8c77ba3f087f370800000000000000
+      internalID: 8356289417651407061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_26
+      rect:
+        serializedVersion: 2
+        x: 5840
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3a552d853b6d2720800000000000000
+      internalID: 2823030419176643132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_27
+      rect:
+        serializedVersion: 2
+        x: 6064
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907d014e5790a6770800000000000000
+      internalID: 8604700439986886409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_28
+      rect:
+        serializedVersion: 2
+        x: 6288
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b23a9fd066278e0800000000000000
+      internalID: -1697181899356427442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_29
+      rect:
+        serializedVersion: 2
+        x: 6512
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30b1b178280437dc0800000000000000
+      internalID: -3642496744255972605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_30
+      rect:
+        serializedVersion: 2
+        x: 6736
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69a81d10f383f8a0800000000000000
+      internalID: -6272524788693423766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_31
+      rect:
+        serializedVersion: 2
+        x: 6960
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ea7100ca2b3a320800000000000000
+      internalID: 2568092664336985740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_32
+      rect:
+        serializedVersion: 2
+        x: 7184
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938196c4d29924140800000000000000
+      internalID: 4702489380762753081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_33
+      rect:
+        serializedVersion: 2
+        x: 7408
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281535ba36c137520800000000000000
+      internalID: 2698531816126763394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_34
+      rect:
+        serializedVersion: 2
+        x: 7632
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d92f4b460ca7ef0800000000000000
+      internalID: -109563702152094345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_35
+      rect:
+        serializedVersion: 2
+        x: 7856
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c937a478b6fa22170800000000000000
+      internalID: 8152271151860183964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_36
+      rect:
+        serializedVersion: 2
+        x: 8080
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89b8aa7a9eca87a0800000000000000
+      internalID: -6374055159711352437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_37
+      rect:
+        serializedVersion: 2
+        x: 8304
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937a2d9e02163f4b0800000000000000
+      internalID: -5407871933552089287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altar-grass_38
+      rect:
+        serializedVersion: 2
+        x: 8528
+        y: 3
+        width: 189
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d683dd53ec55a3c60800000000000000
+      internalID: 7798640048900749421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      altar-grass_0: 3479517465979198744
+      altar-grass_1: 6952657442136518690
+      altar-grass_10: -4443687331901350904
+      altar-grass_11: 4640422716169042994
+      altar-grass_12: -3280141538627794397
+      altar-grass_13: -188589655045980768
+      altar-grass_14: 6626729431474690320
+      altar-grass_15: -778710777679786704
+      altar-grass_16: -2225111409280529266
+      altar-grass_17: -6574001957662634338
+      altar-grass_18: -135997852715749801
+      altar-grass_19: -8145405928621800519
+      altar-grass_2: -4668121836641724879
+      altar-grass_20: -6623049613123720859
+      altar-grass_21: 7044986686256800015
+      altar-grass_22: -1473097855065609103
+      altar-grass_23: 5048899030208158414
+      altar-grass_24: 5571016633735900176
+      altar-grass_25: 8356289417651407061
+      altar-grass_26: 2823030419176643132
+      altar-grass_27: 8604700439986886409
+      altar-grass_28: -1697181899356427442
+      altar-grass_29: -3642496744255972605
+      altar-grass_3: -2932642594684824747
+      altar-grass_30: -6272524788693423766
+      altar-grass_31: 2568092664336985740
+      altar-grass_32: 4702489380762753081
+      altar-grass_33: 2698531816126763394
+      altar-grass_34: -109563702152094345
+      altar-grass_35: 8152271151860183964
+      altar-grass_36: -6374055159711352437
+      altar-grass_37: -5407871933552089287
+      altar-grass_38: 7798640048900749421
+      altar-grass_4: -2679891945735994492
+      altar-grass_5: 3750027842552524828
+      altar-grass_6: -4749857579784644904
+      altar-grass_7: -28888573956187060
+      altar-grass_8: 8356457928631844977
+      altar-grass_9: -2754756632040633430
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

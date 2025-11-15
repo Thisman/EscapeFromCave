@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: 5fef5adf2eb142d4fadc60f460af7ffd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1168105053254729085
+    second: Assassin like enemy - animations-death_0
+  - first:
+      213: -4939890106792521045
+    second: Assassin like enemy - animations-death_1
+  - first:
+      213: -7053519270143446479
+    second: Assassin like enemy - animations-death_2
+  - first:
+      213: 9086595966396817153
+    second: Assassin like enemy - animations-death_3
+  - first:
+      213: -1127415080498516888
+    second: Assassin like enemy - animations-death_4
+  - first:
+      213: -4015864670828538252
+    second: Assassin like enemy - animations-death_5
+  - first:
+      213: 5442409532285455880
+    second: Assassin like enemy - animations-death_6
+  - first:
+      213: 3977191611986365333
+    second: Assassin like enemy - animations-death_7
+  - first:
+      213: -6317390569052314483
+    second: Assassin like enemy - animations-death_8
+  - first:
+      213: 7822763604728589944
+    second: Assassin like enemy - animations-death_9
+  - first:
+      213: 5904432165833172907
+    second: Assassin like enemy - animations-death_10
+  - first:
+      213: -2275905471694412710
+    second: Assassin like enemy - animations-death_11
+  - first:
+      213: -6266506554469727796
+    second: Assassin like enemy - animations-death_12
+  - first:
+      213: 2048328532100452533
+    second: Assassin like enemy - animations-death_13
+  - first:
+      213: 9159415799293116656
+    second: Assassin like enemy - animations-death_14
+  - first:
+      213: 963112160362012638
+    second: Assassin like enemy - animations-death_15
+  - first:
+      213: -3755590517645416396
+    second: Assassin like enemy - animations-death_16
+  - first:
+      213: -8433887072726411584
+    second: Assassin like enemy - animations-death_17
+  - first:
+      213: 6452707450739903993
+    second: Assassin like enemy - animations-death_18
+  - first:
+      213: 7885784732285739889
+    second: Assassin like enemy - animations-death_19
+  - first:
+      213: 8232003544834295744
+    second: Assassin like enemy - animations-death_20
+  - first:
+      213: -1527537592118140019
+    second: Assassin like enemy - animations-death_21
+  - first:
+      213: 7349038003210452307
+    second: Assassin like enemy - animations-death_22
+  - first:
+      213: 6689231993178931289
+    second: Assassin like enemy - animations-death_23
+  - first:
+      213: -4888570726055126927
+    second: Assassin like enemy - animations-death_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 20
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d36976b51f53010800000000000000
+      internalID: 1168105053254729085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_1
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 20
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba25a2bde1cf17bb0800000000000000
+      internalID: -4939890106792521045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_2
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 20
+        width: 47
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1323abe489ddc1e90800000000000000
+      internalID: -7053519270143446479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_3
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 20
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f549a73e21a1e70800000000000000
+      internalID: 9086595966396817153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_4
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 17
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ca77425fd9a50f0800000000000000
+      internalID: -1127415080498516888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_5
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 19
+        width: 59
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476593ddb58c448c0800000000000000
+      internalID: -4015864670828538252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_6
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 12
+        width: 57
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e031e62a2578b40800000000000000
+      internalID: 5442409532285455880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_7
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 29
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b4c14f2b2d13730800000000000000
+      internalID: 3977191611986365333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_8
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 29
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84eb389fbe1458a0800000000000000
+      internalID: -6317390569052314483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_9
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 30
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ea3bd3d0a009c60800000000000000
+      internalID: 7822763604728589944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_10
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 27
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba760e495c1c0f150800000000000000
+      internalID: 5904432165833172907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_11
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 12
+        width: 49
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a546941280c5a60e0800000000000000
+      internalID: -2275905471694412710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_12
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 30
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc1cc267d75e809a0800000000000000
+      internalID: -6266506554469727796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_13
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 24
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0152b82ff1d6c10800000000000000
+      internalID: 2048328532100452533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_14
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 12
+        width: 51
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f087fa0428cc1f70800000000000000
+      internalID: 9159415799293116656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_15
+      rect:
+        serializedVersion: 2
+        x: 2290
+        y: 25
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf9c353869ad5d00800000000000000
+      internalID: 963112160362012638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_16
+      rect:
+        serializedVersion: 2
+        x: 2298
+        y: 12
+        width: 52
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4386be9725671ebc0800000000000000
+      internalID: -3755590517645416396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_17
+      rect:
+        serializedVersion: 2
+        x: 2509
+        y: 24
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c6126a5460d4fa80800000000000000
+      internalID: -8433887072726411584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_18
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 12
+        width: 52
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd4ed01d3f9c8950800000000000000
+      internalID: 6452707450739903993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_19
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 5
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 173271fee6fef6d60800000000000000
+      internalID: 7885784732285739889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_20
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 12
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7ca97eb93fd3270800000000000000
+      internalID: 8232003544834295744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_21
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 6
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d832eb837a81dcae0800000000000000
+      internalID: -1527537592118140019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_22
+      rect:
+        serializedVersion: 2
+        x: 2078
+        y: 5
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d743680270df560800000000000000
+      internalID: 7349038003210452307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_23
+      rect:
+        serializedVersion: 2
+        x: 2298
+        y: 5
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950cb958e0de4dc50800000000000000
+      internalID: 6689231993178931289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assassin like enemy - animations-death_24
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 5
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1785c1e43de482cb0800000000000000
+      internalID: -4888570726055126927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Assassin like enemy - animations-death_0: 1168105053254729085
+      Assassin like enemy - animations-death_1: -4939890106792521045
+      Assassin like enemy - animations-death_10: 5904432165833172907
+      Assassin like enemy - animations-death_11: -2275905471694412710
+      Assassin like enemy - animations-death_12: -6266506554469727796
+      Assassin like enemy - animations-death_13: 2048328532100452533
+      Assassin like enemy - animations-death_14: 9159415799293116656
+      Assassin like enemy - animations-death_15: 963112160362012638
+      Assassin like enemy - animations-death_16: -3755590517645416396
+      Assassin like enemy - animations-death_17: -8433887072726411584
+      Assassin like enemy - animations-death_18: 6452707450739903993
+      Assassin like enemy - animations-death_19: 7885784732285739889
+      Assassin like enemy - animations-death_2: -7053519270143446479
+      Assassin like enemy - animations-death_20: 8232003544834295744
+      Assassin like enemy - animations-death_21: -1527537592118140019
+      Assassin like enemy - animations-death_22: 7349038003210452307
+      Assassin like enemy - animations-death_23: 6689231993178931289
+      Assassin like enemy - animations-death_24: -4888570726055126927
+      Assassin like enemy - animations-death_3: 9086595966396817153
+      Assassin like enemy - animations-death_4: -1127415080498516888
+      Assassin like enemy - animations-death_5: -4015864670828538252
+      Assassin like enemy - animations-death_6: 5442409532285455880
+      Assassin like enemy - animations-death_7: 3977191611986365333
+      Assassin like enemy - animations-death_8: -6317390569052314483
+      Assassin like enemy - animations-death_9: 7822763604728589944
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

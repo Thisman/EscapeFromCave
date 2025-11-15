@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 99351fede08b10c46abbda3c6d465402
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 653542511381204463
+    second: grass-extra dark-transp_0
+  - first:
+      213: 1027344008813013903
+    second: grass-extra dark-transp_1
+  - first:
+      213: -7290850612839560129
+    second: grass-extra dark-transp_2
+  - first:
+      213: 1653236867084879031
+    second: grass-extra dark-transp_3
+  - first:
+      213: -4393496419405538505
+    second: grass-extra dark-transp_4
+  - first:
+      213: -6501295892609635646
+    second: grass-extra dark-transp_5
+  - first:
+      213: 848808656339856117
+    second: grass-extra dark-transp_6
+  - first:
+      213: -1446038389915711496
+    second: grass-extra dark-transp_7
+  - first:
+      213: 783632464281012552
+    second: grass-extra dark-transp_8
+  - first:
+      213: -3441449810000775408
+    second: grass-extra dark-transp_9
+  - first:
+      213: -4754362130243866592
+    second: grass-extra dark-transp_10
+  - first:
+      213: -3559636798450714147
+    second: grass-extra dark-transp_11
+  - first:
+      213: 6559057569028078421
+    second: grass-extra dark-transp_12
+  - first:
+      213: -760643607447830773
+    second: grass-extra dark-transp_13
+  - first:
+      213: 6987869488431000662
+    second: grass-extra dark-transp_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grass-extra dark-transp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 351
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed4e749379d11900800000000000000
+      internalID: 653542511381204463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 228
+        width: 153
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8bec63deebd14e00800000000000000
+      internalID: 1027344008813013903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 165
+        width: 834
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c42470ff1b1da90800000000000000
+      internalID: -7290850612839560129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 313
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b48c20eb2a71f610800000000000000
+      internalID: 1653236867084879031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73bd167c84a2703c0800000000000000
+      internalID: -4393496419405538505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 33
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2caeb4db4d1c6c5a0800000000000000
+      internalID: -6501295892609635646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_6
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 227
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fae96bc9f297cb00800000000000000
+      internalID: 848808656339856117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 225
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f70f7deeb3aeebe0800000000000000
+      internalID: -1446038389915711496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8490feb039500ea00800000000000000
+      internalID: 783632464281012552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 67
+        width: 154
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0177192a1a38d30d0800000000000000
+      internalID: -3441449810000775408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020be3d05dc150eb0800000000000000
+      internalID: -4754362130243866592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_11
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 63
+        width: 162
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9bfea0131a99ec0800000000000000
+      internalID: -3559636798450714147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b714f8b14760b50800000000000000
+      internalID: 6559057569028078421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f76694ba6a175f0800000000000000
+      internalID: -760643607447830773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-extra dark-transp_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 65
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c68b2c646e9f060800000000000000
+      internalID: 6987869488431000662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grass-extra dark-transp_0: 653542511381204463
+      grass-extra dark-transp_1: 1027344008813013903
+      grass-extra dark-transp_10: -4754362130243866592
+      grass-extra dark-transp_11: -3559636798450714147
+      grass-extra dark-transp_12: 6559057569028078421
+      grass-extra dark-transp_13: -760643607447830773
+      grass-extra dark-transp_14: 6987869488431000662
+      grass-extra dark-transp_2: -7290850612839560129
+      grass-extra dark-transp_3: 1653236867084879031
+      grass-extra dark-transp_4: -4393496419405538505
+      grass-extra dark-transp_5: -6501295892609635646
+      grass-extra dark-transp_6: 848808656339856117
+      grass-extra dark-transp_7: -1446038389915711496
+      grass-extra dark-transp_8: 783632464281012552
+      grass-extra dark-transp_9: -3441449810000775408
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

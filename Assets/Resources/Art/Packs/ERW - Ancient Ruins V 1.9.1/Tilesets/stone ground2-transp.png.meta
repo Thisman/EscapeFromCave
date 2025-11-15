@@ -1,0 +1,1118 @@
+fileFormatVersion: 2
+guid: 263611285a1c74c4eb88b18de9b0c8e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4905698330566379562
+    second: stone ground2-transp_0
+  - first:
+      213: -4076110514655194664
+    second: stone ground2-transp_1
+  - first:
+      213: 3520000277446617631
+    second: stone ground2-transp_2
+  - first:
+      213: 4316211639418624903
+    second: stone ground2-transp_3
+  - first:
+      213: -5196132323198999945
+    second: stone ground2-transp_4
+  - first:
+      213: 1033576493239518532
+    second: stone ground2-transp_5
+  - first:
+      213: 307345656149314899
+    second: stone ground2-transp_6
+  - first:
+      213: -1293192451794849535
+    second: stone ground2-transp_7
+  - first:
+      213: 2118282067634008007
+    second: stone ground2-transp_8
+  - first:
+      213: -7570548642488941527
+    second: stone ground2-transp_9
+  - first:
+      213: -4740090487695435741
+    second: stone ground2-transp_10
+  - first:
+      213: 1602522602153271274
+    second: stone ground2-transp_11
+  - first:
+      213: -2696721098514741372
+    second: stone ground2-transp_12
+  - first:
+      213: 1056215711646081591
+    second: stone ground2-transp_13
+  - first:
+      213: -4818811676210243279
+    second: stone ground2-transp_14
+  - first:
+      213: 2586321414028483299
+    second: stone ground2-transp_15
+  - first:
+      213: 6717378456171959835
+    second: stone ground2-transp_16
+  - first:
+      213: -4331673582160041037
+    second: stone ground2-transp_17
+  - first:
+      213: -4518608038071355759
+    second: stone ground2-transp_18
+  - first:
+      213: 5264332182406379842
+    second: stone ground2-transp_19
+  - first:
+      213: 8270028303919957598
+    second: stone ground2-transp_20
+  - first:
+      213: -3225027016411730496
+    second: stone ground2-transp_21
+  - first:
+      213: -7071310500441408153
+    second: stone ground2-transp_22
+  - first:
+      213: -6164873762848498201
+    second: stone ground2-transp_23
+  - first:
+      213: 4077051931451514408
+    second: stone ground2-transp_24
+  - first:
+      213: -7579863190116671420
+    second: stone ground2-transp_25
+  - first:
+      213: -7759615140925502850
+    second: stone ground2-transp_26
+  - first:
+      213: 2293151731600027941
+    second: stone ground2-transp_27
+  - first:
+      213: 2438055083338296084
+    second: stone ground2-transp_28
+  - first:
+      213: -6492244947104657496
+    second: stone ground2-transp_29
+  - first:
+      213: 5370467055853461184
+    second: stone ground2-transp_30
+  - first:
+      213: -5751091982314953707
+    second: stone ground2-transp_31
+  - first:
+      213: 1207361052299189187
+    second: stone ground2-transp_32
+  - first:
+      213: -6113862117338055349
+    second: stone ground2-transp_33
+  - first:
+      213: -3838300546356412955
+    second: stone ground2-transp_34
+  - first:
+      213: -565622668555672965
+    second: stone ground2-transp_35
+  - first:
+      213: 7525346719304787199
+    second: stone ground2-transp_36
+  - first:
+      213: -4390970809963402908
+    second: stone ground2-transp_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stone ground2-transp_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 136
+        width: 140
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28c2a0e3aa841440800000000000000
+      internalID: 4905698330566379562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d11eb4451fbe67c0800000000000000
+      internalID: -4076110514655194664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_2
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 233
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1a6b724a9d89d030800000000000000
+      internalID: 3520000277446617631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b14f62e9346eb30800000000000000
+      internalID: 4316211639418624903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 232
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7726ccdae21a3e7b0800000000000000
+      internalID: -5196132323198999945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4454cbf2850085e00800000000000000
+      internalID: 1033576493239518532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d0a02fe39e34400800000000000000
+      internalID: 307345656149314899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1013d841158ad0ee0800000000000000
+      internalID: -1293192451794849535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfa76f3156a56d10800000000000000
+      internalID: 2118282067634008007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 95
+        width: 130
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92481a1ce1200f690800000000000000
+      internalID: -7570548642488941527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32894b5c0d0d73eb0800000000000000
+      internalID: -4740090487695435741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef51ede0dd4d3610800000000000000
+      internalID: 1602522602153271274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_12
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4874ab0e272539ad0800000000000000
+      internalID: -2696721098514741372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_13
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732e9daf79e68ae00800000000000000
+      internalID: 1056215711646081591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_14
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139dbf7cf44202db0800000000000000
+      internalID: -4818811676210243279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_15
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 95
+        width: 44
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea57268f9574e320800000000000000
+      internalID: 2586321414028483299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16ddfd9d1ce83d50800000000000000
+      internalID: 6717378456171959835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_17
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb2864c3ddc2e3c0800000000000000
+      internalID: -4331673582160041037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19638831eedaa41c0800000000000000
+      internalID: -4518608038071355759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_19
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 201
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2493dff6a3aae0940800000000000000
+      internalID: 5264332182406379842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_20
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 200
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5643990dea05c270800000000000000
+      internalID: 8270028303919957598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_21
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 223
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cdadb7f3076e33d0800000000000000
+      internalID: -3225027016411730496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_22
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 223
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d33b4b098addd90800000000000000
+      internalID: -7071310500441408153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_23
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 169
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed1a40c9f7f17aa0800000000000000
+      internalID: -6164873762848498201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_24
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 168
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82edcf86129949830800000000000000
+      internalID: 4077051931451514408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_25
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 191
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4406903a69aeec690800000000000000
+      internalID: -7579863190116671420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_26
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 191
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a846b342f405490800000000000000
+      internalID: -7759615140925502850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_27
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 137
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 521771aa959e2df10800000000000000
+      internalID: 2293151731600027941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_28
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 135
+        width: 66
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41be6315e26b5d120800000000000000
+      internalID: 2438055083338296084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_29
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 159
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af80053e99e6e5a0800000000000000
+      internalID: -6492244947104657496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_30
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 159
+        width: 66
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce5516555bb78a40800000000000000
+      internalID: 5370467055853461184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_31
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 105
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 514258b00540030b0800000000000000
+      internalID: -5751091982314953707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_32
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 104
+        width: 66
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb5fedea7861c010800000000000000
+      internalID: 1207361052299189187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_33
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 127
+        width: 43
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4df8520cc2372ba0800000000000000
+      internalID: -6113862117338055349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_34
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 127
+        width: 66
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edfc314dfd9bbac0800000000000000
+      internalID: -3838300546356412955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_35
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 130
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72a4d30e218628f0800000000000000
+      internalID: -565622668555672965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_36
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 95
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff420df58f66f6860800000000000000
+      internalID: 7525346719304787199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stone ground2-transp_37
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 95
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469a50d00532013c0800000000000000
+      internalID: -4390970809963402908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stone ground2-transp_0: 4905698330566379562
+      stone ground2-transp_1: -4076110514655194664
+      stone ground2-transp_10: -4740090487695435741
+      stone ground2-transp_11: 1602522602153271274
+      stone ground2-transp_12: -2696721098514741372
+      stone ground2-transp_13: 1056215711646081591
+      stone ground2-transp_14: -4818811676210243279
+      stone ground2-transp_15: 2586321414028483299
+      stone ground2-transp_16: 6717378456171959835
+      stone ground2-transp_17: -4331673582160041037
+      stone ground2-transp_18: -4518608038071355759
+      stone ground2-transp_19: 5264332182406379842
+      stone ground2-transp_2: 3520000277446617631
+      stone ground2-transp_20: 8270028303919957598
+      stone ground2-transp_21: -3225027016411730496
+      stone ground2-transp_22: -7071310500441408153
+      stone ground2-transp_23: -6164873762848498201
+      stone ground2-transp_24: 4077051931451514408
+      stone ground2-transp_25: -7579863190116671420
+      stone ground2-transp_26: -7759615140925502850
+      stone ground2-transp_27: 2293151731600027941
+      stone ground2-transp_28: 2438055083338296084
+      stone ground2-transp_29: -6492244947104657496
+      stone ground2-transp_3: 4316211639418624903
+      stone ground2-transp_30: 5370467055853461184
+      stone ground2-transp_31: -5751091982314953707
+      stone ground2-transp_32: 1207361052299189187
+      stone ground2-transp_33: -6113862117338055349
+      stone ground2-transp_34: -3838300546356412955
+      stone ground2-transp_35: -565622668555672965
+      stone ground2-transp_36: 7525346719304787199
+      stone ground2-transp_37: -4390970809963402908
+      stone ground2-transp_4: -5196132323198999945
+      stone ground2-transp_5: 1033576493239518532
+      stone ground2-transp_6: 307345656149314899
+      stone ground2-transp_7: -1293192451794849535
+      stone ground2-transp_8: 2118282067634008007
+      stone ground2-transp_9: -7570548642488941527
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,3250 @@
+fileFormatVersion: 2
+guid: c6119fd23fa499c43980f2a79942d7e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4240002017593966032
+    second: portal-anim3-to Cemetery_0
+  - first:
+      213: 6791070018411480655
+    second: portal-anim3-to Cemetery_1
+  - first:
+      213: 4167619372551672345
+    second: portal-anim3-to Cemetery_2
+  - first:
+      213: -2045076804731645403
+    second: portal-anim3-to Cemetery_3
+  - first:
+      213: 3246444148020663320
+    second: portal-anim3-to Cemetery_4
+  - first:
+      213: 7428152377905448491
+    second: portal-anim3-to Cemetery_5
+  - first:
+      213: -1243082345406830287
+    second: portal-anim3-to Cemetery_6
+  - first:
+      213: -2958953305715120664
+    second: portal-anim3-to Cemetery_7
+  - first:
+      213: -606388494270467176
+    second: portal-anim3-to Cemetery_8
+  - first:
+      213: -9117378680802496638
+    second: portal-anim3-to Cemetery_9
+  - first:
+      213: 1609714670963755438
+    second: portal-anim3-to Cemetery_10
+  - first:
+      213: 2377401267149125570
+    second: portal-anim3-to Cemetery_11
+  - first:
+      213: 2781912507630599556
+    second: portal-anim3-to Cemetery_12
+  - first:
+      213: -6991614815104430705
+    second: portal-anim3-to Cemetery_13
+  - first:
+      213: -1892237458843989492
+    second: portal-anim3-to Cemetery_14
+  - first:
+      213: -5210349607225241769
+    second: portal-anim3-to Cemetery_15
+  - first:
+      213: 9199453867635308967
+    second: portal-anim3-to Cemetery_16
+  - first:
+      213: -4298114078703709911
+    second: portal-anim3-to Cemetery_17
+  - first:
+      213: -7402647696006070354
+    second: portal-anim3-to Cemetery_18
+  - first:
+      213: -2154363778830802270
+    second: portal-anim3-to Cemetery_19
+  - first:
+      213: -6003888937024727320
+    second: portal-anim3-to Cemetery_20
+  - first:
+      213: 183066868256978168
+    second: portal-anim3-to Cemetery_21
+  - first:
+      213: 1379081720825066397
+    second: portal-anim3-to Cemetery_22
+  - first:
+      213: -901399278989356606
+    second: portal-anim3-to Cemetery_23
+  - first:
+      213: 6909104196172813827
+    second: portal-anim3-to Cemetery_24
+  - first:
+      213: 3037616851802917605
+    second: portal-anim3-to Cemetery_25
+  - first:
+      213: 4014572239176287124
+    second: portal-anim3-to Cemetery_26
+  - first:
+      213: -6327058252808461018
+    second: portal-anim3-to Cemetery_27
+  - first:
+      213: -5147474669039450261
+    second: portal-anim3-to Cemetery_28
+  - first:
+      213: -8151534926789251368
+    second: portal-anim3-to Cemetery_29
+  - first:
+      213: 8855835170897290481
+    second: portal-anim3-to Cemetery_30
+  - first:
+      213: -1741063569596138089
+    second: portal-anim3-to Cemetery_31
+  - first:
+      213: 8569383890921917213
+    second: portal-anim3-to Cemetery_32
+  - first:
+      213: -9093636256178777255
+    second: portal-anim3-to Cemetery_33
+  - first:
+      213: -1830071884991428839
+    second: portal-anim3-to Cemetery_34
+  - first:
+      213: -2178553203733943309
+    second: portal-anim3-to Cemetery_35
+  - first:
+      213: -355908944838767208
+    second: portal-anim3-to Cemetery_36
+  - first:
+      213: -3102069143433877101
+    second: portal-anim3-to Cemetery_37
+  - first:
+      213: 9110915025950527704
+    second: portal-anim3-to Cemetery_38
+  - first:
+      213: -353939344924407807
+    second: portal-anim3-to Cemetery_39
+  - first:
+      213: 8903463050036367447
+    second: portal-anim3-to Cemetery_40
+  - first:
+      213: 1116125226906374764
+    second: portal-anim3-to Cemetery_41
+  - first:
+      213: -7402590718401700011
+    second: portal-anim3-to Cemetery_42
+  - first:
+      213: 6144581225407424396
+    second: portal-anim3-to Cemetery_43
+  - first:
+      213: 969658120985810471
+    second: portal-anim3-to Cemetery_44
+  - first:
+      213: -1326156384667081204
+    second: portal-anim3-to Cemetery_45
+  - first:
+      213: 7780517318815036349
+    second: portal-anim3-to Cemetery_46
+  - first:
+      213: 5919983440856384979
+    second: portal-anim3-to Cemetery_47
+  - first:
+      213: 5192665742524953002
+    second: portal-anim3-to Cemetery_48
+  - first:
+      213: -4156289236302203988
+    second: portal-anim3-to Cemetery_49
+  - first:
+      213: -7618154549508180142
+    second: portal-anim3-to Cemetery_50
+  - first:
+      213: -4391640013443460484
+    second: portal-anim3-to Cemetery_51
+  - first:
+      213: 1959911511826531765
+    second: portal-anim3-to Cemetery_52
+  - first:
+      213: -5501522210264320059
+    second: portal-anim3-to Cemetery_53
+  - first:
+      213: 5764182851487459590
+    second: portal-anim3-to Cemetery_54
+  - first:
+      213: 7915508268583631207
+    second: portal-anim3-to Cemetery_55
+  - first:
+      213: 2797055019463851781
+    second: portal-anim3-to Cemetery_56
+  - first:
+      213: 2883761079746795196
+    second: portal-anim3-to Cemetery_57
+  - first:
+      213: 7687419211155076577
+    second: portal-anim3-to Cemetery_58
+  - first:
+      213: 166262810150606889
+    second: portal-anim3-to Cemetery_59
+  - first:
+      213: -3117081500105157105
+    second: portal-anim3-to Cemetery_60
+  - first:
+      213: -1829276385270553098
+    second: portal-anim3-to Cemetery_61
+  - first:
+      213: -1272737571427486627
+    second: portal-anim3-to Cemetery_62
+  - first:
+      213: 2447129910587504090
+    second: portal-anim3-to Cemetery_63
+  - first:
+      213: -4418693388197436076
+    second: portal-anim3-to Cemetery_64
+  - first:
+      213: -5449782419622422173
+    second: portal-anim3-to Cemetery_65
+  - first:
+      213: 1811642631993253214
+    second: portal-anim3-to Cemetery_66
+  - first:
+      213: -4403145533731573736
+    second: portal-anim3-to Cemetery_67
+  - first:
+      213: -7265862822088074879
+    second: portal-anim3-to Cemetery_68
+  - first:
+      213: -258084132981782261
+    second: portal-anim3-to Cemetery_69
+  - first:
+      213: 173448023797024906
+    second: portal-anim3-to Cemetery_70
+  - first:
+      213: 8860382975231693876
+    second: portal-anim3-to Cemetery_71
+  - first:
+      213: -7453247595415992227
+    second: portal-anim3-to Cemetery_72
+  - first:
+      213: -899273173675078714
+    second: portal-anim3-to Cemetery_73
+  - first:
+      213: -3366054606072615628
+    second: portal-anim3-to Cemetery_74
+  - first:
+      213: 902921522155259713
+    second: portal-anim3-to Cemetery_75
+  - first:
+      213: 7934016744474892144
+    second: portal-anim3-to Cemetery_76
+  - first:
+      213: -8008041849538099741
+    second: portal-anim3-to Cemetery_77
+  - first:
+      213: 3525721555346391502
+    second: portal-anim3-to Cemetery_78
+  - first:
+      213: 7757797372347948265
+    second: portal-anim3-to Cemetery_79
+  - first:
+      213: 6040943029509781746
+    second: portal-anim3-to Cemetery_80
+  - first:
+      213: 1727829703521218184
+    second: portal-anim3-to Cemetery_81
+  - first:
+      213: -3356760747238195688
+    second: portal-anim3-to Cemetery_82
+  - first:
+      213: -8984040650201163054
+    second: portal-anim3-to Cemetery_83
+  - first:
+      213: -3830378487338235243
+    second: portal-anim3-to Cemetery_84
+  - first:
+      213: -2001709690621899323
+    second: portal-anim3-to Cemetery_85
+  - first:
+      213: 3624692878660842588
+    second: portal-anim3-to Cemetery_86
+  - first:
+      213: -3510474879978777449
+    second: portal-anim3-to Cemetery_87
+  - first:
+      213: -302478952808652459
+    second: portal-anim3-to Cemetery_88
+  - first:
+      213: 3428512580893527946
+    second: portal-anim3-to Cemetery_89
+  - first:
+      213: 6807510898259587305
+    second: portal-anim3-to Cemetery_90
+  - first:
+      213: -356288240739977281
+    second: portal-anim3-to Cemetery_91
+  - first:
+      213: -6318811338361320957
+    second: portal-anim3-to Cemetery_92
+  - first:
+      213: -9024089113151940225
+    second: portal-anim3-to Cemetery_93
+  - first:
+      213: -1540247131110472677
+    second: portal-anim3-to Cemetery_94
+  - first:
+      213: 1398991359277217366
+    second: portal-anim3-to Cemetery_95
+  - first:
+      213: -5417763667524089916
+    second: portal-anim3-to Cemetery_96
+  - first:
+      213: -2479188366285213504
+    second: portal-anim3-to Cemetery_97
+  - first:
+      213: -6790817525798025168
+    second: portal-anim3-to Cemetery_98
+  - first:
+      213: -6160365458933467795
+    second: portal-anim3-to Cemetery_99
+  - first:
+      213: 3156185726813877297
+    second: portal-anim3-to Cemetery_100
+  - first:
+      213: 5144363608137258106
+    second: portal-anim3-to Cemetery_101
+  - first:
+      213: -5012173703029003117
+    second: portal-anim3-to Cemetery_102
+  - first:
+      213: 5788279552228345440
+    second: portal-anim3-to Cemetery_103
+  - first:
+      213: -7789755163083466902
+    second: portal-anim3-to Cemetery_104
+  - first:
+      213: 4457950677159480071
+    second: portal-anim3-to Cemetery_105
+  - first:
+      213: -1122860258024003735
+    second: portal-anim3-to Cemetery_106
+  - first:
+      213: 7604798348316790687
+    second: portal-anim3-to Cemetery_107
+  - first:
+      213: 2195764937983690314
+    second: portal-anim3-to Cemetery_108
+  - first:
+      213: -209546859934590437
+    second: portal-anim3-to Cemetery_109
+  - first:
+      213: 6738337227339752940
+    second: portal-anim3-to Cemetery_110
+  - first:
+      213: -9199192588499585424
+    second: portal-anim3-to Cemetery_111
+  - first:
+      213: 230627800162954092
+    second: portal-anim3-to Cemetery_112
+  - first:
+      213: 9049427431754777650
+    second: portal-anim3-to Cemetery_113
+  - first:
+      213: 5150566155570556052
+    second: portal-anim3-to Cemetery_114
+  - first:
+      213: 6639516842518648229
+    second: portal-anim3-to Cemetery_115
+  - first:
+      213: -4419544880718089567
+    second: portal-anim3-to Cemetery_116
+  - first:
+      213: -2276748145050100926
+    second: portal-anim3-to Cemetery_117
+  - first:
+      213: 9151548817765596186
+    second: portal-anim3-to Cemetery_118
+  - first:
+      213: -2765013837362489829
+    second: portal-anim3-to Cemetery_119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_0
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0324f5621ac7825c0800000000000000
+      internalID: -4240002017593966032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46c83c733abe3e50800000000000000
+      internalID: 6791070018411480655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_2
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9129af30dbb56d930800000000000000
+      internalID: 4167619372551672345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_3
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522549b3b7d6e93e0800000000000000
+      internalID: -2045076804731645403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_4
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814dae190cfad0d20800000000000000
+      internalID: 3246444148020663320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_5
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b26078e4b39161760800000000000000
+      internalID: 7428152377905448491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_6
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1396777613fafbee0800000000000000
+      internalID: -1243082345406830287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_7
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e5e1e945afafe6d0800000000000000
+      internalID: -2958953305715120664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_8
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893ff1390eca597f0800000000000000
+      internalID: -606388494270467176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_9
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f2c005560987180800000000000000
+      internalID: -9117378680802496638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_10
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea98780f6fad65610800000000000000
+      internalID: 1609714670963755438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_11
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7bcf04bd93ef020800000000000000
+      internalID: 2377401267149125570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_12
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48db98dbfa65b9620800000000000000
+      internalID: 2781912507630599556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_13
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d875b6e5bc8fe90800000000000000
+      internalID: -6991614815104430705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_14
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 162
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a8ae28e0c6db5e0800000000000000
+      internalID: -1892237458843989492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_15
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 167
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f4eb943ae11b7b0800000000000000
+      internalID: -5210349607225241769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_16
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a9fef34d860baf70800000000000000
+      internalID: 9199453867635308967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_17
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92192ce84080a54c0800000000000000
+      internalID: -4298114078703709911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_18
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eafb1323423844990800000000000000
+      internalID: -7402647696006070354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_19
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a262d5be892a12e0800000000000000
+      internalID: -2154363778830802270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_20
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e65ebd52d6edaca0800000000000000
+      internalID: -6003888937024727320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_21
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4b994c8526a8200800000000000000
+      internalID: 183066868256978168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_22
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d933306b48b732310800000000000000
+      internalID: 1379081720825066397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_23
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c1db0fa1269d73f0800000000000000
+      internalID: -901399278989356606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_24
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3069a0119a112ef50800000000000000
+      internalID: 6909104196172813827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_25
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea0477ce68c72a20800000000000000
+      internalID: 3037616851802917605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_26
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4934f317e20a6b730800000000000000
+      internalID: 4014572239176287124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_27
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625e5209a06c138a0800000000000000
+      internalID: -6327058252808461018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_28
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67059d9f0f7098b0800000000000000
+      internalID: -5147474669039450261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_29
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de698a3c2eefde80800000000000000
+      internalID: -8151534926789251368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_30
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 154
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f46ebeea2f36ea70800000000000000
+      internalID: 8855835170897290481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_31
+      rect:
+        serializedVersion: 2
+        x: 2194
+        y: 159
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d39d278ef76d7e0800000000000000
+      internalID: -1741063569596138089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_32
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 75
+        width: 83
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b0b5a0f319ce670800000000000000
+      internalID: 8569383890921917213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_33
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953d9d1510aecc180800000000000000
+      internalID: -9093636256178777255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_34
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91708a511574a96e0800000000000000
+      internalID: -1830071884991428839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_35
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 75
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb2627576934c1e0800000000000000
+      internalID: -2178553203733943309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_36
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d408a43be8f0bf0800000000000000
+      internalID: -355908944838767208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_37
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3996cecac8c33f4d0800000000000000
+      internalID: -3102069143433877101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_38
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 75
+        width: 82
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0dc84c1f8707e70800000000000000
+      internalID: 9110915025950527704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_39
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1080fb18a0e861bf0800000000000000
+      internalID: -353939344924407807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_40
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750db30b8747f8b70800000000000000
+      internalID: 8903463050036367447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_41
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 75
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c625b9afaf54d7f00800000000000000
+      internalID: 1116125226906374764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_42
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f101456f6b44990800000000000000
+      internalID: -7402590718401700011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_43
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87a1f1b110f54550800000000000000
+      internalID: 6144581225407424396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_44
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 76
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7269eee6ceae47d00800000000000000
+      internalID: 969658120985810471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_45
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c066d4f5bcb889de0800000000000000
+      internalID: -1326156384667081204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_46
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3bebc4743f9fb60800000000000000
+      internalID: 7780517318815036349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_47
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 75
+        width: 83
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d58074f291082250800000000000000
+      internalID: 5919983440856384979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_48
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa13a8c1bfd001840800000000000000
+      internalID: 5192665742524953002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_49
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca37d66e5f4e156c0800000000000000
+      internalID: -4156289236302203988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_50
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 75
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257f988ccc0e64690800000000000000
+      internalID: -7618154549508180142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_51
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c729f49fca2cd03c0800000000000000
+      internalID: -4391640013443460484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_52
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b58e9dc221033b10800000000000000
+      internalID: 1959911511826531765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_53
+      rect:
+        serializedVersion: 2
+        x: 2123
+        y: 74
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7f545b2baa6a3b0800000000000000
+      internalID: -5501522210264320059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_54
+      rect:
+        serializedVersion: 2
+        x: 2211
+        y: 134
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609ee4373cd7eff40800000000000000
+      internalID: 5764182851487459590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_55
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 769389505d889dd60800000000000000
+      internalID: 7915508268583631207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_56
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50fbd5488b221d620800000000000000
+      internalID: 2797055019463851781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_57
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb697675c6d250820800000000000000
+      internalID: 2883761079746795196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_58
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e57968fa033faa60800000000000000
+      internalID: 7687419211155076577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_59
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928926a152fae4200800000000000000
+      internalID: 166262810150606889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_60
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f065a4204e6edb4d0800000000000000
+      internalID: -3117081500105157105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_61
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f520fbc1da1d96e0800000000000000
+      internalID: -1829276385270553098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_62
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5475ca0ce3565ee0800000000000000
+      internalID: -1272737571427486627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_63
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad53dcf20b3f5f120800000000000000
+      internalID: 2447129910587504090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_64
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455ef1156c5ada2c0800000000000000
+      internalID: -4418693388197436076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_65
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3699c3773cb7e54b0800000000000000
+      internalID: -5449782419622422173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_66
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d59e3106f342910800000000000000
+      internalID: 1811642631993253214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_67
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810f4974772e4e2c0800000000000000
+      internalID: -4403145533731573736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_68
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18919be62487a2b90800000000000000
+      internalID: -7265862822088074879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_69
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b09c47339d91b6cf0800000000000000
+      internalID: -258084132981782261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_70
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a884a650f06386200800000000000000
+      internalID: 173448023797024906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_71
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4349a942f5766fa70800000000000000
+      internalID: 8860382975231693876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_72
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58023c0dceb09890800000000000000
+      internalID: -7453247595415992227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_73
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb0f0720d32583f0800000000000000
+      internalID: -899273173675078714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_74
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d697e7b2f5941d0800000000000000
+      internalID: -3366054606072615628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_75
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1478e1c2752d78c00800000000000000
+      internalID: 902921522155259713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_76
+      rect:
+        serializedVersion: 2
+        x: 1934
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0775d60613a4b1e60800000000000000
+      internalID: 7934016744474892144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_77
+      rect:
+        serializedVersion: 2
+        x: 2092
+        y: 111
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5c1d3cd58bdd090800000000000000
+      internalID: -8008041849538099741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_78
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec10c531311ede030800000000000000
+      internalID: 3525721555346391502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_79
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec124a8b9b39ab60800000000000000
+      internalID: 7757797372347948265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_80
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f87d46ddadb5d350800000000000000
+      internalID: 6040943029509781746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_81
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e20cef5fb7af710800000000000000
+      internalID: 1727829703521218184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_82
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81e74e0a2e36a61d0800000000000000
+      internalID: -3356760747238195688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_83
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da171dc0a6425380800000000000000
+      internalID: -8984040650201163054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_84
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a08ea5f03c7dac0800000000000000
+      internalID: -3830378487338235243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_85
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd460354af7834e0800000000000000
+      internalID: -2001709690621899323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_86
+      rect:
+        serializedVersion: 2
+        x: 1931
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c54b77cf7fe7d4230800000000000000
+      internalID: 3624692878660842588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_87
+      rect:
+        serializedVersion: 2
+        x: 2219
+        y: 107
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794dee922b9484fc0800000000000000
+      internalID: -3510474879978777449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_88
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 551eec9bef06dcbf0800000000000000
+      internalID: -302478952808652459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_89
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8fcd1cf606849f20800000000000000
+      internalID: 3428512580893527946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_90
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0fc5f1813297e50800000000000000
+      internalID: 6807510898259587305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_91
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb77b059bb53e0bf0800000000000000
+      internalID: -356288240739977281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_92
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a4346f0921f48a0800000000000000
+      internalID: -6318811338361320957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_93
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79db1563cef3c280800000000000000
+      internalID: -9024089113151940225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_94
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1488d31561ff9ae0800000000000000
+      internalID: -1540247131110472677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_95
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6563f85aa373a6310800000000000000
+      internalID: 1398991359277217366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_96
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7853026ac30d4b0800000000000000
+      internalID: -5417763667524089916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_97
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c0f940f057289dd0800000000000000
+      internalID: -2479188366285213504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_98
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038cf48807b22c1a0800000000000000
+      internalID: -6790817525798025168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_99
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d653fad014cf18aa0800000000000000
+      internalID: -6160365458933467795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_100
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13436e342360dcb20800000000000000
+      internalID: 3156185726813877297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_101
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74d7721273746740800000000000000
+      internalID: 5144363608137258106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_102
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ce66e929e217ab0800000000000000
+      internalID: -5012173703029003117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_103
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0664a3bc599145050800000000000000
+      internalID: 5788279552228345440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_104
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a67152973fa35e390800000000000000
+      internalID: -7789755163083466902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_105
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b8d4a8582dddd30800000000000000
+      internalID: 4457950677159480071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_106
+      rect:
+        serializedVersion: 2
+        x: 1806
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96763146b8cca60f0800000000000000
+      internalID: -1122860258024003735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_107
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f46eb4ecba98960800000000000000
+      internalID: 7604798348316790687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_108
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4686c2d39ce87e10800000000000000
+      internalID: 2195764937983690314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_109
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 86
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1adcc9bd3a871df0800000000000000
+      internalID: -209546859934590437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_110
+      rect:
+        serializedVersion: 2
+        x: 2097
+        y: 91
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5606cc102638d50800000000000000
+      internalID: 6738337227339752940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_111
+      rect:
+        serializedVersion: 2
+        x: 2217
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07673168417e55080800000000000000
+      internalID: -9199192588499585424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_112
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bea0823ca533300800000000000000
+      internalID: 230627800162954092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_113
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2344b62ad46069d70800000000000000
+      internalID: 9049427431754777650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_114
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49caeee21ac7a7740800000000000000
+      internalID: 5150566155570556052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_115
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a51c8ef36d442c50800000000000000
+      internalID: 6639516842518648229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_116
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2f6e3c85f9aa2c0800000000000000
+      internalID: -4419544880718089567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_117
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24b5243ff9d5760e0800000000000000
+      internalID: -2276748145050100926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_118
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c709ba925d00f70800000000000000
+      internalID: 9151548817765596186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal-anim3-to Cemetery_119
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 81
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1618f88092b0a9d0800000000000000
+      internalID: -2765013837362489829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      portal-anim3-to Cemetery_0: -4240002017593966032
+      portal-anim3-to Cemetery_1: 6791070018411480655
+      portal-anim3-to Cemetery_10: 1609714670963755438
+      portal-anim3-to Cemetery_100: 3156185726813877297
+      portal-anim3-to Cemetery_101: 5144363608137258106
+      portal-anim3-to Cemetery_102: -5012173703029003117
+      portal-anim3-to Cemetery_103: 5788279552228345440
+      portal-anim3-to Cemetery_104: -7789755163083466902
+      portal-anim3-to Cemetery_105: 4457950677159480071
+      portal-anim3-to Cemetery_106: -1122860258024003735
+      portal-anim3-to Cemetery_107: 7604798348316790687
+      portal-anim3-to Cemetery_108: 2195764937983690314
+      portal-anim3-to Cemetery_109: -209546859934590437
+      portal-anim3-to Cemetery_11: 2377401267149125570
+      portal-anim3-to Cemetery_110: 6738337227339752940
+      portal-anim3-to Cemetery_111: -9199192588499585424
+      portal-anim3-to Cemetery_112: 230627800162954092
+      portal-anim3-to Cemetery_113: 9049427431754777650
+      portal-anim3-to Cemetery_114: 5150566155570556052
+      portal-anim3-to Cemetery_115: 6639516842518648229
+      portal-anim3-to Cemetery_116: -4419544880718089567
+      portal-anim3-to Cemetery_117: -2276748145050100926
+      portal-anim3-to Cemetery_118: 9151548817765596186
+      portal-anim3-to Cemetery_119: -2765013837362489829
+      portal-anim3-to Cemetery_12: 2781912507630599556
+      portal-anim3-to Cemetery_13: -6991614815104430705
+      portal-anim3-to Cemetery_14: -1892237458843989492
+      portal-anim3-to Cemetery_15: -5210349607225241769
+      portal-anim3-to Cemetery_16: 9199453867635308967
+      portal-anim3-to Cemetery_17: -4298114078703709911
+      portal-anim3-to Cemetery_18: -7402647696006070354
+      portal-anim3-to Cemetery_19: -2154363778830802270
+      portal-anim3-to Cemetery_2: 4167619372551672345
+      portal-anim3-to Cemetery_20: -6003888937024727320
+      portal-anim3-to Cemetery_21: 183066868256978168
+      portal-anim3-to Cemetery_22: 1379081720825066397
+      portal-anim3-to Cemetery_23: -901399278989356606
+      portal-anim3-to Cemetery_24: 6909104196172813827
+      portal-anim3-to Cemetery_25: 3037616851802917605
+      portal-anim3-to Cemetery_26: 4014572239176287124
+      portal-anim3-to Cemetery_27: -6327058252808461018
+      portal-anim3-to Cemetery_28: -5147474669039450261
+      portal-anim3-to Cemetery_29: -8151534926789251368
+      portal-anim3-to Cemetery_3: -2045076804731645403
+      portal-anim3-to Cemetery_30: 8855835170897290481
+      portal-anim3-to Cemetery_31: -1741063569596138089
+      portal-anim3-to Cemetery_32: 8569383890921917213
+      portal-anim3-to Cemetery_33: -9093636256178777255
+      portal-anim3-to Cemetery_34: -1830071884991428839
+      portal-anim3-to Cemetery_35: -2178553203733943309
+      portal-anim3-to Cemetery_36: -355908944838767208
+      portal-anim3-to Cemetery_37: -3102069143433877101
+      portal-anim3-to Cemetery_38: 9110915025950527704
+      portal-anim3-to Cemetery_39: -353939344924407807
+      portal-anim3-to Cemetery_4: 3246444148020663320
+      portal-anim3-to Cemetery_40: 8903463050036367447
+      portal-anim3-to Cemetery_41: 1116125226906374764
+      portal-anim3-to Cemetery_42: -7402590718401700011
+      portal-anim3-to Cemetery_43: 6144581225407424396
+      portal-anim3-to Cemetery_44: 969658120985810471
+      portal-anim3-to Cemetery_45: -1326156384667081204
+      portal-anim3-to Cemetery_46: 7780517318815036349
+      portal-anim3-to Cemetery_47: 5919983440856384979
+      portal-anim3-to Cemetery_48: 5192665742524953002
+      portal-anim3-to Cemetery_49: -4156289236302203988
+      portal-anim3-to Cemetery_5: 7428152377905448491
+      portal-anim3-to Cemetery_50: -7618154549508180142
+      portal-anim3-to Cemetery_51: -4391640013443460484
+      portal-anim3-to Cemetery_52: 1959911511826531765
+      portal-anim3-to Cemetery_53: -5501522210264320059
+      portal-anim3-to Cemetery_54: 5764182851487459590
+      portal-anim3-to Cemetery_55: 7915508268583631207
+      portal-anim3-to Cemetery_56: 2797055019463851781
+      portal-anim3-to Cemetery_57: 2883761079746795196
+      portal-anim3-to Cemetery_58: 7687419211155076577
+      portal-anim3-to Cemetery_59: 166262810150606889
+      portal-anim3-to Cemetery_6: -1243082345406830287
+      portal-anim3-to Cemetery_60: -3117081500105157105
+      portal-anim3-to Cemetery_61: -1829276385270553098
+      portal-anim3-to Cemetery_62: -1272737571427486627
+      portal-anim3-to Cemetery_63: 2447129910587504090
+      portal-anim3-to Cemetery_64: -4418693388197436076
+      portal-anim3-to Cemetery_65: -5449782419622422173
+      portal-anim3-to Cemetery_66: 1811642631993253214
+      portal-anim3-to Cemetery_67: -4403145533731573736
+      portal-anim3-to Cemetery_68: -7265862822088074879
+      portal-anim3-to Cemetery_69: -258084132981782261
+      portal-anim3-to Cemetery_7: -2958953305715120664
+      portal-anim3-to Cemetery_70: 173448023797024906
+      portal-anim3-to Cemetery_71: 8860382975231693876
+      portal-anim3-to Cemetery_72: -7453247595415992227
+      portal-anim3-to Cemetery_73: -899273173675078714
+      portal-anim3-to Cemetery_74: -3366054606072615628
+      portal-anim3-to Cemetery_75: 902921522155259713
+      portal-anim3-to Cemetery_76: 7934016744474892144
+      portal-anim3-to Cemetery_77: -8008041849538099741
+      portal-anim3-to Cemetery_78: 3525721555346391502
+      portal-anim3-to Cemetery_79: 7757797372347948265
+      portal-anim3-to Cemetery_8: -606388494270467176
+      portal-anim3-to Cemetery_80: 6040943029509781746
+      portal-anim3-to Cemetery_81: 1727829703521218184
+      portal-anim3-to Cemetery_82: -3356760747238195688
+      portal-anim3-to Cemetery_83: -8984040650201163054
+      portal-anim3-to Cemetery_84: -3830378487338235243
+      portal-anim3-to Cemetery_85: -2001709690621899323
+      portal-anim3-to Cemetery_86: 3624692878660842588
+      portal-anim3-to Cemetery_87: -3510474879978777449
+      portal-anim3-to Cemetery_88: -302478952808652459
+      portal-anim3-to Cemetery_89: 3428512580893527946
+      portal-anim3-to Cemetery_9: -9117378680802496638
+      portal-anim3-to Cemetery_90: 6807510898259587305
+      portal-anim3-to Cemetery_91: -356288240739977281
+      portal-anim3-to Cemetery_92: -6318811338361320957
+      portal-anim3-to Cemetery_93: -9024089113151940225
+      portal-anim3-to Cemetery_94: -1540247131110472677
+      portal-anim3-to Cemetery_95: 1398991359277217366
+      portal-anim3-to Cemetery_96: -5417763667524089916
+      portal-anim3-to Cemetery_97: -2479188366285213504
+      portal-anim3-to Cemetery_98: -6790817525798025168
+      portal-anim3-to Cemetery_99: -6160365458933467795
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

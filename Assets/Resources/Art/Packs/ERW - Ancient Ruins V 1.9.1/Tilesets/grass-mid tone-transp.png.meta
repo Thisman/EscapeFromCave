@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 1586ed2a6996f2d48a624342159531c4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4170301841382074220
+    second: grass-mid tone-transp_0
+  - first:
+      213: -8119536246103858124
+    second: grass-mid tone-transp_1
+  - first:
+      213: 1254427854479733659
+    second: grass-mid tone-transp_2
+  - first:
+      213: 3525694835465056651
+    second: grass-mid tone-transp_3
+  - first:
+      213: 9208928050045397575
+    second: grass-mid tone-transp_4
+  - first:
+      213: -1057324861831698939
+    second: grass-mid tone-transp_5
+  - first:
+      213: -6226183546144952795
+    second: grass-mid tone-transp_6
+  - first:
+      213: 2906504791452453726
+    second: grass-mid tone-transp_7
+  - first:
+      213: -8570511463014545364
+    second: grass-mid tone-transp_8
+  - first:
+      213: 3826675007729728427
+    second: grass-mid tone-transp_9
+  - first:
+      213: -4895589207170949009
+    second: grass-mid tone-transp_10
+  - first:
+      213: 8975075066915695891
+    second: grass-mid tone-transp_11
+  - first:
+      213: -1870732553571737814
+    second: grass-mid tone-transp_12
+  - first:
+      213: 6051254467729140521
+    second: grass-mid tone-transp_13
+  - first:
+      213: 164942010070157109
+    second: grass-mid tone-transp_14
+  - first:
+      213: -3199102677144209667
+    second: grass-mid tone-transp_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grass-mid tone-transp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 351
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c676cb5fd63efd930800000000000000
+      internalID: 4170301841382074220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 228
+        width: 153
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4342216adcc915f80800000000000000
+      internalID: -8119536246103858124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 223
+        width: 834
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93be96cc7f986110800000000000000
+      internalID: 1254427854479733659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 313
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81f25ed5c8cde030800000000000000
+      internalID: 3525694835465056651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 274
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a2611454faccf70800000000000000
+      internalID: 9208928050045397575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 227
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506255ed3a0a351f0800000000000000
+      internalID: -1057324861831698939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_6
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 225
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ee5a17d072899a0800000000000000
+      internalID: -6226183546144952795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b8e7065baf55820800000000000000
+      internalID: 2906504791452453726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 67
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28ca9f9b3d6f0980800000000000000
+      internalID: -8570511463014545364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 165
+        width: 162
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab789a15a41b1530800000000000000
+      internalID: 3826675007729728427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60e654dd8f5f0cb0800000000000000
+      internalID: -4895589207170949009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 144
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31da9fba83fdd8c70800000000000000
+      internalID: 8975075066915695891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_12
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 95
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2fd89277a2d906e0800000000000000
+      internalID: -1870732553571737814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92bad72a0ef5af350800000000000000
+      internalID: 6051254467729140521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 67
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53745ce52edf94200800000000000000
+      internalID: 164942010070157109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass-mid tone-transp_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 65
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df671d090118a93d0800000000000000
+      internalID: -3199102677144209667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grass-mid tone-transp_0: 4170301841382074220
+      grass-mid tone-transp_1: -8119536246103858124
+      grass-mid tone-transp_10: -4895589207170949009
+      grass-mid tone-transp_11: 8975075066915695891
+      grass-mid tone-transp_12: -1870732553571737814
+      grass-mid tone-transp_13: 6051254467729140521
+      grass-mid tone-transp_14: 164942010070157109
+      grass-mid tone-transp_15: -3199102677144209667
+      grass-mid tone-transp_2: 1254427854479733659
+      grass-mid tone-transp_3: 3525694835465056651
+      grass-mid tone-transp_4: 9208928050045397575
+      grass-mid tone-transp_5: -1057324861831698939
+      grass-mid tone-transp_6: -6226183546144952795
+      grass-mid tone-transp_7: 2906504791452453726
+      grass-mid tone-transp_8: -8570511463014545364
+      grass-mid tone-transp_9: 3826675007729728427
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
