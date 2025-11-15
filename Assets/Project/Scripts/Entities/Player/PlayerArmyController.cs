@@ -31,6 +31,16 @@ public class PlayerArmyController : MonoBehaviour
         HandleArmyChanged(_army);
     }
 
+    public void NotifyArmyChanged()
+    {
+        if (_army == null)
+        {
+            return;
+        }
+
+        HandleArmyChanged(_army);
+    }
+
     private void HandleArmyChanged(IReadOnlyArmyModel army)
     {
         ArmyChanged?.Invoke(army);

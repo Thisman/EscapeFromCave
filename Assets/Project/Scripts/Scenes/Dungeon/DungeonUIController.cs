@@ -14,6 +14,7 @@ public sealed class DungeonUIController : MonoBehaviour
     private VisualElement _squadsList;
     private VisualElement _dialogContainer;
     private Label _dialogLabel;
+    private DisplayStyle _dialogVisibleDisplay = DisplayStyle.Flex;
 
     private readonly Dictionary<IReadOnlySquadModel, SquadEntry> _squadEntries = new();
     private readonly List<IReadOnlySquadModel> _orderedSquads = new();
@@ -37,6 +38,8 @@ public sealed class DungeonUIController : MonoBehaviour
 
         if (_dialogContainer != null)
         {
+            _dialogVisibleDisplay = _dialogContainer.resolvedStyle.display;
+
             _dialogLabel = _dialogContainer.Q<Label>("DialogLabel");
             if (_dialogLabel == null)
             {
@@ -139,6 +142,16 @@ public sealed class DungeonUIController : MonoBehaviour
             : _dialogSecondsPerCharacter;
 
         _dialogRoutine = StartCoroutine(TypeDialogRoutine(message, secondsPerCharacter));
+    }
+
+    public void SetDialogVisibility(bool visible)
+    {
+        if (_dialogContainer == null)
+        {
+            return;
+        }
+
+        _dialogContainer.style.display = visible ? _dialogVisibleDisplay : DisplayStyle.None;
     }
 
     private IEnumerator TypeDialogRoutine(string message, float secondsPerCharacter)

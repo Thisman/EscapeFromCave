@@ -266,5 +266,7 @@ public sealed class IntereactionEffectEnterBattleSO : InteractionEffectSO
 
             armyController.Army.ClearSlot(slot);
         }
+
+        armyController.NotifyArmyChanged();
     }
 }
