@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class BattleUIController : MonoBehaviour
+public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 {
     private const string BodyElementName = "Body";
     private const string StartCombatButtonName = "StartCombatButton";
@@ -52,6 +52,8 @@ public sealed class BattleUIController : MonoBehaviour
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
 
+    private bool _isAttached;
+
     public event Action OnStartCombat;
     public event Action OnLeaveCombat;
     public event Action OnFinishBattle;
@@ -61,35 +63,63 @@ public sealed class BattleUIController : MonoBehaviour
 
     private void Awake()
     {
-        if (_uiDocument == null)
-            _uiDocument = GetComponent<UIDocument>();
+        TryRegisterLifecycleCallbacks();
+    }
 
-        if (_uiDocument == null)
+    private void OnEnable()
+    {
+        TryRegisterLifecycleCallbacks();
+    }
+
+    private void OnDestroy()
+    {
+        DetachFromPanel();
+
+        if (_uiDocument?.rootVisualElement is { } root)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(Awake)}] UIDocument reference is missing.");
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+        }
+    }
+
+    public void AttachToPanel(UIDocument document)
+    {
+        if (document == null)
+        {
+            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] UIDocument reference is missing.");
             return;
         }
 
-        VisualElement root = _uiDocument.rootVisualElement;
+        if (_isAttached)
+        {
+            DetachFromPanel();
+        }
+
+        _uiDocument = document;
+
+        VisualElement root = document.rootVisualElement;
         if (root == null)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(Awake)}] UIDocument root element is missing.");
+            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] UIDocument root element is missing.");
             return;
         }
 
         VisualElement body = root.Q(BodyElementName);
         if (body == null)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(Awake)}] Body element was not found in the UI document.");
+            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] Body element was not found in the UI document.");
             return;
         }
 
+        PanelName? previousPanel = _currentPanel;
+
+        _panels.Clear();
         foreach (PanelName panelName in Enum.GetValues(typeof(PanelName)))
         {
             VisualElement panel = body.Q<VisualElement>(panelName.ToString());
             if (panel == null)
             {
-                Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(Awake)}] Panel '{panelName}' was not found.");
+                Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] Panel '{panelName}' was not found.");
                 continue;
             }
 
@@ -106,6 +136,7 @@ public sealed class BattleUIController : MonoBehaviour
         _queueContainer = body.Q<VisualElement>(QueueListElementName);
         if (_queueContainer != null)
         {
+            _queueContainer.Clear();
             _queueContainer.style.display = DisplayStyle.None;
         }
 
@@ -115,27 +146,77 @@ public sealed class BattleUIController : MonoBehaviour
             if (container == null)
                 continue;
 
+            container.Clear();
             container.style.display = DisplayStyle.None;
             _abilityListContainers.Add(container);
         }
-    }
 
-    private void OnEnable()
-    {
+        _abilityElements.Clear();
+        _currentAbilityManager = null;
+        _currentAbilityOwner = null;
+        _highlightedAbility = null;
+        _currentPanel = null;
+
         _startCombatButton?.RegisterCallback<ClickEvent>(HandleStartCombatClicked);
         _leaveCombatButton?.RegisterCallback<ClickEvent>(HandleLeaveCombatClicked);
         _finishBattleButton?.RegisterCallback<ClickEvent>(HandleFinishBattleClicked);
         _defendButton?.RegisterCallback<ClickEvent>(HandleDefendClicked);
         _skipTurnButton?.RegisterCallback<ClickEvent>(HandleSkipTurnClicked);
+
+        _isAttached = true;
+
+        if (previousPanel.HasValue && _panels.ContainsKey(previousPanel.Value))
+        {
+            ShowPanel(previousPanel.Value);
+        }
     }
 
-    private void OnDisable()
+    public void DetachFromPanel()
     {
+        if (!_isAttached)
+        {
+            return;
+        }
+
         _startCombatButton?.UnregisterCallback<ClickEvent>(HandleStartCombatClicked);
         _leaveCombatButton?.UnregisterCallback<ClickEvent>(HandleLeaveCombatClicked);
         _finishBattleButton?.UnregisterCallback<ClickEvent>(HandleFinishBattleClicked);
         _defendButton?.UnregisterCallback<ClickEvent>(HandleDefendClicked);
         _skipTurnButton?.UnregisterCallback<ClickEvent>(HandleSkipTurnClicked);
+
+        _startCombatButton = null;
+        _leaveCombatButton = null;
+        _finishBattleButton = null;
+        _defendButton = null;
+        _skipTurnButton = null;
+
+        if (_queueContainer != null)
+        {
+            _queueContainer.Clear();
+            _queueContainer.style.display = DisplayStyle.None;
+            _queueContainer = null;
+        }
+
+        ClearAbilityList();
+        foreach (VisualElement container in _abilityListContainers)
+        {
+            if (container == null)
+                continue;
+
+            container.Clear();
+            container.style.display = DisplayStyle.None;
+        }
+
+        _abilityListContainers.Clear();
+        _abilityElements.Clear();
+        _currentAbilityManager = null;
+        _currentAbilityOwner = null;
+        _highlightedAbility = null;
+
+        _resultStatusLabel = null;
+        _panels.Clear();
+
+        _isAttached = false;
     }
 
     public void ShowPanel(PanelName panelName)
@@ -408,6 +489,34 @@ public sealed class BattleUIController : MonoBehaviour
 
             container.style.display = display;
         }
+    }
+
+    private void TryRegisterLifecycleCallbacks()
+    {
+        if (_uiDocument == null)
+            _uiDocument = GetComponent<UIDocument>();
+
+        if (_uiDocument?.rootVisualElement is { } root)
+        {
+            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
+            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
+
+            if (!_isAttached && root.panel != null)
+                AttachToPanel(_uiDocument);
+        }
+    }
+
+    private void HandleAttachToPanel(AttachToPanelEvent _)
+    {
+        if (!_isAttached)
+            AttachToPanel(_uiDocument);
+    }
+
+    private void HandleDetachFromPanel(DetachFromPanelEvent _)
+    {
+        DetachFromPanel();
     }
 
     private bool IsAbilityReady(BattleAbilitySO ability)
