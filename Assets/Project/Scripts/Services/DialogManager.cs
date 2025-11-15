@@ -35,7 +35,7 @@ public sealed class DialogManager : MonoBehaviour
             return;
         }
 
-        _uiController.SetDialogVisibility(false);
+        _uiController.ShowDialog();
 
         if (_displayRoutine != null)
         {
@@ -142,10 +142,7 @@ public sealed class DialogManager : MonoBehaviour
             _displayRoutine = null;
         }
 
-        if (_uiController != null)
-        {
-            _uiController.SetDialogVisibility(true);
-        }
+        _uiController?.HideDialog();
 
         CompleteDisplay(completion);
     }

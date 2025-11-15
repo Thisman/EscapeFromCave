@@ -144,7 +144,18 @@ public sealed class DungeonUIController : MonoBehaviour
         _dialogRoutine = StartCoroutine(TypeDialogRoutine(message, secondsPerCharacter));
     }
 
-    public void SetDialogVisibility(bool visible)
+    public void ShowDialog()
+    {
+        SetDialogVisibility(true);
+    }
+
+    public void HideDialog()
+    {
+        StopDialogRoutine();
+        SetDialogVisibility(false);
+    }
+
+    private void SetDialogVisibility(bool visible)
     {
         if (_dialogContainer == null)
         {
