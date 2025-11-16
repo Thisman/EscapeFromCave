@@ -23,6 +23,7 @@ public sealed class BattleEffectsManager
         }
 
         effects.Add(new BattleEffectState(effect, _ctx));
+        BattleLogger.LogEffectApplied(effect, target);
     }
 
     public void RemoveEffect(BattleEffectSO effect, BattleSquadEffectsController target)
@@ -102,6 +103,7 @@ public sealed class BattleEffectsManager
                 continue;
 
             state.TickCount++;
+            BattleLogger.LogEffectTriggered(state.Effect, controller, trigger);
             await state.Effect.OnTick(state.Context, controller);
 
             if (ShouldEffectExpire(state))

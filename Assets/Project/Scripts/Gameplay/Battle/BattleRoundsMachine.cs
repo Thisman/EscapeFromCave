@@ -69,6 +69,7 @@ public sealed class BattleRoundsMachine
 
     private void OnRoundInit()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.RoundInit);
         _ctx.DefendedUnitsThisRound?.Clear();
 
         var unitModels = _ctx.BattleUnits
@@ -85,6 +86,7 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnInit()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnInit);
         var queue = _ctx.BattleQueueController.GetQueue();
         if (queue.Count == 0)
         {
@@ -99,8 +101,10 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnStart()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnStart);
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
+        BattleLogger.LogActiveUnit(_ctx.ActiveUnit);
 
         HighlightActiveUnitSlot();
 
@@ -115,6 +119,7 @@ public sealed class BattleRoundsMachine
 
     private void OnWaitTurnAction()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnWaitAction);
         IReadOnlySquadModel activeUnit = _ctx.ActiveUnit;
         BattleActionControllerResolver resolver = _ctx.BattleActionControllerResolver;
         IBattleActionController controller = resolver.ResolveFor(activeUnit);
@@ -144,11 +149,13 @@ public sealed class BattleRoundsMachine
 
     private void OnTurnSkip()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnSkip);
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
     private void OnTurnEnd()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnEnd);
         ClearActionSlotHighlights();
         ClearActiveUnitSlotHighlight();
 
@@ -219,6 +226,7 @@ public sealed class BattleRoundsMachine
 
     private void OnRoundEnd()
     {
+        BattleLogger.LogRoundStateEntered(BattleRoundState.RoundEnd);
         if (_battleFinished)
             return;
 
@@ -278,6 +286,7 @@ public sealed class BattleRoundsMachine
 
         if (resolvedAction != null && activeUnit != null)
         {
+            BattleLogger.LogUnitAction(activeUnit, ResolveActionName(resolvedAction));
             TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
         }
 
@@ -620,6 +629,28 @@ public sealed class BattleRoundsMachine
     {
         _playerRequestedFlee = true;
         TriggerBattleFinish();
+    }
+
+    private static string ResolveActionName(IBattleAction action)
+    {
+        switch (action)
+        {
+            case BattleActionAttack:
+                return "Attack";
+            case BattleActionDefend:
+                return "Defend";
+            case BattleActionSkipTurn:
+                return "Skip Turn";
+            case BattleActionAbility abilityAction:
+                var ability = abilityAction.Ability;
+                if (ability == null)
+                    return "Ability";
+                return string.IsNullOrWhiteSpace(ability.AbilityName)
+                    ? (!string.IsNullOrWhiteSpace(ability.name) ? ability.name : "Ability")
+                    : ability.AbilityName;
+            default:
+                return action?.GetType().Name ?? "Unknown";
+        }
     }
 
     private BattleUnitsResult BuildUnitsResult()
