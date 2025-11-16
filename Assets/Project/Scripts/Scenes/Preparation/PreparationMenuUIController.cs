@@ -41,7 +41,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
     private static readonly UnitCardStatField[] SquadStatFields =
     {
-        UnitCardStatField.Count,
+        //UnitCardStatField.Count,
         UnitCardStatField.Health,
         UnitCardStatField.DamageRange,
         UnitCardStatField.Initiative,

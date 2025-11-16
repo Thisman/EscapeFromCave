@@ -58,7 +58,7 @@
     opacity: 0.1;
     transition-timing-function: ease-in-out-bounce;
     height: 80px;
-    width: 100%;
+    width: 80%;
 }
 
 .control-button:hover {
