@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public enum BattleEffectTrigger
@@ -31,21 +29,24 @@ public class BattleEffectSO: ScriptableObject
 
     [Min(0)] public int MaxTick;
 
-    public void OnAttach(BattleContext ctx, BattleSquadEffectsController target)
+    public virtual Task OnAttach(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (Trigger == BattleEffectTrigger.OnAttach)
         {
-            Apply(ctx, target);
+            return Apply(ctx, target);
         }
+
+        return Task.CompletedTask;
     }
 
-    public virtual void Apply(BattleContext ctx, BattleSquadEffectsController target)
+    public virtual Task Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
+        return Task.CompletedTask;
     }
 
-    public void OnTick(BattleContext ctx, BattleSquadEffectsController target)
+    public virtual Task OnTick(BattleContext ctx, BattleSquadEffectsController target)
     {
-        Apply(ctx, target);
+        return Apply(ctx, target);
     }
 
     public virtual void OnRemove(BattleContext ctx, BattleSquadEffectsController target)

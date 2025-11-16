@@ -40,7 +40,7 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleAct
         _targetPicker.RequestTarget();
     }
 
-    private void HandleTargetSelected(BattleSquadController unit)
+    private async void HandleTargetSelected(BattleSquadController unit)
     {
         if (_disposed || _resolved)
             return;
@@ -80,7 +80,7 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleAct
             return;
         }
 
-        _ability.Apply(_ctx, unit);
+        await _ability.Apply(_ctx, unit);
 
         var abilityManager = _ctx?.BattleAbilitiesManager;
         var caster = _ctx?.ActiveUnit;

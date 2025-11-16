@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatModifierBattleEffect", menuName = "Gameplay/Battle Effects/Stat Modifier Effect")]
@@ -6,12 +7,13 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 {
     public BattleStatModifier[] StatsModifier = Array.Empty<BattleStatModifier>();
 
-    public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
+    public override Task Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (!TryResolveModel(target, out var model))
-            return;
+            return Task.CompletedTask;
 
         model.SetStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
+        return Task.CompletedTask;
     }
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public enum BattleAbilityType
@@ -37,11 +37,22 @@ public class BattleAbilitySO : ScriptableObject
 
     public BattleEffectSO[] Effects;
 
-    public void Apply(BattleContext ctx, BattleSquadController target)
+    public async Task Apply(BattleContext ctx, BattleSquadController target)
     {
-        foreach(var effect in Effects)
+        if (ctx == null || target == null)
+            return;
+
+        var effectsManager = ctx.BattleEffectsManager;
+        var effectsController = target.GetComponent<BattleSquadEffectsController>();
+        if (effectsManager == null || effectsController == null)
+            return;
+
+        foreach (var effect in Effects)
         {
-            ctx.BattleEffectsManager.AddEffect(ctx, effect, target.GetComponent<BattleSquadEffectsController>());
+            if (effect == null)
+                continue;
+
+            await effectsManager.AddEffect(ctx, effect, effectsController);
         }
     }
 }

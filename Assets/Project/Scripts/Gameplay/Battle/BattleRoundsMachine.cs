@@ -590,12 +590,16 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    private void TriggerEffects(BattleEffectTrigger trigger)
+    private async void TriggerEffects(BattleEffectTrigger trigger)
     {
-        _ctx?.BattleEffectsManager?.Trigger(trigger);
+        var effectsManager = _ctx?.BattleEffectsManager;
+        if (effectsManager == null)
+            return;
+
+        await effectsManager.Trigger(trigger);
     }
 
-    private void TriggerEffects(BattleEffectTrigger trigger, IReadOnlySquadModel unit)
+    private async void TriggerEffects(BattleEffectTrigger trigger, IReadOnlySquadModel unit)
     {
         if (unit == null)
             return;
@@ -609,7 +613,7 @@ public sealed class BattleRoundsMachine
         if (effectsController == null)
             return;
 
-        effectsManager.Trigger(trigger, effectsController);
+        await effectsManager.Trigger(trigger, effectsController);
     }
 
     private void HandleLeaveCombat()
