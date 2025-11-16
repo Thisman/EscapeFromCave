@@ -23,6 +23,9 @@ public sealed class BattleSquadCursorSource : ICursorSource
     private string ResolveCursorName()
     {
         var controller = _controller ??= GetComponent<BattleSquadController>();
+        if (controller != null && controller.GetSquadModel().IsAlly())
+            return ResolveDefaultCursor();
+
         if (controller != null && controller.IsValidTarget())
             return ResolveTargetCursor();
 
