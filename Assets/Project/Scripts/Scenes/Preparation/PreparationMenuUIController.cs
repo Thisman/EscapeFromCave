@@ -461,6 +461,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             if (root != null)
             {
                 _card = new UnitCardWidget(root);
+                _card.SetInfoFields(UnitCardWidget.UnitDefinitionInfoFields);
                 _clickable = new Clickable(HandleClick);
                 _card.Root.AddManipulator(_clickable);
             }
@@ -480,7 +481,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 title,
                 hero != null ? hero.Icon : null,
                 infoEntries,
-                UnitCardWidget.UnitDefinitionInfoTemplate,
                 title,
                 abilities);
             _card.Render(data);
@@ -523,7 +523,10 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             _nextButton = root?.Q<VisualElement>("NextButton");
             VisualElement cardRoot = root?.Q<VisualElement>("Card");
             if (cardRoot != null)
+            {
                 _card = new UnitCardWidget(cardRoot);
+                _card.SetInfoFields(UnitCardWidget.UnitDefinitionInfoFields);
+            }
 
             if (_prevButton != null)
             {
@@ -552,7 +555,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 title,
                 squad != null ? squad.Icon : null,
                 infoEntries,
-                UnitCardWidget.UnitDefinitionInfoTemplate,
                 title,
                 abilities);
             _card.Render(data);

@@ -596,7 +596,11 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private void InitializeSquadInfoCard(VisualElement body)
     {
         _squadInfoCard = body?.Q<VisualElement>(SquadInfoCardElementName);
-        _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
+        if (_squadInfoCard != null)
+        {
+            _squadInfoCardWidget = new UnitCardWidget(_squadInfoCard);
+            _squadInfoCardWidget.SetInfoFields(UnitCardWidget.SquadInfoFields);
+        }
 
         HideSquadInfoCard();
     }
@@ -683,7 +687,6 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             title,
             squad.Icon,
             infoEntries,
-            UnitCardWidget.SquadInfoTemplate,
             title,
             abilityIcons,
             effectIcons);

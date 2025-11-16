@@ -23,7 +23,6 @@ namespace UICommon.Widgets
             string title,
             Sprite icon,
             IReadOnlyDictionary<string, string> infoEntries,
-            IReadOnlyList<string> infoKeys,
             string tooltip = null,
             IReadOnlyList<UnitCardIconRenderData> abilities = null,
             IReadOnlyList<UnitCardIconRenderData> effects = null)
@@ -32,7 +31,6 @@ namespace UICommon.Widgets
             Icon = icon;
             Tooltip = tooltip ?? title ?? string.Empty;
             InfoEntries = infoEntries ?? EmptyInfoEntries;
-            InfoKeys = infoKeys ?? Array.Empty<string>();
             Abilities = abilities ?? Array.Empty<UnitCardIconRenderData>();
             Effects = effects ?? Array.Empty<UnitCardIconRenderData>();
         }
@@ -44,7 +42,6 @@ namespace UICommon.Widgets
         public Sprite Icon { get; }
         public string Tooltip { get; }
         public IReadOnlyDictionary<string, string> InfoEntries { get; }
-        public IReadOnlyList<string> InfoKeys { get; }
         public IReadOnlyList<UnitCardIconRenderData> Abilities { get; }
         public IReadOnlyList<UnitCardIconRenderData> Effects { get; }
     }
@@ -73,7 +70,7 @@ namespace UICommon.Widgets
             public const string MissChance = "miss-chance";
         }
 
-        public static readonly IReadOnlyList<string> UnitDefinitionInfoTemplate = new[]
+        public static readonly IReadOnlyCollection<string> UnitDefinitionInfoFields = new[]
         {
             InfoKeys.Health,
             InfoKeys.Damage,
@@ -87,7 +84,7 @@ namespace UICommon.Widgets
             InfoKeys.MissChance
         };
 
-        public static readonly IReadOnlyList<string> SquadInfoTemplate = new[]
+        public static readonly IReadOnlyCollection<string> SquadInfoFields = new[]
         {
             InfoKeys.Count,
             InfoKeys.Health,
@@ -103,7 +100,24 @@ namespace UICommon.Widgets
             InfoKeys.MissChance
         };
 
+        private static readonly IReadOnlyList<string> DefaultInfoOrder = new[]
+        {
+            InfoKeys.Count,
+            InfoKeys.Health,
+            InfoKeys.Damage,
+            InfoKeys.Initiative,
+            InfoKeys.AttackKind,
+            InfoKeys.DamageType,
+            InfoKeys.PhysicalDefense,
+            InfoKeys.MagicDefense,
+            InfoKeys.AbsoluteDefense,
+            InfoKeys.CritChance,
+            InfoKeys.CritMultiplier,
+            InfoKeys.MissChance
+        };
+
         private readonly List<Label> _infoLabels = new();
+        private readonly List<string> _infoKeys = new();
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
@@ -127,9 +141,38 @@ namespace UICommon.Widgets
 
                 _infoLabels.Add(label);
             });
+
+            SetInfoFields(null);
         }
 
         public VisualElement Root => _root;
+
+        public void SetInfoFields(IEnumerable<string> infoFields)
+        {
+            _infoKeys.Clear();
+
+            if (infoFields == null)
+            {
+                _infoKeys.AddRange(DefaultInfoOrder);
+                return;
+            }
+
+            HashSet<string> remainingKeys = new();
+            foreach (string field in infoFields)
+            {
+                if (!string.IsNullOrEmpty(field))
+                    remainingKeys.Add(field);
+            }
+
+            foreach (string key in DefaultInfoOrder)
+            {
+                if (remainingKeys.Remove(key))
+                    _infoKeys.Add(key);
+            }
+
+            foreach (string key in remainingKeys)
+                _infoKeys.Add(key);
+        }
 
         public void Render(UnitCardRenderData data)
         {
@@ -161,7 +204,7 @@ namespace UICommon.Widgets
             if (_title != null)
                 _title.text = data.Title ?? string.Empty;
 
-            int infoCount = data.InfoKeys?.Count ?? 0;
+            int infoCount = _infoKeys.Count;
             EnsureInfoLabelCount(infoCount);
 
             for (int i = 0; i < _infoLabels.Count; i++)
@@ -172,7 +215,7 @@ namespace UICommon.Widgets
 
                 if (i < infoCount)
                 {
-                    string key = data.InfoKeys[i];
+                    string key = _infoKeys[i];
                     label.text = TryGetInfoEntry(data.InfoEntries, key);
                     label.style.display = string.IsNullOrEmpty(label.text) ? DisplayStyle.None : DisplayStyle.Flex;
                 }
