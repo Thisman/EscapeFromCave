@@ -22,8 +22,8 @@
                     <uie:EnumField name="TriggerField" class="effect-editor__property" label="Триггер" />
                     <ui:IntegerField name="MaxTickField" class="effect-editor__property" label="Максимум тиков" />
                 </ui:VisualElement>
-                <ui:VisualElement name="EffectTypeFields" class="effect-editor__type-fields" />
             </ui:VisualElement>
+            <ui:VisualElement name="EffectTypeFields" class="effect-editor__type-fields" />
             <ui:TextField name="DescriptionField" class="effect-editor__description" label="Описание" multiline="true" />
             <ui:Button name="SaveButton" class="effect-editor__save" text="Сохранить" />
         </ui:VisualElement>
