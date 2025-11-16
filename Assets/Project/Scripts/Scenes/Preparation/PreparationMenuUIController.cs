@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -158,7 +159,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         _heroCards.Clear();
 
         VisualElement content = _heroPanel?.Q<VisualElement>("Content");
-        content?.Query<VisualElement>(className: "card").ForEach(cardElement =>
+        content?.Query<VisualElement>(className: UnitCardWidget.BlockClassName).ForEach(cardElement =>
         {
             if (cardElement == null)
                 return;
@@ -341,25 +342,20 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         if (unit == null)
             return Array.Empty<string>();
 
+        (float minDamage, float maxDamage) = unit.GetBaseDamageRange();
         List<string> entries = new()
         {
-            $"Название: {unit.UnitName}",
-            $"Количество: {FormatValue(GetDefaultCount(unit))}",
             $"Здоровье: {FormatValue(unit.BaseHealth)}",
+            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
+            $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
+            $"Тип урона: {FormatDamageType(unit.DamageType)}",
             $"Физическая защита: {FormatPercent(unit.BasePhysicalDefense)}",
             $"Магическая защита: {FormatPercent(unit.BaseMagicDefense)}",
             $"Абсолютная защита: {FormatPercent(unit.BaseAbsoluteDefense)}",
-            $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
-            $"Тип урона: {FormatDamageType(unit.DamageType)}",
+            $"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}",
+            $"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}",
+            $"Шанс промаха: {FormatPercent(unit.BaseMissChance)}",
         };
-
-        (float minDamage, float maxDamage) = unit.GetBaseDamageRange();
-        entries.Add($"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}");
-        entries.Add($"Скорость: {FormatValue(unit.Speed)}");
-        entries.Add($"Инициатива: {FormatValue(unit.Speed)}");
-        entries.Add($"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}");
-        entries.Add($"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}");
-        entries.Add($"Шанс промаха: {FormatPercent(unit.BaseMissChance)}");
 
         return entries;
     }
@@ -413,82 +409,20 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return result;
     }
 
-    private abstract class CardView
-    {
-        private readonly List<Label> _infoLabels = new();
-
-        protected CardView(VisualElement root)
-        {
-            Root = root;
-            Icon = root?.Q<VisualElement>("Icon");
-            Title = root?.Q<Label>("Title");
-
-            VisualElement infoContainer = root?.Q<VisualElement>("Info");
-            infoContainer?.Query<Label>().ForEach(label =>
-            {
-                if (label == null)
-                    return;
-
-                _infoLabels.Add(label);
-            });
-        }
-
-        protected void ApplyUnit(UnitSO unit, IReadOnlyList<string> stats)
-        {
-            if (Icon != null)
-            {
-                if (unit != null && unit.Icon != null)
-                    Icon.style.backgroundImage = new StyleBackground(unit.Icon);
-                else
-                    Icon.style.backgroundImage = new StyleBackground();
-
-                Icon.tooltip = unit != null ? unit.UnitName : string.Empty;
-            }
-
-            if (Title != null)
-                Title.text = unit != null ? unit.UnitName : string.Empty;
-
-            int statsCount = stats?.Count ?? 0;
-            for (int i = 0; i < _infoLabels.Count; i++)
-            {
-                Label label = _infoLabels[i];
-                if (label == null)
-                    continue;
-
-                if (i < statsCount)
-                {
-                    label.text = stats[i];
-                    label.style.display = DisplayStyle.Flex;
-                }
-                else
-                {
-                    label.text = string.Empty;
-                    label.style.display = DisplayStyle.None;
-                }
-            }
-
-            Root?.EnableInClassList("card__selected", false);
-        }
-
-        protected VisualElement Root { get; }
-        protected VisualElement Icon { get; }
-        protected Label Title { get; }
-    }
-
-    private sealed class HeroCard : CardView
+    private sealed class HeroCard
     {
         private readonly PreparationMenuUIController _controller;
+        private readonly UnitCardWidget _card;
         private readonly Clickable _clickable;
 
         public HeroCard(PreparationMenuUIController controller, VisualElement root)
-            : base(root)
         {
             _controller = controller;
-
-            if (Root != null)
+            if (root != null)
             {
+                _card = new UnitCardWidget(root);
                 _clickable = new Clickable(HandleClick);
-                Root.AddManipulator(_clickable);
+                _card.Root.AddManipulator(_clickable);
             }
         }
 
@@ -497,19 +431,24 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         public void Bind(UnitSO hero, int definitionIndex, IReadOnlyList<string> stats)
         {
             DefinitionIndex = definitionIndex;
-            ApplyUnit(hero, stats);
-            Root?.SetEnabled(hero != null);
+            if (_card == null)
+                return;
+
+            string title = hero != null ? hero.UnitName : string.Empty;
+            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title);
+            _card.Render(data);
+            _card.SetEnabled(hero != null);
         }
 
         public void UpdateSelected(bool isSelected)
         {
-            Root?.EnableInClassList("card__selected", isSelected);
+            _card?.SetSelected(isSelected);
         }
 
         public void Dispose()
         {
-            if (Root != null && _clickable != null)
-                Root.RemoveManipulator(_clickable);
+            if (_card?.Root != null && _clickable != null)
+                _card.Root.RemoveManipulator(_clickable);
         }
 
         private void HandleClick()
@@ -521,20 +460,23 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         }
     }
 
-    private sealed class SquadCard : CardView
+    private sealed class SquadCard
     {
         private readonly PreparationMenuUIController _controller;
         private readonly VisualElement _prevButton;
         private readonly VisualElement _nextButton;
         private readonly Clickable _prevClickable;
         private readonly Clickable _nextClickable;
+        private readonly UnitCardWidget _card;
 
         public SquadCard(PreparationMenuUIController controller, VisualElement root)
-            : base(root)
         {
             _controller = controller;
             _prevButton = root?.Q<VisualElement>("PrevButton");
             _nextButton = root?.Q<VisualElement>("NextButton");
+            VisualElement cardRoot = root?.Q<VisualElement>("Card");
+            if (cardRoot != null)
+                _card = new UnitCardWidget(cardRoot);
 
             if (_prevButton != null)
             {
@@ -554,8 +496,13 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         public void UpdateContent(UnitSO squad, int index, IReadOnlyList<string> stats)
         {
             SelectedDefinitionIndex = index;
-            ApplyUnit(squad, stats);
-            Root?.SetEnabled(squad != null);
+            if (_card == null)
+                return;
+
+            string title = squad != null ? squad.UnitName : string.Empty;
+            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title);
+            _card.Render(data);
+            _card.SetEnabled(squad != null);
         }
 
         public bool HasValidSelection(int definitionsLength)

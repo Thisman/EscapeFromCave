@@ -8,11 +8,11 @@
     align-items: center;
 }
 
-.hero-panel .card {
+.hero-panel .unit-card {
     opacity: 0.15;
 }
 
-.hero-panel .card:hover {
+.hero-panel .unit-card:hover {
     transition-duration: 0s;
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
@@ -29,7 +29,7 @@
     opacity: 1;
 }
 
-.hero-panel .card__selected {
+.hero-panel .unit-card.unit-card--selected {
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
