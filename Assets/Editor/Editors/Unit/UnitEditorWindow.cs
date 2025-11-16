@@ -47,6 +47,7 @@ public sealed class UnitEditorWindow : EditorWindow
     private UnitSO _selectedUnit;
     private UnitSO _editingUnit;
     private bool _hasUnsavedChanges;
+    private bool _isCreatingNewUnit;
     private string _searchFilter = string.Empty;
 
     [MenuItem("Editors/Unit")]
@@ -249,17 +250,45 @@ public sealed class UnitEditorWindow : EditorWindow
         {
             var label = new Label();
             label.AddToClassList("unit-editor__ability-item");
+            label.RegisterCallback<PointerUpEvent>(OnAbilityItemPointerUp);
             return label;
         };
         _abilitiesList.bindItem = (element, index) =>
         {
-            if (index < 0 || index >= _abilityBuffer.Count)
+            if (!(element is Label label))
                 return;
 
-            var label = element as Label;
+            label.userData = index;
+
+            if (index < 0 || index >= _abilityBuffer.Count)
+            {
+                label.text = "-";
+                return;
+            }
+
             var ability = _abilityBuffer[index];
             label.text = ability == null ? "-" : ability.name;
         };
+    }
+
+    private void OnAbilityItemPointerUp(PointerUpEvent evt)
+    {
+        if (evt.button != (int)MouseButton.MiddleMouse)
+            return;
+
+        if (!(evt.currentTarget is VisualElement element))
+            return;
+
+        if (!(element.userData is int index))
+            return;
+
+        if (index < 0 || index >= _abilityBuffer.Count)
+            return;
+
+        evt.StopPropagation();
+        _abilityBuffer.RemoveAt(index);
+        UpdateAbilityList();
+        MarkDirty();
     }
 
     private void RefreshUnits()
@@ -323,6 +352,7 @@ public sealed class UnitEditorWindow : EditorWindow
     private void SelectUnit(UnitSO unit)
     {
         _selectedUnit = unit;
+        _isCreatingNewUnit = false;
 
         if (_editingUnit != null)
         {
@@ -527,7 +557,16 @@ public sealed class UnitEditorWindow : EditorWindow
 
     private void SaveCurrentUnit()
     {
-        if (_selectedUnit == null || _editingUnit == null)
+        if (_editingUnit == null)
+            return;
+
+        if (_isCreatingNewUnit)
+        {
+            SaveNewUnitAsset();
+            return;
+        }
+
+        if (_selectedUnit == null)
             return;
 
         Undo.RecordObject(_selectedUnit, "Save Unit");
@@ -552,22 +591,30 @@ public sealed class UnitEditorWindow : EditorWindow
         UpdateSaveButtonState();
     }
 
-    private void CreateUnitAsset()
+    private void SaveNewUnitAsset()
     {
         EnsureUnitsFolder();
-        var baseName = "Unit";
-        var fileName = GetUniqueAssetName(baseName);
-        var assetPath = Path.Combine(UnitsFolderPath, fileName + ".asset");
+
+        var desiredName = BuildFileName(_editingUnit.UnitName);
+        if (string.IsNullOrEmpty(desiredName))
+        {
+            desiredName = "Unit";
+        }
+
+        var targetName = GetUniqueAssetName(desiredName);
+        var assetPath = Path.Combine(UnitsFolderPath, targetName + ".asset");
 
         var newUnit = CreateInstance<UnitSO>();
-        newUnit.UnitName = fileName;
-        newUnit.name = fileName;
+        EditorUtility.CopySerializedManagedFieldsOnly(_editingUnit, newUnit);
+        newUnit.name = targetName;
 
         AssetDatabase.CreateAsset(newUnit, assetPath);
         AssetDatabase.SaveAssets();
 
+        _isCreatingNewUnit = false;
         RefreshUnits();
         SelectUnit(newUnit);
+
         if (_unitsList != null)
         {
             var index = _filteredUnits.IndexOf(newUnit);
@@ -576,6 +623,28 @@ public sealed class UnitEditorWindow : EditorWindow
                 _unitsList.SetSelection(index);
             }
         }
+    }
+
+    private void CreateUnitAsset()
+    {
+        if (_editingUnit != null)
+        {
+            DestroyImmediate(_editingUnit);
+            _editingUnit = null;
+        }
+
+        _selectedUnit = null;
+        _isCreatingNewUnit = true;
+
+        _editingUnit = CreateInstance<UnitSO>();
+        _editingUnit.hideFlags = HideFlags.HideAndDontSave;
+
+        _abilityBuffer.Clear();
+        PopulateFields();
+        UpdateContentState();
+        MarkDirty();
+
+        _unitsList?.ClearSelection();
     }
 
     private void EnsureUnitsFolder()
