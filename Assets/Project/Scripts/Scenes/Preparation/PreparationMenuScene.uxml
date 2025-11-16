@@ -60,65 +60,71 @@
                 <ui:Button text="Выбрать команду" name="GoToSquadsSelection" class="button" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="SelectSquadsPanel" class="panel" style="flex-grow: 1;">
+        <ui:VisualElement name="SelectSquadsPanel" class="panel panel__active" style="flex-grow: 1;">
             <ui:VisualElement name="Top" class="top" style="flex-grow: 1;">
                 <ui:Label text="Выбор  отряда" selectable="false" focusable="false" style="text-shadow: 0 0 0 rgb(0, 0, 0); font-size: 40px; color: rgb(255, 255, 255); -unity-text-align: middle-center;" />
             </ui:VisualElement>
             <ui:VisualElement name="Content" class="content" style="flex-grow: 1;">
-                <ui:VisualElement name="Card" class="card">
-                    <ui:VisualElement name="Header" class="card-header">
-                        <ui:VisualElement name="Icon" class="card-icon" />
-                        <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="Info" style="flex-grow: 1;">
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="Controls" class="controls" style="justify-content: space-around; align-items: center;">
-                        <ui:VisualElement name="PrevButton" class="control-button" style="flex-grow: 0; position: absolute; top: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Up.png?fileID=2800000&amp;guid=b7d7cd8f771580f4586dda964f8ceb96&amp;type=3#Chevron-Arrow-Up&quot;); background-size: 56px 36px;" />
-                        <ui:VisualElement name="NextButton" class="control-button" style="flex-grow: 0; position: absolute; bottom: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Down.png?fileID=2800000&amp;guid=5f94ed9a1b6ae5740ade7947cafd4f71&amp;type=3#Chevron-Arrow-Down&quot;); background-size: 56px 36px;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="Card" class="card">
-                    <ui:VisualElement name="Header" class="card-header">
-                        <ui:VisualElement name="Icon" class="card-icon" />
-                        <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="Info" style="flex-grow: 1;">
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                <ui:VisualElement name="SquadsContainer" style="flex-grow: 0;">
+                    <ui:VisualElement name="Card" class="card">
+                        <ui:VisualElement name="Header" class="card-header">
+                            <ui:VisualElement name="Icon" class="card-icon" />
+                            <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Info" style="flex-grow: 1;">
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="Controls" class="controls" style="justify-content: space-around; align-items: center;">
                         <ui:VisualElement name="PrevButton" class="control-button" style="flex-grow: 0; position: absolute; top: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Up.png?fileID=2800000&amp;guid=b7d7cd8f771580f4586dda964f8ceb96&amp;type=3#Chevron-Arrow-Up&quot;); background-size: 56px 36px;" />
                         <ui:VisualElement name="NextButton" class="control-button" style="flex-grow: 0; position: absolute; bottom: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Down.png?fileID=2800000&amp;guid=5f94ed9a1b6ae5740ade7947cafd4f71&amp;type=3#Chevron-Arrow-Down&quot;); background-size: 56px 36px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Card" class="card">
-                    <ui:VisualElement name="Header" class="card-header">
-                        <ui:VisualElement name="Icon" class="card-icon" />
-                        <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
+                <ui:VisualElement name="SquadsContainer" style="flex-grow: 0;">
+                    <ui:VisualElement name="Card" class="card">
+                        <ui:VisualElement name="Header" class="card-header">
+                            <ui:VisualElement name="Icon" class="card-icon" />
+                            <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Info" style="flex-grow: 1;">
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Info" style="flex-grow: 1;">
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
-                        <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                    <ui:VisualElement name="Controls" class="controls" style="justify-content: space-around; align-items: center;">
+                        <ui:VisualElement name="PrevButton" class="control-button" style="flex-grow: 0; position: absolute; top: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Up.png?fileID=2800000&amp;guid=b7d7cd8f771580f4586dda964f8ceb96&amp;type=3#Chevron-Arrow-Up&quot;); background-size: 56px 36px;" />
+                        <ui:VisualElement name="NextButton" class="control-button" style="flex-grow: 0; position: absolute; bottom: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Down.png?fileID=2800000&amp;guid=5f94ed9a1b6ae5740ade7947cafd4f71&amp;type=3#Chevron-Arrow-Down&quot;); background-size: 56px 36px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="SquadsContainer" style="flex-grow: 0;">
+                    <ui:VisualElement name="Card" class="card">
+                        <ui:VisualElement name="Header" class="card-header">
+                            <ui:VisualElement name="Icon" class="card-icon" />
+                            <ui:Label text="Имя героя" selectable="true" focusable="true" name="Title" class="card-title" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Info" style="flex-grow: 1;">
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                            <ui:Label text="Характеристика - 99999" triple-click-selects-line="false" class="info-line" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="Controls" class="controls" style="justify-content: space-around; align-items: center;">
                         <ui:VisualElement name="PrevButton" class="control-button" style="flex-grow: 0; position: absolute; top: -100px; background-image: url(&quot;project://database/Assets/Resources/Art/Packs/Lucid%20V1.2/PNG/Shadow/64/Chevron-Arrow-Up.png?fileID=2800000&amp;guid=b7d7cd8f771580f4586dda964f8ceb96&amp;type=3#Chevron-Arrow-Up&quot;); background-size: 56px 36px;" />

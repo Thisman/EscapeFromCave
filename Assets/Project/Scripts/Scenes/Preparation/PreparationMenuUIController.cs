@@ -172,7 +172,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         _squadCards.Clear();
 
         VisualElement content = _squadPanel?.Q<VisualElement>("Content");
-        content?.Query<VisualElement>(className: "card").ForEach(cardElement =>
+        content?.Query<VisualElement>(name: "SquadsContainer").ForEach(cardElement =>
         {
             if (cardElement == null)
                 return;
