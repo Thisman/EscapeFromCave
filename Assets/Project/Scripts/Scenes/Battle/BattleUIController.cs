@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -25,7 +26,6 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string AbilityItemSelectedClassName = "ability-item--selected";
 
     private const string SquadInfoCardElementName = "SquadInfoCard";
-    private const string CardInfoElementName = "Info";
     private const string BattleCardHiddenClassName = "battle-card--hidden";
     private const string BattleCardVisibleClassName = "battle-card--visible";
     private const string BattleCardLeftClassName = "battle-card--left";
@@ -61,9 +61,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
     private VisualElement _squadInfoCard;
-    private VisualElement _squadInfoCardIcon;
-    private Label _squadInfoCardTitle;
-    private readonly List<Label> _squadInfoLabels = new();
+    private UnitCardWidget _squadInfoCardWidget;
     private IReadOnlySquadModel _displayedSquadModel;
     private Camera _mainCamera;
     private int _unitsLayerMask;
@@ -240,9 +238,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         HideSquadInfoCard();
         _squadInfoCard = null;
-        _squadInfoCardIcon = null;
-        _squadInfoCardTitle = null;
-        _squadInfoLabels.Clear();
+        _squadInfoCardWidget = null;
 
         _resultStatusLabel = null;
         _panels.Clear();
@@ -599,16 +595,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private void InitializeSquadInfoCard(VisualElement body)
     {
         _squadInfoCard = body?.Q<VisualElement>(SquadInfoCardElementName);
-        _squadInfoCardIcon = _squadInfoCard?.Q<VisualElement>("Icon");
-        _squadInfoCardTitle = _squadInfoCard?.Q<Label>("Title");
-
-        _squadInfoLabels.Clear();
-        VisualElement infoContainer = _squadInfoCard?.Q<VisualElement>(CardInfoElementName);
-        infoContainer?.Query<Label>().ForEach(label =>
-        {
-            if (label != null)
-                _squadInfoLabels.Add(label);
-        });
+        _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
 
         HideSquadInfoCard();
     }
@@ -683,52 +670,10 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null)
             return;
 
-        UpdateSquadInfoIcon(squad);
-        UpdateSquadInfoTitle(squad);
-        UpdateSquadInfoLabels(BuildSquadStatEntries(squad));
-    }
-
-    private void UpdateSquadInfoIcon(IReadOnlySquadModel squad)
-    {
-        if (_squadInfoCardIcon == null)
-            return;
-
-        if (squad.Icon != null)
-            _squadInfoCardIcon.style.backgroundImage = new StyleBackground(squad.Icon);
-        else
-            _squadInfoCardIcon.style.backgroundImage = new StyleBackground();
-
-        _squadInfoCardIcon.tooltip = !string.IsNullOrWhiteSpace(squad.UnitName) ? squad.UnitName : string.Empty;
-    }
-
-    private void UpdateSquadInfoTitle(IReadOnlySquadModel squad)
-    {
-        if (_squadInfoCardTitle == null)
-            return;
-
-        _squadInfoCardTitle.text = squad.UnitName ?? string.Empty;
-    }
-
-    private void UpdateSquadInfoLabels(IReadOnlyList<string> entries)
-    {
-        int entryCount = entries?.Count ?? 0;
-        for (int i = 0; i < _squadInfoLabels.Count; i++)
-        {
-            Label label = _squadInfoLabels[i];
-            if (label == null)
-                continue;
-
-            if (i < entryCount)
-            {
-                label.text = entries[i];
-                label.style.display = DisplayStyle.Flex;
-            }
-            else
-            {
-                label.text = string.Empty;
-                label.style.display = DisplayStyle.None;
-            }
-        }
+        IReadOnlyList<string> stats = BuildSquadStatEntries(squad);
+        string title = squad.UnitName ?? string.Empty;
+        UnitCardRenderData data = new(title, squad.Icon, stats, title);
+        _squadInfoCardWidget?.Render(data);
     }
 
     private void UpdateSquadCardPosition(IReadOnlySquadModel squad)
@@ -788,25 +733,22 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null)
             return Array.Empty<string>();
 
+        (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
         List<string> entries = new()
         {
-            $"Название: {squad.UnitName}",
             $"Количество: {FormatValue(squad.Count)}",
             $"Здоровье: {FormatValue(squad.Health)}",
+            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
+            $"Инициатива: {FormatValue(squad.Initiative)}",
             $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
             $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
             $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
             $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
             $"Тип урона: {FormatDamageType(squad.DamageType)}",
+            $"Шанс критического удара: {FormatPercent(squad.CritChance)}",
+            $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
+            $"Шанс промаха: {FormatPercent(squad.MissChance)}",
         };
-
-        (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
-        entries.Add($"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}");
-        entries.Add($"Скорость: {FormatValue(squad.Speed)}");
-        entries.Add($"Инициатива: {FormatValue(squad.Initiative)}");
-        entries.Add($"Шанс критического удара: {FormatPercent(squad.CritChance)}");
-        entries.Add($"Критический множитель: {FormatValue(squad.CritMultiplier)}");
-        entries.Add($"Шанс промаха: {FormatPercent(squad.MissChance)}");
 
         return entries;
     }
