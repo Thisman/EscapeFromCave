@@ -54,49 +54,66 @@ public sealed class BattleEffectsManager
         }
     }
 
-    public void OnTick()
+    public void Trigger(BattleEffectTrigger trigger, BattleSquadEffectsController target = null)
     {
+        if (_activeEffects.Count == 0)
+            return;
+
+        if (target != null)
+        {
+            TriggerForController(trigger, target);
+            return;
+        }
+
         var controllers = new List<BattleSquadEffectsController>(_activeEffects.Keys);
         foreach (var controller in controllers)
         {
-            if (controller == null)
+            TriggerForController(trigger, controller);
+        }
+    }
+
+    private void TriggerForController(BattleEffectTrigger trigger, BattleSquadEffectsController controller)
+    {
+        if (controller == null)
+        {
+            if (_activeEffects.TryGetValue(controller, out var orphanedEffects))
             {
-                if (_activeEffects.TryGetValue(controller, out var orphanedEffects))
+                foreach (var orphan in orphanedEffects)
                 {
-                    foreach (var orphan in orphanedEffects)
-                    {
-                        orphan.Effect.OnRemove(orphan.Context, null);
-                    }
-                }
-
-                _activeEffects.Remove(controller);
-                continue;
-            }
-
-            if (!_activeEffects.TryGetValue(controller, out var effects) || effects.Count == 0)
-            {
-                _activeEffects.Remove(controller);
-                continue;
-            }
-
-            for (int i = effects.Count - 1; i >= 0; i--)
-            {
-                var state = effects[i];
-                state.TickCount++;
-                state.Effect.OnTick(state.Context, controller);
-
-                if (ShouldEffectExpire(state))
-                {
-                    controller.RemoveEffect(state.Effect);
-                    state.Effect.OnRemove(state.Context, controller);
-                    effects.RemoveAt(i);
+                    orphan.Effect.OnRemove(orphan.Context, null);
                 }
             }
 
-            if (effects.Count == 0)
+            _activeEffects.Remove(controller);
+            return;
+        }
+
+        if (!_activeEffects.TryGetValue(controller, out var effects) || effects.Count == 0)
+        {
+            _activeEffects.Remove(controller);
+            return;
+        }
+
+        for (int i = effects.Count - 1; i >= 0; i--)
+        {
+            var state = effects[i];
+            if (state.Effect.Trigger != trigger)
+                continue;
+
+            state.TickCount++;
+            state.Effect.OnTick(state.Context, controller);
+
+            if (ShouldEffectExpire(state))
             {
-                _activeEffects.Remove(controller);
+                controller.RemoveEffect(state.Effect);
+                state.Effect.OnRemove(state.Context, controller);
+                effects.RemoveAt(i);
             }
+        }
+
+        if (effects.Count == 0)
+        {
+            _activeEffects.Remove(controller);
         }
     }
 

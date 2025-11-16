@@ -2,6 +2,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BattleSquadEventType
+{
+    ApplyDamage
+}
+
+public readonly struct BattleSquadEvent
+{
+    public BattleSquadEvent(BattleSquadEventType type, BattleSquadModel squad, BattleDamageData damageData, int appliedDamage)
+    {
+        Type = type;
+        Squad = squad;
+        DamageData = damageData;
+        AppliedDamage = appliedDamage;
+    }
+
+    public BattleSquadEventType Type { get; }
+
+    public BattleSquadModel Squad { get; }
+
+    public BattleDamageData DamageData { get; }
+
+    public int AppliedDamage { get; }
+}
+
 public sealed class BattleSquadModel : IReadOnlySquadModel
 {
     private int _squadHealth;
@@ -12,6 +36,8 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     public UnitSO Definition => _sourceModel.Definition;
 
     public event Action<IReadOnlySquadModel> Changed;
+
+    public event Action<BattleSquadEvent> OnEvent;
 
     public BattleSquadModel(IReadOnlySquadModel sourceModel)
     {
@@ -121,6 +147,16 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
         bool changed = newHealth != _squadHealth;
         SetSquadHealth(newHealth);
+
+        if (changed)
+        {
+            RaiseEvent(new BattleSquadEvent(
+                BattleSquadEventType.ApplyDamage,
+                this,
+                damageData,
+                afterDefense));
+        }
+
         return changed;
     }
 
@@ -268,6 +304,11 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     private void NotifyChanged()
     {
         Changed?.Invoke(this);
+    }
+
+    private void RaiseEvent(BattleSquadEvent squadEvent)
+    {
+        OnEvent?.Invoke(squadEvent);
     }
 
     private static bool AreModifiersEqual(Dictionary<BattleSquadStat, float> existingModifiers, IReadOnlyList<BattleStatModifier> modifiers)

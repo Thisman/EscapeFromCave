@@ -10,6 +10,7 @@ public sealed class BattleRoundsMachine
     private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
     private bool _battleFinished;
     private bool _playerRequestedFlee;
+    private readonly List<BattleSquadModel> _subscribedSquadModels = new();
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -54,12 +55,14 @@ public sealed class BattleRoundsMachine
 
     public void Reset()
     {
+        UnsubscribeFromSquadEvents();
         _battleFinished = false;
         _playerRequestedFlee = false;
         _sm.Activate();
         if (_ctx.BattleUIController != null)
             _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
         UpdateTargetValidity(null, null);
+        SubscribeToSquadEvents();
     }
 
     public void BeginRound() => _sm.Fire(BattleRoundTrigger.InitTurn);
@@ -76,8 +79,7 @@ public sealed class BattleRoundsMachine
         _ctx.BattleQueueController.Build(unitModels);
         _ctx.BattleUIController?.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
-        _ctx.BattleEffectsManager.OnTick();
-
+        TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _sm.Fire(BattleRoundTrigger.InitTurn);
     }
 
@@ -105,6 +107,7 @@ public sealed class BattleRoundsMachine
         var abilities = _ctx.ActiveUnit.Abilities;
         var activeUnit = _ctx.ActiveUnit;
         var abilityManager = _ctx.BattleAbilitiesManager;
+        TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _ctx.BattleUIController?.RenderAbilityList(abilities, abilityManager, activeUnit);
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
@@ -148,6 +151,8 @@ public sealed class BattleRoundsMachine
     {
         ClearActionSlotHighlights();
         ClearActiveUnitSlotHighlight();
+
+        TriggerEffects(BattleEffectTrigger.OnTurnEnd, _ctx.ActiveUnit);
 
         _ctx.BattleQueueController.NextTurn();
         _ctx.ActiveUnit = null;
@@ -217,6 +222,7 @@ public sealed class BattleRoundsMachine
         if (_battleFinished)
             return;
 
+        TriggerEffects(BattleEffectTrigger.OnRoundEnd);
         _sm.Fire(BattleRoundTrigger.StartNewRound);
     }
 
@@ -266,18 +272,34 @@ public sealed class BattleRoundsMachine
     private void OnActionResolved()
     {
         var resolvedAction = _ctx.CurrentAction;
+        var activeUnit = _ctx.ActiveUnit;
 
         DetachCurrentAction();
+
+        if (resolvedAction != null && activeUnit != null)
+        {
+            TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
+        }
 
         switch (resolvedAction)
         {
             case BattleActionDefend:
+                TriggerEffects(BattleEffectTrigger.OnDefend, activeUnit);
                 _ctx.DefendedUnitsThisRound.Add(_ctx.ActiveUnit);
                 _ctx.BattleQueueController.AddLast(_ctx.ActiveUnit);
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
                 break;
             case BattleActionSkipTurn:
+                TriggerEffects(BattleEffectTrigger.OnSkip, activeUnit);
                 _sm.Fire(BattleRoundTrigger.SkipTurn);
+                break;
+            case BattleActionAttack:
+                TriggerEffects(BattleEffectTrigger.OnAttack, activeUnit);
+                _sm.Fire(BattleRoundTrigger.ActionDone);
+                break;
+            case BattleActionAbility:
+                TriggerEffects(BattleEffectTrigger.OnAbility, activeUnit);
+                _sm.Fire(BattleRoundTrigger.ActionDone);
                 break;
             default:
                 _sm.Fire(BattleRoundTrigger.ActionDone);
@@ -354,6 +376,8 @@ public sealed class BattleRoundsMachine
             return;
 
         _battleFinished = true;
+
+        UnsubscribeFromSquadEvents();
 
         if (_ctx.BattleUIController != null)
             _ctx.BattleUIController.OnLeaveCombat -= HandleLeaveCombat;
@@ -511,6 +535,81 @@ public sealed class BattleRoundsMachine
 
             unitController.SetTargetValidity(isValid);
         }
+    }
+
+    private void SubscribeToSquadEvents()
+    {
+        var units = _ctx.BattleUnits;
+        if (units == null)
+            return;
+
+        foreach (var unitController in units)
+        {
+            if (unitController == null)
+                continue;
+
+            if (unitController.GetSquadModel() is not BattleSquadModel model)
+                continue;
+
+            if (_subscribedSquadModels.Contains(model))
+                continue;
+
+            model.OnEvent += HandleSquadEvent;
+            _subscribedSquadModels.Add(model);
+        }
+    }
+
+    private void UnsubscribeFromSquadEvents()
+    {
+        if (_subscribedSquadModels.Count == 0)
+            return;
+
+        foreach (var model in _subscribedSquadModels)
+        {
+            if (model != null)
+                model.OnEvent -= HandleSquadEvent;
+        }
+
+        _subscribedSquadModels.Clear();
+    }
+
+    private void HandleSquadEvent(BattleSquadEvent squadEvent)
+    {
+        if (squadEvent.Type != BattleSquadEventType.ApplyDamage)
+            return;
+
+        if (squadEvent.Squad == null || squadEvent.AppliedDamage <= 0)
+            return;
+
+        TriggerEffects(BattleEffectTrigger.OnApplyDamage, squadEvent.Squad);
+
+        var actingUnit = _ctx.ActiveUnit;
+        if (actingUnit != null)
+        {
+            TriggerEffects(BattleEffectTrigger.OnDealDamage, actingUnit);
+        }
+    }
+
+    private void TriggerEffects(BattleEffectTrigger trigger)
+    {
+        _ctx?.BattleEffectsManager?.Trigger(trigger);
+    }
+
+    private void TriggerEffects(BattleEffectTrigger trigger, IReadOnlySquadModel unit)
+    {
+        if (unit == null)
+            return;
+
+        var effectsManager = _ctx?.BattleEffectsManager;
+        if (effectsManager == null)
+            return;
+
+        var controller = FindControllerForModel(unit);
+        var effectsController = controller?.GetComponent<BattleSquadEffectsController>();
+        if (effectsController == null)
+            return;
+
+        effectsManager.Trigger(trigger, effectsController);
     }
 
     private void HandleLeaveCombat()
