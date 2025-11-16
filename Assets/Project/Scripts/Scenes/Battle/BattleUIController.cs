@@ -32,6 +32,22 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string BattleCardRightClassName = "battle-card--right";
     private const string UnitsLayerName = "Units";
 
+    private static readonly UnitCardStatField[] BattleCardStatFields =
+    {
+        UnitCardStatField.Count,
+        UnitCardStatField.Health,
+        UnitCardStatField.DamageRange,
+        UnitCardStatField.Initiative,
+        UnitCardStatField.PhysicalDefense,
+        UnitCardStatField.MagicDefense,
+        UnitCardStatField.AbsoluteDefense,
+        UnitCardStatField.AttackKind,
+        UnitCardStatField.DamageType,
+        UnitCardStatField.CritChance,
+        UnitCardStatField.CritMultiplier,
+        UnitCardStatField.MissChance
+    };
+
     private const string VictoryStatusText = "Победа";
     private const string DefeatStatusText = "Поражение";
     private const string FleeStatusText = "Побег";
@@ -63,6 +79,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private VisualElement _squadInfoCard;
     private UnitCardWidget _squadInfoCardWidget;
     private IReadOnlySquadModel _displayedSquadModel;
+    private BattleSquadEffectsController _displayedEffectsController;
     private Camera _mainCamera;
     private int _unitsLayerMask;
 
@@ -239,6 +256,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         HideSquadInfoCard();
         _squadInfoCard = null;
         _squadInfoCardWidget = null;
+        _displayedEffectsController = null;
 
         _resultStatusLabel = null;
         _panels.Clear();
@@ -613,24 +631,25 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return;
         }
 
-        IReadOnlySquadModel squad = squadController.GetSquadModel();
-        if (squad == null)
-        {
-            if (_displayedSquadModel != null)
-                HideSquadInfoCard();
-            return;
-        }
-
-        ShowSquadInfoCard(squad);
+        ShowSquadInfoCard(squadController);
     }
 
-    private void ShowSquadInfoCard(IReadOnlySquadModel squad)
+    private void ShowSquadInfoCard(BattleSquadController controller)
     {
-        if (squad == null || _squadInfoCard == null)
+        if (controller == null || _squadInfoCard == null)
         {
             HideSquadInfoCard();
             return;
         }
+
+        IReadOnlySquadModel squad = controller.GetSquadModel();
+        if (squad == null)
+        {
+            HideSquadInfoCard();
+            return;
+        }
+
+        BattleSquadEffectsController effectsController = controller.GetComponent<BattleSquadEffectsController>();
 
         if (!ReferenceEquals(_displayedSquadModel, squad))
         {
@@ -639,7 +658,9 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             _displayedSquadModel.Changed += HandleDisplayedSquadChanged;
         }
 
-        UpdateSquadInfoContent(squad);
+        _displayedEffectsController = effectsController;
+
+        UpdateSquadInfoContent(squad, effectsController?.Effects);
         UpdateSquadCardPosition(squad);
 
         _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, false);
@@ -649,6 +670,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private void HideSquadInfoCard()
     {
         UnsubscribeFromDisplayedSquad();
+        _displayedEffectsController = null;
 
         if (_squadInfoCard == null)
             return;
@@ -662,17 +684,17 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null || !ReferenceEquals(_displayedSquadModel, squad))
             return;
 
-        UpdateSquadInfoContent(squad);
+        UpdateSquadInfoContent(squad, _displayedEffectsController?.Effects);
     }
 
-    private void UpdateSquadInfoContent(IReadOnlySquadModel squad)
+    private void UpdateSquadInfoContent(IReadOnlySquadModel squad, IReadOnlyList<BattleEffectSO> effects)
     {
         if (squad == null)
             return;
 
-        IReadOnlyList<string> stats = BuildSquadStatEntries(squad);
-        string title = squad.UnitName ?? string.Empty;
-        UnitCardRenderData data = new(title, squad.Icon, stats, title);
+        IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
+        IReadOnlyList<BattleEffectSO> effectList = effects ?? Array.Empty<BattleEffectSO>();
+        UnitCardRenderData data = new(squad, BattleCardStatFields, abilities, effectList, squad.UnitName);
         _squadInfoCardWidget?.Render(data);
     }
 
@@ -728,60 +750,4 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         return null;
     }
 
-    private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)
-    {
-        if (squad == null)
-            return Array.Empty<string>();
-
-        (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
-        List<string> entries = new()
-        {
-            $"Количество: {FormatValue(squad.Count)}",
-            $"Здоровье: {FormatValue(squad.Health)}",
-            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
-            $"Инициатива: {FormatValue(squad.Initiative)}",
-            $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
-            $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
-            $"Тип урона: {FormatDamageType(squad.DamageType)}",
-            $"Шанс критического удара: {FormatPercent(squad.CritChance)}",
-            $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
-            $"Шанс промаха: {FormatPercent(squad.MissChance)}",
-        };
-
-        return entries;
-    }
-
-    private static string FormatValue(float value)
-    {
-        return value.ToString("0.##");
-    }
-
-    private static string FormatPercent(float value)
-    {
-        return value.ToString("P0");
-    }
-
-    private static string FormatAttackKind(AttackKind attackKind)
-    {
-        return attackKind switch
-        {
-            AttackKind.Melee => "Ближняя",
-            AttackKind.Range => "Дальняя",
-            AttackKind.Magic => "Магическая",
-            _ => attackKind.ToString()
-        };
-    }
-
-    private static string FormatDamageType(DamageType damageType)
-    {
-        return damageType switch
-        {
-            DamageType.Physical => "Физический",
-            DamageType.Magical => "Магический",
-            DamageType.Pure => "Чистый",
-            _ => damageType.ToString()
-        };
-    }
 }
