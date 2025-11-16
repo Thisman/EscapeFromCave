@@ -3,7 +3,21 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public enum BattleEffectTrigger { OnAttach, OnTick }
+public enum BattleEffectTrigger
+{
+    OnAttach,
+    OnRoundStart,
+    OnRoundEnd,
+    OnAction,
+    OnDefend,
+    OnSkip,
+    OnAttack,
+    OnDealDamage,
+    OnApplyDamage,
+    OnAbility,
+    OnTurnStart,
+    OnTurnEnd,
+}
 
 public class BattleEffectSO: ScriptableObject
 {
@@ -31,10 +45,7 @@ public class BattleEffectSO: ScriptableObject
 
     public void OnTick(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (Trigger == BattleEffectTrigger.OnTick)
-        {
-            Apply(ctx, target);
-        }
+        Apply(ctx, target);
     }
 
     public virtual void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
