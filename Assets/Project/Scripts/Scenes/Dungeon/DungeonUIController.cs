@@ -335,13 +335,10 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
         var icon = new Image
         {
-            name = "SquadIcon",
-            scaleMode = ScaleMode.ScaleToFit
+            name = "SquadIcon"
         };
 
         icon.AddToClassList("squad-entry__icon");
-        icon.style.width = _iconSize;
-        icon.style.height = _iconSize;
 
         var countLabel = new Label
         {
