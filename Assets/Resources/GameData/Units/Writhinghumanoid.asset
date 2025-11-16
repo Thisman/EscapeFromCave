@@ -17,14 +17,14 @@ MonoBehaviour:
   Kind: 2
   AttackKind: 2
   DamageType: 1
-  BaseHealth: 66
-  BasePhysicalDefense: 0.02
-  BaseMagicDefense: 0.16
-  BaseAbsoluteDefense: 0.05
-  MinDamage: 6
-  MaxDamage: 9
+  BaseHealth: 25
+  BasePhysicalDefense: 0.03
+  BaseMagicDefense: 0.1
+  BaseAbsoluteDefense: 0
+  MinDamage: 35
+  MaxDamage: 35
   Speed: 2
-  BaseCritChance: 0.04
-  BaseCritMultiplier: 1.22
-  BaseMissChance: 0.09
+  BaseCritChance: 0.08
+  BaseCritMultiplier: 1.1
+  BaseMissChance: 0
   Abilities: []
