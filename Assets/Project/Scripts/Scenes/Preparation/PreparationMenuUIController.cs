@@ -25,6 +25,36 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
     private int _selectedHeroIndex = -1;
     private bool _isAttached;
 
+    private static readonly UnitCardStatField[] HeroStatFields =
+    {
+        UnitCardStatField.Health,
+        UnitCardStatField.DamageRange,
+        UnitCardStatField.AttackKind,
+        UnitCardStatField.DamageType,
+        UnitCardStatField.PhysicalDefense,
+        UnitCardStatField.MagicDefense,
+        UnitCardStatField.AbsoluteDefense,
+        UnitCardStatField.CritChance,
+        UnitCardStatField.CritMultiplier,
+        UnitCardStatField.MissChance
+    };
+
+    private static readonly UnitCardStatField[] SquadStatFields =
+    {
+        //UnitCardStatField.Count,
+        UnitCardStatField.Health,
+        UnitCardStatField.DamageRange,
+        UnitCardStatField.Initiative,
+        UnitCardStatField.PhysicalDefense,
+        UnitCardStatField.MagicDefense,
+        UnitCardStatField.AbsoluteDefense,
+        UnitCardStatField.AttackKind,
+        UnitCardStatField.DamageType,
+        UnitCardStatField.CritChance,
+        UnitCardStatField.CritMultiplier,
+        UnitCardStatField.MissChance
+    };
+
     private void Awake()
     {
         TryRegisterLifecycleCallbacks();
@@ -196,7 +226,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         {
             HeroCard card = _heroCards[i];
             UnitSO hero = i < _heroDefinitions.Length ? _heroDefinitions[i] : null;
-            IReadOnlyList<string> stats = hero != null ? BuildUnitStatEntries(hero) : Array.Empty<string>();
+            IReadOnlyList<UnitCardStatField> stats = hero != null ? HeroStatFields : Array.Empty<UnitCardStatField>();
             int definitionIndex = hero != null ? i : -1;
 
             card.Bind(hero, definitionIndex, stats);
@@ -213,7 +243,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         if (_squadDefinitions.Length == 0)
         {
             foreach (SquadCard card in _squadCards)
-                card.UpdateContent(null, -1, Array.Empty<string>());
+                card.UpdateContent(null, -1, Array.Empty<UnitCardStatField>());
 
             return;
         }
@@ -249,7 +279,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             return;
 
         UnitSO squad = index >= 0 && index < _squadDefinitions.Length ? _squadDefinitions[index] : null;
-        IReadOnlyList<string> stats = squad != null ? BuildUnitStatEntries(squad) : Array.Empty<string>();
+        IReadOnlyList<UnitCardStatField> stats = squad != null ? SquadStatFields : Array.Empty<UnitCardStatField>();
         card.UpdateContent(squad, squad != null ? index : -1, stats);
     }
 
@@ -337,64 +367,9 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return selectedSquads;
     }
 
-    private static IReadOnlyList<string> BuildUnitStatEntries(UnitSO unit)
-    {
-        if (unit == null)
-            return Array.Empty<string>();
-
-        (float minDamage, float maxDamage) = unit.GetBaseDamageRange();
-        List<string> entries = new()
-        {
-            $"Здоровье: {FormatValue(unit.BaseHealth)}",
-            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
-            $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
-            $"Тип урона: {FormatDamageType(unit.DamageType)}",
-            $"Физическая защита: {FormatPercent(unit.BasePhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(unit.BaseMagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(unit.BaseAbsoluteDefense)}",
-            $"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}",
-            $"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}",
-            $"Шанс промаха: {FormatPercent(unit.BaseMissChance)}",
-        };
-
-        return entries;
-    }
-
     private static float GetDefaultCount(UnitSO _)
     {
         return 1f;
-    }
-
-    private static string FormatValue(float value)
-    {
-        return value.ToString("0.##");
-    }
-
-    private static string FormatPercent(float value)
-    {
-        return value.ToString("P0");
-    }
-
-    private static string FormatAttackKind(AttackKind attackKind)
-    {
-        return attackKind switch
-        {
-            AttackKind.Melee => "Ближняя",
-            AttackKind.Range => "Дальняя",
-            AttackKind.Magic => "Магическая",
-            _ => attackKind.ToString()
-        };
-    }
-
-    private static string FormatDamageType(DamageType damageType)
-    {
-        return damageType switch
-        {
-            DamageType.Physical => "Физический",
-            DamageType.Magical => "Магический",
-            DamageType.Pure => "Чистый",
-            _ => damageType.ToString()
-        };
     }
 
     private static int WrapIndex(int index, int length)
@@ -428,14 +403,17 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
         public int DefinitionIndex { get; private set; } = -1;
 
-        public void Bind(UnitSO hero, int definitionIndex, IReadOnlyList<string> stats)
+        public void Bind(UnitSO hero, int definitionIndex, IReadOnlyList<UnitCardStatField> stats)
         {
             DefinitionIndex = definitionIndex;
             if (_card == null)
                 return;
 
-            string title = hero != null ? hero.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title);
+            IReadOnlyList<UnitCardStatField> statFields = hero != null ? stats : Array.Empty<UnitCardStatField>();
+            IReadOnlySquadModel squad = hero != null ? new SquadModel(hero, Mathf.RoundToInt(GetDefaultCount(hero))) : null;
+            IReadOnlyList<BattleAbilitySO> abilities = hero?.Abilities ?? Array.Empty<BattleAbilitySO>();
+
+            UnitCardRenderData data = new(squad, statFields, abilities, Array.Empty<BattleEffectSO>(), hero?.UnitName);
             _card.Render(data);
             _card.SetEnabled(hero != null);
         }
@@ -493,14 +471,17 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
         public int SelectedDefinitionIndex { get; private set; } = -1;
 
-        public void UpdateContent(UnitSO squad, int index, IReadOnlyList<string> stats)
+        public void UpdateContent(UnitSO squad, int index, IReadOnlyList<UnitCardStatField> stats)
         {
             SelectedDefinitionIndex = index;
             if (_card == null)
                 return;
 
-            string title = squad != null ? squad.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title);
+            IReadOnlyList<UnitCardStatField> statFields = squad != null ? stats : Array.Empty<UnitCardStatField>();
+            IReadOnlySquadModel squadModel = squad != null ? new SquadModel(squad, Mathf.RoundToInt(GetDefaultCount(squad))) : null;
+            IReadOnlyList<BattleAbilitySO> abilities = squad?.Abilities ?? Array.Empty<BattleAbilitySO>();
+
+            UnitCardRenderData data = new(squadModel, statFields, abilities, Array.Empty<BattleEffectSO>(), squad?.UnitName);
             _card.Render(data);
             _card.SetEnabled(squad != null);
         }
