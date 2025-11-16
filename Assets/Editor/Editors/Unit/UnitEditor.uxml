@@ -13,7 +13,7 @@
                         <ui:Image name="IconImage" class="unit-editor__icon" />
                         <ui:Label text="Перетащи спрайт" class="unit-editor__icon-hint" />
                     </ui:VisualElement>
-                    <ui:TextField name="UnitNameField" class="unit-editor__input" label="Имя юнита" />
+                    <ui:TextField name="UnitNameField" class="unit-editor__input" />
                     <ui:Label text="Название файла" class="unit-editor__file-caption" />
                     <ui:Label name="FileNameLabel" class="unit-editor__file-name" text="-" />
                 </ui:VisualElement>
