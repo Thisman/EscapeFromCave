@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="ability-picker.uss" />
+    <ui:VisualElement class="ability-picker">
+        <ui:VisualElement class="ability-picker__toolbar">
+            <ui:TextField name="FilterField" class="ability-picker__search" label="Поиск" />
+            <ui:Button name="ConfirmButton" class="ability-picker__confirm" text="Выбрать" />
+        </ui:VisualElement>
+        <ui:ListView name="AbilityList" class="ability-picker__list" />
+    </ui:VisualElement>
+</ui:UXML>

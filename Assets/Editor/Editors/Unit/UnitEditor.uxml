@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="unit-editor.uss" />
+    <ui:VisualElement class="unit-editor">
+        <ui:VisualElement class="unit-editor__sidebar">
+            <ui:TextField name="SearchField" class="unit-editor__search" label="Search" picking-mode="Ignore" />
+            <ui:Button name="CreateButton" text="Создать" class="unit-editor__create" />
+            <ui:ListView name="UnitsList" class="unit-editor__list" />
+        </ui:VisualElement>
+        <ui:VisualElement class="unit-editor__content" name="ContentContainer">
+            <ui:VisualElement class="unit-editor__header">
+                <ui:VisualElement class="unit-editor__icon-block">
+                    <ui:VisualElement name="IconDropArea" class="unit-editor__icon-area">
+                        <ui:Image name="IconImage" class="unit-editor__icon" />
+                        <ui:Label text="Перетащи спрайт" class="unit-editor__icon-hint" />
+                    </ui:VisualElement>
+                    <ui:TextField name="UnitNameField" class="unit-editor__input" label="Имя юнита" />
+                    <ui:Label text="Название файла" class="unit-editor__file-caption" />
+                    <ui:Label name="FileNameLabel" class="unit-editor__file-name" text="-" />
+                </ui:VisualElement>
+                <ui:VisualElement class="unit-editor__properties">
+                    <uie:EnumField name="UnitKindField" class="unit-editor__property" label="Тип юнита" />
+                    <uie:EnumField name="AttackKindField" class="unit-editor__property" label="Тип атаки" />
+                    <uie:EnumField name="DamageTypeField" class="unit-editor__property" label="Тип урона" />
+                    <ui:FloatField name="BaseHealthField" class="unit-editor__property" label="Здоровье" />
+                    <ui:FloatField name="BasePhysicalDefenseField" class="unit-editor__property" label="Физическая защита" />
+                    <ui:FloatField name="BaseMagicDefenseField" class="unit-editor__property" label="Магическая защита" />
+                    <ui:FloatField name="BaseAbsoluteDefenseField" class="unit-editor__property" label="Абсолютная защита" />
+                    <ui:FloatField name="MinDamageField" class="unit-editor__property" label="Мин урон" />
+                    <ui:FloatField name="MaxDamageField" class="unit-editor__property" label="Макс урон" />
+                    <ui:FloatField name="SpeedField" class="unit-editor__property" label="Скорость" />
+                    <ui:FloatField name="BaseCritChanceField" class="unit-editor__property" label="Шанс крита" />
+                    <ui:FloatField name="BaseCritMultiplierField" class="unit-editor__property" label="Множитель крита" />
+                    <ui:FloatField name="BaseMissChanceField" class="unit-editor__property" label="Шанс промаха" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="unit-editor__abilities">
+                <ui:Button name="AddAbilityButton" class="unit-editor__add-ability" text="Добавить способность" />
+                <ui:ListView name="AbilitiesList" class="unit-editor__abilities-list" />
+            </ui:VisualElement>
+            <ui:Button name="SaveButton" class="unit-editor__save" text="Сохранить" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
