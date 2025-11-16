@@ -15,6 +15,8 @@ public sealed class BattlePhaseMachine
 
         _battleRoundsMachine.OnBattleRoundsFinished += HandleBattleFinished;
 
+        BattleLogger.LogPhaseEntered(BattlePhase.Loading);
+
         _sm.Configure(BattlePhase.Loading)
             .Permit(BattleTrigger.StartBattle, BattlePhase.Tactics);
 
@@ -40,6 +42,7 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterTactics()
     {
+        BattleLogger.LogPhaseEntered(BattlePhase.Tactics);
         _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.TacticPanel);
         if (_ctx.BattleUIController != null)
             _ctx.BattleUIController.OnStartCombat += HandleStartBattleRounds;
@@ -52,13 +55,15 @@ public sealed class BattlePhaseMachine
 
     private void OnEnterRounds()
     {
+        BattleLogger.LogPhaseEntered(BattlePhase.BattleRounds);
         _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.CombatPanel);
         _battleRoundsMachine.Reset();
-        _battleRoundsMachine.BeginRound();
+        _battleRoundsMachine.BeginRounds();
     }
 
     private void OnEnterResults()
     {
+        BattleLogger.LogPhaseEntered(BattlePhase.Results);
         _ctx.IsFinished = true;
         _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.ResultPanel);
         _ctx.BattleUIController?.ShowResult(_ctx.BattleResult);
