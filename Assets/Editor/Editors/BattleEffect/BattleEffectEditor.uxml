@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="BattleEffectEditor.uss" />
+    <ui:VisualElement class="effect-editor">
+        <ui:VisualElement class="effect-editor__sidebar">
+            <ui:TextField name="SearchField" class="effect-editor__search" label="Поиск" picking-mode="Ignore" />
+            <ui:Button name="CreateButton" text="Создать" class="effect-editor__create" />
+            <ui:ListView name="EffectsList" class="effect-editor__list" />
+        </ui:VisualElement>
+        <ui:VisualElement class="effect-editor__content" name="ContentContainer">
+            <ui:VisualElement class="effect-editor__header">
+                <ui:VisualElement class="effect-editor__icon-block">
+                    <ui:VisualElement name="IconDropArea" class="effect-editor__icon-area">
+                        <ui:Image name="IconImage" class="effect-editor__icon" />
+                        <ui:Label text="Перетащи спрайт" class="effect-editor__icon-hint" />
+                    </ui:VisualElement>
+                    <ui:TextField name="EffectNameField" class="effect-editor__input" label="Название" />
+                    <ui:Label text="Название файла" class="effect-editor__file-caption" />
+                    <ui:Label name="FileNameLabel" class="effect-editor__file-name" text="-" />
+                </ui:VisualElement>
+                <ui:VisualElement class="effect-editor__properties">
+                    <uie:EnumField name="TriggerField" class="effect-editor__property" label="Триггер" />
+                    <ui:IntegerField name="MaxTickField" class="effect-editor__property" label="Максимум тиков" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:TextField name="DescriptionField" class="effect-editor__description" label="Описание" multiline="true" />
+            <ui:Button name="SaveButton" class="effect-editor__save" text="Сохранить" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
