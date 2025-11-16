@@ -1,6 +1,10 @@
 :root {
 }
 
+.dungeon-bottom {
+    height: 150px;
+}
+
 .squad-list {
     flex-direction: row;
     align-items: center;

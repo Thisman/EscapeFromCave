@@ -71,12 +71,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-left-width: 2px;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .effect-list {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-left-width: 2px;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .ability-info {
