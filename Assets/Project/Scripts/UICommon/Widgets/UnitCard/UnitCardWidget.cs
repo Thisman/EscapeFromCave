@@ -22,7 +22,8 @@ namespace UICommon.Widgets
         public UnitCardRenderData(
             string title,
             Sprite icon,
-            IReadOnlyList<string> stats,
+            IReadOnlyDictionary<string, string> infoEntries,
+            IReadOnlyList<string> infoKeys,
             string tooltip = null,
             IReadOnlyList<UnitCardIconRenderData> abilities = null,
             IReadOnlyList<UnitCardIconRenderData> effects = null)
@@ -30,15 +31,20 @@ namespace UICommon.Widgets
             Title = title ?? string.Empty;
             Icon = icon;
             Tooltip = tooltip ?? title ?? string.Empty;
-            Stats = stats ?? Array.Empty<string>();
+            InfoEntries = infoEntries ?? EmptyInfoEntries;
+            InfoKeys = infoKeys ?? Array.Empty<string>();
             Abilities = abilities ?? Array.Empty<UnitCardIconRenderData>();
             Effects = effects ?? Array.Empty<UnitCardIconRenderData>();
         }
 
+        private static readonly IReadOnlyDictionary<string, string> EmptyInfoEntries =
+            new Dictionary<string, string>();
+
         public string Title { get; }
         public Sprite Icon { get; }
         public string Tooltip { get; }
-        public IReadOnlyList<string> Stats { get; }
+        public IReadOnlyDictionary<string, string> InfoEntries { get; }
+        public IReadOnlyList<string> InfoKeys { get; }
         public IReadOnlyList<UnitCardIconRenderData> Abilities { get; }
         public IReadOnlyList<UnitCardIconRenderData> Effects { get; }
     }
@@ -50,6 +56,52 @@ namespace UICommon.Widgets
         public const string InfoLineClassName = "unit-card__info-line";
         public const string AbilityIconClassName = "ability-info";
         public const string EffectIconClassName = "effect-info";
+
+        public static class InfoKeys
+        {
+            public const string Count = "count";
+            public const string Health = "health";
+            public const string Damage = "damage";
+            public const string Initiative = "initiative";
+            public const string AttackKind = "attack-kind";
+            public const string DamageType = "damage-type";
+            public const string PhysicalDefense = "physical-defense";
+            public const string MagicDefense = "magic-defense";
+            public const string AbsoluteDefense = "absolute-defense";
+            public const string CritChance = "crit-chance";
+            public const string CritMultiplier = "crit-multiplier";
+            public const string MissChance = "miss-chance";
+        }
+
+        public static readonly IReadOnlyList<string> UnitDefinitionInfoTemplate = new[]
+        {
+            InfoKeys.Health,
+            InfoKeys.Damage,
+            InfoKeys.AttackKind,
+            InfoKeys.DamageType,
+            InfoKeys.PhysicalDefense,
+            InfoKeys.MagicDefense,
+            InfoKeys.AbsoluteDefense,
+            InfoKeys.CritChance,
+            InfoKeys.CritMultiplier,
+            InfoKeys.MissChance
+        };
+
+        public static readonly IReadOnlyList<string> SquadInfoTemplate = new[]
+        {
+            InfoKeys.Count,
+            InfoKeys.Health,
+            InfoKeys.Damage,
+            InfoKeys.Initiative,
+            InfoKeys.PhysicalDefense,
+            InfoKeys.MagicDefense,
+            InfoKeys.AbsoluteDefense,
+            InfoKeys.AttackKind,
+            InfoKeys.DamageType,
+            InfoKeys.CritChance,
+            InfoKeys.CritMultiplier,
+            InfoKeys.MissChance
+        };
 
         private readonly List<Label> _infoLabels = new();
         private readonly VisualElement _root;
@@ -109,8 +161,8 @@ namespace UICommon.Widgets
             if (_title != null)
                 _title.text = data.Title ?? string.Empty;
 
-            int statsCount = data.Stats?.Count ?? 0;
-            EnsureInfoLabelCount(statsCount);
+            int infoCount = data.InfoKeys?.Count ?? 0;
+            EnsureInfoLabelCount(infoCount);
 
             for (int i = 0; i < _infoLabels.Count; i++)
             {
@@ -118,10 +170,11 @@ namespace UICommon.Widgets
                 if (label == null)
                     continue;
 
-                if (i < statsCount)
+                if (i < infoCount)
                 {
-                    label.text = data.Stats[i];
-                    label.style.display = DisplayStyle.Flex;
+                    string key = data.InfoKeys[i];
+                    label.text = TryGetInfoEntry(data.InfoEntries, key);
+                    label.style.display = string.IsNullOrEmpty(label.text) ? DisplayStyle.None : DisplayStyle.Flex;
                 }
                 else
                 {
@@ -134,6 +187,14 @@ namespace UICommon.Widgets
 
             RenderIconList(_abilityList, data.Abilities, AbilityIconClassName);
             RenderIconList(_effectsList, data.Effects, EffectIconClassName);
+        }
+
+        private static string TryGetInfoEntry(IReadOnlyDictionary<string, string> entries, string key)
+        {
+            if (entries == null || string.IsNullOrEmpty(key))
+                return string.Empty;
+
+            return entries.TryGetValue(key, out string value) ? value ?? string.Empty : string.Empty;
         }
 
         private void EnsureInfoLabelCount(int targetCount)

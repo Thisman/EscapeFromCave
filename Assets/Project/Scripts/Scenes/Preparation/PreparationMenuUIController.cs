@@ -196,10 +196,12 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         {
             HeroCard card = _heroCards[i];
             UnitSO hero = i < _heroDefinitions.Length ? _heroDefinitions[i] : null;
-            IReadOnlyList<string> stats = hero != null ? BuildUnitStatEntries(hero) : Array.Empty<string>();
+            IReadOnlyDictionary<string, string> infoEntries = hero != null
+                ? BuildUnitInfoEntries(hero)
+                : EmptyInfoEntries;
             int definitionIndex = hero != null ? i : -1;
 
-            card.Bind(hero, definitionIndex, stats);
+            card.Bind(hero, definitionIndex, infoEntries);
         }
 
         UpdateHeroSelection();
@@ -213,7 +215,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         if (_squadDefinitions.Length == 0)
         {
             foreach (SquadCard card in _squadCards)
-                card.UpdateContent(null, -1, Array.Empty<string>());
+                card.UpdateContent(null, -1, EmptyInfoEntries);
 
             return;
         }
@@ -249,8 +251,10 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             return;
 
         UnitSO squad = index >= 0 && index < _squadDefinitions.Length ? _squadDefinitions[index] : null;
-        IReadOnlyList<string> stats = squad != null ? BuildUnitStatEntries(squad) : Array.Empty<string>();
-        card.UpdateContent(squad, squad != null ? index : -1, stats);
+        IReadOnlyDictionary<string, string> infoEntries = squad != null
+            ? BuildUnitInfoEntries(squad)
+            : EmptyInfoEntries;
+        card.UpdateContent(squad, squad != null ? index : -1, infoEntries);
     }
 
     private void SelectHero(int index)
@@ -337,28 +341,38 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return selectedSquads;
     }
 
-    private static IReadOnlyList<string> BuildUnitStatEntries(UnitSO unit)
+    private static IReadOnlyDictionary<string, string> BuildUnitInfoEntries(UnitSO unit)
     {
         if (unit == null)
-            return Array.Empty<string>();
+            return EmptyInfoEntries;
 
         (float minDamage, float maxDamage) = unit.GetBaseDamageRange();
-        List<string> entries = new()
+        Dictionary<string, string> entries = new()
         {
-            $"Здоровье: {FormatValue(unit.BaseHealth)}",
-            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
-            $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
-            $"Тип урона: {FormatDamageType(unit.DamageType)}",
-            $"Физическая защита: {FormatPercent(unit.BasePhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(unit.BaseMagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(unit.BaseAbsoluteDefense)}",
-            $"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}",
-            $"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}",
-            $"Шанс промаха: {FormatPercent(unit.BaseMissChance)}",
+            [UnitCardWidget.InfoKeys.Health] = $"Здоровье: {FormatValue(unit.BaseHealth)}",
+            [UnitCardWidget.InfoKeys.Damage] =
+                $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
+            [UnitCardWidget.InfoKeys.AttackKind] = $"Тип атаки: {FormatAttackKind(unit.AttackKind)}",
+            [UnitCardWidget.InfoKeys.DamageType] = $"Тип урона: {FormatDamageType(unit.DamageType)}",
+            [UnitCardWidget.InfoKeys.PhysicalDefense] =
+                $"Физическая защита: {FormatPercent(unit.BasePhysicalDefense)}",
+            [UnitCardWidget.InfoKeys.MagicDefense] =
+                $"Магическая защита: {FormatPercent(unit.BaseMagicDefense)}",
+            [UnitCardWidget.InfoKeys.AbsoluteDefense] =
+                $"Абсолютная защита: {FormatPercent(unit.BaseAbsoluteDefense)}",
+            [UnitCardWidget.InfoKeys.CritChance] =
+                $"Шанс критического удара: {FormatPercent(unit.BaseCritChance)}",
+            [UnitCardWidget.InfoKeys.CritMultiplier] =
+                $"Критический множитель: {FormatValue(unit.BaseCritMultiplier)}",
+            [UnitCardWidget.InfoKeys.MissChance] =
+                $"Шанс промаха: {FormatPercent(unit.BaseMissChance)}",
         };
 
         return entries;
     }
+
+    private static readonly IReadOnlyDictionary<string, string> EmptyInfoEntries =
+        new Dictionary<string, string>();
 
     private static IReadOnlyList<UnitCardIconRenderData> BuildAbilityIcons(BattleAbilitySO[] abilities)
     {
@@ -454,7 +468,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
         public int DefinitionIndex { get; private set; } = -1;
 
-        public void Bind(UnitSO hero, int definitionIndex, IReadOnlyList<string> stats)
+        public void Bind(UnitSO hero, int definitionIndex, IReadOnlyDictionary<string, string> infoEntries)
         {
             DefinitionIndex = definitionIndex;
             if (_card == null)
@@ -462,7 +476,13 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
             string title = hero != null ? hero.UnitName : string.Empty;
             IReadOnlyList<UnitCardIconRenderData> abilities = BuildAbilityIcons(hero?.Abilities);
-            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title, abilities);
+            UnitCardRenderData data = new(
+                title,
+                hero != null ? hero.Icon : null,
+                infoEntries,
+                UnitCardWidget.UnitDefinitionInfoTemplate,
+                title,
+                abilities);
             _card.Render(data);
             _card.SetEnabled(hero != null);
         }
@@ -520,7 +540,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
         public int SelectedDefinitionIndex { get; private set; } = -1;
 
-        public void UpdateContent(UnitSO squad, int index, IReadOnlyList<string> stats)
+        public void UpdateContent(UnitSO squad, int index, IReadOnlyDictionary<string, string> infoEntries)
         {
             SelectedDefinitionIndex = index;
             if (_card == null)
@@ -528,7 +548,13 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
             string title = squad != null ? squad.UnitName : string.Empty;
             IReadOnlyList<UnitCardIconRenderData> abilities = BuildAbilityIcons(squad?.Abilities);
-            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title, abilities);
+            UnitCardRenderData data = new(
+                title,
+                squad != null ? squad.Icon : null,
+                infoEntries,
+                UnitCardWidget.UnitDefinitionInfoTemplate,
+                title,
+                abilities);
             _card.Render(data);
             _card.SetEnabled(squad != null);
         }

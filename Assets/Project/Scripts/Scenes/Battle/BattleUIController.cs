@@ -675,11 +675,18 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null)
             return;
 
-        IReadOnlyList<string> stats = BuildSquadStatEntries(squad);
+        IReadOnlyDictionary<string, string> infoEntries = BuildSquadInfoEntries(squad);
         string title = squad.UnitName ?? string.Empty;
         IReadOnlyList<UnitCardIconRenderData> abilityIcons = BuildAbilityIcons(squad.Abilities);
         IReadOnlyList<UnitCardIconRenderData> effectIcons = BuildEffectIcons(effects);
-        UnitCardRenderData data = new(title, squad.Icon, stats, title, abilityIcons, effectIcons);
+        UnitCardRenderData data = new(
+            title,
+            squad.Icon,
+            infoEntries,
+            UnitCardWidget.SquadInfoTemplate,
+            title,
+            abilityIcons,
+            effectIcons);
         _squadInfoCardWidget?.Render(data);
     }
 
@@ -735,26 +742,36 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         return null;
     }
 
-    private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)
+    private static readonly IReadOnlyDictionary<string, string> EmptyInfoEntries =
+        new Dictionary<string, string>();
+
+    private static IReadOnlyDictionary<string, string> BuildSquadInfoEntries(IReadOnlySquadModel squad)
     {
         if (squad == null)
-            return Array.Empty<string>();
+            return EmptyInfoEntries;
 
         (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
-        List<string> entries = new()
+        Dictionary<string, string> entries = new()
         {
-            $"Количество: {FormatValue(squad.Count)}",
-            $"Здоровье: {FormatValue(squad.Health)}",
-            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
-            $"Инициатива: {FormatValue(squad.Initiative)}",
-            $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
-            $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
-            $"Тип урона: {FormatDamageType(squad.DamageType)}",
-            $"Шанс критического удара: {FormatPercent(squad.CritChance)}",
-            $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
-            $"Шанс промаха: {FormatPercent(squad.MissChance)}",
+            [UnitCardWidget.InfoKeys.Count] = $"Количество: {FormatValue(squad.Count)}",
+            [UnitCardWidget.InfoKeys.Health] = $"Здоровье: {FormatValue(squad.Health)}",
+            [UnitCardWidget.InfoKeys.Damage] =
+                $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
+            [UnitCardWidget.InfoKeys.Initiative] = $"Инициатива: {FormatValue(squad.Initiative)}",
+            [UnitCardWidget.InfoKeys.PhysicalDefense] =
+                $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
+            [UnitCardWidget.InfoKeys.MagicDefense] =
+                $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
+            [UnitCardWidget.InfoKeys.AbsoluteDefense] =
+                $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
+            [UnitCardWidget.InfoKeys.AttackKind] = $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
+            [UnitCardWidget.InfoKeys.DamageType] = $"Тип урона: {FormatDamageType(squad.DamageType)}",
+            [UnitCardWidget.InfoKeys.CritChance] =
+                $"Шанс критического удара: {FormatPercent(squad.CritChance)}",
+            [UnitCardWidget.InfoKeys.CritMultiplier] =
+                $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
+            [UnitCardWidget.InfoKeys.MissChance] =
+                $"Шанс промаха: {FormatPercent(squad.MissChance)}",
         };
 
         return entries;
