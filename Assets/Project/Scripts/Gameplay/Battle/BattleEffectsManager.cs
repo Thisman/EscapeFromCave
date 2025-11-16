@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public sealed class BattleEffectsManager
 {
     private readonly Dictionary<BattleSquadEffectsController, List<BattleEffectState>> _activeEffects = new();
 
-    public void AddEffect(BattleContext _ctx, BattleEffectSO effect, BattleSquadEffectsController target)
+    public async Task AddEffect(BattleContext _ctx, BattleEffectSO effect, BattleSquadEffectsController target)
     {
         if (effect == null)
             throw new ArgumentNullException(nameof(effect));
@@ -13,7 +14,7 @@ public sealed class BattleEffectsManager
             throw new ArgumentNullException(nameof(target));
 
         target.AddEffect(effect);
-        effect.OnAttach(_ctx, target);
+        await effect.OnAttach(_ctx, target);
 
         if (!_activeEffects.TryGetValue(target, out var effects))
         {
@@ -54,25 +55,25 @@ public sealed class BattleEffectsManager
         }
     }
 
-    public void Trigger(BattleEffectTrigger trigger, BattleSquadEffectsController target = null)
+    public async Task Trigger(BattleEffectTrigger trigger, BattleSquadEffectsController target = null)
     {
         if (_activeEffects.Count == 0)
             return;
 
         if (target != null)
         {
-            TriggerForController(trigger, target);
+            await TriggerForController(trigger, target);
             return;
         }
 
         var controllers = new List<BattleSquadEffectsController>(_activeEffects.Keys);
         foreach (var controller in controllers)
         {
-            TriggerForController(trigger, controller);
+            await TriggerForController(trigger, controller);
         }
     }
 
-    private void TriggerForController(BattleEffectTrigger trigger, BattleSquadEffectsController controller)
+    private async Task TriggerForController(BattleEffectTrigger trigger, BattleSquadEffectsController controller)
     {
         if (controller == null)
         {
@@ -101,7 +102,7 @@ public sealed class BattleEffectsManager
                 continue;
 
             state.TickCount++;
-            state.Effect.OnTick(state.Context, controller);
+            await state.Effect.OnTick(state.Context, controller);
 
             if (ShouldEffectExpire(state))
             {

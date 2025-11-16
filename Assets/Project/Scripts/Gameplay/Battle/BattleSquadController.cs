@@ -63,4 +63,29 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
 
         await completionSource.Task;
     }
+
+    public async Task ApplyStatModifiers(BattleEffectSO source, BattleStatModifier[] modifiers)
+    {
+        if (_squadModel == null || source == null)
+            return;
+
+        _squadModel.SetStatModifiers(source, modifiers ?? Array.Empty<BattleStatModifier>());
+
+        var animationController = GetComponentInChildren<BattleSquadAnimationController>();
+        if (animationController == null)
+            return;
+
+        var completionSource = new TaskCompletionSource<bool>();
+        animationController.PlayStatModifierFlash(() => completionSource.TrySetResult(true));
+
+        await completionSource.Task;
+    }
+
+    public void RemoveStatModifiers(BattleEffectSO source)
+    {
+        if (_squadModel == null || source == null)
+            return;
+
+        _squadModel.RemoveStatModifiers(source);
+    }
 }

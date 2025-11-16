@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatModifierBattleEffect", menuName = "Gameplay/Battle Effects/Stat Modifier Effect")]
@@ -6,28 +7,25 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 {
     public BattleStatModifier[] StatsModifier = Array.Empty<BattleStatModifier>();
 
-    public override void Apply(BattleContext ctx, BattleSquadEffectsController target)
+    public override Task Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (!TryResolveModel(target, out var model))
-            return;
+        if (!TryResolveController(target, out var controller))
+            return Task.CompletedTask;
 
-        model.SetStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
+        return controller.ApplyStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
     }
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (!TryResolveModel(target, out var model))
+        if (!TryResolveController(target, out var controller))
             return;
 
-        model.RemoveStatModifiers(this);
+        controller.RemoveStatModifiers(this);
     }
 
-    private bool TryResolveModel(BattleSquadEffectsController target, out BattleSquadModel model)
+    private static bool TryResolveController(BattleSquadEffectsController target, out BattleSquadController controller)
     {
-        BattleSquadController squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
-
-        model = squadController.GetSquadModel() as BattleSquadModel;
-
-        return true;
+        controller = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
+        return controller != null;
     }
 }
