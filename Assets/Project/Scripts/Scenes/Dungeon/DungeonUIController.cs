@@ -8,7 +8,6 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
-    [SerializeField, Min(0f)] private float _iconSize = 64f;
 
     private VisualElement _root;
     private VisualElement _squadsList;

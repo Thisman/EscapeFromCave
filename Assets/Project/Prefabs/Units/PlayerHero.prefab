@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c62f9ef32b64d90a2242274ab2927ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  body: {fileID: 3059376207732831744}
-  _playerController: {fileID: 256761772204218236}
+  _body: {fileID: 0}
+  _speed: 3
 --- !u!114 &7449524510762236503
 MonoBehaviour:
   m_ObjectHideFlags: 0

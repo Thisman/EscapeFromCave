@@ -5,8 +5,8 @@ using VContainer;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D body;
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Rigidbody2D _body;
+    [SerializeField] private int _speed;
 
     [Inject] private readonly InputService _inputService;
 
@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (!body)
-            body = GetComponent<Rigidbody2D>();
+        if (!_body)
+            _body = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -29,17 +29,16 @@ public class PlayerMovement : MonoBehaviour
         UnsubscribeFromInput();
         _movement = Vector2.zero;
 
-        if (body)
-            body.linearVelocity = Vector2.zero;
+        if (_body)
+            _body.linearVelocity = Vector2.zero;
     }
 
     private void FixedUpdate()
     {
-        if (!body)
+        if (!_body)
             return;
 
-        float speed = _playerController != null ? _playerController.GetMovementSpeed() : 0f;
-        body.linearVelocity = _movement * speed;
+        _body.linearVelocity = _movement * _speed;
     }
 
     private void SubscribeToInput()
