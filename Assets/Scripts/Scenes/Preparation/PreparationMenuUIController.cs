@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,7 +9,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _document;
 
-    public Action<UnitSO, List<UnitSO>> OnDiveIntoCave;
+    public Func<UnitSO, List<UnitSO>, Task> OnDiveIntoCave;
 
     private readonly List<HeroCard> _heroCards = new();
     private readonly List<SquadCard> _squadCards = new();
@@ -18,6 +19,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
     private VisualElement _squadPanel;
     private Button _goToSquadsSelectionButton;
     private Button _diveIntoCaveButton;
+    private bool _isDiveRequested;
 
     private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
     private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
@@ -114,7 +116,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
 
         if (_diveIntoCaveButton != null)
-            _diveIntoCaveButton.clicked += HandleDiveIntoCave;
+            _diveIntoCaveButton.clicked += HandleDiveIntoCaveClicked;
 
         RenderHeroes();
         RenderSquads();
@@ -136,7 +138,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
         if (_diveIntoCaveButton != null)
         {
-            _diveIntoCaveButton.clicked -= HandleDiveIntoCave;
+            _diveIntoCaveButton.clicked -= HandleDiveIntoCaveClicked;
             _diveIntoCaveButton = null;
         }
 
@@ -334,11 +336,51 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         ShowSquadSelection();
     }
 
-    private void HandleDiveIntoCave()
+    private void HandleDiveIntoCaveClicked()
     {
+        _ = RequestDiveIntoCaveAsync();
+    }
+
+    private async Task RequestDiveIntoCaveAsync()
+    {
+        if (_isDiveRequested)
+        {
+            Debug.Log("Dive into cave request is already running", this);
+            return;
+        }
+
         UnitSO selectedHero = GetSelectedHero();
         List<UnitSO> selectedSquads = GetSelectedSquads();
-        OnDiveIntoCave?.Invoke(selectedHero, selectedSquads);
+
+        if (_diveIntoCaveButton != null)
+            _diveIntoCaveButton.SetEnabled(false);
+
+        _isDiveRequested = true;
+
+        try
+        {
+            if (OnDiveIntoCave != null)
+            {
+                Debug.Log("[PreparationMenuUI] Starting dive into cave", this);
+                await OnDiveIntoCave.Invoke(selectedHero, selectedSquads);
+                Debug.Log("[PreparationMenuUI] Dive into cave finished", this);
+            }
+            else
+            {
+                Debug.LogWarning("OnDiveIntoCave handler is not assigned", this);
+            }
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError($"Failed to dive into cave: {exception}", this);
+        }
+        finally
+        {
+            _isDiveRequested = false;
+
+            if (_diveIntoCaveButton != null)
+                _diveIntoCaveButton.SetEnabled(true);
+        }
     }
 
     private UnitSO GetSelectedHero()

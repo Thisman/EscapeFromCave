@@ -5396,10 +5396,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3151042
     y: 0
-    width: 0.99992585
-    height: 1
+    width: 0.40370375
+    height: 0.4037037
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5548,7 +5548,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreStartSceneManager
   _preparationSceneUIController: {fileID: 1784271263}
-  _unitsFolder: {fileID: 102900000, guid: b4b97a38da29edb4d9311cd745e80232, type: 3}
+  _availableHeroDefinitions:
+  - {fileID: 11400000, guid: 78c4ae17a0edd71489a8d774582802e2, type: 2}
+  - {fileID: 11400000, guid: 1fd79f55530fa924f8552baf02d95b4b, type: 2}
+  - {fileID: 11400000, guid: 43bbc95857e2f07419bdeaffa65187d8, type: 2}
+  _availableSquadDefinitions:
+  - {fileID: 11400000, guid: 7b4288d6ed217aa4980750a936a00718, type: 2}
+  - {fileID: 11400000, guid: 15c4bcc695769bd45a3acb761722ee5b, type: 2}
+  - {fileID: 11400000, guid: 9ef7b4b80d35bed4b9583d36e8180acf, type: 2}
 --- !u!1 &1217272344
 GameObject:
   m_ObjectHideFlags: 0
