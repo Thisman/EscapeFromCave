@@ -3,7 +3,11 @@
     <ui:VisualElement class="unit-card">
         <ui:VisualElement name="Header" class="unit-card__header">
             <ui:VisualElement name="Icon" class="unit-card__icon" />
-            <ui:Label name="Title" class="unit-card__title" selectable="true" focusable="true" />
+            <ui:Label name="Title" selectable="true" focusable="true" class="unit-card__title" />
+        </ui:VisualElement>
+        <ui:VisualElement name="AbilityList" class="ability-list" style="flex-grow: 1;">
+        </ui:VisualElement>
+        <ui:VisualElement name="EffectsList" class="effect-list" style="flex-grow: 1;">
         </ui:VisualElement>
         <ui:VisualElement name="Info" class="unit-card__info" />
     </ui:VisualElement>

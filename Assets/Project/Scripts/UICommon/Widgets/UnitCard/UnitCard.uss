@@ -66,3 +66,27 @@
     padding-bottom: 8px;
     padding-left: 8px;
 }
+
+.ability-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.effect-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ability-info {
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+}
+
+.effect-info {
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+}
