@@ -112,7 +112,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
             float pMiss = Mathf.Clamp01(MissChance);
             if (UnityEngine.Random.value < pMiss)
             {
-                Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} dodged incoming damage.");
+                BattleLogger.LogUnitDodged(this, damageData.DamageType);
                 return false;
             }
         }
@@ -138,12 +138,15 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         //    Вопрос округления: RoundToInt — нейтральный вариант. Если хочешь «не завышать» снижение, используй FloorToInt.
         int afterDefense = Mathf.Max(0, Mathf.RoundToInt(damage * (1f - defense)));
 
-        if (afterDefense <= 0) return false;
+        if (afterDefense <= 0)
+        {
+            BattleLogger.LogDamageTaken(this, damageData, 0, defense);
+            return false;
+        }
 
         int newHealth = Mathf.Max(0, _squadHealth - afterDefense);
 
-        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} took {afterDefense} {damageData.DamageType} dmg (raw={damage}, defense={defense:P0}).");
-        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ApplyDamage)}] {UnitName} new health {newHealth}.");
+        BattleLogger.LogDamageTaken(this, damageData, afterDefense, defense);
 
         bool changed = newHealth != _squadHealth;
         SetSquadHealth(newHealth);
@@ -179,7 +182,6 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         }
 
         total = Mathf.Max(0, total);
-        Debug.Log($"[{nameof(BattleSquadModel)}.{nameof(ResolveDamage)}] {UnitName} resolved {total} damage of type {DamageType}.");
         return new BattleDamageData(DamageType, total);
     }
 
@@ -297,8 +299,16 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         if (_squadHealth == newSquadHealth)
             return;
 
+        int previousCount = CalculateCount();
         _squadHealth = newSquadHealth;
+        BattleLogger.LogUnitHealth(this, _squadHealth);
         NotifyChanged();
+
+        int currentCount = CalculateCount();
+        if (previousCount > 0 && currentCount == 0)
+        {
+            BattleLogger.LogUnitDefeated(this);
+        }
     }
 
     private void NotifyChanged()
