@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 
@@ -17,15 +18,18 @@ public class MainMenuSceneManager : MonoBehaviour
     private void OnEnable()
     {
         _inputService.EnterMenu();
-        _mainMenuSceneUIController.OnStartGame += HandleStartGame;
+        _mainMenuSceneUIController.OnStartGame += HandleStartGameAsync;
     }
 
     private void OnDisable()
     {
-        _mainMenuSceneUIController.OnStartGame -= HandleStartGame;
+        if (_mainMenuSceneUIController != null)
+        {
+            _mainMenuSceneUIController.OnStartGame -= HandleStartGameAsync;
+        }
     }
 
-    private async void HandleStartGame()
+    private async Task HandleStartGameAsync()
     {
         await _sceneLoader.LoadAdditiveAsync("PreparationScene");
         await _sceneLoader.UnloadAdditiveAsync("MainMenuScene");
