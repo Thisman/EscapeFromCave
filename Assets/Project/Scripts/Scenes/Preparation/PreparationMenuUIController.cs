@@ -360,6 +360,23 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return entries;
     }
 
+    private static IReadOnlyList<UnitAbilityRenderData> BuildAbilityEntries(UnitSO unit)
+    {
+        if (unit?.Abilities == null || unit.Abilities.Length == 0)
+            return Array.Empty<UnitAbilityRenderData>();
+
+        List<UnitAbilityRenderData> entries = new(unit.Abilities.Length);
+        foreach (BattleAbilitySO ability in unit.Abilities)
+        {
+            if (ability == null)
+                continue;
+
+            entries.Add(new UnitAbilityRenderData(ability.Icon, ability.AbilityName));
+        }
+
+        return entries;
+    }
+
     private static float GetDefaultCount(UnitSO _)
     {
         return 1f;
@@ -435,7 +452,8 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             string title = hero != null ? hero.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title);
+            IReadOnlyList<UnitAbilityRenderData> abilities = BuildAbilityEntries(hero);
+            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title, abilities);
             _card.Render(data);
             _card.SetEnabled(hero != null);
         }
@@ -500,7 +518,8 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             string title = squad != null ? squad.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title);
+            IReadOnlyList<UnitAbilityRenderData> abilities = BuildAbilityEntries(squad);
+            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title, abilities);
             _card.Render(data);
             _card.SetEnabled(squad != null);
         }

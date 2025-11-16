@@ -63,6 +63,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private VisualElement _squadInfoCard;
     private UnitCardWidget _squadInfoCardWidget;
     private IReadOnlySquadModel _displayedSquadModel;
+    private BattleSquadEffectsController _displayedEffectsController;
     private Camera _mainCamera;
     private int _unitsLayerMask;
 
@@ -613,20 +614,19 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return;
         }
 
-        IReadOnlySquadModel squad = squadController.GetSquadModel();
-        if (squad == null)
+        ShowSquadInfoCard(squadController);
+    }
+
+    private void ShowSquadInfoCard(BattleSquadController squadController)
+    {
+        if (squadController == null || _squadInfoCard == null)
         {
-            if (_displayedSquadModel != null)
-                HideSquadInfoCard();
+            HideSquadInfoCard();
             return;
         }
 
-        ShowSquadInfoCard(squad);
-    }
-
-    private void ShowSquadInfoCard(IReadOnlySquadModel squad)
-    {
-        if (squad == null || _squadInfoCard == null)
+        IReadOnlySquadModel squad = squadController.GetSquadModel();
+        if (squad == null)
         {
             HideSquadInfoCard();
             return;
@@ -639,7 +639,9 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             _displayedSquadModel.Changed += HandleDisplayedSquadChanged;
         }
 
-        UpdateSquadInfoContent(squad);
+        _displayedEffectsController = squadController.GetComponent<BattleSquadEffectsController>();
+
+        UpdateSquadInfoContent(squad, _displayedEffectsController);
         UpdateSquadCardPosition(squad);
 
         _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, false);
@@ -662,17 +664,19 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null || !ReferenceEquals(_displayedSquadModel, squad))
             return;
 
-        UpdateSquadInfoContent(squad);
+        UpdateSquadInfoContent(squad, _displayedEffectsController);
     }
 
-    private void UpdateSquadInfoContent(IReadOnlySquadModel squad)
+    private void UpdateSquadInfoContent(IReadOnlySquadModel squad, BattleSquadEffectsController effectsController)
     {
         if (squad == null)
             return;
 
         IReadOnlyList<string> stats = BuildSquadStatEntries(squad);
         string title = squad.UnitName ?? string.Empty;
-        UnitCardRenderData data = new(title, squad.Icon, stats, title);
+        IReadOnlyList<UnitAbilityRenderData> abilities = BuildAbilityEntries(squad?.Abilities);
+        IReadOnlyList<UnitEffectRenderData> effects = BuildEffectEntries(effectsController);
+        UnitCardRenderData data = new(title, squad.Icon, stats, title, abilities, effects);
         _squadInfoCardWidget?.Render(data);
     }
 
@@ -688,11 +692,13 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     private void UnsubscribeFromDisplayedSquad()
     {
-        if (_displayedSquadModel == null)
-            return;
+        if (_displayedSquadModel != null)
+        {
+            _displayedSquadModel.Changed -= HandleDisplayedSquadChanged;
+            _displayedSquadModel = null;
+        }
 
-        _displayedSquadModel.Changed -= HandleDisplayedSquadChanged;
-        _displayedSquadModel = null;
+        _displayedEffectsController = null;
     }
 
     private BattleSquadController FindSquadUnderPointer()
@@ -749,6 +755,44 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
             $"Шанс промаха: {FormatPercent(squad.MissChance)}",
         };
+
+        return entries;
+    }
+
+    private static IReadOnlyList<UnitAbilityRenderData> BuildAbilityEntries(BattleAbilitySO[] abilities)
+    {
+        if (abilities == null || abilities.Length == 0)
+            return Array.Empty<UnitAbilityRenderData>();
+
+        List<UnitAbilityRenderData> entries = new(abilities.Length);
+        foreach (BattleAbilitySO ability in abilities)
+        {
+            if (ability == null)
+                continue;
+
+            entries.Add(new UnitAbilityRenderData(ability.Icon, ability.AbilityName));
+        }
+
+        return entries;
+    }
+
+    private static IReadOnlyList<UnitEffectRenderData> BuildEffectEntries(BattleSquadEffectsController effectsController)
+    {
+        if (effectsController == null)
+            return Array.Empty<UnitEffectRenderData>();
+
+        IReadOnlyList<BattleEffectSO> effects = effectsController.Effects;
+        if (effects == null || effects.Count == 0)
+            return Array.Empty<UnitEffectRenderData>();
+
+        List<UnitEffectRenderData> entries = new(effects.Count);
+        foreach (BattleEffectSO effect in effects)
+        {
+            if (effect == null)
+                continue;
+
+            entries.Add(new UnitEffectRenderData(effect.Icon, effect.Name));
+        }
 
         return entries;
     }
