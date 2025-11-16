@@ -45,6 +45,22 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     [SerializeField] private UIDocument _uiDocument;
 
+    private static readonly UnitCardInfoKey[] BattleInfoKeys =
+    {
+        UnitCardInfoKey.Count,
+        UnitCardInfoKey.Health,
+        UnitCardInfoKey.DamageRange,
+        UnitCardInfoKey.Initiative,
+        UnitCardInfoKey.PhysicalDefense,
+        UnitCardInfoKey.MagicDefense,
+        UnitCardInfoKey.AbsoluteDefense,
+        UnitCardInfoKey.AttackKind,
+        UnitCardInfoKey.DamageType,
+        UnitCardInfoKey.CritChance,
+        UnitCardInfoKey.CritMultiplier,
+        UnitCardInfoKey.MissChance
+    };
+
     private readonly Dictionary<PanelName, VisualElement> _panels = new();
     private PanelName? _currentPanel;
 
@@ -672,12 +688,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         if (squad == null)
             return;
 
-        IReadOnlyList<string> stats = BuildSquadStatEntries(squad);
-        string title = squad.UnitName ?? string.Empty;
-        IReadOnlyList<UnitAbilityRenderData> abilities = BuildAbilityEntries(squad?.Abilities);
-        IReadOnlyList<UnitEffectRenderData> effects = BuildEffectEntries(effectsController);
-        UnitCardRenderData data = new(title, squad.Icon, stats, title, abilities, effects);
-        _squadInfoCardWidget?.Render(data);
+        UnitController unitController = new UnitController(squad, effectsController);
+        _squadInfoCardWidget?.Render(unitController, BattleInfoKeys);
     }
 
     private void UpdateSquadCardPosition(IReadOnlySquadModel squad)
@@ -734,98 +746,4 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         return null;
     }
 
-    private static IReadOnlyList<string> BuildSquadStatEntries(IReadOnlySquadModel squad)
-    {
-        if (squad == null)
-            return Array.Empty<string>();
-
-        (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
-        List<string> entries = new()
-        {
-            $"Количество: {FormatValue(squad.Count)}",
-            $"Здоровье: {FormatValue(squad.Health)}",
-            $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}",
-            $"Инициатива: {FormatValue(squad.Initiative)}",
-            $"Физическая защита: {FormatPercent(squad.PhysicalDefense)}",
-            $"Магическая защита: {FormatPercent(squad.MagicDefense)}",
-            $"Абсолютная защита: {FormatPercent(squad.AbsoluteDefense)}",
-            $"Тип атаки: {FormatAttackKind(squad.AttackKind)}",
-            $"Тип урона: {FormatDamageType(squad.DamageType)}",
-            $"Шанс критического удара: {FormatPercent(squad.CritChance)}",
-            $"Критический множитель: {FormatValue(squad.CritMultiplier)}",
-            $"Шанс промаха: {FormatPercent(squad.MissChance)}",
-        };
-
-        return entries;
-    }
-
-    private static IReadOnlyList<UnitAbilityRenderData> BuildAbilityEntries(BattleAbilitySO[] abilities)
-    {
-        if (abilities == null || abilities.Length == 0)
-            return Array.Empty<UnitAbilityRenderData>();
-
-        List<UnitAbilityRenderData> entries = new(abilities.Length);
-        foreach (BattleAbilitySO ability in abilities)
-        {
-            if (ability == null)
-                continue;
-
-            entries.Add(new UnitAbilityRenderData(ability.Icon, ability.AbilityName));
-        }
-
-        return entries;
-    }
-
-    private static IReadOnlyList<UnitEffectRenderData> BuildEffectEntries(BattleSquadEffectsController effectsController)
-    {
-        if (effectsController == null)
-            return Array.Empty<UnitEffectRenderData>();
-
-        IReadOnlyList<BattleEffectSO> effects = effectsController.Effects;
-        if (effects == null || effects.Count == 0)
-            return Array.Empty<UnitEffectRenderData>();
-
-        List<UnitEffectRenderData> entries = new(effects.Count);
-        foreach (BattleEffectSO effect in effects)
-        {
-            if (effect == null)
-                continue;
-
-            entries.Add(new UnitEffectRenderData(effect.Icon, effect.Name));
-        }
-
-        return entries;
-    }
-
-    private static string FormatValue(float value)
-    {
-        return value.ToString("0.##");
-    }
-
-    private static string FormatPercent(float value)
-    {
-        return value.ToString("P0");
-    }
-
-    private static string FormatAttackKind(AttackKind attackKind)
-    {
-        return attackKind switch
-        {
-            AttackKind.Melee => "Ближняя",
-            AttackKind.Range => "Дальняя",
-            AttackKind.Magic => "Магическая",
-            _ => attackKind.ToString()
-        };
-    }
-
-    private static string FormatDamageType(DamageType damageType)
-    {
-        return damageType switch
-        {
-            DamageType.Physical => "Физический",
-            DamageType.Magical => "Магический",
-            DamageType.Pure => "Чистый",
-            _ => damageType.ToString()
-        };
-    }
 }

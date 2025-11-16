@@ -5,54 +5,20 @@ using UnityEngine.UIElements;
 
 namespace UICommon.Widgets
 {
-    public readonly struct UnitAbilityRenderData
+    public enum UnitCardInfoKey
     {
-        public UnitAbilityRenderData(Sprite icon, string tooltip = null)
-        {
-            Icon = icon;
-            Tooltip = tooltip ?? string.Empty;
-        }
-
-        public Sprite Icon { get; }
-        public string Tooltip { get; }
-    }
-
-    public readonly struct UnitEffectRenderData
-    {
-        public UnitEffectRenderData(Sprite icon, string tooltip = null)
-        {
-            Icon = icon;
-            Tooltip = tooltip ?? string.Empty;
-        }
-
-        public Sprite Icon { get; }
-        public string Tooltip { get; }
-    }
-
-    public readonly struct UnitCardRenderData
-    {
-        public UnitCardRenderData(
-            string title,
-            Sprite icon,
-            IReadOnlyList<string> stats,
-            string tooltip = null,
-            IReadOnlyList<UnitAbilityRenderData> abilities = null,
-            IReadOnlyList<UnitEffectRenderData> effects = null)
-        {
-            Title = title ?? string.Empty;
-            Icon = icon;
-            Tooltip = tooltip ?? title ?? string.Empty;
-            Stats = stats ?? Array.Empty<string>();
-            Abilities = abilities ?? Array.Empty<UnitAbilityRenderData>();
-            Effects = effects ?? Array.Empty<UnitEffectRenderData>();
-        }
-
-        public string Title { get; }
-        public Sprite Icon { get; }
-        public string Tooltip { get; }
-        public IReadOnlyList<string> Stats { get; }
-        public IReadOnlyList<UnitAbilityRenderData> Abilities { get; }
-        public IReadOnlyList<UnitEffectRenderData> Effects { get; }
+        Count,
+        Health,
+        DamageRange,
+        Initiative,
+        AttackKind,
+        DamageType,
+        PhysicalDefense,
+        MagicDefense,
+        AbsoluteDefense,
+        CritChance,
+        CritMultiplier,
+        MissChance
     }
 
     public sealed class UnitCardWidget
@@ -63,15 +29,50 @@ namespace UICommon.Widgets
         private const string AbilityInfoClassName = "ability-info";
         private const string EffectInfoClassName = "effect-info";
 
+        private const int DefaultDefinitionCount = 1;
+
         private readonly List<Label> _infoLabels = new();
         private readonly List<VisualElement> _abilityElements = new();
         private readonly List<VisualElement> _effectElements = new();
+        private readonly List<UnitAbilityRenderData> _abilityBuffer = new();
+        private readonly List<UnitEffectRenderData> _effectBuffer = new();
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilitiesContainer;
         private readonly VisualElement _effectsContainer;
+
+        private static readonly Dictionary<UnitCardInfoKey, Func<UnitController, string>> InfoFormatters = new()
+        {
+            [UnitCardInfoKey.Count] = unit =>
+                $"Количество: {FormatValue(unit?.GetCount(DefaultDefinitionCount) ?? DefaultDefinitionCount)}",
+            [UnitCardInfoKey.Health] = unit =>
+                $"Здоровье: {FormatValue(unit?.GetHealth() ?? 0f)}",
+            [UnitCardInfoKey.DamageRange] = unit =>
+            {
+                (float min, float max) = unit?.GetDamageRange() ?? (0f, 0f);
+                return $"Урон: {FormatValue(min)} - {FormatValue(max)}";
+            },
+            [UnitCardInfoKey.Initiative] = unit =>
+                $"Инициатива: {FormatValue(unit?.GetInitiative() ?? 0f)}",
+            [UnitCardInfoKey.AttackKind] = unit =>
+                $"Тип атаки: {FormatAttackKind(unit?.GetAttackKind() ?? AttackKind.Melee)}",
+            [UnitCardInfoKey.DamageType] = unit =>
+                $"Тип урона: {FormatDamageType(unit?.GetDamageType() ?? DamageType.Physical)}",
+            [UnitCardInfoKey.PhysicalDefense] = unit =>
+                $"Физическая защита: {FormatPercent(unit?.GetPhysicalDefense() ?? 0f)}",
+            [UnitCardInfoKey.MagicDefense] = unit =>
+                $"Магическая защита: {FormatPercent(unit?.GetMagicDefense() ?? 0f)}",
+            [UnitCardInfoKey.AbsoluteDefense] = unit =>
+                $"Абсолютная защита: {FormatPercent(unit?.GetAbsoluteDefense() ?? 0f)}",
+            [UnitCardInfoKey.CritChance] = unit =>
+                $"Шанс критического удара: {FormatPercent(unit?.GetCritChance() ?? 0f)}",
+            [UnitCardInfoKey.CritMultiplier] = unit =>
+                $"Критический множитель: {FormatValue(unit?.GetCritMultiplier() ?? 0f)}",
+            [UnitCardInfoKey.MissChance] = unit =>
+                $"Шанс промаха: {FormatPercent(unit?.GetMissChance() ?? 0f)}"
+        };
 
         public UnitCardWidget(VisualElement root)
         {
@@ -93,9 +94,9 @@ namespace UICommon.Widgets
 
         public VisualElement Root => _root;
 
-        public void Render(UnitCardRenderData data)
+        public void Render(UnitController unit, IReadOnlyList<UnitCardInfoKey> infoKeys)
         {
-            ApplyUnit(data);
+            ApplyUnit(unit, infoKeys);
         }
 
         public void SetSelected(bool isSelected)
@@ -108,22 +109,43 @@ namespace UICommon.Widgets
             _root?.SetEnabled(isEnabled);
         }
 
-        private void ApplyUnit(UnitCardRenderData data)
+        private void ApplyUnit(UnitController unit, IReadOnlyList<UnitCardInfoKey> infoKeys)
         {
-            if (_icon != null)
-            {
-                if (data.Icon != null)
-                    _icon.style.backgroundImage = new StyleBackground(data.Icon);
-                else
-                    _icon.style.backgroundImage = new StyleBackground();
+            ApplyIcon(unit);
+            ApplyTitle(unit);
+            ApplyInfo(unit, infoKeys);
+            RenderAbilityList(unit);
+            RenderEffectList(unit);
 
-                _icon.tooltip = data.Tooltip ?? string.Empty;
-            }
+            _root?.EnableInClassList(SelectedModifierClassName, false);
+        }
 
-            if (_title != null)
-                _title.text = data.Title ?? string.Empty;
+        private void ApplyIcon(UnitController unit)
+        {
+            if (_icon == null)
+                return;
 
-            int statsCount = data.Stats?.Count ?? 0;
+            Sprite icon = unit?.Icon;
+            if (icon != null)
+                _icon.style.backgroundImage = new StyleBackground(icon);
+            else
+                _icon.style.backgroundImage = new StyleBackground();
+
+            _icon.tooltip = unit?.Title ?? string.Empty;
+        }
+
+        private void ApplyTitle(UnitController unit)
+        {
+            if (_title == null)
+                return;
+
+            _title.text = unit?.Title ?? string.Empty;
+        }
+
+        private void ApplyInfo(UnitController unit, IReadOnlyList<UnitCardInfoKey> infoKeys)
+        {
+            IReadOnlyList<string> entries = BuildInfoEntries(unit, infoKeys);
+            int statsCount = entries.Count;
             EnsureInfoLabelCount(statsCount);
 
             for (int i = 0; i < _infoLabels.Count; i++)
@@ -134,7 +156,7 @@ namespace UICommon.Widgets
 
                 if (i < statsCount)
                 {
-                    label.text = data.Stats[i];
+                    label.text = entries[i];
                     label.style.display = DisplayStyle.Flex;
                 }
                 else
@@ -143,11 +165,25 @@ namespace UICommon.Widgets
                     label.style.display = DisplayStyle.None;
                 }
             }
+        }
 
-            RenderAbilityList(data.Abilities);
-            RenderEffectList(data.Effects);
+        private static IReadOnlyList<string> BuildInfoEntries(UnitController unit, IReadOnlyList<UnitCardInfoKey> infoKeys)
+        {
+            if (unit == null || infoKeys == null || infoKeys.Count == 0)
+                return Array.Empty<string>();
 
-            _root?.EnableInClassList(SelectedModifierClassName, false);
+            List<string> entries = new(infoKeys.Count);
+            foreach (UnitCardInfoKey key in infoKeys)
+            {
+                if (!InfoFormatters.TryGetValue(key, out Func<UnitController, string> formatter))
+                    continue;
+
+                string line = formatter(unit);
+                if (!string.IsNullOrEmpty(line))
+                    entries.Add(line);
+            }
+
+            return entries;
         }
 
         private void EnsureInfoLabelCount(int targetCount)
@@ -164,13 +200,15 @@ namespace UICommon.Widgets
             }
         }
 
-        private void RenderAbilityList(IReadOnlyList<UnitAbilityRenderData> abilities)
+        private void RenderAbilityList(UnitController unit)
         {
+            IReadOnlyList<UnitAbilityRenderData> abilities = BuildAbilityEntries(unit);
             RenderIconList(abilities, _abilitiesContainer, _abilityElements, AbilityInfoClassName);
         }
 
-        private void RenderEffectList(IReadOnlyList<UnitEffectRenderData> effects)
+        private void RenderEffectList(UnitController unit)
         {
+            IReadOnlyList<UnitEffectRenderData> effects = BuildEffectEntries(unit);
             RenderIconList(effects, _effectsContainer, _effectElements, EffectInfoClassName);
         }
 
@@ -258,6 +296,135 @@ namespace UICommon.Widgets
                 container.Add(element);
                 pool.Add(element);
             }
+        }
+        private IReadOnlyList<UnitAbilityRenderData> BuildAbilityEntries(UnitController unit)
+        {
+            _abilityBuffer.Clear();
+            if (unit == null)
+                return _abilityBuffer;
+
+            IReadOnlyList<BattleAbilitySO> abilities = unit.GetAbilities();
+            if (abilities == null)
+                return _abilityBuffer;
+
+            foreach (BattleAbilitySO ability in abilities)
+            {
+                if (ability == null)
+                    continue;
+
+                _abilityBuffer.Add(new UnitAbilityRenderData(ability.Icon, BuildAbilityTooltip(ability)));
+            }
+
+            return _abilityBuffer;
+        }
+
+        private IReadOnlyList<UnitEffectRenderData> BuildEffectEntries(UnitController unit)
+        {
+            _effectBuffer.Clear();
+            if (unit == null)
+                return _effectBuffer;
+
+            IReadOnlyList<BattleEffectSO> effects = unit.GetEffects();
+            if (effects == null)
+                return _effectBuffer;
+
+            foreach (BattleEffectSO effect in effects)
+            {
+                if (effect == null)
+                    continue;
+
+                _effectBuffer.Add(new UnitEffectRenderData(effect.Icon, BuildEffectTooltip(effect)));
+            }
+
+            return _effectBuffer;
+        }
+
+        private static string BuildAbilityTooltip(BattleAbilitySO ability)
+        {
+            if (ability == null)
+                return string.Empty;
+
+            string cooldownLabel = GetCooldownLabel(ability.Cooldown);
+            return $"{ability.AbilityName}\n{ability.Description}\nПерезарядка: {ability.Cooldown} {cooldownLabel}";
+        }
+
+        private static string BuildEffectTooltip(BattleEffectSO effect)
+        {
+            if (effect == null)
+                return string.Empty;
+
+            return $"{effect.Name}\n{effect.Description}";
+        }
+
+        private static string GetCooldownLabel(int cooldown)
+        {
+            int absoluteCooldown = Math.Abs(cooldown);
+            int lastTwoDigits = absoluteCooldown % 100;
+            int lastDigit = absoluteCooldown % 10;
+
+            if (lastDigit == 1 && lastTwoDigits != 11)
+                return "раунд";
+
+            if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 12 || lastTwoDigits > 14))
+                return "раунда";
+
+            return "раундов";
+        }
+
+        private readonly struct UnitAbilityRenderData
+        {
+            public UnitAbilityRenderData(Sprite icon, string tooltip = null)
+            {
+                Icon = icon;
+                Tooltip = tooltip ?? string.Empty;
+            }
+
+            public Sprite Icon { get; }
+            public string Tooltip { get; }
+        }
+
+        private readonly struct UnitEffectRenderData
+        {
+            public UnitEffectRenderData(Sprite icon, string tooltip = null)
+            {
+                Icon = icon;
+                Tooltip = tooltip ?? string.Empty;
+            }
+
+            public Sprite Icon { get; }
+            public string Tooltip { get; }
+        }
+
+        private static string FormatValue(float value)
+        {
+            return value.ToString("0.##");
+        }
+
+        private static string FormatPercent(float value)
+        {
+            return value.ToString("P0");
+        }
+
+        private static string FormatAttackKind(AttackKind attackKind)
+        {
+            return attackKind switch
+            {
+                AttackKind.Melee => "Ближняя",
+                AttackKind.Range => "Дальняя",
+                AttackKind.Magic => "Магическая",
+                _ => attackKind.ToString()
+            };
+        }
+
+        private static string FormatDamageType(DamageType damageType)
+        {
+            return damageType switch
+            {
+                DamageType.Physical => "Физический",
+                DamageType.Magical => "Магический",
+                DamageType.Pure => "Чистый",
+                _ => damageType.ToString()
+            };
         }
     }
 }
