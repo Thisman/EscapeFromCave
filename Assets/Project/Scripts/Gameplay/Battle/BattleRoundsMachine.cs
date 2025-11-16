@@ -58,14 +58,13 @@ public sealed class BattleRoundsMachine
         UnsubscribeFromSquadEvents();
         _battleFinished = false;
         _playerRequestedFlee = false;
-        _sm.Activate();
         if (_ctx.BattleUIController != null)
             _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
         UpdateTargetValidity(null, null);
         SubscribeToSquadEvents();
     }
 
-    public void BeginRound() => _sm.Fire(BattleRoundTrigger.InitTurn);
+    public void BeginRounds() => OnRoundInit();
 
     private void OnRoundInit()
     {

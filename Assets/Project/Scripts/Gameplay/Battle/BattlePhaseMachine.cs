@@ -58,7 +58,7 @@ public sealed class BattlePhaseMachine
         BattleLogger.LogPhaseEntered(BattlePhase.BattleRounds);
         _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.CombatPanel);
         _battleRoundsMachine.Reset();
-        _battleRoundsMachine.BeginRound();
+        _battleRoundsMachine.BeginRounds();
     }
 
     private void OnEnterResults()

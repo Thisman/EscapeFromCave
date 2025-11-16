@@ -30,7 +30,7 @@ public static class BattleLogger
         Debug.Log($"{BattlePrefix}[Action] {FormatUnitName(unit)} performs '{actionName}'.");
     }
 
-    public static void LogEffectApplied(BattleEffectSO effect, BattleSquadEffectsController target)
+    public static void LogEffectAdded(BattleEffectSO effect, BattleSquadEffectsController target)
     {
         Debug.Log($"{BattlePrefix}[Effect] {FormatUnitName(target)} gains effect '{FormatEffectName(effect)}'.");
     }

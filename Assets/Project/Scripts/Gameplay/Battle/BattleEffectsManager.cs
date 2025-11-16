@@ -23,7 +23,7 @@ public sealed class BattleEffectsManager
         }
 
         effects.Add(new BattleEffectState(effect, _ctx));
-        BattleLogger.LogEffectApplied(effect, target);
+        BattleLogger.LogEffectAdded(effect, target);
     }
 
     public void RemoveEffect(BattleEffectSO effect, BattleSquadEffectsController target)
