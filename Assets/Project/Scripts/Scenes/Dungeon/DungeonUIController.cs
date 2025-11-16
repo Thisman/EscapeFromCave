@@ -333,7 +333,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
         root.AddToClassList("squad-entry");
 
-        var icon = new Image
+        var icon = new VisualElement
         {
             name = "SquadIcon"
         };
@@ -357,8 +357,16 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
     {
         if (entry.Icon != null)
         {
-            entry.Icon.sprite = squad?.Icon;
-            entry.Icon.visible = squad != null && squad.Icon != null;
+            if (squad != null && squad.Icon != null)
+            {
+                entry.Icon.style.backgroundImage = new StyleBackground(squad.Icon);
+                entry.Icon.visible = true;
+            }
+            else
+            {
+                entry.Icon.style.backgroundImage = new StyleBackground();
+                entry.Icon.visible = false;
+            }
         }
 
         if (entry.CountLabel != null)
@@ -371,7 +379,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
     private sealed class SquadEntry
     {
-        public SquadEntry(VisualElement root, Image icon, Label countLabel)
+        public SquadEntry(VisualElement root, VisualElement icon, Label countLabel)
         {
             Root = root;
             Icon = icon;
@@ -379,7 +387,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         }
 
         public VisualElement Root { get; }
-        public Image Icon { get; }
+        public VisualElement Icon { get; }
         public Label CountLabel { get; }
     }
 }
