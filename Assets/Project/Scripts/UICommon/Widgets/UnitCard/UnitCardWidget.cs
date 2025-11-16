@@ -5,20 +5,42 @@ using UnityEngine.UIElements;
 
 namespace UICommon.Widgets
 {
+    public readonly struct UnitCardIconRenderData
+    {
+        public UnitCardIconRenderData(Sprite icon, string tooltip = null)
+        {
+            Icon = icon;
+            Tooltip = tooltip ?? string.Empty;
+        }
+
+        public Sprite Icon { get; }
+        public string Tooltip { get; }
+    }
+
     public readonly struct UnitCardRenderData
     {
-        public UnitCardRenderData(string title, Sprite icon, IReadOnlyList<string> stats, string tooltip = null)
+        public UnitCardRenderData(
+            string title,
+            Sprite icon,
+            IReadOnlyList<string> stats,
+            string tooltip = null,
+            IReadOnlyList<UnitCardIconRenderData> abilities = null,
+            IReadOnlyList<UnitCardIconRenderData> effects = null)
         {
             Title = title ?? string.Empty;
             Icon = icon;
             Tooltip = tooltip ?? title ?? string.Empty;
             Stats = stats ?? Array.Empty<string>();
+            Abilities = abilities ?? Array.Empty<UnitCardIconRenderData>();
+            Effects = effects ?? Array.Empty<UnitCardIconRenderData>();
         }
 
         public string Title { get; }
         public Sprite Icon { get; }
         public string Tooltip { get; }
         public IReadOnlyList<string> Stats { get; }
+        public IReadOnlyList<UnitCardIconRenderData> Abilities { get; }
+        public IReadOnlyList<UnitCardIconRenderData> Effects { get; }
     }
 
     public sealed class UnitCardWidget
@@ -26,12 +48,16 @@ namespace UICommon.Widgets
         public const string BlockClassName = "unit-card";
         public const string SelectedModifierClassName = "unit-card--selected";
         public const string InfoLineClassName = "unit-card__info-line";
+        public const string AbilityIconClassName = "ability-info";
+        public const string EffectIconClassName = "effect-info";
 
         private readonly List<Label> _infoLabels = new();
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
         private readonly VisualElement _infoContainer;
+        private readonly VisualElement _abilityList;
+        private readonly VisualElement _effectsList;
 
         public UnitCardWidget(VisualElement root)
         {
@@ -39,6 +65,8 @@ namespace UICommon.Widgets
             _icon = _root.Q<VisualElement>("Icon");
             _title = _root.Q<Label>("Title");
             _infoContainer = _root.Q<VisualElement>("Info");
+            _abilityList = _root.Q<VisualElement>("AbilityList");
+            _effectsList = _root.Q<VisualElement>("EffectsList");
 
             _infoContainer?.Query<Label>().ForEach(label =>
             {
@@ -103,6 +131,9 @@ namespace UICommon.Widgets
             }
 
             _root?.EnableInClassList(SelectedModifierClassName, false);
+
+            RenderIconList(_abilityList, data.Abilities, AbilityIconClassName);
+            RenderIconList(_effectsList, data.Effects, EffectIconClassName);
         }
 
         private void EnsureInfoLabelCount(int targetCount)
@@ -117,6 +148,34 @@ namespace UICommon.Widgets
                 _infoContainer.Add(label);
                 _infoLabels.Add(label);
             }
+        }
+
+        private static void RenderIconList(
+            VisualElement container,
+            IReadOnlyList<UnitCardIconRenderData> icons,
+            string iconClassName)
+        {
+            if (container == null)
+                return;
+
+            container.Clear();
+
+            if (icons != null)
+            {
+                foreach (UnitCardIconRenderData icon in icons)
+                {
+                    if (icon.Icon == null)
+                        continue;
+
+                    VisualElement iconElement = new();
+                    iconElement.AddToClassList(iconClassName);
+                    iconElement.style.backgroundImage = new StyleBackground(icon.Icon);
+                    iconElement.tooltip = icon.Tooltip ?? string.Empty;
+                    container.Add(iconElement);
+                }
+            }
+
+            container.style.display = container.childCount > 0 ? DisplayStyle.Flex : DisplayStyle.None;
         }
     }
 }

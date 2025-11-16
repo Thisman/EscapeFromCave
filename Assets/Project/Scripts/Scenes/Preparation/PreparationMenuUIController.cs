@@ -360,6 +360,32 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return entries;
     }
 
+    private static IReadOnlyList<UnitCardIconRenderData> BuildAbilityIcons(BattleAbilitySO[] abilities)
+    {
+        if (abilities == null || abilities.Length == 0)
+            return Array.Empty<UnitCardIconRenderData>();
+
+        List<UnitCardIconRenderData> result = new();
+
+        foreach (BattleAbilitySO ability in abilities)
+        {
+            if (ability?.Icon == null)
+                continue;
+
+            string tooltip = ability.AbilityName ?? string.Empty;
+            if (!string.IsNullOrEmpty(ability.Description))
+            {
+                tooltip = string.IsNullOrEmpty(tooltip)
+                    ? ability.Description
+                    : $"{tooltip}\n{ability.Description}";
+            }
+
+            result.Add(new UnitCardIconRenderData(ability.Icon, tooltip));
+        }
+
+        return result;
+    }
+
     private static float GetDefaultCount(UnitSO _)
     {
         return 1f;
@@ -435,7 +461,8 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             string title = hero != null ? hero.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title);
+            IReadOnlyList<UnitCardIconRenderData> abilities = BuildAbilityIcons(hero?.Abilities);
+            UnitCardRenderData data = new(title, hero != null ? hero.Icon : null, stats, title, abilities);
             _card.Render(data);
             _card.SetEnabled(hero != null);
         }
@@ -500,7 +527,8 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             string title = squad != null ? squad.UnitName : string.Empty;
-            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title);
+            IReadOnlyList<UnitCardIconRenderData> abilities = BuildAbilityIcons(squad?.Abilities);
+            UnitCardRenderData data = new(title, squad != null ? squad.Icon : null, stats, title, abilities);
             _card.Render(data);
             _card.SetEnabled(squad != null);
         }
