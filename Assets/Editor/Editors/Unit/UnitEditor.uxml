@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <Style src="unit-editor.uss" />
+    <Style src="UnitEditor.uss" />
     <ui:VisualElement class="unit-editor">
         <ui:VisualElement class="unit-editor__sidebar">
             <ui:TextField name="SearchField" class="unit-editor__search" label="Search" picking-mode="Ignore" />

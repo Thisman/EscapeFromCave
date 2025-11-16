@@ -142,7 +142,7 @@ public sealed class UnitEditorWindow : EditorWindow
             var unit = _filteredUnits[index];
             label.text = unit == null ? "-" : GetUnitFileName(unit);
         };
-        _unitsList.onSelectionChange += objects =>
+        _unitsList.selectionChanged += objects =>
         {
             var unit = objects?.OfType<UnitSO>().FirstOrDefault();
             if (unit != _selectedUnit)
@@ -182,9 +182,9 @@ public sealed class UnitEditorWindow : EditorWindow
             });
         }
 
-        ConfigureEnumField(_unitKindField, value => _editingUnit.Kind = value);
-        ConfigureEnumField(_attackKindField, value => _editingUnit.AttackKind = value);
-        ConfigureEnumField(_damageTypeField, value => _editingUnit.DamageType = value);
+        ConfigureEnumField<UnitKind>(_unitKindField, value => _editingUnit.Kind = value);
+        ConfigureEnumField<AttackKind>(_attackKindField, value => _editingUnit.AttackKind = value);
+        ConfigureEnumField<DamageType>(_damageTypeField, value => _editingUnit.DamageType = value);
 
         ConfigureFloatField(_baseHealthField, value => _editingUnit.BaseHealth = Mathf.Max(1f, value));
         ConfigureFloatField(_basePhysicalDefenseField, value => _editingUnit.BasePhysicalDefense = Mathf.Clamp01(value));

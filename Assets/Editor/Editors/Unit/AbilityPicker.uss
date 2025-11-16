@@ -1,6 +1,5 @@
 .ability-picker {
     padding: 12px;
-    gap: 8px;
     min-width: 360px;
     min-height: 400px;
     background-color: #ffffff;
@@ -8,12 +7,13 @@
 
 .ability-picker__toolbar {
     flex-direction: row;
-    gap: 8px;
     align-items: flex-end;
+    margin-bottom: 8px;
 }
 
 .ability-picker__search {
     flex: 1;
+    margin-right: 8px;
 }
 
 .ability-picker__confirm {
@@ -23,13 +23,26 @@
 
 .ability-picker__list {
     flex-grow: 1;
-    border: 1px solid #d0d7de;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: #d0d7de;
+    border-right-color: #d0d7de;
+    border-bottom-color: #d0d7de;
+    border-left-color: #d0d7de;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
     border-radius: 4px;
 }
 
 .ability-picker__item {
     padding: 6px 10px;
-    border-bottom: 1px solid #edf1f5;
+    border-bottom-width: 1px;
+    border-bottom-color: #edf1f5;
+    border-bottom-style: solid;
 }
 
 .ability-picker__item-label {
