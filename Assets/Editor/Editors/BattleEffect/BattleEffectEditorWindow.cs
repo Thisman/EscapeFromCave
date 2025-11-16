@@ -25,6 +25,9 @@ public sealed class BattleEffectEditorWindow : EditorWindow
     private Label _iconHintLabel;
     private TextField _effectNameField;
     private TextField _descriptionField;
+    private VisualElement _effectTypeContainer;
+    private VisualElement _typeSpecificContainer;
+    private PopupField<string> _effectTypeField;
     private EnumField _triggerField;
     private IntegerField _maxTickField;
     private Label _fileNameLabel;
@@ -35,6 +38,8 @@ public sealed class BattleEffectEditorWindow : EditorWindow
     private bool _hasUnsavedChanges;
     private bool _isCreatingNewEffect;
     private string _searchFilter = string.Empty;
+
+    private readonly List<EffectTypeOption> _effectTypeOptions = new();
 
     [MenuItem("Editors/Battle Effect")]
     public static void ShowWindow()
@@ -68,12 +73,15 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         rootVisualElement.Add(visualTree.CloneTree());
 
         CacheControls();
+        LoadEffectTypeOptions();
+        SetupEffectTypeField();
         SetupSidebar();
         SetupContent();
         SetupIconDragAndDrop();
 
         RefreshEffects();
         UpdateContentState();
+        UpdateEffectTypeSelection();
     }
 
     private void CacheControls()
@@ -87,10 +95,94 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         _iconHintLabel = _iconDropArea?.Q<Label>();
         _effectNameField = rootVisualElement.Q<TextField>("EffectNameField");
         _descriptionField = rootVisualElement.Q<TextField>("DescriptionField");
+        _effectTypeContainer = rootVisualElement.Q<VisualElement>("EffectTypeContainer");
+        _typeSpecificContainer = rootVisualElement.Q<VisualElement>("EffectTypeFields");
         _triggerField = rootVisualElement.Q<EnumField>("TriggerField");
         _maxTickField = rootVisualElement.Q<IntegerField>("MaxTickField");
         _fileNameLabel = rootVisualElement.Q<Label>("FileNameLabel");
         _saveButton = rootVisualElement.Q<Button>("SaveButton");
+    }
+
+    private void LoadEffectTypeOptions()
+    {
+        _effectTypeOptions.Clear();
+        var types = TypeCache.GetTypesDerivedFrom<BattleEffectSO>();
+        foreach (var type in types)
+        {
+            if (type == null || type.IsAbstract || type.IsGenericType)
+                continue;
+
+            if (!typeof(BattleEffectSO).IsAssignableFrom(type))
+                continue;
+
+            _effectTypeOptions.Add(new EffectTypeOption(type));
+        }
+
+        _effectTypeOptions.Sort((a, b) => string.Compare(a.DisplayName, b.DisplayName, StringComparison.Ordinal));
+    }
+
+    private void SetupEffectTypeField()
+    {
+        if (_effectTypeContainer == null)
+            return;
+
+        _effectTypeContainer.Clear();
+
+        if (_effectTypeOptions.Count == 0)
+            return;
+
+        var labels = _effectTypeOptions.Select(option => option.DisplayName).ToList();
+        _effectTypeField = new PopupField<string>("Тип эффекта", labels, 0);
+        _effectTypeField.RegisterValueChangedCallback(OnEffectTypeChanged);
+        _effectTypeContainer.Add(_effectTypeField);
+    }
+
+    private void RefreshEffectTypeChoices()
+    {
+        if (_effectTypeField == null)
+            return;
+
+        _effectTypeField.choices = _effectTypeOptions.Select(option => option.DisplayName).ToList();
+    }
+
+    private EffectTypeOption EnsureEffectTypeOption(Type type)
+    {
+        if (type == null)
+            return null;
+
+        var option = _effectTypeOptions.FirstOrDefault(o => o.Type == type);
+        if (option != null)
+            return option;
+
+        option = new EffectTypeOption(type);
+        _effectTypeOptions.Add(option);
+        _effectTypeOptions.Sort((a, b) => string.Compare(a.DisplayName, b.DisplayName, StringComparison.Ordinal));
+        RefreshEffectTypeChoices();
+        return option;
+    }
+
+    private void UpdateEffectTypeSelection()
+    {
+        if (_effectTypeField == null)
+            return;
+
+        if (_editingEffect == null)
+        {
+            if (_effectTypeField.choices.Count > 0)
+            {
+                _effectTypeField.SetValueWithoutNotify(_effectTypeField.choices[0]);
+            }
+
+            _effectTypeField.SetEnabled(false);
+            return;
+        }
+
+        var option = EnsureEffectTypeOption(_editingEffect.GetType());
+        if (option == null)
+            return;
+
+        _effectTypeField.SetValueWithoutNotify(option.DisplayName);
+        _effectTypeField.SetEnabled(_isCreatingNewEffect);
     }
 
     private void SetupSidebar()
@@ -177,6 +269,58 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         {
             _saveButton.clicked += SaveCurrentEffect;
         }
+    }
+
+    private void OnEffectTypeChanged(ChangeEvent<string> evt)
+    {
+        if (_effectTypeField == null)
+            return;
+
+        if (_editingEffect == null)
+        {
+            UpdateEffectTypeSelection();
+            return;
+        }
+
+        if (!_isCreatingNewEffect)
+        {
+            UpdateEffectTypeSelection();
+            return;
+        }
+
+        var option = _effectTypeOptions.FirstOrDefault(o => o.DisplayName == evt.newValue);
+        if (option == null || option.Type == null)
+        {
+            UpdateEffectTypeSelection();
+            return;
+        }
+
+        if (_editingEffect.GetType() == option.Type)
+            return;
+
+        ReplaceEditingEffectInstance(option.Type);
+    }
+
+    private void ReplaceEditingEffectInstance(Type type)
+    {
+        if (type == null || !typeof(BattleEffectSO).IsAssignableFrom(type))
+            return;
+
+        if (_editingEffect != null)
+        {
+            DestroyImmediate(_editingEffect);
+            _editingEffect = null;
+        }
+
+        _editingEffect = (BattleEffectSO)CreateInstance(type);
+        if (_editingEffect != null)
+        {
+            _editingEffect.hideFlags = HideFlags.HideAndDontSave;
+        }
+
+        PopulateFields();
+        UpdateContentState();
+        MarkDirty();
     }
 
     private void SetupIconDragAndDrop()
@@ -308,6 +452,8 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             _triggerField.SetValueWithoutNotify(_editingEffect.Trigger);
         }
 
+        UpdateEffectTypeSelection();
+        RebuildTypeSpecificFields();
         UpdateIconPreview();
         UpdateSaveButtonState();
     }
@@ -323,8 +469,162 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             _fileNameLabel.text = "-";
         }
 
+        _typeSpecificContainer?.Clear();
+        UpdateEffectTypeSelection();
         UpdateIconPreview();
         UpdateSaveButtonState();
+    }
+
+    private void RebuildTypeSpecificFields()
+    {
+        if (_typeSpecificContainer == null)
+            return;
+
+        _typeSpecificContainer.Clear();
+
+        if (_editingEffect == null)
+            return;
+
+        switch (_editingEffect)
+        {
+            case BattleEffectDamageSO damageEffect:
+                RenderDamageFields(damageEffect);
+                break;
+            case BattleEffectStatsModifierSO statsEffect:
+                RenderStatsModifierFields(statsEffect);
+                break;
+            default:
+                var warningLabel = new Label("Тип эффекта не поддерживается редактором");
+                warningLabel.AddToClassList("effect-editor__type-warning");
+                _typeSpecificContainer.Add(warningLabel);
+                break;
+        }
+    }
+
+    private void RenderDamageFields(BattleEffectDamageSO effect)
+    {
+        if (_typeSpecificContainer == null)
+            return;
+
+        var damageField = new IntegerField("Урон");
+        damageField.AddToClassList("effect-editor__type-field");
+        damageField.SetValueWithoutNotify(Mathf.Max(0, effect.Damage));
+        damageField.RegisterValueChangedCallback(evt =>
+        {
+            if (_editingEffect is not BattleEffectDamageSO editing)
+                return;
+
+            var newValue = Mathf.Max(0, evt.newValue);
+            editing.Damage = newValue;
+            damageField.SetValueWithoutNotify(newValue);
+            MarkDirty();
+        });
+
+        _typeSpecificContainer.Add(damageField);
+    }
+
+    private void RenderStatsModifierFields(BattleEffectStatsModifierSO effect)
+    {
+        if (_typeSpecificContainer == null)
+            return;
+
+        var listContainer = new VisualElement();
+        listContainer.AddToClassList("effect-editor__type-list");
+        _typeSpecificContainer.Add(listContainer);
+
+        BuildStatModifierRows(effect, listContainer);
+
+        var addButton = new Button(() =>
+        {
+            if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
+                return;
+
+            var modifiers = statsEffect.StatsModifier?.ToList() ?? new List<BattleStatModifier>();
+            modifiers.Add(new BattleStatModifier());
+            statsEffect.StatsModifier = modifiers.ToArray();
+            BuildStatModifierRows(statsEffect, listContainer);
+            MarkDirty();
+        })
+        {
+            text = "Добавить модификатор"
+        };
+        addButton.AddToClassList("effect-editor__type-add");
+        _typeSpecificContainer.Add(addButton);
+    }
+
+    private void BuildStatModifierRows(BattleEffectStatsModifierSO effect, VisualElement container)
+    {
+        if (container == null)
+            return;
+
+        container.Clear();
+
+        var modifiers = effect.StatsModifier ?? Array.Empty<BattleStatModifier>();
+        for (var i = 0; i < modifiers.Length; i++)
+        {
+            var rowIndex = i;
+            var row = new VisualElement();
+            row.AddToClassList("effect-editor__type-row");
+
+            var statField = new EnumField("Стат");
+            statField.AddToClassList("effect-editor__type-field");
+            statField.Init(modifiers[rowIndex].Stat);
+            statField.SetValueWithoutNotify(modifiers[rowIndex].Stat);
+            statField.RegisterValueChangedCallback(evt =>
+            {
+                if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
+                    return;
+
+                var current = statsEffect.StatsModifier;
+                if (current == null || rowIndex < 0 || rowIndex >= current.Length)
+                    return;
+
+                current[rowIndex].Stat = (BattleSquadStat)evt.newValue;
+                statsEffect.StatsModifier = current;
+                MarkDirty();
+            });
+            row.Add(statField);
+
+            var valueField = new FloatField("Значение");
+            valueField.AddToClassList("effect-editor__type-field");
+            valueField.SetValueWithoutNotify(modifiers[rowIndex].Value);
+            valueField.RegisterValueChangedCallback(evt =>
+            {
+                if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
+                    return;
+
+                var current = statsEffect.StatsModifier;
+                if (current == null || rowIndex < 0 || rowIndex >= current.Length)
+                    return;
+
+                current[rowIndex].Value = evt.newValue;
+                statsEffect.StatsModifier = current;
+                MarkDirty();
+            });
+            row.Add(valueField);
+
+            var removeButton = new Button(() =>
+            {
+                if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
+                    return;
+
+                var list = statsEffect.StatsModifier?.ToList() ?? new List<BattleStatModifier>();
+                if (rowIndex < 0 || rowIndex >= list.Count)
+                    return;
+
+                list.RemoveAt(rowIndex);
+                statsEffect.StatsModifier = list.ToArray();
+                BuildStatModifierRows(statsEffect, container);
+                MarkDirty();
+            })
+            {
+                text = "Удалить"
+            };
+            removeButton.AddToClassList("effect-editor__type-remove");
+            row.Add(removeButton);
+
+            container.Add(row);
+        }
     }
 
     private void UpdateFileNameLabel()
@@ -419,6 +719,13 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         if (_selectedEffect == null)
             return;
 
+        if (_selectedEffect.GetType() != _editingEffect.GetType())
+        {
+            EditorUtility.DisplayDialog("Тип эффекта", "Нельзя изменить тип эффекта после сохранения.", "Ок");
+            UpdateEffectTypeSelection();
+            return;
+        }
+
         Undo.RecordObject(_selectedEffect, "Save Effect");
         EditorUtility.CopySerializedManagedFieldsOnly(_editingEffect, _selectedEffect);
         EditorUtility.SetDirty(_selectedEffect);
@@ -454,7 +761,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         var targetName = GetUniqueAssetName(desiredName);
         var assetPath = Path.Combine(EffectsFolderPath, targetName + ".asset");
 
-        var newEffect = CreateInstance<BattleEffectSO>();
+        var newEffect = (BattleEffectSO)CreateInstance(_editingEffect.GetType());
         EditorUtility.CopySerializedManagedFieldsOnly(_editingEffect, newEffect);
         newEffect.name = targetName;
 
@@ -486,7 +793,8 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         _selectedEffect = null;
         _isCreatingNewEffect = true;
 
-        _editingEffect = CreateInstance<BattleEffectSO>();
+        var defaultType = _effectTypeOptions.FirstOrDefault()?.Type ?? typeof(BattleEffectSO);
+        _editingEffect = (BattleEffectSO)CreateInstance(defaultType);
         _editingEffect.hideFlags = HideFlags.HideAndDontSave;
 
         PopulateFields();
@@ -560,5 +868,17 @@ public sealed class BattleEffectEditorWindow : EditorWindow
     private bool HasSpriteReference()
     {
         return DragAndDrop.objectReferences != null && DragAndDrop.objectReferences.OfType<Sprite>().Any();
+    }
+
+    private sealed class EffectTypeOption
+    {
+        public EffectTypeOption(Type type)
+        {
+            Type = type;
+            DisplayName = type?.Name ?? string.Empty;
+        }
+
+        public string DisplayName { get; }
+        public Type Type { get; }
     }
 }

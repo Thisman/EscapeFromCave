@@ -124,6 +124,46 @@
     margin-bottom: 16px;
 }
 
+.effect-editor__type-fields {
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.effect-editor__type-list {
+    flex-direction: column;
+}
+
+.effect-editor__type-row {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+.effect-editor__type-field {
+    flex: 1;
+    margin-right: 8px;
+    min-width: 140px;
+}
+
+.effect-editor__type-row > :last-child {
+    margin-right: 0;
+}
+
+.effect-editor__type-remove {
+    width: 80px;
+    height: 24px;
+}
+
+.effect-editor__type-add {
+    width: 220px;
+    height: 28px;
+}
+
+.effect-editor__type-warning {
+    color: #f97066;
+    margin-bottom: 8px;
+}
+
 .effect-editor__save {
     align-self: flex-end;
     width: 160px;
