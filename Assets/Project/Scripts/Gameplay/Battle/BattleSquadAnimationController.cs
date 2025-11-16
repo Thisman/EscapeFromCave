@@ -15,6 +15,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField] private Transform _shakeTarget;
     [SerializeField] private Color _damageFlashColor = Color.red;
     [SerializeField] private Color _dodgeFlashColor = Color.white;
+    [SerializeField] private Color _statModifierFlashColor = Color.blue;
     [SerializeField, Min(0f)] private float _flashDuration = 0.5f;
     [SerializeField, Min(0f)] private float _flashFrequency = 6f;
     [SerializeField, Min(0f)] private float _damageShakeAmplitude = 0.1f;
@@ -110,6 +111,11 @@ public class BattleSquadAnimationController : MonoBehaviour
     public void PlayDodgeFlash(Action onComplete)
     {
         StartFlashRoutine(_dodgeFlashColor, false, false, 0, onComplete);
+    }
+
+    public void PlayStatModifierFlash(Action onComplete)
+    {
+        StartFlashRoutine(_statModifierFlashColor, false, false, 0, onComplete);
     }
 
     public void CancelDamageFlash()

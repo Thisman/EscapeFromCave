@@ -9,27 +9,23 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 
     public override Task Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (!TryResolveModel(target, out var model))
+        if (!TryResolveController(target, out var controller))
             return Task.CompletedTask;
 
-        model.SetStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
-        return Task.CompletedTask;
+        return controller.ApplyStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
     }
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
     {
-        if (!TryResolveModel(target, out var model))
+        if (!TryResolveController(target, out var controller))
             return;
 
-        model.RemoveStatModifiers(this);
+        controller.RemoveStatModifiers(this);
     }
 
-    private bool TryResolveModel(BattleSquadEffectsController target, out BattleSquadModel model)
+    private static bool TryResolveController(BattleSquadEffectsController target, out BattleSquadController controller)
     {
-        BattleSquadController squadController = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
-
-        model = squadController.GetSquadModel() as BattleSquadModel;
-
-        return true;
+        controller = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
+        return controller != null;
     }
 }
