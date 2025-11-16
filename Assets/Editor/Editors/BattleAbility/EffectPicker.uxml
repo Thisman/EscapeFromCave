@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="EffectPicker.uss" />
+    <ui:VisualElement class="effect-picker">
+        <ui:VisualElement class="effect-picker__toolbar">
+            <ui:TextField name="FilterField" class="effect-picker__search" label="Поиск" />
+            <ui:Button name="ConfirmButton" class="effect-picker__confirm" text="Выбрать" />
+        </ui:VisualElement>
+        <ui:ListView name="EffectList" class="effect-picker__list" />
+    </ui:VisualElement>
+</ui:UXML>

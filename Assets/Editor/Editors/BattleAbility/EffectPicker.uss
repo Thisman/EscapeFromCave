@@ -1,0 +1,43 @@
+.effect-picker {
+    padding: 12px;
+    height: 100%;
+    flex-direction: column;
+}
+
+.effect-picker__toolbar {
+    flex-direction: row;
+    margin-bottom: 12px;
+}
+
+.effect-picker__search {
+    flex: 1;
+    margin-right: 8px;
+}
+
+.effect-picker__confirm {
+    width: 120px;
+}
+
+.effect-picker__list {
+    flex: 1;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: #d0d7de;
+    border-right-color: #d0d7de;
+    border-bottom-color: #d0d7de;
+    border-left-color: #d0d7de;
+}
+
+.effect-picker__item {
+    padding: 4px 8px;
+}
+
+.effect-picker__item--selected {
+    background-color: #dbeafe;
+}
+
+.effect-picker__item-label {
+    flex: 1;
+}
