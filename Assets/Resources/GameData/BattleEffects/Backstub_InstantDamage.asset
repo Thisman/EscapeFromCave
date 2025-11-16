@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
   Name: Backstub_InstantDamage
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 0424e644e69423540a7277314cfa42bc, type: 3}
   Trigger: 0
   MaxTick: 0
   Damage: 200

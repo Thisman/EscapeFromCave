@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
   Name: FireSword_TickDamage
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 98b015f5611f81b4ebebf772db839b91, type: 3}
   Trigger: 1
   MaxTick: 2
   Damage: 100
