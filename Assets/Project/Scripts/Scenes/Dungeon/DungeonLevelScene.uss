@@ -18,7 +18,7 @@
     margin-right: 8px;
     width: 96px;
     height: 96px;
-    background-size: 64px 64%;
+    background-size: 64px 64px;
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
@@ -31,8 +31,6 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    -unity-slice-scale: 1px;
-    -unity-background-scale-mode: stretch-to-fill;
     flex-shrink: 0;
 }
 
