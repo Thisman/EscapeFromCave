@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+.hero-panel .card {
+    opacity: 0.15;
+}
+
 .hero-panel .card:hover {
     transition-duration: 0s;
     border-left-color: rgb(255, 255, 255);
@@ -22,6 +26,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    opacity: 1;
 }
 
 .hero-panel .card__selected {
@@ -37,6 +42,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    opacity: 1;
 }
 
 .controls {
@@ -49,7 +55,7 @@
 }
 
 .control-button {
-    opacity: 0.5;
+    opacity: 0.1;
     transition-timing-function: ease-in-out-bounce;
     height: 80px;
     width: 100%;

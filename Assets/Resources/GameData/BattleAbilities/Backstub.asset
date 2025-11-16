@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a87cc639edc3544f8181f3a0fcde88c, type: 3}
+  m_Name: Backstub
+  m_EditorClassIdentifier: Assembly-CSharp::BattleAbilitySO
+  Id: Backstub
+  AbilityName: Backstub
+  Description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0443\u0440\u043E\u043D\n\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E
+    \u0441\u043D\u0438\u0436\u0430\u0435\u0442 \u0437\u0430\u0449\u0438\u0442\u0443"
+  Icon: {fileID: 0}
+  Cooldown: 4
+  IsReady: 0
+  AbilityType: 0
+  AbilityTargetType: 0
+  Effects:
+  - {fileID: 11400000, guid: a6cf294e801c097449d2cf0e53b43724, type: 2}
+  - {fileID: 11400000, guid: 66d6558e69352494cbe87e7f74ca619a, type: 2}
