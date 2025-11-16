@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public sealed class UnitEditorWindow : EditorWindow
 {
-    private const string WindowUxmlPath = "Assets/Editor/Editors/Unit/UnitEditor.uxml";
+    private const string WindowUxmlPath = "Assets/Editor/Unit/UnitEditor.uxml";
     private const string UnitsFolderPath = "Assets/Resources/GameData/Units";
 
     private readonly List<UnitSO> _allUnits = new();

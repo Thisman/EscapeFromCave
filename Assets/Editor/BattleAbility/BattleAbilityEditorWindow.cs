@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public sealed class BattleAbilityEditorWindow : EditorWindow
 {
-    private const string WindowUxmlPath = "Assets/Editor/Editors/BattleAbility/BattleAbilityEditor.uxml";
+    private const string WindowUxmlPath = "Assets/Editor/BattleAbility/BattleAbilityEditor.uxml";
     private const string AbilitiesFolderPath = "Assets/Resources/GameData/BattleAbilities";
 
     private readonly List<BattleAbilitySO> _allAbilities = new();

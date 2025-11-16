@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public sealed class BattleEffectEditorWindow : EditorWindow
 {
-    private const string WindowUxmlPath = "Assets/Editor/Editors/BattleEffect/BattleEffectEditor.uxml";
+    private const string WindowUxmlPath = "Assets/Editor/BattleEffect/BattleEffectEditor.uxml";
     private const string EffectsFolderPath = "Assets/Resources/GameData/BattleEffects";
 
     private readonly List<BattleEffectSO> _allEffects = new();

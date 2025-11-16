@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public sealed class AbilityPickerWindow : EditorWindow
 {
-    private const string PickerUxmlPath = "Assets/Editor/Editors/Unit/AbilityPicker.uxml";
+    private const string PickerUxmlPath = "Assets/Editor/Unit/AbilityPicker.uxml";
     private const string AbilitiesFolderPath = "Assets/Resources/GameData/BattleAbilities";
 
     private readonly List<BattleAbilitySO> _allAbilities = new();

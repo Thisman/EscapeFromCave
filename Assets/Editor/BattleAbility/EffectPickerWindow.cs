@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public sealed class EffectPickerWindow : EditorWindow
 {
-    private const string PickerUxmlPath = "Assets/Editor/Editors/BattleAbility/EffectPicker.uxml";
+    private const string PickerUxmlPath = "Assets/Editor/BattleAbility/EffectPicker.uxml";
     private const string EffectsFolderPath = "Assets/Resources/GameData/BattleEffects";
 
     private readonly List<BattleEffectSO> _allEffects = new();
