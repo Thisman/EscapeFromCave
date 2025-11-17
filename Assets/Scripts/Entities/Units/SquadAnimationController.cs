@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SquadController))]
 public class SquadAnimationController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -23,9 +25,6 @@ public class SquadAnimationController : MonoBehaviour
 
     private void Start()
     {
-        if (_spriteRenderer == null || _unitController == null)
-            return;
-
         var model = _unitController.GetSquadModel();
         if (model != null)
             _spriteRenderer.sprite = model.Icon;
