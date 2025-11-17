@@ -10,34 +10,39 @@ public sealed class InteractionHintController : MonoBehaviour
     private readonly Dictionary<InteractionController, GameObject> _active = new();
     private readonly Stack<GameObject> _pool = new();
     private readonly List<InteractionController> _toRelease = new();
+    private Transform _poolRoot;
 
     private void Awake()
     {
+        EnsurePoolRoot();
+    }
+
+    private void Start()
+    {
         EnsurePlayerInteraction();
+        SubscribeToInteractionEvents();
     }
 
     private void OnEnable()
     {
         EnsurePlayerInteraction();
-        if (_playerInteraction == null)
-            return;
-
-        _playerInteraction.InteractableEnteredRange += OnInteractableEnteredRange;
-        _playerInteraction.InteractableExitedRange += OnInteractableExitedRange;
-
-        foreach (var interactable in _playerInteraction.InteractablesInRange)
-            OnInteractableEnteredRange(interactable);
+        EnsurePoolRoot();
+        SubscribeToInteractionEvents();
     }
 
     private void OnDisable()
     {
-        if (_playerInteraction != null)
-        {
-            _playerInteraction.InteractableEnteredRange -= OnInteractableEnteredRange;
-            _playerInteraction.InteractableExitedRange -= OnInteractableExitedRange;
-        }
+        UnsubscribeFromInteractionEvents();
+    }
 
-        ReleaseAllHints();
+    private void OnDestroy()
+    {
+        UnsubscribeFromInteractionEvents();
+        if (_poolRoot != null)
+        {
+            Destroy(_poolRoot.gameObject);
+            _poolRoot = null;
+        }
     }
 
     private void Update()
@@ -59,6 +64,29 @@ public sealed class InteractionHintController : MonoBehaviour
 
         foreach (var controller in _toRelease)
             Hide(controller);
+    }
+
+    private void SubscribeToInteractionEvents()
+    {
+        if (_playerInteraction == null)
+            return;
+
+        _playerInteraction.InteractableEnteredRange += OnInteractableEnteredRange;
+        _playerInteraction.InteractableExitedRange += OnInteractableExitedRange;
+
+        foreach (var interactable in _playerInteraction.InteractablesInRange)
+            OnInteractableEnteredRange(interactable);
+    }
+
+    private void UnsubscribeFromInteractionEvents()
+    {
+        if (_playerInteraction != null)
+        {
+            _playerInteraction.InteractableEnteredRange -= OnInteractableEnteredRange;
+            _playerInteraction.InteractableExitedRange -= OnInteractableExitedRange;
+        }
+
+        ReleaseAllHints();
     }
 
     private void OnInteractableEnteredRange(InteractionController controller)
@@ -128,9 +156,20 @@ public sealed class InteractionHintController : MonoBehaviour
         _playerInteraction = FindObjectOfType<PlayerInteraction>();
     }
 
+    private void EnsurePoolRoot()
+    {
+        if (_poolRoot)
+            return;
+
+        var poolRootObject = new GameObject($"{nameof(InteractionHintController)}Pool");
+        poolRootObject.hideFlags = HideFlags.HideInHierarchy;
+        _poolRoot = poolRootObject.transform;
+    }
+
     private GameObject GetFromPool()
     {
-        var go = _pool.Count > 0 ? _pool.Pop() : Instantiate(_hintPrefab, transform);
+        EnsurePoolRoot();
+        var go = _pool.Count > 0 ? _pool.Pop() : Instantiate(_hintPrefab, _poolRoot);
         go.SetActive(true);
         return go;
     }
@@ -140,8 +179,9 @@ public sealed class InteractionHintController : MonoBehaviour
         if (!go)
             return;
 
+        EnsurePoolRoot();
         go.SetActive(false);
-        go.transform.SetParent(transform, false);
+        go.transform.SetParent(_poolRoot, false);
         _pool.Push(go);
     }
 }
