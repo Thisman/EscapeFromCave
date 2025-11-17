@@ -428,7 +428,6 @@ public sealed class BattleRoundsMachine
 
             var defeatedTransform = defeatedUnit.transform;
             gridController.TryRemoveOccupant(defeatedTransform, out _);
-            UnityEngine.Object.Destroy(defeatedUnit.gameObject);
         }
     }
 

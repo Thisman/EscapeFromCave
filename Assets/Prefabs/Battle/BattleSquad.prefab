@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1893f9389a7bdee4c93e498e04485777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSquadController
+  _collider2D: {fileID: -4288179465582321745}
 --- !u!114 &7984291329870025893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,10 +493,12 @@ MonoBehaviour:
   _shakeTarget: {fileID: 6195033524485483423}
   _damageFlashColor: {r: 1, g: 0, b: 0, a: 0.09803922}
   _dodgeFlashColor: {r: 0, g: 1, b: 0.27121735, a: 1}
+  _statModifierFlashColor: {r: 0, g: 0, b: 1, a: 1}
   _flashDuration: 0.5
   _flashFrequency: 6
   _damageShakeAmplitude: 0.1
   _damageTextOffset: {x: 0, y: 50}
+  _deadSpriteAlpha: 0.3
 --- !u!114 &-561371190395345101
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,12 @@ public enum BattleSquadEventType
     ApplyDamage
 }
 
+public enum BattleSquadStatus
+{
+    Alive,
+    Dead
+}
+
 public readonly struct BattleSquadEvent
 {
     public BattleSquadEvent(BattleSquadEventType type, BattleSquadModel squad, BattleDamageData damageData, int appliedDamage)
@@ -34,6 +40,8 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     private readonly Dictionary<BattleSquadStat, float> _aggregatedModifiers = new();
 
     public UnitSO Definition => _sourceModel.Definition;
+
+    public BattleSquadStatus Status { get; private set; } = BattleSquadStatus.Alive;
 
     public event Action<IReadOnlySquadModel> Changed;
 
@@ -302,9 +310,12 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         int previousCount = CalculateCount();
         _squadHealth = newSquadHealth;
         BattleLogger.LogUnitHealth(this, _squadHealth);
-        NotifyChanged();
 
         int currentCount = CalculateCount();
+
+        UpdateStatus(currentCount);
+        NotifyChanged();
+
         if (previousCount > 0 && currentCount == 0)
         {
             BattleLogger.LogUnitDefeated(this);
@@ -319,6 +330,15 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     private void RaiseEvent(BattleSquadEvent squadEvent)
     {
         OnEvent?.Invoke(squadEvent);
+    }
+
+    private void UpdateStatus(int currentCount)
+    {
+        var newStatus = currentCount > 0 ? BattleSquadStatus.Alive : BattleSquadStatus.Dead;
+        if (Status == newStatus)
+            return;
+
+        Status = newStatus;
     }
 
     private static bool AreModifiersEqual(Dictionary<BattleSquadStat, float> existingModifiers, IReadOnlyList<BattleStatModifier> modifiers)
