@@ -40,7 +40,7 @@ public class PreparationSceneManager : MonoBehaviour
         }
     }
 
-    private async Task HandleDiveIntoCaveAsync(UnitSO selectedHero, List<UnitSO> selectedSquads)
+    private async Task HandleDiveIntoCaveAsync(UnitSO selectedHero, List<SquadSelection> selectedSquads)
     {
         _gameSession.SaveSelectedHeroSquads(selectedHero, selectedSquads);
         await _sceneLoader.LoadAdditiveAsync("Dangeon_Level_1");

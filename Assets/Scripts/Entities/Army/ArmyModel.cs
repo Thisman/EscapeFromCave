@@ -47,13 +47,6 @@ public class ArmyModel : IReadOnlyArmyModel
     {
         if (!def || amount <= 0) return false;
 
-        var squad = FindFirstSquad(def);
-        if (squad != null)
-        {
-            var ok = squad.TryAdd(amount);
-            return ok;
-        }
-
         int emptyIndex = FindEmptySlot();
         if (emptyIndex >= 0)
         {
@@ -63,16 +56,6 @@ public class ArmyModel : IReadOnlyArmyModel
             return true;
         }
         return false;
-    }
-
-    private SquadModel FindFirstSquad(UnitSO def)
-    {
-        for (int i = 0; i < _slots.Count; i++)
-        {
-            var s = _slots[i];
-            if (s != null && s.Definition == def) return s;
-        }
-        return null;
     }
 
     private int FindEmptySlot()

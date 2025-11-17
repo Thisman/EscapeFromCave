@@ -9,7 +9,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _document;
 
-    public Func<UnitSO, List<UnitSO>, Task> OnDiveIntoCave;
+    public Func<UnitSO, List<SquadSelection>, Task> OnDiveIntoCave;
 
     private readonly List<HeroCard> _heroCards = new();
     private readonly List<SquadCard> _squadCards = new();
@@ -350,7 +350,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         }
 
         UnitSO selectedHero = GetSelectedHero();
-        List<UnitSO> selectedSquads = GetSelectedSquads();
+        List<SquadSelection> selectedSquads = GetSelectedSquads();
 
         if (_diveIntoCaveButton != null)
             _diveIntoCaveButton.SetEnabled(false);
@@ -391,9 +391,9 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         return _heroDefinitions[_selectedHeroIndex];
     }
 
-    private List<UnitSO> GetSelectedSquads()
+    private List<SquadSelection> GetSelectedSquads()
     {
-        List<UnitSO> selectedSquads = new();
+        List<SquadSelection> selectedSquads = new();
 
         foreach (SquadCard card in _squadCards)
         {
@@ -402,8 +402,11 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 continue;
 
             UnitSO squad = _squadDefinitions[index];
-            if (squad != null)
-                selectedSquads.Add(squad);
+            if (squad == null)
+                continue;
+
+            int defaultCount = Mathf.RoundToInt(GetDefaultCount(squad));
+            selectedSquads.Add(new SquadSelection(squad, defaultCount));
         }
 
         return selectedSquads;
@@ -411,7 +414,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
     private static float GetDefaultCount(UnitSO _)
     {
-        return 1f;
+        return 10f;
     }
 
     private static int WrapIndex(int index, int length)
