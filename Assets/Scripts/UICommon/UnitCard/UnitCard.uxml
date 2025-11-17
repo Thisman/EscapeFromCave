@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Project/Scripts/UICommon/Widgets/UnitCard/UnitCard.uss?fileID=7433441132597879392&amp;guid=d1c45da3b90c3cf4d9c0ef898f8a6960&amp;type=3#UnitCard" />
-    <Style src="project://database/Assets/Scripts/UICommon/RichTooltip/RichTooltip.uss?fileID=7433441132597879392&amp;guid=c841d0c6d7454680b3d20b41ed139c22&amp;type=3#RichTooltip" />
+    <ui:Template name="RichTooltipTemplate" src="project://database/Assets/Scripts/UICommon/RichTooltip/RichTooltip.uxml?fileID=9197481963319205126&amp;guid=571a30c99fc144a69430bd05c15b467f&amp;type=3#RichTooltip" />
     <ui:VisualElement class="unit-card">
         <ui:VisualElement name="Header" class="unit-card__header">
             <ui:VisualElement name="Icon" class="unit-card__icon" />
@@ -11,8 +11,6 @@
         <ui:VisualElement name="EffectsList" class="effect-list" style="flex-grow: 1;">
         </ui:VisualElement>
         <ui:VisualElement name="Info" class="unit-card__info" />
-        <ui:VisualElement name="AbilityTooltip" class="rich-tooltip">
-            <ui:Label name="Content" class="rich-tooltip__text" />
-        </ui:VisualElement>
+        <ui:Instance template="RichTooltipTemplate" name="AbilityTooltip" />
     </ui:VisualElement>
 </ui:UXML>

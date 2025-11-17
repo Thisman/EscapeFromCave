@@ -9,6 +9,8 @@ namespace UICommon.Widgets
         public const string BlockClassName = "rich-tooltip";
         public const string VisibleModifierClassName = BlockClassName + "--visible";
 
+        private const string TooltipRootName = "Tooltip";
+        private const string ContentElementName = "Content";
         private const float VerticalOffset = 8f;
 
         private readonly VisualElement _root;
@@ -16,8 +18,14 @@ namespace UICommon.Widgets
 
         public RichTooltipWidget(VisualElement root)
         {
-            _root = root ?? throw new ArgumentNullException(nameof(root));
-            _content = _root.Q<Label>("Content");
+            if (root == null)
+                throw new ArgumentNullException(nameof(root));
+
+            _root = root.name == TooltipRootName
+                ? root
+                : root.Q<VisualElement>(TooltipRootName) ?? root;
+
+            _content = _root.Q<Label>(ContentElementName);
         }
 
         public VisualElement Root => _root;
