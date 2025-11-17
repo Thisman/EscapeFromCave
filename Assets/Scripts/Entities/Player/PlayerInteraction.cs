@@ -7,9 +7,9 @@ using System.Linq;
 [RequireComponent(typeof(Collider2D))]
 public sealed class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField, Min(1)] private int maxCandidates = 16;
-    [SerializeField] private LayerMask interactableMask = ~0;
-    [SerializeField, Min(0.1f)] private float interactRadius = 1.5f;
+    [SerializeField, Min(1)] private int _maxCandidates = 16;
+    [SerializeField] private LayerMask _interactableMask = ~0;
+    [SerializeField, Min(0.1f)] private float _interactRadius = 1.5f;
 
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputService _inputService;
@@ -21,10 +21,12 @@ public sealed class PlayerInteraction : MonoBehaviour
     private Collider2D _lastWarnedCollider;
     private InteractionController _currentTarget;
 
+    public float InteractRadius => _interactRadius;
+
     private void Awake()
     {
         _actor = gameObject;
-        _hits = new Collider2D[maxCandidates];
+        _hits = new Collider2D[_maxCandidates];
     }
 
     private void OnEnable()
@@ -57,7 +59,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void AcquireTargetInRadius()
     {
         Vector2 center = transform.position;
-        _hits = Physics2D.OverlapCircleAll(center, interactRadius, interactableMask);
+        _hits = Physics2D.OverlapCircleAll(center, _interactRadius, _interactableMask);
 
         var collider = _hits.FirstOrDefault();
         if (collider == null)

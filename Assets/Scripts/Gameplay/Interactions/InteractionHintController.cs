@@ -54,7 +54,8 @@ public sealed class InteractionHintController : MonoBehaviour
                 continue;
             }
 
-            float r = Mathf.Max(0f, oi.Definition.InteractionDistance);
+            var interactionDistance = _player.GetComponent<PlayerInteraction>().InteractRadius;
+            float r = Mathf.Max(0f, interactionDistance);
 
             Vector2 opos = oi.transform.position;
             bool inRange = (opos - ppos).sqrMagnitude <= r * r;
@@ -95,12 +96,8 @@ public sealed class InteractionHintController : MonoBehaviour
     private void RescanInteractables()
     {
         _interactables.Clear();
-#if UNITY_2022_2_OR_NEWER
         var found = FindObjectsByType<InteractionController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         _interactables.AddRange(found);
-#else
-        _interactables.AddRange(FindObjectsOfType<ObjectInteraction>());
-#endif
 
         _toRelease.Clear();
         foreach (var kv in _active)
