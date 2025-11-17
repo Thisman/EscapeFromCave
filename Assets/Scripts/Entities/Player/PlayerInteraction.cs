@@ -17,6 +17,7 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private GameObject _actor;
     private Collider2D[] _hits;
+    private ContactFilter2D _overlapFilter;
     private readonly HashSet<InteractionController> _currentInteractables = new();
     private readonly HashSet<InteractionController> _frameInteractables = new();
     private readonly List<InteractionController> _pendingRemoval = new();
@@ -33,6 +34,12 @@ public sealed class PlayerInteraction : MonoBehaviour
     {
         _actor = gameObject;
         _hits = new Collider2D[_maxCandidates];
+        ConfigureOverlapFilter();
+    }
+
+    private void OnValidate()
+    {
+        ConfigureOverlapFilter();
     }
 
     private void OnEnable()
@@ -65,7 +72,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void AcquireTargetInRadius()
     {
         Vector2 center = transform.position;
-        int hitsCount = Physics2D.OverlapCircleNonAlloc(center, _interactRadius, _hits, _interactableMask);
+        int hitsCount = Physics2D.OverlapCircle(center, _interactRadius, _overlapFilter, _hits);
 
         _frameInteractables.Clear();
 
@@ -154,5 +161,12 @@ public sealed class PlayerInteraction : MonoBehaviour
 
         interactable = col.GetComponentInParent<InteractionController>();
         return interactable != null;
+    }
+
+    private void ConfigureOverlapFilter()
+    {
+        _overlapFilter.useLayerMask = true;
+        _overlapFilter.useTriggers = true;
+        _overlapFilter.SetLayerMask(_interactableMask);
     }
 }
