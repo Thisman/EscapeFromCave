@@ -1,0 +1,44 @@
+:root {
+}
+
+.rich-tooltip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    background-color: rgba(10, 10, 10, 0.95);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+    max-width: 320px;
+    z-index: 2000;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+}
+
+.rich-tooltip--visible {
+    opacity: 1;
+}
+
+.rich-tooltip__content {
+    color: inherit;
+    font-size: 14px;
+    -unity-font-style: normal;
+    -unity-text-align: upper-left;
+    white-space: normal;
+    line-height: 1.4em;
+}
