@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Project/Scripts/UICommon/UnitCard/UnitCard.uss?fileID=7433441132597879392&amp;guid=d1c45da3b90c3cf4d9c0ef898f8a6960&amp;type=3#UnitCard" />
+    <Style src="project://database/Assets/Scripts/UICommon/UnitCard/UnitCard.uss?fileID=7433441132597879392&amp;guid=d1c45da3b90c3cf4d9c0ef898f8a6960&amp;type=3#UnitCard" />
     <ui:VisualElement class="unit-card">
         <ui:VisualElement name="Header" class="unit-card__header">
             <ui:VisualElement name="Icon" class="unit-card__icon" />

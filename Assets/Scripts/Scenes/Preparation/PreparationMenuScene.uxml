@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Project/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
-    <Style src="project://database/Assets/Project/Scripts/Scenes/Preparation/PreparationMenuScene.uss?fileID=7433441132597879392&amp;guid=ed3fdf715f1a2c44bafc95867e4ec746&amp;type=3#PreparationMenuScene" />
-    <ui:Template name="UnitCardTemplate" src="project://database/Assets/Project/Scripts/UICommon/UnitCard/UnitCard.uxml?fileID=9197481963319205126&amp;guid=0d3bd37d8032cc64e903ede856e8f4c0&amp;type=3#UnitCard" />
+    <Style src="project://database/Assets/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <ui:Template name="UnitCardTemplate" src="project://database/Assets/Scripts/UICommon/UnitCard/UnitCard.uxml?fileID=9197481963319205126&amp;guid=0d3bd37d8032cc64e903ede856e8f4c0&amp;type=3#UnitCard" />
+    <Style src="project://database/Assets/Scripts/Scenes/Preparation/PreparationMenuScene.uss?fileID=7433441132597879392&amp;guid=ed3fdf715f1a2c44bafc95867e4ec746&amp;type=3#PreparationMenuScene" />
     <ui:VisualElement name="Body" style="flex-grow: 1; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px;">
         <ui:VisualElement name="SelectHeroPanel" class="panel hero-panel" style="flex-grow: 1;">
             <ui:VisualElement name="Top" class="top" style="flex-grow: 1;">

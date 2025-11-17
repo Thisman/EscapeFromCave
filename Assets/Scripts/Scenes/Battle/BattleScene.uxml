@@ -1,7 +1,8 @@
+
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Project/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
-    <Style src="project://database/Assets/Project/Scripts/Scenes/Battle/BattleScene.uss?fileID=7433441132597879392&amp;guid=4fec363ae62083a40a0695cff64d28cf&amp;type=3#BattleScene" />
-    <ui:Template name="UnitCardTemplate" src="project://database/Assets/Project/Scripts/UICommon/UnitCard/UnitCard.uxml?fileID=9197481963319205126&amp;guid=0d3bd37d8032cc64e903ede856e8f4c0&amp;type=3#UnitCard" />
+    <Style src="project://database/Assets/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <Style src="project://database/Assets/Scripts/Scenes/Battle/BattleScene.uss?fileID=7433441132597879392&amp;guid=4fec363ae62083a40a0695cff64d28cf&amp;type=3#BattleScene" />
+    <ui:Template name="UnitCardTemplate" src="project://database/Assets/Scripts/UICommon/UnitCard/UnitCard.uxml?fileID=9197481963319205126&amp;guid=0d3bd37d8032cc64e903ede856e8f4c0&amp;type=3#UnitCard" />
     <ui:VisualElement name="Body" style="flex-grow: 1;">
         <ui:VisualElement name="TacticPanel" enabled="true" usage-hints="None" class="panel panel__active">
             <ui:VisualElement name="Top" class="top" style="flex-grow: 1; justify-content: center; align-items: center;">

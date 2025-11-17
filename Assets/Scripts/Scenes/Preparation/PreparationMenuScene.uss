@@ -9,11 +9,11 @@
 }
 
 .hero-panel .unit-card {
-    opacity: 0.15;
+    opacity: 0.05;
+    scale: 1;
 }
 
 .hero-panel .unit-card:hover {
-    transition-duration: 0s;
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
@@ -26,6 +26,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    scale: 1.1;
     opacity: 1;
 }
 
@@ -42,6 +43,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    scale: 1.1;
     opacity: 1;
 }
 
