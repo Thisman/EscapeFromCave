@@ -55,6 +55,7 @@ namespace UICommon.Widgets
         public const string InfoLineClassName = "unit-card__info-line";
         private const string AbilityInfoClassName = "ability-info";
         private const string EffectInfoClassName = "effect-info";
+        private const string AbilityTooltipElementName = "AbilityTooltip";
 
         private readonly List<Label> _infoLabels = new();
         private readonly VisualElement _root;
@@ -63,7 +64,7 @@ namespace UICommon.Widgets
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
-        private RichTooltipWidget _abilityTooltip;
+        private readonly RichTooltipWidget _abilityTooltip;
 
         public UnitCardWidget(VisualElement root)
         {
@@ -73,6 +74,10 @@ namespace UICommon.Widgets
             _infoContainer = _root.Q<VisualElement>("Info");
             _abilityList = _root.Q<VisualElement>("AbilityList");
             _effectsList = _root.Q<VisualElement>("EffectsList");
+
+            VisualElement tooltipElement = _root.Q<VisualElement>(AbilityTooltipElementName);
+            if (tooltipElement != null)
+                _abilityTooltip = new RichTooltipWidget(tooltipElement);
 
             _infoContainer?.Query<Label>().ForEach(label =>
             {
@@ -98,11 +103,6 @@ namespace UICommon.Widgets
         public void SetEnabled(bool isEnabled)
         {
             _root?.SetEnabled(isEnabled);
-        }
-
-        public void SetAbilityTooltip(RichTooltipWidget tooltip)
-        {
-            _abilityTooltip = tooltip;
         }
 
         private void ApplyUnit(UnitCardRenderData data)

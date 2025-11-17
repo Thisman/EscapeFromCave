@@ -14,15 +14,12 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
     private readonly List<HeroCard> _heroCards = new();
     private readonly List<SquadCard> _squadCards = new();
 
-    private const string AbilityTooltipElementName = "AbilityTooltip";
-
     private VisualElement _root;
     private VisualElement _heroPanel;
     private VisualElement _squadPanel;
     private Button _goToSquadsSelectionButton;
     private Button _diveIntoCaveButton;
     private bool _isDiveRequested;
-    private RichTooltipWidget _abilityTooltip;
 
     private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
     private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
@@ -107,7 +104,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         if (_root == null)
             return;
 
-        InitializeTooltip();
         _heroPanel = _root.Q<VisualElement>("SelectHeroPanel");
         _squadPanel = _root.Q<VisualElement>("SelectSquadsPanel");
         _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
@@ -155,8 +151,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         _heroCards.Clear();
         _squadCards.Clear();
 
-        _abilityTooltip?.Hide();
-        _abilityTooltip = null;
         _heroPanel = null;
         _squadPanel = null;
         _root = null;
@@ -218,12 +212,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
             _squadCards.Add(new SquadCard(this, cardElement));
         });
-    }
-
-    private void InitializeTooltip()
-    {
-        VisualElement tooltipElement = _root?.Q<VisualElement>(AbilityTooltipElementName);
-        _abilityTooltip = tooltipElement != null ? new RichTooltipWidget(tooltipElement) : null;
     }
 
     private void RenderHeroes()
@@ -453,7 +441,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             if (root != null)
             {
                 _card = new UnitCardWidget(root);
-                _card.SetAbilityTooltip(_controller._abilityTooltip);
                 _clickable = new Clickable(HandleClick);
                 _card.Root.AddManipulator(_clickable);
             }
@@ -514,7 +501,6 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             if (cardRoot != null)
             {
                 _card = new UnitCardWidget(cardRoot);
-                _card.SetAbilityTooltip(_controller._abilityTooltip);
             }
 
             if (_prevButton != null)
