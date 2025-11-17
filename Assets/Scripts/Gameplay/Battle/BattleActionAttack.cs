@@ -71,8 +71,7 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActi
             return;
         }
 
-        var actorController = FindController(actorModel);
-        if (actorController == null)
+        if (!_context.TryGetController(actorModel, out var actorController) || actorController == null)
         {
             CompleteResolve();
             return;
@@ -81,24 +80,6 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActi
         await _damageResolver.ResolveDamage(actorController, unit);
 
         CompleteResolve();
-    }
-
-    private BattleSquadController FindController(IReadOnlySquadModel model)
-    {
-        if (model == null)
-            return null;
-
-        var units = _context.BattleUnits;
-        if (units == null)
-            return null;
-
-        foreach (var squad in units)
-        {
-            if (squad?.GetSquadModel() == model)
-                return squad;
-        }
-
-        return null;
     }
 
     private void CompleteResolve()

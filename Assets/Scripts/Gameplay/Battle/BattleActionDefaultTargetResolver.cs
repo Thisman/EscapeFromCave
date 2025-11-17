@@ -28,8 +28,7 @@ public sealed class BattleActionDefaultTargetResolver : IBattleActionTargetResol
         if (grid == null)
             return false;
 
-        var targetController = FindController(target);
-        if (targetController == null)
+        if (!_context.TryGetController(target, out var targetController) || targetController == null)
             return false;
 
         if (!TryGetRow(targetController.transform, out var targetRow))
@@ -39,24 +38,6 @@ public sealed class BattleActionDefaultTargetResolver : IBattleActionTargetResol
             return true;
 
         return !HasFrontlineUnits(target);
-    }
-
-    private BattleSquadController FindController(IReadOnlySquadModel model)
-    {
-        if (model == null)
-            return null;
-
-        var units = _context.BattleUnits;
-        if (units == null)
-            return null;
-
-        foreach (var unit in units)
-        {
-            if (unit?.GetSquadModel() == model)
-                return unit;
-        }
-
-        return null;
     }
 
     private bool HasFrontlineUnits(IReadOnlySquadModel target)

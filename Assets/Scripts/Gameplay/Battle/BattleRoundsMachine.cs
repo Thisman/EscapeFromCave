@@ -180,8 +180,7 @@ public sealed class BattleRoundsMachine
         if (activeUnitModel == null)
             return;
 
-        var controller = FindControllerForModel(activeUnitModel);
-        if (controller == null)
+        if (!_ctx.TryGetController(activeUnitModel, out var controller) || controller == null)
             return;
 
         var gridController = _ctx.BattleGridController;
@@ -200,27 +199,6 @@ public sealed class BattleRoundsMachine
     {
         var gridController = _ctx.BattleGridController;
         gridController?.ClearActiveSlot();
-    }
-
-    private BattleSquadController FindControllerForModel(IReadOnlySquadModel model)
-    {
-        if (model == null)
-            return null;
-
-        var units = _ctx.BattleUnits;
-        if (units == null)
-            return null;
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null)
-                continue;
-
-            if (unitController.GetSquadModel() == model)
-                return unitController;
-        }
-
-        return null;
     }
 
     private void OnRoundEnd()
@@ -408,7 +386,7 @@ public sealed class BattleRoundsMachine
     {
         if (_ctx.BattleUnits.Count == 0)
         {
-            _ctx.BattleUnits = Array.Empty<BattleSquadController>();
+            _ctx.RegisterSquads(Array.Empty<BattleSquadController>());
             return;
         }
 
@@ -434,9 +412,7 @@ public sealed class BattleRoundsMachine
         if (defeatedUnits.Count == 0)
             return;
 
-        _ctx.BattleUnits = aliveUnits.Count > 0
-            ? aliveUnits
-            : Array.Empty<BattleSquadController>();
+        _ctx.RegisterSquads(aliveUnits);
 
         foreach (var defeatedUnit in defeatedUnits)
         {
@@ -616,8 +592,10 @@ public sealed class BattleRoundsMachine
         if (effectsManager == null)
             return;
 
-        var controller = FindControllerForModel(unit);
-        var effectsController = controller?.GetComponent<BattleSquadEffectsController>();
+        if (!_ctx.TryGetController(unit, out var controller) || controller == null)
+            return;
+
+        var effectsController = controller.GetComponent<BattleSquadEffectsController>();
         if (effectsController == null)
             return;
 

@@ -42,6 +42,7 @@ public class BattleSceneManager : MonoBehaviour
     {
         _ = _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
         UnsubscribeFromUiEvents();
+        _battleContext?.Dispose();
     }
 
     private void InitializeBattleData()
@@ -85,7 +86,7 @@ public class BattleSceneManager : MonoBehaviour
             Debug.LogWarning($"[{nameof(BattleSceneManager)}.{nameof(InitializeBattleUnits)}] Battle data was not resolved. No units will be spawned.");
         }
 
-        _battleContext.BattleUnits = collectedUnits;
+        _battleContext.RegisterSquads(collectedUnits);
     }
 
     private void InitializeBattleContext()
@@ -96,19 +97,15 @@ public class BattleSceneManager : MonoBehaviour
         PlayerBattleActionController playerTurnController = new();
         BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
 
-        _battleContext = new BattleContext
-        {
-            InputService = _inputService,
-            BattleUIController = _battleUIController,
-            BattleGridDragAndDropController = _battleGridDragAndDropController,
-
-            BattleGridController = _battleGridController,
-            BattleQueueController = _battleQueueController,
-
-            BattleEffectsManager = battleEffectsManager,
-            BattleAbilitiesManager = battleAbilitiesManager,
-            BattleActionControllerResolver = actionControllerResolver,
-        };
+        _battleContext = new BattleContext(
+            _battleGridController,
+            _battleQueueController,
+            actionControllerResolver,
+            _battleUIController,
+            battleAbilitiesManager,
+            battleEffectsManager,
+            _inputService,
+            _battleGridDragAndDropController);
 
     }
 
