@@ -197,10 +197,15 @@
     flex-direction: column;
     align-items: center;
     opacity: 0;
-    animation-name: result-squad-appear;
-    animation-duration: 0.35s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    translate: 0 16px;
+    transition-property: opacity, translate;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.result-squad--visible {
+    opacity: 1;
+    translate: 0 0;
 }
 
 .result-squad__icon {
@@ -237,33 +242,3 @@
 .result-squad--dead .result-squad__icon {
     opacity: 0.35;
 }
-
-@keyframes result-squad-appear {
-    from {
-        opacity: 0;
-        translate: 0 16px;
-    }
-
-    to {
-        opacity: 1;
-        translate: 0 0;
-    }
-}
-
-.result-block--player .result-squad:nth-child(1) { animation-delay: 0s; }
-.result-block--player .result-squad:nth-child(2) { animation-delay: 0.1s; }
-.result-block--player .result-squad:nth-child(3) { animation-delay: 0.2s; }
-.result-block--player .result-squad:nth-child(4) { animation-delay: 0.3s; }
-.result-block--player .result-squad:nth-child(5) { animation-delay: 0.4s; }
-.result-block--player .result-squad:nth-child(6) { animation-delay: 0.5s; }
-.result-block--player .result-squad:nth-child(7) { animation-delay: 0.6s; }
-.result-block--player .result-squad:nth-child(8) { animation-delay: 0.7s; }
-
-.result-block--enemy .result-squad:nth-child(1) { animation-delay: 0.9s; }
-.result-block--enemy .result-squad:nth-child(2) { animation-delay: 1s; }
-.result-block--enemy .result-squad:nth-child(3) { animation-delay: 1.1s; }
-.result-block--enemy .result-squad:nth-child(4) { animation-delay: 1.2s; }
-.result-block--enemy .result-squad:nth-child(5) { animation-delay: 1.3s; }
-.result-block--enemy .result-squad:nth-child(6) { animation-delay: 1.4s; }
-.result-block--enemy .result-squad:nth-child(7) { animation-delay: 1.5s; }
-.result-block--enemy .result-squad:nth-child(8) { animation-delay: 1.6s; }
