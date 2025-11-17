@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
-using System.Linq;
 
 [RequireComponent(typeof(Collider2D))]
 public sealed class PlayerInteraction : MonoBehaviour
@@ -17,11 +17,17 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private GameObject _actor;
     private Collider2D[] _hits;
+    private readonly HashSet<InteractionController> _currentInteractables = new();
+    private readonly HashSet<InteractionController> _frameInteractables = new();
+    private readonly List<InteractionController> _pendingRemoval = new();
     private InputAction _interactAction;
     private Collider2D _lastWarnedCollider;
     private InteractionController _currentTarget;
 
     public float InteractRadius => _interactRadius;
+    public IReadOnlyCollection<InteractionController> InteractablesInRange => _currentInteractables;
+    public event Action<InteractionController> InteractableEnteredRange;
+    public event Action<InteractionController> InteractableExitedRange;
 
     private void Awake()
     {
@@ -59,33 +65,64 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void AcquireTargetInRadius()
     {
         Vector2 center = transform.position;
-        _hits = Physics2D.OverlapCircleAll(center, _interactRadius, _interactableMask);
+        int hitsCount = Physics2D.OverlapCircleNonAlloc(center, _interactRadius, _hits, _interactableMask);
 
-        var collider = _hits.FirstOrDefault();
-        if (collider == null)
-            return;
+        _frameInteractables.Clear();
 
-        if (!TryGetInteractable(collider, out InteractionController target))
+        InteractionController firstValidInteractable = null;
+
+        for (int i = 0; i < hitsCount; i++)
         {
-            if (_lastWarnedCollider != collider)
+            var collider = _hits[i];
+            _hits[i] = null;
+            if (collider == null)
+                continue;
+
+            if (!TryGetInteractable(collider, out var interactable))
             {
-                Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] Collider '{collider.name}' does not provide an InteractionController.");
-                _lastWarnedCollider = collider;
+                if (_lastWarnedCollider != collider)
+                {
+                    Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] Collider '{collider.name}' does not provide an InteractionController.");
+                    _lastWarnedCollider = collider;
+                }
+                continue;
             }
-            return;
+
+            _frameInteractables.Add(interactable);
+            if (firstValidInteractable == null)
+                firstValidInteractable = interactable;
+
+            if (_currentInteractables.Add(interactable))
+                InteractableEnteredRange?.Invoke(interactable);
         }
 
         _lastWarnedCollider = null;
 
-        if (!ReferenceEquals(target, _currentTarget))
+        _pendingRemoval.Clear();
+        foreach (var interactable in _currentInteractables)
+            if (!_frameInteractables.Contains(interactable))
+                _pendingRemoval.Add(interactable);
+
+        foreach (var removed in _pendingRemoval)
         {
-            _currentTarget = target;
+            _currentInteractables.Remove(removed);
+            InteractableExitedRange?.Invoke(removed);
+        }
+        _frameInteractables.Clear();
+
+        if (firstValidInteractable == null)
+        {
+            if (_currentTarget != null)
+                _currentTarget = null;
+            return;
+        }
+
+        if (!ReferenceEquals(firstValidInteractable, _currentTarget))
+        {
+            _currentTarget = firstValidInteractable;
             var targetName = (_currentTarget as MonoBehaviour)?.name ?? _currentTarget.ToString();
             Debug.Log($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] '{name}' switched interaction target to '{targetName}'.");
         }
-
-        for (int i = 0; i < _hits.Length - 1; i++)
-            _hits[i] = null;
     }
 
     private async void OnInteractPressed(InputAction.CallbackContext _)
