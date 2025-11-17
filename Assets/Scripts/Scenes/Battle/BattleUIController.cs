@@ -751,6 +751,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         _abilityTooltipLabel = new Label();
         _abilityTooltipLabel.AddToClassList(AbilityTooltipTextClassName);
+        _abilityTooltipLabel.enableRichText = true;
         _abilityTooltip.Add(_abilityTooltipLabel);
 
         body.Add(_abilityTooltip);
@@ -764,7 +765,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return;
 
         _abilityTooltipTarget = target;
-        _abilityTooltipLabel.text = ability.Description ?? string.Empty;
+        _abilityTooltipLabel.text = ability.GetFormatedDescription();
         _abilityTooltip.AddToClassList(AbilityTooltipVisibleClassName);
         UpdateAbilityTooltipPosition(target.worldBound);
 

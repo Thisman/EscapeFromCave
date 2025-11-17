@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -51,5 +52,13 @@ public class BattleEffectSO: ScriptableObject
 
     public virtual void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
     {
+    }
+
+    public virtual string GetFormatedDescription()
+    {
+        if (!string.IsNullOrWhiteSpace(Description))
+            return Description;
+
+        return string.IsNullOrWhiteSpace(Name) ? string.Empty : Name;
     }
 }
