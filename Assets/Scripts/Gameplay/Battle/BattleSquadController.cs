@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver, ISquadModelProvider
 {
+    [SerializeField] private Collider2D _collider2D;
+
     private BattleSquadModel _squadModel;
     private bool _isValidTarget;
 
+    private void Awake()
+    {
+        _collider2D ??= GetComponent<Collider2D>();
+    }
+
     private void OnDestroy()
     {
+        if (_squadModel != null)
+            _squadModel.Changed -= HandleSquadModelChanged;
+
         _squadModel = null;
     }
 
@@ -17,7 +27,13 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
         if (squadModel is not BattleSquadModel battleSquadModel)
             throw new ArgumentException($"{nameof(BattleSquadController)} requires a {nameof(BattleSquadModel)} instance.", nameof(squadModel));
 
+        if (_squadModel != null)
+            _squadModel.Changed -= HandleSquadModelChanged;
+
         _squadModel = battleSquadModel;
+        _squadModel.Changed += HandleSquadModelChanged;
+
+        UpdateColliderState(_squadModel);
     }
 
     public IReadOnlySquadModel GetSquadModel()
@@ -87,5 +103,19 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
             return;
 
         _squadModel.RemoveStatModifiers(source);
+    }
+
+    private void HandleSquadModelChanged(IReadOnlySquadModel model)
+    {
+        if (model is BattleSquadModel battleModel)
+            UpdateColliderState(battleModel);
+    }
+
+    private void UpdateColliderState(BattleSquadModel model)
+    {
+        if (_collider2D == null || model == null)
+            return;
+
+        _collider2D.enabled = model.Status != BattleSquadStatus.Dead;
     }
 }

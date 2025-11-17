@@ -20,6 +20,7 @@ public class BattleSquadAnimationController : MonoBehaviour
     [SerializeField, Min(0f)] private float _flashFrequency = 6f;
     [SerializeField, Min(0f)] private float _damageShakeAmplitude = 0.1f;
     [SerializeField] private Vector2 _damageTextOffset = new(0f, 50f);
+    [SerializeField, Range(0f, 1f)] private float _deadSpriteAlpha = 0.1f;
 
     private Coroutine _flashRoutine;
     private Coroutine _damageTextRoutine;
@@ -309,7 +310,25 @@ public class BattleSquadAnimationController : MonoBehaviour
 
     private void HandleModelChanged(IReadOnlySquadModel model)
     {
-        _countTextUI.text = model.Count.ToString();
+        if (_countTextUI != null)
+            _countTextUI.text = model.Count.ToString();
+
+        UpdateDeathVisual(model);
+    }
+
+    private void UpdateDeathVisual(IReadOnlySquadModel model)
+    {
+        if (_spriteRenderer == null)
+            return;
+
+        float targetAlpha = 1f;
+        if (model is BattleSquadModel battleModel && battleModel.Status == BattleSquadStatus.Dead)
+            targetAlpha = Mathf.Clamp01(_deadSpriteAlpha);
+
+        var color = _spriteRenderer.color;
+        color.a = targetAlpha;
+        _spriteRenderer.color = color;
+        _flashRestoreColor = color;
     }
 
     private void AnimateScale()
