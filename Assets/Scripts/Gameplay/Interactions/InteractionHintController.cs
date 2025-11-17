@@ -4,105 +4,128 @@ using UnityEngine;
 public sealed class InteractionHintController : MonoBehaviour
 {
     [SerializeField] private GameObject _hintPrefab;
+    [SerializeField] private PlayerInteraction _playerInteraction;
     [SerializeField] private Vector3 _worldOffset = new(0, 1.0f, 0);
 
-    [SerializeField, Range(2f, 30f)] private float _updatesPerSecond = 10f;
-    [SerializeField, Min(0.1f)] private float _rescanInterval = 0.5f;
-
-    private Transform _player;
     private readonly Dictionary<InteractionController, GameObject> _active = new();
     private readonly Stack<GameObject> _pool = new();
     private readonly List<InteractionController> _toRelease = new();
 
-    private readonly List<InteractionController> _interactables = new(128);
-    private float _updateAccum;
-    private float _rescanAccum;
-
-    private void Start()
+    private void Awake()
     {
-        if (!_player)
+        EnsurePlayerInteraction();
+    }
+
+    private void OnEnable()
+    {
+        EnsurePlayerInteraction();
+        if (_playerInteraction == null)
+            return;
+
+        _playerInteraction.InteractableEnteredRange += OnInteractableEnteredRange;
+        _playerInteraction.InteractableExitedRange += OnInteractableExitedRange;
+
+        foreach (var interactable in _playerInteraction.InteractablesInRange)
+            OnInteractableEnteredRange(interactable);
+    }
+
+    private void OnDisable()
+    {
+        if (_playerInteraction != null)
         {
-            var p = GameObject.FindGameObjectWithTag("Player");
-            if (p) _player = p.transform;
+            _playerInteraction.InteractableEnteredRange -= OnInteractableEnteredRange;
+            _playerInteraction.InteractableExitedRange -= OnInteractableExitedRange;
         }
-        RescanInteractables();
+
+        ReleaseAllHints();
     }
 
     private void Update()
     {
-        if (!_player || !_hintPrefab) return;
+        if (_active.Count == 0)
+            return;
 
-        _rescanAccum += Time.deltaTime;
-        if (_rescanAccum >= _rescanInterval)
+        _toRelease.Clear();
+        foreach (var kv in _active)
         {
-            _rescanAccum = 0f;
-            RescanInteractables();
-        }
-
-        _updateAccum += Time.deltaTime;
-        float interval = 1f / _updatesPerSecond;
-        if (_updateAccum < interval) return;
-        _updateAccum = 0f;
-
-        Vector2 ppos = _player.position;
-
-        foreach (var oi in _interactables)
-        {
-            if (!oi || !oi.isActiveAndEnabled)
+            if (!kv.Key || !kv.Key.isActiveAndEnabled || !kv.Value)
             {
-                Hide(oi);
+                _toRelease.Add(kv.Key);
                 continue;
             }
 
-            var interactionDistance = _player.GetComponent<PlayerInteraction>().InteractRadius;
-            float r = Mathf.Max(0f, interactionDistance);
-
-            Vector2 opos = oi.transform.position;
-            bool inRange = (opos - ppos).sqrMagnitude <= r * r;
-
-            if (inRange) ShowOrUpdate(oi);
-            else Hide(oi);
+            UpdateHintPosition(kv.Key, kv.Value);
         }
 
-        _toRelease.Clear();
-        foreach (var kv in _active)
-            if (!kv.Key) _toRelease.Add(kv.Key);
-        foreach (var dead in _toRelease) Hide(dead);
+        foreach (var controller in _toRelease)
+            Hide(controller);
     }
 
-    private void ShowOrUpdate(InteractionController oi)
+    private void OnInteractableEnteredRange(InteractionController controller)
     {
-        if (!_active.TryGetValue(oi, out var go) || !go)
+        if (!controller)
+            return;
+
+        Show(controller);
+    }
+
+    private void OnInteractableExitedRange(InteractionController controller)
+    {
+        Hide(controller);
+    }
+
+    private void Show(InteractionController controller)
+    {
+        if (!_hintPrefab)
+            return;
+
+        if (!_active.TryGetValue(controller, out var go) || !go)
         {
             go = GetFromPool();
-            _active[oi] = go;
-            go.transform.SetParent(oi.transform, worldPositionStays: true);
+            _active[controller] = go;
+            go.transform.SetParent(controller.transform, worldPositionStays: true);
         }
 
-        Vector3 targetPosition = oi.transform.position + _worldOffset;
-        if (go.TryGetComponent<HintAnimationController>(out var animation))
-            animation.SetBasePosition(targetPosition);
-        else
-            go.transform.position = targetPosition;
+        UpdateHintPosition(controller, go);
     }
 
-    private void Hide(InteractionController oi)
+    private void UpdateHintPosition(InteractionController controller, GameObject hint)
     {
-        if (!_active.TryGetValue(oi, out var go)) return;
-        _active.Remove(oi);
+        Vector3 targetPosition = controller.transform.position + _worldOffset;
+        if (hint.TryGetComponent<HintAnimationController>(out var animation))
+            animation.SetBasePosition(targetPosition);
+        else
+            hint.transform.position = targetPosition;
+    }
+
+    private void Hide(InteractionController controller)
+    {
+        if (controller == null)
+            return;
+
+        if (!_active.TryGetValue(controller, out var go))
+            return;
+
+        _active.Remove(controller);
         ReturnToPool(go);
     }
 
-    private void RescanInteractables()
+    private void ReleaseAllHints()
     {
-        _interactables.Clear();
-        var found = FindObjectsByType<InteractionController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-        _interactables.AddRange(found);
-
         _toRelease.Clear();
         foreach (var kv in _active)
-            if (!_interactables.Contains(kv.Key)) _toRelease.Add(kv.Key);
-        foreach (var gone in _toRelease) Hide(gone);
+            _toRelease.Add(kv.Key);
+
+        foreach (var controller in _toRelease)
+            Hide(controller);
+    }
+
+    private void EnsurePlayerInteraction()
+    {
+        if (_playerInteraction)
+            return;
+
+        _playerInteraction = FindObjectOfType<PlayerInteraction>();
     }
 
     private GameObject GetFromPool()
@@ -114,7 +137,9 @@ public sealed class InteractionHintController : MonoBehaviour
 
     private void ReturnToPool(GameObject go)
     {
-        if (!go) return;
+        if (!go)
+            return;
+
         go.SetActive(false);
         go.transform.SetParent(transform, false);
         _pool.Push(go);
