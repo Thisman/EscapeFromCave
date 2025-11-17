@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "EnterBattleEffect", menuName = "Gameplay/Effects/Enter Battle")]
 public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
@@ -26,7 +26,7 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
             .LoadAdditiveWithDataAsync<BattleSceneData, BattleResult>(BattleSceneName, payload);
 
         inputRouter?.EnterGameplay();
-        HandleBattleResult(ctx, battleResult);
+        await HandleBattleResult(ctx, battleResult);
 
         return battleResult.IsVictory ? InteractionEffectResult.Continue : InteractionEffectResult.Break;
     }
@@ -147,14 +147,14 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
         return true;
     }
 
-    private static void HandleBattleResult(InteractionContext ctx, BattleResult result)
+    private static async Task HandleBattleResult(InteractionContext ctx, BattleResult result)
     {
         if (ctx == null)
             return;
 
         if (result.Status == BattleResultStatus.Defeat)
         {
-            ctx.SceneLoader?.LoadScene(MainMenuSceneName);
+            await ReturnToMainMenuAsync(ctx);
             return;
         }
 
@@ -162,6 +162,19 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
             return;
 
         UpdateHeroArmy(ctx.Actor, result.BattleUnitsResult.FriendlyUnits);
+    }
+
+    private static async Task ReturnToMainMenuAsync(InteractionContext ctx)
+    {
+        var sceneLoader = ctx.SceneLoader;
+        if (sceneLoader == null)
+            return;
+
+        Scene activeScene = SceneManager.GetActiveScene();
+        if (activeScene.IsValid())
+            await sceneLoader.UnloadAdditiveAsync(activeScene.name);
+
+        await sceneLoader.LoadAdditiveAsync(MainMenuSceneName);
     }
 
     private static void UpdateHeroArmy(GameObject actor, IReadOnlyList<IReadOnlySquadModel> friendlyUnits)
