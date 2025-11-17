@@ -63,6 +63,7 @@ namespace UICommon.Widgets
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
+        private readonly RichTooltipWidget _abilityTooltip;
 
         public UnitCardWidget(VisualElement root)
         {
@@ -72,6 +73,9 @@ namespace UICommon.Widgets
             _infoContainer = _root.Q<VisualElement>("Info");
             _abilityList = _root.Q<VisualElement>("AbilityList");
             _effectsList = _root.Q<VisualElement>("EffectsList");
+            VisualElement tooltipRoot = _root.Q<VisualElement>("AbilityTooltip");
+            if (tooltipRoot != null)
+                _abilityTooltip = new RichTooltipWidget(tooltipRoot);
 
             _infoContainer?.Query<Label>().ForEach(label =>
             {
@@ -169,6 +173,7 @@ namespace UICommon.Widgets
                 return;
 
             _abilityList.Clear();
+            HideAbilityTooltip();
 
             IReadOnlyList<BattleAbilitySO> abilities = data.Abilities;
             if (abilities == null || abilities.Count == 0)
@@ -184,7 +189,7 @@ namespace UICommon.Widgets
 
                 VisualElement abilityElement = new();
                 abilityElement.AddToClassList(AbilityInfoClassName);
-                abilityElement.tooltip = ability.AbilityName ?? string.Empty;
+                RegisterAbilityTooltipEvents(abilityElement, ability);
 
                 if (ability.Icon != null)
                     abilityElement.style.backgroundImage = new StyleBackground(ability.Icon);
@@ -225,6 +230,36 @@ namespace UICommon.Widgets
             }
 
             _effectsList.style.display = _effectsList.childCount > 0 ? DisplayStyle.Flex : DisplayStyle.None;
+        }
+
+        private void RegisterAbilityTooltipEvents(VisualElement abilityElement, BattleAbilitySO ability)
+        {
+            if (abilityElement == null)
+                return;
+
+            abilityElement.RegisterCallback<PointerEnterEvent>(_ => ShowAbilityTooltip(ability, abilityElement));
+            abilityElement.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltip());
+        }
+
+        private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement sourceElement)
+        {
+            if (_abilityTooltip == null || ability == null || sourceElement == null || _root == null)
+                return;
+
+            Rect worldBound = sourceElement.worldBound;
+            Vector2 worldAnchor = new(worldBound.center.x, worldBound.yMin);
+            Vector2 localAnchor = _root.WorldToLocal(worldAnchor);
+
+            string tooltipText = string.IsNullOrWhiteSpace(ability.Description)
+                ? ability.AbilityName ?? string.Empty
+                : ability.Description;
+
+            _abilityTooltip.Show(tooltipText, localAnchor);
+        }
+
+        private void HideAbilityTooltip()
+        {
+            _abilityTooltip?.Hide();
         }
 
         private static string FormatStat(UnitCardStatField stat, IReadOnlySquadModel squad)

@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Project/Scripts/UICommon/Widgets/UnitCard/UnitCard.uss?fileID=7433441132597879392&amp;guid=d1c45da3b90c3cf4d9c0ef898f8a6960&amp;type=3#UnitCard" />
+    <Style src="project://database/Assets/Scripts/UICommon/RichTooltip/RichTooltip.uss?fileID=7433441132597879392&amp;guid=c841d0c6d7454680b3d20b41ed139c22&amp;type=3#RichTooltip" />
     <ui:VisualElement class="unit-card">
         <ui:VisualElement name="Header" class="unit-card__header">
             <ui:VisualElement name="Icon" class="unit-card__icon" />
@@ -10,5 +11,8 @@
         <ui:VisualElement name="EffectsList" class="effect-list" style="flex-grow: 1;">
         </ui:VisualElement>
         <ui:VisualElement name="Info" class="unit-card__info" />
+        <ui:VisualElement name="AbilityTooltip" class="rich-tooltip">
+            <ui:Label name="Content" class="rich-tooltip__text" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

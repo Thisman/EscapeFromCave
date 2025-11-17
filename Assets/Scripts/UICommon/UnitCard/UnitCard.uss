@@ -19,6 +19,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     transition-duration: 0.3s;
+    position: relative;
 }
 
 .unit-card__header {
