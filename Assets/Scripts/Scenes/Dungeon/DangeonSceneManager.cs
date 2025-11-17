@@ -62,10 +62,14 @@ public class DangeonSceneManager : MonoBehaviour
 
         armyController.Initialize(armyModel);
 
-        foreach (var definition in _gameSession.SelectedAllySquads)
+        foreach (var selection in _gameSession.SelectedAllySquads)
         {
-            const int defaultAmount = 10;
-            armyController.Army.TryAddSquad(definition, defaultAmount);
+            if (selection.Definition == null || selection.Count <= 0)
+            {
+                continue;
+            }
+
+            armyController.Army.TryAddSquad(selection.Definition, selection.Count);
         }
 
         return armyController;
