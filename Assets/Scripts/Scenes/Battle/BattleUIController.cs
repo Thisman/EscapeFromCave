@@ -449,9 +449,6 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     public void ShowResult(BattleResult result)
     {
-        if (result == null)
-            return;
-
         StopResultSquadAnimation();
 
         if (_resultStatusLabel != null)

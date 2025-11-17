@@ -11,6 +11,10 @@ public sealed class BattleRoundsMachine
     private bool _battleFinished;
     private bool _playerRequestedFlee;
     private readonly List<BattleSquadModel> _subscribedSquadModels = new();
+    private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
+    private readonly List<IReadOnlySquadModel> _enemySquadHistory = new();
+    private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
+    private readonly HashSet<IReadOnlySquadModel> _enemySquadSet = new();
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -60,6 +64,7 @@ public sealed class BattleRoundsMachine
         _playerRequestedFlee = false;
         if (_ctx.BattleUIController != null)
             _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
+        InitializeSquadHistory();
         UpdateTargetValidity(null, null);
         SubscribeToSquadEvents();
     }
@@ -384,6 +389,8 @@ public sealed class BattleRoundsMachine
 
     private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
     {
+        TrackKnownSquads(_ctx.BattleUnits);
+
         if (_ctx.BattleUnits.Count == 0)
         {
             _ctx.RegisterSquads(Array.Empty<BattleSquadController>());
@@ -631,43 +638,60 @@ public sealed class BattleRoundsMachine
 
     private BattleUnitsResult BuildUnitsResult()
     {
-        var units = _ctx.BattleUnits;
+        TrackKnownSquads(_ctx.BattleUnits);
 
-        if (units == null || units.Count == 0)
+        IReadOnlySquadModel[] friendlyUnits = _friendlySquadHistory.Count > 0
+            ? _friendlySquadHistory.ToArray()
+            : Array.Empty<IReadOnlySquadModel>();
+
+        IReadOnlySquadModel[] enemyUnits = _enemySquadHistory.Count > 0
+            ? _enemySquadHistory.ToArray()
+            : Array.Empty<IReadOnlySquadModel>();
+
+        return new BattleUnitsResult(friendlyUnits, enemyUnits);
+    }
+
+    private void InitializeSquadHistory()
+    {
+        _friendlySquadHistory.Clear();
+        _enemySquadHistory.Clear();
+        _friendlySquadSet.Clear();
+        _enemySquadSet.Clear();
+        TrackKnownSquads(_ctx.BattleUnits);
+    }
+
+    private void TrackKnownSquads(IEnumerable<BattleSquadController> squads)
+    {
+        if (squads == null)
+            return;
+
+        foreach (var squadController in squads)
         {
-            return new BattleUnitsResult(
-                Array.Empty<IReadOnlySquadModel>(),
-                Array.Empty<IReadOnlySquadModel>());
-        }
-
-        var friendlyUnits = new List<IReadOnlySquadModel>();
-        var enemyUnits = new List<IReadOnlySquadModel>();
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null)
+            if (squadController == null)
                 continue;
 
-            var model = unitController.GetSquadModel();
+            var model = squadController.GetSquadModel();
+            TrackKnownSquadModel(model);
+        }
+    }
 
-            if (model == null || model.Count <= 0)
-                continue;
+    private void TrackKnownSquadModel(IReadOnlySquadModel model)
+    {
+        if (model == null)
+            return;
 
-            switch (model.Kind)
-            {
-                case UnitKind.Hero:
-                case UnitKind.Ally:
-                    friendlyUnits.Add(model);
-                    break;
-                case UnitKind.Enemy:
-                    enemyUnits.Add(model);
-                    break;
-            }
+        if (model.IsFriendly() || model.IsAlly() || model.IsHero())
+        {
+            if (_friendlySquadSet.Add(model))
+                _friendlySquadHistory.Add(model);
+            return;
         }
 
-        return new BattleUnitsResult(
-            friendlyUnits.Count > 0 ? friendlyUnits.ToArray() : Array.Empty<IReadOnlySquadModel>(),
-            enemyUnits.Count > 0 ? enemyUnits.ToArray() : Array.Empty<IReadOnlySquadModel>());
+        if (model.IsEnemy())
+        {
+            if (_enemySquadSet.Add(model))
+                _enemySquadHistory.Add(model);
+        }
     }
 
     private BattleResultStatus DetermineBattleStatus(BattleUnitsResult unitsResult)
@@ -675,15 +699,17 @@ public sealed class BattleRoundsMachine
         if (_playerRequestedFlee)
             return BattleResultStatus.Flee;
 
-        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.IsHero());
+        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.IsHero() && model.Count > 0);
+        bool hasAliveFriendlies = unitsResult.FriendlyUnits.Any(model => model.Count > 0);
+        bool hasAliveEnemies = unitsResult.EnemyUnits.Any(model => model.Count > 0);
 
         if (!heroAlive)
             return BattleResultStatus.Defeat;
 
-        if (unitsResult.FriendlyUnits.Count > 0 && unitsResult.EnemyUnits.Count == 0)
+        if (hasAliveFriendlies && !hasAliveEnemies)
             return BattleResultStatus.Victory;
 
-        if (unitsResult.FriendlyUnits.Count > 0)
+        if (hasAliveFriendlies)
             return BattleResultStatus.Victory;
 
         return BattleResultStatus.Defeat;
