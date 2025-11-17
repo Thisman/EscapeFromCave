@@ -7,15 +7,13 @@ public sealed class InteractionEffectDialogSO : InteractionEffectSO
 {
     [TextArea] public string Message;
 
-    [SerializeField, Min(0f)] private float _secondsPerCharacter = 0.05f;
-
     public override async Task<InteractionEffectResult> Apply(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
         ctx.InputService.EnterDialog();
 
         try
         {
-            await ctx.DialogManager.ShowForDurationAsync(Message, _secondsPerCharacter);
+            await ctx.DialogManager.ShowForDurationAsync(Message);
         }
         finally
         {

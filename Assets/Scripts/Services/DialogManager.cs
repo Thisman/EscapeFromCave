@@ -14,20 +14,10 @@ public sealed class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_uiController == null)
-        {
-            _uiController = GetComponent<DungeonUIController>();
-        }
-
         Hide();
     }
 
     public void Show(string message)
-    {
-        Show(message, _defaultSecondsPerCharacter);
-    }
-
-    public void Show(string message, float secondsPerCharacter)
     {
         if (_uiController == null)
         {
@@ -44,7 +34,7 @@ public sealed class DialogManager : MonoBehaviour
         CompleteDisplay(_displayCompletion);
 
         var messageToShow = message ?? string.Empty;
-        _activeSecondsPerCharacter = ResolveSecondsPerCharacter(secondsPerCharacter);
+        _activeSecondsPerCharacter = ResolveSecondsPerCharacter(_defaultSecondsPerCharacter);
 
         _uiController.RenderDialog(messageToShow, _activeSecondsPerCharacter);
     }
@@ -54,7 +44,7 @@ public sealed class DialogManager : MonoBehaviour
         HideInternal(_displayCompletion);
     }
 
-    public Task ShowForDurationAsync(string message, float secondsPerCharacter)
+    public Task ShowForDurationAsync(string message)
     {
         if (_uiController == null)
         {
@@ -63,7 +53,7 @@ public sealed class DialogManager : MonoBehaviour
         }
 
         var messageToShow = message ?? string.Empty;
-        Show(messageToShow, secondsPerCharacter);
+        Show(messageToShow);
 
         var completion = new TaskCompletionSource<bool>();
         _displayCompletion = completion;
