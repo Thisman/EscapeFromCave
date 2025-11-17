@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
-using System.Linq;
 
 [RequireComponent(typeof(Collider2D))]
 public sealed class PlayerInteraction : MonoBehaviour
@@ -20,6 +20,10 @@ public sealed class PlayerInteraction : MonoBehaviour
     private InputAction _interactAction;
     private Collider2D _lastWarnedCollider;
     private InteractionController _currentTarget;
+    private readonly HashSet<InteractionHintController> _visibleHints = new();
+    private readonly List<InteractionHintController> _hintsInRange = new();
+    private readonly HashSet<InteractionHintController> _hintsSet = new();
+    private readonly List<InteractionHintController> _hintsToHide = new();
 
     private void Awake()
     {
@@ -35,6 +39,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void OnDisable()
     {
         UnsubscribeFromInput();
+        HideAllHints();
     }
 
     private void Update()
@@ -57,18 +62,44 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void AcquireTargetInRadius()
     {
         Vector2 center = transform.position;
-        _hits = Physics2D.OverlapCircleAll(center, interactRadius, interactableMask);
+        int hitCount = Physics2D.OverlapCircleNonAlloc(center, interactRadius, _hits, interactableMask);
 
-        var collider = _hits.FirstOrDefault();
-        if (collider == null)
-            return;
-
-        if (!TryGetInteractable(collider, out InteractionController target))
+        if (hitCount <= 0)
         {
-            if (_lastWarnedCollider != collider)
+            _currentTarget = null;
+            HideAllHints();
+            return;
+        }
+
+        InteractionController target = null;
+        Collider2D firstCollider = null;
+        _hintsInRange.Clear();
+        _hintsSet.Clear();
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            var collider = _hits[i];
+            if (!collider)
+                continue;
+
+            firstCollider ??= collider;
+
+            if (target == null && TryGetInteractable(collider, out InteractionController candidate))
+                target = candidate;
+
+            if (TryGetHint(collider, out InteractionHintController hint) && _hintsSet.Add(hint))
+                _hintsInRange.Add(hint);
+        }
+
+        UpdateHintVisibility();
+
+        if (target == null)
+        {
+            _currentTarget = null;
+            if (firstCollider != null && _lastWarnedCollider != firstCollider)
             {
-                Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] Collider '{collider.name}' does not provide an InteractionController.");
-                _lastWarnedCollider = collider;
+                Debug.LogWarning($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] Collider '{firstCollider.name}' does not provide an InteractionController.");
+                _lastWarnedCollider = firstCollider;
             }
             return;
         }
@@ -81,9 +112,6 @@ public sealed class PlayerInteraction : MonoBehaviour
             var targetName = (_currentTarget as MonoBehaviour)?.name ?? _currentTarget.ToString();
             Debug.Log($"[{nameof(PlayerInteraction)}.{nameof(AcquireTargetInRadius)}] '{name}' switched interaction target to '{targetName}'.");
         }
-
-        for (int i = 0; i < _hits.Length - 1; i++)
-            _hits[i] = null;
     }
 
     private async void OnInteractPressed(InputAction.CallbackContext _)
@@ -115,5 +143,47 @@ public sealed class PlayerInteraction : MonoBehaviour
 
         interactable = col.GetComponentInParent<InteractionController>();
         return interactable != null;
+    }
+
+    private static bool TryGetHint(Collider2D col, out InteractionHintController hint)
+    {
+        if (col.TryGetComponent(out hint))
+            return true;
+
+        hint = col.GetComponentInParent<InteractionHintController>();
+        return hint != null;
+    }
+
+    private void UpdateHintVisibility()
+    {
+        foreach (var hint in _hintsInRange)
+            hint.ShowHint();
+
+        _hintsToHide.Clear();
+        foreach (var visibleHint in _visibleHints)
+        {
+            if (!_hintsSet.Contains(visibleHint))
+                _hintsToHide.Add(visibleHint);
+        }
+
+        foreach (var hint in _hintsToHide)
+        {
+            hint.HideHint();
+            _visibleHints.Remove(hint);
+        }
+
+        foreach (var hint in _hintsInRange)
+            _visibleHints.Add(hint);
+    }
+
+    private void HideAllHints()
+    {
+        foreach (var hint in _visibleHints)
+            hint.HideHint();
+
+        _visibleHints.Clear();
+        _hintsInRange.Clear();
+        _hintsSet.Clear();
+        _hintsToHide.Clear();
     }
 }

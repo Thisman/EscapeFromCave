@@ -1,125 +1,64 @@
-using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public sealed class InteractionHintController : MonoBehaviour
 {
     [SerializeField] private GameObject _hintPrefab;
-    [SerializeField] private Vector3 _worldOffset = new(0, 1.0f, 0);
+    [SerializeField] private Vector3 _worldOffset = new(0f, 1f, 0f);
 
-    [SerializeField, Range(2f, 30f)] private float _updatesPerSecond = 10f;
-    [SerializeField, Min(0.1f)] private float _rescanInterval = 0.5f;
+    private GameObject _hintInstance;
+    private HintAnimationController _animation;
+    private bool _isVisible;
 
-    private Transform _player;
-    private readonly Dictionary<InteractionController, GameObject> _active = new();
-    private readonly Stack<GameObject> _pool = new();
-    private readonly List<InteractionController> _toRelease = new();
-
-    private readonly List<InteractionController> _interactables = new(128);
-    private float _updateAccum;
-    private float _rescanAccum;
-
-    private void Start()
+    public void ShowHint()
     {
-        if (!_player)
-        {
-            var p = GameObject.FindGameObjectWithTag("Player");
-            if (p) _player = p.transform;
-        }
-        RescanInteractables();
+        if (!TryEnsureInstance())
+            return;
+
+        _isVisible = true;
+        _hintInstance.SetActive(true);
+        UpdateHintTransform();
     }
 
-    private void Update()
+    public void HideHint()
     {
-        if (!_player || !_hintPrefab) return;
+        if (!_hintInstance || !_isVisible)
+            return;
 
-        _rescanAccum += Time.deltaTime;
-        if (_rescanAccum >= _rescanInterval)
-        {
-            _rescanAccum = 0f;
-            RescanInteractables();
-        }
-
-        _updateAccum += Time.deltaTime;
-        float interval = 1f / _updatesPerSecond;
-        if (_updateAccum < interval) return;
-        _updateAccum = 0f;
-
-        Vector2 ppos = _player.position;
-
-        foreach (var oi in _interactables)
-        {
-            if (!oi || !oi.isActiveAndEnabled)
-            {
-                Hide(oi);
-                continue;
-            }
-
-            float r = Mathf.Max(0f, oi.Definition.InteractionDistance);
-
-            Vector2 opos = oi.transform.position;
-            bool inRange = (opos - ppos).sqrMagnitude <= r * r;
-
-            if (inRange) ShowOrUpdate(oi);
-            else Hide(oi);
-        }
-
-        _toRelease.Clear();
-        foreach (var kv in _active)
-            if (!kv.Key) _toRelease.Add(kv.Key);
-        foreach (var dead in _toRelease) Hide(dead);
+        _isVisible = false;
+        _hintInstance.SetActive(false);
     }
 
-    private void ShowOrUpdate(InteractionController oi)
+    private bool TryEnsureInstance()
     {
-        if (!_active.TryGetValue(oi, out var go) || !go)
-        {
-            go = GetFromPool();
-            _active[oi] = go;
-            go.transform.SetParent(oi.transform, worldPositionStays: true);
-        }
+        if (_hintInstance)
+            return true;
 
-        Vector3 targetPosition = oi.transform.position + _worldOffset;
-        if (go.TryGetComponent<HintAnimationController>(out var animation))
-            animation.SetBasePosition(targetPosition);
+        if (!_hintPrefab)
+            return false;
+
+        _hintInstance = Instantiate(_hintPrefab, transform);
+        _animation = _hintInstance.GetComponent<HintAnimationController>();
+        _hintInstance.SetActive(false);
+        UpdateHintTransform();
+        return true;
+    }
+
+    private void LateUpdate()
+    {
+        if (_isVisible)
+            UpdateHintTransform();
+    }
+
+    private void UpdateHintTransform()
+    {
+        if (!_hintInstance)
+            return;
+
+        Vector3 targetPosition = transform.position + _worldOffset;
+        if (_animation)
+            _animation.SetBasePosition(targetPosition);
         else
-            go.transform.position = targetPosition;
-    }
-
-    private void Hide(InteractionController oi)
-    {
-        if (!_active.TryGetValue(oi, out var go)) return;
-        _active.Remove(oi);
-        ReturnToPool(go);
-    }
-
-    private void RescanInteractables()
-    {
-        _interactables.Clear();
-#if UNITY_2022_2_OR_NEWER
-        var found = FindObjectsByType<InteractionController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-        _interactables.AddRange(found);
-#else
-        _interactables.AddRange(FindObjectsOfType<ObjectInteraction>());
-#endif
-
-        _toRelease.Clear();
-        foreach (var kv in _active)
-            if (!_interactables.Contains(kv.Key)) _toRelease.Add(kv.Key);
-        foreach (var gone in _toRelease) Hide(gone);
-    }
-
-    private GameObject GetFromPool()
-    {
-        var go = _pool.Count > 0 ? _pool.Pop() : Instantiate(_hintPrefab, transform);
-        go.SetActive(true);
-        return go;
-    }
-
-    private void ReturnToPool(GameObject go)
-    {
-        if (!go) return;
-        go.SetActive(false);
-        go.transform.SetParent(transform, false);
-        _pool.Push(go);
+            _hintInstance.transform.position = targetPosition;
     }
 }
