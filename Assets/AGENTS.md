@@ -127,6 +127,7 @@ Widgets — переиспользуемые UI-элементы.
 
 ## Подход
 
+- новые MonoBehaviour-компоненты в Scripts должны наследоваться от `ValidatedMonoBehaviour` и реализовывать `Validate()`;
 - обязательные компоненты:
   ```csharp
   [RequireComponent(typeof(Rigidbody))]
