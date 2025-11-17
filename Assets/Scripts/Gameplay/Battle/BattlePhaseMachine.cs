@@ -67,6 +67,14 @@ public sealed class BattlePhaseMachine
         _ctx.IsFinished = true;
         _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.ResultPanel);
         _ctx.BattleUIController?.ShowResult(_ctx.BattleResult);
+
+        if (_ctx.BattleUnits != null)
+        {
+            foreach (var unit in _ctx.BattleUnits)
+            {
+                unit?.SetInteractionEnabled(false);
+            }
+        }
     }
 
     private void OnExitTactics()

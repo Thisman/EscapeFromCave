@@ -8,6 +8,7 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
 
     private BattleSquadModel _squadModel;
     private bool _isValidTarget;
+    private bool _isInteractionEnabled = true;
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
         _squadModel = battleSquadModel;
         _squadModel.Changed += HandleSquadModelChanged;
 
-        UpdateColliderState(_squadModel);
+        UpdateColliderState();
     }
 
     public IReadOnlySquadModel GetSquadModel()
@@ -49,6 +50,12 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
     public void SetTargetValidity(bool isValid)
     {
         _isValidTarget = isValid;
+    }
+
+    public void SetInteractionEnabled(bool enabled)
+    {
+        _isInteractionEnabled = enabled;
+        UpdateColliderState();
     }
 
     public BattleDamageData ResolveDamage()
@@ -107,15 +114,16 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
 
     private void HandleSquadModelChanged(IReadOnlySquadModel model)
     {
-        if (model is BattleSquadModel battleModel)
-            UpdateColliderState(battleModel);
+        if (model is BattleSquadModel)
+            UpdateColliderState();
     }
 
-    private void UpdateColliderState(BattleSquadModel model)
+    private void UpdateColliderState()
     {
-        if (_collider2D == null || model == null)
+        if (_collider2D == null)
             return;
 
-        _collider2D.enabled = model.Status != BattleSquadStatus.Dead;
+        bool squadAlive = _squadModel == null || _squadModel.Status != BattleSquadStatus.Dead;
+        _collider2D.enabled = _isInteractionEnabled && squadAlive;
     }
 }
