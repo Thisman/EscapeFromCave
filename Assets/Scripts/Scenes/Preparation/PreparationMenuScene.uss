@@ -9,7 +9,7 @@
 }
 
 .hero-panel .unit-card {
-    opacity: 0.05;
+    opacity: 0.95;
     scale: 1;
 }
 
@@ -26,7 +26,6 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    scale: 1.1;
     opacity: 1;
 }
 
