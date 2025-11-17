@@ -1,0 +1,49 @@
+.ability-picker {
+    padding: 12px;
+    min-width: 360px;
+    min-height: 400px;
+    background-color: #000;
+}
+
+.ability-picker__toolbar {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+
+.ability-picker__search {
+    flex: 1;
+    margin-right: 8px;
+}
+
+.ability-picker__confirm {
+    width: 120px;
+    height: 30px;
+}
+
+.ability-picker__list {
+    flex-grow: 1;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-color: #d0d7de;
+    border-right-color: #d0d7de;
+    border-bottom-color: #d0d7de;
+    border-left-color: #d0d7de;
+    border-radius: 4px;
+}
+
+.ability-picker__item {
+    padding: 10px;
+}
+
+.ability-picker__item-label {
+    font-size: 13px;
+}
+
+.ability-picker__item--selected {
+    padding: 10px;
+    background-color: #dbeafe;
+    color: #000;
+}

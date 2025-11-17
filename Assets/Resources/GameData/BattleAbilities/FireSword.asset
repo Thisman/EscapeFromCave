@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleAbilitySO
   Id: FireSword
   AbilityName: Fire Sword
-  Description: "\u041C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u043E \u043D\u0430\u043D\u043E\u0441\u0438\u0442
-    \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u0439 \u0443\u0440\u043E\u043D"
+  Description: "\u041A\u0430\u0440\u0430\u044E\u0449\u0438\u0439 \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u0439
+    \u043C\u0435\u0447"
   Icon: {fileID: 21300000, guid: 5fca5321fb4b9f944a9a57b51673f5fc, type: 3}
   Cooldown: 3
   IsReady: 0

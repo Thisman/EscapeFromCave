@@ -1,1 +1,0 @@
-public enum BattleRoundState { RoundInit, TurnInit, TurnStart, TurnWaitAction, TurnSkip, TurnEnd, RoundEnd }

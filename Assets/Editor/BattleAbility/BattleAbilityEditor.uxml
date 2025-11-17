@@ -1,0 +1,36 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="BattleAbilityEditor.uss" />
+    <ui:VisualElement class="ability-editor">
+        <ui:VisualElement class="ability-editor__sidebar">
+            <ui:TextField name="SearchField" class="ability-editor__search" label="Поиск" picking-mode="Ignore" />
+            <ui:Button name="CreateButton" text="Создать" class="ability-editor__create" />
+            <ui:ListView name="AbilitiesList" class="ability-editor__list" />
+        </ui:VisualElement>
+        <ui:VisualElement class="ability-editor__content" name="ContentContainer">
+            <ui:VisualElement class="ability-editor__header">
+                <ui:VisualElement class="ability-editor__icon-block">
+                    <ui:VisualElement name="IconDropArea" class="ability-editor__icon-area">
+                        <ui:Image name="IconImage" class="ability-editor__icon" />
+                        <ui:Label text="Перетащи спрайт" class="ability-editor__icon-hint" />
+                    </ui:VisualElement>
+                    <ui:TextField name="AbilityNameField" class="ability-editor__input" label="Название" />
+                    <ui:TextField name="AbilityIdField" class="ability-editor__input" label="ID" />
+                    <ui:Label text="Название файла" class="ability-editor__file-caption" />
+                    <ui:Label name="FileNameLabel" class="ability-editor__file-name" text="-" />
+                </ui:VisualElement>
+                <ui:VisualElement class="ability-editor__properties">
+                    <uie:EnumField name="AbilityTypeField" class="ability-editor__property" label="Тип способности" />
+                    <uie:EnumField name="TargetTypeField" class="ability-editor__property" label="Цель" />
+                    <ui:IntegerField name="CooldownField" class="ability-editor__property" label="Кулдаун" />
+                    <ui:Toggle name="IsReadyToggle" class="ability-editor__property" label="Готовность" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:TextField name="DescriptionField" class="ability-editor__description" label="Описание" multiline="true" />
+            <ui:VisualElement class="ability-editor__effects">
+                <ui:Button name="AddEffectButton" class="ability-editor__add-effect" text="Добавить эффект" />
+                <ui:ListView name="EffectsList" class="ability-editor__effects-list" />
+            </ui:VisualElement>
+            <ui:Button name="SaveButton" class="ability-editor__save" text="Сохранить" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
