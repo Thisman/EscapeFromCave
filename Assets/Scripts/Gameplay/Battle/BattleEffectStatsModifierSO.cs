@@ -25,6 +25,11 @@ public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 
     private static bool TryResolveController(BattleSquadEffectsController target, out BattleSquadController controller)
     {
+        controller = null;
+
+        if (target == null)
+            return false;
+
         controller = target.GetComponent<BattleSquadController>() ?? target.GetComponentInParent<BattleSquadController>();
         return controller != null;
     }
