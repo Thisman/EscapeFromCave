@@ -751,6 +751,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         _abilityTooltipLabel = new Label();
         _abilityTooltipLabel.AddToClassList(AbilityTooltipTextClassName);
+        _abilityTooltipLabel.enableRichText = true;
         _abilityTooltip.Add(_abilityTooltipLabel);
 
         body.Add(_abilityTooltip);
@@ -764,7 +765,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             return;
 
         _abilityTooltipTarget = target;
-        _abilityTooltipLabel.text = ability.Description ?? string.Empty;
+        _abilityTooltipLabel.text = ResolveAbilityTooltipText(ability);
         _abilityTooltip.AddToClassList(AbilityTooltipVisibleClassName);
         UpdateAbilityTooltipPosition(target.worldBound);
 
@@ -812,6 +813,15 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         _abilityTooltip.RemoveFromClassList(AbilityTooltipVisibleClassName);
         _abilityTooltipTarget = null;
+    }
+
+    private static string ResolveAbilityTooltipText(BattleAbilitySO ability)
+    {
+        if (ability == null)
+            return string.Empty;
+
+        string formatted = ability.GetFormatedDescription();
+        return string.IsNullOrWhiteSpace(formatted) ? string.Empty : formatted;
     }
 
     private void InitializeSquadInfoCard(VisualElement body)
