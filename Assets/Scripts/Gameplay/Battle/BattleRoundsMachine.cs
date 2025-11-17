@@ -82,7 +82,7 @@ public sealed class BattleRoundsMachine
                 .Where(model => model != null);
 
         _ctx.BattleQueueController.Build(unitModels);
-        _ctx.BattleUIController?.RenderQueue(_ctx.BattleQueueController);
+        _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _sm.Fire(BattleRoundTrigger.InitTurn);
@@ -99,7 +99,7 @@ public sealed class BattleRoundsMachine
             return;
         }
 
-        _ctx.BattleUIController?.RenderQueue(_ctx.BattleQueueController);
+        _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
 
@@ -116,7 +116,7 @@ public sealed class BattleRoundsMachine
         var activeUnit = _ctx.ActiveUnit;
         var abilityManager = _ctx.BattleAbilitiesManager;
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
-        _ctx.BattleUIController?.RenderAbilityList(abilities, abilityManager, activeUnit);
+        _ctx.BattleUIController.RenderAbilityList(abilities, abilityManager, activeUnit);
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
@@ -202,8 +202,7 @@ public sealed class BattleRoundsMachine
 
     private void ClearActiveUnitSlotHighlight()
     {
-        var gridController = _ctx.BattleGridController;
-        gridController?.ClearActiveSlot();
+        _ctx.BattleGridController.ClearActiveSlot();
     }
 
     private void OnRoundEnd()
@@ -218,22 +217,19 @@ public sealed class BattleRoundsMachine
 
     private void AttachAction(IBattleAction action)
     {
-        if (action == null)
-            throw new ArgumentNullException(nameof(action));
-
         DetachCurrentAction();
 
-        _ctx.CurrentAction = action;
+        _ctx.CurrentAction = action ?? throw new ArgumentNullException(nameof(action));
         action.OnResolve += OnActionResolved;
         action.OnCancel += OnActionCancelled;
 
         if (action is BattleActionAbility abilityAction)
         {
-            _ctx.BattleUIController?.HighlightAbility(abilityAction.Ability);
+            _ctx.BattleUIController.HighlightAbility(abilityAction.Ability);
         }
         else
         {
-            _ctx.BattleUIController?.ResetAbilityHighlight();
+            _ctx.BattleUIController.ResetAbilityHighlight();
         }
 
         ApplyActionSlotHighlights(action);
@@ -252,7 +248,7 @@ public sealed class BattleRoundsMachine
             disposable.Dispose();
         }
 
-        _ctx.BattleUIController?.ResetAbilityHighlight();
+        _ctx.BattleUIController.ResetAbilityHighlight();
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
 
@@ -306,7 +302,7 @@ public sealed class BattleRoundsMachine
         if (!_ctx.ActiveUnit.IsFriendly())
             return;
 
-        _ctx.BattleUIController?.ResetAbilityHighlight();
+        _ctx.BattleUIController.ResetAbilityHighlight();
 
         OnWaitTurnAction();
     }
@@ -601,8 +597,7 @@ public sealed class BattleRoundsMachine
         if (!_ctx.TryGetController(unit, out var controller) || controller == null)
             return;
 
-        var effectsController = controller.GetComponent<BattleSquadEffectsController>();
-        if (effectsController == null)
+        if (!controller.TryGetComponent<BattleSquadEffectsController>(out var effectsController))
             return;
 
         await effectsManager.Trigger(trigger, effectsController);

@@ -788,7 +788,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         _displayedEffectsController = effectsController;
 
-        UpdateSquadInfoContent(squad, effectsController?.Effects);
+        UpdateSquadInfoContent(squad, effectsController.Effects);
         UpdateSquadCardPosition(squad);
 
         _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, false);
@@ -877,5 +877,4 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         return null;
     }
-
 }
