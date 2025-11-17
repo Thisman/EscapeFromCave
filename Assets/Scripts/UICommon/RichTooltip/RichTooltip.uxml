@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UICommon/RichTooltip/RichTooltip.uss?fileID=7433441132597879392&amp;guid=c841d0c6d7454680b3d20b41ed139c22&amp;type=3#RichTooltip" />
+    <ui:VisualElement name="Tooltip" class="rich-tooltip">
+        <ui:Label name="Content" class="rich-tooltip__text" />
+    </ui:VisualElement>
+</ui:UXML>
