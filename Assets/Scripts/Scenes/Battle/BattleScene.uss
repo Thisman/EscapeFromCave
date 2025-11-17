@@ -1,6 +1,10 @@
 :root {
 }
 
+.top {
+    height: 150px;
+}
+
 .queue-list {
     display: flex;
     flex-direction: row;
@@ -152,7 +156,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    row-gap: 24px;
 }
 
 .result-block {
@@ -172,8 +175,6 @@
 .result-grid {
     display: flex;
     flex-direction: row;
-    column-gap: 24px;
-    row-gap: 24px;
     justify-content: center;
     align-items: flex-start;
 }
