@@ -1,9 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(ResourceController))]
+
 public class ResourceAnimationController : MonoBehaviour
 {
-    [SerializeField] private ResourceController _resourceController;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private ResourceController _resourceController;
 
     public void Start()
     {
