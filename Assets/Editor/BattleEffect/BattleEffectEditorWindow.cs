@@ -539,8 +539,8 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
                 return;
 
-            var modifiers = statsEffect.StatsModifier?.ToList() ?? new List<BattleStatModifier>();
-            modifiers.Add(new BattleStatModifier());
+            var modifiers = statsEffect.StatsModifier?.ToList() ?? new List<BattleSquadStatModifier>();
+            modifiers.Add(new BattleSquadStatModifier());
             statsEffect.StatsModifier = modifiers.ToArray();
             BuildStatModifierRows(statsEffect, listContainer);
             MarkDirty();
@@ -559,7 +559,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
 
         container.Clear();
 
-        var modifiers = effect.StatsModifier ?? Array.Empty<BattleStatModifier>();
+        var modifiers = effect.StatsModifier ?? Array.Empty<BattleSquadStatModifier>();
         for (var i = 0; i < modifiers.Length; i++)
         {
             var rowIndex = i;
@@ -608,7 +608,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
                 if (_editingEffect is not BattleEffectStatsModifierSO statsEffect)
                     return;
 
-                var list = statsEffect.StatsModifier?.ToList() ?? new List<BattleStatModifier>();
+                var list = statsEffect.StatsModifier?.ToList() ?? new List<BattleSquadStatModifier>();
                 if (rowIndex < 0 || rowIndex >= list.Count)
                     return;
 

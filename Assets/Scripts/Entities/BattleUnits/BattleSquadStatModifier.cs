@@ -1,12 +1,12 @@
 using System;
 
 [Serializable]
-public struct BattleStatModifier
+public struct BattleSquadStatModifier
 {
     public BattleSquadStat Stat;
     public float Value;
 
-    public BattleStatModifier(BattleSquadStat stat, float value)
+    public BattleSquadStatModifier(BattleSquadStat stat, float value)
     {
         Stat = stat;
         Value = value;

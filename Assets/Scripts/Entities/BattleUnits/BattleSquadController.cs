@@ -80,12 +80,12 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
         await completionSource.Task;
     }
 
-    public async Task ApplyStatModifiers(BattleEffectSO source, BattleStatModifier[] modifiers)
+    public async Task ApplyStatModifiers(BattleEffectSO source, BattleSquadStatModifier[] modifiers)
     {
         if (_squadModel == null || source == null)
             return;
 
-        _squadModel.SetStatModifiers(source, modifiers ?? Array.Empty<BattleStatModifier>());
+        _squadModel.SetStatModifiers(source, modifiers ?? Array.Empty<BattleSquadStatModifier>());
 
         var animationController = GetComponentInChildren<BattleSquadAnimationController>();
         if (animationController == null)

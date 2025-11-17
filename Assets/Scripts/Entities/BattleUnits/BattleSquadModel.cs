@@ -193,7 +193,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         return new BattleDamageData(DamageType, total);
     }
 
-    public void SetStatModifiers(object source, IReadOnlyList<BattleStatModifier> modifiers)
+    public void SetStatModifiers(object source, IReadOnlyList<BattleSquadStatModifier> modifiers)
     {
         if (source == null)
             throw new ArgumentNullException(nameof(source));
@@ -341,7 +341,7 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
         Status = newStatus;
     }
 
-    private static bool AreModifiersEqual(Dictionary<BattleSquadStat, float> existingModifiers, IReadOnlyList<BattleStatModifier> modifiers)
+    private static bool AreModifiersEqual(Dictionary<BattleSquadStat, float> existingModifiers, IReadOnlyList<BattleSquadStatModifier> modifiers)
     {
         int nonZeroCount = 0;
         for (int i = 0; i < modifiers.Count; i++)

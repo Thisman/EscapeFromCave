@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StatModifierBattleEffect", menuName = "Gameplay/Battle Effects/Stat Modifier Effect")]
 public sealed class BattleEffectStatsModifierSO : BattleEffectSO
 {
-    public BattleStatModifier[] StatsModifier = Array.Empty<BattleStatModifier>();
+    public BattleSquadStatModifier[] StatsModifier = Array.Empty<BattleSquadStatModifier>();
 
     public override Task Apply(BattleContext ctx, BattleSquadEffectsController target)
     {
         if (!TryResolveController(target, out var controller))
             return Task.CompletedTask;
 
-        return controller.ApplyStatModifiers(this, StatsModifier ?? Array.Empty<BattleStatModifier>());
+        return controller.ApplyStatModifiers(this, StatsModifier ?? Array.Empty<BattleSquadStatModifier>());
     }
 
     public override void OnRemove(BattleContext ctx, BattleSquadEffectsController target)
