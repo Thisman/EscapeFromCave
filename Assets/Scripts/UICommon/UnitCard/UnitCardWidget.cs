@@ -63,6 +63,7 @@ namespace UICommon.Widgets
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
+        private RichTooltipWidget _abilityTooltip;
 
         public UnitCardWidget(VisualElement root)
         {
@@ -97,6 +98,11 @@ namespace UICommon.Widgets
         public void SetEnabled(bool isEnabled)
         {
             _root?.SetEnabled(isEnabled);
+        }
+
+        public void SetAbilityTooltip(RichTooltipWidget tooltip)
+        {
+            _abilityTooltip = tooltip;
         }
 
         private void ApplyUnit(UnitCardRenderData data)
@@ -184,7 +190,7 @@ namespace UICommon.Widgets
 
                 VisualElement abilityElement = new();
                 abilityElement.AddToClassList(AbilityInfoClassName);
-                abilityElement.tooltip = ability.AbilityName ?? string.Empty;
+                RegisterAbilityTooltipHandlers(abilityElement, ability);
 
                 if (ability.Icon != null)
                     abilityElement.style.backgroundImage = new StyleBackground(ability.Icon);
@@ -289,6 +295,46 @@ namespace UICommon.Widgets
                 DamageType.Pure => "Чистый",
                 _ => damageType.ToString()
             };
+        }
+
+        private void RegisterAbilityTooltipHandlers(VisualElement abilityElement, BattleAbilitySO ability)
+        {
+            if (abilityElement == null)
+                return;
+
+            abilityElement.RegisterCallback<PointerEnterEvent>(_ => ShowAbilityTooltip(ability, abilityElement));
+            abilityElement.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltip());
+        }
+
+        private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement anchorElement)
+        {
+            if (_abilityTooltip == null || ability == null || anchorElement == null)
+                return;
+
+            VisualElement tooltipRoot = _abilityTooltip.Root;
+            VisualElement tooltipParent = tooltipRoot?.parent;
+            if (tooltipParent == null)
+                return;
+
+            string description = ability.Description;
+            if (string.IsNullOrWhiteSpace(description))
+                description = ability.AbilityName ?? string.Empty;
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                _abilityTooltip.Hide();
+                return;
+            }
+
+            Rect worldBound = anchorElement.worldBound;
+            Vector2 anchorWorld = new(worldBound.xMin + worldBound.width * 0.5f, worldBound.yMax);
+            Vector2 anchor = tooltipParent.WorldToLocal(anchorWorld);
+            _abilityTooltip.Show(description, anchor);
+        }
+
+        private void HideAbilityTooltip()
+        {
+            _abilityTooltip?.Hide();
         }
     }
 }

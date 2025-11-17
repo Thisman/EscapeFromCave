@@ -18,6 +18,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string EnemySquadResultsElementName = "EnemySquadResults";
     private const string QueueListElementName = "QueueList";
     private const string AbilityListElementName = "AbilityList";
+    private const string AbilityTooltipElementName = "AbilityTooltip";
 
     private const string QueueItemClassName = "queue-item";
     private const string QueueItemIconClassName = "queue-item__icon";
@@ -99,6 +100,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private Camera _mainCamera;
     private int _unitsLayerMask;
     private Coroutine _resultSquadAnimationCoroutine;
+    private RichTooltipWidget _abilityTooltip;
 
     private bool _isAttached;
 
@@ -197,6 +199,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             _queueContainer.style.display = DisplayStyle.None;
         }
 
+        InitializeAbilityTooltip(body);
         _abilityListContainers.Clear();
         foreach (VisualElement container in body.Query<VisualElement>(AbilityListElementName).ToList())
         {
@@ -271,6 +274,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _currentAbilityManager = null;
         _currentAbilityOwner = null;
         _highlightedAbility = null;
+        _abilityTooltip?.Hide();
+        _abilityTooltip = null;
 
         StopResultSquadAnimation();
 
@@ -614,7 +619,6 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     {
         var element = new VisualElement();
         element.AddToClassList(AbilityItemClassName);
-        element.tooltip = FormatAbilityTooltip(ability);
 
         var iconElement = new VisualElement();
         iconElement.AddToClassList(AbilityItemIconClassName);
@@ -626,6 +630,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         element.Add(iconElement);
 
         element.RegisterCallback<ClickEvent>(_ => HandleAbilityClick(ability));
+        element.RegisterCallback<PointerEnterEvent>(_ => ShowAbilityTooltip(ability, element));
+        element.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltip());
 
         return element;
     }
@@ -645,11 +651,18 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     {
         foreach (VisualElement container in _abilityListContainers)
         {
-            container?.Clear();
+            if (container == null)
+                continue;
+
+            container.Clear();
+            container.style.display = DisplayStyle.None;
         }
 
         _abilityElements.Clear();
+        _currentAbilityManager = null;
+        _currentAbilityOwner = null;
         _highlightedAbility = null;
+        HideAbilityTooltip();
     }
 
     private void UpdateAbilityListVisibility(bool isVisible)
@@ -714,28 +727,41 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         OnSelectAbility?.Invoke(ability);
     }
 
-    private string FormatAbilityTooltip(BattleAbilitySO ability)
+    private void InitializeAbilityTooltip(VisualElement body)
     {
-        if (ability == null)
-            return string.Empty;
-
-        string cooldownLabel = GetCooldownLabel(ability.Cooldown);
-        return $"{ability.AbilityName}\n{ability.Description}\nПерезарядка: {ability.Cooldown} {cooldownLabel}";
+        VisualElement tooltipElement = body?.Q<VisualElement>(AbilityTooltipElementName);
+        _abilityTooltip = tooltipElement != null ? new RichTooltipWidget(tooltipElement) : null;
     }
 
-    private static string GetCooldownLabel(int cooldown)
+    private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement anchorElement)
     {
-        int absoluteCooldown = Math.Abs(cooldown);
-        int lastTwoDigits = absoluteCooldown % 100;
-        int lastDigit = absoluteCooldown % 10;
+        if (_abilityTooltip == null || ability == null || anchorElement == null)
+            return;
 
-        if (lastDigit == 1 && lastTwoDigits != 11)
-            return "раунд";
+        VisualElement tooltipRoot = _abilityTooltip.Root;
+        VisualElement tooltipParent = tooltipRoot?.parent;
+        if (tooltipParent == null)
+            return;
 
-        if (lastDigit >= 2 && lastDigit <= 4 && (lastTwoDigits < 12 || lastTwoDigits > 14))
-            return "раунда";
+        string description = ability.Description;
+        if (string.IsNullOrWhiteSpace(description))
+            description = ability.AbilityName ?? string.Empty;
 
-        return "раундов";
+        if (string.IsNullOrWhiteSpace(description))
+        {
+            _abilityTooltip.Hide();
+            return;
+        }
+
+        Rect worldBound = anchorElement.worldBound;
+        Vector2 anchorWorld = new(worldBound.xMin + worldBound.width * 0.5f, worldBound.yMax);
+        Vector2 anchor = tooltipParent.WorldToLocal(anchorWorld);
+        _abilityTooltip.Show(description, anchor);
+    }
+
+    private void HideAbilityTooltip()
+    {
+        _abilityTooltip?.Hide();
     }
 
     private void InitializeSquadInfoCard(VisualElement body)
