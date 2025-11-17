@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c62f9ef32b64d90a2242274ab2927ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  _body: {fileID: 0}
+  _body: {fileID: 3059376207732831744}
   _speed: 3
 --- !u!114 &7449524510762236503
 MonoBehaviour:
@@ -154,8 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938c6f5e0b260134abad9d1e0143d0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
-  _spriteRenderer: {fileID: 3973284301998383859}
   _rigidbody: {fileID: 3059376207732831744}
+  _spriteRenderer: {fileID: 3973284301998383859}
+  _playerController: {fileID: 256761772204218236}
   _movementThreshold: 0.01
   _scaleAmplitude: 0.03
   _scaleFrequency: 6
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19d81b5036c7484bbf02b8e155b3315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerArmyController
-  _maxSlots: 3
+  _maxSlots: 5
 --- !u!114 &1770183006976643890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +288,7 @@ GameObject:
   - component: {fileID: 3324166012043790004}
   - component: {fileID: 3973284301998383859}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,10 +429,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.3151042
     y: 0
-    width: 1
-    height: 1
+    width: 0.40370375
+    height: 0.4037037
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34

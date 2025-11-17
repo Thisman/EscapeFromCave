@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(ObjectController))]
 public class ObjectAnimationController : MonoBehaviour
 {

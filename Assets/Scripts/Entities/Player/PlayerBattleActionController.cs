@@ -4,8 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerBattleActionController : IBattleActionController
 {
     private BattleContext _ctx;
-    private Action<IBattleAction> _onActionReady;
     private InputAction _cancelAction;
+
+    private Action<IBattleAction> _onActionReady;
 
     public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
     {

@@ -1,22 +1,23 @@
 using UnityEngine;
 using VContainer;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerController))]
 public class PlayerAnimationController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private PlayerController _playerController;
     [SerializeField] private float _movementThreshold = 0.01f;
     [SerializeField] private float _scaleAmplitude = 0.03f;
     [SerializeField] private float _scaleFrequency = 6f;
-
-    [Inject] private readonly GameSession _gameSession;
 
     private Vector3 _initialScale;
     private float _scaleAnimationStartTime;
 
     private void Start()
     {
-        _spriteRenderer.sprite = _gameSession.SelectedHero.Icon;
+        _spriteRenderer.sprite = _playerController.GetPlayer().Definition.Icon;
         _initialScale = transform.localScale;
     }
 
@@ -33,9 +34,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (_spriteRenderer == null || _rigidbody == null)
-            return;
-
         var velocity = _rigidbody.linearVelocity;
 
         if (velocity.x > _movementThreshold)
