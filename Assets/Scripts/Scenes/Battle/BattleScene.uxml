@@ -28,12 +28,22 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="ResultPanel" class="panel" style="justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.88);">
-            <ui:VisualElement name="Panel" style="flex-grow: 0; width: 600px; height: 800px; background-color: rgba(0, 0, 0, 0); align-items: center;">
-                <ui:Label text="Результат" name="ResultStatusLabel" style="font-size: 50px; color: rgb(255, 255, 255); margin-top: 64px;" />
-                <ui:Button text="Закончить" name="FinishBattleButton" class="button" style="position: absolute; bottom: 32px;" />
+        <ui:VisualElement name="ResultPanel" class="panel" style="justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.95);">
+                <ui:VisualElement name="Panel" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); align-items: center;">
+                    <ui:Label text="Результат" name="ResultStatusLabel" style="font-size: 50px; color: rgb(255, 255, 255); margin-top: 64px;" />
+                    <ui:VisualElement name="Content" class="result-content">
+                        <ui:VisualElement class="result-block result-block--player">
+                            <ui:Label text="Команда игрока" class="result-block__title" />
+                            <ui:VisualElement name="PlayerSquadResults" class="result-grid" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="result-block result-block--enemy">
+                            <ui:Label text="Команда врага" class="result-block__title" />
+                            <ui:VisualElement name="EnemySquadResults" class="result-grid" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:Button text="Закончить" name="FinishBattleButton" class="button" />
+                </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
         <ui:Instance template="UnitCardTemplate" name="SquadInfoCard" class="battle-card battle-card--hidden battle-card--right" />
     </ui:VisualElement>
 </ui:UXML>

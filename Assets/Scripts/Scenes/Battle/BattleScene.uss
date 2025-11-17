@@ -139,3 +139,94 @@
     right: 32px;
     left: auto;
 }
+
+.result-content {
+    width: 800px;
+    height: 600px;
+    flex-grow: 1;
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 24px;
+}
+
+.result-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-block__title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 16px;
+}
+
+.result-grid {
+    display: flex;
+    flex-direction: row;
+    column-gap: 24px;
+    row-gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.result-squad {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    translate: 0 16px;
+    transition-property: opacity, translate;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.result-squad--visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.result-squad__icon {
+    width: 96px;
+    height: 96px;
+    background-color: rgba(0, 0, 0, 0.35);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    border-radius: 16px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-color: rgba(255, 255, 255, 0.2);
+    border-right-color: rgba(255, 255, 255, 0.2);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.result-squad__count {
+    margin-top: 8px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.result-squad__name {
+    margin-top: 2px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    -unity-text-align: middle-center;
+}
+
+.result-squad--dead .result-squad__icon {
+    opacity: 0.1;
+    background-color: rgba(184, 0, 0, 0.3);
+}

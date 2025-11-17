@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UICommon.Widgets;
@@ -13,6 +14,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string LeaveCombatButtonName = "LeaveCombatButton";
     private const string FinishBattleButtonName = "FinishBattleButton";
     private const string ResultStatusLabelName = "ResultStatusLabel";
+    private const string PlayerSquadResultsElementName = "PlayerSquadResults";
+    private const string EnemySquadResultsElementName = "EnemySquadResults";
     private const string QueueListElementName = "QueueList";
     private const string AbilityListElementName = "AbilityList";
 
@@ -31,6 +34,17 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string BattleCardLeftClassName = "battle-card--left";
     private const string BattleCardRightClassName = "battle-card--right";
     private const string UnitsLayerName = "Units";
+
+    private const string ResultSquadClassName = "result-squad";
+    private const string ResultSquadDeadClassName = "result-squad--dead";
+    private const string ResultSquadVisibleClassName = "result-squad--visible";
+    private const string ResultSquadIconClassName = "result-squad__icon";
+    private const string ResultSquadCountClassName = "result-squad__count";
+    private const string ResultSquadNameClassName = "result-squad__name";
+
+    private const float ResultSquadAnimationDelaySeconds = 0.08f;
+
+    private static readonly WaitForSeconds ResultSquadAnimationDelay = new(ResultSquadAnimationDelaySeconds);
 
     private static readonly UnitCardStatField[] BattleCardStatFields =
     {
@@ -70,6 +84,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private Button _defendButton;
     private Button _skipTurnButton;
     private Label _resultStatusLabel;
+    private VisualElement _playerSquadResults;
+    private VisualElement _enemySquadResults;
     private VisualElement _queueContainer;
     private readonly List<VisualElement> _abilityListContainers = new();
     private readonly Dictionary<BattleAbilitySO, List<VisualElement>> _abilityElements = new();
@@ -82,6 +98,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private BattleSquadEffectsController _displayedEffectsController;
     private Camera _mainCamera;
     private int _unitsLayerMask;
+    private Coroutine _resultSquadAnimationCoroutine;
 
     private bool _isAttached;
 
@@ -170,6 +187,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _defendButton = body.Q<Button>("DefendButton");
         _skipTurnButton = body.Q<Button>("SkipTurnButton");
         _resultStatusLabel = body.Q<Label>(ResultStatusLabelName);
+        _playerSquadResults = body.Q<VisualElement>(PlayerSquadResultsElementName);
+        _enemySquadResults = body.Q<VisualElement>(EnemySquadResultsElementName);
 
         _queueContainer = body.Q<VisualElement>(QueueListElementName);
         if (_queueContainer != null)
@@ -253,12 +272,18 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _currentAbilityOwner = null;
         _highlightedAbility = null;
 
+        StopResultSquadAnimation();
+
         HideSquadInfoCard();
         _squadInfoCard = null;
         _squadInfoCardWidget = null;
         _displayedEffectsController = null;
 
         _resultStatusLabel = null;
+        _playerSquadResults?.Clear();
+        _enemySquadResults?.Clear();
+        _playerSquadResults = null;
+        _enemySquadResults = null;
         _panels.Clear();
 
         _isAttached = false;
@@ -424,16 +449,119 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     public void ShowResult(BattleResult result)
     {
-        if (_resultStatusLabel == null)
+        StopResultSquadAnimation();
+
+        if (_resultStatusLabel != null)
+        {
+            _resultStatusLabel.text = result.Status switch
+            {
+                BattleResultStatus.Victory => VictoryStatusText,
+                BattleResultStatus.Defeat => DefeatStatusText,
+                BattleResultStatus.Flee => FleeStatusText,
+                _ => string.Empty
+            };
+        }
+
+        List<VisualElement> friendlyElements = RenderResultSquads(_playerSquadResults, result.BattleUnitsResult.FriendlyUnits);
+        List<VisualElement> enemyElements = RenderResultSquads(_enemySquadResults, result.BattleUnitsResult.EnemyUnits);
+
+        AnimateResultSquadReveal(friendlyElements, enemyElements);
+    }
+
+    private List<VisualElement> RenderResultSquads(VisualElement container, IReadOnlyList<IReadOnlySquadModel> squads)
+    {
+        var createdElements = new List<VisualElement>();
+
+        if (container == null)
+            return createdElements;
+
+        container.Clear();
+
+        if (squads == null || squads.Count == 0)
+            return createdElements;
+
+        foreach (IReadOnlySquadModel squad in squads)
+        {
+            if (squad == null)
+                continue;
+
+            VisualElement squadElement = CreateResultSquadElement(squad);
+            container.Add(squadElement);
+            createdElements.Add(squadElement);
+        }
+
+        return createdElements;
+    }
+
+    private VisualElement CreateResultSquadElement(IReadOnlySquadModel squad)
+    {
+        var root = new VisualElement();
+        root.AddToClassList(ResultSquadClassName);
+
+        var icon = new VisualElement();
+        icon.AddToClassList(ResultSquadIconClassName);
+        if (squad.Icon != null)
+        {
+            icon.style.backgroundImage = new StyleBackground(squad.Icon);
+        }
+
+        var countLabel = new Label(Mathf.Max(0, squad.Count).ToString());
+        countLabel.AddToClassList(ResultSquadCountClassName);
+
+        var nameLabel = new Label(squad.UnitName ?? string.Empty);
+        nameLabel.AddToClassList(ResultSquadNameClassName);
+
+        root.Add(icon);
+        root.Add(countLabel);
+        root.Add(nameLabel);
+
+        if (squad.IsEmpty || squad.Count <= 0)
+        {
+            root.AddToClassList(ResultSquadDeadClassName);
+        }
+
+        return root;
+    }
+
+    private void AnimateResultSquadReveal(IReadOnlyList<VisualElement> friendlySquads, IReadOnlyList<VisualElement> enemySquads)
+    {
+        StopResultSquadAnimation();
+
+        if ((friendlySquads == null || friendlySquads.Count == 0) && (enemySquads == null || enemySquads.Count == 0))
             return;
 
-        _resultStatusLabel.text = result.Status switch
+        _resultSquadAnimationCoroutine = StartCoroutine(AnimateResultSquadRevealRoutine(friendlySquads, enemySquads));
+    }
+
+    private IEnumerator AnimateResultSquadRevealRoutine(IReadOnlyList<VisualElement> friendlySquads, IReadOnlyList<VisualElement> enemySquads)
+    {
+        yield return AnimateSquadGroup(friendlySquads);
+        yield return AnimateSquadGroup(enemySquads);
+        _resultSquadAnimationCoroutine = null;
+    }
+
+    private IEnumerator AnimateSquadGroup(IReadOnlyList<VisualElement> squads)
+    {
+        if (squads == null || squads.Count == 0)
+            yield break;
+
+        foreach (VisualElement squad in squads)
         {
-            BattleResultStatus.Victory => VictoryStatusText,
-            BattleResultStatus.Defeat => DefeatStatusText,
-            BattleResultStatus.Flee => FleeStatusText,
-            _ => string.Empty
-        };
+            if (squad == null)
+                continue;
+
+            squad.AddToClassList(ResultSquadVisibleClassName);
+            yield return ResultSquadAnimationDelay;
+        }
+    }
+
+    private void StopResultSquadAnimation()
+    {
+        if (_resultSquadAnimationCoroutine == null)
+            return;
+
+        StopCoroutine(_resultSquadAnimationCoroutine);
+        _resultSquadAnimationCoroutine = null;
     }
 
     private void HandleStartCombatClicked(ClickEvent evt)

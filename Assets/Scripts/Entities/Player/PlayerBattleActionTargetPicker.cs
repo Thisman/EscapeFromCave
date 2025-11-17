@@ -41,14 +41,20 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
             return;
 
         var actorModel = _context.ActiveUnit;
+        if (actorModel == null)
+        {
+            CancelRequest();
+            return;
+        }
+
         var targetModel = unit.GetSquadModel();
+        if (targetModel == null)
+            return;
 
         if (!_targetResolver.ResolveTarget(actorModel, targetModel))
             return;
 
-        _isActive = false;
-        InputSystem.onAfterUpdate -= OnAfterInputUpdate;
-
+        CancelRequest();
         OnSelect?.Invoke(unit);
     }
 
@@ -90,12 +96,17 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
         if (_disposed)
             return;
 
-        if (_isActive)
-        {
-            InputSystem.onAfterUpdate -= OnAfterInputUpdate;
-            _isActive = false;
-        }
+        CancelRequest();
 
         _disposed = true;
+    }
+
+    private void CancelRequest()
+    {
+        if (!_isActive)
+            return;
+
+        InputSystem.onAfterUpdate -= OnAfterInputUpdate;
+        _isActive = false;
     }
 }
