@@ -166,6 +166,8 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private void ConfigureContactFilter()
     {
-        _interactableFilter = ContactFilter2D.CreateLegacyFilter(_interactableMask, float.NegativeInfinity, float.PositiveInfinity);
+        _interactableFilter = new ContactFilter2D();
+        _interactableFilter.SetLayerMask(_interactableMask);
+        _interactableFilter.SetDepth(float.NegativeInfinity, float.PositiveInfinity);
     }
 }
