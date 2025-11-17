@@ -17,6 +17,7 @@ public sealed class PlayerInteraction : MonoBehaviour
 
     private GameObject _actor;
     private Collider2D[] _hits;
+    private ContactFilter2D _interactableFilter;
     private readonly HashSet<InteractionController> _currentInteractables = new();
     private readonly HashSet<InteractionController> _frameInteractables = new();
     private readonly List<InteractionController> _pendingRemoval = new();
@@ -29,10 +30,17 @@ public sealed class PlayerInteraction : MonoBehaviour
     public event Action<InteractionController> InteractableEnteredRange;
     public event Action<InteractionController> InteractableExitedRange;
 
+    private void OnValidate()
+    {
+        _maxCandidates = Mathf.Max(1, _maxCandidates);
+        ConfigureContactFilter();
+    }
+
     private void Awake()
     {
         _actor = gameObject;
         _hits = new Collider2D[_maxCandidates];
+        ConfigureContactFilter();
     }
 
     private void OnEnable()
@@ -65,7 +73,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     private void AcquireTargetInRadius()
     {
         Vector2 center = transform.position;
-        int hitsCount = Physics2D.OverlapCircleNonAlloc(center, _interactRadius, _hits, _interactableMask);
+        int hitsCount = Physics2D.OverlapCircle(center, _interactRadius, _interactableFilter, _hits);
 
         _frameInteractables.Clear();
 
@@ -154,5 +162,10 @@ public sealed class PlayerInteraction : MonoBehaviour
 
         interactable = col.GetComponentInParent<InteractionController>();
         return interactable != null;
+    }
+
+    private void ConfigureContactFilter()
+    {
+        _interactableFilter = ContactFilter2D.CreateLegacyFilter(_interactableMask, float.NegativeInfinity, float.PositiveInfinity);
     }
 }
