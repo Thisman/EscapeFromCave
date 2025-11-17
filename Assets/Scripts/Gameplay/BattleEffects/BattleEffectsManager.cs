@@ -106,12 +106,14 @@ public sealed class BattleEffectsManager
             BattleLogger.LogEffectTriggered(state.Effect, controller, trigger);
             await state.Effect.OnTick(state.Context, controller);
 
-            if (ShouldEffectExpire(state))
-            {
-                controller.RemoveEffect(state.Effect);
-                state.Effect.OnRemove(state.Context, controller);
-                effects.RemoveAt(i);
-            }
+            if (!ShouldEffectExpire(state))
+                continue;
+
+            if (!effects.Remove(state))
+                continue;
+
+            controller.RemoveEffect(state.Effect);
+            state.Effect.OnRemove(state.Context, controller);
         }
 
         if (effects.Count == 0)
