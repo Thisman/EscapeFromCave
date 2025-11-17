@@ -153,7 +153,7 @@ public sealed class InteractionHintController : MonoBehaviour
         if (_playerInteraction)
             return;
 
-        _playerInteraction = FindObjectOfType<PlayerInteraction>();
+        _playerInteraction = FindFirstObjectByType<PlayerInteraction>();
     }
 
     private void EnsurePoolRoot()
