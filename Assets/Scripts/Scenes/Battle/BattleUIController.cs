@@ -13,6 +13,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string LeaveCombatButtonName = "LeaveCombatButton";
     private const string FinishBattleButtonName = "FinishBattleButton";
     private const string ResultStatusLabelName = "ResultStatusLabel";
+    private const string PlayerSquadResultsElementName = "PlayerSquadResults";
+    private const string EnemySquadResultsElementName = "EnemySquadResults";
     private const string QueueListElementName = "QueueList";
     private const string AbilityListElementName = "AbilityList";
 
@@ -31,6 +33,12 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string BattleCardLeftClassName = "battle-card--left";
     private const string BattleCardRightClassName = "battle-card--right";
     private const string UnitsLayerName = "Units";
+
+    private const string ResultSquadClassName = "result-squad";
+    private const string ResultSquadDeadClassName = "result-squad--dead";
+    private const string ResultSquadIconClassName = "result-squad__icon";
+    private const string ResultSquadCountClassName = "result-squad__count";
+    private const string ResultSquadNameClassName = "result-squad__name";
 
     private static readonly UnitCardStatField[] BattleCardStatFields =
     {
@@ -70,6 +78,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private Button _defendButton;
     private Button _skipTurnButton;
     private Label _resultStatusLabel;
+    private VisualElement _playerSquadResults;
+    private VisualElement _enemySquadResults;
     private VisualElement _queueContainer;
     private readonly List<VisualElement> _abilityListContainers = new();
     private readonly Dictionary<BattleAbilitySO, List<VisualElement>> _abilityElements = new();
@@ -170,6 +180,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _defendButton = body.Q<Button>("DefendButton");
         _skipTurnButton = body.Q<Button>("SkipTurnButton");
         _resultStatusLabel = body.Q<Label>(ResultStatusLabelName);
+        _playerSquadResults = body.Q<VisualElement>(PlayerSquadResultsElementName);
+        _enemySquadResults = body.Q<VisualElement>(EnemySquadResultsElementName);
 
         _queueContainer = body.Q<VisualElement>(QueueListElementName);
         if (_queueContainer != null)
@@ -259,6 +271,10 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _displayedEffectsController = null;
 
         _resultStatusLabel = null;
+        _playerSquadResults?.Clear();
+        _enemySquadResults?.Clear();
+        _playerSquadResults = null;
+        _enemySquadResults = null;
         _panels.Clear();
 
         _isAttached = false;
@@ -424,16 +440,69 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     public void ShowResult(BattleResult result)
     {
-        if (_resultStatusLabel == null)
+        if (_resultStatusLabel != null)
+        {
+            _resultStatusLabel.text = result.Status switch
+            {
+                BattleResultStatus.Victory => VictoryStatusText,
+                BattleResultStatus.Defeat => DefeatStatusText,
+                BattleResultStatus.Flee => FleeStatusText,
+                _ => string.Empty
+            };
+        }
+
+        RenderResultSquads(_playerSquadResults, result.BattleUnitsResult.FriendlyUnits);
+        RenderResultSquads(_enemySquadResults, result.BattleUnitsResult.EnemyUnits);
+    }
+
+    private void RenderResultSquads(VisualElement container, IReadOnlyList<IReadOnlySquadModel> squads)
+    {
+        if (container == null)
             return;
 
-        _resultStatusLabel.text = result.Status switch
+        container.Clear();
+
+        if (squads == null || squads.Count == 0)
+            return;
+
+        foreach (IReadOnlySquadModel squad in squads)
         {
-            BattleResultStatus.Victory => VictoryStatusText,
-            BattleResultStatus.Defeat => DefeatStatusText,
-            BattleResultStatus.Flee => FleeStatusText,
-            _ => string.Empty
-        };
+            if (squad == null)
+                continue;
+
+            VisualElement squadElement = CreateResultSquadElement(squad);
+            container.Add(squadElement);
+        }
+    }
+
+    private VisualElement CreateResultSquadElement(IReadOnlySquadModel squad)
+    {
+        var root = new VisualElement();
+        root.AddToClassList(ResultSquadClassName);
+
+        var icon = new VisualElement();
+        icon.AddToClassList(ResultSquadIconClassName);
+        if (squad.Icon != null)
+        {
+            icon.style.backgroundImage = new StyleBackground(squad.Icon);
+        }
+
+        var countLabel = new Label(Mathf.Max(0, squad.Count).ToString());
+        countLabel.AddToClassList(ResultSquadCountClassName);
+
+        var nameLabel = new Label(squad.UnitName ?? string.Empty);
+        nameLabel.AddToClassList(ResultSquadNameClassName);
+
+        root.Add(icon);
+        root.Add(countLabel);
+        root.Add(nameLabel);
+
+        if (squad.IsEmpty || squad.Count <= 0)
+        {
+            root.AddToClassList(ResultSquadDeadClassName);
+        }
+
+        return root;
     }
 
     private void HandleStartCombatClicked(ClickEvent evt)
