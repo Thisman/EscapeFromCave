@@ -3,58 +3,59 @@ using System.Collections.Generic;
 
 public sealed class BattleContext : IDisposable
 {
+    private bool _disposed;
     private readonly List<BattleSquadController> _battleUnits = new();
     private readonly Dictionary<IReadOnlySquadModel, BattleSquadController> _controllersByModel = new();
-    private bool _disposed;
 
     public BattleContext(
+        InputService inputService,
+        BattleUIController battleUIController,
         BattleGridController battleGridController,
         BattleQueueController battleQueueController,
-        BattleActionControllerResolver battleActionControllerResolver,
-        BattleUIController battleUIController,
+        BattleGridDragAndDropController battleGridDragAndDropController,
+
         BattleAbilityManager battleAbilityManager,
-        BattleEffectsManager battleEffectsManager,
-        InputService inputService,
-        BattleGridDragAndDropController battleGridDragAndDropController = null)
+        BattleEffectsManager battleEffectsManager
+    )
     {
-        BattleGridController = battleGridController ?? throw new ArgumentNullException(nameof(battleGridController));
-        BattleQueueController = battleQueueController ?? throw new ArgumentNullException(nameof(battleQueueController));
-        BattleActionControllerResolver = battleActionControllerResolver ?? throw new ArgumentNullException(nameof(battleActionControllerResolver));
-        BattleUIController = battleUIController ?? throw new ArgumentNullException(nameof(battleUIController));
-        BattleAbilitiesManager = battleAbilityManager ?? throw new ArgumentNullException(nameof(battleAbilityManager));
-        BattleEffectsManager = battleEffectsManager ?? throw new ArgumentNullException(nameof(battleEffectsManager));
-        InputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
-        BattleGridDragAndDropController = battleGridDragAndDropController;
         DefendedUnitsThisRound = new HashSet<IReadOnlySquadModel>();
+
+        InputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
+        BattleEffectsManager = battleEffectsManager ?? throw new ArgumentNullException(nameof(battleEffectsManager));
+        BattleAbilitiesManager = battleAbilityManager ?? throw new ArgumentNullException(nameof(battleAbilityManager));
+        BattleQueueController = battleQueueController ?? throw new ArgumentNullException(nameof(battleQueueController));
+
+        BattleUIController = battleUIController != null ? battleUIController : throw new ArgumentNullException(nameof(battleUIController));
+        BattleGridController = battleGridController != null ? battleGridController : throw new ArgumentNullException(nameof(battleGridController));
+        BattleGridDragAndDropController = battleGridDragAndDropController != null ? battleGridDragAndDropController : throw new ArgumentNullException(nameof(battleGridDragAndDropController));
     }
-
-    public bool IsFinished { get; set; }
-
-    public BattleGridController BattleGridController { get; }
-
-    public BattleGridDragAndDropController BattleGridDragAndDropController { get; }
-
-    public BattleQueueController BattleQueueController { get; }
-
-    public BattleActionControllerResolver BattleActionControllerResolver { get; }
-
-    public BattleUIController BattleUIController { get; }
-
-    public IReadOnlyList<BattleSquadController> BattleUnits => _battleUnits;
-
-    public IReadOnlySquadModel ActiveUnit { get; set; }
-
-    public BattleAbilityManager BattleAbilitiesManager { get; }
-
-    public BattleEffectsManager BattleEffectsManager { get; }
-
-    public IBattleAction CurrentAction { get; set; }
-
-    public BattleResult BattleResult { get; set; }
 
     public InputService InputService { get; }
 
+    public BattleUIController BattleUIController { get; }
+
+    public BattleEffectsManager BattleEffectsManager { get; }
+
+    public BattleGridController BattleGridController { get; }
+
+    public BattleQueueController BattleQueueController { get; }
+
+    public BattleAbilityManager BattleAbilitiesManager { get; }
+
+    public BattleGridDragAndDropController BattleGridDragAndDropController { get; }
+
+    public bool IsFinished { get; set; }
+
+    public BattleResult BattleResult { get; set; }
+    
+    public IBattleAction CurrentAction { get; set; }
+
+    public IReadOnlySquadModel ActiveUnit { get; set; }
+    
     public ISet<IReadOnlySquadModel> DefendedUnitsThisRound { get; }
+
+    public IReadOnlyList<BattleSquadController> BattleUnits => _battleUnits;
+
 
     public void RegisterSquads(IEnumerable<BattleSquadController> squads)
     {
@@ -79,7 +80,7 @@ public sealed class BattleContext : IDisposable
         }
     }
 
-    public bool TryGetController(IReadOnlySquadModel model, out BattleSquadController controller)
+    public bool TryGetSquadController(IReadOnlySquadModel model, out BattleSquadController controller)
     {
         if (model == null)
         {

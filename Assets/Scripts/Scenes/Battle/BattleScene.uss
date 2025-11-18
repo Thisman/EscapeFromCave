@@ -181,6 +181,10 @@
     left: auto;
 }
 
+.result-panel {
+    background-color: rgba(0, 0, 0, 0.99);
+}
+
 .result-content {
     width: 800px;
     height: 600px;

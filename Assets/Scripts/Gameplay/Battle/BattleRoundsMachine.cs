@@ -6,15 +6,16 @@ using UnityEngine;
 
 public sealed class BattleRoundsMachine
 {
-    private readonly BattleContext _ctx;
-    private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
     private bool _battleFinished;
     private bool _playerRequestedFlee;
-    private readonly List<BattleSquadModel> _subscribedSquadModels = new();
-    private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
-    private readonly List<IReadOnlySquadModel> _enemySquadHistory = new();
-    private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
+    private readonly BattleContext _ctx;
+    private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
+
     private readonly HashSet<IReadOnlySquadModel> _enemySquadSet = new();
+    private readonly List<IReadOnlySquadModel> _enemySquadHistory = new();
+    private readonly List<BattleSquadModel> _subscribedSquadModels = new();
+    private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
+    private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -55,6 +56,10 @@ public sealed class BattleRoundsMachine
         _sm.Configure(BattleRoundState.RoundEnd)
             .OnEntry(OnRoundEnd)
             .Permit(BattleRoundTrigger.StartNewRound, BattleRoundState.RoundInit);
+
+        AIBattleActionController enemyTurnController = new();
+        PlayerBattleActionController playerTurnController = new();
+        BattleActionControllerResolver _actionControllerResolver = new(playerTurnController, enemyTurnController);
     }
 
     public void Reset()
@@ -62,8 +67,7 @@ public sealed class BattleRoundsMachine
         UnsubscribeFromSquadEvents();
         _battleFinished = false;
         _playerRequestedFlee = false;
-        if (_ctx.BattleUIController != null)
-            _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
+        _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
         InitializeSquadHistory();
         UpdateTargetValidity(null, null);
         SubscribeToSquadEvents();
@@ -106,17 +110,18 @@ public sealed class BattleRoundsMachine
     private void OnTurnStart()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundState.TurnStart);
+
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
+        HighlightActiveUnitSlot();
         BattleLogger.LogActiveUnit(_ctx.ActiveUnit);
 
-        HighlightActiveUnitSlot();
-
-        var abilities = _ctx.ActiveUnit.Abilities;
-        var activeUnit = _ctx.ActiveUnit;
-        var abilityManager = _ctx.BattleAbilitiesManager;
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
-        _ctx.BattleUIController.RenderAbilityList(abilities, abilityManager, activeUnit);
+        _ctx.BattleUIController.RenderAbilityList(
+            _ctx.ActiveUnit.Abilities,
+            _ctx.BattleAbilitiesManager,
+            _ctx.ActiveUnit
+        );
 
         _sm.Fire(BattleRoundTrigger.NextTurn);
     }
@@ -124,9 +129,10 @@ public sealed class BattleRoundsMachine
     private void OnWaitTurnAction()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundState.TurnWaitAction);
-        IReadOnlySquadModel activeUnit = _ctx.ActiveUnit;
-        BattleActionControllerResolver resolver = _ctx.BattleActionControllerResolver;
-        IBattleActionController controller = resolver.ResolveFor(activeUnit);
+        AIBattleActionController enemyTurnController = new();
+        PlayerBattleActionController playerTurnController = new();
+        var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
+        IBattleActionController controller = actionControllerResolver.ResolveFor(_ctx.ActiveUnit);
 
         controller.RequestAction(_ctx, action =>
         {
@@ -185,7 +191,7 @@ public sealed class BattleRoundsMachine
         if (activeUnitModel == null)
             return;
 
-        if (!_ctx.TryGetController(activeUnitModel, out var controller) || controller == null)
+        if (!_ctx.TryGetSquadController(activeUnitModel, out var controller) || controller == null)
             return;
 
         var gridController = _ctx.BattleGridController;
@@ -594,7 +600,7 @@ public sealed class BattleRoundsMachine
         if (effectsManager == null)
             return;
 
-        if (!_ctx.TryGetController(unit, out var controller) || controller == null)
+        if (!_ctx.TryGetSquadController(unit, out var controller) || controller == null)
             return;
 
         if (!controller.TryGetComponent<BattleSquadEffectsController>(out var effectsController))

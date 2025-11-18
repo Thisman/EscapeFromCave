@@ -4,8 +4,8 @@ using UnityEngine;
 public sealed class BattlePhaseMachine
 {
     private readonly BattleContext _ctx;
-    private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
     private readonly BattleRoundsMachine _battleRoundsMachine;
+    private readonly StateMachine<BattlePhase, BattleTrigger> _sm;
 
     public BattlePhaseMachine(BattleContext ctx, BattleRoundsMachine battleRoundsMachine)
     {
@@ -43,9 +43,8 @@ public sealed class BattlePhaseMachine
     private void OnEnterTactics()
     {
         BattleLogger.LogPhaseEntered(BattlePhase.Tactics);
-        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.TacticPanel);
-        if (_ctx.BattleUIController != null)
-            _ctx.BattleUIController.OnStartCombat += HandleStartBattleRounds;
+        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.TacticPanel);
+        _ctx.BattleUIController.OnStartCombat += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
         {
             Debug.LogWarning($"[{nameof(BattlePhaseMachine)}.{nameof(OnEnterTactics)}] Failed to place battle units on the grid.");
@@ -56,7 +55,7 @@ public sealed class BattlePhaseMachine
     private void OnEnterRounds()
     {
         BattleLogger.LogPhaseEntered(BattlePhase.BattleRounds);
-        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.CombatPanel);
+        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.CombatPanel);
         _battleRoundsMachine.Reset();
         _battleRoundsMachine.BeginRounds();
     }
@@ -65,8 +64,8 @@ public sealed class BattlePhaseMachine
     {
         BattleLogger.LogPhaseEntered(BattlePhase.Results);
         _ctx.IsFinished = true;
-        _ctx.BattleUIController?.ShowPanel(BattleUIController.PanelName.ResultPanel);
-        _ctx.BattleUIController?.ShowResult(_ctx.BattleResult);
+        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.ResultPanel);
+        _ctx.BattleUIController.ShowResult(_ctx.BattleResult);
 
         if (_ctx.BattleUnits != null)
         {

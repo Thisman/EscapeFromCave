@@ -11,8 +11,8 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private IObjectResolver _objectResolver;
 
     [Inject] readonly private BattleUIController _battleUIController;
-    [Inject] readonly private BattleQueueController _battleQueueController;
     [Inject] readonly private BattleGridController _battleGridController;
+    [Inject] readonly private BattleQueueController _battleQueueController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     [Inject] readonly private InputService _inputService;
@@ -20,29 +20,29 @@ public class BattleSceneManager : MonoBehaviour
 
     private BattleSceneData _battleData;
     private BattleContext _battleContext;
-    private BattleRoundsMachine _battleRoundMachine;
     private BattlePhaseMachine _battlePhaseMachine;
+    private BattleRoundsMachine _battleRoundMachine;
+
     private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
 
-    private void Start()
+    private async void Start()
     {
         SubscribeToUiEvents();
-
         InitializeBattleData();
         InitializeBattleContext();
         InitializeBattleUnits();
         InitializeStateMachines();
 
-        _ = _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
         _battlePhaseMachine.Fire(BattleTrigger.StartBattle);
+        await _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
     }
 
-    private void OnDestroy()
+    private async void OnDestroy()
     {
-        _ = _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
         UnsubscribeFromUiEvents();
-        _battleContext?.Dispose();
+        _battleContext.Dispose();
+        await _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
     }
 
     private void InitializeBattleData()
@@ -93,19 +93,17 @@ public class BattleSceneManager : MonoBehaviour
     {
         BattleEffectsManager battleEffectsManager = new();
         BattleAbilityManager battleAbilitiesManager = new();
-        AIBattleActionController enemyTurnController = new();
-        PlayerBattleActionController playerTurnController = new();
-        BattleActionControllerResolver actionControllerResolver = new(playerTurnController, enemyTurnController);
 
         _battleContext = new BattleContext(
+            _inputService,
+            _battleUIController,
             _battleGridController,
             _battleQueueController,
-            actionControllerResolver,
-            _battleUIController,
+            _battleGridDragAndDropController,
+
             battleAbilitiesManager,
-            battleEffectsManager,
-            _inputService,
-            _battleGridDragAndDropController);
+            battleEffectsManager
+        );
 
     }
 

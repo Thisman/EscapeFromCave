@@ -71,7 +71,7 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActi
             return;
         }
 
-        if (!_context.TryGetController(actorModel, out var actorController) || actorController == null)
+        if (!_context.TryGetSquadController(actorModel, out var actorController) || actorController == null)
         {
             CompleteResolve();
             return;

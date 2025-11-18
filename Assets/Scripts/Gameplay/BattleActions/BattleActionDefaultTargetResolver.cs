@@ -28,7 +28,7 @@ public sealed class BattleActionDefaultTargetResolver : IBattleActionTargetResol
         if (grid == null)
             return false;
 
-        if (!_context.TryGetController(target, out var targetController) || targetController == null)
+        if (!_context.TryGetSquadController(target, out var targetController) || targetController == null)
             return false;
 
         if (!TryGetRow(targetController.transform, out var targetRow))
