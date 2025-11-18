@@ -87,7 +87,7 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleAct
         if (abilityManager != null && caster != null)
         {
             abilityManager.TriggerCooldown(caster, _ability);
-            _ctx?.BattleUIController?.RefreshAbilityAvailability();
+            _ctx?.BattleSceneUIController?.RefreshAbilityAvailability();
         }
 
         CompleteResolve();

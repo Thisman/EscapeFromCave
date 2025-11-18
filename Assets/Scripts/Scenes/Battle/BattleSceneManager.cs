@@ -10,7 +10,7 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private SceneLoader _sceneLoader;
     [Inject] readonly private IObjectResolver _objectResolver;
 
-    [Inject] readonly private BattleUIController _battleUIController;
+    [Inject] readonly private BattleSceneUIController _battleSceneUIController;
     [Inject] readonly private BattleGridController _battleGridController;
     [Inject] readonly private BattleQueueController _battleQueueController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
@@ -96,7 +96,7 @@ public class BattleSceneManager : MonoBehaviour
 
         _battleContext = new BattleContext(
             _inputService,
-            _battleUIController,
+            _battleSceneUIController,
             _battleGridController,
             _battleQueueController,
             _battleGridDragAndDropController,
@@ -115,17 +115,17 @@ public class BattleSceneManager : MonoBehaviour
 
     private void SubscribeToUiEvents()
     {
-        if (_battleUIController != null)
+        if (_battleSceneUIController != null)
         {
-            _battleUIController.OnFinishBattle += ExitBattle;
+            _battleSceneUIController.OnFinishBattle += ExitBattle;
         }
     }
 
     private void UnsubscribeFromUiEvents()
     {
-        if (_battleUIController != null)
+        if (_battleSceneUIController != null)
         {
-            _battleUIController.OnFinishBattle -= ExitBattle;
+            _battleSceneUIController.OnFinishBattle -= ExitBattle;
         }
     }
 

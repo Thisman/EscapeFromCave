@@ -5,12 +5,11 @@ public sealed class BattleContext : IDisposable
 {
     private bool _disposed;
     private readonly List<BattleSquadController> _battleUnits = new();
-    private readonly List<BattleSquadController> _initialBattleUnits = new();
     private readonly Dictionary<IReadOnlySquadModel, BattleSquadController> _controllersByModel = new();
 
     public BattleContext(
         InputService inputService,
-        BattleUIController battleUIController,
+        BattleSceneUIController battleSceneUIController,
         BattleGridController battleGridController,
         BattleQueueController battleQueueController,
         BattleGridDragAndDropController battleGridDragAndDropController,
@@ -26,14 +25,14 @@ public sealed class BattleContext : IDisposable
         BattleAbilitiesManager = battleAbilityManager ?? throw new ArgumentNullException(nameof(battleAbilityManager));
         BattleQueueController = battleQueueController ?? throw new ArgumentNullException(nameof(battleQueueController));
 
-        BattleUIController = battleUIController != null ? battleUIController : throw new ArgumentNullException(nameof(battleUIController));
+        BattleSceneUIController = battleSceneUIController != null ? battleSceneUIController : throw new ArgumentNullException(nameof(battleSceneUIController));
         BattleGridController = battleGridController != null ? battleGridController : throw new ArgumentNullException(nameof(battleGridController));
         BattleGridDragAndDropController = battleGridDragAndDropController != null ? battleGridDragAndDropController : throw new ArgumentNullException(nameof(battleGridDragAndDropController));
     }
 
     public InputService InputService { get; }
 
-    public BattleUIController BattleUIController { get; }
+    public BattleSceneUIController BattleSceneUIController { get; }
 
     public BattleEffectsManager BattleEffectsManager { get; }
 
@@ -55,9 +54,6 @@ public sealed class BattleContext : IDisposable
 
     public IReadOnlyList<BattleSquadController> BattleUnits => _battleUnits;
 
-    public IReadOnlyList<BattleSquadController> InitialBattleUnits => _initialBattleUnits;
-
-
     public void RegisterSquads(IEnumerable<BattleSquadController> squads)
     {
         _battleUnits.Clear();
@@ -78,7 +74,6 @@ public sealed class BattleContext : IDisposable
                 continue;
 
             _battleUnits.Add(squad);
-            _initialBattleUnits.Add(squad);
             _controllersByModel[model] = squad;
         }
     }
@@ -115,7 +110,6 @@ public sealed class BattleContext : IDisposable
         DefendedUnitsThisRound.Clear();
 
         _battleUnits.Clear();
-        _initialBattleUnits.Clear();
         _controllersByModel.Clear();
     }
 }
