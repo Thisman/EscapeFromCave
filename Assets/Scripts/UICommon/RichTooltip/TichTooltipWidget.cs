@@ -6,11 +6,13 @@ namespace UICommon.Widgets
 {
     public sealed class TichTooltipWidget
     {
+        private const string RootElementName = "RichTooltipRoot";
         private const string VisibleClassName = "rich-tooltip--visible";
         private const string TextElementName = "Text";
         private const float TooltipOffset = 8f;
 
-        private readonly VisualElement _root;
+        private readonly VisualElement _templateRoot;
+        private readonly VisualElement _tooltipElement;
         private readonly VisualElement _relativeRoot;
         private readonly Label _text;
 
@@ -18,9 +20,10 @@ namespace UICommon.Widgets
 
         public TichTooltipWidget(VisualElement root, VisualElement relativeRoot)
         {
-            _root = root ?? throw new ArgumentNullException(nameof(root));
+            _templateRoot = root ?? throw new ArgumentNullException(nameof(root));
             _relativeRoot = relativeRoot ?? throw new ArgumentNullException(nameof(relativeRoot));
-            _text = _root.Q<Label>(TextElementName);
+            _tooltipElement = _templateRoot.Q<VisualElement>(RootElementName) ?? _templateRoot;
+            _text = _tooltipElement.Q<Label>(TextElementName);
         }
 
         public void Show(string content, VisualElement target)
@@ -33,10 +36,10 @@ namespace UICommon.Widgets
             if (_text != null)
                 _text.text = content ?? string.Empty;
 
-            _root.AddToClassList(VisibleClassName);
+            _tooltipElement?.AddToClassList(VisibleClassName);
             UpdatePosition(target.worldBound);
 
-            _root.schedule.Execute(() =>
+            (_tooltipElement ?? _templateRoot).schedule.Execute(() =>
             {
                 if (_currentTarget == target)
                     UpdatePosition(target.worldBound);
@@ -54,7 +57,7 @@ namespace UICommon.Widgets
         public void Hide()
         {
             _currentTarget = null;
-            _root.RemoveFromClassList(VisibleClassName);
+            _tooltipElement?.RemoveFromClassList(VisibleClassName);
         }
 
         private void UpdatePosition(Rect targetWorldBounds)
@@ -65,8 +68,9 @@ namespace UICommon.Widgets
             Vector2 topCenter = new(targetWorldBounds.xMin + targetWorldBounds.width * 0.5f, targetWorldBounds.yMin);
             Vector2 localPosition = _relativeRoot.WorldToLocal(topCenter);
 
-            float tooltipWidth = _root.resolvedStyle.width;
-            float tooltipHeight = _root.resolvedStyle.height;
+            VisualElement elementToMeasure = _tooltipElement ?? _templateRoot;
+            float tooltipWidth = elementToMeasure.resolvedStyle.width;
+            float tooltipHeight = elementToMeasure.resolvedStyle.height;
 
             float x = localPosition.x - tooltipWidth * 0.5f;
             float y = localPosition.y - tooltipHeight - TooltipOffset;
@@ -75,8 +79,9 @@ namespace UICommon.Widgets
             x = Mathf.Clamp(x, 0f, maxX);
             y = Mathf.Max(0f, y);
 
-            _root.style.left = x;
-            _root.style.top = y;
+            VisualElement elementToPosition = _tooltipElement ?? _templateRoot;
+            elementToPosition.style.left = x;
+            elementToPosition.style.top = y;
         }
     }
 }
