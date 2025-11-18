@@ -41,11 +41,14 @@ public sealed class BattleResult
             ? new Dictionary<IReadOnlySquadModel, int>(initialSquadCounts)
             : new Dictionary<IReadOnlySquadModel, int>();
         Status = DetermineBattleStatus(playerRequestedFlee);
+        ExperienceReward = CalculateExperienceReward(BattleUnitsResult.EnemyUnits);
     }
 
     public BattleResultStatus Status { get; }
 
     public BattleUnitsResult BattleUnitsResult { get; }
+
+    public float ExperienceReward { get; }
 
     public IReadOnlyDictionary<IReadOnlySquadModel, int> InitialSquadCounts => _initialSquadCounts;
 
@@ -148,5 +151,31 @@ public sealed class BattleResult
             return BattleResultStatus.Victory;
 
         return BattleResultStatus.Defeat;
+    }
+
+    private float CalculateExperienceReward(IReadOnlyList<IReadOnlySquadModel> enemySquads)
+    {
+        if (enemySquads == null || enemySquads.Count == 0)
+            return 0f;
+
+        float totalExperience = 0f;
+
+        foreach (var squad in enemySquads)
+        {
+            if (squad == null)
+                continue;
+
+            int initialCount = Mathf.Max(0, GetInitialCount(squad));
+            if (initialCount <= 0)
+                continue;
+
+            float health = Mathf.Max(0f, squad.Health);
+            if (Mathf.Approximately(health, 0f))
+                continue;
+
+            totalExperience += initialCount * health / 10f;
+        }
+
+        return Mathf.Max(0f, totalExperience);
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public sealed class BattleResultHandler
 {
     private const string MainMenuSceneName = "MainMenuScene";
-    private const float DefaultBattleExperienceReward = 100f;
 
     public async Task ApplyResultAsync(InteractionContext ctx, BattleResult result)
     {
@@ -23,7 +22,7 @@ public sealed class BattleResultHandler
             return;
 
         UpdateHeroArmy(ctx.Actor, result.BattleUnitsResult.FriendlyUnits);
-        RewardActorUnits(ctx.Actor);
+        RewardActorUnits(ctx.Actor, result.ExperienceReward);
     }
 
     private static async Task ReturnToMainMenuAsync(InteractionContext ctx)
@@ -143,30 +142,30 @@ public sealed class BattleResultHandler
         }
     }
 
-    private static void RewardActorUnits(GameObject actor)
+    private static void RewardActorUnits(GameObject actor, float experienceReward)
     {
         if (actor == null)
             return;
 
-        RewardHero(actor);
-        RewardArmy(actor);
+        RewardHero(actor, experienceReward);
+        RewardArmy(actor, experienceReward);
     }
 
-    private static void RewardHero(GameObject actor)
+    private static void RewardHero(GameObject actor, float experienceReward)
     {
         if (actor.TryGetComponent<PlayerController>(out var playerController))
         {
             if (playerController.GetPlayer() is SquadModel heroSquad)
-                heroSquad.TryAddExperience(DefaultBattleExperienceReward);
+                heroSquad.TryAddExperience(experienceReward);
 
             return;
         }
 
         if (TryResolveSquadModel(actor, out var heroModel) && heroModel is SquadModel heroSquadModel)
-            heroSquadModel.TryAddExperience(DefaultBattleExperienceReward);
+            heroSquadModel.TryAddExperience(experienceReward);
     }
 
-    private static void RewardArmy(GameObject actor)
+    private static void RewardArmy(GameObject actor, float experienceReward)
     {
         if (!actor.TryGetComponent<PlayerArmyController>(out var armyController))
             return;
@@ -181,7 +180,7 @@ public sealed class BattleResultHandler
         for (int i = 0; i < squads.Count; i++)
         {
             if (squads[i] is SquadModel squad)
-                squad.TryAddExperience(DefaultBattleExperienceReward);
+                squad.TryAddExperience(experienceReward);
         }
     }
 
