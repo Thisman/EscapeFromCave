@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 {
-    [SerializeField] private UIDocument _document;
+    [SerializeField] private UIDocument _uiDocument;
 
     public Func<UnitSO, List<SquadSelection>, Task> OnDiveIntoCave;
 
@@ -71,7 +71,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
     {
         DetachFromPanel();
 
-        if (_document?.rootVisualElement is { } root)
+        if (_uiDocument?.rootVisualElement is { } root)
         {
             root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
             root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
@@ -99,7 +99,7 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
         if (_isAttached)
             DetachFromPanel();
 
-        _document = document;
+        _uiDocument = document;
         _root = document.rootVisualElement;
         if (_root == null)
             return;
@@ -160,10 +160,10 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
     private void TryRegisterLifecycleCallbacks()
     {
-        if (_document == null)
-            _document = GetComponent<UIDocument>();
+        if (_uiDocument == null)
+            _uiDocument = GetComponent<UIDocument>();
 
-        if (_document?.rootVisualElement is { } root)
+        if (_uiDocument?.rootVisualElement is { } root)
         {
             root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
             root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
@@ -171,14 +171,14 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
 
             if (!_isAttached && root.panel != null)
-                AttachToPanel(_document);
+                AttachToPanel(_uiDocument);
         }
     }
 
     private void HandleAttachToPanel(AttachToPanelEvent _)
     {
         if (!_isAttached)
-            AttachToPanel(_document);
+            AttachToPanel(_uiDocument);
     }
 
     private void HandleDetachFromPanel(DetachFromPanelEvent _)
@@ -405,14 +405,14 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
             if (squad == null)
                 continue;
 
-            int defaultCount = Mathf.RoundToInt(GetDefaultCount(squad));
+            int defaultCount = Mathf.RoundToInt(GetDefaultCount());
             selectedSquads.Add(new SquadSelection(squad, defaultCount));
         }
 
         return selectedSquads;
     }
 
-    private static float GetDefaultCount(UnitSO _)
+    private static float GetDefaultCount()
     {
         return 10f;
     }
@@ -455,10 +455,10 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             IReadOnlyList<UnitCardStatField> statFields = hero != null ? stats : Array.Empty<UnitCardStatField>();
-            IReadOnlySquadModel squad = hero != null ? new SquadModel(hero, Mathf.RoundToInt(GetDefaultCount(hero))) : null;
+            IReadOnlySquadModel squad = hero != null ? new SquadModel(hero, Mathf.RoundToInt(GetDefaultCount())) : null;
             IReadOnlyList<BattleAbilitySO> abilities = hero?.Abilities ?? Array.Empty<BattleAbilitySO>();
 
-            UnitCardRenderData data = new(squad, statFields, abilities, Array.Empty<BattleEffectSO>(), hero?.UnitName);
+            UnitCardRenderData data = new(squad, statFields, abilities, Array.Empty<BattleEffectSO>(), hero.UnitName);
             _card.Render(data);
             _card.SetEnabled(hero != null);
         }
@@ -523,10 +523,10 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
                 return;
 
             IReadOnlyList<UnitCardStatField> statFields = squad != null ? stats : Array.Empty<UnitCardStatField>();
-            IReadOnlySquadModel squadModel = squad != null ? new SquadModel(squad, Mathf.RoundToInt(GetDefaultCount(squad))) : null;
+            IReadOnlySquadModel squadModel = squad != null ? new SquadModel(squad, Mathf.RoundToInt(GetDefaultCount())) : null;
             IReadOnlyList<BattleAbilitySO> abilities = squad?.Abilities ?? Array.Empty<BattleAbilitySO>();
 
-            UnitCardRenderData data = new(squadModel, statFields, abilities, Array.Empty<BattleEffectSO>(), squad?.UnitName);
+            UnitCardRenderData data = new(squadModel, statFields, abilities, Array.Empty<BattleEffectSO>(), squad.UnitName);
             _card.Render(data);
             _card.SetEnabled(squad != null);
         }

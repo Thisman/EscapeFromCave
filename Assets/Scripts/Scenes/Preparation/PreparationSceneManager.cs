@@ -10,9 +10,9 @@ public class PreparationSceneManager : MonoBehaviour
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly SceneLoader _sceneLoader;
 
-    [SerializeField] private PreparationMenuUIController _preparationSceneUIController;
     [SerializeField] private UnitSO[] _availableHeroDefinitions;
     [SerializeField] private UnitSO[] _availableSquadDefinitions;
+    [SerializeField] private PreparationMenuUIController _preparationSceneUIController;
 
     private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
     private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
@@ -26,18 +26,12 @@ public class PreparationSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_preparationSceneUIController != null)
-        {
-            _preparationSceneUIController.OnDiveIntoCave += HandleDiveIntoCaveAsync;
-        }
+        _preparationSceneUIController.OnDiveIntoCave += HandleDiveIntoCaveAsync;
     }
 
     private void OnDisable()
     {
-        if (_preparationSceneUIController != null)
-        {
-            _preparationSceneUIController.OnDiveIntoCave -= HandleDiveIntoCaveAsync;
-        }
+        _preparationSceneUIController.OnDiveIntoCave -= HandleDiveIntoCaveAsync;
     }
 
     private async Task HandleDiveIntoCaveAsync(UnitSO selectedHero, List<SquadSelection> selectedSquads)
