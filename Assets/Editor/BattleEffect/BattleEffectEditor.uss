@@ -177,3 +177,7 @@
 .effect-editor__item {
     padding: 6px 8px;
 }
+
+.unity-text-element {
+    -unity-text-align: middle-left;
+}

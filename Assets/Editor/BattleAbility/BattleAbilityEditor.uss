@@ -162,3 +162,7 @@
 .ability-editor__effect-item {
     padding: 4px 8px;
 }
+
+.unity-text-element {
+    -unity-text-align: middle-left;
+}

@@ -162,3 +162,7 @@
 .unit-collection-view__item {
     color: #000;
 }
+
+.unity-text-element {
+    -unity-text-align: middle-left;
+}
