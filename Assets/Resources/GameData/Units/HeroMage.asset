@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroMage
   m_EditorClassIdentifier: Assembly-CSharp::UnitSO
   Icon: {fileID: 8086551292566691165, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Mage
+  UnitName: Hero Mage
   Kind: 0
   AttackKind: 2
   DamageType: 1
@@ -27,5 +27,7 @@ MonoBehaviour:
   BaseCritChance: 0.1
   BaseCritMultiplier: 1.1
   BaseMissChance: 0.05
+  ProgressionTemplate: {fileID: 11400000, guid: 4875195a972635c4c99cc88aa1257f81, type: 2}
+  LevelExpFunction: 0
   Abilities:
   - {fileID: 11400000, guid: 530487680d92f0e448f7ece148c1ffe7, type: 2}
