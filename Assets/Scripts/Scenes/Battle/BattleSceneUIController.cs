@@ -25,6 +25,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
     private const string AbilityItemClassName = "ability-item";
     private const string AbilityItemIconClassName = "ability-item__icon";
+    private const string AbilityItemCooldownLabelClassName = "ability-item__cooldown";
     private const string AbilityItemCooldownClassName = "ability-item--cooldown";
     private const string AbilityItemSelectedClassName = "ability-item--selected";
 
@@ -434,6 +435,8 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
                     element.AddToClassList(AbilityItemCooldownClassName);
                     element.SetEnabled(false);
                 }
+
+                UpdateAbilityCooldownLabel(pair.Key, element, isReady);
             }
         }
     }
@@ -761,12 +764,43 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
         element.Add(iconElement);
 
+        var cooldownLabel = new Label();
+        cooldownLabel.AddToClassList(AbilityItemCooldownLabelClassName);
+        cooldownLabel.style.display = DisplayStyle.None;
+        element.Add(cooldownLabel);
+
         element.RegisterCallback<ClickEvent>(_ => HandleAbilityClick(ability));
         element.RegisterCallback<PointerEnterEvent>(_ => ShowAbilityTooltip(ability, element));
         element.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltip());
         element.RegisterCallback<PointerMoveEvent>(_ => UpdateAbilityTooltipFromTarget(element));
 
         return element;
+    }
+
+    private void UpdateAbilityCooldownLabel(BattleAbilitySO ability, VisualElement element, bool isReady)
+    {
+        if (element == null)
+            return;
+
+        Label cooldownLabel = element.Q<Label>(className: AbilityItemCooldownLabelClassName);
+        if (cooldownLabel == null)
+            return;
+
+        if (isReady)
+        {
+            cooldownLabel.style.display = DisplayStyle.None;
+            return;
+        }
+
+        int remainingCooldown = GetRemainingCooldown(ability);
+        if (remainingCooldown <= 0)
+        {
+            cooldownLabel.style.display = DisplayStyle.None;
+            return;
+        }
+
+        cooldownLabel.text = remainingCooldown.ToString();
+        cooldownLabel.style.display = DisplayStyle.Flex;
     }
 
     private void RegisterAbilityElement(BattleAbilitySO ability, VisualElement element)
@@ -841,6 +875,17 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             return true;
 
         return _currentAbilityManager.IsAbilityReady(_currentAbilityOwner, ability);
+    }
+
+    private int GetRemainingCooldown(BattleAbilitySO ability)
+    {
+        if (ability == null)
+            return 0;
+
+        if (_currentAbilityManager == null || _currentAbilityOwner == null)
+            return 0;
+
+        return Math.Max(0, _currentAbilityManager.GetRemainingCooldown(_currentAbilityOwner, ability));
     }
 
     private void HandleAbilityClick(BattleAbilitySO ability)
