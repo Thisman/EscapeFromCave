@@ -116,43 +116,6 @@
     border-left-color: rgb(245, 217, 107);
 }
 
-.ability-tooltip {
-    position: absolute;
-    max-width: 240px;
-    padding-top: 16px;
-    padding-right: 12px;
-    padding-bottom: 16px;
-    padding-left: 12px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-color: rgba(255, 255, 255, 0.95);
-    border-right-color: rgba(255, 255, 255, 0.95);
-    border-bottom-color: rgba(255, 255, 255, 0.95);
-    border-left-color: rgba(255, 255, 255, 0.95);
-    background-color: rgba(0, 0, 0, 0.95);
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    opacity: 0;
-    visibility: hidden;
-    display: flex;
-}
-
-.ability-tooltip--visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.ability-tooltip__text {
-    color: #fff;
-    white-space: normal;
-}
-
 .battle-card {
     position: absolute;
     top: 32px;

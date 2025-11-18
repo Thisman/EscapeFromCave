@@ -35,11 +35,6 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string BattleCardRightClassName = "battle-card--right";
     private const string UnitsLayerName = "Units";
 
-    private const string AbilityTooltipClassName = "ability-tooltip";
-    private const string AbilityTooltipVisibleClassName = "ability-tooltip--visible";
-    private const string AbilityTooltipTextClassName = "ability-tooltip__text";
-    private const float AbilityTooltipOffset = 8f;
-
     private const string ResultSquadClassName = "result-squad";
     private const string ResultSquadDeadClassName = "result-squad--dead";
     private const string ResultSquadVisibleClassName = "result-squad--visible";
@@ -97,9 +92,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private BattleAbilityManager _currentAbilityManager;
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
-    private VisualElement _abilityTooltip;
-    private Label _abilityTooltipLabel;
-    private VisualElement _abilityTooltipTarget;
+    private VisualElement _abilityTooltipElement;
+    private TichTooltipWidget _abilityTooltipWidget;
     private VisualElement _squadInfoCard;
     private UnitCardWidget _squadInfoCardWidget;
     private IReadOnlySquadModel _displayedSquadModel;
@@ -299,10 +293,8 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         _panels.Clear();
 
         HideAbilityTooltip();
-        _abilityTooltip?.RemoveFromHierarchy();
-        _abilityTooltip = null;
-        _abilityTooltipLabel = null;
-        _abilityTooltipTarget = null;
+        _abilityTooltipElement = null;
+        _abilityTooltipWidget = null;
         _bodyElement = null;
 
         _isAttached = false;
@@ -738,81 +730,36 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     private void InitializeAbilityTooltip(VisualElement body)
     {
+        _abilityTooltipWidget = null;
+
         if (body == null)
             return;
 
-        _abilityTooltip?.RemoveFromHierarchy();
+        _abilityTooltipElement = body.Q<VisualElement>("AbilityTooltip");
+        if (_abilityTooltipElement == null)
+            return;
 
-        _abilityTooltip = new VisualElement
-        {
-            name = "AbilityTooltip"
-        };
-        _abilityTooltip.AddToClassList(AbilityTooltipClassName);
-
-        _abilityTooltipLabel = new Label();
-        _abilityTooltipLabel.AddToClassList(AbilityTooltipTextClassName);
-        _abilityTooltipLabel.enableRichText = true;
-        _abilityTooltip.Add(_abilityTooltipLabel);
-
-        body.Add(_abilityTooltip);
+        _abilityTooltipWidget = new TichTooltipWidget(_abilityTooltipElement, body);
 
         HideAbilityTooltip();
     }
 
     private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement target)
     {
-        if (ability == null || target == null || _abilityTooltip == null || _abilityTooltipLabel == null)
+        if (ability == null || target == null || _abilityTooltipWidget == null)
             return;
 
-        _abilityTooltipTarget = target;
-        _abilityTooltipLabel.text = ResolveAbilityTooltipText(ability);
-        _abilityTooltip.AddToClassList(AbilityTooltipVisibleClassName);
-        UpdateAbilityTooltipPosition(target.worldBound);
-
-        _abilityTooltip.schedule.Execute(() =>
-        {
-            if (_abilityTooltipTarget == target)
-                UpdateAbilityTooltipPosition(target.worldBound);
-        });
+        _abilityTooltipWidget.Show(ResolveAbilityTooltipText(ability), target);
     }
 
     private void UpdateAbilityTooltipFromTarget(VisualElement target)
     {
-        if (target == null || !ReferenceEquals(_abilityTooltipTarget, target))
-            return;
-
-        UpdateAbilityTooltipPosition(target.worldBound);
-    }
-
-    private void UpdateAbilityTooltipPosition(Rect targetWorldBounds)
-    {
-        if (_abilityTooltip == null || _bodyElement == null)
-            return;
-
-        Vector2 topCenter = new(targetWorldBounds.xMin + targetWorldBounds.width * 0.5f, targetWorldBounds.yMin);
-        Vector2 localPosition = _bodyElement.WorldToLocal(topCenter);
-
-        float tooltipWidth = _abilityTooltip.resolvedStyle.width;
-        float tooltipHeight = _abilityTooltip.resolvedStyle.height;
-
-        float x = localPosition.x - tooltipWidth * 0.5f;
-        float y = localPosition.y - tooltipHeight - AbilityTooltipOffset;
-
-        float maxX = Mathf.Max(0f, _bodyElement.resolvedStyle.width - tooltipWidth);
-        x = Mathf.Clamp(x, 0f, maxX);
-        y = Mathf.Max(0f, y);
-
-        _abilityTooltip.style.left = x;
-        _abilityTooltip.style.top = y;
+        _abilityTooltipWidget?.UpdatePositionFromTarget(target);
     }
 
     private void HideAbilityTooltip()
     {
-        if (_abilityTooltip == null)
-            return;
-
-        _abilityTooltip.RemoveFromClassList(AbilityTooltipVisibleClassName);
-        _abilityTooltipTarget = null;
+        _abilityTooltipWidget?.Hide();
     }
 
     private static string ResolveAbilityTooltipText(BattleAbilitySO ability)
