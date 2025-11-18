@@ -1,0 +1,1 @@
+public enum BattleRoundsTrigger { InitTurn, NextTurn, SkipTurn, ActionDone, EndRound, StartNewRound }

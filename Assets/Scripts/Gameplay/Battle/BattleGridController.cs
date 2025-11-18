@@ -414,6 +414,26 @@ public sealed class BattleGridController : MonoBehaviour
         return true;
     }
 
+    private static bool IsSameOrParent(Transform candidate, Transform potentialChild)
+    {
+        if (candidate == null || potentialChild == null)
+            return false;
+
+        for (Transform current = candidate; current != null; current = current.parent)
+        {
+            if (current == potentialChild)
+                return true;
+        }
+
+        for (Transform current = potentialChild; current != null; current = current.parent)
+        {
+            if (current == candidate)
+                return true;
+        }
+
+        return false;
+    }
+
     public bool TryResolveSlot(Transform candidate, out Transform slot)
     {
         slot = null;
@@ -620,24 +640,15 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
-    private static bool IsSameOrParent(Transform candidate, Transform potentialChild)
+    private Color GetColorForMode(BattleGridSlotHighlightMode mode)
     {
-        if (candidate == null || potentialChild == null)
-            return false;
-
-        for (Transform current = candidate; current != null; current = current.parent)
+        return mode switch
         {
-            if (current == potentialChild)
-                return true;
-        }
-
-        for (Transform current = potentialChild; current != null; current = current.parent)
-        {
-            if (current == candidate)
-                return true;
-        }
-
-        return false;
+            BattleGridSlotHighlightMode.Active => _activeHighlightColor,
+            BattleGridSlotHighlightMode.Available => _availableHighlightColor,
+            BattleGridSlotHighlightMode.Unavailable => _unavailableHighlightColor,
+            _ => _availableHighlightColor
+        };
     }
 
     private sealed class SlotVisualState
@@ -650,16 +661,5 @@ public sealed class BattleGridController : MonoBehaviour
             OriginalColor = originalColor;
             Setter = setter;
         }
-    }
-
-    private Color GetColorForMode(BattleGridSlotHighlightMode mode)
-    {
-        return mode switch
-        {
-            BattleGridSlotHighlightMode.Active => _activeHighlightColor,
-            BattleGridSlotHighlightMode.Available => _availableHighlightColor,
-            BattleGridSlotHighlightMode.Unavailable => _unavailableHighlightColor,
-            _ => _availableHighlightColor
-        };
     }
 }

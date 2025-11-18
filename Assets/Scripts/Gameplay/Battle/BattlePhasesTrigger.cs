@@ -1,0 +1,1 @@
+public enum BattlePhasesTrigger { StartBattle, StartBattleRound, ShowBattleResults }

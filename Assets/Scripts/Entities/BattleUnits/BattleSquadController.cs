@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattleDamageReceiver, ISquadModelProvider
+public class BattleSquadController : MonoBehaviour, IBattleDamageProvider, IBattleDamageReceiver, ISquadModelProvider
 {
     [SerializeField] private Collider2D _collider2D;
 
@@ -58,7 +58,7 @@ public class BattleSquadController : MonoBehaviour, IBattleDamageSource, IBattle
         UpdateColliderState();
     }
 
-    public BattleDamageData ResolveDamage()
+    public BattleDamageData CreateDamageData()
     {
         return _squadModel.ResolveDamage();
     }

@@ -37,6 +37,32 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             FinishDrag();
     }
 
+    private static bool TryGetPointerScreenPosition(out Vector3 position)
+    {
+        var mouse = Mouse.current;
+        if (mouse == null)
+        {
+            position = default;
+            return false;
+        }
+
+        Vector2 pointer = mouse.position.ReadValue();
+        position = new Vector3(pointer.x, pointer.y, 0f);
+        return true;
+    }
+
+    private static bool IsPointerPressedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasPressedThisFrame;
+    }
+
+    private static bool IsPointerReleasedThisFrame()
+    {
+        var mouse = Mouse.current;
+        return mouse != null && mouse.leftButton.wasReleasedThisFrame;
+    }
+
     private void TryStartDrag()
     {
         var draggable = RaycastForDraggable();
@@ -293,31 +319,5 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             BattleGridSlotSide.Enemy => squadModel.Kind == UnitKind.Enemy,
             _ => false
         };
-    }
-
-    private static bool TryGetPointerScreenPosition(out Vector3 position)
-    {
-        var mouse = Mouse.current;
-        if (mouse == null)
-        {
-            position = default;
-            return false;
-        }
-
-        Vector2 pointer = mouse.position.ReadValue();
-        position = new Vector3(pointer.x, pointer.y, 0f);
-        return true;
-    }
-
-    private static bool IsPointerPressedThisFrame()
-    {
-        var mouse = Mouse.current;
-        return mouse != null && mouse.leftButton.wasPressedThisFrame;
-    }
-
-    private static bool IsPointerReleasedThisFrame()
-    {
-        var mouse = Mouse.current;
-        return mouse != null && mouse.leftButton.wasReleasedThisFrame;
     }
 }

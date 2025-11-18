@@ -4,16 +4,16 @@ using UnityEngine;
 public static class BattleLogger
 {
     private const string BattlePrefix = "[Battle]";
-    private static readonly Dictionary<BattlePhase, int> PhaseCounters = new();
-    private static readonly Dictionary<BattleRoundState, int> RoundStateCounters = new();
+    private static readonly Dictionary<BattlePhaseStates, int> PhaseCounters = new();
+    private static readonly Dictionary<BattleRoundStates, int> RoundStateCounters = new();
 
-    public static void LogPhaseEntered(BattlePhase phase)
+    public static void LogPhaseEntered(BattlePhaseStates phase)
     {
         int occurrence = IncrementCounter(PhaseCounters, phase);
         Debug.Log($"{BattlePrefix}[Phase] Entered phase '{phase}' (#{occurrence}).");
     }
 
-    public static void LogRoundStateEntered(BattleRoundState state)
+    public static void LogRoundStateEntered(BattleRoundStates state)
     {
         int occurrence = IncrementCounter(RoundStateCounters, state);
         Debug.Log($"{BattlePrefix}[Round] Entered state '{state}' (#{occurrence}).");

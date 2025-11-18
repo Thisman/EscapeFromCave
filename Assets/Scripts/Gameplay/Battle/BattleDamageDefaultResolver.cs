@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 public sealed class BattleDamageDefaultResolver : IBattleDamageResolver
 {
-    public async Task ResolveDamage(IBattleDamageSource actor, IBattleDamageReceiver target)
+    public async Task ResolveDamage(IBattleDamageProvider actor, IBattleDamageReceiver target)
     {
-        BattleDamageData damage = actor.ResolveDamage();
+        BattleDamageData damage = actor.CreateDamageData();
         
         await target.ApplyDamage(damage);
     }

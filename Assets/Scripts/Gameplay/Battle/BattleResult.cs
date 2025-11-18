@@ -8,6 +8,7 @@ public enum BattleResultStatus
     Flee
 }
 
+// TODO: убрать структуру, поля перенести в BattleResult
 public readonly struct BattleUnitsResult
 {
     public BattleUnitsResult(

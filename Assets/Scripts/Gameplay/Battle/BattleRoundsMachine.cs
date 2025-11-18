@@ -9,7 +9,7 @@ public sealed class BattleRoundsMachine
     private bool _battleFinished;
     private bool _playerRequestedFlee;
     private readonly BattleContext _ctx;
-    private readonly StateMachine<BattleRoundState, BattleRoundTrigger> _sm;
+    private readonly StateMachine<BattleRoundStates, BattleRoundsTrigger> _sm;
 
     private readonly HashSet<IReadOnlySquadModel> _enemySquadSet = new();
     private readonly List<IReadOnlySquadModel> _enemySquadHistory = new();
@@ -22,40 +22,40 @@ public sealed class BattleRoundsMachine
     public BattleRoundsMachine(BattleContext ctx)
     {
         _ctx = ctx;
-        _sm = new StateMachine<BattleRoundState, BattleRoundTrigger>(BattleRoundState.RoundInit);
+        _sm = new StateMachine<BattleRoundStates, BattleRoundsTrigger>(BattleRoundStates.RoundInit);
 
-        _sm.Configure(BattleRoundState.RoundInit)
+        _sm.Configure(BattleRoundStates.RoundInit)
             .OnEntry(OnRoundInit)
-            .Permit(BattleRoundTrigger.InitTurn, BattleRoundState.TurnInit);
+            .Permit(BattleRoundsTrigger.InitTurn, BattleRoundStates.TurnInit);
 
-        _sm.Configure(BattleRoundState.TurnInit)
+        _sm.Configure(BattleRoundStates.TurnInit)
             .OnEntry(OnTurnInit)
-            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnStart)
-            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip)
-            .Permit(BattleRoundTrigger.EndRound, BattleRoundState.RoundEnd);
+            .Permit(BattleRoundsTrigger.NextTurn, BattleRoundStates.TurnStart)
+            .Permit(BattleRoundsTrigger.SkipTurn, BattleRoundStates.TurnSkip)
+            .Permit(BattleRoundsTrigger.EndRound, BattleRoundStates.RoundEnd);
 
-        _sm.Configure(BattleRoundState.TurnStart)
+        _sm.Configure(BattleRoundStates.TurnStart)
             .OnEntry(OnTurnStart)
-            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnWaitAction)
-            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip);
+            .Permit(BattleRoundsTrigger.NextTurn, BattleRoundStates.TurnWaitAction)
+            .Permit(BattleRoundsTrigger.SkipTurn, BattleRoundStates.TurnSkip);
 
-        _sm.Configure(BattleRoundState.TurnWaitAction)
+        _sm.Configure(BattleRoundStates.TurnWaitAction)
             .OnEntry(OnWaitTurnAction)
-            .Permit(BattleRoundTrigger.ActionDone, BattleRoundState.TurnEnd)
-            .Permit(BattleRoundTrigger.SkipTurn, BattleRoundState.TurnSkip);
+            .Permit(BattleRoundsTrigger.ActionDone, BattleRoundStates.TurnEnd)
+            .Permit(BattleRoundsTrigger.SkipTurn, BattleRoundStates.TurnSkip);
 
-        _sm.Configure(BattleRoundState.TurnSkip)
+        _sm.Configure(BattleRoundStates.TurnSkip)
             .OnEntry(OnTurnSkip)
-            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnEnd);
+            .Permit(BattleRoundsTrigger.NextTurn, BattleRoundStates.TurnEnd);
 
-        _sm.Configure(BattleRoundState.TurnEnd)
+        _sm.Configure(BattleRoundStates.TurnEnd)
             .OnEntry(OnTurnEnd)
-            .Permit(BattleRoundTrigger.NextTurn, BattleRoundState.TurnInit)
-            .Permit(BattleRoundTrigger.EndRound, BattleRoundState.RoundEnd);
+            .Permit(BattleRoundsTrigger.NextTurn, BattleRoundStates.TurnInit)
+            .Permit(BattleRoundsTrigger.EndRound, BattleRoundStates.RoundEnd);
 
-        _sm.Configure(BattleRoundState.RoundEnd)
+        _sm.Configure(BattleRoundStates.RoundEnd)
             .OnEntry(OnRoundEnd)
-            .Permit(BattleRoundTrigger.StartNewRound, BattleRoundState.RoundInit);
+            .Permit(BattleRoundsTrigger.StartNewRound, BattleRoundStates.RoundInit);
 
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
@@ -77,7 +77,7 @@ public sealed class BattleRoundsMachine
 
     private void OnRoundInit()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.RoundInit);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundInit);
         _ctx.DefendedUnitsThisRound?.Clear();
 
         var unitModels = _ctx.BattleUnits
@@ -89,27 +89,27 @@ public sealed class BattleRoundsMachine
         _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
-        _sm.Fire(BattleRoundTrigger.InitTurn);
+        _sm.Fire(BattleRoundsTrigger.InitTurn);
     }
 
     private void OnTurnInit()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnInit);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnInit);
         var queue = _ctx.BattleQueueController.GetQueue();
         if (queue.Count == 0)
         {
             _ctx.ActiveUnit = null;
-            _sm.Fire(BattleRoundTrigger.EndRound);
+            _sm.Fire(BattleRoundsTrigger.EndRound);
             return;
         }
 
         _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
-        _sm.Fire(BattleRoundTrigger.NextTurn);
+        _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
     private void OnTurnStart()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnStart);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnStart);
 
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
@@ -123,12 +123,12 @@ public sealed class BattleRoundsMachine
             _ctx.ActiveUnit
         );
 
-        _sm.Fire(BattleRoundTrigger.NextTurn);
+        _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
     private void OnWaitTurnAction()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnWaitAction);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnWaitAction);
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
         var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
@@ -139,7 +139,7 @@ public sealed class BattleRoundsMachine
             if (action == null)
             {
                 Debug.LogWarning($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Battle action controller returned no action. Skipping turn.");
-                _sm.Fire(BattleRoundTrigger.SkipTurn);
+                _sm.Fire(BattleRoundsTrigger.SkipTurn);
                 return;
             }
 
@@ -152,20 +152,20 @@ public sealed class BattleRoundsMachine
             {
                 Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Unexpected exception while resolving action: {exception}");
                 DetachCurrentAction();
-                _sm.Fire(BattleRoundTrigger.SkipTurn);
+                _sm.Fire(BattleRoundsTrigger.SkipTurn);
             }
         });
     }
 
     private void OnTurnSkip()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnSkip);
-        _sm.Fire(BattleRoundTrigger.NextTurn);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnSkip);
+        _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
     private void OnTurnEnd()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.TurnEnd);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnEnd);
         ClearActionSlotHighlights();
         ClearActiveUnitSlotHighlight();
 
@@ -176,15 +176,16 @@ public sealed class BattleRoundsMachine
 
         RemoveDefeatedUnits(_ctx.BattleQueueController, _ctx.BattleGridController);
 
-        if (CheckForBattleCompletion(_ctx.BattleQueueController))
+        if (CheckForBattleCompletion())
         {
             TriggerBattleFinish();
             return;
         }
 
-        _sm.Fire(BattleRoundTrigger.NextTurn);
+        _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
+    // TODO: перенести в BattleGridController
     private void HighlightActiveUnitSlot()
     {
         var activeUnitModel = _ctx.ActiveUnit;
@@ -206,6 +207,7 @@ public sealed class BattleRoundsMachine
         gridController.SetActiveSlot(slot);
     }
 
+    // TODO: перенести в BattleGridController
     private void ClearActiveUnitSlotHighlight()
     {
         _ctx.BattleGridController.ClearActiveSlot();
@@ -213,12 +215,12 @@ public sealed class BattleRoundsMachine
 
     private void OnRoundEnd()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundState.RoundEnd);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundEnd);
         if (_battleFinished)
             return;
 
         TriggerEffects(BattleEffectTrigger.OnRoundEnd);
-        _sm.Fire(BattleRoundTrigger.StartNewRound);
+        _sm.Fire(BattleRoundsTrigger.StartNewRound);
     }
 
     private void AttachAction(IBattleAction action)
@@ -280,22 +282,22 @@ public sealed class BattleRoundsMachine
                 TriggerEffects(BattleEffectTrigger.OnDefend, activeUnit);
                 _ctx.DefendedUnitsThisRound.Add(_ctx.ActiveUnit);
                 _ctx.BattleQueueController.AddLast(_ctx.ActiveUnit);
-                _sm.Fire(BattleRoundTrigger.SkipTurn);
+                _sm.Fire(BattleRoundsTrigger.SkipTurn);
                 break;
             case BattleActionSkipTurn:
                 TriggerEffects(BattleEffectTrigger.OnSkip, activeUnit);
-                _sm.Fire(BattleRoundTrigger.SkipTurn);
+                _sm.Fire(BattleRoundsTrigger.SkipTurn);
                 break;
             case BattleActionAttack:
                 TriggerEffects(BattleEffectTrigger.OnAttack, activeUnit);
-                _sm.Fire(BattleRoundTrigger.ActionDone);
+                _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             case BattleActionAbility:
                 TriggerEffects(BattleEffectTrigger.OnAbility, activeUnit);
-                _sm.Fire(BattleRoundTrigger.ActionDone);
+                _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             default:
-                _sm.Fire(BattleRoundTrigger.ActionDone);
+                _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
         }
     }
@@ -313,7 +315,8 @@ public sealed class BattleRoundsMachine
         OnWaitTurnAction();
     }
 
-    private bool CheckForBattleCompletion(BattleQueueController queueController)
+    // TODO: перенести в BattleResult
+    private bool CheckForBattleCompletion()
     {
         if (_battleFinished)
             return true;
@@ -372,13 +375,12 @@ public sealed class BattleRoundsMachine
 
         UnsubscribeFromSquadEvents();
 
-        if (_ctx.BattleUIController != null)
-            _ctx.BattleUIController.OnLeaveCombat -= HandleLeaveCombat;
+        _ctx.BattleUIController.OnLeaveCombat -= HandleLeaveCombat;
         _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
 
-        if (_sm.CanFire(BattleRoundTrigger.EndRound))
+        if (_sm.CanFire(BattleRoundsTrigger.EndRound))
         {
-            _sm.Fire(BattleRoundTrigger.EndRound);
+            _sm.Fire(BattleRoundsTrigger.EndRound);
         }
 
         var unitsResult = BuildUnitsResult();
@@ -440,6 +442,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: пеенести в BattleGridController
     private void ApplyActionSlotHighlights(IBattleAction action)
     {
         ClearActionSlotHighlights();
@@ -485,6 +488,7 @@ public sealed class BattleRoundsMachine
         gridController.HighlightSlots(availableSlots, BattleGridSlotHighlightMode.Available);
     }
 
+    // TODO: пеенести в BattleGridController
     private void ClearActionSlotHighlights()
     {
         var gridController = _ctx.BattleGridController;
@@ -495,6 +499,7 @@ public sealed class BattleRoundsMachine
         HighlightActiveUnitSlot();
     }
 
+    // TODO: перенести в BattleSquadController
     private void UpdateTargetValidity(IBattleActionTargetResolver targetResolver, IReadOnlySquadModel actor)
     {
         var units = _ctx.BattleUnits;
@@ -529,6 +534,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: Перенести в менеджеры эффектов и способностей
     private void SubscribeToSquadEvents()
     {
         var units = _ctx.BattleUnits;
@@ -551,6 +557,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: Перенести в менеджеры эффектов и способностей
     private void UnsubscribeFromSquadEvents()
     {
         if (_subscribedSquadModels.Count == 0)
@@ -565,6 +572,7 @@ public sealed class BattleRoundsMachine
         _subscribedSquadModels.Clear();
     }
 
+    // TODO: Перенести в менеджеры эффектов и способностей
     private void HandleSquadEvent(BattleSquadEvent squadEvent)
     {
         if (squadEvent.Type != BattleSquadEventType.ApplyDamage)
@@ -582,22 +590,16 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: Перенести в менеджеры эффектов и способностей
     private async void TriggerEffects(BattleEffectTrigger trigger)
     {
-        var effectsManager = _ctx?.BattleEffectsManager;
-        if (effectsManager == null)
-            return;
-
-        await effectsManager.Trigger(trigger);
+        await _ctx.BattleEffectsManager.Trigger(trigger);
     }
 
+    // TODO: Перенести в менеджеры эффектов и способностей
     private async void TriggerEffects(BattleEffectTrigger trigger, IReadOnlySquadModel unit)
     {
         if (unit == null)
-            return;
-
-        var effectsManager = _ctx?.BattleEffectsManager;
-        if (effectsManager == null)
             return;
 
         if (!_ctx.TryGetSquadController(unit, out var controller) || controller == null)
@@ -606,7 +608,7 @@ public sealed class BattleRoundsMachine
         if (!controller.TryGetComponent<BattleSquadEffectsController>(out var effectsController))
             return;
 
-        await effectsManager.Trigger(trigger, effectsController);
+        await _ctx.BattleEffectsManager.Trigger(trigger, effectsController);
     }
 
     private void HandleLeaveCombat()
@@ -615,6 +617,7 @@ public sealed class BattleRoundsMachine
         TriggerBattleFinish();
     }
 
+    // TODO: перенести резолв имени в BattleLogger
     private static string ResolveActionName(IBattleAction action)
     {
         switch (action)
@@ -637,6 +640,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: Должно создаваться в конструкторе BattleResult
     private BattleUnitsResult BuildUnitsResult()
     {
         TrackKnownSquads(_ctx.BattleUnits);
@@ -661,6 +665,7 @@ public sealed class BattleRoundsMachine
         TrackKnownSquads(_ctx.BattleUnits);
     }
 
+    // TODO: перенести метод в BattleResult
     private void TrackKnownSquads(IEnumerable<BattleSquadController> squads)
     {
         if (squads == null)
@@ -676,6 +681,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: перенести метод в BattleResult
     private void TrackKnownSquadModel(IReadOnlySquadModel model)
     {
         if (model == null)
@@ -695,6 +701,7 @@ public sealed class BattleRoundsMachine
         }
     }
 
+    // TODO: перенести метод в BattleResult
     private BattleResultStatus DetermineBattleStatus(BattleUnitsResult unitsResult)
     {
         if (_playerRequestedFlee)

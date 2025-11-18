@@ -20,7 +20,7 @@ public class BattleSceneManager : MonoBehaviour
 
     private BattleSceneData _battleData;
     private BattleContext _battleContext;
-    private BattlePhaseMachine _battlePhaseMachine;
+    private BattlePhasesMachine _battlePhaseMachine;
     private BattleRoundsMachine _battleRoundMachine;
 
     private string _originSceneName;
@@ -34,7 +34,7 @@ public class BattleSceneManager : MonoBehaviour
         InitializeBattleUnits();
         InitializeStateMachines();
 
-        _battlePhaseMachine.Fire(BattleTrigger.StartBattle);
+        _battlePhaseMachine.Fire(BattlePhasesTrigger.StartBattle);
         await _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
     }
 
@@ -110,7 +110,7 @@ public class BattleSceneManager : MonoBehaviour
     private void InitializeStateMachines()
     {
         _battleRoundMachine = new BattleRoundsMachine(_battleContext);
-        _battlePhaseMachine = new BattlePhaseMachine(_battleContext, _battleRoundMachine);
+        _battlePhaseMachine = new BattlePhasesMachine(_battleContext, _battleRoundMachine);
     }
 
     private void SubscribeToUiEvents()

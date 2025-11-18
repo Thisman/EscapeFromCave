@@ -1,1 +1,0 @@
-public enum BattlePhase { Loading, Tactics, BattleRounds, Results }

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DamageBattleEffect", menuName = "Gameplay/Battle Effects/Damage Effect")]
-public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageSource
+public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageProvider
 {
     [Min(0)]
     public int Damage;
@@ -20,7 +20,7 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageSource
         await new BattleDamageDefaultResolver().ResolveDamage(this, squadController);
     }
 
-    public BattleDamageData ResolveDamage()
+    public BattleDamageData CreateDamageData()
     {
         return new BattleDamageData(_effectDamageType, Damage);
     }

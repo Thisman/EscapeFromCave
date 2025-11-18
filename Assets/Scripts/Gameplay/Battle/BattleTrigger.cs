@@ -1,1 +1,0 @@
-public enum BattleTrigger { StartBattle, StartBattleRound, ShowBattleResults }
