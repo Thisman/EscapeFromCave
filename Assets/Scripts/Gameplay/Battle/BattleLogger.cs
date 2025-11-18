@@ -62,6 +62,28 @@ public static class BattleLogger
         Debug.Log($"{BattlePrefix}[Death] {FormatUnitName(unit)} has been defeated.");
     }
 
+    public static string ResolveActionName(IBattleAction action)
+    {
+        switch (action)
+        {
+            case BattleActionAttack:
+                return "Attack";
+            case BattleActionDefend:
+                return "Defend";
+            case BattleActionSkipTurn:
+                return "Skip Turn";
+            case BattleActionAbility abilityAction:
+                var ability = abilityAction.Ability;
+                if (ability == null)
+                    return "Ability";
+                return string.IsNullOrWhiteSpace(ability.AbilityName)
+                    ? (!string.IsNullOrWhiteSpace(ability.name) ? ability.name : "Ability")
+                    : ability.AbilityName;
+            default:
+                return action?.GetType().Name ?? "Unknown";
+        }
+    }
+
     private static int IncrementCounter<T>(Dictionary<T, int> counters, T key)
     {
         if (!counters.TryGetValue(key, out int count))

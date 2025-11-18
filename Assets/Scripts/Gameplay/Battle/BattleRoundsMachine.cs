@@ -275,7 +275,7 @@ public sealed class BattleRoundsMachine
 
         if (resolvedAction != null && activeUnit != null)
         {
-            BattleLogger.LogUnitAction(activeUnit, ResolveActionName(resolvedAction));
+            BattleLogger.LogUnitAction(activeUnit, BattleLogger.ResolveActionName(resolvedAction));
             TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
         }
 
@@ -569,29 +569,6 @@ public sealed class BattleRoundsMachine
     {
         _playerRequestedFlee = true;
         TriggerBattleFinish();
-    }
-
-    // TODO: перенести резолв имени в BattleLogger
-    private static string ResolveActionName(IBattleAction action)
-    {
-        switch (action)
-        {
-            case BattleActionAttack:
-                return "Attack";
-            case BattleActionDefend:
-                return "Defend";
-            case BattleActionSkipTurn:
-                return "Skip Turn";
-            case BattleActionAbility abilityAction:
-                var ability = abilityAction.Ability;
-                if (ability == null)
-                    return "Ability";
-                return string.IsNullOrWhiteSpace(ability.AbilityName)
-                    ? (!string.IsNullOrWhiteSpace(ability.name) ? ability.name : "Ability")
-                    : ability.AbilityName;
-            default:
-                return action?.GetType().Name ?? "Unknown";
-        }
     }
 
     private void InitializeSquadHistory()
