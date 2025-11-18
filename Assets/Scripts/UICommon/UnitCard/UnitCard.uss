@@ -114,3 +114,23 @@
     height: 32px;
     margin: 8px;
 }
+
+.unit-card__level-progress {
+    align-self: stretch;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    height: 28px;
+    color: rgb(255, 255, 255);
+    display: none;
+}
+
+.unit-card__level-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: none;
+}

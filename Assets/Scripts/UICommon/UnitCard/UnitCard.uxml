@@ -12,6 +12,8 @@
         </ui:VisualElement>
         <ui:VisualElement name="EffectsList" class="effect-list" style="flex-grow: 1;">
         </ui:VisualElement>
+        <ui:ProgressBar name="LevelProgress" class="unit-card__level-progress" low-value="0" high-value="1" value="0" />
+        <ui:Label name="LevelLabel" class="unit-card__level-label" />
         <ui:VisualElement name="Info" class="unit-card__info" />
     </ui:VisualElement>
 </ui:UXML>

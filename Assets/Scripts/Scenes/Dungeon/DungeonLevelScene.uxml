@@ -9,6 +9,5 @@
             <ui:VisualElement name="Space" style="flex-grow: 1; width: 30%;" />
         </ui:VisualElement>
         <ui:Instance template="UnitCardTemplate" name="SquadInfoCard" class="dungeon-card dungeon-card--hidden" />
-        <ui:ProgressBar name="SquadLevelProgress" class="dungeon-card__progress dungeon-card--hidden" low-value="0" high-value="1" value="0" />
     </ui:VisualElement>
 </ui:UXML>
