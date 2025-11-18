@@ -14,7 +14,13 @@ public static class UnitLevelExpFunctionExtensions
         switch (function)
         {
             case UnitLevelExpFunction.Linear:
-                return Mathf.Max(1, Mathf.FloorToInt(experience / 100f) + 1);
+                const float coefficient = 0.16f; // 4/25
+                const float offset = -7f;
+                const float constant = 49f;
+
+                var discriminant = Mathf.Sqrt(constant + coefficient * experience);
+                var level = Mathf.FloorToInt((offset + discriminant) / 2f) + 1;
+                return Mathf.Max(1, level);
             default:
                 return 1;
         }
@@ -27,7 +33,7 @@ public static class UnitLevelExpFunctionExtensions
         switch (function)
         {
             case UnitLevelExpFunction.Linear:
-                return (level - 1) * 100f;
+                return 25f * (level - 1) * (level + 6);
             default:
                 return 0f;
         }
