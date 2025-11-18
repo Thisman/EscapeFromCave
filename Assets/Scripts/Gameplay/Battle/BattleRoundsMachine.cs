@@ -18,6 +18,9 @@ public sealed class BattleRoundsMachine
     private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
     private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
     private readonly Dictionary<IReadOnlySquadModel, int> _initialSquadCounts = new();
+    private readonly PlayerBattleActionController _playerTurnController;
+    private readonly AIBattleActionController _enemyTurnController;
+    private readonly ProviderForBattleActionController _actionControllerResolver;
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -59,9 +62,9 @@ public sealed class BattleRoundsMachine
             .OnEntry(OnRoundEnd)
             .Permit(BattleRoundsTrigger.StartNewRound, BattleRoundStates.RoundInit);
 
-        AIBattleActionController enemyTurnController = new();
-        PlayerBattleActionController playerTurnController = new();
-        ProviderForBattleActionController _actionControllerResolver = new(playerTurnController, enemyTurnController);
+        _playerTurnController = new PlayerBattleActionController();
+        _enemyTurnController = new AIBattleActionController();
+        _actionControllerResolver = new ProviderForBattleActionController(_playerTurnController, _enemyTurnController);
     }
 
     public void Reset()
@@ -132,10 +135,7 @@ public sealed class BattleRoundsMachine
     private void OnWaitTurnAction()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnWaitAction);
-        AIBattleActionController enemyTurnController = new();
-        PlayerBattleActionController playerTurnController = new();
-        var actionControllerResolver = new ProviderForBattleActionController(playerTurnController, enemyTurnController);
-        IBattleActionController controller = actionControllerResolver.ResolveFor(_ctx.ActiveUnit);
+        IBattleActionController controller = _actionControllerResolver.ResolveFor(_ctx.ActiveUnit);
 
         controller.RequestAction(_ctx, action =>
         {
