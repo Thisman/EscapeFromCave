@@ -31,6 +31,8 @@
                     <ui:FloatField name="BaseCritChanceField" class="unit-editor__property" label="Шанс крита" />
                     <ui:FloatField name="BaseCritMultiplierField" class="unit-editor__property" label="Множитель крита" />
                     <ui:FloatField name="BaseMissChanceField" class="unit-editor__property" label="Шанс промаха" />
+                    <uie:ObjectField name="ProgressionTemplateField" class="unit-editor__property" label="Шаблон прокачки" />
+                    <uie:EnumField name="LevelExpFunctionField" class="unit-editor__property" label="Формула опыта" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="unit-editor__abilities">
