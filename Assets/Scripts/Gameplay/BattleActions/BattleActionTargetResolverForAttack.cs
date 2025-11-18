@@ -21,61 +21,47 @@ public sealed class BattleActionTargetResolverForAttack : IBattleActionTargetRes
         if (IsSameSide(actor.Kind, target.Kind))
             return false;
 
-        if (actor.AttackKind == AttackKind.Range || actor.AttackKind == AttackKind.Magic)
-            return true;
-
         var grid = _context.BattleGridController;
         if (grid == null)
             return false;
 
+        if (actor.AttackKind == AttackKind.Range || actor.AttackKind == AttackKind.Magic)
+            return true;
+
         if (!_context.TryGetSquadController(target, out var targetController) || targetController == null)
             return false;
 
-        if (!TryGetRow(targetController.transform, out var targetRow))
+        if (!grid.TryGetSlotForOccupant(targetController.transform, out var targetSlot))
+            return false;
+
+        if (!grid.TryGetSlotRow(targetSlot, out var targetRow))
             return false;
 
         if (targetRow == BattleGridRow.Front)
             return true;
 
-        return !HasFrontlineUnits(target);
+        return !HasBlockingFrontlineUnit(targetSlot);
     }
 
-    private bool HasFrontlineUnits(IReadOnlySquadModel target)
+    private bool HasBlockingFrontlineUnit(Transform targetSlot)
     {
-        var units = _context.BattleUnits;
-
-        foreach (var unit in units)
-        {
-            var model = unit.GetSquadModel();
-            if (model == null || ReferenceEquals(model, target))
-                continue;
-
-
-            if (!IsSameSide(target.Kind, model.Kind))
-                continue;
-
-            if (model.IsEmpty)
-                continue;
-
-            if (TryGetRow(unit.transform, out var row) && row == BattleGridRow.Front)
-                return true;
-        }
-
-        return false;
-    }
-
-    private bool TryGetRow(Transform occupant, out BattleGridRow row)
-    {
-        row = default;
-
         var grid = _context.BattleGridController;
-        if (grid == null || occupant == null)
+        if (grid == null)
             return false;
 
-        if (!grid.TryGetSlotForOccupant(occupant, out var slot))
+        if (!grid.TryGetFrontSlotFor(targetSlot, out var frontSlot))
             return false;
 
-        return grid.TryGetSlotRow(slot, out row);
+        if (!grid.TryGetSlotOccupant(frontSlot, out var occupant) || occupant == null)
+            return false;
+
+        var modelProvider = occupant.GetComponent<ISquadModelProvider>();
+        var model = modelProvider?.GetSquadModel();
+
+        if (model == null || model.IsEmpty)
+            return false;
+
+        return true;
     }
 
     private static bool IsSameSide(UnitKind source, UnitKind target)
