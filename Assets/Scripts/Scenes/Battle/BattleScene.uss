@@ -255,10 +255,30 @@
     border-left-color: rgba(255, 255, 255, 0.2);
 }
 
-.result-squad__count {
+.result-squad__count-wrapper {
+    flex-direction: row;
     margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+}
+
+.result-squad__count {
     font-size: 16px;
     color: rgb(255, 255, 255);
+}
+
+.result-squad__delta {
+    font-size: 14px;
+    color: rgb(255, 90, 90);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+}
+
+.result-squad__delta--visible {
+    opacity: 1;
 }
 
 .result-squad__name {

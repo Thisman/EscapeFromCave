@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f12ab4bc7d4c7886c189ceba9d2815, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleUIController
+  m_EditorClassIdentifier: Assembly-CSharp::BattleSceneUIController
   _uiDocument: {fileID: 132701714}
 --- !u!114 &132701714
 MonoBehaviour:
@@ -787,7 +787,7 @@ MonoBehaviour:
   - {fileID: 628714506}
   _battleGridController: {fileID: 1416069488}
   _battleGridDragAndDropController: {fileID: 1416069487}
-  _battleUIController: {fileID: 132701713}
+  _battleSceneUIController: {fileID: 132701713}
 --- !u!1 &449870185
 GameObject:
   m_ObjectHideFlags: 0

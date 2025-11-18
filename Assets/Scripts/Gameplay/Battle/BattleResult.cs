@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public enum BattleResultStatus
 {
@@ -27,12 +28,18 @@ public readonly struct BattleUnitsResult
 
 public sealed class BattleResult
 {
+    private readonly IReadOnlyDictionary<IReadOnlySquadModel, int> _initialSquadCounts;
+
     public BattleResult(
         bool playerRequestedFlee,
         IReadOnlyCollection<IReadOnlySquadModel> friendlySquads,
-        IReadOnlyCollection<IReadOnlySquadModel> enemySquads)
+        IReadOnlyCollection<IReadOnlySquadModel> enemySquads,
+        IReadOnlyDictionary<IReadOnlySquadModel, int> initialSquadCounts)
     {
         BattleUnitsResult = BuildUnitsResult(friendlySquads, enemySquads);
+        _initialSquadCounts = initialSquadCounts != null
+            ? new Dictionary<IReadOnlySquadModel, int>(initialSquadCounts)
+            : new Dictionary<IReadOnlySquadModel, int>();
         Status = DetermineBattleStatus(playerRequestedFlee);
     }
 
@@ -40,11 +47,24 @@ public sealed class BattleResult
 
     public BattleUnitsResult BattleUnitsResult { get; }
 
+    public IReadOnlyDictionary<IReadOnlySquadModel, int> InitialSquadCounts => _initialSquadCounts;
+
     public bool IsVictory => Status == BattleResultStatus.Victory;
 
     public bool IsDefeat => Status == BattleResultStatus.Defeat;
 
     public bool IsFlee => Status == BattleResultStatus.Flee;
+
+    public int GetInitialCount(IReadOnlySquadModel squad)
+    {
+        if (squad == null)
+            return 0;
+
+        if (_initialSquadCounts != null && _initialSquadCounts.TryGetValue(squad, out int count))
+            return count;
+
+        return Mathf.Max(0, squad.Count);
+    }
 
     public static bool CheckForBattleCompletion(bool battleFinished, IReadOnlyList<BattleSquadController> units)
     {

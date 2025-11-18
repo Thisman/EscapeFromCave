@@ -17,6 +17,7 @@ public sealed class BattleRoundsMachine
     private readonly List<BattleSquadModel> _subscribedSquadModels = new();
     private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
     private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
+    private readonly Dictionary<IReadOnlySquadModel, int> _initialSquadCounts = new();
 
     public event Action<BattleResult> OnBattleRoundsFinished;
 
@@ -69,7 +70,7 @@ public sealed class BattleRoundsMachine
         _battleFinished = false;
         _playerRequestedFlee = false;
         _battleResult = null;
-        _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
+        _ctx.BattleSceneUIController.OnLeaveCombat += HandleLeaveCombat;
         InitializeSquadHistory();
         UpdateTargetValidity(null, null);
         SubscribeToSquadEvents();
@@ -88,7 +89,7 @@ public sealed class BattleRoundsMachine
                 .Where(model => model != null);
 
         _ctx.BattleQueueController.Build(unitModels);
-        _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
+        _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _sm.Fire(BattleRoundsTrigger.InitTurn);
@@ -105,7 +106,7 @@ public sealed class BattleRoundsMachine
             return;
         }
 
-        _ctx.BattleUIController.RenderQueue(_ctx.BattleQueueController);
+        _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
         _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
@@ -119,7 +120,7 @@ public sealed class BattleRoundsMachine
         BattleLogger.LogActiveUnit(_ctx.ActiveUnit);
 
         TriggerEffects(BattleEffectTrigger.OnTurnStart);
-        _ctx.BattleUIController.RenderAbilityList(
+        _ctx.BattleSceneUIController.RenderAbilityList(
             _ctx.ActiveUnit.Abilities,
             _ctx.BattleAbilitiesManager,
             _ctx.ActiveUnit
@@ -235,11 +236,11 @@ public sealed class BattleRoundsMachine
 
         if (action is BattleActionAbility abilityAction)
         {
-            _ctx.BattleUIController.HighlightAbility(abilityAction.Ability);
+            _ctx.BattleSceneUIController.HighlightAbility(abilityAction.Ability);
         }
         else
         {
-            _ctx.BattleUIController.ResetAbilityHighlight();
+            _ctx.BattleSceneUIController.ResetAbilityHighlight();
         }
 
         ApplyActionSlotHighlights(action);
@@ -258,7 +259,7 @@ public sealed class BattleRoundsMachine
             disposable.Dispose();
         }
 
-        _ctx.BattleUIController.ResetAbilityHighlight();
+        _ctx.BattleSceneUIController.ResetAbilityHighlight();
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
 
@@ -312,7 +313,7 @@ public sealed class BattleRoundsMachine
         if (!_ctx.ActiveUnit.IsFriendly())
             return;
 
-        _ctx.BattleUIController.ResetAbilityHighlight();
+        _ctx.BattleSceneUIController.ResetAbilityHighlight();
 
         OnWaitTurnAction();
     }
@@ -326,7 +327,7 @@ public sealed class BattleRoundsMachine
 
         UnsubscribeFromSquadEvents();
 
-        _ctx.BattleUIController.OnLeaveCombat -= HandleLeaveCombat;
+        _ctx.BattleSceneUIController.OnLeaveCombat -= HandleLeaveCombat;
         _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
 
         if (_sm.CanFire(BattleRoundsTrigger.EndRound))
@@ -338,7 +339,8 @@ public sealed class BattleRoundsMachine
         _battleResult = new BattleResult(
             _playerRequestedFlee,
             _friendlySquadHistory,
-            _enemySquadHistory);
+            _enemySquadHistory,
+            _initialSquadCounts);
 
         OnBattleRoundsFinished?.Invoke(_battleResult);
     }
@@ -598,6 +600,7 @@ public sealed class BattleRoundsMachine
         _enemySquadHistory.Clear();
         _friendlySquadSet.Clear();
         _enemySquadSet.Clear();
+        _initialSquadCounts.Clear();
         TrackKnownSquads(_ctx.BattleUnits);
     }
 
@@ -620,6 +623,9 @@ public sealed class BattleRoundsMachine
     {
         if (model == null)
             return;
+
+        if (!_initialSquadCounts.ContainsKey(model))
+            _initialSquadCounts[model] = Mathf.Max(0, model.Count);
 
         if (model.IsFriendly() || model.IsAlly() || model.IsHero())
         {

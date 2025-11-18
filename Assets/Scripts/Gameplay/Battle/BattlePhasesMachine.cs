@@ -46,8 +46,8 @@ public sealed class BattlePhasesMachine
     private void OnEnterTactics()
     {
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Tactics);
-        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.TacticPanel);
-        _ctx.BattleUIController.OnStartCombat += HandleStartBattleRounds;
+        _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.TacticPanel);
+        _ctx.BattleSceneUIController.OnStartCombat += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
         {
             Debug.LogWarning($"[{nameof(BattlePhasesMachine)}.{nameof(OnEnterTactics)}] Failed to place battle units on the grid.");
@@ -58,7 +58,7 @@ public sealed class BattlePhasesMachine
     private void OnEnterRounds()
     {
         BattleLogger.LogPhaseEntered(BattlePhaseStates.BattleRounds);
-        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.CombatPanel);
+        _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.CombatPanel);
         _battleRoundsMachine.Reset();
         _battleRoundsMachine.BeginRounds();
     }
@@ -67,8 +67,8 @@ public sealed class BattlePhasesMachine
     {
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Results);
         _ctx.IsFinished = true;
-        _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.ResultPanel);
-        _ctx.BattleUIController.ShowResult(_battleResult);
+        _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.ResultPanel);
+        _ctx.BattleSceneUIController.ShowResult(_battleResult);
 
         if (_ctx.BattleUnits != null)
         {
@@ -82,8 +82,8 @@ public sealed class BattlePhasesMachine
     private void OnExitTactics()
     {
         _ctx.BattleGridController.DisableSlotsCollider();
-        if (_ctx.BattleUIController != null)
-            _ctx.BattleUIController.OnStartCombat -= HandleStartBattleRounds;
+        if (_ctx.BattleSceneUIController != null)
+            _ctx.BattleSceneUIController.OnStartCombat -= HandleStartBattleRounds;
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 

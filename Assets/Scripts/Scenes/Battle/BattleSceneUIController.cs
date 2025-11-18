@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public sealed class BattleUIController : MonoBehaviour, ISceneUIController
+public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 {
     private const string BodyElementName = "Body";
     private const string StartCombatButtonName = "StartCombatButton";
@@ -44,12 +44,13 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private const string ResultSquadDeadClassName = "result-squad--dead";
     private const string ResultSquadVisibleClassName = "result-squad--visible";
     private const string ResultSquadIconClassName = "result-squad__icon";
+    private const string ResultSquadCountWrapperClassName = "result-squad__count-wrapper";
     private const string ResultSquadCountClassName = "result-squad__count";
+    private const string ResultSquadDeltaClassName = "result-squad__delta";
+    private const string ResultSquadDeltaVisibleClassName = "result-squad__delta--visible";
     private const string ResultSquadNameClassName = "result-squad__name";
 
     private const float ResultSquadAnimationDelaySeconds = 0.08f;
-
-    private static readonly WaitForSeconds ResultSquadAnimationDelay = new(ResultSquadAnimationDelaySeconds);
 
     private static readonly UnitCardStatField[] BattleCardStatFields =
     {
@@ -76,6 +77,19 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         TacticPanel,
         CombatPanel,
         ResultPanel
+    }
+
+    private readonly struct ResultSquadView
+    {
+        public ResultSquadView(VisualElement root, VisualElement delta)
+        {
+            Root = root;
+            Delta = delta;
+        }
+
+        public VisualElement Root { get; }
+
+        public VisualElement Delta { get; }
     }
 
     [SerializeField] private UIDocument _uiDocument;
@@ -106,7 +120,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     private BattleSquadEffectsController _displayedEffectsController;
     private Camera _mainCamera;
     private int _unitsLayerMask;
-    private Coroutine _resultSquadAnimationCoroutine;
+    private Sequence _resultSquadAnimationSequence;
     private VisualElement _bodyElement;
 
     private bool _isAttached;
@@ -150,7 +164,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
     {
         if (document == null)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] UIDocument reference is missing.");
+            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] UIDocument reference is missing.");
             return;
         }
 
@@ -164,14 +178,14 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
         VisualElement root = document.rootVisualElement;
         if (root == null)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] UIDocument root element is missing.");
+            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] UIDocument root element is missing.");
             return;
         }
 
         VisualElement body = root.Q(BodyElementName);
         if (body == null)
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] Body element was not found in the UI document.");
+            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] Body element was not found in the UI document.");
             return;
         }
 
@@ -185,7 +199,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             VisualElement panel = body.Q<VisualElement>(panelName.ToString());
             if (panel == null)
             {
-                Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(AttachToPanel)}] Panel '{panelName}' was not found.");
+                Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] Panel '{panelName}' was not found.");
                 continue;
             }
 
@@ -315,7 +329,7 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
         if (!_panels.TryGetValue(panelName, out VisualElement targetPanel))
         {
-            Debug.LogWarning($"[{nameof(BattleUIController)}.{nameof(ShowPanel)}] Panel '{panelName}' is not registered.");
+            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(ShowPanel)}] Panel '{panelName}' is not registered.");
             return;
         }
 
@@ -468,6 +482,9 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
 
     public void ShowResult(BattleResult result)
     {
+        if (result == null)
+            return;
+
         StopResultSquadAnimation();
 
         if (_resultStatusLabel != null)
@@ -481,15 +498,25 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             };
         }
 
-        List<VisualElement> friendlyElements = RenderResultSquads(_playerSquadResults, result.BattleUnitsResult.FriendlyUnits);
-        List<VisualElement> enemyElements = RenderResultSquads(_enemySquadResults, result.BattleUnitsResult.EnemyUnits);
+        List<ResultSquadView> friendlyElements = RenderResultSquads(
+            _playerSquadResults,
+            result.BattleUnitsResult.FriendlyUnits,
+            result);
+
+        List<ResultSquadView> enemyElements = RenderResultSquads(
+            _enemySquadResults,
+            result.BattleUnitsResult.EnemyUnits,
+            result);
 
         AnimateResultSquadReveal(friendlyElements, enemyElements);
     }
 
-    private List<VisualElement> RenderResultSquads(VisualElement container, IReadOnlyList<IReadOnlySquadModel> squads)
+    private List<ResultSquadView> RenderResultSquads(
+        VisualElement container,
+        IReadOnlyList<IReadOnlySquadModel> squads,
+        BattleResult battleResult)
     {
-        var createdElements = new List<VisualElement>();
+        var createdElements = new List<ResultSquadView>();
 
         if (container == null)
             return createdElements;
@@ -504,15 +531,15 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             if (squad == null)
                 continue;
 
-            VisualElement squadElement = CreateResultSquadElement(squad);
-            container.Add(squadElement);
-            createdElements.Add(squadElement);
+            ResultSquadView squadView = CreateResultSquadElement(squad, battleResult);
+            container.Add(squadView.Root);
+            createdElements.Add(squadView);
         }
 
         return createdElements;
     }
 
-    private VisualElement CreateResultSquadElement(IReadOnlySquadModel squad)
+    private ResultSquadView CreateResultSquadElement(IReadOnlySquadModel squad, BattleResult battleResult)
     {
         var root = new VisualElement();
         root.AddToClassList(ResultSquadClassName);
@@ -524,14 +551,24 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             icon.style.backgroundImage = new StyleBackground(squad.Icon);
         }
 
+        var countWrapper = new VisualElement();
+        countWrapper.AddToClassList(ResultSquadCountWrapperClassName);
+
         var countLabel = new Label(Mathf.Max(0, squad.Count).ToString());
         countLabel.AddToClassList(ResultSquadCountClassName);
+        countWrapper.Add(countLabel);
+
+        Label deltaLabel = CreateResultSquadDeltaLabel(battleResult, squad);
+        if (deltaLabel != null)
+        {
+            countWrapper.Add(deltaLabel);
+        }
 
         var nameLabel = new Label(squad.UnitName ?? string.Empty);
         nameLabel.AddToClassList(ResultSquadNameClassName);
 
         root.Add(icon);
-        root.Add(countLabel);
+        root.Add(countWrapper);
         root.Add(nameLabel);
 
         if (squad.IsEmpty || squad.Count <= 0)
@@ -539,48 +576,129 @@ public sealed class BattleUIController : MonoBehaviour, ISceneUIController
             root.AddToClassList(ResultSquadDeadClassName);
         }
 
-        return root;
+        return new ResultSquadView(root, deltaLabel);
     }
 
-    private void AnimateResultSquadReveal(IReadOnlyList<VisualElement> friendlySquads, IReadOnlyList<VisualElement> enemySquads)
+    private Label CreateResultSquadDeltaLabel(BattleResult battleResult, IReadOnlySquadModel squad)
+    {
+        if (battleResult == null || squad == null)
+            return null;
+
+        int finalCount = Mathf.Max(0, squad.Count);
+        int initialCount = Mathf.Max(0, battleResult.GetInitialCount(squad));
+        int delta = finalCount - initialCount;
+
+        if (delta == 0)
+            return null;
+
+        string text = FormatResultSquadDelta(delta);
+        if (string.IsNullOrEmpty(text))
+            return null;
+
+        var label = new Label(text);
+        label.AddToClassList(ResultSquadDeltaClassName);
+        return label;
+    }
+
+    private static string FormatResultSquadDelta(int delta)
+    {
+        if (delta == 0)
+            return null;
+
+        string sign = delta > 0 ? "+" : "-";
+        return $"({sign}{Mathf.Abs(delta)})";
+    }
+
+    private void AnimateResultSquadReveal(
+        IReadOnlyList<ResultSquadView> friendlySquads,
+        IReadOnlyList<ResultSquadView> enemySquads)
     {
         StopResultSquadAnimation();
 
-        if ((friendlySquads == null || friendlySquads.Count == 0) && (enemySquads == null || enemySquads.Count == 0))
+        bool hasFriendly = friendlySquads != null && friendlySquads.Count > 0;
+        bool hasEnemy = enemySquads != null && enemySquads.Count > 0;
+
+        if (!hasFriendly && !hasEnemy)
             return;
 
-        _resultSquadAnimationCoroutine = StartCoroutine(AnimateResultSquadRevealRoutine(friendlySquads, enemySquads));
-    }
+        Sequence sequence = DOTween.Sequence();
+        sequence.SetUpdate(true);
 
-    private IEnumerator AnimateResultSquadRevealRoutine(IReadOnlyList<VisualElement> friendlySquads, IReadOnlyList<VisualElement> enemySquads)
-    {
-        yield return AnimateSquadGroup(friendlySquads);
-        yield return AnimateSquadGroup(enemySquads);
-        _resultSquadAnimationCoroutine = null;
-    }
+        AppendSquadGroupReveal(sequence, friendlySquads);
+        AppendSquadGroupReveal(sequence, enemySquads);
 
-    private IEnumerator AnimateSquadGroup(IReadOnlyList<VisualElement> squads)
-    {
-        if (squads == null || squads.Count == 0)
-            yield break;
-
-        foreach (VisualElement squad in squads)
+        List<VisualElement> deltaElements = CollectDeltaElements(friendlySquads, enemySquads);
+        if (deltaElements.Count > 0)
         {
-            if (squad == null)
+            sequence.AppendInterval(ResultSquadAnimationDelaySeconds);
+            AppendDeltaReveal(sequence, deltaElements);
+        }
+
+        _resultSquadAnimationSequence = sequence;
+    }
+
+    private static List<VisualElement> CollectDeltaElements(
+        IReadOnlyList<ResultSquadView> friendlySquads,
+        IReadOnlyList<ResultSquadView> enemySquads)
+    {
+        var deltaElements = new List<VisualElement>();
+        AppendDeltaElements(deltaElements, friendlySquads);
+        AppendDeltaElements(deltaElements, enemySquads);
+        return deltaElements;
+    }
+
+    private static void AppendDeltaElements(List<VisualElement> target, IReadOnlyList<ResultSquadView> source)
+    {
+        if (target == null || source == null || source.Count == 0)
+            return;
+
+        foreach (ResultSquadView squad in source)
+        {
+            if (squad.Delta != null)
+            {
+                target.Add(squad.Delta);
+            }
+        }
+    }
+
+    private void AppendSquadGroupReveal(Sequence sequence, IReadOnlyList<ResultSquadView> squads)
+    {
+        if (sequence == null || squads == null || squads.Count == 0)
+            return;
+
+        foreach (ResultSquadView squad in squads)
+        {
+            VisualElement element = squad.Root;
+            if (element == null)
                 continue;
 
-            squad.AddToClassList(ResultSquadVisibleClassName);
-            yield return ResultSquadAnimationDelay;
+            sequence.AppendCallback(() => element.AddToClassList(ResultSquadVisibleClassName));
+            sequence.AppendInterval(ResultSquadAnimationDelaySeconds);
+        }
+    }
+
+    private void AppendDeltaReveal(Sequence sequence, IReadOnlyList<VisualElement> deltas)
+    {
+        if (sequence == null || deltas == null || deltas.Count == 0)
+            return;
+
+        foreach (VisualElement delta in deltas)
+        {
+            if (delta == null)
+                continue;
+
+            sequence.AppendCallback(() => delta.AddToClassList(ResultSquadDeltaVisibleClassName));
+            sequence.AppendInterval(ResultSquadAnimationDelaySeconds);
         }
     }
 
     private void StopResultSquadAnimation()
     {
-        if (_resultSquadAnimationCoroutine == null)
+        if (_resultSquadAnimationSequence == null)
             return;
 
-        StopCoroutine(_resultSquadAnimationCoroutine);
-        _resultSquadAnimationCoroutine = null;
+        _resultSquadAnimationSequence.Kill();
+        _resultSquadAnimationSequence = null;
     }
 
     private void HandleStartCombatClicked(ClickEvent evt)
