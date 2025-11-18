@@ -134,3 +134,8 @@
     margin-bottom: 8px;
     display: none;
 }
+
+.unit-card__level-progress .unity-progress-bar__title-container {
+    color: rgb(0, 0, 0);
+    -unity-font-style: bold;
+}
