@@ -3,9 +3,12 @@ using UnityEngine;
 
 public sealed class BattlePhasesMachine
 {
+    private BattleResult _battleResult;
     private readonly BattleContext _ctx;
     private readonly BattleRoundsMachine _battleRoundsMachine;
     private readonly StateMachine<BattlePhaseStates, BattlePhasesTrigger> _sm;
+
+    public BattleResult BattleResult => _battleResult;
 
     public BattlePhasesMachine(BattleContext ctx, BattleRoundsMachine battleRoundsMachine)
     {
@@ -65,7 +68,7 @@ public sealed class BattlePhasesMachine
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Results);
         _ctx.IsFinished = true;
         _ctx.BattleUIController.ShowPanel(BattleUIController.PanelName.ResultPanel);
-        _ctx.BattleUIController.ShowResult(_ctx.BattleResult);
+        _ctx.BattleUIController.ShowResult(_battleResult);
 
         if (_ctx.BattleUnits != null)
         {
@@ -96,7 +99,7 @@ public sealed class BattlePhasesMachine
 
     private void HandleBattleFinished(BattleResult result)
     {
-        _ctx.BattleResult = result;
+        _battleResult = result;
         Fire(BattlePhasesTrigger.ShowBattleResults);
     }
 
