@@ -665,7 +665,6 @@ public sealed class BattleRoundsMachine
         TrackKnownSquads(_ctx.BattleUnits);
     }
 
-    // TODO: перенести метод в BattleResult
     private void TrackKnownSquads(IEnumerable<BattleSquadController> squads)
     {
         if (squads == null)
@@ -681,7 +680,6 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    // TODO: перенести метод в BattleResult
     private void TrackKnownSquadModel(IReadOnlySquadModel model)
     {
         if (model == null)
