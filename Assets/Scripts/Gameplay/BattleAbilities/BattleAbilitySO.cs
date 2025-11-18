@@ -15,7 +15,7 @@ public enum BattleAbilityTargetType
     SingleEnemy,
     AllEnemies,
     Self,
-    Ally,
+    SingleAlly,
     AllAllies,
 }
 
@@ -126,7 +126,7 @@ public class BattleAbilitySO : ScriptableObject
             BattleAbilityTargetType.SingleEnemy => "Один враг",
             BattleAbilityTargetType.AllEnemies => "Все враги",
             BattleAbilityTargetType.Self => "Сам себя",
-            BattleAbilityTargetType.Ally => "Союзник",
+            BattleAbilityTargetType.SingleAlly => "Союзник",
             BattleAbilityTargetType.AllAllies => "Все союзники",
             _ => targetType.ToString()
         };

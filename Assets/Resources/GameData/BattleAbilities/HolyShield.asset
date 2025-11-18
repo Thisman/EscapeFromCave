@@ -20,6 +20,6 @@ MonoBehaviour:
   Cooldown: 3
   IsReady: 0
   AbilityType: 0
-  AbilityTargetType: 4
+  AbilityTargetType: 3
   Effects:
   - {fileID: 11400000, guid: 5741191d7233d374e821f507d1491f7f, type: 2}

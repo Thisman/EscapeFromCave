@@ -118,7 +118,7 @@
 
 .ability-tooltip {
     position: absolute;
-    max-width: 240px;
+    max-width: 400px;
     padding-top: 16px;
     padding-right: 12px;
     padding-bottom: 16px;

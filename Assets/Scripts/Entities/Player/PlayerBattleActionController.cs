@@ -62,7 +62,7 @@ public class PlayerBattleActionController : IBattleActionController
         IBattleActionTargetResolver targetResolver = ability.AbilityTargetType switch
         {
             BattleAbilityTargetType.Self => new BattleActionSelfTargetResolver(),
-            BattleAbilityTargetType.Ally => new BattleActionAllyTargetResolver(),
+            BattleAbilityTargetType.SingleAlly => new BattleActionAllyTargetResolver(),
             BattleAbilityTargetType.AllAllies => new BattleActionAllyTargetResolver(),
             BattleAbilityTargetType.SingleEnemy => new BattleActionEnemyTargetResolver(),
             BattleAbilityTargetType.AllEnemies => new BattleActionEnemyTargetResolver(),
