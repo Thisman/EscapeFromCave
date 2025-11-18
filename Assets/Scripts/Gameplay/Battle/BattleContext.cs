@@ -5,6 +5,7 @@ public sealed class BattleContext : IDisposable
 {
     private bool _disposed;
     private readonly List<BattleSquadController> _battleUnits = new();
+    private readonly List<BattleSquadController> _initialBattleUnits = new();
     private readonly Dictionary<IReadOnlySquadModel, BattleSquadController> _controllersByModel = new();
 
     public BattleContext(
@@ -56,6 +57,8 @@ public sealed class BattleContext : IDisposable
 
     public IReadOnlyList<BattleSquadController> BattleUnits => _battleUnits;
 
+    public IReadOnlyList<BattleSquadController> InitialBattleUnits => _initialBattleUnits;
+
 
     public void RegisterSquads(IEnumerable<BattleSquadController> squads)
     {
@@ -63,19 +66,21 @@ public sealed class BattleContext : IDisposable
         _controllersByModel.Clear();
 
         if (squads == null)
+        {
             return;
+        }
 
         foreach (var squad in squads)
         {
             if (squad == null)
                 continue;
 
-            _battleUnits.Add(squad);
-
             var model = squad.GetSquadModel();
             if (model == null)
                 continue;
 
+            _battleUnits.Add(squad);
+            _initialBattleUnits.Add(squad);
             _controllersByModel[model] = squad;
         }
     }
@@ -107,10 +112,12 @@ public sealed class BattleContext : IDisposable
             disposableAction.Dispose();
         }
 
-        CurrentAction = null;
         ActiveUnit = null;
+        CurrentAction = null;
         DefendedUnitsThisRound.Clear();
+
         _battleUnits.Clear();
+        _initialBattleUnits.Clear();
         _controllersByModel.Clear();
     }
 }
