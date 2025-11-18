@@ -236,6 +236,44 @@ public sealed class BattleGridController : MonoBehaviour
         return false;
     }
 
+    public bool TryGetFrontSlotFor(Transform slot, out Transform frontSlot)
+    {
+        frontSlot = null;
+
+        if (!TryResolveSlot(slot, out var resolvedSlot))
+            return false;
+
+        if (!TryGetSlotIndex(resolvedSlot, out var slots, out var index))
+            return false;
+
+        if (index >= 3)
+        {
+            frontSlot = slots[index];
+            return true;
+        }
+
+        int frontIndex = index + 3;
+        if (frontIndex >= slots.Length)
+            return false;
+
+        frontSlot = slots[frontIndex];
+        EnsureSlotRegistered(frontSlot);
+        return true;
+    }
+
+    public bool TryGetSlotOccupant(Transform slot, out Transform occupant)
+    {
+        occupant = null;
+
+        if (!TryResolveSlot(slot, out var resolvedSlot))
+            return false;
+
+        EnsureSlotRegistered(resolvedSlot);
+
+        _slotOccupants.TryGetValue(resolvedSlot, out occupant);
+        return true;
+    }
+
     public bool TryGetSlotForOccupant(Transform occupant, out Transform slot)
     {
         if (occupant == null)
@@ -267,6 +305,33 @@ public sealed class BattleGridController : MonoBehaviour
         }
 
         slot = null;
+        return false;
+    }
+
+    private bool TryGetSlotIndex(Transform slot, out Transform[] slotCollection, out int index)
+    {
+        slotCollection = null;
+        index = -1;
+
+        if (slot == null)
+            return false;
+
+        int allyIndex = Array.IndexOf(_allySlots, slot);
+        if (allyIndex >= 0)
+        {
+            slotCollection = _allySlots;
+            index = allyIndex;
+            return true;
+        }
+
+        int enemyIndex = Array.IndexOf(_enemySlots, slot);
+        if (enemyIndex >= 0)
+        {
+            slotCollection = _enemySlots;
+            index = enemyIndex;
+            return true;
+        }
+
         return false;
     }
 
