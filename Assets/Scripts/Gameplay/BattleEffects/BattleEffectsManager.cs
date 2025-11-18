@@ -22,7 +22,19 @@ public sealed class BattleEffectsManager
             _activeEffects[target] = effects;
         }
 
-        effects.Add(new BattleEffectState(effect, _ctx));
+        var state = new BattleEffectState(effect, _ctx);
+        effects.Add(state);
+
+        if (effect.TickTrigger == BattleEffectTrigger.OnAttach)
+        {
+            TryProcessTick(effects, effects.Count - 1, target);
+
+            if (effects.Count == 0)
+            {
+                _activeEffects.Remove(target);
+            }
+        }
+
         BattleLogger.LogEffectAdded(effect, target);
     }
 
@@ -99,21 +111,23 @@ public sealed class BattleEffectsManager
         for (int i = effects.Count - 1; i >= 0; i--)
         {
             var state = effects[i];
-            if (state.Effect.Trigger != trigger)
+            bool effectTriggered = state.Effect.Trigger == trigger;
+            bool tickTriggered = state.Effect.TickTrigger == trigger;
+
+            if (!effectTriggered && !tickTriggered)
                 continue;
 
-            state.TickCount++;
-            BattleLogger.LogEffectTriggered(state.Effect, controller, trigger);
-            await state.Effect.OnTick(state.Context, controller);
+            if (effectTriggered)
+            {
+                BattleLogger.LogEffectTriggered(state.Effect, controller, trigger);
+                await state.Effect.OnTick(state.Context, controller);
+            }
 
-            if (!ShouldEffectExpire(state))
+            if (!tickTriggered)
                 continue;
 
-            if (!effects.Remove(state))
+            if (TryProcessTick(effects, i, controller))
                 continue;
-
-            controller.RemoveEffect(state.Effect);
-            state.Effect.OnRemove(state.Context, controller);
         }
 
         if (effects.Count == 0)
@@ -125,6 +139,23 @@ public sealed class BattleEffectsManager
     private static bool ShouldEffectExpire(BattleEffectState state)
     {
         return state.Effect.MaxTick > 0 && state.TickCount >= state.Effect.MaxTick;
+    }
+
+    private static bool TryProcessTick(List<BattleEffectState> effects, int index, BattleSquadEffectsController controller)
+    {
+        if (effects == null || index < 0 || index >= effects.Count)
+            return false;
+
+        BattleEffectState state = effects[index];
+        state.TickCount++;
+
+        if (!ShouldEffectExpire(state))
+            return false;
+
+        effects.RemoveAt(index);
+        controller.RemoveEffect(state.Effect);
+        state.Effect.OnRemove(state.Context, controller);
+        return true;
     }
 
     private sealed class BattleEffectState

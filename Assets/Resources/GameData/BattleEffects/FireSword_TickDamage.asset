@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   Trigger: 1
+  TickTrigger: 1
   MaxTick: 2
   Damage: 50

@@ -28,6 +28,8 @@ public class BattleEffectSO: ScriptableObject
 
     public BattleEffectTrigger Trigger;
 
+    public BattleEffectTrigger TickTrigger = BattleEffectTrigger.OnRoundStart;
+
     [Min(0)] public int MaxTick;
 
     public virtual Task OnAttach(BattleContext ctx, BattleSquadEffectsController target)

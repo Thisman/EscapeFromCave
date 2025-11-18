@@ -29,6 +29,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
     private VisualElement _typeSpecificContainer;
     private PopupField<string> _effectTypeField;
     private EnumField _triggerField;
+    private EnumField _tickTriggerField;
     private IntegerField _maxTickField;
     private Label _fileNameLabel;
     private Button _saveButton;
@@ -98,6 +99,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         _effectTypeContainer = rootVisualElement.Q<VisualElement>("EffectTypeContainer");
         _typeSpecificContainer = rootVisualElement.Q<VisualElement>("EffectTypeFields");
         _triggerField = rootVisualElement.Q<EnumField>("TriggerField");
+        _tickTriggerField = rootVisualElement.Q<EnumField>("TickTriggerField");
         _maxTickField = rootVisualElement.Q<IntegerField>("MaxTickField");
         _fileNameLabel = rootVisualElement.Q<Label>("FileNameLabel");
         _saveButton = rootVisualElement.Q<Button>("SaveButton");
@@ -263,6 +265,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         }
 
         ConfigureEnumField<BattleEffectTrigger>(_triggerField, value => _editingEffect.Trigger = value);
+        ConfigureEnumField<BattleEffectTrigger>(_tickTriggerField, value => _editingEffect.TickTrigger = value);
         ConfigureIntegerField(_maxTickField, value => _editingEffect.MaxTick = Mathf.Max(0, value));
 
         if (_saveButton != null)
@@ -452,6 +455,12 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             _triggerField.SetValueWithoutNotify(_editingEffect.Trigger);
         }
 
+        if (_tickTriggerField != null)
+        {
+            _tickTriggerField.Init(_editingEffect.TickTrigger);
+            _tickTriggerField.SetValueWithoutNotify(_editingEffect.TickTrigger);
+        }
+
         UpdateEffectTypeSelection();
         RebuildTypeSpecificFields();
         UpdateIconPreview();
@@ -464,6 +473,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
         _descriptionField?.SetValueWithoutNotify(string.Empty);
         _maxTickField?.SetValueWithoutNotify(0);
         _triggerField?.SetValueWithoutNotify(default(BattleEffectTrigger));
+        _tickTriggerField?.SetValueWithoutNotify(default(BattleEffectTrigger));
         if (_fileNameLabel != null)
         {
             _fileNameLabel.text = "-";
