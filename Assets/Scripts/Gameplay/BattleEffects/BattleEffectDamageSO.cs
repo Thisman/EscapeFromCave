@@ -27,14 +27,15 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageProvider
 
     public override string GetFormatedDescription()
     {
-        string triggerLabel = GetTriggerLabel();
+        string triggerLabel = GetTriggerLabel(Trigger);
+        string tickTriggerLabel = GetTriggerLabel(TickTrigger);
         string damageValue = FormatNegativeValue(Damage);
         string damageType = FormatDamageType(_effectDamageType);
 
         if (MaxTick > 1)
         {
             string tickLimit = MaxTick > 0 ? $" (до <b>{MaxTick}</b> тиков)" : string.Empty;
-            return $"Каждый тик (при {triggerLabel}) наносит {damageValue} {damageType} урона{tickLimit}.";
+            return $"При {triggerLabel} наносит {damageValue} {damageType} урона. Количество тиков обновляется при {tickTriggerLabel}{tickLimit}.";
         }
 
         return $"При {triggerLabel} наносит {damageValue} {damageType} урона.";
@@ -56,9 +57,9 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageProvider
         };
     }
 
-    private string GetTriggerLabel()
+    private static string GetTriggerLabel(BattleEffectTrigger trigger)
     {
-        return Trigger switch
+        return trigger switch
         {
             BattleEffectTrigger.OnAttach => "применении",
             BattleEffectTrigger.OnRoundStart => "начале раунда",

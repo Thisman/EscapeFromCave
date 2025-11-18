@@ -20,6 +20,7 @@
                 <ui:VisualElement class="effect-editor__properties">
                     <ui:VisualElement name="EffectTypeContainer" class="effect-editor__property" />
                     <uie:EnumField name="TriggerField" class="effect-editor__property" label="Триггер" />
+                    <uie:EnumField name="TickTriggerField" class="effect-editor__property" label="Триггер тиков" />
                     <ui:IntegerField name="MaxTickField" class="effect-editor__property" label="Максимум тиков" />
                 </ui:VisualElement>
             </ui:VisualElement>
