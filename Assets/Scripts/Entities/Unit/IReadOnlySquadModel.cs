@@ -5,9 +5,17 @@ public interface IReadOnlySquadModel
 {
     public event Action<IReadOnlySquadModel> Changed;
 
+    public event Action<IReadOnlySquadModel> LevelChanged;
+
     public UnitSO Definition { get; }
 
     public int Count { get; }
+
+    public int Level { get; }
+
+    public float Experience { get; }
+
+    public float ExperienceToNextLevel { get; }
 
     public bool IsEmpty { get; }
 

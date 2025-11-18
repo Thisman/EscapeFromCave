@@ -3,12 +3,17 @@
     <ui:VisualElement class="unit-card">
         <ui:VisualElement name="Header" class="unit-card__header">
             <ui:VisualElement name="Icon" class="unit-card__icon" />
-            <ui:Label name="Title" selectable="true" focusable="true" class="unit-card__title" />
+            <ui:VisualElement name="HeaderText" class="unit-card__header-text">
+                <ui:Label name="Title" selectable="true" focusable="true" class="unit-card__title" />
+                <ui:Label name="Subtitle" class="unit-card__subtitle" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="AbilityList" class="ability-list" style="flex-grow: 1;">
         </ui:VisualElement>
         <ui:VisualElement name="EffectsList" class="effect-list" style="flex-grow: 1;">
         </ui:VisualElement>
+        <ui:ProgressBar name="LevelProgress" class="unit-card__level-progress" low-value="0" high-value="1" value="0" />
+        <ui:Label name="LevelLabel" class="unit-card__level-label" />
         <ui:VisualElement name="Info" class="unit-card__info" />
     </ui:VisualElement>
 </ui:UXML>

@@ -14,9 +14,22 @@ public static class UnitLevelExpFunctionExtensions
         switch (function)
         {
             case UnitLevelExpFunction.Linear:
-                return Mathf.FloorToInt(experience / 100f);
+                return Mathf.Max(1, Mathf.FloorToInt(experience / 100f) + 1);
             default:
-                return 0;
+                return 1;
+        }
+    }
+
+    public static float GetExperienceForLevel(this UnitLevelExpFunction function, int level)
+    {
+        level = Mathf.Max(1, level);
+
+        switch (function)
+        {
+            case UnitLevelExpFunction.Linear:
+                return (level - 1) * 100f;
+            default:
+                return 0f;
         }
     }
 }

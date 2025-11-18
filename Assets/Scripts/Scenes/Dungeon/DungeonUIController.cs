@@ -459,7 +459,24 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         }
 
         IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
-        UnitCardRenderData data = new(squad, DungeonCardStatFields, abilities, Array.Empty<BattleEffectSO>(), squad.UnitName);
+        Dictionary<string, object> fields = new()
+        {
+            [UnitCardWidget.LevelFieldKey] = UnitCardWidget.FormatLevelText(squad)
+        };
+
+        if (TryCreateLevelProgressData(squad, out UnitCardLevelProgressData progressData))
+        {
+            fields[UnitCardWidget.LevelProgressFieldKey] = progressData;
+        }
+
+        UnitCardRenderData data = new(
+            squad,
+            DungeonCardStatFields,
+            abilities,
+            Array.Empty<BattleEffectSO>(),
+            squad.UnitName,
+            null,
+            fields);
         _squadInfoCardWidget.Render(data);
     }
 
@@ -474,6 +491,29 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
         _squadInfoCard.EnableInClassList(CardVisibleClassName, false);
         _squadInfoCard.EnableInClassList(CardHiddenClassName, true);
+    }
+
+    private static bool TryCreateLevelProgressData(IReadOnlySquadModel squad, out UnitCardLevelProgressData progressData)
+    {
+        progressData = default;
+
+        if (squad?.Definition == null)
+        {
+            return false;
+        }
+
+        int level = Mathf.Max(1, squad.Level);
+        UnitLevelExpFunction expFunction = squad.Definition.LevelExpFunction;
+        float currentLevelExp = expFunction.GetExperienceForLevel(level);
+        float nextLevelExp = expFunction.GetExperienceForLevel(level + 1);
+        float totalRequired = Mathf.Max(0.0001f, nextLevelExp - currentLevelExp);
+        float gained = Mathf.Clamp(squad.Experience - currentLevelExp, 0f, totalRequired);
+        float progress = Mathf.Clamp01(gained / totalRequired);
+        float remaining = Mathf.Max(0f, nextLevelExp - squad.Experience);
+        string title = $"До уровня {level + 1}: {Mathf.CeilToInt(remaining)} опыта";
+
+        progressData = new UnitCardLevelProgressData(progress, title);
+        return true;
     }
 
     private sealed class SquadEntry : IDisposable

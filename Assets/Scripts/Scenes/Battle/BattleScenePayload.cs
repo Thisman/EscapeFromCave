@@ -4,15 +4,18 @@ using UnityEngine;
 
 public readonly struct BattleSquadSetup
 {
-    public BattleSquadSetup(UnitSO definition, int count)
+    public BattleSquadSetup(UnitSO definition, int count, float experience = 0f)
     {
         Definition = definition;
         Count = Math.Max(0, count);
+        Experience = Mathf.Max(0f, experience);
     }
 
     public UnitSO Definition { get; }
 
     public int Count { get; }
+
+    public float Experience { get; }
 
     public bool IsValid => Definition != null && Count > 0;
 }

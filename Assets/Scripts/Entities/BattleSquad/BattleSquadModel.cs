@@ -45,6 +45,20 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
 
     public event Action<IReadOnlySquadModel> Changed;
 
+    public event Action<IReadOnlySquadModel> LevelChanged
+    {
+        add
+        {
+            if (_sourceModel != null)
+                _sourceModel.LevelChanged += value;
+        }
+        remove
+        {
+            if (_sourceModel != null)
+                _sourceModel.LevelChanged -= value;
+        }
+    }
+
     public event Action<BattleSquadEvent> OnEvent;
 
     public BattleSquadModel(IReadOnlySquadModel sourceModel)
@@ -100,6 +114,12 @@ public sealed class BattleSquadModel : IReadOnlySquadModel
     public bool IsEnemy() => _sourceModel.IsEnemy();
 
     public bool IsNeutral() => _sourceModel.IsNeutral();
+
+    public int Level => _sourceModel.Level;
+
+    public float Experience => _sourceModel.Experience;
+
+    public float ExperienceToNextLevel => _sourceModel.ExperienceToNextLevel;
 
     public int Count => CalculateCount();
 

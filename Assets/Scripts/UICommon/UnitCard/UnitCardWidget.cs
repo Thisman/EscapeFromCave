@@ -21,6 +21,18 @@ namespace UICommon.Widgets
         MissChance
     }
 
+    public readonly struct UnitCardLevelProgressData
+    {
+        public UnitCardLevelProgressData(float value, string title)
+        {
+            Value = Mathf.Clamp01(value);
+            Title = title ?? string.Empty;
+        }
+
+        public float Value { get; }
+        public string Title { get; }
+    }
+
     public readonly struct UnitCardRenderData
     {
         public UnitCardRenderData(
@@ -28,7 +40,9 @@ namespace UICommon.Widgets
             IReadOnlyList<UnitCardStatField> stats,
             IReadOnlyList<BattleAbilitySO> abilities = null,
             IReadOnlyList<BattleEffectSO> effects = null,
-            string tooltip = null)
+            string tooltip = null,
+            string subtitle = null,
+            IReadOnlyDictionary<string, object> fields = null)
         {
             Squad = squad;
             Title = squad?.UnitName ?? string.Empty;
@@ -37,15 +51,31 @@ namespace UICommon.Widgets
             Stats = stats ?? Array.Empty<UnitCardStatField>();
             Abilities = abilities ?? (squad?.Abilities ?? Array.Empty<BattleAbilitySO>());
             Effects = effects ?? Array.Empty<BattleEffectSO>();
+            Subtitle = subtitle ?? string.Empty;
+            Fields = fields;
         }
 
         public IReadOnlySquadModel Squad { get; }
         public string Title { get; }
         public Sprite Icon { get; }
         public string Tooltip { get; }
+        public string Subtitle { get; }
         public IReadOnlyList<UnitCardStatField> Stats { get; }
         public IReadOnlyList<BattleAbilitySO> Abilities { get; }
         public IReadOnlyList<BattleEffectSO> Effects { get; }
+        public IReadOnlyDictionary<string, object> Fields { get; }
+
+        public bool TryGetField<T>(string key, out T value)
+        {
+            if (!string.IsNullOrEmpty(key) && Fields != null && Fields.TryGetValue(key, out object raw) && raw is T castValue)
+            {
+                value = castValue;
+                return true;
+            }
+
+            value = default;
+            return false;
+        }
     }
 
     public sealed class UnitCardWidget
@@ -53,6 +83,8 @@ namespace UICommon.Widgets
         public const string BlockClassName = "unit-card";
         public const string SelectedModifierClassName = "unit-card--selected";
         public const string InfoLineClassName = "unit-card__info-line";
+        public const string LevelFieldKey = "Level";
+        public const string LevelProgressFieldKey = "LevelProgress";
         private const string AbilityInfoClassName = "ability-info";
         private const string EffectInfoClassName = "effect-info";
 
@@ -60,6 +92,9 @@ namespace UICommon.Widgets
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
+        private readonly Label _subtitle;
+        private readonly ProgressBar _levelProgress;
+        private readonly Label _levelLabel;
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
@@ -69,6 +104,9 @@ namespace UICommon.Widgets
             _root = root ?? throw new ArgumentNullException(nameof(root));
             _icon = _root.Q<VisualElement>("Icon");
             _title = _root.Q<Label>("Title");
+            _subtitle = _root.Q<Label>("Subtitle");
+            _levelProgress = _root.Q<ProgressBar>("LevelProgress");
+            _levelLabel = _root.Q<Label>("LevelLabel");
             _infoContainer = _root.Q<VisualElement>("Info");
             _abilityList = _root.Q<VisualElement>("AbilityList");
             _effectsList = _root.Q<VisualElement>("EffectsList");
@@ -102,9 +140,10 @@ namespace UICommon.Widgets
         private void ApplyUnit(UnitCardRenderData data)
         {
             ApplyHeader(data);
-            RenderStats(data);
             RenderAbilities(data);
             RenderEffects(data);
+            RenderLevelSection(data);
+            RenderStats(data);
 
             _root?.EnableInClassList(SelectedModifierClassName, false);
         }
@@ -123,6 +162,20 @@ namespace UICommon.Widgets
 
             if (_title != null)
                 _title.text = data.Title ?? string.Empty;
+
+            if (_subtitle != null)
+            {
+                if (!string.IsNullOrEmpty(data.Subtitle))
+                {
+                    _subtitle.text = data.Subtitle;
+                    _subtitle.style.display = DisplayStyle.Flex;
+                }
+                else
+                {
+                    _subtitle.text = string.Empty;
+                    _subtitle.style.display = DisplayStyle.None;
+                }
+            }
         }
 
         private void RenderStats(UnitCardRenderData data)
@@ -227,6 +280,50 @@ namespace UICommon.Widgets
             _effectsList.style.display = _effectsList.childCount > 0 ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
+        private void RenderLevelSection(UnitCardRenderData data)
+        {
+            RenderLevelProgress(data);
+            RenderLevelLabel(data);
+        }
+
+        private void RenderLevelProgress(UnitCardRenderData data)
+        {
+            if (_levelProgress == null)
+                return;
+
+            if (data.TryGetField(LevelProgressFieldKey, out UnitCardLevelProgressData progressData))
+            {
+                _levelProgress.lowValue = 0f;
+                _levelProgress.highValue = 1f;
+                _levelProgress.value = Mathf.Clamp01(progressData.Value);
+                _levelProgress.title = progressData.Title ?? string.Empty;
+                _levelProgress.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                _levelProgress.value = 0f;
+                _levelProgress.title = string.Empty;
+                _levelProgress.style.display = DisplayStyle.None;
+            }
+        }
+
+        private void RenderLevelLabel(UnitCardRenderData data)
+        {
+            if (_levelLabel == null)
+                return;
+
+            if (data.TryGetField(LevelFieldKey, out string levelText) && !string.IsNullOrEmpty(levelText))
+            {
+                _levelLabel.text = levelText;
+                _levelLabel.style.display = DisplayStyle.Flex;
+            }
+            else
+            {
+                _levelLabel.text = string.Empty;
+                _levelLabel.style.display = DisplayStyle.None;
+            }
+        }
+
         private static string FormatStat(UnitCardStatField stat, IReadOnlySquadModel squad)
         {
             if (squad == null)
@@ -257,6 +354,15 @@ namespace UICommon.Widgets
 
             (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
             return $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}";
+        }
+
+        public static string FormatLevelText(IReadOnlySquadModel squad)
+        {
+            if (squad == null)
+                return string.Empty;
+
+            int level = Mathf.Max(1, squad.Level);
+            return $"Ур. {level}";
         }
 
         private static string FormatValue(float value)
