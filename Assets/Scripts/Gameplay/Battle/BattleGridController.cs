@@ -24,6 +24,7 @@ public enum BattleGridSlotHighlightMode
 
 public sealed class BattleGridController : MonoBehaviour
 {
+    private const int SlotsPerRow = 3;
     [SerializeField] private Transform[] _allySlots = Array.Empty<Transform>();
     [SerializeField] private Transform[] _enemySlots = Array.Empty<Transform>();
     [SerializeField] private Color _availableHighlightColor = new(0.35f, 0.8f, 0.4f, 0.35f);
@@ -221,19 +222,66 @@ public sealed class BattleGridController : MonoBehaviour
         int index = Array.IndexOf(_allySlots, resolvedSlot);
         if (index >= 0)
         {
-            row = index < 3 ? BattleGridRow.Back : BattleGridRow.Front;
+            row = index < SlotsPerRow ? BattleGridRow.Back : BattleGridRow.Front;
             return true;
         }
 
         index = Array.IndexOf(_enemySlots, resolvedSlot);
         if (index >= 0)
         {
-            row = index < 3 ? BattleGridRow.Back : BattleGridRow.Front;
+            row = index < SlotsPerRow ? BattleGridRow.Back : BattleGridRow.Front;
             return true;
         }
 
         row = default;
         return false;
+    }
+
+    public bool HasFrontOccupantFor(Transform slot)
+    {
+        if (!TryResolveSlot(slot, out var resolvedSlot))
+            return false;
+
+        if (!TryGetSlotRow(resolvedSlot, out var row) || row != BattleGridRow.Back)
+            return false;
+
+        if (!TryGetFrontSlot(resolvedSlot, out var frontSlot))
+            return false;
+
+        return !IsSlotEmpty(frontSlot);
+    }
+
+    private bool TryGetFrontSlot(Transform slot, out Transform frontSlot)
+    {
+        frontSlot = null;
+
+        if (slot == null)
+            return false;
+
+        int index = Array.IndexOf(_allySlots, slot);
+        if (index >= 0)
+            return TryGetFrontSlot(_allySlots, index, out frontSlot);
+
+        index = Array.IndexOf(_enemySlots, slot);
+        if (index >= 0)
+            return TryGetFrontSlot(_enemySlots, index, out frontSlot);
+
+        return false;
+    }
+
+    private bool TryGetFrontSlot(IReadOnlyList<Transform> slots, int index, out Transform frontSlot)
+    {
+        frontSlot = null;
+
+        if (slots == null || index < 0 || index >= SlotsPerRow)
+            return false;
+
+        int frontIndex = index + SlotsPerRow;
+        if (frontIndex >= slots.Count)
+            return false;
+
+        frontSlot = slots[frontIndex];
+        return frontSlot != null;
     }
 
     public bool TryGetSlotForOccupant(Transform occupant, out Transform slot)

@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public sealed class BattleActionTargetResolverForAttack : IBattleActionTargetResolver
 {
@@ -31,51 +30,16 @@ public sealed class BattleActionTargetResolverForAttack : IBattleActionTargetRes
         if (!_context.TryGetSquadController(target, out var targetController) || targetController == null)
             return false;
 
-        if (!TryGetRow(targetController.transform, out var targetRow))
+        if (!grid.TryGetSlotForOccupant(targetController.transform, out var targetSlot) || targetSlot == null)
+            return false;
+
+        if (!grid.TryGetSlotRow(targetSlot, out var targetRow))
             return false;
 
         if (targetRow == BattleGridRow.Front)
             return true;
 
-        return !HasFrontlineUnits(target);
-    }
-
-    private bool HasFrontlineUnits(IReadOnlySquadModel target)
-    {
-        var units = _context.BattleUnits;
-
-        foreach (var unit in units)
-        {
-            var model = unit.GetSquadModel();
-            if (model == null || ReferenceEquals(model, target))
-                continue;
-
-
-            if (!IsSameSide(target.Kind, model.Kind))
-                continue;
-
-            if (model.IsEmpty)
-                continue;
-
-            if (TryGetRow(unit.transform, out var row) && row == BattleGridRow.Front)
-                return true;
-        }
-
-        return false;
-    }
-
-    private bool TryGetRow(Transform occupant, out BattleGridRow row)
-    {
-        row = default;
-
-        var grid = _context.BattleGridController;
-        if (grid == null || occupant == null)
-            return false;
-
-        if (!grid.TryGetSlotForOccupant(occupant, out var slot))
-            return false;
-
-        return grid.TryGetSlotRow(slot, out row);
+        return !grid.HasFrontOccupantFor(targetSlot);
     }
 
     private static bool IsSameSide(UnitKind source, UnitKind target)
