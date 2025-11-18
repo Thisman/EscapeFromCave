@@ -21,7 +21,7 @@ public sealed class BattleAbilitiesManager
         return Math.Max(0, state.RemainingCooldown);
     }
 
-    public void TriggerCooldown(IReadOnlySquadModel unit, BattleAbilitySO ability)
+    public void StartCooldown(IReadOnlySquadModel unit, BattleAbilitySO ability)
     {
         if (!TryGetState(unit, ability, out AbilityCooldownState state))
             return;
