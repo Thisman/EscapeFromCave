@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public sealed class BattleResultHandler
 {
     private const string MainMenuSceneName = "MainMenuScene";
+    private const float DefaultBattleExperienceReward = 100f;
 
     public async Task ApplyResultAsync(InteractionContext ctx, BattleResult result)
     {
@@ -22,6 +23,7 @@ public sealed class BattleResultHandler
             return;
 
         UpdateHeroArmy(ctx.Actor, result.BattleUnitsResult.FriendlyUnits);
+        RewardActorUnits(ctx.Actor);
     }
 
     private static async Task ReturnToMainMenuAsync(InteractionContext ctx)
@@ -138,6 +140,48 @@ public sealed class BattleResultHandler
             }
 
             armyController.Army.ClearSlot(slot);
+        }
+    }
+
+    private static void RewardActorUnits(GameObject actor)
+    {
+        if (actor == null)
+            return;
+
+        RewardHero(actor);
+        RewardArmy(actor);
+    }
+
+    private static void RewardHero(GameObject actor)
+    {
+        if (actor.TryGetComponent<PlayerController>(out var playerController))
+        {
+            if (playerController.GetPlayer() is SquadModel heroSquad)
+                heroSquad.TryAddExperience(DefaultBattleExperienceReward);
+
+            return;
+        }
+
+        if (TryResolveSquadModel(actor, out var heroModel) && heroModel is SquadModel heroSquadModel)
+            heroSquadModel.TryAddExperience(DefaultBattleExperienceReward);
+    }
+
+    private static void RewardArmy(GameObject actor)
+    {
+        if (!actor.TryGetComponent<PlayerArmyController>(out var armyController))
+            return;
+
+        if (armyController.Army is not ArmyModel armyModel)
+            return;
+
+        var squads = armyModel.GetSquads();
+        if (squads == null)
+            return;
+
+        for (int i = 0; i < squads.Count; i++)
+        {
+            if (squads[i] is SquadModel squad)
+                squad.TryAddExperience(DefaultBattleExperienceReward);
         }
     }
 
