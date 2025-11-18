@@ -16,5 +16,7 @@ public sealed class InteractionContext
 
     public InputService InputService;
 
-    public IBattleResultHandler BattleResultHandler;
+    public BattleResultHandler BattleResultHandler;
+
+    public BattleSetupHandler BattleSetupHandler;
 }

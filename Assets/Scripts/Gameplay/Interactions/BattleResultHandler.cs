@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public sealed class BattleResultHandler : IBattleResultHandler
+public sealed class BattleResultHandler
 {
     private const string MainMenuSceneName = "MainMenuScene";
 
