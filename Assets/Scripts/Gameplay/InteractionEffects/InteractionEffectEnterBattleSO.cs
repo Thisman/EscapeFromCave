@@ -133,7 +133,7 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
     {
         if (model != null && model.Count > 0)
         {
-            setup = new BattleSquadSetup(model.Definition, model.Count);
+            setup = new BattleSquadSetup(model.Definition, model.Count, model.Experience);
             return true;
         }
 
@@ -235,7 +235,7 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
         }
         else
         {
-            var replacement = new SquadModel(heroUnit.Definition, heroUnit.Count);
+            var replacement = new SquadModel(heroUnit.Definition, heroUnit.Count, heroUnit.Experience);
             controller.Initialize(replacement);
         }
     }
@@ -251,6 +251,8 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
         target.Clear();
         if (source.Count > 0)
             target.TryAdd(source.Count);
+
+        target.TrySetExperience(source.Experience);
     }
 
     private static void UpdateArmySquads(GameObject actor, List<IReadOnlySquadModel> units)
@@ -268,13 +270,13 @@ public sealed class InteractionEffectEnterBattleSO : InteractionEffectSO
         {
             if (unitIndex < units.Count)
             {
-                var unit = units[unitIndex++];
-                if (unit?.Definition != null && unit.Count > 0)
-                {
-                    var squad = new SquadModel(unit.Definition, unit.Count);
-                    armyController.Army.SetSlot(slot, squad);
-                    continue;
-                }
+                    var unit = units[unitIndex++];
+                    if (unit?.Definition != null && unit.Count > 0)
+                    {
+                        var squad = new SquadModel(unit.Definition, unit.Count, unit.Experience);
+                        armyController.Army.SetSlot(slot, squad);
+                        continue;
+                    }
             }
 
             armyController.Army.ClearSlot(slot);

@@ -28,7 +28,8 @@ namespace UICommon.Widgets
             IReadOnlyList<UnitCardStatField> stats,
             IReadOnlyList<BattleAbilitySO> abilities = null,
             IReadOnlyList<BattleEffectSO> effects = null,
-            string tooltip = null)
+            string tooltip = null,
+            string subtitle = null)
         {
             Squad = squad;
             Title = squad?.UnitName ?? string.Empty;
@@ -37,12 +38,14 @@ namespace UICommon.Widgets
             Stats = stats ?? Array.Empty<UnitCardStatField>();
             Abilities = abilities ?? (squad?.Abilities ?? Array.Empty<BattleAbilitySO>());
             Effects = effects ?? Array.Empty<BattleEffectSO>();
+            Subtitle = subtitle ?? string.Empty;
         }
 
         public IReadOnlySquadModel Squad { get; }
         public string Title { get; }
         public Sprite Icon { get; }
         public string Tooltip { get; }
+        public string Subtitle { get; }
         public IReadOnlyList<UnitCardStatField> Stats { get; }
         public IReadOnlyList<BattleAbilitySO> Abilities { get; }
         public IReadOnlyList<BattleEffectSO> Effects { get; }
@@ -60,6 +63,7 @@ namespace UICommon.Widgets
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
+        private readonly Label _subtitle;
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
@@ -69,6 +73,7 @@ namespace UICommon.Widgets
             _root = root ?? throw new ArgumentNullException(nameof(root));
             _icon = _root.Q<VisualElement>("Icon");
             _title = _root.Q<Label>("Title");
+            _subtitle = _root.Q<Label>("Subtitle");
             _infoContainer = _root.Q<VisualElement>("Info");
             _abilityList = _root.Q<VisualElement>("AbilityList");
             _effectsList = _root.Q<VisualElement>("EffectsList");
@@ -123,6 +128,20 @@ namespace UICommon.Widgets
 
             if (_title != null)
                 _title.text = data.Title ?? string.Empty;
+
+            if (_subtitle != null)
+            {
+                if (!string.IsNullOrEmpty(data.Subtitle))
+                {
+                    _subtitle.text = data.Subtitle;
+                    _subtitle.style.display = DisplayStyle.Flex;
+                }
+                else
+                {
+                    _subtitle.text = string.Empty;
+                    _subtitle.style.display = DisplayStyle.None;
+                }
+            }
         }
 
         private void RenderStats(UnitCardRenderData data)
@@ -257,6 +276,15 @@ namespace UICommon.Widgets
 
             (float minDamage, float maxDamage) = squad.GetBaseDamageRange();
             return $"Урон: {FormatValue(minDamage)} - {FormatValue(maxDamage)}";
+        }
+
+        public static string FormatLevelSubtitle(IReadOnlySquadModel squad)
+        {
+            if (squad == null)
+                return string.Empty;
+
+            int level = Mathf.Max(1, squad.Level);
+            return $"Ур. {level}";
         }
 
         private static string FormatValue(float value)

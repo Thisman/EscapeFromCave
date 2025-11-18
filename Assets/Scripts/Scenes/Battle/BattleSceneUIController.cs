@@ -1071,7 +1071,13 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
         IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
         IReadOnlyList<BattleEffectSO> effectList = effects ?? Array.Empty<BattleEffectSO>();
-        UnitCardRenderData data = new(squad, BattleCardStatFields, abilities, effectList, squad.UnitName);
+        UnitCardRenderData data = new(
+            squad,
+            BattleCardStatFields,
+            abilities,
+            effectList,
+            squad.UnitName,
+            UnitCardWidget.FormatLevelSubtitle(squad));
         _squadInfoCardWidget?.Render(data);
     }
 

@@ -68,3 +68,13 @@
 .dungeon-card--visible {
     display: flex;
 }
+
+.dungeon-card__progress {
+    position: absolute;
+    top: 260px;
+    left: 32px;
+    width: 400px;
+    height: 32px;
+    color: rgb(255, 255, 255);
+    align-items: center;
+}

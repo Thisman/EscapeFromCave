@@ -12,6 +12,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
 
     private const string SquadInfoCardElementName = "SquadInfoCard";
+    private const string SquadLevelProgressElementName = "SquadLevelProgress";
     private const string CardHiddenClassName = "dungeon-card--hidden";
     private const string CardVisibleClassName = "dungeon-card--visible";
 
@@ -37,6 +38,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
     private Label _dialogLabel;
     private VisualElement _squadInfoCard;
     private UnitCardWidget _squadInfoCardWidget;
+    private ProgressBar _squadLevelProgress;
     private IReadOnlySquadModel _displayedSquad;
 
     private readonly Dictionary<IReadOnlySquadModel, SquadEntry> _squadEntries = new();
@@ -95,6 +97,8 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         _squadInfoCard = _root?.Q<VisualElement>(SquadInfoCardElementName);
         _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
         HideSquadInfoCard();
+        _squadLevelProgress = _root?.Q<ProgressBar>(SquadLevelProgressElementName);
+        HideSquadLevelProgress();
 
         if (_dialogContainer != null)
         {
@@ -138,6 +142,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         _dialogLabel = null;
         _squadInfoCardWidget = null;
         _squadInfoCard = null;
+        _squadLevelProgress = null;
         _displayedSquad = null;
         _squadsList = null;
         _root = null;
@@ -459,8 +464,15 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         }
 
         IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
-        UnitCardRenderData data = new(squad, DungeonCardStatFields, abilities, Array.Empty<BattleEffectSO>(), squad.UnitName);
+        UnitCardRenderData data = new(
+            squad,
+            DungeonCardStatFields,
+            abilities,
+            Array.Empty<BattleEffectSO>(),
+            squad.UnitName,
+            UnitCardWidget.FormatLevelSubtitle(squad));
         _squadInfoCardWidget.Render(data);
+        UpdateSquadLevelProgress(squad);
     }
 
     private void HideSquadInfoCard()
@@ -474,6 +486,46 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
         _squadInfoCard.EnableInClassList(CardVisibleClassName, false);
         _squadInfoCard.EnableInClassList(CardHiddenClassName, true);
+        HideSquadLevelProgress();
+    }
+
+    private void UpdateSquadLevelProgress(IReadOnlySquadModel squad)
+    {
+        if (_squadLevelProgress == null)
+            return;
+
+        if (squad?.Definition == null)
+        {
+            HideSquadLevelProgress();
+            return;
+        }
+
+        int level = Mathf.Max(1, squad.Level);
+        UnitLevelExpFunction expFunction = squad.Definition.LevelExpFunction;
+        float currentLevelExp = expFunction.GetExperienceForLevel(level);
+        float nextLevelExp = expFunction.GetExperienceForLevel(level + 1);
+        float totalRequired = Mathf.Max(0.0001f, nextLevelExp - currentLevelExp);
+        float gained = Mathf.Clamp(squad.Experience - currentLevelExp, 0f, totalRequired);
+        float progress = Mathf.Clamp01(gained / totalRequired);
+        float remaining = Mathf.Max(0f, nextLevelExp - squad.Experience);
+
+        _squadLevelProgress.lowValue = 0f;
+        _squadLevelProgress.highValue = 1f;
+        _squadLevelProgress.value = progress;
+        _squadLevelProgress.title = $"До уровня {level + 1}: {Mathf.CeilToInt(remaining)} опыта";
+        _squadLevelProgress.EnableInClassList(CardHiddenClassName, false);
+        _squadLevelProgress.EnableInClassList(CardVisibleClassName, true);
+    }
+
+    private void HideSquadLevelProgress()
+    {
+        if (_squadLevelProgress == null)
+            return;
+
+        _squadLevelProgress.value = 0f;
+        _squadLevelProgress.title = string.Empty;
+        _squadLevelProgress.EnableInClassList(CardVisibleClassName, false);
+        _squadLevelProgress.EnableInClassList(CardHiddenClassName, true);
     }
 
     private sealed class SquadEntry : IDisposable
