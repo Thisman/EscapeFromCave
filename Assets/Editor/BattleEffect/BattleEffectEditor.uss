@@ -96,35 +96,42 @@
 
 .effect-editor__file-caption {
     font-size: 12px;
+    padding-left: 4px;
     color: #fff;
 }
 
 .effect-editor__file-name {
     font-size: 14px;
+    padding-left: 4px;
     -unity-font-style: bold;
 }
 
 .effect-editor__properties {
     flex: 1;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
 }
 
 .effect-editor__property {
     height: 32px;
-    flex-basis: 48%;
+    flex-shrink: 1;
+    flex-grow: 0;
     margin-bottom: 8px;
     margin-right: 8px;
     min-width: 180px;
 }
 
 .effect-editor__description {
-    min-height: 160px;
     margin-bottom: 16px;
 }
 
+.effect-editor__description .unity-base-text-field__input {
+    min-height: 32px;
+}
+
 .effect-editor__type-fields {
+    width: 500px;
     flex-direction: column;
     margin-bottom: 16px;
 }
@@ -143,6 +150,7 @@
     flex: 1;
     margin-right: 8px;
     min-width: 140px;
+    height: 25px;
 }
 
 .effect-editor__type-remove {

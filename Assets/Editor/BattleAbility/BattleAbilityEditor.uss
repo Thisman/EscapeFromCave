@@ -106,22 +106,25 @@
 
 .ability-editor__properties {
     flex: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-content: flex-start;
 }
 
 .ability-editor__property {
     height: 32px;
-    flex-basis: 48%;
+    flex-shrink: 1;
+    flex-grow: 0;
     margin-bottom: 8px;
     margin-right: 8px;
     min-width: 180px;
 }
 
 .ability-editor__description {
-    min-height: 120px;
     margin-bottom: 16px;
+}
+
+.ability-editor__description .unity-base-text-field__input {
+    min-height: 32px;
 }
 
 .ability-editor__effects {

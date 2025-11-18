@@ -36,6 +36,7 @@
 
 .effect-picker__item--selected {
     background-color: #dbeafe;
+    color: #000;
 }
 
 .effect-picker__item-label {

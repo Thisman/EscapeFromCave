@@ -576,7 +576,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             var row = new VisualElement();
             row.AddToClassList("effect-editor__type-row");
 
-            var statField = new EnumField("Стат");
+            var statField = new EnumField();
             statField.AddToClassList("effect-editor__type-field");
             statField.Init(modifiers[rowIndex].Stat);
             statField.SetValueWithoutNotify(modifiers[rowIndex].Stat);
@@ -595,7 +595,7 @@ public sealed class BattleEffectEditorWindow : EditorWindow
             });
             row.Add(statField);
 
-            var valueField = new FloatField("Значение");
+            var valueField = new FloatField();
             valueField.AddToClassList("effect-editor__type-field");
             valueField.SetValueWithoutNotify(modifiers[rowIndex].Value);
             valueField.RegisterValueChangedCallback(evt =>

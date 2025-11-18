@@ -28,7 +28,6 @@ public sealed class BattleAbilityEditorWindow : EditorWindow
     private TextField _abilityNameField;
     private TextField _descriptionField;
     private IntegerField _cooldownField;
-    private Toggle _isReadyToggle;
     private EnumField _abilityTypeField;
     private EnumField _targetTypeField;
     private Label _fileNameLabel;
@@ -96,7 +95,6 @@ public sealed class BattleAbilityEditorWindow : EditorWindow
         _abilityNameField = rootVisualElement.Q<TextField>("AbilityNameField");
         _descriptionField = rootVisualElement.Q<TextField>("DescriptionField");
         _cooldownField = rootVisualElement.Q<IntegerField>("CooldownField");
-        _isReadyToggle = rootVisualElement.Q<Toggle>("IsReadyToggle");
         _abilityTypeField = rootVisualElement.Q<EnumField>("AbilityTypeField");
         _targetTypeField = rootVisualElement.Q<EnumField>("TargetTypeField");
         _fileNameLabel = rootVisualElement.Q<Label>("FileNameLabel");
@@ -197,7 +195,6 @@ public sealed class BattleAbilityEditorWindow : EditorWindow
         ConfigureEnumField<BattleAbilityType>(_abilityTypeField, value => _editingAbility.AbilityType = value);
         ConfigureEnumField<BattleAbilityTargetType>(_targetTypeField, value => _editingAbility.AbilityTargetType = value);
         ConfigureIntegerField(_cooldownField, value => _editingAbility.Cooldown = Mathf.Max(0, value));
-        ConfigureToggle(_isReadyToggle, value => _editingAbility.IsReady = value);
 
         if (_saveButton != null)
         {
@@ -391,7 +388,6 @@ public sealed class BattleAbilityEditorWindow : EditorWindow
         _abilityNameField?.SetValueWithoutNotify(_editingAbility.AbilityName ?? string.Empty);
         _descriptionField?.SetValueWithoutNotify(_editingAbility.Description ?? string.Empty);
         _cooldownField?.SetValueWithoutNotify(_editingAbility.Cooldown);
-        _isReadyToggle?.SetValueWithoutNotify(_editingAbility.IsReady);
         UpdateFileNameLabel();
 
         if (_abilityTypeField != null)
@@ -417,7 +413,6 @@ public sealed class BattleAbilityEditorWindow : EditorWindow
         _abilityNameField?.SetValueWithoutNotify(string.Empty);
         _descriptionField?.SetValueWithoutNotify(string.Empty);
         _cooldownField?.SetValueWithoutNotify(0);
-        _isReadyToggle?.SetValueWithoutNotify(false);
         _abilityTypeField?.SetValueWithoutNotify(default(BattleAbilityType));
         _targetTypeField?.SetValueWithoutNotify(default(BattleAbilityTargetType));
         if (_fileNameLabel != null)
