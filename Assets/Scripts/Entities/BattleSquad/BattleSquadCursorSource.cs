@@ -23,7 +23,7 @@ public sealed class BattleSquadCursorSource : ICursorSource
     private string ResolveCursorName()
     {
         var controller = _controller ??= GetComponent<BattleSquadController>();
-        if (controller != null && controller.GetSquadModel().IsAlly())
+        if (controller != null && controller.GetSquadModel().IsFriendly())
             return ResolveDefaultCursor();
 
         if (controller != null && controller.IsValidTarget())
