@@ -1,6 +1,6 @@
 using System;
 
-public interface IActionTargetPicker : IDisposable
+public interface IBattleActionTargetPicker : IDisposable
 {
     event Action<BattleSquadController> OnSelect;
 

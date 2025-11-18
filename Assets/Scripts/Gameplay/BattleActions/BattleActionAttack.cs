@@ -8,7 +8,7 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActi
     private bool _disposed;
     private bool _resolved;
     private bool _targetRequested;
-    private IActionTargetPicker _targetPicker;
+    private IBattleActionTargetPicker _targetPicker;
 
     public event Action OnResolve;
     public event Action OnCancel;
@@ -19,7 +19,7 @@ public sealed class BattleActionAttack : IBattleAction, IDisposable, IBattleActi
         BattleContext context,
         IBattleActionTargetResolver targetResolver,
         BattleDamageDefaultResolver damageResolver,
-        IActionTargetPicker targetPicker)
+        IBattleActionTargetPicker targetPicker)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));

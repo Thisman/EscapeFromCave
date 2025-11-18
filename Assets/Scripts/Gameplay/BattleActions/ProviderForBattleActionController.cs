@@ -1,11 +1,11 @@
 using System;
 
-public sealed class BattleActionControllerResolver
+public sealed class ProviderForBattleActionController
 {
     private readonly IBattleActionController _playerController;
     private readonly IBattleActionController _enemyController;
 
-    public BattleActionControllerResolver(IBattleActionController player, IBattleActionController enemy)
+    public ProviderForBattleActionController(IBattleActionController player, IBattleActionController enemy)
     {
         _playerController = player;
         _enemyController = enemy;

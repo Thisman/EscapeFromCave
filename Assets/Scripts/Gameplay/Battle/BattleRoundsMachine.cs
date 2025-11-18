@@ -61,7 +61,7 @@ public sealed class BattleRoundsMachine
 
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
-        BattleActionControllerResolver _actionControllerResolver = new(playerTurnController, enemyTurnController);
+        ProviderForBattleActionController _actionControllerResolver = new(playerTurnController, enemyTurnController);
     }
 
     public void Reset()
@@ -134,7 +134,7 @@ public sealed class BattleRoundsMachine
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnWaitAction);
         AIBattleActionController enemyTurnController = new();
         PlayerBattleActionController playerTurnController = new();
-        var actionControllerResolver = new BattleActionControllerResolver(playerTurnController, enemyTurnController);
+        var actionControllerResolver = new ProviderForBattleActionController(playerTurnController, enemyTurnController);
         IBattleActionController controller = actionControllerResolver.ResolveFor(_ctx.ActiveUnit);
 
         controller.RequestAction(_ctx, action =>

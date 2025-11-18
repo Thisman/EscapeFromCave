@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class AIActionTargetPicker : IActionTargetPicker
+public sealed class BattlActionTargetPickerForAI : IBattleActionTargetPicker
 {
     private readonly BattleContext _context;
     private bool _disposed;
@@ -10,7 +10,7 @@ public sealed class AIActionTargetPicker : IActionTargetPicker
 
     public event Action<BattleSquadController> OnSelect;
 
-    public AIActionTargetPicker(BattleContext context)
+    public BattlActionTargetPickerForAI(BattleContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }

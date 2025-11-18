@@ -3,13 +3,14 @@ using UnityEngine;
 
 public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleActionTargetResolverProvider
 {
+    private readonly BattleContext _ctx;
     private readonly BattleAbilitySO _ability;
     private readonly IBattleActionTargetResolver _targetResolver;
-    private IActionTargetPicker _targetPicker;
+    
     private bool _disposed;
     private bool _resolved;
     private bool _targetRequested;
-    private BattleContext _ctx;
+    private IBattleActionTargetPicker _targetPicker;
 
     public event Action OnResolve;
     public event Action OnCancel;
@@ -20,10 +21,10 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleAct
         BattleContext ctx,
         BattleAbilitySO ability,
         IBattleActionTargetResolver targetResolver,
-        IActionTargetPicker targetPicker)
+        IBattleActionTargetPicker targetPicker)
     {
         _ctx = ctx;
-        _ability = ability ?? throw new ArgumentNullException(nameof(ability));
+        _ability = ability != null ? ability : throw new ArgumentNullException(nameof(ability));
         _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));
         _targetPicker = targetPicker ?? throw new ArgumentNullException(nameof(targetPicker));
     }
@@ -82,12 +83,12 @@ public sealed class BattleActionAbility : IBattleAction, IDisposable, IBattleAct
 
         await _ability.Apply(_ctx, unit);
 
-        var abilityManager = _ctx?.BattleAbilitiesManager;
-        var caster = _ctx?.ActiveUnit;
+        var abilityManager = _ctx.BattleAbilitiesManager;
+        var caster = _ctx.ActiveUnit;
         if (abilityManager != null && caster != null)
         {
             abilityManager.TriggerCooldown(caster, _ability);
-            _ctx?.BattleSceneUIController?.RefreshAbilityAvailability();
+            _ctx.BattleSceneUIController.RefreshAbilityAvailability();
         }
 
         CompleteResolve();

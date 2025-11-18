@@ -18,9 +18,9 @@ public class PlayerBattleActionController : IBattleActionController
         SubscribeUIEvents();
         UpdateDefendAvailability();
 
-        var targetResolver = new BattleActionDefaultTargetResolver(ctx);
+        var targetResolver = new BattleActionTargetResolverForAttack(ctx);
         var damageResolver = new BattleDamageDefaultResolver();
-        var targetPicker = new PlayerBattleActionTargetPicker(ctx, targetResolver);
+        var targetPicker = new BattleActionTargetPickerForPlayer(ctx, targetResolver);
 
         onActionReady.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
     }
@@ -61,15 +61,15 @@ public class PlayerBattleActionController : IBattleActionController
 
         IBattleActionTargetResolver targetResolver = ability.AbilityTargetType switch
         {
-            BattleAbilityTargetType.Self => new BattleActionSelfTargetResolver(),
-            BattleAbilityTargetType.SingleAlly => new BattleActionAllyTargetResolver(),
-            BattleAbilityTargetType.AllAllies => new BattleActionAllyTargetResolver(),
-            BattleAbilityTargetType.SingleEnemy => new BattleActionEnemyTargetResolver(),
-            BattleAbilityTargetType.AllEnemies => new BattleActionEnemyTargetResolver(),
-            _ => new BattleActionEnemyTargetResolver(),
+            BattleAbilityTargetType.Self => new BattleActionTargetResolverForSelf(),
+            BattleAbilityTargetType.SingleAlly => new BattleActionTargetResolverForAlly(),
+            BattleAbilityTargetType.AllAllies => new BattleActionTargetResolverForAlly(),
+            BattleAbilityTargetType.SingleEnemy => new BattleActionTargetResolverForEnemy(),
+            BattleAbilityTargetType.AllEnemies => new BattleActionTargetResolverForEnemy(),
+            _ => new BattleActionTargetResolverForEnemy(),
         };
 
-        var targetPicker = new PlayerBattleActionTargetPicker(_ctx, targetResolver);
+        var targetPicker = new BattleActionTargetPickerForPlayer(_ctx, targetResolver);
         var abilityAction = new BattleActionAbility(_ctx, ability, targetResolver, targetPicker);
         _onActionReady.Invoke(abilityAction);
     }

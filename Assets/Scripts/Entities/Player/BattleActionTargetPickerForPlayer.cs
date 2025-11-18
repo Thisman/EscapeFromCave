@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
+public sealed class BattleActionTargetPickerForPlayer : IBattleActionTargetPicker
 {
     private readonly BattleContext _context;
     private readonly IBattleActionTargetResolver _targetResolver;
@@ -12,7 +12,7 @@ public sealed class PlayerBattleActionTargetPicker : IActionTargetPicker
 
     public event Action<BattleSquadController> OnSelect;
 
-    public PlayerBattleActionTargetPicker(BattleContext context, IBattleActionTargetResolver targetResolver)
+    public BattleActionTargetPickerForPlayer(BattleContext context, IBattleActionTargetResolver targetResolver)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _targetResolver = targetResolver ?? throw new ArgumentNullException(nameof(targetResolver));

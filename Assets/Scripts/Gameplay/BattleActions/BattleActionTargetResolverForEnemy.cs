@@ -1,6 +1,6 @@
 using System;
 
-public sealed class BattleActionEnemyTargetResolver : IBattleActionTargetResolver
+public sealed class BattleActionTargetResolverForEnemy : IBattleActionTargetResolver
 {
     public bool ResolveTarget(IReadOnlySquadModel actor, IReadOnlySquadModel target)
     {
