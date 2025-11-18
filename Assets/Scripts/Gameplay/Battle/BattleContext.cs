@@ -46,8 +46,6 @@ public sealed class BattleContext : IDisposable
     public BattleGridDragAndDropController BattleGridDragAndDropController { get; }
 
     public bool IsFinished { get; set; }
-
-    public BattleResult BattleResult { get; set; }
     
     public IBattleAction CurrentAction { get; set; }
 

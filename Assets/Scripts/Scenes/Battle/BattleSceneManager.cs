@@ -129,17 +129,17 @@ public class BattleSceneManager : MonoBehaviour
         }
     }
 
-    private void ExitBattle()
+    private async void ExitBattle()
     {
         string returnScene = _originSceneName;
         object closeData = null;
 
         if (_battleContext.IsFinished)
         {
-            closeData = _battleContext.BattleResult;
+            closeData = _battlePhaseMachine?.BattleResult;
         }
 
-        _ = _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
+        await _sceneLoader.UnloadAdditiveWithDataAsync(BattleSceneName, closeData, returnScene);
     }
 
     private void TryAddUnit(List<BattleSquadController> squads, BattleSquadSetup setup)

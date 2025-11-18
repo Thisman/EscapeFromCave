@@ -8,6 +8,7 @@ public sealed class BattleRoundsMachine
 {
     private bool _battleFinished;
     private bool _playerRequestedFlee;
+    private BattleResult _battleResult;
     private readonly BattleContext _ctx;
     private readonly StateMachine<BattleRoundStates, BattleRoundsTrigger> _sm;
 
@@ -67,6 +68,7 @@ public sealed class BattleRoundsMachine
         UnsubscribeFromSquadEvents();
         _battleFinished = false;
         _playerRequestedFlee = false;
+        _battleResult = null;
         _ctx.BattleUIController.OnLeaveCombat += HandleLeaveCombat;
         InitializeSquadHistory();
         UpdateTargetValidity(null, null);
@@ -176,7 +178,7 @@ public sealed class BattleRoundsMachine
 
         RemoveDefeatedUnits(_ctx.BattleQueueController, _ctx.BattleGridController);
 
-        if (CheckForBattleCompletion())
+        if (BattleResult.CheckForBattleCompletion(_battleFinished, _ctx.BattleUnits))
         {
             TriggerBattleFinish();
             return;
@@ -315,57 +317,6 @@ public sealed class BattleRoundsMachine
         OnWaitTurnAction();
     }
 
-    // TODO: перенести в BattleResult
-    private bool CheckForBattleCompletion()
-    {
-        if (_battleFinished)
-            return true;
-
-        IReadOnlyList<BattleSquadController> units = _ctx.BattleUnits;
-
-        if (units.Count == 0)
-            return true;
-
-        bool heroInQueue = units.Any(unit => unit.GetSquadModel().IsHero());
-
-        if (!heroInQueue)
-            return true;
-
-        bool hasFriendlyUnits = false;
-        bool hasEnemyUnits = false;
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null)
-                continue;
-
-            var model = unitController.GetSquadModel();
-
-            if (model == null || model.Count <= 0)
-                continue;
-
-            if (model.IsFriendly())
-            {
-                hasFriendlyUnits = true;
-            }
-            else
-            {
-                hasEnemyUnits = true;
-            }
-
-            if (hasFriendlyUnits && hasEnemyUnits)
-                return false;
-        }
-
-        if (!hasFriendlyUnits && !hasEnemyUnits)
-            return true;
-
-        if (hasFriendlyUnits == hasEnemyUnits)
-            return false;
-
-        return true;
-    }
-
     private void TriggerBattleFinish()
     {
         if (_battleFinished)
@@ -383,12 +334,13 @@ public sealed class BattleRoundsMachine
             _sm.Fire(BattleRoundsTrigger.EndRound);
         }
 
-        var unitsResult = BuildUnitsResult();
-        var status = DetermineBattleStatus(unitsResult);
-        var result = new BattleResult(status, unitsResult);
-        _ctx.BattleResult = result;
+        TrackKnownSquads(_ctx.BattleUnits);
+        _battleResult = new BattleResult(
+            _playerRequestedFlee,
+            _friendlySquadHistory,
+            _enemySquadHistory);
 
-        OnBattleRoundsFinished?.Invoke(result);
+        OnBattleRoundsFinished?.Invoke(_battleResult);
     }
 
     private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
@@ -640,22 +592,6 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    // TODO: Должно создаваться в конструкторе BattleResult
-    private BattleUnitsResult BuildUnitsResult()
-    {
-        TrackKnownSquads(_ctx.BattleUnits);
-
-        IReadOnlySquadModel[] friendlyUnits = _friendlySquadHistory.Count > 0
-            ? _friendlySquadHistory.ToArray()
-            : Array.Empty<IReadOnlySquadModel>();
-
-        IReadOnlySquadModel[] enemyUnits = _enemySquadHistory.Count > 0
-            ? _enemySquadHistory.ToArray()
-            : Array.Empty<IReadOnlySquadModel>();
-
-        return new BattleUnitsResult(friendlyUnits, enemyUnits);
-    }
-
     private void InitializeSquadHistory()
     {
         _friendlySquadHistory.Clear();
@@ -699,25 +635,4 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    // TODO: перенести метод в BattleResult
-    private BattleResultStatus DetermineBattleStatus(BattleUnitsResult unitsResult)
-    {
-        if (_playerRequestedFlee)
-            return BattleResultStatus.Flee;
-
-        bool heroAlive = unitsResult.FriendlyUnits.Any(model => model.IsHero() && model.Count > 0);
-        bool hasAliveFriendlies = unitsResult.FriendlyUnits.Any(model => model.Count > 0);
-        bool hasAliveEnemies = unitsResult.EnemyUnits.Any(model => model.Count > 0);
-
-        if (!heroAlive)
-            return BattleResultStatus.Defeat;
-
-        if (hasAliveFriendlies && !hasAliveEnemies)
-            return BattleResultStatus.Victory;
-
-        if (hasAliveFriendlies)
-            return BattleResultStatus.Victory;
-
-        return BattleResultStatus.Defeat;
-    }
 }
