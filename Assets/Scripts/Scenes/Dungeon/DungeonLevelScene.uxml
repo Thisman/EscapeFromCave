@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Project/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
+    <ui:Template name="UnitCardTemplate" src="project://database/Assets/Scripts/UICommon/UnitCard/UnitCard.uxml?fileID=9197481963319205126&amp;guid=0d3bd37d8032cc64e903ede856e8f4c0&amp;type=3#UnitCard" />
     <Style src="project://database/Assets/Project/Scripts/Scenes/Dungeon/DungeonLevelScene.uss?fileID=7433441132597879392&amp;guid=0441ac71ac33dd14ca8587b7c3cbc49c&amp;type=3#DungeonLevelScene" />
     <ui:VisualElement name="Body" style="flex-grow: 1; justify-content: flex-end;">
         <ui:VisualElement name="Bottom" class="bottom dungeon-bottom" style="flex-direction: row; align-items: center;">
@@ -7,5 +8,6 @@
             <ui:VisualElement name="Dialog" style="flex-grow: 1; width: 40%;" />
             <ui:VisualElement name="Space" style="flex-grow: 1; width: 30%;" />
         </ui:VisualElement>
+        <ui:Instance template="UnitCardTemplate" name="SquadInfoCard" class="dungeon-card dungeon-card--hidden" />
     </ui:VisualElement>
 </ui:UXML>
