@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,10 +11,33 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
 
+    private const string SquadInfoCardElementName = "SquadInfoCard";
+    private const string CardHiddenClassName = "dungeon-card--hidden";
+    private const string CardVisibleClassName = "dungeon-card--visible";
+
+    private static readonly UnitCardStatField[] DungeonCardStatFields =
+    {
+        UnitCardStatField.Count,
+        UnitCardStatField.Health,
+        UnitCardStatField.DamageRange,
+        UnitCardStatField.Initiative,
+        UnitCardStatField.PhysicalDefense,
+        UnitCardStatField.MagicDefense,
+        UnitCardStatField.AbsoluteDefense,
+        UnitCardStatField.AttackKind,
+        UnitCardStatField.DamageType,
+        UnitCardStatField.CritChance,
+        UnitCardStatField.CritMultiplier,
+        UnitCardStatField.MissChance
+    };
+
     private VisualElement _root;
     private VisualElement _squadsList;
     private VisualElement _dialogContainer;
     private Label _dialogLabel;
+    private VisualElement _squadInfoCard;
+    private UnitCardWidget _squadInfoCardWidget;
+    private IReadOnlySquadModel _displayedSquad;
 
     private readonly Dictionary<IReadOnlySquadModel, SquadEntry> _squadEntries = new();
     private readonly List<IReadOnlySquadModel> _orderedSquads = new();
@@ -61,7 +86,15 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         _uiDocument = document;
         _root = document.rootVisualElement;
         _squadsList = _root?.Q<VisualElement>("SquadsList");
+        if (_squadsList != null)
+        {
+            _squadsList.UnregisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
+            _squadsList.RegisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
+        }
         _dialogContainer = _root?.Q<VisualElement>("Dialog");
+        _squadInfoCard = _root?.Q<VisualElement>(SquadInfoCardElementName);
+        _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
+        HideSquadInfoCard();
 
         if (_dialogContainer != null)
         {
@@ -93,10 +126,19 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         }
 
         HideDialog();
+        HideSquadInfoCard();
         ClearTrackedSquads();
+
+        if (_squadsList != null)
+        {
+            _squadsList.UnregisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
+        }
 
         _dialogContainer = null;
         _dialogLabel = null;
+        _squadInfoCardWidget = null;
+        _squadInfoCard = null;
+        _displayedSquad = null;
         _squadsList = null;
         _root = null;
         _isAttached = false;
@@ -128,6 +170,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         {
             _lastRenderedSquads.Clear();
             _lastRenderedSquads.AddRange(_buffer);
+            HideSquadInfoCard();
             if (_isAttached)
             {
                 Debug.LogWarning($"[{nameof(DungeonUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
@@ -292,6 +335,10 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         if (_squadEntries.TryGetValue(squad, out var entry))
         {
             UpdateSquadEntry(entry, squad);
+            if (ReferenceEquals(_displayedSquad, squad))
+            {
+                UpdateSquadInfoCardContent(squad);
+            }
         }
     }
 
@@ -307,6 +354,11 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
             squad.Changed -= HandleSquadChanged;
             _squadEntries.Remove(squad);
             entry.Root.RemoveFromHierarchy();
+            entry.Dispose();
+            if (ReferenceEquals(_displayedSquad, squad))
+            {
+                HideSquadInfoCard();
+            }
         }
     }
 
@@ -315,12 +367,14 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         foreach (var kvp in _squadEntries)
         {
             kvp.Key.Changed -= HandleSquadChanged;
+            kvp.Value.Dispose();
         }
 
         _squadEntries.Clear();
         _orderedSquads.Clear();
         _buffer.Clear();
         _squadsList?.Clear();
+        HideSquadInfoCard();
     }
 
     private SquadEntry CreateSquadEntry(IReadOnlySquadModel squad)
@@ -349,11 +403,13 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         root.Add(icon);
         root.Add(countLabel);
 
-        return new SquadEntry(root, icon, countLabel);
+        return new SquadEntry(this, root, icon, countLabel);
     }
 
     private static void UpdateSquadEntry(SquadEntry entry, IReadOnlySquadModel squad)
     {
+        entry?.SetSquad(squad);
+
         if (entry.Icon != null)
         {
             if (squad != null && squad.Icon != null)
@@ -376,17 +432,88 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
         }
     }
 
-    private sealed class SquadEntry
+    private void HandleSquadsListPointerLeave(PointerLeaveEvent _)
     {
-        public SquadEntry(VisualElement root, VisualElement icon, Label countLabel)
+        HideSquadInfoCard();
+    }
+
+    private void ShowSquadInfoCard(IReadOnlySquadModel squad)
+    {
+        if (squad == null || _squadInfoCard == null || _squadInfoCardWidget == null)
         {
+            return;
+        }
+
+        _displayedSquad = squad;
+        UpdateSquadInfoCardContent(squad);
+
+        _squadInfoCard.EnableInClassList(CardHiddenClassName, false);
+        _squadInfoCard.EnableInClassList(CardVisibleClassName, true);
+    }
+
+    private void UpdateSquadInfoCardContent(IReadOnlySquadModel squad)
+    {
+        if (squad == null || _squadInfoCardWidget == null)
+        {
+            return;
+        }
+
+        IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
+        UnitCardRenderData data = new(squad, DungeonCardStatFields, abilities, Array.Empty<BattleEffectSO>(), squad.UnitName);
+        _squadInfoCardWidget.Render(data);
+    }
+
+    private void HideSquadInfoCard()
+    {
+        _displayedSquad = null;
+
+        if (_squadInfoCard == null)
+        {
+            return;
+        }
+
+        _squadInfoCard.EnableInClassList(CardVisibleClassName, false);
+        _squadInfoCard.EnableInClassList(CardHiddenClassName, true);
+    }
+
+    private sealed class SquadEntry : IDisposable
+    {
+        private readonly DungeonUIController _owner;
+        private readonly EventCallback<PointerEnterEvent> _pointerEnterCallback;
+
+        public SquadEntry(DungeonUIController owner, VisualElement root, VisualElement icon, Label countLabel)
+        {
+            _owner = owner;
             Root = root;
             Icon = icon;
             CountLabel = countLabel;
+            _pointerEnterCallback = HandlePointerEnter;
+            Root?.RegisterCallback(_pointerEnterCallback);
         }
 
         public VisualElement Root { get; }
         public VisualElement Icon { get; }
         public Label CountLabel { get; }
+        public IReadOnlySquadModel Squad { get; private set; }
+
+        public void SetSquad(IReadOnlySquadModel squad)
+        {
+            Squad = squad;
+        }
+
+        public void Dispose()
+        {
+            Root?.UnregisterCallback(_pointerEnterCallback);
+        }
+
+        private void HandlePointerEnter(PointerEnterEvent _)
+        {
+            if (Squad == null)
+            {
+                return;
+            }
+
+            _owner?.ShowSquadInfoCard(Squad);
+        }
     }
 }
