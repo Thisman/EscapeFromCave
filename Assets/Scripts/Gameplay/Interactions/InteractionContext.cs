@@ -15,4 +15,6 @@ public sealed class InteractionContext
     public DialogManager DialogManager;
 
     public InputService InputService;
+
+    public IBattleResultHandler BattleResultHandler;
 }

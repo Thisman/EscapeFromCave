@@ -14,6 +14,7 @@ public sealed class RootLifetimeScope : LifetimeScope
     {
         builder.Register<SceneLoader>(Lifetime.Singleton);
         builder.Register<GameSession>(Lifetime.Singleton);
+        builder.Register<BattleResultHandler>(Lifetime.Singleton).As<IBattleResultHandler>();
 
         builder.RegisterInstance(InputActions).As<InputActionAsset>();
         builder.Register<InputService>(Lifetime.Singleton);

@@ -14,6 +14,7 @@ public sealed class PlayerInteraction : MonoBehaviour
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly DialogManager _dialogManager;
+    [Inject] private readonly IBattleResultHandler _battleResultHandler;
 
     private GameObject _actor;
     private Collider2D[] _hits;
@@ -148,6 +149,7 @@ public sealed class PlayerInteraction : MonoBehaviour
             SceneLoader = _sceneLoader,
             InputService = _inputService,
             DialogManager = _dialogManager,
+            BattleResultHandler = _battleResultHandler,
             Target = _currentTarget.gameObject,
         };
 
