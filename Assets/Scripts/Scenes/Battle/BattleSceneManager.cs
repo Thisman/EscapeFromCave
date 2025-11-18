@@ -92,7 +92,7 @@ public class BattleSceneManager : MonoBehaviour
     private void InitializeBattleContext()
     {
         BattleEffectsManager battleEffectsManager = new();
-        BattleAbilityManager battleAbilitiesManager = new();
+        BattleAbilitiesManager battleAbilitiesManager = new();
 
         _battleContext = new BattleContext(
             _inputService,

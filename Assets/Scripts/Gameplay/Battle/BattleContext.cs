@@ -14,7 +14,7 @@ public sealed class BattleContext : IDisposable
         BattleQueueController battleQueueController,
         BattleGridDragAndDropController battleGridDragAndDropController,
 
-        BattleAbilityManager battleAbilityManager,
+        BattleAbilitiesManager battleAbilityManager,
         BattleEffectsManager battleEffectsManager
     )
     {
@@ -40,7 +40,7 @@ public sealed class BattleContext : IDisposable
 
     public BattleQueueController BattleQueueController { get; }
 
-    public BattleAbilityManager BattleAbilitiesManager { get; }
+    public BattleAbilitiesManager BattleAbilitiesManager { get; }
 
     public BattleGridDragAndDropController BattleGridDragAndDropController { get; }
 

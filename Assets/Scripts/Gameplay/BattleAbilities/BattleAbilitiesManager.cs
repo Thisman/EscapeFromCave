@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public sealed class BattleAbilityManager
+public sealed class BattleAbilitiesManager
 {
     private readonly Dictionary<IReadOnlySquadModel, Dictionary<BattleAbilitySO, AbilityCooldownState>> _cooldowns = new();
 

@@ -109,7 +109,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     private VisualElement _queueContainer;
     private readonly List<VisualElement> _abilityListContainers = new();
     private readonly Dictionary<BattleAbilitySO, List<VisualElement>> _abilityElements = new();
-    private BattleAbilityManager _currentAbilityManager;
+    private BattleAbilitiesManager _currentAbilityManager;
     private IReadOnlySquadModel _currentAbilityOwner;
     private BattleAbilitySO _highlightedAbility;
     private VisualElement _abilityTooltip;
@@ -378,7 +378,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             : DisplayStyle.None;
     }
 
-    public void RenderAbilityList(BattleAbilitySO[] abilities, BattleAbilityManager abilityManager, IReadOnlySquadModel owner)
+    public void RenderAbilityList(BattleAbilitySO[] abilities, BattleAbilitiesManager abilityManager, IReadOnlySquadModel owner)
     {
         ClearAbilityList();
 
