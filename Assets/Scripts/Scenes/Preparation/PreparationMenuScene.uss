@@ -81,6 +81,13 @@
     align-items: center;
 }
 
+.total-units-label {
+    color: #fff;
+    font-size: 20px;
+    height: 20px;
+    margin-bottom: 32px;
+}
+
 .squads-list {
     flex-wrap: wrap;
     flex-direction: row;

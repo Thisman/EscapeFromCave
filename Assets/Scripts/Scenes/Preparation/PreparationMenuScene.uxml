@@ -22,6 +22,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="Content" class="content" style="flex-grow: 1;">
                 <ui:VisualElement name="SquadsListContainer" class="squads-list--container">
+                    <ui:Label name="SquadsTotalUnitCount" text="Всего юнитов: 30, доступно еще: 0" class="total-units-label" />
                     <ui:VisualElement name="SquadsList" class="squads-list">
                         <ui:VisualElement name="SquadItem" class="squad-item" />
                         <ui:VisualElement name="SquadItem" class="squad-item" />
@@ -31,9 +32,9 @@
                         <ui:VisualElement name="SquadItem" class="squad-item" />
                     </ui:VisualElement>
                     <ui:VisualElement name="SquadsListControls" class="squads-list--controls">
-                        <ui:VisualElement name="PrevUnitButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Left&apos;); background-size: 36% 56%;" />
+                        <ui:VisualElement name="DecreaseUnitCountButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Left&apos;); background-size: 36% 56%;" />
                         <ui:Label name="SquadCountLabel" text="10" class="squad-count" />
-                        <ui:VisualElement name="NextUnitButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Right&apos;); background-size: 36% 56%;" />
+                        <ui:VisualElement name="IncreaseUnitCountButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Right&apos;); background-size: 36% 56%;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="SquadsContainer" style="flex-grow: 0;">

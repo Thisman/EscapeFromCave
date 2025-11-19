@@ -42,6 +42,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     private Clickable _decreaseSquadCountClickable;
     private Clickable _increaseSquadCountClickable;
     private SquadSlot _activeSquadSlot;
+    private Label _totalUnitsLabel;
     private int _totalSquadUnits;
 
     private const int DefaultSquadUnitCount = 10;
@@ -145,6 +146,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
         _goToHeroSelectionButton = _squadPanel?.Q<Button>("GoToHeroSelection");
         _diveIntoCaveButton = _root.Q<Button>("DiveIntoCaveButton");
+        _totalUnitsLabel = _root.Q<Label>("SquadsTotalUnitCount");
 
         InitializeHeroCards();
         InitializeSquadCards();
@@ -208,6 +210,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         _decreaseSquadCountButton = null;
         _increaseSquadCountButton = null;
         _squadCountLabel = null;
+        _totalUnitsLabel = null;
 
         foreach (HeroCard card in _heroCards)
             card.Dispose();
@@ -317,8 +320,8 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     private void InitializeSquadCountControls()
     {
         VisualElement controls = _squadPanel?.Q<VisualElement>("SquadsListControls");
-        _decreaseSquadCountButton = controls?.Q<VisualElement>("PrevUnitButton");
-        _increaseSquadCountButton = controls?.Q<VisualElement>("NextUnitButton");
+        _decreaseSquadCountButton = controls?.Q<VisualElement>("DecreaseUnitCountButton");
+        _increaseSquadCountButton = controls?.Q<VisualElement>("IncreaseUnitCountButton");
         _squadCountLabel = controls?.Q<Label>("SquadCountLabel");
 
         if (_decreaseSquadCountButton != null)
@@ -388,6 +391,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             PopulateDefaultSquadAssignments();
 
         RecalculateTotalSquadUnits();
+        UpdateTotalUnitCount();
         EnsureActiveSquadSlot();
         UpdateSquadCardFromActiveSlot();
         UpdateSquadCountControls();
@@ -513,6 +517,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             _activeSquadSlot = null;
 
         RecalculateTotalSquadUnits();
+        UpdateTotalUnitCount();
         UpdateSlotStates();
 
         SquadSlot nextActive = FindNearestOccupiedSlot(slot);
@@ -615,9 +620,19 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         _activeSquadSlot.UpdateCount(newCount);
         RecalculateTotalSquadUnits();
+        UpdateTotalUnitCount();
         UpdateSquadCardFromActiveSlot();
         UpdateSquadCountControls();
         UpdateSlotStates();
+    }
+
+    private void UpdateTotalUnitCount()
+    {
+        if (_totalUnitsLabel == null)
+            return;
+
+        var availableUnitsCount = MaxSquadUnitsLimit - _totalSquadUnits;
+        _totalUnitsLabel.text = $"Всего юнитов: {_totalSquadUnits}, доступно еще: {availableUnitsCount}";
     }
 
     private int GetAvailableUnitsForSlot(SquadSlot slot)
@@ -664,6 +679,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         slot.UpdateSquad(squad, definitionIndex, desiredCount);
         RecalculateTotalSquadUnits();
+        UpdateTotalUnitCount();
         UpdateSquadCardFromActiveSlot();
         UpdateSquadCountControls();
         UpdateSlotStates();
@@ -918,11 +934,6 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         return selectedSquads;
     }
 
-    private static float GetDefaultCount()
-    {
-        return DefaultSquadUnitCount;
-    }
-
     private static int WrapIndex(int index, int length)
     {
         if (length <= 0)
@@ -961,7 +972,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
                 return;
 
             IReadOnlyList<UnitCardStatField> statFields = hero != null ? stats : Array.Empty<UnitCardStatField>();
-            IReadOnlySquadModel squad = hero != null ? new SquadModel(hero, Mathf.RoundToInt(GetDefaultCount())) : null;
+            IReadOnlySquadModel squad = hero != null ? new SquadModel(hero, Mathf.RoundToInt(DefaultSquadUnitCount)) : null;
             IReadOnlyList<BattleAbilitySO> abilities = hero?.Abilities ?? Array.Empty<BattleAbilitySO>();
 
             UnitCardRenderData data = new(squad, statFields, abilities, Array.Empty<BattleEffectSO>(), hero.UnitName);
