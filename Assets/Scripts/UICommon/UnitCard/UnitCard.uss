@@ -46,7 +46,7 @@
     -unity-text-align: middle-center;
     text-overflow: ellipsis;
     width: 270px;
-    flex-grow: 1;
+    flex-grow: 0;
     white-space: nowrap;
 }
 

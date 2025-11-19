@@ -1,11 +1,20 @@
 :root {
 }
 
+.panel {
+    align-items: center;
+}
+
 .content {
     flex-grow: 1;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.select-squad--panel .content {
+    width: 1000px;
+    justify-content: space-between;
 }
 
 .hero-panel .unit-card {
@@ -70,4 +79,63 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+
+.squads-list {
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 300px;
+    background-color: rgba(0,0, 0, 0.5);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.squad-item {
+    width: 64px;
+    height: 64px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    background-color: rgba(0,0, 0, 0.5);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.squads-list--controls {
+    width: 100%;
+    margin-top: 32px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.squads-control-button {
+    width: 64px;
+    height: 64px;
+}
+
+.squad-count {
+    width: 64px;
+    height: 64px;
 }
