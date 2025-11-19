@@ -84,8 +84,8 @@
 .squads-list {
     flex-wrap: wrap;
     flex-direction: row;
-    width: 300px;
-    background-color: rgba(0,0, 0, 0.5);
+    width: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
@@ -101,13 +101,14 @@
 }
 
 .squad-item {
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 128px;
     margin-top: 16px;
     margin-bottom: 16px;
     margin-left: 16px;
     margin-right: 16px;
-    background-color: rgba(0,0, 0, 0.5);
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
@@ -120,6 +121,29 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    background-size: 100px 100px;
+}
+
+.squad-item--active {
+    border-color: rgb(255, 215, 0);
+}
+
+.squad-item--locked {
+    opacity: 0.1;
+}
+
+.squad-item__count {
+    position: absolute;
+    bottom: -5px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 4px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-right;
+    -unity-font-style: bold;
+    background-size: 100px 100px;
 }
 
 .squads-list--controls {
@@ -133,9 +157,21 @@
 .squads-control-button {
     width: 64px;
     height: 64px;
+    opacity: 0.1;
+}
+
+.squads-control-button:hover {
+    opacity: 1;
+}
+
+.squads-control-button.unity-disabled {
+    opacity: 0.01;
 }
 
 .squad-count {
     width: 64px;
     height: 64px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
 }

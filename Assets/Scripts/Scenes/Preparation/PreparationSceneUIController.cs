@@ -34,6 +34,24 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     private InputAction _previousHeroAction;
     private InputAction _nextHeroAction;
 
+    private readonly List<SquadSlot> _squadSlots = new();
+    private VisualElement _squadsList;
+    private VisualElement _decreaseSquadCountButton;
+    private VisualElement _increaseSquadCountButton;
+    private Label _squadCountLabel;
+    private Clickable _decreaseSquadCountClickable;
+    private Clickable _increaseSquadCountClickable;
+    private SquadSlot _activeSquadSlot;
+    private int _totalSquadUnits;
+
+    private const int DefaultSquadUnitCount = 10;
+    private const int MinSquadUnitCount = 1;
+    private const int MaxSquadUnitsLimit = 30;
+    private const string SquadSlotActiveClassName = "squad-item--active";
+    private const string SquadSlotLockedClassName = "squad-item--locked";
+    private const string SquadSlotHeroClassName = "squad-item--hero";
+    private const string SquadSlotCountClassName = "squad-item__count";
+
     private static readonly UnitCardStatField[] HeroStatFields =
     {
         UnitCardStatField.Health,
@@ -123,12 +141,15 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         _heroPanel = _root.Q<VisualElement>("SelectHeroPanel");
         _squadPanel = _root.Q<VisualElement>("SelectSquadsPanel");
+        _squadsList = _squadPanel?.Q<VisualElement>("SquadsList");
         _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
         _goToHeroSelectionButton = _squadPanel?.Q<Button>("GoToHeroSelection");
         _diveIntoCaveButton = _root.Q<Button>("DiveIntoCaveButton");
 
         InitializeHeroCards();
         InitializeSquadCards();
+        InitializeSquadSlots();
+        InitializeSquadCountControls();
 
         if (_goToSquadsSelectionButton != null)
             _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
@@ -172,17 +193,40 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             _diveIntoCaveButton = null;
         }
 
+        if (_decreaseSquadCountButton != null && _decreaseSquadCountClickable != null)
+        {
+            _decreaseSquadCountButton.RemoveManipulator(_decreaseSquadCountClickable);
+            _decreaseSquadCountClickable = null;
+        }
+
+        if (_increaseSquadCountButton != null && _increaseSquadCountClickable != null)
+        {
+            _increaseSquadCountButton.RemoveManipulator(_increaseSquadCountClickable);
+            _increaseSquadCountClickable = null;
+        }
+
+        _decreaseSquadCountButton = null;
+        _increaseSquadCountButton = null;
+        _squadCountLabel = null;
+
         foreach (HeroCard card in _heroCards)
             card.Dispose();
 
         foreach (SquadCard card in _squadCards)
             card.Dispose();
 
+        foreach (SquadSlot slot in _squadSlots)
+            slot.Dispose();
+
         _heroCards.Clear();
         _squadCards.Clear();
+        _squadSlots.Clear();
+        _activeSquadSlot = null;
+        _totalSquadUnits = 0;
 
         _heroPanel = null;
         _squadPanel = null;
+        _squadsList = null;
         _root = null;
         _isHeroSelectionVisible = false;
 
@@ -245,6 +289,53 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         });
     }
 
+    private void InitializeSquadSlots()
+    {
+        foreach (SquadSlot slot in _squadSlots)
+            slot.Dispose();
+
+        _squadSlots.Clear();
+
+        if (_squadsList == null)
+            return;
+
+        int index = 0;
+        _squadsList.Query<VisualElement>(className: "squad-item").ForEach(slotElement =>
+        {
+            SquadSlot slot = new(this, slotElement, index, index == 0);
+            _squadSlots.Add(slot);
+            index++;
+        });
+
+        SetActiveSquadSlot(GetFirstAvailableSlot());
+        UpdateHeroSlot();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+    }
+
+    private void InitializeSquadCountControls()
+    {
+        VisualElement controls = _squadPanel?.Q<VisualElement>("SquadsListControls");
+        _decreaseSquadCountButton = controls?.Q<VisualElement>("PrevUnitButton");
+        _increaseSquadCountButton = controls?.Q<VisualElement>("NextUnitButton");
+        _squadCountLabel = controls?.Q<Label>("SquadCountLabel");
+
+        if (_decreaseSquadCountButton != null)
+        {
+            _decreaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(-1));
+            _decreaseSquadCountButton.AddManipulator(_decreaseSquadCountClickable);
+        }
+
+        if (_increaseSquadCountButton != null)
+        {
+            _increaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(1));
+            _increaseSquadCountButton.AddManipulator(_increaseSquadCountClickable);
+        }
+
+        UpdateSquadCountControls();
+    }
+
     private void RenderHeroes()
     {
         if (_heroCards.Count == 0)
@@ -270,26 +361,37 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void RenderSquads()
     {
-        if (_squadCards.Count == 0)
-            return;
-
-        if (_squadDefinitions.Length == 0)
+        if (_squadSlots.Count == 0)
         {
-            foreach (SquadCard card in _squadCards)
-                card.UpdateContent(null, -1, Array.Empty<UnitCardStatField>());
-
+            UpdateSquadCardFromActiveSlot();
+            UpdateSquadCountControls();
             return;
         }
 
-        for (int i = 0; i < _squadCards.Count; i++)
+        bool hasDefinitions = _squadDefinitions.Length > 0;
+        foreach (SquadSlot slot in _squadSlots)
         {
-            SquadCard card = _squadCards[i];
-            int index = card.HasValidSelection(_squadDefinitions.Length)
-                ? card.SelectedDefinitionIndex
-                : WrapIndex(i, _squadDefinitions.Length);
+            if (slot.IsHeroSlot)
+                continue;
 
-            SetSquadCardContent(card, index);
+            if (!hasDefinitions)
+            {
+                slot.Clear();
+                continue;
+            }
+
+            if (!slot.IsEmpty && (slot.DefinitionIndex < 0 || slot.DefinitionIndex >= _squadDefinitions.Length))
+                slot.Clear();
         }
+
+        if (hasDefinitions)
+            PopulateDefaultSquadAssignments();
+
+        RecalculateTotalSquadUnits();
+        EnsureActiveSquadSlot();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
     }
 
     private void ChangeSquadSelection(SquadCard card, int direction)
@@ -297,23 +399,312 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         if (card == null || _squadDefinitions.Length == 0)
             return;
 
-        int newIndex;
-        if (card.HasValidSelection(_squadDefinitions.Length))
-            newIndex = WrapIndex(card.SelectedDefinitionIndex + direction, _squadDefinitions.Length);
-        else
-            newIndex = direction >= 0 ? 0 : _squadDefinitions.Length - 1;
+        if (_activeSquadSlot == null)
+            return;
 
-        SetSquadCardContent(card, newIndex);
+        int currentIndex = _activeSquadSlot.DefinitionIndex;
+        int newIndex = currentIndex >= 0
+            ? WrapIndex(currentIndex + direction, _squadDefinitions.Length)
+            : (direction >= 0 ? 0 : _squadDefinitions.Length - 1);
+
+        TryAssignSquadToSlot(_activeSquadSlot, newIndex);
     }
 
-    private void SetSquadCardContent(SquadCard card, int index)
+    private void UpdateSquadCardFromActiveSlot()
+    {
+        foreach (SquadCard card in _squadCards)
+            UpdateSquadCard(card, _activeSquadSlot);
+    }
+
+    private void UpdateSquadCard(SquadCard card, SquadSlot slot)
     {
         if (card == null)
             return;
 
-        UnitSO squad = index >= 0 && index < _squadDefinitions.Length ? _squadDefinitions[index] : null;
+        UnitSO squad = slot?.Squad;
         IReadOnlyList<UnitCardStatField> stats = squad != null ? SquadStatFields : Array.Empty<UnitCardStatField>();
-        card.UpdateContent(squad, squad != null ? index : -1, stats);
+        int definitionIndex = squad != null ? slot.DefinitionIndex : -1;
+        int count = squad != null ? slot.Count : DefaultSquadUnitCount;
+        card.UpdateContent(squad, definitionIndex, count, stats);
+    }
+
+    private void UpdateSquadCountControls()
+    {
+        int displayCount = DefaultSquadUnitCount;
+        bool canDecrease = false;
+        bool canIncrease = false;
+
+        if (_activeSquadSlot != null && !_activeSquadSlot.IsEmpty)
+        {
+            displayCount = _activeSquadSlot.Count;
+            canDecrease = _activeSquadSlot.Count > MinSquadUnitCount;
+            int available = GetAvailableUnitsForSlot(_activeSquadSlot);
+            canIncrease = _activeSquadSlot.Count < available;
+        }
+
+        if (_squadCountLabel != null)
+            _squadCountLabel.text = displayCount.ToString();
+
+        _decreaseSquadCountButton?.SetEnabled(canDecrease);
+        _increaseSquadCountButton?.SetEnabled(canIncrease);
+    }
+
+    private void UpdateSlotStates()
+    {
+        bool atLimit = _totalSquadUnits >= MaxSquadUnitsLimit;
+        bool needsActiveUpdate = _activeSquadSlot == null;
+        foreach (SquadSlot slot in _squadSlots)
+        {
+            if (slot.IsHeroSlot)
+                continue;
+
+            bool shouldLock = atLimit && slot.IsEmpty;
+            slot.SetLocked(shouldLock);
+            if (slot == _activeSquadSlot && shouldLock)
+            {
+                _activeSquadSlot = null;
+                needsActiveUpdate = true;
+            }
+            slot.SetActive(slot == _activeSquadSlot);
+        }
+
+        if (needsActiveUpdate)
+            EnsureActiveSquadSlot();
+    }
+
+    private void HandleSquadSlotClick(SquadSlot slot, ClickEvent evt)
+    {
+        if (slot == null || slot.IsHeroSlot)
+            return;
+
+        if (evt != null && evt.clickCount >= 2)
+        {
+            RemoveSquadFromSlot(slot);
+            return;
+        }
+
+        if (slot.IsLocked)
+            return;
+
+        SetActiveSquadSlot(slot);
+
+        if (slot.IsEmpty)
+        {
+            int defaultDefinitionIndex = GetDefaultDefinitionIndexForSlot(slot);
+            if (defaultDefinitionIndex >= 0)
+                TryAssignSquadToSlot(slot, defaultDefinitionIndex);
+        }
+    }
+
+    private void RemoveSquadFromSlot(SquadSlot slot)
+    {
+        if (slot == null || slot.IsHeroSlot)
+            return;
+
+        if (slot.IsEmpty)
+            return;
+
+        if (!HasOtherOccupiedSlots(slot))
+            return;
+
+        bool wasActive = slot == _activeSquadSlot;
+        slot.Clear();
+        if (wasActive)
+            _activeSquadSlot = null;
+
+        RecalculateTotalSquadUnits();
+        UpdateSlotStates();
+
+        SquadSlot nextActive = FindNearestOccupiedSlot(slot);
+        SetActiveSquadSlot(nextActive);
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+    }
+
+    private bool HasOtherOccupiedSlots(SquadSlot excludedSlot)
+    {
+        foreach (SquadSlot candidate in _squadSlots)
+        {
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty || candidate == excludedSlot)
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private SquadSlot FindNearestOccupiedSlot(SquadSlot slot)
+    {
+        if (slot == null)
+            return null;
+
+        for (int i = slot.Index - 1; i >= 0; i--)
+        {
+            SquadSlot candidate = _squadSlots[i];
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty)
+                continue;
+
+            return candidate;
+        }
+
+        for (int i = slot.Index + 1; i < _squadSlots.Count; i++)
+        {
+            SquadSlot candidate = _squadSlots[i];
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty)
+                continue;
+
+            return candidate;
+        }
+
+        return null;
+    }
+
+    private void SetActiveSquadSlot(SquadSlot slot)
+    {
+        if (slot != null && (slot.IsHeroSlot || slot.IsLocked))
+            return;
+
+        if (_activeSquadSlot == slot)
+        {
+            _activeSquadSlot?.SetActive(true);
+            return;
+        }
+
+        _activeSquadSlot?.SetActive(false);
+        _activeSquadSlot = slot;
+        _activeSquadSlot?.SetActive(true);
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+    }
+
+    private void EnsureActiveSquadSlot()
+    {
+        if (_activeSquadSlot != null && !_activeSquadSlot.IsHeroSlot && !_activeSquadSlot.IsLocked)
+            return;
+
+        SetActiveSquadSlot(GetFirstAvailableSlot());
+    }
+
+    private SquadSlot GetFirstAvailableSlot()
+    {
+        foreach (SquadSlot slot in _squadSlots)
+        {
+            if (slot == null || slot.IsHeroSlot || slot.IsLocked)
+                continue;
+
+            return slot;
+        }
+
+        return null;
+    }
+
+    private void ChangeActiveSlotCount(int delta)
+    {
+        if (_activeSquadSlot == null || _activeSquadSlot.IsEmpty)
+            return;
+
+        if (delta == 0)
+            return;
+
+        int maxForSlot = GetAvailableUnitsForSlot(_activeSquadSlot);
+        int newCount = Mathf.Clamp(_activeSquadSlot.Count + delta, MinSquadUnitCount, maxForSlot);
+        if (newCount == _activeSquadSlot.Count)
+            return;
+
+        _activeSquadSlot.UpdateCount(newCount);
+        RecalculateTotalSquadUnits();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+    }
+
+    private int GetAvailableUnitsForSlot(SquadSlot slot)
+    {
+        if (slot == null)
+            return MaxSquadUnitsLimit;
+
+        int totalWithoutSlot = GetTotalUnitsExcludingSlot(slot);
+        return Mathf.Max(0, MaxSquadUnitsLimit - totalWithoutSlot);
+    }
+
+    private int GetTotalUnitsExcludingSlot(SquadSlot slot)
+    {
+        int total = 0;
+        foreach (SquadSlot other in _squadSlots)
+        {
+            if (other == null || other.IsHeroSlot || other.IsEmpty || other == slot)
+                continue;
+
+            total += other.Count;
+        }
+
+        return total;
+    }
+
+    private bool TryAssignSquadToSlot(SquadSlot slot, int definitionIndex)
+    {
+        if (slot == null || slot.IsHeroSlot)
+            return false;
+
+        if (definitionIndex < 0 || definitionIndex >= _squadDefinitions.Length)
+            return false;
+
+        UnitSO squad = _squadDefinitions[definitionIndex];
+        if (squad == null)
+            return false;
+
+        int available = GetAvailableUnitsForSlot(slot);
+        int desiredCount = slot.IsEmpty ? DefaultSquadUnitCount : slot.Count;
+        desiredCount = Mathf.Clamp(desiredCount, MinSquadUnitCount, available);
+
+        if (available < MinSquadUnitCount && slot.IsEmpty)
+            return false;
+
+        slot.UpdateSquad(squad, definitionIndex, desiredCount);
+        RecalculateTotalSquadUnits();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+        return true;
+    }
+
+    private void PopulateDefaultSquadAssignments()
+    {
+        foreach (SquadSlot slot in _squadSlots)
+        {
+            if (slot == null || slot.IsHeroSlot || slot.IsLocked || !slot.IsEmpty)
+                continue;
+
+            int defaultDefinitionIndex = GetDefaultDefinitionIndexForSlot(slot);
+            if (defaultDefinitionIndex < 0)
+                continue;
+
+            TryAssignSquadToSlot(slot, defaultDefinitionIndex);
+        }
+    }
+
+    private int GetDefaultDefinitionIndexForSlot(SquadSlot slot)
+    {
+        if (slot == null || slot.IsHeroSlot)
+            return -1;
+
+        return 0;
+    }
+
+    private void RecalculateTotalSquadUnits()
+    {
+        int total = 0;
+        foreach (SquadSlot slot in _squadSlots)
+        {
+            if (slot == null || slot.IsHeroSlot || slot.IsEmpty)
+                continue;
+
+            total += slot.Count;
+        }
+
+        _totalSquadUnits = Mathf.Clamp(total, 0, MaxSquadUnitsLimit);
     }
 
     private void SelectHero(int index)
@@ -354,12 +745,26 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             bool isSelected = card.DefinitionIndex >= 0 && card.DefinitionIndex == _selectedHeroIndex;
             card.UpdateSelected(isSelected);
         }
+
+        UpdateHeroSlot();
+    }
+
+    private void UpdateHeroSlot()
+    {
+        if (_squadSlots.Count == 0)
+            return;
+
+        SquadSlot heroSlot = _squadSlots[0];
+        if (heroSlot == null || !heroSlot.IsHeroSlot)
+            return;
+
+        heroSlot.UpdateHero(GetSelectedHero());
     }
 
     private void ShowHeroSelection()
     {
-        SetPanelActive(_heroPanel, true);
         SetPanelActive(_squadPanel, false);
+        SetPanelActive(_heroPanel, true);
         _isHeroSelectionVisible = true;
     }
 
@@ -498,18 +903,16 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     {
         List<SquadSelection> selectedSquads = new();
 
-        foreach (SquadCard card in _squadCards)
+        foreach (SquadSlot slot in _squadSlots)
         {
-            int index = card.SelectedDefinitionIndex;
-            if (index < 0 || index >= _squadDefinitions.Length)
+            if (slot == null || slot.IsHeroSlot || slot.IsEmpty)
                 continue;
 
-            UnitSO squad = _squadDefinitions[index];
+            UnitSO squad = slot.Squad;
             if (squad == null)
                 continue;
 
-            int defaultCount = Mathf.RoundToInt(GetDefaultCount());
-            selectedSquads.Add(new SquadSelection(squad, defaultCount));
+            selectedSquads.Add(new SquadSelection(squad, slot.Count));
         }
 
         return selectedSquads;
@@ -517,7 +920,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private static float GetDefaultCount()
     {
-        return 10f;
+        return DefaultSquadUnitCount;
     }
 
     private static int WrapIndex(int index, int length)
@@ -586,6 +989,146 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         }
     }
 
+    private sealed class SquadSlot
+    {
+        private readonly PreparationSceneUIController _controller;
+        private readonly VisualElement _root;
+        private readonly bool _isHeroSlot;
+        private EventCallback<ClickEvent> _clickCallback;
+        private Label _countLabel;
+        private UnitSO _squad;
+        private int _count;
+        private bool _isLocked;
+
+        public SquadSlot(PreparationSceneUIController controller, VisualElement root, int index, bool isHeroSlot)
+        {
+            _controller = controller;
+            _root = root;
+            Index = index;
+            _isHeroSlot = isHeroSlot;
+
+            if (_root != null && _isHeroSlot)
+                _root.AddToClassList(SquadSlotHeroClassName);
+
+            if (!_isHeroSlot && _root != null)
+            {
+                _countLabel = _root.Q<Label>(className: SquadSlotCountClassName);
+                if (_countLabel == null)
+                {
+                    _countLabel = new Label();
+                    _countLabel.AddToClassList(SquadSlotCountClassName);
+                    _root.Add(_countLabel);
+                }
+
+                _clickCallback = evt => _controller.HandleSquadSlotClick(this, evt);
+                _root.RegisterCallback(_clickCallback);
+            }
+
+            if (_isHeroSlot && _root != null)
+                _root.SetEnabled(false);
+        }
+
+        public int Index { get; }
+        public bool IsHeroSlot => _isHeroSlot;
+        public bool IsLocked => _isLocked;
+        public bool IsEmpty => _squad == null;
+        public UnitSO Squad => _squad;
+        public int DefinitionIndex { get; private set; } = -1;
+        public int Count => _count;
+
+        public void UpdateHero(UnitSO hero)
+        {
+            if (!_isHeroSlot)
+                return;
+
+            _squad = null;
+            DefinitionIndex = -1;
+            _count = 0;
+            SetBackground(hero?.Icon);
+        }
+
+        public void UpdateSquad(UnitSO squad, int definitionIndex, int count)
+        {
+            if (_isHeroSlot)
+                return;
+
+            _squad = squad;
+            DefinitionIndex = definitionIndex;
+            _count = Mathf.Max(MinSquadUnitCount, count);
+            SetBackground(squad?.Icon);
+            UpdateCountLabel();
+        }
+
+        public void UpdateCount(int count)
+        {
+            if (_isHeroSlot)
+                return;
+
+            _count = Mathf.Max(MinSquadUnitCount, count);
+            UpdateCountLabel();
+        }
+
+        public void Clear()
+        {
+            if (_isHeroSlot)
+                return;
+
+            _squad = null;
+            DefinitionIndex = -1;
+            _count = 0;
+            SetBackground(null);
+            UpdateCountLabel();
+        }
+
+        public void SetActive(bool isActive)
+        {
+            if (_isHeroSlot)
+                return;
+
+            _root?.EnableInClassList(SquadSlotActiveClassName, isActive);
+        }
+
+        public void SetLocked(bool isLocked)
+        {
+            if (_isHeroSlot)
+                return;
+
+            if (_isLocked == isLocked)
+                return;
+
+            _isLocked = isLocked;
+            _root?.EnableInClassList(SquadSlotLockedClassName, isLocked);
+            _root?.SetEnabled(!isLocked);
+            if (isLocked)
+                SetActive(false);
+        }
+
+        public void Dispose()
+        {
+            if (_root != null && _clickCallback != null)
+                _root.UnregisterCallback(_clickCallback);
+        }
+
+        private void SetBackground(Sprite icon)
+        {
+            if (_root == null)
+                return;
+
+            if (icon != null)
+                _root.style.backgroundImage = new StyleBackground(icon);
+            else
+                _root.style.backgroundImage = StyleKeyword.Null;
+        }
+
+        private void UpdateCountLabel()
+        {
+            if (_countLabel == null)
+                return;
+
+            _countLabel.text = _count > 0 ? _count.ToString() : string.Empty;
+        }
+    }
+
     private sealed class SquadCard
     {
         private readonly PreparationSceneUIController _controller;
@@ -619,24 +1162,21 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         public int SelectedDefinitionIndex { get; private set; } = -1;
 
-        public void UpdateContent(UnitSO squad, int index, IReadOnlyList<UnitCardStatField> stats)
+        public void UpdateContent(UnitSO squad, int index, int count, IReadOnlyList<UnitCardStatField> stats)
         {
             SelectedDefinitionIndex = index;
             if (_card == null)
                 return;
 
             IReadOnlyList<UnitCardStatField> statFields = squad != null ? stats : Array.Empty<UnitCardStatField>();
-            IReadOnlySquadModel squadModel = squad != null ? new SquadModel(squad, Mathf.RoundToInt(GetDefaultCount())) : null;
+            int effectiveCount = squad != null ? Mathf.Max(MinSquadUnitCount, count) : 0;
+            IReadOnlySquadModel squadModel = squad != null ? new SquadModel(squad, effectiveCount) : null;
             IReadOnlyList<BattleAbilitySO> abilities = squad?.Abilities ?? Array.Empty<BattleAbilitySO>();
 
-            UnitCardRenderData data = new(squadModel, statFields, abilities, Array.Empty<BattleEffectSO>(), squad.UnitName);
+            string title = squad != null ? squad.UnitName : string.Empty;
+            UnitCardRenderData data = new(squadModel, statFields, abilities, Array.Empty<BattleEffectSO>(), title);
             _card.Render(data);
             _card.SetEnabled(squad != null);
-        }
-
-        public bool HasValidSelection(int definitionsLength)
-        {
-            return definitionsLength > 0 && SelectedDefinitionIndex >= 0 && SelectedDefinitionIndex < definitionsLength;
         }
 
         public void Dispose()
