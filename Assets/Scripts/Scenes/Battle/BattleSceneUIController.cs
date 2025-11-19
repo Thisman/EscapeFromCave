@@ -30,8 +30,6 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     private const string AbilityItemSelectedClassName = "ability-item--selected";
 
     private const string SquadInfoCardElementName = "SquadInfoCard";
-    private const string BattleCardHiddenClassName = "battle-card--hidden";
-    private const string BattleCardVisibleClassName = "battle-card--visible";
     private const string BattleCardLeftClassName = "battle-card--left";
     private const string BattleCardRightClassName = "battle-card--right";
     private const string UnitsLayerName = "Units";
@@ -1040,8 +1038,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         UpdateSquadInfoContent(squad, effectsController.Effects);
         UpdateSquadCardPosition(squad);
 
-        _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, false);
-        _squadInfoCard.EnableInClassList(BattleCardVisibleClassName, true);
+        _squadInfoCardWidget?.SetVisible(true);
     }
 
     private void HideSquadInfoCard()
@@ -1049,11 +1046,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         UnsubscribeFromDisplayedSquad();
         _displayedEffectsController = null;
 
-        if (_squadInfoCard == null)
-            return;
-
-        _squadInfoCard.EnableInClassList(BattleCardVisibleClassName, false);
-        _squadInfoCard.EnableInClassList(BattleCardHiddenClassName, true);
+        _squadInfoCardWidget?.SetVisible(false);
     }
 
     private void HandleDisplayedSquadChanged(IReadOnlySquadModel squad)
