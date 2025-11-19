@@ -89,6 +89,7 @@ namespace UICommon.Widgets
         private const string EffectInfoClassName = "effect-info";
 
         private readonly List<Label> _infoLabels = new();
+        private readonly List<AnchorBinding> _anchorBindings = new();
         private readonly VisualElement _root;
         private readonly VisualElement _icon;
         private readonly Label _title;
@@ -98,6 +99,7 @@ namespace UICommon.Widgets
         private readonly VisualElement _infoContainer;
         private readonly VisualElement _abilityList;
         private readonly VisualElement _effectsList;
+        private int _activeAnchorHoverCount;
 
         public UnitCardWidget(VisualElement root)
         {
@@ -135,6 +137,74 @@ namespace UICommon.Widgets
         public void SetEnabled(bool isEnabled)
         {
             _root?.SetEnabled(isEnabled);
+        }
+
+        public void SetVisible(bool isVisible)
+        {
+            if (_root == null)
+                return;
+
+            _root.style.display = isVisible ? DisplayStyle.Flex : DisplayStyle.None;
+            _root.visible = isVisible;
+        }
+
+        public void RegisterAnchors(IEnumerable<VisualElement> anchors)
+        {
+            ClearAnchorBindings();
+
+            if (anchors == null)
+            {
+                SetVisible(false);
+                return;
+            }
+
+            foreach (VisualElement anchor in anchors)
+            {
+                if (anchor == null)
+                    continue;
+
+                EventCallback<PointerEnterEvent> enterCallback = _ => HandleAnchorEnter();
+                EventCallback<PointerLeaveEvent> leaveCallback = _ => HandleAnchorLeave();
+
+                anchor.RegisterCallback(enterCallback);
+                anchor.RegisterCallback(leaveCallback);
+                _anchorBindings.Add(new AnchorBinding(anchor, enterCallback, leaveCallback));
+            }
+
+            if (_anchorBindings.Count > 0)
+            {
+                SetVisible(false);
+            }
+        }
+
+        private void HandleAnchorEnter()
+        {
+            _activeAnchorHoverCount++;
+            if (_activeAnchorHoverCount == 1)
+            {
+                SetVisible(true);
+            }
+        }
+
+        private void HandleAnchorLeave()
+        {
+            _activeAnchorHoverCount = Mathf.Max(0, _activeAnchorHoverCount - 1);
+            if (_activeAnchorHoverCount == 0)
+            {
+                SetVisible(false);
+            }
+        }
+
+        private void ClearAnchorBindings()
+        {
+            foreach (AnchorBinding binding in _anchorBindings)
+            {
+                binding.Anchor?.UnregisterCallback(binding.EnterCallback);
+                binding.Anchor?.UnregisterCallback(binding.LeaveCallback);
+            }
+
+            _anchorBindings.Clear();
+            _activeAnchorHoverCount = 0;
         }
 
         private void ApplyUnit(UnitCardRenderData data)
@@ -395,6 +465,23 @@ namespace UICommon.Widgets
                 DamageType.Pure => "Чистый",
                 _ => damageType.ToString()
             };
+        }
+
+        private readonly struct AnchorBinding
+        {
+            public AnchorBinding(
+                VisualElement anchor,
+                EventCallback<PointerEnterEvent> enterCallback,
+                EventCallback<PointerLeaveEvent> leaveCallback)
+            {
+                Anchor = anchor;
+                EnterCallback = enterCallback;
+                LeaveCallback = leaveCallback;
+            }
+
+            public VisualElement Anchor { get; }
+            public EventCallback<PointerEnterEvent> EnterCallback { get; }
+            public EventCallback<PointerLeaveEvent> LeaveCallback { get; }
         }
     }
 }

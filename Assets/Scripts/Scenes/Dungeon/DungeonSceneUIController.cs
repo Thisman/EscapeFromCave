@@ -12,8 +12,6 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
 
     private const string SquadInfoCardElementName = "SquadInfoCard";
-    private const string CardHiddenClassName = "dungeon-card--hidden";
-    private const string CardVisibleClassName = "dungeon-card--visible";
 
     private static readonly UnitCardStatField[] DungeonCardStatFields =
     {
@@ -43,6 +41,7 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
     private readonly List<IReadOnlySquadModel> _orderedSquads = new();
     private readonly List<IReadOnlySquadModel> _buffer = new();
     private readonly List<IReadOnlySquadModel> _lastRenderedSquads = new();
+    private readonly List<VisualElement> _unitCardAnchors = new();
 
     private Coroutine _dialogRoutine;
     private readonly StringBuilder _dialogBuilder = new();
@@ -86,11 +85,6 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
         _uiDocument = document;
         _root = document.rootVisualElement;
         _squadsList = _root?.Q<VisualElement>("SquadsList");
-        if (_squadsList != null)
-        {
-            _squadsList.UnregisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
-            _squadsList.RegisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
-        }
         _dialogContainer = _root?.Q<VisualElement>("Dialog");
         _squadInfoCard = _root?.Q<VisualElement>(SquadInfoCardElementName);
         _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
@@ -129,13 +123,9 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
         HideSquadInfoCard();
         ClearTrackedSquads();
 
-        if (_squadsList != null)
-        {
-            _squadsList.UnregisterCallback<PointerLeaveEvent>(HandleSquadsListPointerLeave);
-        }
-
         _dialogContainer = null;
         _dialogLabel = null;
+        _squadInfoCardWidget?.RegisterAnchors(null);
         _squadInfoCardWidget = null;
         _squadInfoCard = null;
         _displayedSquad = null;
@@ -171,6 +161,7 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
             _lastRenderedSquads.Clear();
             _lastRenderedSquads.AddRange(_buffer);
             HideSquadInfoCard();
+            _squadInfoCardWidget?.RegisterAnchors(null);
             if (_isAttached)
             {
                 Debug.LogWarning($"[{nameof(DungeonSceneUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
@@ -215,6 +206,7 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
 
         _lastRenderedSquads.Clear();
         _lastRenderedSquads.AddRange(_orderedSquads);
+        UpdateSquadCardAnchors();
     }
 
     public void RenderDialog(string text, float? overrideSecondsPerCharacter = null)
@@ -375,6 +367,8 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
         _buffer.Clear();
         _squadsList?.Clear();
         HideSquadInfoCard();
+        _unitCardAnchors.Clear();
+        _squadInfoCardWidget?.RegisterAnchors(null);
     }
 
     private SquadEntry CreateSquadEntry(IReadOnlySquadModel squad)
@@ -432,11 +426,6 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
         }
     }
 
-    private void HandleSquadsListPointerLeave(PointerLeaveEvent _)
-    {
-        HideSquadInfoCard();
-    }
-
     private void ShowSquadInfoCard(IReadOnlySquadModel squad)
     {
         if (squad == null || _squadInfoCard == null || _squadInfoCardWidget == null)
@@ -446,9 +435,6 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
 
         _displayedSquad = squad;
         UpdateSquadInfoCardContent(squad);
-
-        _squadInfoCard.EnableInClassList(CardHiddenClassName, false);
-        _squadInfoCard.EnableInClassList(CardVisibleClassName, true);
     }
 
     private void UpdateSquadInfoCardContent(IReadOnlySquadModel squad)
@@ -484,13 +470,31 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
     {
         _displayedSquad = null;
 
-        if (_squadInfoCard == null)
+        _squadInfoCardWidget?.SetVisible(false);
+    }
+
+    private void UpdateSquadCardAnchors()
+    {
+        if (_squadInfoCardWidget == null)
         {
+            _unitCardAnchors.Clear();
             return;
         }
 
-        _squadInfoCard.EnableInClassList(CardVisibleClassName, false);
-        _squadInfoCard.EnableInClassList(CardHiddenClassName, true);
+        _unitCardAnchors.Clear();
+
+        foreach (IReadOnlySquadModel squad in _orderedSquads)
+        {
+            if (squad == null)
+                continue;
+
+            if (_squadEntries.TryGetValue(squad, out var entry) && entry?.Root != null)
+            {
+                _unitCardAnchors.Add(entry.Root);
+            }
+        }
+
+        _squadInfoCardWidget.RegisterAnchors(_unitCardAnchors);
     }
 
     private static bool TryCreateLevelProgressData(IReadOnlySquadModel squad, out UnitCardLevelProgressData progressData)
