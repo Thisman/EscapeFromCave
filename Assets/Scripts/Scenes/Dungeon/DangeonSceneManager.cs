@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -13,6 +14,8 @@ public class DangeonSceneManager : MonoBehaviour
     [Inject] private readonly DungeonSceneUIController _dungeonUIController;
 
     private PlayerArmyController _playerArmyController;
+    private IReadOnlySquadModel _heroSquad;
+    private readonly List<IReadOnlySquadModel> _squadsBuffer = new();
 
     private void OnEnable()
     {
@@ -51,6 +54,7 @@ public class DangeonSceneManager : MonoBehaviour
         SquadModel squadModel = new(_gameSession.SelectedHero, 1);
 
         playerController.Initialize(squadModel);
+        _heroSquad = playerController.GetPlayer();
 
         return playerController;
     }
@@ -110,6 +114,28 @@ public class DangeonSceneManager : MonoBehaviour
             return;
         }
 
-        _dungeonUIController.RenderSquads(army.GetSquads());
+        _squadsBuffer.Clear();
+
+        if (_heroSquad != null && !_heroSquad.IsEmpty)
+        {
+            _squadsBuffer.Add(_heroSquad);
+        }
+
+        IReadOnlyList<IReadOnlySquadModel> squads = army.GetSquads();
+        if (squads != null)
+        {
+            for (int i = 0; i < squads.Count; i++)
+            {
+                var squad = squads[i];
+                if (squad == null || squad.IsEmpty)
+                {
+                    continue;
+                }
+
+                _squadsBuffer.Add(squad);
+            }
+        }
+
+        _dungeonUIController.RenderSquads(_squadsBuffer);
     }
 }
