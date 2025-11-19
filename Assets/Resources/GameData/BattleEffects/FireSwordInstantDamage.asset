@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e960ade4589305a45bab1d1812f58dfd, type: 3}
-  m_Name: FireSword_InstantDamage
+  m_Name: FireSwordInstantDamage
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
-  Name: FireSword_InstantDamage
+  Name: Fire Sword Instant Damage
   Description: 
   Icon: {fileID: 21300000, guid: 5fca5321fb4b9f944a9a57b51673f5fc, type: 3}
   Trigger: 0
   TickTrigger: 1
   MaxTick: 0
-  Damage: 150
+  Damage: 250

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e960ade4589305a45bab1d1812f58dfd, type: 3}
-  m_Name: Backstub_InstantDamage
+  m_Name: BackstubInstantDamage
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
-  Name: Backstub_InstantDamage
+  Name: Backstub Instant Damage
   Description: 
   Icon: {fileID: 21300000, guid: 0424e644e69423540a7277314cfa42bc, type: 3}
   Trigger: 0
   TickTrigger: 1
   MaxTick: 0
-  Damage: 200
+  Damage: 100

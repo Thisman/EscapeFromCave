@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e960ade4589305a45bab1d1812f58dfd, type: 3}
-  m_Name: FireBall_TickDamage
+  m_Name: FireBallTickDamage
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
-  Name: FireSword_TickDamage
+  Name: Fire Ball Tick Damage
   Description: 
-  Icon: {fileID: 21300000, guid: 98b015f5611f81b4ebebf772db839b91, type: 3}
-  Trigger: 1
+  Icon: {fileID: 21300000, guid: 5fca5321fb4b9f944a9a57b51673f5fc, type: 3}
+  Trigger: 0
   TickTrigger: 1
-  MaxTick: 2
-  Damage: 100
+  MaxTick: 0
+  Damage: 150
