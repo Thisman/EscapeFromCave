@@ -100,7 +100,7 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
 
         if (_hoveredSlot != null)
         {
-            bool isValid = IsSlotValidForDraggedObject(_hoveredSlot);
+            bool isValid = TryGetPlacementInfo(_hoveredSlot, out _, out _);
             _gridController.HighlightSlot(
                 _hoveredSlot,
                 isValid ? BattleGridSlotHighlightMode.Available : BattleGridSlotHighlightMode.Unavailable);
@@ -112,9 +112,11 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         var targetSlot = _hoveredSlot ?? FindSlotUnderPointer();
         bool placed = false;
 
-        if (targetSlot != null && IsSlotValidForDraggedObject(targetSlot))
+        if (targetSlot != null && TryGetPlacementInfo(targetSlot, out var resolvedSlot, out var occupantToSwap))
         {
-            placed = _gridController.TryAttachToSlot(targetSlot, _draggedObject);
+            placed = occupantToSwap != null
+                ? TrySwapWithOccupant(resolvedSlot, occupantToSwap)
+                : _gridController.TryAttachToSlot(resolvedSlot, _draggedObject);
         }
 
         if (!placed)
@@ -291,15 +293,15 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
         return squadModel.IsFriendly();
     }
 
-    private bool IsSlotValidForDraggedObject(Transform slot)
+    private bool TryGetPlacementInfo(Transform slot, out Transform resolvedSlot, out Transform occupantToSwap)
     {
+        resolvedSlot = null;
+        occupantToSwap = null;
+
         if (_gridController == null || _draggedObject == null)
             return false;
 
-        if (!_gridController.TryResolveSlot(slot, out var resolvedSlot))
-            return false;
-
-        if (!_gridController.IsSlotEmpty(resolvedSlot))
+        if (!_gridController.TryResolveSlot(slot, out resolvedSlot))
             return false;
 
         if (!_gridController.TryGetSlotSide(resolvedSlot, out var side))
@@ -310,14 +312,67 @@ public sealed class BattleGridDragAndDropController : MonoBehaviour
             return false;
 
         var squadModel = unitController.GetSquadModel();
-        if (squadModel == null || squadModel == null)
+        if (squadModel == null)
             return false;
 
-        return side switch
+        bool canOccupySide = side switch
         {
             BattleGridSlotSide.Ally => squadModel.Kind == UnitKind.Ally || squadModel.Kind == UnitKind.Hero,
             BattleGridSlotSide.Enemy => squadModel.Kind == UnitKind.Enemy,
             _ => false
         };
+
+        if (!canOccupySide)
+            return false;
+
+        if (_gridController.IsSlotEmpty(resolvedSlot))
+            return true;
+
+        if (!_gridController.TryGetSlotOccupant(resolvedSlot, out var occupant) || occupant == null)
+            return false;
+
+        if (_originSlot == null)
+            return false;
+
+        if (!IsFriendlyOccupant(occupant))
+            return false;
+
+        occupantToSwap = occupant;
+        return true;
+    }
+
+    private bool IsFriendlyOccupant(Transform occupant)
+    {
+        if (occupant == null)
+            return false;
+
+        var occupantController = occupant.GetComponent<BattleSquadController>();
+        var occupantModel = occupantController?.GetSquadModel();
+        return occupantModel != null && occupantModel.IsFriendly();
+    }
+
+    private bool TrySwapWithOccupant(Transform targetSlot, Transform occupantToSwap)
+    {
+        if (_gridController == null || _draggedObject == null)
+            return false;
+
+        if (_originSlot == null || targetSlot == null || occupantToSwap == null)
+            return false;
+
+        if (!_gridController.TryRemoveOccupant(occupantToSwap, out _))
+            return false;
+
+        if (!_gridController.TryAttachToSlot(_originSlot, occupantToSwap))
+        {
+            _gridController.TryAttachToSlot(targetSlot, occupantToSwap);
+            return false;
+        }
+
+        if (_gridController.TryAttachToSlot(targetSlot, _draggedObject))
+            return true;
+
+        _gridController.TryRemoveOccupant(occupantToSwap, out _);
+        _gridController.TryAttachToSlot(targetSlot, occupantToSwap);
+        return false;
     }
 }
