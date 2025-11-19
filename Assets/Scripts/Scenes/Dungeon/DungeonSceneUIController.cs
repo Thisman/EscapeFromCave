@@ -10,6 +10,8 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
+    [SerializeField, Min(0f)] private float _dialogStartDelaySeconds = 0.1f;
+    [SerializeField, Min(0f)] private float _dialogEndDelaySeconds = 0.5f;
 
     private const string SquadInfoCardElementName = "SquadInfoCard";
 
@@ -243,12 +245,35 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
 
     private IEnumerator TypeDialogRoutine(string message, float secondsPerCharacter)
     {
+        message ??= string.Empty;
         _dialogLabel.text = string.Empty;
         _dialogBuilder.Clear();
+
+        if (_dialogStartDelaySeconds > 0f)
+        {
+            yield return new WaitForSeconds(_dialogStartDelaySeconds);
+        }
+
+        if (message.Length == 0)
+        {
+            if (_dialogEndDelaySeconds > 0f)
+            {
+                yield return new WaitForSeconds(_dialogEndDelaySeconds);
+            }
+
+            _dialogRoutine = null;
+            yield break;
+        }
 
         if (secondsPerCharacter <= 0f)
         {
             _dialogLabel.text = message;
+
+            if (_dialogEndDelaySeconds > 0f)
+            {
+                yield return new WaitForSeconds(_dialogEndDelaySeconds);
+            }
+
             _dialogRoutine = null;
             yield break;
         }
@@ -258,6 +283,11 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
             _dialogBuilder.Append(message[i]);
             _dialogLabel.text = _dialogBuilder.ToString();
             yield return new WaitForSeconds(secondsPerCharacter);
+        }
+
+        if (_dialogEndDelaySeconds > 0f)
+        {
+            yield return new WaitForSeconds(_dialogEndDelaySeconds);
         }
 
         _dialogRoutine = null;
