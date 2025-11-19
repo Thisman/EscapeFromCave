@@ -156,6 +156,8 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
             }
         }
 
+        PrioritizeHeroSquad(_buffer);
+
         if (_squadsList == null)
         {
             _lastRenderedSquads.Clear();
@@ -207,6 +209,38 @@ public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
         _lastRenderedSquads.Clear();
         _lastRenderedSquads.AddRange(_orderedSquads);
         UpdateSquadCardAnchors();
+    }
+
+    private static void PrioritizeHeroSquad(List<IReadOnlySquadModel> squads)
+    {
+        if (squads == null || squads.Count <= 1)
+        {
+            return;
+        }
+
+        IReadOnlySquadModel heroSquad = null;
+        int heroIndex = -1;
+
+        for (int i = 0; i < squads.Count; i++)
+        {
+            var squad = squads[i];
+            if (squad == null || !squad.IsHero())
+            {
+                continue;
+            }
+
+            heroSquad = squad;
+            heroIndex = i;
+            break;
+        }
+
+        if (heroIndex <= 0 || heroSquad == null)
+        {
+            return;
+        }
+
+        squads.RemoveAt(heroIndex);
+        squads.Insert(0, heroSquad);
     }
 
     public void RenderDialog(string text, float? overrideSecondsPerCharacter = null)
