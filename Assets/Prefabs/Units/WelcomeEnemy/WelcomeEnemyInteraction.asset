@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a3b59e15624dc43b57abbbb63b5824, type: 3}
+  m_Name: WelcomeEnemyInteraction
+  m_EditorClassIdentifier: Assembly-CSharp::InteractationDefinitionSO
+  Cooldown: 5
+  Effects:
+  - {fileID: 11400000, guid: 64da233e4cf93214394c63bbcf33e632, type: 2}
+  - {fileID: 11400000, guid: 9da5634619fd63e4489fa3bb150c9c07, type: 2}
+  - {fileID: 11400000, guid: 771274f4cc3bf144296cee8b7201775a, type: 2}
+  Conditions: []
+  TargetResolver: {fileID: 11400000, guid: 71dabab9144328d47a1c6e06fc13dcd8, type: 2}
