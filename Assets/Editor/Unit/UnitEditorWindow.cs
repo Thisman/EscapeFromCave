@@ -43,6 +43,8 @@ public sealed class UnitEditorWindow : EditorWindow
     private FloatField _baseCritChanceField;
     private FloatField _baseCritMultiplierField;
     private FloatField _baseMissChanceField;
+    private ObjectField _progressionTemplateField;
+    private EnumField _levelExpFunctionField;
 
     private UnitSO _selectedUnit;
     private UnitSO _editingUnit;
@@ -119,6 +121,8 @@ public sealed class UnitEditorWindow : EditorWindow
         _baseCritChanceField = rootVisualElement.Q<FloatField>("BaseCritChanceField");
         _baseCritMultiplierField = rootVisualElement.Q<FloatField>("BaseCritMultiplierField");
         _baseMissChanceField = rootVisualElement.Q<FloatField>("BaseMissChanceField");
+        _progressionTemplateField = rootVisualElement.Q<ObjectField>("ProgressionTemplateField");
+        _levelExpFunctionField = rootVisualElement.Q<EnumField>("LevelExpFunctionField");
     }
 
     private void SetupSidebar()
@@ -197,6 +201,8 @@ public sealed class UnitEditorWindow : EditorWindow
         ConfigureFloatField(_baseCritChanceField, value => _editingUnit.BaseCritChance = Mathf.Clamp01(value));
         ConfigureFloatField(_baseCritMultiplierField, value => _editingUnit.BaseCritMultiplier = Mathf.Max(1f, value));
         ConfigureFloatField(_baseMissChanceField, value => _editingUnit.BaseMissChance = Mathf.Clamp01(value));
+        ConfigureObjectField<UnitProgressionTemplateSO>(_progressionTemplateField, value => _editingUnit.ProgressionTemplate = value);
+        ConfigureEnumField<UnitLevelExpFunction>(_levelExpFunctionField, value => _editingUnit.LevelExpFunction = value);
 
         if (_saveButton != null)
         {
@@ -419,6 +425,13 @@ public sealed class UnitEditorWindow : EditorWindow
         _baseCritChanceField?.SetValueWithoutNotify(_editingUnit.BaseCritChance);
         _baseCritMultiplierField?.SetValueWithoutNotify(_editingUnit.BaseCritMultiplier);
         _baseMissChanceField?.SetValueWithoutNotify(_editingUnit.BaseMissChance);
+        _progressionTemplateField?.SetValueWithoutNotify(_editingUnit.ProgressionTemplate);
+
+        if (_levelExpFunctionField != null)
+        {
+            _levelExpFunctionField.Init(_editingUnit.LevelExpFunction);
+            _levelExpFunctionField.SetValueWithoutNotify(_editingUnit.LevelExpFunction);
+        }
 
         UpdateIconPreview();
         UpdateAbilityList();
@@ -440,6 +453,13 @@ public sealed class UnitEditorWindow : EditorWindow
         _baseCritChanceField?.SetValueWithoutNotify(0);
         _baseCritMultiplierField?.SetValueWithoutNotify(0);
         _baseMissChanceField?.SetValueWithoutNotify(0);
+        _progressionTemplateField?.SetValueWithoutNotify(null);
+
+        if (_levelExpFunctionField != null)
+        {
+            _levelExpFunctionField.Init(UnitLevelExpFunction.Linear);
+            _levelExpFunctionField.SetValueWithoutNotify(UnitLevelExpFunction.Linear);
+        }
 
         UpdateIconPreview();
         UpdateAbilityList();
@@ -523,6 +543,23 @@ public sealed class UnitEditorWindow : EditorWindow
             var value = evt.newValue;
             setter(value);
             field.SetValueWithoutNotify(value);
+            MarkDirty();
+        });
+    }
+
+    private void ConfigureObjectField<T>(ObjectField field, Action<T> setter) where T : UnityEngine.Object
+    {
+        if (field == null)
+            return;
+
+        field.objectType = typeof(T);
+        field.allowSceneObjects = false;
+        field.RegisterValueChangedCallback(evt =>
+        {
+            if (_editingUnit == null)
+                return;
+
+            setter(evt.newValue as T);
             MarkDirty();
         });
     }

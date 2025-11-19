@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroKnight
   m_EditorClassIdentifier: Assembly-CSharp::UnitSO
   Icon: {fileID: 248234936431850608, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Knight
+  UnitName: Hero Knight
   Kind: 0
   AttackKind: 0
   DamageType: 0
@@ -27,6 +27,8 @@ MonoBehaviour:
   BaseCritChance: 0.1
   BaseCritMultiplier: 1.1
   BaseMissChance: 0.05
+  ProgressionTemplate: {fileID: 11400000, guid: 4875195a972635c4c99cc88aa1257f81, type: 2}
+  LevelExpFunction: 0
   Abilities:
   - {fileID: 11400000, guid: 2277e980455b6674e939fb621fd0673a, type: 2}
   - {fileID: 11400000, guid: 90441159bd0bd89429a8b32650aa605e, type: 2}

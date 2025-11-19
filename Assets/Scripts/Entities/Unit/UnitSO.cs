@@ -33,6 +33,10 @@ public sealed class UnitSO : ScriptableObject
 
     [Range(0, 1)] public float BaseMissChance = 5;
 
+    public UnitProgressionTemplateSO ProgressionTemplate;
+
+    public UnitLevelExpFunction LevelExpFunction = UnitLevelExpFunction.Linear;
+
     public BattleAbilitySO[] Abilities;
 
     public (float min, float max) GetBaseDamageRange() => (MinDamage, MaxDamage);

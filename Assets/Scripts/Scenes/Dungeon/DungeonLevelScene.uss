@@ -49,3 +49,23 @@
     font-size: 20px;
     -unity-text-align: upper-center;
 }
+
+.dungeon-card {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    flex-direction: column;
+}
+
+.dungeon-card--hidden {
+    display: none;
+}
+
+.dungeon-card--visible {
+    display: flex;
+}
+

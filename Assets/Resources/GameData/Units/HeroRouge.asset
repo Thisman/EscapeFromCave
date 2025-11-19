@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroRouge
   m_EditorClassIdentifier: Assembly-CSharp::UnitSO
   Icon: {fileID: 6847130768412236191, guid: 8a944d486a57f4f409dadb0989e78db0, type: 3}
-  UnitName: Rouge
+  UnitName: Hero Rouge
   Kind: 0
   AttackKind: 0
   DamageType: 2
@@ -27,5 +27,7 @@ MonoBehaviour:
   BaseCritChance: 0.1
   BaseCritMultiplier: 1.3
   BaseMissChance: 0.05
+  ProgressionTemplate: {fileID: 11400000, guid: 4875195a972635c4c99cc88aa1257f81, type: 2}
+  LevelExpFunction: 0
   Abilities:
   - {fileID: 11400000, guid: b6cd698419fd30144a4c5f5244c42ba0, type: 2}
