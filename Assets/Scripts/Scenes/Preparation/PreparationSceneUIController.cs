@@ -384,6 +384,9 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
                 slot.Clear();
         }
 
+        if (hasDefinitions)
+            PopulateDefaultSquadAssignments();
+
         RecalculateTotalSquadUnits();
         EnsureActiveSquadSlot();
         UpdateSquadCardFromActiveSlot();
@@ -486,7 +489,11 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         SetActiveSquadSlot(slot);
 
         if (slot.IsEmpty)
-            TryAssignSquadToSlot(slot, 0);
+        {
+            int defaultDefinitionIndex = GetDefaultDefinitionIndexForSlot(slot);
+            if (defaultDefinitionIndex >= 0)
+                TryAssignSquadToSlot(slot, defaultDefinitionIndex);
+        }
     }
 
     private void RemoveSquadFromSlot(SquadSlot slot)
@@ -648,6 +655,33 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         UpdateSquadCountControls();
         UpdateSlotStates();
         return true;
+    }
+
+    private void PopulateDefaultSquadAssignments()
+    {
+        foreach (SquadSlot slot in _squadSlots)
+        {
+            if (slot == null || slot.IsHeroSlot || slot.IsLocked || !slot.IsEmpty)
+                continue;
+
+            int defaultDefinitionIndex = GetDefaultDefinitionIndexForSlot(slot);
+            if (defaultDefinitionIndex < 0)
+                continue;
+
+            TryAssignSquadToSlot(slot, defaultDefinitionIndex);
+        }
+    }
+
+    private int GetDefaultDefinitionIndexForSlot(SquadSlot slot)
+    {
+        if (slot == null || slot.IsHeroSlot)
+            return -1;
+
+        int definitionIndex = slot.Index - 1;
+        if (definitionIndex < 0 || definitionIndex >= _squadDefinitions.Length)
+            return -1;
+
+        return definitionIndex;
     }
 
     private void RecalculateTotalSquadUnits()
