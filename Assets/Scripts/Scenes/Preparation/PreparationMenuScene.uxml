@@ -43,7 +43,8 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Bottom" class="bottom" style="flex-grow: 0; height: 100px; justify-content: center; align-items: flex-end;">
+            <ui:VisualElement name="Bottom" class="bottom" style="height: 100px;">
+                <ui:Button text="Выбрать героя" name="GoToHeroSelection" class="button" />
                 <ui:Button text="Спуститься в пещеру" name="DiveIntoCaveButton" class="button" />
             </ui:VisualElement>
         </ui:VisualElement>

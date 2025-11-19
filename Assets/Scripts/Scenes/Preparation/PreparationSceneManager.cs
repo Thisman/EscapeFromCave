@@ -9,6 +9,7 @@ public class PreparationSceneManager : MonoBehaviour
 {
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly SceneLoader _sceneLoader;
+    [Inject] private readonly InputService _inputService;
 
     [SerializeField] private UnitSO[] _availableHeroDefinitions;
     [SerializeField] private UnitSO[] _availableSquadDefinitions;
@@ -26,12 +27,22 @@ public class PreparationSceneManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _preparationSceneUIController.OnDiveIntoCave += HandleDiveIntoCaveAsync;
+        _inputService?.EnterMenu();
+
+        if (_preparationSceneUIController != null)
+        {
+            _preparationSceneUIController.Initialize(_inputService);
+            _preparationSceneUIController.OnDiveIntoCave += HandleDiveIntoCaveAsync;
+        }
     }
 
     private void OnDisable()
     {
-        _preparationSceneUIController.OnDiveIntoCave -= HandleDiveIntoCaveAsync;
+        if (_preparationSceneUIController != null)
+        {
+            _preparationSceneUIController.OnDiveIntoCave -= HandleDiveIntoCaveAsync;
+            _preparationSceneUIController.Initialize(null);
+        }
     }
 
     private async Task HandleDiveIntoCaveAsync(UnitSO selectedHero, List<SquadSelection> selectedSquads)

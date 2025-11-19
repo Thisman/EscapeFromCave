@@ -65,3 +65,9 @@
 .control-button:hover {
     opacity: 1;
 }
+
+.bottom {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
