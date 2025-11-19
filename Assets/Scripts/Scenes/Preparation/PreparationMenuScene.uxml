@@ -32,7 +32,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="SquadsListControls" class="squads-list--controls">
                         <ui:VisualElement name="PrevUnitButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Left&apos;); background-size: 36% 56%;" />
-                        <ui:Label name="SquadCountLabel" class="squad-count" text="10" />
+                        <ui:Label name="SquadCountLabel" text="10" class="squad-count" />
                         <ui:VisualElement name="NextUnitButton" class="squads-control-button" style="background-image: resource(&apos;Art/Packs/Lucid V1.2/PNG/Shadow/64/Chevron-Arrow-Right&apos;); background-size: 36% 56%;" />
                     </ui:VisualElement>
                 </ui:VisualElement>

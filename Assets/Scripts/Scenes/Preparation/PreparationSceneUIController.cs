@@ -501,10 +501,10 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         if (slot == null || slot.IsHeroSlot)
             return;
 
-        if (slot.Index == _squadSlots.Count - 1)
+        if (slot.IsEmpty)
             return;
 
-        if (slot.IsEmpty)
+        if (!HasOtherOccupiedSlots(slot))
             return;
 
         bool wasActive = slot == _activeSquadSlot;
@@ -515,14 +515,27 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         RecalculateTotalSquadUnits();
         UpdateSlotStates();
 
-        SquadSlot nextActive = FindPreviousAvailableSlot(slot);
+        SquadSlot nextActive = FindNearestOccupiedSlot(slot);
         SetActiveSquadSlot(nextActive);
         UpdateSquadCardFromActiveSlot();
         UpdateSquadCountControls();
         UpdateSlotStates();
     }
 
-    private SquadSlot FindPreviousAvailableSlot(SquadSlot slot)
+    private bool HasOtherOccupiedSlots(SquadSlot excludedSlot)
+    {
+        foreach (SquadSlot candidate in _squadSlots)
+        {
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty || candidate == excludedSlot)
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private SquadSlot FindNearestOccupiedSlot(SquadSlot slot)
     {
         if (slot == null)
             return null;
@@ -530,7 +543,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         for (int i = slot.Index - 1; i >= 0; i--)
         {
             SquadSlot candidate = _squadSlots[i];
-            if (candidate == null || candidate.IsHeroSlot)
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty)
                 continue;
 
             return candidate;
@@ -539,7 +552,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         for (int i = slot.Index + 1; i < _squadSlots.Count; i++)
         {
             SquadSlot candidate = _squadSlots[i];
-            if (candidate == null || candidate.IsHeroSlot)
+            if (candidate == null || candidate.IsHeroSlot || candidate.IsEmpty)
                 continue;
 
             return candidate;
@@ -677,11 +690,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         if (slot == null || slot.IsHeroSlot)
             return -1;
 
-        int definitionIndex = slot.Index - 1;
-        if (definitionIndex < 0 || definitionIndex >= _squadDefinitions.Length)
-            return -1;
-
-        return definitionIndex;
+        return 0;
     }
 
     private void RecalculateTotalSquadUnits()
@@ -754,8 +763,8 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void ShowHeroSelection()
     {
-        SetPanelActive(_heroPanel, true);
         SetPanelActive(_squadPanel, false);
+        SetPanelActive(_heroPanel, true);
         _isHeroSelectionVisible = true;
     }
 
