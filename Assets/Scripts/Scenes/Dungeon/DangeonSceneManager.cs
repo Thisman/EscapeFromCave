@@ -10,7 +10,7 @@ public class DangeonSceneManager : MonoBehaviour
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly IObjectResolver _objectResolver;
-    [Inject] private readonly DungeonUIController _dungeonUIController;
+    [Inject] private readonly DungeonSceneUIController _dungeonUIController;
 
     private PlayerArmyController _playerArmyController;
 

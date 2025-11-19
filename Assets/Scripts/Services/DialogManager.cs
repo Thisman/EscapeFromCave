@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class DialogManager : MonoBehaviour
 {
-    [SerializeField] private DungeonUIController _uiController;
+    [SerializeField] private DungeonSceneUIController _uiController;
     [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
     [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
 

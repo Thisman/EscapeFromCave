@@ -6,7 +6,7 @@ using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
+public sealed class DungeonSceneUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField, Min(0f)] private float _dialogSecondsPerCharacter = 0.05f;
@@ -173,7 +173,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
             HideSquadInfoCard();
             if (_isAttached)
             {
-                Debug.LogWarning($"[{nameof(DungeonUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
+                Debug.LogWarning($"[{nameof(DungeonSceneUIController)}.{nameof(RenderSquads)}] SquadsList element was not found.");
             }
             return;
         }
@@ -221,7 +221,7 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
     {
         if (_dialogContainer == null || _dialogLabel == null)
         {
-            Debug.LogWarning($"[{nameof(DungeonUIController)}.{nameof(RenderDialog)}] Dialog container or label was not found.");
+            Debug.LogWarning($"[{nameof(DungeonSceneUIController)}.{nameof(RenderDialog)}] Dialog container or label was not found.");
             return;
         }
 
@@ -518,10 +518,10 @@ public sealed class DungeonUIController : MonoBehaviour, ISceneUIController
 
     private sealed class SquadEntry : IDisposable
     {
-        private readonly DungeonUIController _owner;
+        private readonly DungeonSceneUIController _owner;
         private readonly EventCallback<PointerEnterEvent> _pointerEnterCallback;
 
-        public SquadEntry(DungeonUIController owner, VisualElement root, VisualElement icon, Label countLabel)
+        public SquadEntry(DungeonSceneUIController owner, VisualElement root, VisualElement icon, Label countLabel)
         {
             _owner = owner;
             Root = root;

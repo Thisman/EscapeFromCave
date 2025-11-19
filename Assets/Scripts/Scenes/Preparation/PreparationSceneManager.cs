@@ -12,7 +12,7 @@ public class PreparationSceneManager : MonoBehaviour
 
     [SerializeField] private UnitSO[] _availableHeroDefinitions;
     [SerializeField] private UnitSO[] _availableSquadDefinitions;
-    [SerializeField] private PreparationMenuUIController _preparationSceneUIController;
+    [SerializeField] private PreparationSceneUIController _preparationSceneUIController;
 
     private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
     private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();

@@ -4,7 +4,7 @@ using VContainer;
 
 public class MainMenuSceneManager : MonoBehaviour
 {
-    [SerializeField] private MainMenuUIController _mainMenuSceneUIController;
+    [SerializeField] private MainMenuSceneUIController _mainMenuSceneUIController;
 
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputService _inputService;

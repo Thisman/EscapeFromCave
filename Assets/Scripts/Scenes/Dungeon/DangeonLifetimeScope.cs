@@ -5,7 +5,7 @@ using VContainer.Unity;
 public class DangeonLifetimeScope : LifetimeScope
 {
     [SerializeField] private DialogManager _dialogManager;
-    [SerializeField] private DungeonUIController _dungeonUiController;
+    [SerializeField] private DungeonSceneUIController _dungeonUiController;
 
     protected override void Configure(IContainerBuilder builder)
     {

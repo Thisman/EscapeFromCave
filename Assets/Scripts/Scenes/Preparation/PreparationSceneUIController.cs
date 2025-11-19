@@ -5,7 +5,7 @@ using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
+public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
 
@@ -431,11 +431,11 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
     private sealed class HeroCard
     {
-        private readonly PreparationMenuUIController _controller;
+        private readonly PreparationSceneUIController _controller;
         private readonly UnitCardWidget _card;
         private readonly Clickable _clickable;
 
-        public HeroCard(PreparationMenuUIController controller, VisualElement root)
+        public HeroCard(PreparationSceneUIController controller, VisualElement root)
         {
             _controller = controller;
             if (root != null)
@@ -485,14 +485,14 @@ public class PreparationMenuUIController : MonoBehaviour, ISceneUIController
 
     private sealed class SquadCard
     {
-        private readonly PreparationMenuUIController _controller;
+        private readonly PreparationSceneUIController _controller;
         private readonly VisualElement _prevButton;
         private readonly VisualElement _nextButton;
         private readonly Clickable _prevClickable;
         private readonly Clickable _nextClickable;
         private readonly UnitCardWidget _card;
 
-        public SquadCard(PreparationMenuUIController controller, VisualElement root)
+        public SquadCard(PreparationSceneUIController controller, VisualElement root)
         {
             _controller = controller;
             _prevButton = root?.Q<VisualElement>("PrevButton");
