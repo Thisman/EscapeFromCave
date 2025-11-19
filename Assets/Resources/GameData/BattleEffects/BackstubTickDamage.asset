@@ -17,5 +17,5 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 0424e644e69423540a7277314cfa42bc, type: 3}
   Trigger: 10
   TickTrigger: 1
-  MaxTick: 5
-  Damage: 40
+  MaxTick: 1
+  Damage: 60

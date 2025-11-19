@@ -27,10 +27,10 @@ public sealed class BattleRoundsMachine
     public BattleRoundsMachine(BattleContext ctx)
     {
         _ctx = ctx;
-        _sm = new StateMachine<BattleRoundStates, BattleRoundsTrigger>(BattleRoundStates.RoundInit);
+        _sm = new StateMachine<BattleRoundStates, BattleRoundsTrigger>(BattleRoundStates.RoundStart);
 
-        _sm.Configure(BattleRoundStates.RoundInit)
-            .OnEntry(OnRoundInit)
+        _sm.Configure(BattleRoundStates.RoundStart)
+            .OnEntry(OnRoundStart)
             .Permit(BattleRoundsTrigger.InitTurn, BattleRoundStates.TurnInit);
 
         _sm.Configure(BattleRoundStates.TurnInit)
@@ -60,7 +60,7 @@ public sealed class BattleRoundsMachine
 
         _sm.Configure(BattleRoundStates.RoundEnd)
             .OnEntry(OnRoundEnd)
-            .Permit(BattleRoundsTrigger.StartNewRound, BattleRoundStates.RoundInit);
+            .Permit(BattleRoundsTrigger.StartNewRound, BattleRoundStates.RoundStart);
 
         _playerTurnController = new PlayerBattleActionController();
         _enemyTurnController = new AIBattleActionController();
@@ -79,11 +79,12 @@ public sealed class BattleRoundsMachine
         SubscribeToSquadEvents();
     }
 
-    public void BeginRounds() => OnRoundInit();
+    public void BeginRounds() => OnRoundStart();
 
-    private void OnRoundInit()
+    private void OnRoundStart()
     {
-        BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundInit);
+        BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundStart);
+        TriggerEffects(BattleEffectTrigger.OnRoundStart);
         _ctx.DefendedUnitsThisRound?.Clear();
 
         var unitModels = _ctx.BattleUnits
@@ -94,7 +95,6 @@ public sealed class BattleRoundsMachine
         _ctx.BattleQueueController.Build(unitModels);
         _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
         _ctx.BattleAbilitiesManager.OnTick();
-        TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _sm.Fire(BattleRoundsTrigger.InitTurn);
     }
 
@@ -116,13 +116,13 @@ public sealed class BattleRoundsMachine
     private void OnTurnStart()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnStart);
+        TriggerEffects(BattleEffectTrigger.OnTurnStart);
 
         var queue = _ctx.BattleQueueController.GetQueue();
         _ctx.ActiveUnit = queue[0];
         HighlightActiveUnitSlot();
         BattleLogger.LogActiveUnit(_ctx.ActiveUnit);
 
-        TriggerEffects(BattleEffectTrigger.OnTurnStart);
         _ctx.BattleSceneUIController.RenderAbilityList(
             _ctx.ActiveUnit.Abilities,
             _ctx.BattleAbilitiesManager,
@@ -169,10 +169,10 @@ public sealed class BattleRoundsMachine
     private void OnTurnEnd()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnEnd);
+        TriggerEffects(BattleEffectTrigger.OnTurnEnd, _ctx.ActiveUnit);
+
         ClearActionSlotHighlights();
         ClearActiveUnitSlotHighlight();
-
-        TriggerEffects(BattleEffectTrigger.OnTurnEnd, _ctx.ActiveUnit);
 
         _ctx.BattleQueueController.NextTurn();
         _ctx.ActiveUnit = null;
@@ -276,7 +276,6 @@ public sealed class BattleRoundsMachine
         if (resolvedAction != null && activeUnit != null)
         {
             BattleLogger.LogUnitAction(activeUnit, BattleLogger.ResolveActionName(resolvedAction));
-            TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
         }
 
         switch (resolvedAction)
@@ -293,10 +292,12 @@ public sealed class BattleRoundsMachine
                 break;
             case BattleActionAttack:
                 TriggerEffects(BattleEffectTrigger.OnAttack, activeUnit);
+                TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
                 _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             case BattleActionAbility:
                 TriggerEffects(BattleEffectTrigger.OnAbility, activeUnit);
+                TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
                 _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             default:
@@ -617,5 +618,4 @@ public sealed class BattleRoundsMachine
                 _enemySquadHistory.Add(model);
         }
     }
-
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleEffectDamageSO
   Name: Fire Ball Tick Damage
   Description: 
-  Icon: {fileID: 21300000, guid: 5fca5321fb4b9f944a9a57b51673f5fc, type: 3}
-  Trigger: 0
+  Icon: {fileID: 21300000, guid: 98b015f5611f81b4ebebf772db839b91, type: 3}
+  Trigger: 1
   TickTrigger: 1
-  MaxTick: 0
-  Damage: 150
+  MaxTick: 2
+  Damage: 100
