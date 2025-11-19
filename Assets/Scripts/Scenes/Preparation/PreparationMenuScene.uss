@@ -107,6 +107,7 @@
     margin-bottom: 16px;
     margin-left: 16px;
     margin-right: 16px;
+    position: relative;
     background-color: rgba(0,0, 0, 0.5);
     border-left-color: rgb(255, 255, 255);
     border-right-color: rgb(255, 255, 255);
@@ -120,6 +121,30 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+.squad-item--active {
+    border-color: rgb(255, 215, 0);
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+}
+
+.squad-item--locked {
+    opacity: 0.4;
+}
+
+.squad-item--hero {
+    border-style: dashed;
+}
+
+.squad-item__count {
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+    padding-right: 4px;
+    color: #fff;
+    -unity-font-style: bold;
 }
 
 .squads-list--controls {
@@ -138,4 +163,8 @@
 .squad-count {
     width: 64px;
     height: 64px;
+    text-align: center;
+    color: #fff;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
 }
