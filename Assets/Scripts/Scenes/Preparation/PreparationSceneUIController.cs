@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UICommon.Widgets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
@@ -18,6 +19,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     private VisualElement _heroPanel;
     private VisualElement _squadPanel;
     private Button _goToSquadsSelectionButton;
+    private Button _goToHeroSelectionButton;
     private Button _diveIntoCaveButton;
     private bool _isDiveRequested;
 
@@ -26,6 +28,11 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private int _selectedHeroIndex = -1;
     private bool _isAttached;
+    private bool _isHeroSelectionVisible;
+
+    private InputService _inputService;
+    private InputAction _previousHeroAction;
+    private InputAction _nextHeroAction;
 
     private static readonly UnitCardStatField[] HeroStatFields =
     {
@@ -91,6 +98,16 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         ShowHeroSelection();
     }
 
+    public void Initialize(InputService inputService)
+    {
+        if (_inputService == inputService)
+            return;
+
+        UnsubscribeFromHeroNavigationInput();
+        _inputService = inputService;
+        SubscribeToHeroNavigationInput();
+    }
+
     public void AttachToPanel(UIDocument document)
     {
         if (document == null)
@@ -107,6 +124,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         _heroPanel = _root.Q<VisualElement>("SelectHeroPanel");
         _squadPanel = _root.Q<VisualElement>("SelectSquadsPanel");
         _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
+        _goToHeroSelectionButton = _squadPanel?.Q<Button>("GoToHeroSelection");
         _diveIntoCaveButton = _root.Q<Button>("DiveIntoCaveButton");
 
         InitializeHeroCards();
@@ -114,6 +132,9 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         if (_goToSquadsSelectionButton != null)
             _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
+
+        if (_goToHeroSelectionButton != null)
+            _goToHeroSelectionButton.clicked += HandleGoToHeroSelection;
 
         if (_diveIntoCaveButton != null)
             _diveIntoCaveButton.clicked += HandleDiveIntoCaveClicked;
@@ -123,6 +144,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         ShowHeroSelection();
 
         _isAttached = true;
+        SubscribeToHeroNavigationInput();
     }
 
     public void DetachFromPanel()
@@ -130,10 +152,18 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         if (!_isAttached)
             return;
 
+        UnsubscribeFromHeroNavigationInput();
+
         if (_goToSquadsSelectionButton != null)
         {
             _goToSquadsSelectionButton.clicked -= HandleGoToSquadsSelection;
             _goToSquadsSelectionButton = null;
+        }
+
+        if (_goToHeroSelectionButton != null)
+        {
+            _goToHeroSelectionButton.clicked -= HandleGoToHeroSelection;
+            _goToHeroSelectionButton = null;
         }
 
         if (_diveIntoCaveButton != null)
@@ -154,6 +184,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         _heroPanel = null;
         _squadPanel = null;
         _root = null;
+        _isHeroSelectionVisible = false;
 
         _isAttached = false;
     }
@@ -302,6 +333,20 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         UpdateHeroSelection();
     }
 
+    private void SelectHeroByDirection(int direction)
+    {
+        if (_heroDefinitions.Length == 0)
+            return;
+
+        int targetIndex;
+        if (_selectedHeroIndex < 0)
+            targetIndex = direction >= 0 ? 0 : _heroDefinitions.Length - 1;
+        else
+            targetIndex = WrapIndex(_selectedHeroIndex + direction, _heroDefinitions.Length);
+
+        SelectHero(targetIndex);
+    }
+
     private void UpdateHeroSelection()
     {
         foreach (HeroCard card in _heroCards)
@@ -315,12 +360,14 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
     {
         SetPanelActive(_heroPanel, true);
         SetPanelActive(_squadPanel, false);
+        _isHeroSelectionVisible = true;
     }
 
     private void ShowSquadSelection()
     {
         SetPanelActive(_heroPanel, false);
         SetPanelActive(_squadPanel, true);
+        _isHeroSelectionVisible = false;
     }
 
     private static void SetPanelActive(VisualElement panel, bool isActive)
@@ -331,9 +378,65 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         panel.EnableInClassList("panel__active", isActive);
     }
 
+    private void SubscribeToHeroNavigationInput()
+    {
+        if (_inputService == null || !_isAttached)
+            return;
+
+        _previousHeroAction = _inputService.Actions.FindAction("Pre", throwIfNotFound: false);
+        if (_previousHeroAction != null)
+            _previousHeroAction.performed += HandlePreviousHeroAction;
+        else
+            Debug.LogWarning("Menu action 'Pre' was not found for hero navigation", this);
+
+        _nextHeroAction = _inputService.Actions.FindAction("Next", throwIfNotFound: false);
+        if (_nextHeroAction != null)
+            _nextHeroAction.performed += HandleNextHeroAction;
+        else
+            Debug.LogWarning("Menu action 'Next' was not found for hero navigation", this);
+    }
+
+    private void UnsubscribeFromHeroNavigationInput()
+    {
+        if (_previousHeroAction != null)
+        {
+            _previousHeroAction.performed -= HandlePreviousHeroAction;
+            _previousHeroAction = null;
+        }
+
+        if (_nextHeroAction != null)
+        {
+            _nextHeroAction.performed -= HandleNextHeroAction;
+            _nextHeroAction = null;
+        }
+    }
+
+    private void HandlePreviousHeroAction(InputAction.CallbackContext _)
+    {
+        HandleHeroNavigation(-1);
+    }
+
+    private void HandleNextHeroAction(InputAction.CallbackContext _)
+    {
+        HandleHeroNavigation(1);
+    }
+
+    private void HandleHeroNavigation(int direction)
+    {
+        if (!_isHeroSelectionVisible)
+            return;
+
+        SelectHeroByDirection(direction);
+    }
+
     private void HandleGoToSquadsSelection()
     {
         ShowSquadSelection();
+    }
+
+    private void HandleGoToHeroSelection()
+    {
+        ShowHeroSelection();
     }
 
     private void HandleDiveIntoCaveClicked()
