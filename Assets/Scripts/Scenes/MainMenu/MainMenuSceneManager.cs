@@ -12,16 +12,16 @@ public class MainMenuSceneManager : MonoBehaviour
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly GameEventBusService _sceneEventBusService;
 
-    private void Start()
-    {
-        InitializeBackgroundMusic();
-    }
-
     private void OnEnable()
     {
         _inputService.EnterMenu();
-        InitializeUI();
         SubscribeToGameEvents();
+    }
+
+    private void Start()
+    {
+        InitializeUI();
+        InitializeBackgroundMusic();
     }
 
     private void OnDisable()

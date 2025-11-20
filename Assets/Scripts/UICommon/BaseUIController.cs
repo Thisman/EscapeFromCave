@@ -12,11 +12,6 @@ public class BaseUIController<E> : MonoBehaviour
     protected GameEventBusService _sceneEventBusService;
     protected readonly Dictionary<E, object> _uiElements = new();
 
-    protected void Awake()
-    {
-        TryRegisterLifecycleCallbacks();
-    }
-
     protected void OnEnable()
     {
         TryRegisterLifecycleCallbacks();
@@ -74,15 +69,11 @@ public class BaseUIController<E> : MonoBehaviour
     {
         if (_uiDocument.rootVisualElement is { } root)
         {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
             root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
             root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
 
             if (!_isAttached && root.panel != null)
-            {
                 AttachToPanel(_uiDocument);
-            }
         }
     }
 
