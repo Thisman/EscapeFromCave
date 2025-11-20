@@ -1,56 +1,79 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UICommon.Widgets;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
+public enum BattleSceneElements
 {
-    private const string BodyElementName = "Body";
-    private const string StartCombatButtonName = "StartCombatButton";
-    private const string LeaveCombatButtonName = "LeaveCombatButton";
-    private const string FinishBattleButtonName = "FinishBattleButton";
-    private const string ResultStatusLabelName = "ResultStatusLabel";
-    private const string PlayerSquadResultsElementName = "PlayerSquadResults";
-    private const string EnemySquadResultsElementName = "EnemySquadResults";
-    private const string QueueListElementName = "QueueList";
-    private const string AbilityListElementName = "AbilityList";
+    Root,
+    Body,
+    StartCombatButton,
+    LeaveCombatButton,
+    FinishBattleButton,
+    DefendButton,
+    SkipTurnButton,
+    ResultStatusLabel,
+    PlayerSquadResults,
+    EnemySquadResults,
+    QueueList,
+    SquadInfoCard,
+    AbilityTooltip,
+    AbilityTooltipLabel
+}
 
-    private const string QueueItemClassName = "queue-item";
-    private const string QueueItemIconClassName = "queue-item__icon";
-    private const string QueueItemCountClassName = "queue-item__count";
+public static class BattleSceneClassNames
+{
+    public const string QueueItem = "queue-item";
+    public const string QueueItemIcon = "queue-item__icon";
+    public const string QueueItemCount = "queue-item__count";
 
-    private const string AbilityItemClassName = "ability-item";
-    private const string AbilityItemIconClassName = "ability-item__icon";
-    private const string AbilityItemCooldownLabelClassName = "ability-item__cooldown";
-    private const string AbilityItemCooldownClassName = "ability-item--cooldown";
-    private const string AbilityItemSelectedClassName = "ability-item--selected";
+    public const string AbilityItem = "ability-item";
+    public const string AbilityItemIcon = "ability-item__icon";
+    public const string AbilityItemCooldownLabel = "ability-item__cooldown";
+    public const string AbilityItemCooldown = "ability-item--cooldown";
+    public const string AbilityItemSelected = "ability-item--selected";
 
-    private const string SquadInfoCardElementName = "SquadInfoCard";
-    private const string BattleCardLeftClassName = "battle-card--left";
-    private const string BattleCardRightClassName = "battle-card--right";
-    private const string UnitsLayerName = "Units";
+    public const string BattleCardLeft = "battle-card--left";
+    public const string BattleCardRight = "battle-card--right";
 
-    private const string AbilityTooltipClassName = "ability-tooltip";
-    private const string AbilityTooltipVisibleClassName = "ability-tooltip--visible";
-    private const string AbilityTooltipTextClassName = "ability-tooltip__text";
-    private const float AbilityTooltipOffset = 8f;
+    public const string AbilityTooltip = "ability-tooltip";
+    public const string AbilityTooltipVisible = "ability-tooltip--visible";
+    public const string AbilityTooltipText = "ability-tooltip__text";
 
-    private const string ResultSquadClassName = "result-squad";
-    private const string ResultSquadDeadClassName = "result-squad--dead";
-    private const string ResultSquadVisibleClassName = "result-squad--visible";
-    private const string ResultSquadIconClassName = "result-squad__icon";
-    private const string ResultSquadCountWrapperClassName = "result-squad__count-wrapper";
-    private const string ResultSquadCountClassName = "result-squad__count";
-    private const string ResultSquadDeltaClassName = "result-squad__delta";
-    private const string ResultSquadDeltaVisibleClassName = "result-squad__delta--visible";
-    private const string ResultSquadNameClassName = "result-squad__name";
+    public const string ResultSquad = "result-squad";
+    public const string ResultSquadDead = "result-squad--dead";
+    public const string ResultSquadVisible = "result-squad--visible";
+    public const string ResultSquadIcon = "result-squad__icon";
+    public const string ResultSquadCountWrapper = "result-squad__count-wrapper";
+    public const string ResultSquadCount = "result-squad__count";
+    public const string ResultSquadDelta = "result-squad__delta";
+    public const string ResultSquadDeltaVisible = "result-squad__delta--visible";
+    public const string ResultSquadName = "result-squad__name";
+}
 
-    private const float ResultSquadAnimationDelaySeconds = 0.08f;
+public static class BattleSceneElementNames
+{
+    public const string Body = "Body";
+    public const string StartCombatButton = "StartCombatButton";
+    public const string LeaveCombatButton = "LeaveCombatButton";
+    public const string FinishBattleButton = "FinishBattleButton";
+    public const string DefendButton = "DefendButton";
+    public const string SkipTurnButton = "SkipTurnButton";
+    public const string ResultStatusLabel = "ResultStatusLabel";
+    public const string PlayerSquadResults = "PlayerSquadResults";
+    public const string EnemySquadResults = "EnemySquadResults";
+    public const string QueueList = "QueueList";
+    public const string AbilityList = "AbilityList";
+    public const string SquadInfoCard = "SquadInfoCard";
+    public const string AbilityTooltip = "AbilityTooltip";
+}
 
+public sealed class BattleSceneUIController : BaseUIController<BattleSceneElements>
+{
     private static readonly UnitCardStatField[] BattleCardStatFields =
     {
         UnitCardStatField.Count,
@@ -66,11 +89,6 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         UnitCardStatField.CritMultiplier,
         UnitCardStatField.MissChance
     };
-
-    private const string VictoryStatusText = "Победа";
-    private const string DefeatStatusText = "Поражение";
-    private const string FleeStatusText = "Побег";
-
     public enum PanelName
     {
         TacticPanel,
@@ -78,51 +96,28 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         ResultPanel
     }
 
-    private readonly struct ResultSquadView
-    {
-        public ResultSquadView(VisualElement root, VisualElement delta)
-        {
-            Root = root;
-            Delta = delta;
-        }
+    private const string UnitsLayerName = "Units";
 
-        public VisualElement Root { get; }
+    private const float AbilityTooltipOffset = 8f;
+    private const float ResultSquadAnimationDelaySeconds = 0.08f;
 
-        public VisualElement Delta { get; }
-    }
+    private const string VictoryStatusText = "Победа";
+    private const string DefeatStatusText = "Поражение";
+    private const string FleeStatusText = "Побег";
 
-    [SerializeField] private UIDocument _uiDocument;
-
-    private readonly Dictionary<PanelName, VisualElement> _panels = new();
-    private PanelName? _currentPanel;
-
-    private Button _startCombatButton;
-    private Button _leaveCombatButton;
-    private Button _finishBattleButton;
-    private Button _defendButton;
-    private Button _skipTurnButton;
-    private Label _resultStatusLabel;
-    private VisualElement _playerSquadResults;
-    private VisualElement _enemySquadResults;
-    private VisualElement _queueContainer;
-    private readonly List<VisualElement> _abilityListContainers = new();
     private readonly Dictionary<BattleAbilitySO, List<VisualElement>> _abilityElements = new();
     private BattleAbilitiesManager _currentAbilityManager;
     private IReadOnlySquadModel _currentAbilityOwner;
-    private BattleAbilitySO _highlightedAbility;
-    private VisualElement _abilityTooltip;
-    private Label _abilityTooltipLabel;
-    private VisualElement _abilityTooltipTarget;
-    private VisualElement _squadInfoCard;
+
     private UnitCardWidget _squadInfoCardWidget;
     private IReadOnlySquadModel _displayedSquadModel;
     private BattleSquadEffectsController _displayedEffectsController;
+
     private Camera _mainCamera;
     private int _unitsLayerMask;
     private Sequence _resultSquadAnimationSequence;
-    private VisualElement _bodyElement;
 
-    private bool _isAttached;
+    private VisualElement _abilityTooltipTarget;
 
     public event Action OnStartCombat;
     public event Action OnLeaveCombat;
@@ -131,234 +126,197 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     public event Action OnSkipTurn;
     public event Action<BattleAbilitySO> OnSelectAbility;
 
-    private void Awake()
-    {
-        _mainCamera = Camera.main;
-        _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
-        TryRegisterLifecycleCallbacks();
-    }
-
-    private void OnEnable()
-    {
-        TryRegisterLifecycleCallbacks();
-    }
-
-    private void OnDestroy()
-    {
-        DetachFromPanel();
-
-        if (_uiDocument?.rootVisualElement is { } root)
-        {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-        }
-    }
-
     private void Update()
     {
+        if (!_isAttached)
+            return;
+
         UpdateSquadInfoCardFromPointer();
     }
 
-    public void AttachToPanel(UIDocument document)
+    protected override void AttachToPanel(UIDocument document)
     {
-        if (document == null)
-        {
-            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] UIDocument reference is missing.");
+        base.AttachToPanel(document);
+
+        if (!_isAttached)
             return;
-        }
 
-        if (_isAttached)
-        {
-            DetachFromPanel();
-        }
-
-        _uiDocument = document;
-
-        VisualElement root = document.rootVisualElement;
-        if (root == null)
-        {
-            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] UIDocument root element is missing.");
-            return;
-        }
-
-        VisualElement body = root.Q(BodyElementName);
-        if (body == null)
-        {
-            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] Body element was not found in the UI document.");
-            return;
-        }
-
-        _bodyElement = body;
-
-        PanelName? previousPanel = _currentPanel;
-
-        _panels.Clear();
-        foreach (PanelName panelName in Enum.GetValues(typeof(PanelName)))
-        {
-            VisualElement panel = body.Q<VisualElement>(panelName.ToString());
-            if (panel == null)
-            {
-                Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(AttachToPanel)}] Panel '{panelName}' was not found.");
-                continue;
-            }
-
-            _panels[panelName] = panel;
-        }
-
-        _startCombatButton = body.Q<Button>(StartCombatButtonName);
-        _leaveCombatButton = body.Q<Button>(LeaveCombatButtonName);
-        _finishBattleButton = body.Q<Button>(FinishBattleButtonName);
-        _defendButton = body.Q<Button>("DefendButton");
-        _skipTurnButton = body.Q<Button>("SkipTurnButton");
-        _resultStatusLabel = body.Q<Label>(ResultStatusLabelName);
-        _playerSquadResults = body.Q<VisualElement>(PlayerSquadResultsElementName);
-        _enemySquadResults = body.Q<VisualElement>(EnemySquadResultsElementName);
-
-        _queueContainer = body.Q<VisualElement>(QueueListElementName);
-        if (_queueContainer != null)
-        {
-            _queueContainer.Clear();
-            _queueContainer.style.display = DisplayStyle.None;
-        }
-
-        _abilityListContainers.Clear();
-        foreach (VisualElement container in body.Query<VisualElement>(AbilityListElementName).ToList())
-        {
-            if (container == null)
-                continue;
-
-            container.Clear();
-            container.style.display = DisplayStyle.None;
-            _abilityListContainers.Add(container);
-        }
-
-        _abilityElements.Clear();
-        _currentAbilityManager = null;
-        _currentAbilityOwner = null;
-        _highlightedAbility = null;
-        _currentPanel = null;
-
-        InitializeSquadInfoCard(body);
-        InitializeAbilityTooltip(body);
-
-        _startCombatButton?.RegisterCallback<ClickEvent>(HandleStartCombatClicked);
-        _leaveCombatButton?.RegisterCallback<ClickEvent>(HandleLeaveCombatClicked);
-        _finishBattleButton?.RegisterCallback<ClickEvent>(HandleFinishBattleClicked);
-        _defendButton?.RegisterCallback<ClickEvent>(HandleDefendClicked);
-        _skipTurnButton?.RegisterCallback<ClickEvent>(HandleSkipTurnClicked);
-
-        _isAttached = true;
-
-        if (previousPanel.HasValue && _panels.ContainsKey(previousPanel.Value))
-        {
-            ShowPanel(previousPanel.Value);
-        }
+        _mainCamera = Camera.main;
+        _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
     }
 
-    public void DetachFromPanel()
+    protected override void DetachFromPanel()
     {
         if (!_isAttached)
-        {
             return;
-        }
-
-        _startCombatButton?.UnregisterCallback<ClickEvent>(HandleStartCombatClicked);
-        _leaveCombatButton?.UnregisterCallback<ClickEvent>(HandleLeaveCombatClicked);
-        _finishBattleButton?.UnregisterCallback<ClickEvent>(HandleFinishBattleClicked);
-        _defendButton?.UnregisterCallback<ClickEvent>(HandleDefendClicked);
-        _skipTurnButton?.UnregisterCallback<ClickEvent>(HandleSkipTurnClicked);
-
-        _startCombatButton = null;
-        _leaveCombatButton = null;
-        _finishBattleButton = null;
-        _defendButton = null;
-        _skipTurnButton = null;
-
-        if (_queueContainer != null)
-        {
-            _queueContainer.Clear();
-            _queueContainer.style.display = DisplayStyle.None;
-            _queueContainer = null;
-        }
-
-        ClearAbilityList();
-        foreach (VisualElement container in _abilityListContainers)
-        {
-            if (container == null)
-                continue;
-
-            container.Clear();
-            container.style.display = DisplayStyle.None;
-        }
-
-        _abilityListContainers.Clear();
-        _abilityElements.Clear();
-        _currentAbilityManager = null;
-        _currentAbilityOwner = null;
-        _highlightedAbility = null;
 
         StopResultSquadAnimation();
 
-        HideSquadInfoCard();
-        _squadInfoCard = null;
+        HideAbilityTooltipInternal();
+        HideSquadInfoCardInternal();
+
+        _currentAbilityManager = null;
+        _currentAbilityOwner = null;
+        _abilityElements.Clear();
+
         _squadInfoCardWidget = null;
         _displayedEffectsController = null;
-
-        _resultStatusLabel = null;
-        _playerSquadResults?.Clear();
-        _enemySquadResults?.Clear();
-        _playerSquadResults = null;
-        _enemySquadResults = null;
-        _panels.Clear();
-
-        HideAbilityTooltip();
-        _abilityTooltip?.RemoveFromHierarchy();
-        _abilityTooltip = null;
-        _abilityTooltipLabel = null;
+        _displayedSquadModel = null;
         _abilityTooltipTarget = null;
-        _bodyElement = null;
 
-        _isAttached = false;
+        base.DetachFromPanel();
+    }
+
+    protected override void RegisterUIElements()
+    {
+        var root = _uiDocument != null ? _uiDocument.rootVisualElement : null;
+        if (root == null)
+        {
+            Debug.LogWarning($"{nameof(BattleSceneUIController)}: UIDocument or rootVisualElement is missing.");
+            return;
+        }
+
+        _uiElements[BattleSceneElements.Root] = root;
+
+        var body = root.Q<VisualElement>(BattleSceneElementNames.Body);
+        if (body == null)
+        {
+            Debug.LogWarning($"{nameof(BattleSceneUIController)}: Body element was not found in the UI document.");
+            return;
+        }
+
+        _uiElements[BattleSceneElements.Body] = body;
+
+        _uiElements[BattleSceneElements.StartCombatButton] =
+            body.Q<Button>(BattleSceneElementNames.StartCombatButton);
+        _uiElements[BattleSceneElements.LeaveCombatButton] =
+            body.Q<Button>(BattleSceneElementNames.LeaveCombatButton);
+        _uiElements[BattleSceneElements.FinishBattleButton] =
+            body.Q<Button>(BattleSceneElementNames.FinishBattleButton);
+        _uiElements[BattleSceneElements.DefendButton] =
+            body.Q<Button>(BattleSceneElementNames.DefendButton);
+        _uiElements[BattleSceneElements.SkipTurnButton] =
+            body.Q<Button>(BattleSceneElementNames.SkipTurnButton);
+
+        _uiElements[BattleSceneElements.ResultStatusLabel] =
+            body.Q<Label>(BattleSceneElementNames.ResultStatusLabel);
+
+        _uiElements[BattleSceneElements.PlayerSquadResults] =
+            body.Q<VisualElement>(BattleSceneElementNames.PlayerSquadResults);
+        _uiElements[BattleSceneElements.EnemySquadResults] =
+            body.Q<VisualElement>(BattleSceneElementNames.EnemySquadResults);
+
+        var queueContainer = body.Q<VisualElement>(BattleSceneElementNames.QueueList);
+        if (queueContainer != null)
+        {
+            queueContainer.Clear();
+            queueContainer.style.display = DisplayStyle.None;
+        }
+        _uiElements[BattleSceneElements.QueueList] = queueContainer;
+
+        var squadInfoCard = body.Q<VisualElement>(BattleSceneElementNames.SquadInfoCard);
+        _uiElements[BattleSceneElements.SquadInfoCard] = squadInfoCard;
+        _squadInfoCardWidget = squadInfoCard != null ? new UnitCardWidget(squadInfoCard) : null;
+        HideSquadInfoCardInternal();
+
+        var abilityTooltip = new VisualElement { name = BattleSceneElementNames.AbilityTooltip };
+        abilityTooltip.AddToClassList(BattleSceneClassNames.AbilityTooltip);
+
+        var abilityTooltipLabel = new Label();
+        abilityTooltipLabel.AddToClassList(BattleSceneClassNames.AbilityTooltipText);
+        abilityTooltipLabel.enableRichText = true;
+        abilityTooltip.Add(abilityTooltipLabel);
+
+        body.Add(abilityTooltip);
+
+        _uiElements[BattleSceneElements.AbilityTooltip] = abilityTooltip;
+        _uiElements[BattleSceneElements.AbilityTooltipLabel] = abilityTooltipLabel;
+
+        HideAbilityTooltipInternal();
+    }
+
+    protected override void SubcribeToUIEvents()
+    {
+        var startCombatButton = GetElement<Button>(BattleSceneElements.StartCombatButton);
+        var leaveCombatButton = GetElement<Button>(BattleSceneElements.LeaveCombatButton);
+        var finishBattleButton = GetElement<Button>(BattleSceneElements.FinishBattleButton);
+        var defendButton = GetElement<Button>(BattleSceneElements.DefendButton);
+        var skipTurnButton = GetElement<Button>(BattleSceneElements.SkipTurnButton);
+
+        startCombatButton?.RegisterCallback<ClickEvent>(HandleStartCombatClicked);
+        leaveCombatButton?.RegisterCallback<ClickEvent>(HandleLeaveCombatClicked);
+        finishBattleButton?.RegisterCallback<ClickEvent>(HandleFinishBattleClicked);
+        defendButton?.RegisterCallback<ClickEvent>(HandleDefendClicked);
+        skipTurnButton?.RegisterCallback<ClickEvent>(HandleSkipTurnClicked);
+    }
+
+    protected override void UnsubscriveFromUIEvents()
+    {
+        var startCombatButton = GetElement<Button>(BattleSceneElements.StartCombatButton);
+        var leaveCombatButton = GetElement<Button>(BattleSceneElements.LeaveCombatButton);
+        var finishBattleButton = GetElement<Button>(BattleSceneElements.FinishBattleButton);
+        var defendButton = GetElement<Button>(BattleSceneElements.DefendButton);
+        var skipTurnButton = GetElement<Button>(BattleSceneElements.SkipTurnButton);
+
+        startCombatButton?.UnregisterCallback<ClickEvent>(HandleStartCombatClicked);
+        leaveCombatButton?.UnregisterCallback<ClickEvent>(HandleLeaveCombatClicked);
+        finishBattleButton?.UnregisterCallback<ClickEvent>(HandleFinishBattleClicked);
+        defendButton?.UnregisterCallback<ClickEvent>(HandleDefendClicked);
+        skipTurnButton?.UnregisterCallback<ClickEvent>(HandleSkipTurnClicked);
+    }
+
+    protected override void SubscriveToGameEvents()
+    {
+        // No game events for this controller yet.
+    }
+
+    protected override void UnsubscribeFromGameEvents()
+    {
+        // No game events for this controller yet.
     }
 
     public void ShowPanel(PanelName panelName)
     {
-        if (_panels.Count == 0)
+        if (!_isAttached)
             return;
 
-        if (!_panels.TryGetValue(panelName, out VisualElement targetPanel))
-        {
-            Debug.LogWarning($"[{nameof(BattleSceneUIController)}.{nameof(ShowPanel)}] Panel '{panelName}' is not registered.");
+        var body = GetElement<VisualElement>(BattleSceneElements.Body);
+        if (body == null)
             return;
-        }
 
-        foreach (KeyValuePair<PanelName, VisualElement> pair in _panels)
+        foreach (PanelName name in Enum.GetValues(typeof(PanelName)))
         {
-            bool isTarget = pair.Key == panelName;
-            pair.Value.style.display = isTarget ? DisplayStyle.Flex : DisplayStyle.None;
-            pair.Value.style.visibility = isTarget ? Visibility.Visible : Visibility.Hidden;
-        }
+            var panel = body.Q<VisualElement>(name.ToString());
+            if (panel == null)
+                continue;
 
-        _currentPanel = panelName;
+            bool isTarget = name == panelName;
+            panel.style.display = isTarget ? DisplayStyle.Flex : DisplayStyle.None;
+            panel.style.visibility = isTarget ? Visibility.Visible : Visibility.Hidden;
+        }
     }
 
     public void RenderQueue(BattleQueueController battleQueueController)
     {
-        if (_queueContainer == null)
+        if (!_isAttached)
             return;
 
-        _queueContainer.Clear();
+        var queueContainer = GetElement<VisualElement>(BattleSceneElements.QueueList);
+        if (queueContainer == null)
+            return;
+
+        queueContainer.Clear();
 
         if (battleQueueController == null)
         {
-            _queueContainer.style.display = DisplayStyle.None;
+            queueContainer.style.display = DisplayStyle.None;
             return;
         }
 
         IReadOnlyList<IReadOnlySquadModel> queue = battleQueueController.GetQueue();
         if (queue == null || queue.Count == 0)
         {
-            _queueContainer.style.display = DisplayStyle.None;
+            queueContainer.style.display = DisplayStyle.None;
             return;
         }
 
@@ -368,24 +326,31 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
                 continue;
 
             VisualElement queueItem = CreateQueueItem(unit);
-            _queueContainer.Add(queueItem);
+            queueContainer.Add(queueItem);
         }
 
-        _queueContainer.style.display = _queueContainer.childCount > 0
+        queueContainer.style.display = queueContainer.childCount > 0
             ? DisplayStyle.Flex
             : DisplayStyle.None;
     }
 
-    public void RenderAbilityList(BattleAbilitySO[] abilities, BattleAbilitiesManager abilityManager, IReadOnlySquadModel owner)
+    public void RenderAbilityList(
+        BattleAbilitySO[] abilities,
+        BattleAbilitiesManager abilityManager,
+        IReadOnlySquadModel owner)
     {
-        ClearAbilityList();
+        if (!_isAttached)
+            return;
+
+        ClearAbilityListInternal();
 
         _currentAbilityManager = abilityManager;
         _currentAbilityOwner = owner;
 
-        if (abilities == null || abilities.Length == 0 || _abilityListContainers.Count == 0)
+        List<VisualElement> containers = GetAbilityListContainers();
+        if (abilities == null || abilities.Length == 0 || containers.Count == 0)
         {
-            UpdateAbilityListVisibility(false);
+            UpdateAbilityListVisibility(false, containers);
             return;
         }
 
@@ -394,7 +359,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             if (ability == null)
                 continue;
 
-            foreach (VisualElement container in _abilityListContainers)
+            foreach (VisualElement container in containers)
             {
                 if (container == null)
                     continue;
@@ -405,7 +370,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             }
         }
 
-        UpdateAbilityListVisibility(_abilityElements.Count > 0);
+        UpdateAbilityListVisibility(_abilityElements.Count > 0, containers);
         RefreshAbilityAvailability();
     }
 
@@ -425,12 +390,12 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
                 if (isReady)
                 {
-                    element.RemoveFromClassList(AbilityItemCooldownClassName);
+                    element.RemoveFromClassList(BattleSceneClassNames.AbilityItemCooldown);
                     element.SetEnabled(true);
                 }
                 else
                 {
-                    element.AddToClassList(AbilityItemCooldownClassName);
+                    element.AddToClassList(BattleSceneClassNames.AbilityItemCooldown);
                     element.SetEnabled(false);
                 }
 
@@ -441,8 +406,6 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
     public void HighlightAbility(BattleAbilitySO ability)
     {
-        _highlightedAbility = ability;
-
         foreach (KeyValuePair<BattleAbilitySO, List<VisualElement>> pair in _abilityElements)
         {
             bool shouldHighlight = ability != null && ReferenceEquals(pair.Key, ability);
@@ -453,44 +416,41 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
                     continue;
 
                 if (shouldHighlight)
-                    element.AddToClassList(AbilityItemSelectedClassName);
+                    element.AddToClassList(BattleSceneClassNames.AbilityItemSelected);
                 else
-                    element.RemoveFromClassList(AbilityItemSelectedClassName);
+                    element.RemoveFromClassList(BattleSceneClassNames.AbilityItemSelected);
             }
         }
     }
 
     public void ResetAbilityHighlight()
     {
-        _highlightedAbility = null;
-
         foreach (KeyValuePair<BattleAbilitySO, List<VisualElement>> pair in _abilityElements)
         {
             foreach (VisualElement element in pair.Value)
             {
-                element?.RemoveFromClassList(AbilityItemSelectedClassName);
+                element?.RemoveFromClassList(BattleSceneClassNames.AbilityItemSelected);
             }
         }
     }
 
     public void SetDefendButtonInteractable(bool interactable)
     {
-        if (_defendButton == null)
-            return;
-
-        _defendButton.SetEnabled(interactable);
+        var defendButton = GetElement<Button>(BattleSceneElements.DefendButton);
+        defendButton?.SetEnabled(interactable);
     }
 
     public void ShowResult(BattleResult result)
     {
-        if (result == null)
+        if (!_isAttached || result == null)
             return;
 
         StopResultSquadAnimation();
 
-        if (_resultStatusLabel != null)
+        var statusLabel = GetElement<Label>(BattleSceneElements.ResultStatusLabel);
+        if (statusLabel != null)
         {
-            _resultStatusLabel.text = result.Status switch
+            statusLabel.text = result.Status switch
             {
                 BattleResultStatus.Victory => VictoryStatusText,
                 BattleResultStatus.Defeat => DefeatStatusText,
@@ -499,13 +459,16 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             };
         }
 
+        var friendlyContainer = GetElement<VisualElement>(BattleSceneElements.PlayerSquadResults);
+        var enemyContainer = GetElement<VisualElement>(BattleSceneElements.EnemySquadResults);
+
         List<ResultSquadView> friendlyElements = RenderResultSquads(
-            _playerSquadResults,
+            friendlyContainer,
             result.BattleUnitsResult.FriendlyUnits,
             result);
 
         List<ResultSquadView> enemyElements = RenderResultSquads(
-            _enemySquadResults,
+            enemyContainer,
             result.BattleUnitsResult.EnemyUnits,
             result);
 
@@ -543,20 +506,20 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     private ResultSquadView CreateResultSquadElement(IReadOnlySquadModel squad, BattleResult battleResult)
     {
         var root = new VisualElement();
-        root.AddToClassList(ResultSquadClassName);
+        root.AddToClassList(BattleSceneClassNames.ResultSquad);
 
         var icon = new VisualElement();
-        icon.AddToClassList(ResultSquadIconClassName);
+        icon.AddToClassList(BattleSceneClassNames.ResultSquadIcon);
         if (squad.Icon != null)
         {
             icon.style.backgroundImage = new StyleBackground(squad.Icon);
         }
 
         var countWrapper = new VisualElement();
-        countWrapper.AddToClassList(ResultSquadCountWrapperClassName);
+        countWrapper.AddToClassList(BattleSceneClassNames.ResultSquadCountWrapper);
 
         var countLabel = new Label(Mathf.Max(0, squad.Count).ToString());
-        countLabel.AddToClassList(ResultSquadCountClassName);
+        countLabel.AddToClassList(BattleSceneClassNames.ResultSquadCount);
         countWrapper.Add(countLabel);
 
         Label deltaLabel = CreateResultSquadDeltaLabel(battleResult, squad);
@@ -566,7 +529,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         }
 
         var nameLabel = new Label(squad.UnitName ?? string.Empty);
-        nameLabel.AddToClassList(ResultSquadNameClassName);
+        nameLabel.AddToClassList(BattleSceneClassNames.ResultSquadName);
 
         root.Add(icon);
         root.Add(countWrapper);
@@ -574,7 +537,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
         if (squad.IsEmpty || squad.Count <= 0)
         {
-            root.AddToClassList(ResultSquadDeadClassName);
+            root.AddToClassList(BattleSceneClassNames.ResultSquadDead);
         }
 
         return new ResultSquadView(root, deltaLabel);
@@ -597,7 +560,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             return null;
 
         var label = new Label(text);
-        label.AddToClassList(ResultSquadDeltaClassName);
+        label.AddToClassList(BattleSceneClassNames.ResultSquadDelta);
         return label;
     }
 
@@ -673,7 +636,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             if (element == null)
                 continue;
 
-            sequence.AppendCallback(() => element.AddToClassList(ResultSquadVisibleClassName));
+            sequence.AppendCallback(() => element.AddToClassList(BattleSceneClassNames.ResultSquadVisible));
             sequence.AppendInterval(ResultSquadAnimationDelaySeconds);
         }
     }
@@ -688,7 +651,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             if (delta == null)
                 continue;
 
-            sequence.AppendCallback(() => delta.AddToClassList(ResultSquadDeltaVisibleClassName));
+            sequence.AppendCallback(() => delta.AddToClassList(BattleSceneClassNames.ResultSquadDeltaVisible));
             sequence.AppendInterval(ResultSquadAnimationDelaySeconds);
         }
     }
@@ -730,17 +693,17 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     private VisualElement CreateQueueItem(IReadOnlySquadModel unit)
     {
         var item = new VisualElement();
-        item.AddToClassList(QueueItemClassName);
+        item.AddToClassList(BattleSceneClassNames.QueueItem);
 
         var iconElement = new VisualElement();
-        iconElement.AddToClassList(QueueItemIconClassName);
+        iconElement.AddToClassList(BattleSceneClassNames.QueueItemIcon);
         if (unit.Icon != null)
         {
             iconElement.style.backgroundImage = new StyleBackground(unit.Icon);
         }
 
         var countLabel = new Label(unit.Count.ToString());
-        countLabel.AddToClassList(QueueItemCountClassName);
+        countLabel.AddToClassList(BattleSceneClassNames.QueueItemCount);
 
         item.Add(iconElement);
         item.Add(countLabel);
@@ -751,10 +714,10 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
     private VisualElement CreateAbilityElement(BattleAbilitySO ability)
     {
         var element = new VisualElement();
-        element.AddToClassList(AbilityItemClassName);
+        element.AddToClassList(BattleSceneClassNames.AbilityItem);
 
         var iconElement = new VisualElement();
-        iconElement.AddToClassList(AbilityItemIconClassName);
+        iconElement.AddToClassList(BattleSceneClassNames.AbilityItemIcon);
         if (ability.Icon != null)
         {
             iconElement.style.backgroundImage = new StyleBackground(ability.Icon);
@@ -763,13 +726,13 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         element.Add(iconElement);
 
         var cooldownLabel = new Label();
-        cooldownLabel.AddToClassList(AbilityItemCooldownLabelClassName);
+        cooldownLabel.AddToClassList(BattleSceneClassNames.AbilityItemCooldownLabel);
         cooldownLabel.style.display = DisplayStyle.None;
         element.Add(cooldownLabel);
 
         element.RegisterCallback<ClickEvent>(_ => HandleAbilityClick(ability));
         element.RegisterCallback<PointerEnterEvent>(_ => ShowAbilityTooltip(ability, element));
-        element.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltip());
+        element.RegisterCallback<PointerLeaveEvent>(_ => HideAbilityTooltipInternal());
         element.RegisterCallback<PointerMoveEvent>(_ => UpdateAbilityTooltipFromTarget(element));
 
         return element;
@@ -780,7 +743,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         if (element == null)
             return;
 
-        Label cooldownLabel = element.Q<Label>(className: AbilityItemCooldownLabelClassName);
+        var cooldownLabel = element.Q<Label>(className: BattleSceneClassNames.AbilityItemCooldownLabel);
         if (cooldownLabel == null)
             return;
 
@@ -812,22 +775,22 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         elements.Add(element);
     }
 
-    private void ClearAbilityList()
+    private void ClearAbilityListInternal()
     {
-        foreach (VisualElement container in _abilityListContainers)
+        List<VisualElement> containers = GetAbilityListContainers();
+        foreach (VisualElement container in containers)
         {
             container?.Clear();
         }
 
         _abilityElements.Clear();
-        _highlightedAbility = null;
-        HideAbilityTooltip();
+        HideAbilityTooltipInternal();
     }
 
-    private void UpdateAbilityListVisibility(bool isVisible)
+    private void UpdateAbilityListVisibility(bool isVisible, List<VisualElement> containers)
     {
         DisplayStyle display = isVisible ? DisplayStyle.Flex : DisplayStyle.None;
-        foreach (VisualElement container in _abilityListContainers)
+        foreach (VisualElement container in containers)
         {
             if (container == null)
                 continue;
@@ -836,32 +799,13 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         }
     }
 
-    private void TryRegisterLifecycleCallbacks()
+    private List<VisualElement> GetAbilityListContainers()
     {
-        if (_uiDocument == null)
-            _uiDocument = GetComponent<UIDocument>();
+        var body = GetElement<VisualElement>(BattleSceneElements.Body);
+        if (body == null)
+            return new List<VisualElement>();
 
-        if (_uiDocument?.rootVisualElement is { } root)
-        {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-
-            if (!_isAttached && root.panel != null)
-                AttachToPanel(_uiDocument);
-        }
-    }
-
-    private void HandleAttachToPanel(AttachToPanelEvent _)
-    {
-        if (!_isAttached)
-            AttachToPanel(_uiDocument);
-    }
-
-    private void HandleDetachFromPanel(DetachFromPanelEvent _)
-    {
-        DetachFromPanel();
+        return body.Query<VisualElement>(BattleSceneElementNames.AbilityList).ToList();
     }
 
     private bool IsAbilityReady(BattleAbilitySO ability)
@@ -897,43 +841,28 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         OnSelectAbility?.Invoke(ability);
     }
 
-    private void InitializeAbilityTooltip(VisualElement body)
-    {
-        if (body == null)
-            return;
-
-        _abilityTooltip?.RemoveFromHierarchy();
-
-        _abilityTooltip = new VisualElement
-        {
-            name = "AbilityTooltip"
-        };
-        _abilityTooltip.AddToClassList(AbilityTooltipClassName);
-
-        _abilityTooltipLabel = new Label();
-        _abilityTooltipLabel.AddToClassList(AbilityTooltipTextClassName);
-        _abilityTooltipLabel.enableRichText = true;
-        _abilityTooltip.Add(_abilityTooltipLabel);
-
-        body.Add(_abilityTooltip);
-
-        HideAbilityTooltip();
-    }
-
     private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement target)
     {
-        if (ability == null || target == null || _abilityTooltip == null || _abilityTooltipLabel == null)
+        if (ability == null || target == null)
+            return;
+
+        var tooltip = GetElement<VisualElement>(BattleSceneElements.AbilityTooltip);
+        var tooltipLabel = GetElement<Label>(BattleSceneElements.AbilityTooltipLabel);
+        var body = GetElement<VisualElement>(BattleSceneElements.Body);
+
+        if (tooltip == null || tooltipLabel == null || body == null)
             return;
 
         _abilityTooltipTarget = target;
-        _abilityTooltipLabel.text = ResolveAbilityTooltipText(ability);
-        _abilityTooltip.AddToClassList(AbilityTooltipVisibleClassName);
-        UpdateAbilityTooltipPosition(target.worldBound);
+        tooltipLabel.text = ResolveAbilityTooltipText(ability);
+        tooltip.AddToClassList(BattleSceneClassNames.AbilityTooltipVisible);
 
-        _abilityTooltip.schedule.Execute(() =>
+        UpdateAbilityTooltipPosition(target.worldBound, tooltip, body);
+
+        tooltip.schedule.Execute(() =>
         {
             if (_abilityTooltipTarget == target)
-                UpdateAbilityTooltipPosition(target.worldBound);
+                UpdateAbilityTooltipPosition(target.worldBound, tooltip, body);
         });
     }
 
@@ -942,37 +871,46 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         if (target == null || !ReferenceEquals(_abilityTooltipTarget, target))
             return;
 
-        UpdateAbilityTooltipPosition(target.worldBound);
-    }
-
-    private void UpdateAbilityTooltipPosition(Rect targetWorldBounds)
-    {
-        if (_abilityTooltip == null || _bodyElement == null)
+        var tooltip = GetElement<VisualElement>(BattleSceneElements.AbilityTooltip);
+        var body = GetElement<VisualElement>(BattleSceneElements.Body);
+        if (tooltip == null || body == null)
             return;
 
-        Vector2 topCenter = new(targetWorldBounds.xMin + targetWorldBounds.width * 0.5f, targetWorldBounds.yMin);
-        Vector2 localPosition = _bodyElement.WorldToLocal(topCenter);
+        UpdateAbilityTooltipPosition(target.worldBound, tooltip, body);
+    }
 
-        float tooltipWidth = _abilityTooltip.resolvedStyle.width;
-        float tooltipHeight = _abilityTooltip.resolvedStyle.height;
+    private void UpdateAbilityTooltipPosition(Rect targetWorldBounds, VisualElement tooltip, VisualElement body)
+    {
+        if (tooltip == null || body == null)
+            return;
+
+        Vector2 topCenter = new Vector2(
+            targetWorldBounds.xMin + targetWorldBounds.width * 0.5f,
+            targetWorldBounds.yMin);
+
+        Vector2 localPosition = body.WorldToLocal(topCenter);
+
+        float tooltipWidth = tooltip.resolvedStyle.width;
+        float tooltipHeight = tooltip.resolvedStyle.height;
 
         float x = localPosition.x - tooltipWidth * 0.5f;
         float y = localPosition.y - tooltipHeight - AbilityTooltipOffset;
 
-        float maxX = Mathf.Max(0f, _bodyElement.resolvedStyle.width - tooltipWidth);
+        float maxX = Mathf.Max(0f, body.resolvedStyle.width - tooltipWidth);
         x = Mathf.Clamp(x, 0f, maxX);
         y = Mathf.Max(0f, y);
 
-        _abilityTooltip.style.left = x;
-        _abilityTooltip.style.top = y;
+        tooltip.style.left = x;
+        tooltip.style.top = y;
     }
 
-    private void HideAbilityTooltip()
+    private void HideAbilityTooltipInternal()
     {
-        if (_abilityTooltip == null)
+        var tooltip = GetElement<VisualElement>(BattleSceneElements.AbilityTooltip);
+        if (tooltip == null)
             return;
 
-        _abilityTooltip.RemoveFromClassList(AbilityTooltipVisibleClassName);
+        tooltip.RemoveFromClassList(BattleSceneClassNames.AbilityTooltipVisible);
         _abilityTooltipTarget = null;
     }
 
@@ -985,42 +923,36 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         return string.IsNullOrWhiteSpace(formatted) ? string.Empty : formatted;
     }
 
-    private void InitializeSquadInfoCard(VisualElement body)
-    {
-        _squadInfoCard = body?.Q<VisualElement>(SquadInfoCardElementName);
-        _squadInfoCardWidget = _squadInfoCard != null ? new UnitCardWidget(_squadInfoCard) : null;
-
-        HideSquadInfoCard();
-    }
-
     private void UpdateSquadInfoCardFromPointer()
     {
-        if (!_isAttached || _squadInfoCard == null)
+        var squadInfoCard = GetElement<VisualElement>(BattleSceneElements.SquadInfoCard);
+        if (squadInfoCard == null || _squadInfoCardWidget == null)
             return;
 
         BattleSquadController squadController = FindSquadUnderPointer();
         if (squadController == null)
         {
             if (_displayedSquadModel != null)
-                HideSquadInfoCard();
+                HideSquadInfoCardInternal();
             return;
         }
 
-        ShowSquadInfoCard(squadController);
+        ShowSquadInfoCardInternal(squadController);
     }
 
-    private void ShowSquadInfoCard(BattleSquadController controller)
+    private void ShowSquadInfoCardInternal(BattleSquadController controller)
     {
-        if (controller == null || _squadInfoCard == null)
+        var squadInfoCard = GetElement<VisualElement>(BattleSceneElements.SquadInfoCard);
+        if (controller == null || squadInfoCard == null || _squadInfoCardWidget == null)
         {
-            HideSquadInfoCard();
+            HideSquadInfoCardInternal();
             return;
         }
 
         IReadOnlySquadModel squad = controller.GetSquadModel();
         if (squad == null)
         {
-            HideSquadInfoCard();
+            HideSquadInfoCardInternal();
             return;
         }
 
@@ -1035,13 +967,13 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
 
         _displayedEffectsController = effectsController;
 
-        UpdateSquadInfoContent(squad, effectsController.Effects);
-        UpdateSquadCardPosition(squad);
+        UpdateSquadInfoContent(squad, effectsController != null ? effectsController.Effects : null);
+        UpdateSquadCardPosition(squad, squadInfoCard);
 
-        _squadInfoCardWidget?.SetVisible(true);
+        _squadInfoCardWidget.SetVisible(true);
     }
 
-    private void HideSquadInfoCard()
+    private void HideSquadInfoCardInternal()
     {
         UnsubscribeFromDisplayedSquad();
         _displayedEffectsController = null;
@@ -1054,12 +986,12 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         if (squad == null || !ReferenceEquals(_displayedSquadModel, squad))
             return;
 
-        UpdateSquadInfoContent(squad, _displayedEffectsController?.Effects);
+        UpdateSquadInfoContent(squad, _displayedEffectsController != null ? _displayedEffectsController.Effects : null);
     }
 
     private void UpdateSquadInfoContent(IReadOnlySquadModel squad, IReadOnlyList<BattleEffectSO> effects)
     {
-        if (squad == null)
+        if (squad == null || _squadInfoCardWidget == null)
             return;
 
         IReadOnlyList<BattleAbilitySO> abilities = squad.Abilities ?? Array.Empty<BattleAbilitySO>();
@@ -1068,6 +1000,7 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         {
             [UnitCardWidget.LevelFieldKey] = UnitCardWidget.FormatLevelText(squad)
         };
+
         UnitCardRenderData data = new(
             squad,
             BattleCardStatFields,
@@ -1076,17 +1009,18 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
             squad.UnitName,
             null,
             fields);
-        _squadInfoCardWidget?.Render(data);
+
+        _squadInfoCardWidget.Render(data);
     }
 
-    private void UpdateSquadCardPosition(IReadOnlySquadModel squad)
+    private void UpdateSquadCardPosition(IReadOnlySquadModel squad, VisualElement card)
     {
-        if (_squadInfoCard == null)
+        if (card == null)
             return;
 
         bool isFriendly = squad.IsFriendly() || squad.IsAlly() || squad.IsHero();
-        _squadInfoCard.EnableInClassList(BattleCardLeftClassName, isFriendly);
-        _squadInfoCard.EnableInClassList(BattleCardRightClassName, !isFriendly);
+        card.EnableInClassList(BattleSceneClassNames.BattleCardLeft, isFriendly);
+        card.EnableInClassList(BattleSceneClassNames.BattleCardRight, !isFriendly);
     }
 
     private void UnsubscribeFromDisplayedSquad()
@@ -1129,5 +1063,18 @@ public sealed class BattleSceneUIController : MonoBehaviour, ISceneUIController
         }
 
         return null;
+    }
+
+    private readonly struct ResultSquadView
+    {
+        public ResultSquadView(VisualElement root, VisualElement delta)
+        {
+            Root = root;
+            Delta = delta;
+        }
+
+        public VisualElement Root { get; }
+
+        public VisualElement Delta { get; }
     }
 }
