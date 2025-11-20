@@ -5,11 +5,10 @@ using VContainer.Unity;
 public class DungeonLifetimeScope : LifetimeScope
 {
     [SerializeField] private DialogManager _dialogManager;
-    [SerializeField] private DungeonSceneUIController _dungeonUiController;
 
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(_dialogManager).AsSelf();
-        builder.RegisterInstance(_dungeonUiController).AsSelf();
+        builder.Register<GameEventBusService>(Lifetime.Singleton);
     }
 }

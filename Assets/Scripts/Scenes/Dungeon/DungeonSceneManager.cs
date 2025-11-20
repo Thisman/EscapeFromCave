@@ -9,25 +9,28 @@ public class DungeonSceneManager : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
 
     [SerializeField] private UpgradesUIController _upgradesUIController;
+    [SerializeField] private DungeonSceneUIController _dungeonUIController;
 
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly IObjectResolver _objectResolver;
-    [Inject] private readonly DungeonSceneUIController _dungeonUIController;
 
+    private PlayerController _playerController;
     private PlayerArmyController _playerArmyController;
+
     private IReadOnlySquadModel _heroSquad;
-    private readonly List<IReadOnlySquadModel> _squadsBuffer = new();
+    private readonly List<IReadOnlySquadModel> _squadsWithHero = new();
+
+    private void Awake()
+    {
+        InitializePlayer();
+        InitializeArmy();
+    }
 
     private void OnEnable()
     {
-        SubscribeToArmyChanges(_playerArmyController);
-    }
-
-    private void OnDisable()
-    {
-        UnsubscribeFromArmyChanges(_playerArmyController);
+        SubscribeToGameEvents();
     }
 
     private void Start()
@@ -35,41 +38,37 @@ public class DungeonSceneManager : MonoBehaviour
         _ = _audioManager.PlayClipAsync("BackgroundEffect", "DropsInTheCave");
         _inputService.EnterGameplay();
 
-        PlayerController playerController = InitializePlayer();
-        _playerArmyController = InitializeArmy(playerController);
-        SubscribeToArmyChanges(_playerArmyController);
+        UpdateSquadsWithHero(_playerArmyController.Army);
+        _dungeonUIController.RenderSquads(_squadsWithHero);
+    }
 
-        _upgradesUIController.OnSelectUpgrade += HandleSelectUpgrade;
+    private void OnDisable()
+    {
+        UnsubscribeFromGameEvents();
     }
 
     private void OnDestroy()
     {
-        UnsubscribeFromArmyChanges(_playerArmyController);
-
-        _upgradesUIController.OnSelectUpgrade -= HandleSelectUpgrade;
+        UnsubscribeFromGameEvents();
     }
 
-    private PlayerController InitializePlayer()
+    private void InitializePlayer()
     {
-        Vector3 spawnPosition = _playerSpawnPoint.position;
-        Quaternion spawnRotation = _playerSpawnPoint.rotation;
-
-        GameObject playerInstance = _objectResolver.Instantiate(_playerPrefab, spawnPosition, spawnRotation);
-        PlayerController playerController = playerInstance.GetComponent<PlayerController>();
+        _playerSpawnPoint.GetPositionAndRotation(out Vector3 spawnPosition, out Quaternion spawnRotation);
         SquadModel squadModel = new(_gameSession.SelectedHero, 1);
+        GameObject playerInstance = _objectResolver.Instantiate(_playerPrefab, spawnPosition, spawnRotation);
+        _playerController = playerInstance.GetComponent<PlayerController>();
 
-        playerController.Initialize(squadModel);
-        _heroSquad = playerController.GetPlayer();
-
-        return playerController;
+        _playerController.Initialize(squadModel);
+        _heroSquad = _playerController.GetPlayer();
     }
 
-    private PlayerArmyController InitializeArmy(PlayerController playerController)
+    private void InitializeArmy()
     {
-        PlayerArmyController armyController = playerController.GetComponent<PlayerArmyController>();
-        ArmyModel armyModel = new(armyController.MaxSlots);
+        _playerArmyController = _playerController.GetComponent<PlayerArmyController>();
 
-        armyController.Initialize(armyModel);
+        ArmyModel armyModel = new(_playerArmyController.MaxSlots);
+        _playerArmyController.Initialize(armyModel);
 
         foreach (var selection in _gameSession.SelectedAllySquads)
         {
@@ -78,53 +77,37 @@ public class DungeonSceneManager : MonoBehaviour
                 continue;
             }
 
-            armyController.Army.TryAddSquad(selection.Definition, selection.Count);
+            _playerArmyController.Army.TryAddSquad(selection.Definition, selection.Count);
         }
-
-        return armyController;
     }
 
-    private void SubscribeToArmyChanges(PlayerArmyController armyController)
+    private void SubscribeToGameEvents()
     {
-        if (armyController == null)
-        {
-            return;
-        }
-
-        UnsubscribeFromArmyChanges(armyController);
-        armyController.ArmyChanged += HandleArmyChanged;
-        HandleArmyChanged(armyController.Army);
+        _playerArmyController.ArmyChanged += HandleArmyChanged;
+        _upgradesUIController.OnSelectUpgrade += HandleSelectUpgrade;
     }
 
-    private void UnsubscribeFromArmyChanges(PlayerArmyController armyController)
+    private void UnsubscribeFromGameEvents()
     {
-        if (armyController == null)
-        {
-            return;
-        }
-
-        armyController.ArmyChanged -= HandleArmyChanged;
+        _playerArmyController.ArmyChanged -= HandleArmyChanged;
+        _upgradesUIController.OnSelectUpgrade -= HandleSelectUpgrade;
     }
 
     private void HandleArmyChanged(IReadOnlyArmyModel army)
     {
-        if (_dungeonUIController == null)
-        {
-            return;
-        }
+        UpdateSquadsWithHero(army);
 
-        if (army == null)
-        {
-            _dungeonUIController.RenderSquads(null);
-            return;
-        }
+        _dungeonUIController.RenderSquads(_squadsWithHero);
+    }
 
-        _squadsBuffer.Clear();
+    private void HandleSelectUpgrade() {
+        _upgradesUIController.Hide();
+    }
 
-        if (_heroSquad != null && !_heroSquad.IsEmpty)
-        {
-            _squadsBuffer.Add(_heroSquad);
-        }
+    private void UpdateSquadsWithHero(IReadOnlyArmyModel army)
+    {
+        _squadsWithHero.Clear();
+        _squadsWithHero.Add(_heroSquad);
 
         IReadOnlyList<IReadOnlySquadModel> squads = army.GetSquads();
         if (squads != null)
@@ -133,18 +116,10 @@ public class DungeonSceneManager : MonoBehaviour
             {
                 var squad = squads[i];
                 if (squad == null || squad.IsEmpty)
-                {
                     continue;
-                }
 
-                _squadsBuffer.Add(squad);
+                _squadsWithHero.Add(squad);
             }
         }
-
-        _dungeonUIController.RenderSquads(_squadsBuffer);
-    }
-
-    private void HandleSelectUpgrade() {
-        _upgradesUIController.Hide();
     }
 }
