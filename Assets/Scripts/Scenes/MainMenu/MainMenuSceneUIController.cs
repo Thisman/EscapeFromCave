@@ -15,7 +15,6 @@ public class MainMenuSceneUIController : BaseUIController<MainMenuSceneElements>
 {
     override protected void RegisterUIElements()
     {
-        base.RegisterUIElements();
         _uiElements[MainMenuSceneElements.Root] = _uiDocument.rootVisualElement;
         _uiElements[MainMenuSceneElements.StartButton] = GetElement<VisualElement>(MainMenuSceneElements.Root)
             .Q<Button>("StartGameButton");
@@ -30,6 +29,10 @@ public class MainMenuSceneUIController : BaseUIController<MainMenuSceneElements>
     {
         GetElement<Button>(MainMenuSceneElements.StartButton).clicked -= HandleStartButtonClicked;
     }
+
+    override protected void SubscriveToGameEvents() { }
+
+    override protected void UnsubscribeFromGameEvents() { }
 
     private void HandleStartButtonClicked()
     {

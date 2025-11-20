@@ -162,7 +162,7 @@
             "id": "53c8f333-ca3e-4501-be34-7759f017b8a9",
             "actions": [
                 {
-                    "name": "Pre",
+                    "name": "SelectPrevHero",
                     "type": "Button",
                     "id": "3fddfaab-7fd0-4c96-a1b9-70ed8579939d",
                     "expectedControlType": "",
@@ -171,7 +171,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Next",
+                    "name": "SelectNextHero",
                     "type": "Button",
                     "id": "c96979e7-5e8c-46c3-af20-d1e39b5cf930",
                     "expectedControlType": "",
@@ -188,7 +188,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pre",
+                    "action": "SelectPrevHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -199,7 +199,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pre",
+                    "action": "SelectPrevHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -210,7 +210,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next",
+                    "action": "SelectNextHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -221,7 +221,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next",
+                    "action": "SelectNextHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

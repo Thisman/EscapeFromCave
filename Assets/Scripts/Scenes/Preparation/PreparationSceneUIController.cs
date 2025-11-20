@@ -88,15 +88,13 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
     public void Initialize(InputService inputService, GameEventBusService _sceneEventBusService)
     {
         base.Initialize(_sceneEventBusService);
-        UnsubscribeFromHeroNavigationInput();
 
         _inputService = inputService;
-        SubscribeToHeroNavigationInput();
 
         InitializeHeroCards();
         InitializeSquadCards();
         InitializeSquadSlots();
-        UpdateSquadCountControls();
+        SubscribeToHeroNavigationInput();
     }
 
     public void Render(UnitSO[] heroDefinitions, UnitSO[] squadDefinitions)
@@ -104,17 +102,22 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
         _heroDefinitions = heroDefinitions;
         _squadDefinitions = squadDefinitions;
 
-        if (!_isAttached)
-            return;
-
         RenderHeroes();
         RenderSquads();
+
+        UpdateHeroSlot();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+
         ShowHeroSelection();
     }
 
     override protected void DetachFromPanel()
     {
         base.DetachFromPanel();
+
+        UnsubscribeFromHeroNavigationInput();
 
         foreach (HeroCard card in _heroCards)
             card.Dispose();
@@ -152,9 +155,6 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
 
     override protected void SubcribeToUIEvents()
     {
-        base.SubcribeToUIEvents();
-
-        SubscribeToHeroNavigationInput();
         GetElement<Button>(PreparationSceneUIElements.GoToSquadsSelectionButton).clicked += HandleGoToSquadsSelection;
         GetElement<Button>(PreparationSceneUIElements.GoToHeroSelectionButton).clicked += HandleGoToHeroSelection;
         GetElement<Button>(PreparationSceneUIElements.DiveIntoCaveButton).clicked += HandleDiveIntoCaveClicked;
@@ -168,9 +168,6 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
 
     override protected void UnsubscriveFromUIEvents()
     {
-        base.UnsubscriveFromUIEvents();
-
-        UnsubscribeFromHeroNavigationInput();
         GetElement<Button>(PreparationSceneUIElements.GoToSquadsSelectionButton).clicked -= HandleGoToSquadsSelection;
         GetElement<Button>(PreparationSceneUIElements.GoToHeroSelectionButton).clicked -= HandleGoToHeroSelection;
         GetElement<Button>(PreparationSceneUIElements.DiveIntoCaveButton).clicked -= HandleDiveIntoCaveClicked;
@@ -178,6 +175,10 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
         GetElement<Button>(PreparationSceneUIElements.DecreaseSquadCountButton).RemoveManipulator(_decreaseSquadCountClickable);
         GetElement<Button>(PreparationSceneUIElements.IncreaseSquadCountButton).RemoveManipulator(_increaseSquadCountClickable);
     }
+
+    override protected void SubscriveToGameEvents() { }
+
+    override protected void UnsubscribeFromGameEvents() { }
 
     private void InitializeHeroCards()
     {
@@ -232,10 +233,6 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
                 });
 
         SetActiveSquadSlot(GetFirstAvailableSlot());
-        UpdateHeroSlot();
-        UpdateSquadCardFromActiveSlot();
-        UpdateSquadCountControls();
-        UpdateSlotStates();
     }
 
     private void RenderHeroes()
@@ -688,16 +685,13 @@ public class PreparationSceneUIController : BaseUIController<PreparationSceneUIE
 
     private void SubscribeToHeroNavigationInput()
     {
-        if (_inputService == null || !_isAttached)
-            return;
-
-        _selectPrevHeroAction = _inputService.Actions.FindAction("Pre", throwIfNotFound: false);
+        _selectPrevHeroAction = _inputService.Actions.FindAction("SelectPrevHero", throwIfNotFound: false);
         if (_selectPrevHeroAction != null)
             _selectPrevHeroAction.performed += HandleSelectPrevHero;
         else
-            Debug.LogWarning("Menu action 'Pre' was not found for hero navigation", this);
+            Debug.LogWarning("Menu action 'Prev' was not found for hero navigation", this);
 
-        _selectNextHeroAction = _inputService.Actions.FindAction("Next", throwIfNotFound: false);
+        _selectNextHeroAction = _inputService.Actions.FindAction("SelectNextHero", throwIfNotFound: false);
         if (_selectNextHeroAction != null)
             _selectNextHeroAction.performed += HandleSelectNextHero;
         else

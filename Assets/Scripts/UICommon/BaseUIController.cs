@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BaseUIController<E> : MonoBehaviour
+abstract public class BaseUIController<E> : MonoBehaviour
 {
     [SerializeField] protected UIDocument _uiDocument;
 
@@ -30,6 +30,12 @@ public class BaseUIController<E> : MonoBehaviour
     }
 
     virtual public void Initialize(GameEventBusService gameEventBusService) {
+        if (_initialized)
+        {
+            Debug.LogWarning($"{GetType().Name} is already initialized.");
+            return;
+        }
+
         _sceneEventBusService = gameEventBusService;
 
         SubscriveToGameEvents();
@@ -86,15 +92,15 @@ public class BaseUIController<E> : MonoBehaviour
         }
     }
 
-    virtual protected void RegisterUIElements() { }
+    abstract protected void RegisterUIElements();
 
-    virtual protected void SubcribeToUIEvents() { }
+    abstract protected void SubcribeToUIEvents();
 
-    virtual protected void UnsubscriveFromUIEvents() { }
+    abstract protected void UnsubscriveFromUIEvents();
 
-    virtual protected void SubscriveToGameEvents() { }
+    abstract protected void SubscriveToGameEvents();
 
-    virtual protected void UnsubscribeFromGameEvents() { }
+    abstract protected void UnsubscribeFromGameEvents();
 
     protected void HandleAttachToPanel(AttachToPanelEvent _)
     {
