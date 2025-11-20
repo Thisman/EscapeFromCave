@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class DangeonSceneManager : MonoBehaviour
+public class DungeonSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
