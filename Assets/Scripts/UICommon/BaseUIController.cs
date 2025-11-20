@@ -46,7 +46,7 @@ public class BaseUIController<E> : MonoBehaviour
         return _uiElements[id] as T;
     }
 
-    protected void AttachToPanel(UIDocument document)
+    virtual protected void AttachToPanel(UIDocument document)
     {
         if (_isAttached)
             return;
@@ -57,7 +57,7 @@ public class BaseUIController<E> : MonoBehaviour
         _isAttached = true;
     }
 
-    protected void DetachFromPanel()
+    virtual protected void DetachFromPanel()
     {
         if (!_isAttached)
             return;

@@ -5396,10 +5396,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.3151042
+    x: 0
     y: 0
-    width: 0.40370375
-    height: 0.4037037
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5547,7 +5547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc16bdddfd6f2e47a55f48d0becd005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreStartSceneManager
-  _preparationSceneUIController: {fileID: 1784271263}
   _availableHeroDefinitions:
   - {fileID: 11400000, guid: 78c4ae17a0edd71489a8d774582802e2, type: 2}
   - {fileID: 11400000, guid: 1fd79f55530fa924f8552baf02d95b4b, type: 2}
@@ -5556,6 +5555,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b4288d6ed217aa4980750a936a00718, type: 2}
   - {fileID: 11400000, guid: 15c4bcc695769bd45a3acb761722ee5b, type: 2}
   - {fileID: 11400000, guid: 9ef7b4b80d35bed4b9583d36e8180acf, type: 2}
+  _preparationSceneUIController: {fileID: 1784271263}
 --- !u!1 &1217272344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5718,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8a03dbee103dd498f911d9a1615a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreparationMenuUIController
-  _document: {fileID: 1784271261}
+  _uiDocument: {fileID: 1784271261}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

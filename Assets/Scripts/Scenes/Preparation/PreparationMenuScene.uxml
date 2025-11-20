@@ -16,7 +16,7 @@
                 <ui:Button text="Выбрать команду" name="GoToSquadsSelection" class="button" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="SelectSquadsPanel" class="panel panel__active select-squad--panel" style="flex-grow: 1;">
+        <ui:VisualElement name="SelectSquadsPanel" class="panel select-squad--panel" style="flex-grow: 1;">
             <ui:VisualElement name="Top" class="top" style="flex-grow: 1;">
                 <ui:Label text="Выбор  отряда" selectable="false" focusable="false" style="text-shadow: 0 0 0 rgb(0, 0, 0); font-size: 40px; color: rgb(255, 255, 255); -unity-text-align: middle-center;" />
             </ui:VisualElement>
