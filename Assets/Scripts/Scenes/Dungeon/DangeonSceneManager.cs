@@ -7,6 +7,9 @@ public class DangeonSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
+
+    [SerializeField] private UpgradesUIController _upgradesUIController;
+
     [Inject] private readonly GameSession _gameSession;
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
@@ -35,13 +38,15 @@ public class DangeonSceneManager : MonoBehaviour
         PlayerController playerController = InitializePlayer();
         _playerArmyController = InitializeArmy(playerController);
         SubscribeToArmyChanges(_playerArmyController);
+
+        _upgradesUIController.OnSelectUpgrade += HandleSelectUpgrade;
     }
 
     private void OnDestroy()
     {
         UnsubscribeFromArmyChanges(_playerArmyController);
 
-        _dungeonUIController?.RenderSquads(null);
+        _upgradesUIController.OnSelectUpgrade -= HandleSelectUpgrade;
     }
 
     private PlayerController InitializePlayer()
@@ -137,5 +142,9 @@ public class DangeonSceneManager : MonoBehaviour
         }
 
         _dungeonUIController.RenderSquads(_squadsBuffer);
+    }
+
+    private void HandleSelectUpgrade() {
+        _upgradesUIController.Hide();
     }
 }
