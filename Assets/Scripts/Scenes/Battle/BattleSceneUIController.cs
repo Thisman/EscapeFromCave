@@ -113,10 +113,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
     private IReadOnlySquadModel _displayedSquadModel;
     private BattleSquadEffectsController _displayedEffectsController;
 
-    private Camera _mainCamera;
-    private int _unitsLayerMask;
     private Sequence _resultSquadAnimationSequence;
-
     private VisualElement _abilityTooltipTarget;
 
     public event Action OnStartCombat;
@@ -140,9 +137,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
         if (!_isAttached)
             return;
-
-        _mainCamera = Camera.main;
-        _unitsLayerMask = LayerMask.GetMask(UnitsLayerName);
     }
 
     protected override void DetachFromPanel()

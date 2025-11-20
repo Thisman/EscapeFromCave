@@ -10,9 +10,9 @@ public class BattleSceneManager : MonoBehaviour
     [Inject] readonly private SceneLoader _sceneLoader;
     [Inject] readonly private IObjectResolver _objectResolver;
 
-    [Inject] readonly private BattleSceneUIController _battleSceneUIController;
     [Inject] readonly private BattleGridController _battleGridController;
     [Inject] readonly private BattleQueueController _battleQueueController;
+    [Inject] readonly private BattleSceneUIController _battleSceneUIController;
     [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
 
     [Inject] readonly private InputService _inputService;

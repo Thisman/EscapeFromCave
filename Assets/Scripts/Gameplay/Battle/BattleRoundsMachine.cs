@@ -18,8 +18,9 @@ public sealed class BattleRoundsMachine
     private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
     private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
     private readonly Dictionary<IReadOnlySquadModel, int> _initialSquadCounts = new();
-    private readonly PlayerBattleActionController _playerTurnController;
+
     private readonly AIBattleActionController _enemyTurnController;
+    private readonly PlayerBattleActionController _playerTurnController;
     private readonly ProviderForBattleActionController _actionControllerResolver;
 
     public event Action<BattleResult> OnBattleRoundsFinished;
