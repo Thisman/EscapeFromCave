@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 public class PlayerArmyController : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _maxSlots = 3;
+    [SerializeField] private PlayerController _playerController;
+
+    [Inject] private readonly GameEventBusService _sceneEventBusService;
 
     private ArmyModel _army;
-
-    public event Action<IReadOnlyArmyModel> ArmyChanged;
 
     public int MaxSlots => _maxSlots;
 
@@ -21,11 +23,6 @@ public class PlayerArmyController : MonoBehaviour
 
     public void Initialize(ArmyModel armyModel)
     {
-        if (_army != null)
-        {
-            _army.Changed -= HandleArmyChanged;
-        }
-
         _army = armyModel ?? throw new ArgumentNullException(nameof(armyModel));
         _army.Changed += HandleArmyChanged;
         HandleArmyChanged(_army);
@@ -33,6 +30,11 @@ public class PlayerArmyController : MonoBehaviour
 
     private void HandleArmyChanged(IReadOnlyArmyModel army)
     {
-        ArmyChanged?.Invoke(army);
+        List<IReadOnlySquadModel> armyList = new()
+        {
+            _playerController.GetPlayer()
+        };
+        armyList.AddRange(army.GetSquads());
+        _sceneEventBusService.Publish<PlayerSquadsChanged>(new PlayerSquadsChanged(armyList));
     }
 }

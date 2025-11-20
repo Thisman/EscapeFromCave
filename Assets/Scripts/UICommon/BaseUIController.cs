@@ -15,6 +15,8 @@ abstract public class BaseUIController<E> : MonoBehaviour
     protected void OnEnable()
     {
         TryRegisterLifecycleCallbacks();
+        if (_initialized)
+            SubscriveToGameEvents();
     }
 
     protected void OnDisable()
@@ -56,6 +58,7 @@ abstract public class BaseUIController<E> : MonoBehaviour
         SubcribeToUIEvents();
 
         _isAttached = true;
+        Debug.Log($"{GetType().Name} attached to panel.");
     }
 
     virtual protected void DetachFromPanel()

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerArmyController
   _maxSlots: 5
+  _playerController: {fileID: 256761772204218236}
 --- !u!114 &1770183006976643890
 MonoBehaviour:
   m_ObjectHideFlags: 0

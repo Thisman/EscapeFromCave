@@ -50,7 +50,7 @@ public sealed class DungeonSceneUIController: BaseUIController<DungeonSceneEleme
 
     public float DialogSecondsPerCharacter => _dialogSecondsPerCharacter;
 
-    protected override void RegisterUIElements()
+    override protected void RegisterUIElements()
     {
         var root = _uiDocument.rootVisualElement;
 
@@ -84,15 +84,20 @@ public sealed class DungeonSceneUIController: BaseUIController<DungeonSceneEleme
             SetDialogVisibility(false);
     }
 
-    protected override void SubcribeToUIEvents() { }
+    override protected void SubcribeToUIEvents() { }
 
-    protected override void UnsubscriveFromUIEvents() { }
+    override protected void UnsubscriveFromUIEvents() { }
 
-    protected override void SubscriveToGameEvents() { }
+    override protected void SubscriveToGameEvents()
+    {
+        _sceneEventBusService.Subscribe<PlayerSquadsChanged>(HandleArmyChanged);
+    }
 
-    protected override void UnsubscribeFromGameEvents() { }
+    override protected void UnsubscribeFromGameEvents() {
+        _sceneEventBusService.Unsubscribe<PlayerSquadsChanged>(HandleArmyChanged);
+    }
 
-    protected override void DetachFromPanel()
+    override protected void DetachFromPanel()
     {
         if (!_isAttached)
             return;
@@ -103,7 +108,7 @@ public sealed class DungeonSceneUIController: BaseUIController<DungeonSceneEleme
 
         _squadInfoCardWidget?.RegisterAnchors(null);
         _squadInfoCardWidget = null;
-
+        
         base.DetachFromPanel();
     }
 
@@ -200,6 +205,12 @@ public sealed class DungeonSceneUIController: BaseUIController<DungeonSceneEleme
         SetDialogVisibility(false);
     }
 
+    private void HandleArmyChanged(PlayerSquadsChanged evt)
+    {
+        RenderSquads(evt.Squads);
+    }
+
+    // TODO: вынести работу с текстом диалога в DialogManager
     private IEnumerator TypeDialogRoutine(string message, float secondsPerCharacter)
     {
         var dialogLabel = GetElement<Label>(DungeonSceneElements.DialogLabel);

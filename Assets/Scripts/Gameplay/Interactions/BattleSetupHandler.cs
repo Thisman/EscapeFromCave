@@ -5,9 +5,6 @@ public sealed class BattleSetupHandler
 {
     public BattleSceneData CreateBattleData(InteractionContext ctx, IReadOnlyList<GameObject> targets)
     {
-        if (ctx == null)
-            return null;
-
         var actor = ctx.Actor;
         BattleSquadSetup heroSetup = ResolveHero(actor);
         List<BattleSquadSetup> armySetup = ResolveArmy(actor);
@@ -81,8 +78,7 @@ public sealed class BattleSetupHandler
         if (TryResolveSquadModel(enemy, out var squadModel) && TryCreateSetup(squadModel, out var setup))
             enemies.Add(setup);
 
-        var squadController = enemy.GetComponent<SquadController>();
-        if (squadController == null)
+        if (!enemy.TryGetComponent<SquadController>(out var squadController))
             return enemies;
 
         AdditionalSquad[] additionalSquads = squadController.GetAdditionalSquads();
@@ -101,9 +97,6 @@ public sealed class BattleSetupHandler
         model = null;
         if (source == null)
             return false;
-
-        if (TryGetModelFromComponent(source.GetComponentInParent<BattleSquadController>()?.GetSquadModel(), out model))
-            return true;
 
         if (TryGetModelFromComponent(source.GetComponentInParent<SquadController>()?.GetSquadModel(), out model))
             return true;

@@ -15,11 +15,12 @@ public class DungeonSceneManager : MonoBehaviour
     [Inject] private readonly AudioManager _audioManager;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly IObjectResolver _objectResolver;
+    [Inject] private readonly GameEventBusService _sceneEventBusService;
 
     private PlayerController _playerController;
     private PlayerArmyController _playerArmyController;
 
-    private IReadOnlySquadModel _heroSquad;
+    private IReadOnlySquadModel _hero;
     private readonly List<IReadOnlySquadModel> _squadsWithHero = new();
 
     private void Awake()
@@ -39,6 +40,7 @@ public class DungeonSceneManager : MonoBehaviour
         _inputService.EnterGameplay();
 
         UpdateSquadsWithHero(_playerArmyController.Army);
+        _dungeonUIController.Initialize(_sceneEventBusService);
         _dungeonUIController.RenderSquads(_squadsWithHero);
     }
 
@@ -60,7 +62,7 @@ public class DungeonSceneManager : MonoBehaviour
         _playerController = playerInstance.GetComponent<PlayerController>();
 
         _playerController.Initialize(squadModel);
-        _heroSquad = _playerController.GetPlayer();
+        _hero = _playerController.GetPlayer();
     }
 
     private void InitializeArmy()
@@ -83,31 +85,29 @@ public class DungeonSceneManager : MonoBehaviour
 
     private void SubscribeToGameEvents()
     {
-        _playerArmyController.ArmyChanged += HandleArmyChanged;
-        _upgradesUIController.OnSelectUpgrade += HandleSelectUpgrade;
+        _sceneEventBusService.Subscribe<RequestPlayerUpgrade>(HandleRequestPlayerUpgrade);
+        _sceneEventBusService.Subscribe<SelectSquadUpgrade>(HandleSelectUpgrade);
     }
 
     private void UnsubscribeFromGameEvents()
     {
-        _playerArmyController.ArmyChanged -= HandleArmyChanged;
-        _upgradesUIController.OnSelectUpgrade -= HandleSelectUpgrade;
+        _sceneEventBusService.Unsubscribe<RequestPlayerUpgrade>(HandleRequestPlayerUpgrade);
+        _sceneEventBusService.Unsubscribe<SelectSquadUpgrade>(HandleSelectUpgrade);
     }
 
-    private void HandleArmyChanged(IReadOnlyArmyModel army)
-    {
-        UpdateSquadsWithHero(army);
-
-        _dungeonUIController.RenderSquads(_squadsWithHero);
+    // TODO: вынести подписку в UI контроллер апгрейдов
+    private void HandleRequestPlayerUpgrade(RequestPlayerUpgrade evt) {
+        _upgradesUIController.Show();
     }
 
-    private void HandleSelectUpgrade() {
+    private void HandleSelectUpgrade(SelectSquadUpgrade evt) {
         _upgradesUIController.Hide();
     }
 
     private void UpdateSquadsWithHero(IReadOnlyArmyModel army)
     {
         _squadsWithHero.Clear();
-        _squadsWithHero.Add(_heroSquad);
+        _squadsWithHero.Add(_hero);
 
         IReadOnlyList<IReadOnlySquadModel> squads = army.GetSquads();
         if (squads != null)
