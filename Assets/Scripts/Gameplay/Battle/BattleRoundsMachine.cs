@@ -74,10 +74,10 @@ public sealed class BattleRoundsMachine
         _battleFinished = false;
         _playerRequestedFlee = false;
         _battleResult = null;
-        _ctx.BattleSceneUIController.OnLeaveCombat += HandleLeaveCombat;
         InitializeSquadHistory();
         UpdateTargetValidity(null, null);
         SubscribeToSquadEvents();
+        SubscribeToGameEvents();
     }
 
     public void BeginRounds() => OnRoundStart();
@@ -182,7 +182,7 @@ public sealed class BattleRoundsMachine
 
         if (BattleResult.CheckForBattleCompletion(_battleFinished, _ctx.BattleUnits))
         {
-            TriggerBattleFinish();
+            FinishBattle();
             return;
         }
 
@@ -320,7 +320,7 @@ public sealed class BattleRoundsMachine
         OnWaitTurnAction();
     }
 
-    private void TriggerBattleFinish()
+    private void FinishBattle()
     {
         if (_battleFinished)
             return;
@@ -328,8 +328,8 @@ public sealed class BattleRoundsMachine
         _battleFinished = true;
 
         UnsubscribeFromSquadEvents();
+        UnsubscribeFromGameEvents();
 
-        _ctx.BattleSceneUIController.OnLeaveCombat -= HandleLeaveCombat;
         _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
 
         if (_sm.CanFire(BattleRoundsTrigger.EndRound))
@@ -345,6 +345,16 @@ public sealed class BattleRoundsMachine
             _initialSquadCounts);
 
         OnBattleRoundsFinished?.Invoke(_battleResult);
+    }
+
+    private void SubscribeToGameEvents()
+    {
+        _ctx.SceneEventBusService.Subscribe<RequestFleeCombat>(HandleLeaveCombat);
+    }
+
+    private void UnsubscribeFromGameEvents()
+    {
+        _ctx.SceneEventBusService.Unsubscribe<RequestFleeCombat>(HandleLeaveCombat);
     }
 
     private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
@@ -567,10 +577,10 @@ public sealed class BattleRoundsMachine
         await _ctx.BattleEffectsManager.Trigger(trigger, effectsController);
     }
 
-    private void HandleLeaveCombat()
+    private void HandleLeaveCombat(RequestFleeCombat evt)
     {
         _playerRequestedFlee = true;
-        TriggerBattleFinish();
+        FinishBattle();
     }
 
     private void InitializeSquadHistory()

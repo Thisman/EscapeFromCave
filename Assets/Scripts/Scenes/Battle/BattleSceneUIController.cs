@@ -113,7 +113,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
     private Sequence _resultSquadAnimationSequence;
     private VisualElement _abilityTooltipTarget;
 
-    public event Action OnLeaveCombat;
     public event Action OnDefend;
     public event Action OnSkipTurn;
     public event Action<BattleAbilitySO> OnSelectAbility;
@@ -661,7 +660,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
     private void HandleLeaveCombatClicked(ClickEvent evt)
     {
-        OnLeaveCombat?.Invoke();
+        _sceneEventBusService.Publish<RequestFleeCombat>(new RequestFleeCombat());
     }
 
     private void HandleFinishBattleClicked(ClickEvent evt)
