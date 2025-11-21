@@ -74,7 +74,7 @@ public sealed class BattlePhasesMachine
         {
             foreach (var unit in _ctx.BattleUnits)
             {
-                unit?.SetInteractionEnabled(false);
+                unit.SetInteractionEnabled(false);
             }
         }
     }

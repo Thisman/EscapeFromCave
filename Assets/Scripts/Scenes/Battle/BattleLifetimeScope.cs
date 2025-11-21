@@ -18,5 +18,6 @@ public class BattleLifetimeScope : LifetimeScope
         builder.RegisterInstance(_battleGridDragAndDropController).AsSelf();
 
         builder.RegisterInstance(_battleSceneUIController).AsSelf();
+        builder.Register<GameEventBusService>(Lifetime.Singleton);
     }
 }

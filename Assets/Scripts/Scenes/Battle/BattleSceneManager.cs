@@ -17,6 +17,7 @@ public class BattleSceneManager : MonoBehaviour
 
     [Inject] readonly private InputService _inputService;
     [Inject] readonly private AudioManager _audioManager;
+    [Inject] readonly private GameEventBusService _sceneEventBusService;
 
     private BattleSceneData _battleData;
     private BattleContext _battleContext;
@@ -28,11 +29,12 @@ public class BattleSceneManager : MonoBehaviour
 
     private async void Start()
     {
-        SubscribeToUiEvents();
+        SubscribeToGameEvents();
         InitializeBattleData();
         InitializeBattleContext();
         InitializeBattleUnits();
         InitializeStateMachines();
+        InitializeUI();
 
         _battlePhaseMachine.Fire(BattlePhasesTrigger.StartBattle);
         await _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
@@ -40,19 +42,21 @@ public class BattleSceneManager : MonoBehaviour
 
     private async void OnDestroy()
     {
-        UnsubscribeFromUiEvents();
+        UnsubscribeFromGameEvents();
         _battleContext.Dispose();
         await _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
     }
 
+    private void InitializeUI()
+    {
+        _battleSceneUIController.Initialize(_sceneEventBusService);
+    }
+
     private void InitializeBattleData()
     {
-        if (!_sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload))
-        {
-            Debug.LogWarning($"[{nameof(BattleSceneManager)}.{nameof(InitializeBattleData)}] Battle scene payload was not found. Using empty battle setup.");
-            return;
-        }
+        _sceneLoader.TryGetScenePayload(BattleSceneName, out BattleSceneData payload);
 
+        Debug.Assert(payload != null, "Battle payload is null!");
         _battleData = payload;
         _originSceneName = ResolveOriginSceneName(payload);
     }
@@ -61,29 +65,16 @@ public class BattleSceneManager : MonoBehaviour
     {
         List<BattleSquadController> collectedUnits = new();
 
-        if (_battleData != null)
+        TryAddUnit(collectedUnits, _battleData.Hero);
+
+        foreach (var squad in _battleData.Army)
         {
-            TryAddUnit(collectedUnits, _battleData.Hero);
-
-            if (_battleData.Army != null)
-            {
-                foreach (var squad in _battleData.Army)
-                {
-                    TryAddUnit(collectedUnits, squad);
-                }
-            }
-
-            if (_battleData.Enemies != null)
-            {
-                foreach (var squad in _battleData.Enemies)
-                {
-                    TryAddUnit(collectedUnits, squad);
-                }
-            }
+            TryAddUnit(collectedUnits, squad);
         }
-        else
+
+        foreach (var squad in _battleData.Enemies)
         {
-            Debug.LogWarning($"[{nameof(BattleSceneManager)}.{nameof(InitializeBattleUnits)}] Battle data was not resolved. No units will be spawned.");
+            TryAddUnit(collectedUnits, squad);
         }
 
         _battleContext.RegisterSquads(collectedUnits);
@@ -102,9 +93,9 @@ public class BattleSceneManager : MonoBehaviour
             _battleGridDragAndDropController,
 
             battleAbilitiesManager,
-            battleEffectsManager
+            battleEffectsManager,
+            _sceneEventBusService
         );
-
     }
 
     private void InitializeStateMachines()
@@ -113,23 +104,17 @@ public class BattleSceneManager : MonoBehaviour
         _battlePhaseMachine = new BattlePhasesMachine(_battleContext, _battleRoundMachine);
     }
 
-    private void SubscribeToUiEvents()
+    private void SubscribeToGameEvents()
     {
-        if (_battleSceneUIController != null)
-        {
-            _battleSceneUIController.OnFinishBattle += ExitBattle;
-        }
+        _sceneEventBusService.Subscribe<RequestReturnToDungeon>(HandleReturnToDungeon);
     }
 
-    private void UnsubscribeFromUiEvents()
+    private void UnsubscribeFromGameEvents()
     {
-        if (_battleSceneUIController != null)
-        {
-            _battleSceneUIController.OnFinishBattle -= ExitBattle;
-        }
+        _sceneEventBusService.Unsubscribe<RequestReturnToDungeon>(HandleReturnToDungeon);
     }
 
-    private async void ExitBattle()
+    private async void HandleReturnToDungeon(RequestReturnToDungeon evt)
     {
         string returnScene = _originSceneName;
         object closeData = null;

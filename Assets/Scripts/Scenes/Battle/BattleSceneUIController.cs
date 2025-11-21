@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,8 +95,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
         ResultPanel
     }
 
-    private const string UnitsLayerName = "Units";
-
     private const float AbilityTooltipOffset = 8f;
     private const float ResultSquadAnimationDelaySeconds = 0.08f;
 
@@ -118,7 +115,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
     public event Action OnStartCombat;
     public event Action OnLeaveCombat;
-    public event Action OnFinishBattle;
     public event Action OnDefend;
     public event Action OnSkipTurn;
     public event Action<BattleAbilitySO> OnSelectAbility;
@@ -671,7 +667,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
     private void HandleFinishBattleClicked(ClickEvent evt)
     {
-        OnFinishBattle?.Invoke();
+        _sceneEventBusService.Publish<RequestReturnToDungeon>(new RequestReturnToDungeon());
     }
 
     private void HandleDefendClicked(ClickEvent evt)
