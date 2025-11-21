@@ -113,7 +113,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
     private Sequence _resultSquadAnimationSequence;
     private VisualElement _abilityTooltipTarget;
 
-    public event Action OnStartCombat;
     public event Action OnLeaveCombat;
     public event Action OnDefend;
     public event Action OnSkipTurn;
@@ -657,7 +656,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
     private void HandleStartCombatClicked(ClickEvent evt)
     {
-        OnStartCombat?.Invoke();
+        _sceneEventBusService.Publish<RequestStartCombat>(new RequestStartCombat());
     }
 
     private void HandleLeaveCombatClicked(ClickEvent evt)

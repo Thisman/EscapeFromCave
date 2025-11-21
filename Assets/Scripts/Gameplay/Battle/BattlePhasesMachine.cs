@@ -46,8 +46,8 @@ public sealed class BattlePhasesMachine
     private void OnEnterTactics()
     {
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Tactics);
+        SubscribeToGameEvents();
         _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.TacticPanel);
-        _ctx.BattleSceneUIController.OnStartCombat += HandleStartBattleRounds;
         if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
         {
             Debug.LogWarning($"[{nameof(BattlePhasesMachine)}.{nameof(OnEnterTactics)}] Failed to place battle units on the grid.");
@@ -82,8 +82,6 @@ public sealed class BattlePhasesMachine
     private void OnExitTactics()
     {
         _ctx.BattleGridController.DisableSlotsCollider();
-        if (_ctx.BattleSceneUIController != null)
-            _ctx.BattleSceneUIController.OnStartCombat -= HandleStartBattleRounds;
         _ctx.BattleGridDragAndDropController.enabled = false;
     }
 
@@ -95,6 +93,17 @@ public sealed class BattlePhasesMachine
     private void OnExitResults()
     {
         // No actions needed on exit from results phase currently.
+        UnsubscribeFromGameEvents();
+    }
+
+    private void SubscribeToGameEvents()
+    {
+        _ctx.SceneEventBusService.Subscribe<RequestStartCombat>(HandleStartCombat);
+    }
+
+    private void UnsubscribeFromGameEvents()
+    {
+        _ctx.SceneEventBusService.Unsubscribe<RequestStartCombat>(HandleStartCombat);
     }
 
     private void HandleBattleFinished(BattleResult result)
@@ -103,7 +112,7 @@ public sealed class BattlePhasesMachine
         Fire(BattlePhasesTrigger.ShowBattleResults);
     }
 
-    private void HandleStartBattleRounds()
+    private void HandleStartCombat(RequestStartCombat evt)
     {
         Fire(BattlePhasesTrigger.StartBattleRound);
     }
