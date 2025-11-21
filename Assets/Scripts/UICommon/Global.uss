@@ -23,7 +23,17 @@
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
     border-bottom-color: rgb(255, 255, 255);
-    font-size: 20px;
+}
+
+.button.unity-disabled {
+    opacity: 0.4;
+}
+
+.button.unity-disabled:hover {
+    border-left-color: rgba(255, 255, 255, 0.04);
+    border-right-color: rgba(255, 255, 255, 0.04);
+    border-top-color: rgba(255, 255, 255, 0.04);
+    border-bottom-color: rgba(255, 255, 255, 0.04);
 }
 
 .panel {
