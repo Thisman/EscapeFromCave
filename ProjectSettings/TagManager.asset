@@ -49,6 +49,9 @@ TagManager:
   - name: FloorObjects
     uniqueID: 3193312035
     locked: 0
+  - name: UIWorldSpace
+    uniqueID: 2063442905
+    locked: 0
   - name: Resources
     uniqueID: 1636064091
     locked: 0

@@ -5,6 +5,7 @@ using VContainer.Unity;
 
 public class DungeonSceneManager : MonoBehaviour
 {
+    [SerializeField] private Camera _debugCamera;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private Transform _playerSpawnPoint;
 
@@ -25,12 +26,14 @@ public class DungeonSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        _debugCamera.gameObject.SetActive(false);
         InitializePlayer();
         InitializeArmy();
     }
 
     private void OnEnable()
     {
+        _debugCamera.gameObject.SetActive(false);
         SubscribeToGameEvents();
     }
 
