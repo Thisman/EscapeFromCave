@@ -6,17 +6,14 @@ using System.Collections.Generic;
 public class BattleSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _battleSquadPrefab;
+    [SerializeField] private BattleGridController _battleGridController;
+    [SerializeField] private BattleGridDragAndDropController _battleGridDragAndDropController;
+    [SerializeField] private BattleSceneUIController _battleSceneUIController;
 
     [Inject] readonly private SceneLoader _sceneLoader;
-    [Inject] readonly private IObjectResolver _objectResolver;
-
-    [Inject] readonly private BattleGridController _battleGridController;
-    [Inject] readonly private BattleQueueController _battleQueueController;
-    [Inject] readonly private BattleSceneUIController _battleSceneUIController;
-    [Inject] readonly private BattleGridDragAndDropController _battleGridDragAndDropController;
-
     [Inject] readonly private InputService _inputService;
     [Inject] readonly private AudioManager _audioManager;
+    [Inject] readonly private IObjectResolver _objectResolver;
     [Inject] readonly private GameEventBusService _sceneEventBusService;
 
     private BattleSceneData _battleData;
@@ -83,13 +80,14 @@ public class BattleSceneManager : MonoBehaviour
     private void InitializeBattleContext()
     {
         BattleEffectsManager battleEffectsManager = new();
+        BattleQueueController battleQueueController = new();
         BattleAbilitiesManager battleAbilitiesManager = new();
 
         _battleContext = new BattleContext(
             _inputService,
             _battleSceneUIController,
             _battleGridController,
-            _battleQueueController,
+            battleQueueController,
             _battleGridDragAndDropController,
 
             battleAbilitiesManager,

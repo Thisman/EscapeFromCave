@@ -785,9 +785,6 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 628714506}
-  _battleGridController: {fileID: 1416069488}
-  _battleGridDragAndDropController: {fileID: 1416069487}
-  _battleSceneUIController: {fileID: 132701713}
 --- !u!1 &449870185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleSceneManager
   _battleSquadPrefab: {fileID: 2995498901232598968, guid: d9de83ad7a92a8242820c6f6afe8aaf3, type: 3}
+  _battleGridController: {fileID: 1416069488}
+  _battleGridDragAndDropController: {fileID: 1416069487}
+  _battleSceneUIController: {fileID: 132701713}
 --- !u!1 &809895847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5336,7 +5336,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1001413595
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
