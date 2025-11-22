@@ -44,15 +44,15 @@ public class SquadModel : IReadOnlySquadModel
         }
     }
 
-    public Sprite Icon => _unitDefinition != null ? _unitDefinition.Icon : null;
+    public Sprite Icon => _unitDefinition.Icon;
 
-    public string UnitName => _unitDefinition != null ? _unitDefinition.UnitName : string.Empty;
+    public string UnitName => _unitDefinition.UnitName;
 
-    public UnitKind Kind => _unitDefinition != null ? _unitDefinition.Kind : UnitKind.Neutral;
+    public UnitKind Kind => _unitDefinition.Kind;
 
-    public AttackKind AttackKind => _unitDefinition != null ? _unitDefinition.AttackKind : AttackKind.Melee;
+    public AttackKind AttackKind => _unitDefinition.AttackKind;
 
-    public DamageType DamageType => _unitDefinition != null ? _unitDefinition.DamageType : DamageType.Physical;
+    public DamageType DamageType => _unitDefinition.DamageType;
 
     public float Health => ApplyBonus(SquadUpgradeStat.Health, CalculateProgressiveStat(_unitDefinition?.BaseHealth ?? 0f, template => template.BaseHealth));
 
@@ -79,19 +79,19 @@ public class SquadModel : IReadOnlySquadModel
 
     public float MissChance => ApplyBonus(SquadUpgradeStat.MissChance, CalculateProgressiveStat(_unitDefinition?.BaseMissChance ?? 0f, template => template.BaseMissChance));
 
-    public BattleAbilitySO[] Abilities => _unitDefinition != null ? _unitDefinition.Abilities : Array.Empty<BattleAbilitySO>();
+    public BattleAbilitySO[] Abilities => _unitDefinition.Abilities;
 
-    public bool IsFriendly () => _unitDefinition != null && _unitDefinition.IsFriendly();
+    public bool IsFriendly () => _unitDefinition.IsFriendly();
 
-    public bool IsAlly () => _unitDefinition != null && _unitDefinition.IsAlly();
+    public bool IsAlly () => _unitDefinition.IsAlly();
 
-    public bool IsHero () => _unitDefinition != null && _unitDefinition.IsHero();
+    public bool IsHero () => _unitDefinition.IsHero();
 
-    public bool IsEnemy () => _unitDefinition != null && _unitDefinition.IsEnemy();
+    public bool IsEnemy () => _unitDefinition.IsEnemy();
 
-    public bool IsNeutral () => _unitDefinition == null || _unitDefinition.IsNeutral();
+    public bool IsNeutral () => _unitDefinition.IsNeutral();
 
-    public bool TryAdd(int amount)
+    public bool TryAddUnits(int amount)
     {
         if (amount <= 0) return false;
 

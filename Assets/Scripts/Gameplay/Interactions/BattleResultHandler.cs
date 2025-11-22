@@ -109,7 +109,7 @@ public sealed class BattleResultHandler
 
         target.Clear();
         if (source.Count > 0)
-            target.TryAdd(source.Count);
+            target.TryAddUnits(source.Count);
 
         target.TrySetExperience(source.Experience);
     }
