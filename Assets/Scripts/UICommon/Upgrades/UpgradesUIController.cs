@@ -1,10 +1,7 @@
-using Mono.Cecil.Cil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 using UnityEngine.UIElements;
 
 public class UpgradesUIController : MonoBehaviour, ISceneUIController
@@ -17,9 +14,7 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
     private VisualElement _upgradePanel;
     private readonly List<UpgradeCard> _upgradeCards = new();
 
-    private Clickable _selectUpgradeClickable;
-
-    public Action OnSelectUpgrade;
+    public Action<UpgradeModel> OnSelectUpgrade;
 
     private void Awake()
     {
@@ -64,9 +59,19 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         SetPanelActive(_upgradePanel, false);
     }
 
-    public void SelectUpgrade()
+    public void SelectUpgrade(UpgradeModel upgradeModel)
     {
-        OnSelectUpgrade?.Invoke();
+        OnSelectUpgrade?.Invoke(upgradeModel);
+    }
+
+    public void RenderUpgrades(IReadOnlyList<UpgradeModel> upgradeModels)
+    {
+        int count = Mathf.Min(_upgradeCards.Count, upgradeModels?.Count ?? 0);
+        for (int i = 0; i < _upgradeCards.Count; i++)
+        {
+            var upgrade = i < count ? upgradeModels[i] : null;
+            _upgradeCards[i].Bind(upgrade);
+        }
     }
 
     private static void SetPanelActive(VisualElement panel, bool isActive)
@@ -119,6 +124,7 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         private readonly VisualElement _card;
         private readonly VisualElement[] _icons;
         private readonly Label _cardInfoText;
+        private UpgradeModel _upgradeModel;
         private Clickable _selectUpgradeClickable;
 
         public UpgradeCard(UpgradesUIController controller, VisualElement card)
@@ -129,15 +135,18 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
             _cardInfoText = card.Q<Label>("upgrade-card__info-text");
 
 
-            _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade());
+            _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade(_upgradeModel));
             _card.AddManipulator(_selectUpgradeClickable);
         }
 
-        public void UpdateContenxt(UnitSO squad, Sprite updateIcon, string description)
+        public void Bind(UpgradeModel upgrade)
         {
-            _icons[0].style.backgroundImage = new StyleBackground(squad.Icon);
-            _icons[1].style.backgroundImage = new StyleBackground(updateIcon);
-            _cardInfoText.text = description;
+            _upgradeModel = upgrade;
+
+            if (upgrade?.Target != null)
+                _icons[0].style.backgroundImage = new StyleBackground(upgrade.Target.Icon);
+
+            _cardInfoText.text = upgrade?.Description ?? string.Empty;
         }
         
         public void Dispose()

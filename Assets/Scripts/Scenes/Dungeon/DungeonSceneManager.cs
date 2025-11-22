@@ -20,6 +20,7 @@ public class DungeonSceneManager : MonoBehaviour
 
     private PlayerController _playerController;
     private PlayerArmyController _playerArmyController;
+    private UpgradeSystem _upgradeSystem;
 
     private IReadOnlySquadModel _hero;
     private readonly List<IReadOnlySquadModel> _squadsWithHero = new();
@@ -29,6 +30,13 @@ public class DungeonSceneManager : MonoBehaviour
         _debugCamera.gameObject.SetActive(false);
         InitializePlayer();
         InitializeArmy();
+
+        _upgradeSystem = new UpgradeSystem(_playerController, _playerArmyController);
+        _upgradesUIController.OnSelectUpgrade = upgrade =>
+        {
+            if (upgrade != null)
+                _sceneEventBusService.Publish(new SelectSquadUpgrade(upgrade));
+        };
     }
 
     private void OnEnable()
@@ -100,6 +108,8 @@ public class DungeonSceneManager : MonoBehaviour
 
     // TODO: вынести подписку в UI контроллер апгрейдов
     private void HandleRequestPlayerUpgrade(RequestPlayerUpgrade evt) {
+        var upgrades = _upgradeSystem.GenerateRandomUpgrades();
+        _upgradesUIController.RenderUpgrades(upgrades);
         _upgradesUIController.Show();
     }
 
