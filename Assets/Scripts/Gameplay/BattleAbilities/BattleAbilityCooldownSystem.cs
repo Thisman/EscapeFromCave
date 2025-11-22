@@ -11,7 +11,7 @@ public sealed class BattleAbilityCooldownSystem : IDisposable
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
 
-        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(_ => _ctx.BattleAbilitiesManager.OnTick()));
+        _subscriptions.Add(bus.Subscribe<BattleRoundStarted>(_ => _ctx.BattleAbilitiesManager.OnTick()));
     }
 
     public void Dispose()

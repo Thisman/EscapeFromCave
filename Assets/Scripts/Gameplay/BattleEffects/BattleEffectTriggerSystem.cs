@@ -12,11 +12,11 @@ public sealed class BattleEffectTriggerSystem : IDisposable
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
 
-        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(HandleRoundStarted));
-        _subscriptions.Add(bus.Subscribe<TurnPreparedEvent>(HandleTurnPrepared));
-        _subscriptions.Add(bus.Subscribe<TurnEndedEvent>(HandleTurnEnded));
-        _subscriptions.Add(bus.Subscribe<ActionResolvedEvent>(HandleActionResolved));
-        _subscriptions.Add(bus.Subscribe<BattleFinishedEvent>(_ => UnsubscribeFromSquadEvents()));
+        _subscriptions.Add(bus.Subscribe<BattleRoundStarted>(HandleRoundStarted));
+        _subscriptions.Add(bus.Subscribe<BattleTurnInited>(HandleTurnPrepared));
+        _subscriptions.Add(bus.Subscribe<BattleTurnEnded>(HandleTurnEnded));
+        _subscriptions.Add(bus.Subscribe<BattleActionResolved>(HandleActionResolved));
+        _subscriptions.Add(bus.Subscribe<BattleFinished>(_ => UnsubscribeFromSquadEvents()));
 
         SubscribeToSquadEvents();
     }
@@ -33,23 +33,23 @@ public sealed class BattleEffectTriggerSystem : IDisposable
         _subscriptions.Clear();
     }
 
-    private void HandleRoundStarted(RoundStartedEvent evt)
+    private void HandleRoundStarted(BattleRoundStarted evt)
     {
         _ctx.DefendedUnitsThisRound?.Clear();
         TriggerEffects(BattleEffectTrigger.OnRoundStart);
     }
 
-    private void HandleTurnPrepared(TurnPreparedEvent evt)
+    private void HandleTurnPrepared(BattleTurnInited evt)
     {
         TriggerEffects(BattleEffectTrigger.OnTurnStart, evt.ActiveUnit);
     }
 
-    private void HandleTurnEnded(TurnEndedEvent evt)
+    private void HandleTurnEnded(BattleTurnEnded evt)
     {
         TriggerEffects(BattleEffectTrigger.OnTurnEnd, evt.ActiveUnit);
     }
 
-    private void HandleActionResolved(ActionResolvedEvent evt)
+    private void HandleActionResolved(BattleActionResolved evt)
     {
         switch (evt.Action)
         {

@@ -87,7 +87,7 @@ public sealed class BattleRoundsMachine
         _ctx.ActiveUnit = null;
         _currentRound++;
 
-        _ctx.SceneEventBusService.Publish(new RoundStartedEvent(_currentRound));
+        _ctx.SceneEventBusService.Publish(new BattleRoundStarted(_currentRound));
         _sm.Fire(BattleRoundsTrigger.InitTurn);
     }
 
@@ -104,7 +104,7 @@ public sealed class BattleRoundsMachine
 
         _ctx.ActiveUnit = queue[0];
         _currentActionId++;
-        _ctx.SceneEventBusService.Publish(new TurnPreparedEvent(_ctx.ActiveUnit, _currentActionId));
+        _ctx.SceneEventBusService.Publish(new BattleTurnInited(_ctx.ActiveUnit, _currentActionId));
         _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
@@ -159,7 +159,7 @@ public sealed class BattleRoundsMachine
     private void OnTurnEnd()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnEnd);
-        _ctx.SceneEventBusService.Publish(new TurnEndedEvent(_ctx.ActiveUnit, _currentActionId));
+        _ctx.SceneEventBusService.Publish(new BattleTurnEnded(_ctx.ActiveUnit, _currentActionId));
         _ctx.ActiveUnit = null;
 
         if (BattleResult.CheckForBattleCompletion(_battleFinished, _ctx.BattleUnits))
@@ -187,7 +187,7 @@ public sealed class BattleRoundsMachine
         action.OnResolve += OnActionResolved;
         action.OnCancel += OnActionCancelled;
 
-        _ctx.SceneEventBusService.Publish(new ActionSelectedEvent(action, _ctx.ActiveUnit, _currentActionId));
+        _ctx.SceneEventBusService.Publish(new BattleActionSelected(action, _ctx.ActiveUnit, _currentActionId));
     }
 
     private void DetachCurrentAction()
@@ -211,7 +211,7 @@ public sealed class BattleRoundsMachine
         var resolvedAction = _ctx.CurrentAction;
         var activeUnit = _ctx.ActiveUnit;
 
-        _ctx.SceneEventBusService.Publish(new ActionResolvedEvent(resolvedAction, activeUnit, _currentActionId));
+        _ctx.SceneEventBusService.Publish(new BattleActionResolved(resolvedAction, activeUnit, _currentActionId));
         DetachCurrentAction();
 
         if (resolvedAction != null && activeUnit != null)
@@ -242,7 +242,7 @@ public sealed class BattleRoundsMachine
     private void OnActionCancelled()
     {
         var activeUnit = _ctx.ActiveUnit;
-        _ctx.SceneEventBusService.Publish(new ActionCancelledEvent(activeUnit, _currentActionId));
+        _ctx.SceneEventBusService.Publish(new BattleActionCancelled(activeUnit, _currentActionId));
         DetachCurrentAction();
 
         if (activeUnit == null || !activeUnit.IsFriendly())
@@ -272,7 +272,7 @@ public sealed class BattleRoundsMachine
             _enemySquadHistory,
             _initialSquadCounts);
 
-        _ctx.SceneEventBusService.Publish(new BattleFinishedEvent(_battleResult));
+        _ctx.SceneEventBusService.Publish(new BattleFinished(_battleResult));
         OnBattleRoundsFinished?.Invoke(_battleResult);
     }
 

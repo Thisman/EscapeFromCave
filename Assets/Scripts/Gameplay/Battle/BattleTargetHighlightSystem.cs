@@ -12,12 +12,12 @@ public sealed class BattleTargetHighlightSystem : IDisposable
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
 
-        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(HandleRoundStarted));
-        _subscriptions.Add(bus.Subscribe<TurnPreparedEvent>(HandleTurnPrepared));
-        _subscriptions.Add(bus.Subscribe<TurnEndedEvent>(HandleTurnEnded));
-        _subscriptions.Add(bus.Subscribe<ActionSelectedEvent>(HandleActionSelected));
-        _subscriptions.Add(bus.Subscribe<ActionCancelledEvent>(HandleActionCancelled));
-        _subscriptions.Add(bus.Subscribe<BattleFinishedEvent>(_ => ClearAllHighlights()));
+        _subscriptions.Add(bus.Subscribe<BattleRoundStarted>(HandleRoundStarted));
+        _subscriptions.Add(bus.Subscribe<BattleTurnInited>(HandleTurnPrepared));
+        _subscriptions.Add(bus.Subscribe<BattleTurnEnded>(HandleTurnEnded));
+        _subscriptions.Add(bus.Subscribe<BattleActionSelected>(HandleActionSelected));
+        _subscriptions.Add(bus.Subscribe<BattleActionCancelled>(HandleActionCancelled));
+        _subscriptions.Add(bus.Subscribe<BattleFinished>(_ => ClearAllHighlights()));
     }
 
     public void Dispose()
@@ -30,28 +30,28 @@ public sealed class BattleTargetHighlightSystem : IDisposable
         _subscriptions.Clear();
     }
 
-    private void HandleRoundStarted(RoundStartedEvent evt)
+    private void HandleRoundStarted(BattleRoundStarted evt)
     {
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
         _ctx.BattleSceneUIController.ResetAbilityHighlight();
     }
 
-    private void HandleTurnPrepared(TurnPreparedEvent evt)
+    private void HandleTurnPrepared(BattleTurnInited evt)
     {
         HighlightActiveUnitSlot(evt.ActiveUnit);
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
     }
 
-    private void HandleTurnEnded(TurnEndedEvent evt)
+    private void HandleTurnEnded(BattleTurnEnded evt)
     {
         ClearActionSlotHighlights();
         UpdateTargetValidity(null, null);
         _ctx.BattleSceneUIController.ResetAbilityHighlight();
     }
 
-    private void HandleActionSelected(ActionSelectedEvent evt)
+    private void HandleActionSelected(BattleActionSelected evt)
     {
         if (evt.Action is BattleActionAbility abilityAction)
         {
@@ -65,7 +65,7 @@ public sealed class BattleTargetHighlightSystem : IDisposable
         ApplyActionSlotHighlights(evt.Action, evt.Actor);
     }
 
-    private void HandleActionCancelled(ActionCancelledEvent evt)
+    private void HandleActionCancelled(BattleActionCancelled evt)
     {
         _ctx.BattleSceneUIController.ResetAbilityHighlight();
         ClearActionSlotHighlights();

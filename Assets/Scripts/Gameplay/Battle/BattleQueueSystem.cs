@@ -12,9 +12,9 @@ public sealed class BattleQueueSystem : IDisposable
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
 
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
-        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(OnRoundStarted));
-        _subscriptions.Add(bus.Subscribe<TurnEndedEvent>(OnTurnEnded));
-        _subscriptions.Add(bus.Subscribe<BattleFinishedEvent>(OnBattleFinished));
+        _subscriptions.Add(bus.Subscribe<BattleRoundStarted>(OnRoundStarted));
+        _subscriptions.Add(bus.Subscribe<BattleTurnEnded>(OnTurnEnded));
+        _subscriptions.Add(bus.Subscribe<BattleFinished>(OnBattleFinished));
     }
 
     public void Dispose()
@@ -27,7 +27,7 @@ public sealed class BattleQueueSystem : IDisposable
         _subscriptions.Clear();
     }
 
-    private void OnRoundStarted(RoundStartedEvent evt)
+    private void OnRoundStarted(BattleRoundStarted evt)
     {
         var unitModels = _ctx.BattleUnits
             .Where(unit => unit != null)
@@ -38,14 +38,14 @@ public sealed class BattleQueueSystem : IDisposable
         _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
     }
 
-    private void OnTurnEnded(TurnEndedEvent evt)
+    private void OnTurnEnded(BattleTurnEnded evt)
     {
         _ctx.BattleQueueController.NextTurn();
         RemoveDefeatedUnits(_ctx.BattleQueueController, _ctx.BattleGridController);
         _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
     }
 
-    private void OnBattleFinished(BattleFinishedEvent evt)
+    private void OnBattleFinished(BattleFinished evt)
     {
         _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
         _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
