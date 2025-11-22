@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class TargetHighlightSystem : IDisposable
+public sealed class BattleTargetHighlightSystem : IDisposable
 {
     private readonly BattleContext _ctx;
     private readonly List<IDisposable> _subscriptions = new();
 
-    public TargetHighlightSystem(BattleContext ctx)
+    public BattleTargetHighlightSystem(BattleContext ctx)
     {
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
@@ -171,7 +171,7 @@ public sealed class TargetHighlightSystem : IDisposable
                     }
                     catch (Exception exception)
                     {
-                        UnityEngine.Debug.LogError($"[{nameof(TargetHighlightSystem)}.{nameof(UpdateTargetValidity)}] Failed to resolve target: {exception}");
+                        UnityEngine.Debug.LogError($"[{nameof(BattleTargetHighlightSystem)}.{nameof(UpdateTargetValidity)}] Failed to resolve target: {exception}");
                     }
                 }
             }

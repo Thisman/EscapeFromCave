@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public sealed class QueueSystem : IDisposable
+public sealed class BattleQueueSystem : IDisposable
 {
     private readonly BattleContext _ctx;
     private readonly List<IDisposable> _subscriptions = new();
 
-    public QueueSystem(BattleContext ctx)
+    public BattleQueueSystem(BattleContext ctx)
     {
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
 

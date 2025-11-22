@@ -20,8 +20,8 @@ public class BattleSceneManager : MonoBehaviour
     private BattleContext _battleContext;
     private BattlePhasesMachine _battlePhaseMachine;
     private BattleRoundsMachine _battleRoundMachine;
-    private QueueSystem _queueSystem;
-    private TargetHighlightSystem _targetHighlightSystem;
+    private BattleQueueSystem _queueSystem;
+    private BattleTargetHighlightSystem _targetHighlightSystem;
     private BattleEffectTriggerSystem _effectTriggerSystem;
     private BattleAbilityCooldownSystem _abilityCooldownSystem;
 
@@ -107,8 +107,8 @@ public class BattleSceneManager : MonoBehaviour
 
     private void InitializeBattleSystems()
     {
-        _queueSystem = new QueueSystem(_battleContext);
-        _targetHighlightSystem = new TargetHighlightSystem(_battleContext);
+        _queueSystem = new BattleQueueSystem(_battleContext);
+        _targetHighlightSystem = new BattleTargetHighlightSystem(_battleContext);
         _effectTriggerSystem = new BattleEffectTriggerSystem(_battleContext);
         _abilityCooldownSystem = new BattleAbilityCooldownSystem(_battleContext);
     }
