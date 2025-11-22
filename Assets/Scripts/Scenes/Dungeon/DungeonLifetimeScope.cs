@@ -2,14 +2,13 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-public class DangeonLifetimeScope : LifetimeScope
+public class DungeonLifetimeScope : LifetimeScope
 {
     [SerializeField] private DialogManager _dialogManager;
-    [SerializeField] private DungeonSceneUIController _dungeonUiController;
 
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(_dialogManager).AsSelf();
-        builder.RegisterInstance(_dungeonUiController).AsSelf();
+        builder.Register<GameEventBusService>(Lifetime.Singleton);
     }
 }

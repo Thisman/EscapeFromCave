@@ -14,7 +14,9 @@ public class PlayerBattleActionController : IBattleActionController
         _onActionReady = onActionReady;
 
         // Unsubscribe prev handlers
+        UnsubscribeGameEvents();
         UnsubscribeUIEvents();
+        SubscribeGameEvents();
         SubscribeUIEvents();
         UpdateDefendAvailability();
 
@@ -33,6 +35,7 @@ public class PlayerBattleActionController : IBattleActionController
             return;
         }
 
+        UnsubscribeGameEvents();
         UnsubscribeUIEvents();
         _ctx.BattleSceneUIController?.SetDefendButtonInteractable(false);
         var defendAction = new BattleActionDefend();
@@ -41,14 +44,26 @@ public class PlayerBattleActionController : IBattleActionController
 
     private void HandleSkipTurn()
     {
+        UnsubscribeGameEvents();
         UnsubscribeUIEvents();
         _ctx.BattleSceneUIController?.SetDefendButtonInteractable(false);
         var skipTurnAction = new BattleActionSkipTurn();
         _onActionReady.Invoke(skipTurnAction);
     }
 
-    private void HandleAbilitySelected(BattleAbilitySO ability)
+    private void HandleDefendRequest(RequestDefend evt)
     {
+        HandleDefend();
+    }
+
+    private void HandleSkipTurnRequest(RequestSkipTurn evt)
+    {
+        HandleSkipTurn();
+    }
+
+    private void HandleAbilitySelected(RequestSelectAbility request)
+    {
+        var ability = request?.Ability;
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
@@ -90,26 +105,34 @@ public class PlayerBattleActionController : IBattleActionController
 
     private void SubscribeUIEvents()
     {
-        if (_ctx?.BattleSceneUIController != null)
-        {
-            _ctx.BattleSceneUIController.OnDefend += HandleDefend;
-            _ctx.BattleSceneUIController.OnSkipTurn += HandleSkipTurn;
-            _ctx.BattleSceneUIController.OnSelectAbility += HandleAbilitySelected;
-        }
-
         SubscribeToCancelAction();
     }
 
     private void UnsubscribeUIEvents()
     {
-        if (_ctx?.BattleSceneUIController != null)
-        {
-            _ctx.BattleSceneUIController.OnDefend -= HandleDefend;
-            _ctx.BattleSceneUIController.OnSkipTurn -= HandleSkipTurn;
-            _ctx.BattleSceneUIController.OnSelectAbility -= HandleAbilitySelected;
-        }
-
         UnsubscribeFromCancelAction();
+    }
+
+    private void SubscribeGameEvents()
+    {
+        var sceneEventBus = _ctx?.SceneEventBusService;
+        if (sceneEventBus == null)
+            return;
+
+        sceneEventBus.Subscribe<RequestDefend>(HandleDefendRequest);
+        sceneEventBus.Subscribe<RequestSkipTurn>(HandleSkipTurnRequest);
+        sceneEventBus.Subscribe<RequestSelectAbility>(HandleAbilitySelected);
+    }
+
+    private void UnsubscribeGameEvents()
+    {
+        var sceneEventBus = _ctx?.SceneEventBusService;
+        if (sceneEventBus == null)
+            return;
+
+        sceneEventBus.Unsubscribe<RequestDefend>(HandleDefendRequest);
+        sceneEventBus.Unsubscribe<RequestSkipTurn>(HandleSkipTurnRequest);
+        sceneEventBus.Unsubscribe<RequestSelectAbility>(HandleAbilitySelected);
     }
 
     private void SubscribeToCancelAction()

@@ -6,53 +6,32 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
+public enum PreparationSceneUIElements
 {
-    [SerializeField] private UIDocument _uiDocument;
+    Root,
+    HeroPanel,
+    SquadsPanel,
+    SquadsList,
+    GoToSquadsSelectionButton,
+    GoToHeroSelectionButton,
+    DiveIntoCaveButton,
+    IncreaseSquadCountButton,
+    DecreaseSquadCountButton,
+    SquadCountLabel,
+    TotalUnitsLabel,
+}
 
-    public Func<UnitSO, List<SquadSelection>, Task> OnDiveIntoCave;
+public static class PreparationSceneClassNames
+{
+    public const string SquadSlotActive = "squad-item--active";
+    public const string SquadSlotLocked = "squad-item--locked";
+    public const string SquadSlotHero = "squad-item--hero";
+    public const string SquadSlotCount = "squad-item__count";
+    public const string SquadItem = "squad-item";
+}
 
-    private readonly List<HeroCard> _heroCards = new();
-    private readonly List<SquadCard> _squadCards = new();
-
-    private VisualElement _root;
-    private VisualElement _heroPanel;
-    private VisualElement _squadPanel;
-    private Button _goToSquadsSelectionButton;
-    private Button _goToHeroSelectionButton;
-    private Button _diveIntoCaveButton;
-    private bool _isDiveRequested;
-
-    private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
-    private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
-
-    private int _selectedHeroIndex = -1;
-    private bool _isAttached;
-    private bool _isHeroSelectionVisible;
-
-    private InputService _inputService;
-    private InputAction _previousHeroAction;
-    private InputAction _nextHeroAction;
-
-    private readonly List<SquadSlot> _squadSlots = new();
-    private VisualElement _squadsList;
-    private VisualElement _decreaseSquadCountButton;
-    private VisualElement _increaseSquadCountButton;
-    private Label _squadCountLabel;
-    private Clickable _decreaseSquadCountClickable;
-    private Clickable _increaseSquadCountClickable;
-    private SquadSlot _activeSquadSlot;
-    private Label _totalUnitsLabel;
-    private int _totalSquadUnits;
-
-    private const int DefaultSquadUnitCount = 10;
-    private const int MinSquadUnitCount = 1;
-    private const int MaxSquadUnitsLimit = 30;
-    private const string SquadSlotActiveClassName = "squad-item--active";
-    private const string SquadSlotLockedClassName = "squad-item--locked";
-    private const string SquadSlotHeroClassName = "squad-item--hero";
-    private const string SquadSlotCountClassName = "squad-item__count";
-
+public class PreparationSceneUIController : BaseUIController<PreparationSceneUIElements>
+{
     private static readonly UnitCardStatField[] HeroStatFields =
     {
         UnitCardStatField.Health,
@@ -83,134 +62,62 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         UnitCardStatField.MissChance
     };
 
-    private void Awake()
+    private InputService _inputService;
+
+    private readonly List<HeroCard> _heroCards = new();
+    private readonly List<SquadCard> _squadCards = new();
+    private UnitSO[] _heroDefinitions = Array.Empty<UnitSO>();
+    private UnitSO[] _squadDefinitions = Array.Empty<UnitSO>();
+
+    private int _selectedHeroIndex = -1;
+    private bool _isHeroSelectionVisible;
+
+    private InputAction _selectPrevHeroAction;
+    private InputAction _selectNextHeroAction;
+
+    private int _totalSquadUnits;
+    private SquadSlot _activeSquadSlot;
+    private readonly List<SquadSlot> _squadSlots = new();
+    private Clickable _decreaseSquadCountClickable;
+    private Clickable _increaseSquadCountClickable;
+
+    private const int DefaultSquadUnitCount = 10;
+    private const int MinSquadUnitCount = 1;
+    private const int MaxSquadUnitsLimit = 30;
+
+    public void Initialize(InputService inputService, GameEventBusService _sceneEventBusService)
     {
-        TryRegisterLifecycleCallbacks();
-    }
+        base.Initialize(_sceneEventBusService);
 
-    private void OnEnable()
-    {
-        TryRegisterLifecycleCallbacks();
-    }
-
-    private void OnDestroy()
-    {
-        DetachFromPanel();
-
-        if (_uiDocument?.rootVisualElement is { } root)
-        {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-        }
-    }
-
-    public void Render(UnitSO[] heroDefinitions, UnitSO[] squadDefinitions)
-    {
-        _heroDefinitions = heroDefinitions ?? Array.Empty<UnitSO>();
-        _squadDefinitions = squadDefinitions ?? Array.Empty<UnitSO>();
-
-        if (!_isAttached)
-            return;
-
-        RenderHeroes();
-        RenderSquads();
-        ShowHeroSelection();
-    }
-
-    public void Initialize(InputService inputService)
-    {
-        if (_inputService == inputService)
-            return;
-
-        UnsubscribeFromHeroNavigationInput();
         _inputService = inputService;
-        SubscribeToHeroNavigationInput();
-    }
-
-    public void AttachToPanel(UIDocument document)
-    {
-        if (document == null)
-            return;
-
-        if (_isAttached)
-            DetachFromPanel();
-
-        _uiDocument = document;
-        _root = document.rootVisualElement;
-        if (_root == null)
-            return;
-
-        _heroPanel = _root.Q<VisualElement>("SelectHeroPanel");
-        _squadPanel = _root.Q<VisualElement>("SelectSquadsPanel");
-        _squadsList = _squadPanel?.Q<VisualElement>("SquadsList");
-        _goToSquadsSelectionButton = _heroPanel?.Q<Button>("GoToSquadsSelection");
-        _goToHeroSelectionButton = _squadPanel?.Q<Button>("GoToHeroSelection");
-        _diveIntoCaveButton = _root.Q<Button>("DiveIntoCaveButton");
-        _totalUnitsLabel = _root.Q<Label>("SquadsTotalUnitCount");
 
         InitializeHeroCards();
         InitializeSquadCards();
         InitializeSquadSlots();
-        InitializeSquadCountControls();
-
-        if (_goToSquadsSelectionButton != null)
-            _goToSquadsSelectionButton.clicked += HandleGoToSquadsSelection;
-
-        if (_goToHeroSelectionButton != null)
-            _goToHeroSelectionButton.clicked += HandleGoToHeroSelection;
-
-        if (_diveIntoCaveButton != null)
-            _diveIntoCaveButton.clicked += HandleDiveIntoCaveClicked;
-
-        RenderHeroes();
-        RenderSquads();
-        ShowHeroSelection();
-
-        _isAttached = true;
         SubscribeToHeroNavigationInput();
     }
 
-    public void DetachFromPanel()
+    public void Render(UnitSO[] heroDefinitions, UnitSO[] squadDefinitions)
     {
-        if (!_isAttached)
-            return;
+        _heroDefinitions = heroDefinitions;
+        _squadDefinitions = squadDefinitions;
+
+        RenderHeroes();
+        RenderSquads();
+
+        UpdateHeroSlot();
+        UpdateSquadCardFromActiveSlot();
+        UpdateSquadCountControls();
+        UpdateSlotStates();
+
+        ShowHeroSelection();
+    }
+
+    override protected void DetachFromPanel()
+    {
+        base.DetachFromPanel();
 
         UnsubscribeFromHeroNavigationInput();
-
-        if (_goToSquadsSelectionButton != null)
-        {
-            _goToSquadsSelectionButton.clicked -= HandleGoToSquadsSelection;
-            _goToSquadsSelectionButton = null;
-        }
-
-        if (_goToHeroSelectionButton != null)
-        {
-            _goToHeroSelectionButton.clicked -= HandleGoToHeroSelection;
-            _goToHeroSelectionButton = null;
-        }
-
-        if (_diveIntoCaveButton != null)
-        {
-            _diveIntoCaveButton.clicked -= HandleDiveIntoCaveClicked;
-            _diveIntoCaveButton = null;
-        }
-
-        if (_decreaseSquadCountButton != null && _decreaseSquadCountClickable != null)
-        {
-            _decreaseSquadCountButton.RemoveManipulator(_decreaseSquadCountClickable);
-            _decreaseSquadCountClickable = null;
-        }
-
-        if (_increaseSquadCountButton != null && _increaseSquadCountClickable != null)
-        {
-            _increaseSquadCountButton.RemoveManipulator(_increaseSquadCountClickable);
-            _increaseSquadCountClickable = null;
-        }
-
-        _decreaseSquadCountButton = null;
-        _increaseSquadCountButton = null;
-        _squadCountLabel = null;
-        _totalUnitsLabel = null;
 
         foreach (HeroCard card in _heroCards)
             card.Dispose();
@@ -224,52 +131,64 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         _heroCards.Clear();
         _squadCards.Clear();
         _squadSlots.Clear();
-        _activeSquadSlot = null;
         _totalSquadUnits = 0;
-
-        _heroPanel = null;
-        _squadPanel = null;
-        _squadsList = null;
-        _root = null;
+        _activeSquadSlot = null;
         _isHeroSelectionVisible = false;
-
-        _isAttached = false;
     }
 
-    private void TryRegisterLifecycleCallbacks()
+    override protected void RegisterUIElements()
     {
-        if (_uiDocument == null)
-            _uiDocument = GetComponent<UIDocument>();
+        var root = _uiDocument.rootVisualElement;
+        _uiElements[PreparationSceneUIElements.Root] = root;
+        _uiElements[PreparationSceneUIElements.HeroPanel] = root.Q<VisualElement>("SelectHeroPanel");
+        _uiElements[PreparationSceneUIElements.SquadsPanel] = root.Q<VisualElement>("SelectSquadsPanel");
+        _uiElements[PreparationSceneUIElements.SquadsList] = root.Q<VisualElement>("SquadsList");
+        _uiElements[PreparationSceneUIElements.TotalUnitsLabel] = root.Q<Label>("SquadsTotalUnitCount");
+        _uiElements[PreparationSceneUIElements.SquadCountLabel] = root.Q<Label>("SquadCountLabel");
 
-        if (_uiDocument?.rootVisualElement is { } root)
-        {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-
-            if (!_isAttached && root.panel != null)
-                AttachToPanel(_uiDocument);
-        }
+        _uiElements[PreparationSceneUIElements.DiveIntoCaveButton] = root.Q<Button>("DiveIntoCaveButton");
+        _uiElements[PreparationSceneUIElements.GoToHeroSelectionButton] = root.Q<Button>("GoToHeroSelection");
+        _uiElements[PreparationSceneUIElements.GoToSquadsSelectionButton] = root.Q<Button>("GoToSquadsSelection");
+        _uiElements[PreparationSceneUIElements.DecreaseSquadCountButton] = root.Q<VisualElement>("DecreaseUnitCountButton");
+        _uiElements[PreparationSceneUIElements.IncreaseSquadCountButton] = root.Q<VisualElement>("IncreaseUnitCountButton");
     }
 
-    private void HandleAttachToPanel(AttachToPanelEvent _)
+    override protected void SubcribeToUIEvents()
     {
-        if (!_isAttached)
-            AttachToPanel(_uiDocument);
+        GetElement<Button>(PreparationSceneUIElements.GoToSquadsSelectionButton).clicked += HandleGoToSquadsSelection;
+        GetElement<Button>(PreparationSceneUIElements.GoToHeroSelectionButton).clicked += HandleGoToHeroSelection;
+        GetElement<Button>(PreparationSceneUIElements.DiveIntoCaveButton).clicked += HandleDiveIntoCaveClicked;
+
+        _decreaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(-1));
+        GetElement<VisualElement>(PreparationSceneUIElements.DecreaseSquadCountButton).AddManipulator(_decreaseSquadCountClickable);
+
+        _increaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(1));
+        GetElement<VisualElement>(PreparationSceneUIElements.IncreaseSquadCountButton).AddManipulator(_increaseSquadCountClickable);
     }
 
-    private void HandleDetachFromPanel(DetachFromPanelEvent _)
+    override protected void UnsubscriveFromUIEvents()
     {
-        DetachFromPanel();
+        GetElement<Button>(PreparationSceneUIElements.GoToSquadsSelectionButton).clicked -= HandleGoToSquadsSelection;
+        GetElement<Button>(PreparationSceneUIElements.GoToHeroSelectionButton).clicked -= HandleGoToHeroSelection;
+        GetElement<Button>(PreparationSceneUIElements.DiveIntoCaveButton).clicked -= HandleDiveIntoCaveClicked;
+
+        GetElement<Button>(PreparationSceneUIElements.DecreaseSquadCountButton).RemoveManipulator(_decreaseSquadCountClickable);
+        GetElement<Button>(PreparationSceneUIElements.IncreaseSquadCountButton).RemoveManipulator(_increaseSquadCountClickable);
     }
+
+    override protected void SubscriveToGameEvents() { }
+
+    override protected void UnsubscribeFromGameEvents() { }
 
     private void InitializeHeroCards()
     {
+        foreach (HeroCard card in _heroCards)
+            card.Dispose();
+
         _heroCards.Clear();
 
-        VisualElement content = _heroPanel?.Q<VisualElement>("Content");
-        content?.Query<VisualElement>(className: UnitCardWidget.BlockClassName).ForEach(cardElement =>
+        VisualElement content = GetElement<VisualElement>(PreparationSceneUIElements.HeroPanel).Q<VisualElement>("Content");
+        content.Query<VisualElement>(className: UnitCardWidget.BlockClassName).ForEach(cardElement =>
         {
             if (cardElement == null)
                 return;
@@ -280,9 +199,12 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void InitializeSquadCards()
     {
+        foreach (SquadCard card in _squadCards)
+            card.Dispose();
+
         _squadCards.Clear();
 
-        VisualElement content = _squadPanel?.Q<VisualElement>("Content");
+        VisualElement content = GetElement<VisualElement>(PreparationSceneUIElements.SquadsPanel).Q<VisualElement>("Content");
         content?.Query<VisualElement>(name: "SquadsContainer").ForEach(cardElement =>
         {
             if (cardElement == null)
@@ -299,44 +221,18 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
         _squadSlots.Clear();
 
-        if (_squadsList == null)
-            return;
 
         int index = 0;
-        _squadsList.Query<VisualElement>(className: "squad-item").ForEach(slotElement =>
-        {
-            SquadSlot slot = new(this, slotElement, index, index == 0);
-            _squadSlots.Add(slot);
-            index++;
-        });
+        GetElement<VisualElement>(PreparationSceneUIElements.SquadsList)
+            .Query<VisualElement>(className: PreparationSceneClassNames.SquadItem)
+            .ForEach(slotElement =>
+                {
+                    SquadSlot slot = new(this, slotElement, index, index == 0);
+                    _squadSlots.Add(slot);
+                    index++;
+                });
 
         SetActiveSquadSlot(GetFirstAvailableSlot());
-        UpdateHeroSlot();
-        UpdateSquadCardFromActiveSlot();
-        UpdateSquadCountControls();
-        UpdateSlotStates();
-    }
-
-    private void InitializeSquadCountControls()
-    {
-        VisualElement controls = _squadPanel?.Q<VisualElement>("SquadsListControls");
-        _decreaseSquadCountButton = controls?.Q<VisualElement>("DecreaseUnitCountButton");
-        _increaseSquadCountButton = controls?.Q<VisualElement>("IncreaseUnitCountButton");
-        _squadCountLabel = controls?.Q<Label>("SquadCountLabel");
-
-        if (_decreaseSquadCountButton != null)
-        {
-            _decreaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(-1));
-            _decreaseSquadCountButton.AddManipulator(_decreaseSquadCountClickable);
-        }
-
-        if (_increaseSquadCountButton != null)
-        {
-            _increaseSquadCountClickable = new Clickable(() => ChangeActiveSlotCount(1));
-            _increaseSquadCountButton.AddManipulator(_increaseSquadCountClickable);
-        }
-
-        UpdateSquadCountControls();
     }
 
     private void RenderHeroes()
@@ -446,11 +342,9 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             canIncrease = _activeSquadSlot.Count < available;
         }
 
-        if (_squadCountLabel != null)
-            _squadCountLabel.text = displayCount.ToString();
-
-        _decreaseSquadCountButton?.SetEnabled(canDecrease);
-        _increaseSquadCountButton?.SetEnabled(canIncrease);
+        GetElement<Label>(PreparationSceneUIElements.SquadCountLabel).text = displayCount.ToString();
+        GetElement<VisualElement>(PreparationSceneUIElements.DecreaseSquadCountButton).SetEnabled(canDecrease);
+        GetElement<VisualElement>(PreparationSceneUIElements.IncreaseSquadCountButton).SetEnabled(canIncrease);
     }
 
     private void UpdateSlotStates()
@@ -628,11 +522,9 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void UpdateTotalUnitCount()
     {
-        if (_totalUnitsLabel == null)
-            return;
-
         var availableUnitsCount = MaxSquadUnitsLimit - _totalSquadUnits;
-        _totalUnitsLabel.text = $"Всего юнитов: {_totalSquadUnits}, доступно еще: {availableUnitsCount}";
+        GetElement<Label>(PreparationSceneUIElements.TotalUnitsLabel).text =
+            $"Всего юнитов: {_totalSquadUnits}, доступно еще: {availableUnitsCount}";
     }
 
     private int GetAvailableUnitsForSlot(SquadSlot slot)
@@ -779,65 +671,54 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void ShowHeroSelection()
     {
-        SetPanelActive(_squadPanel, false);
-        SetPanelActive(_heroPanel, true);
+        SetPanelActive(GetElement<VisualElement>(PreparationSceneUIElements.SquadsPanel), false);
+        SetPanelActive(GetElement<VisualElement>(PreparationSceneUIElements.HeroPanel), true);
         _isHeroSelectionVisible = true;
     }
 
     private void ShowSquadSelection()
     {
-        SetPanelActive(_heroPanel, false);
-        SetPanelActive(_squadPanel, true);
+        SetPanelActive(GetElement<VisualElement>(PreparationSceneUIElements.HeroPanel), false);
+        SetPanelActive(GetElement<VisualElement>(PreparationSceneUIElements.SquadsPanel), true);
         _isHeroSelectionVisible = false;
-    }
-
-    private static void SetPanelActive(VisualElement panel, bool isActive)
-    {
-        if (panel == null)
-            return;
-
-        panel.EnableInClassList("panel__active", isActive);
     }
 
     private void SubscribeToHeroNavigationInput()
     {
-        if (_inputService == null || !_isAttached)
-            return;
-
-        _previousHeroAction = _inputService.Actions.FindAction("Pre", throwIfNotFound: false);
-        if (_previousHeroAction != null)
-            _previousHeroAction.performed += HandlePreviousHeroAction;
+        _selectPrevHeroAction = _inputService.Actions.FindAction("SelectPrevHero", throwIfNotFound: false);
+        if (_selectPrevHeroAction != null)
+            _selectPrevHeroAction.performed += HandleSelectPrevHero;
         else
-            Debug.LogWarning("Menu action 'Pre' was not found for hero navigation", this);
+            Debug.LogWarning("Menu action 'Prev' was not found for hero navigation", this);
 
-        _nextHeroAction = _inputService.Actions.FindAction("Next", throwIfNotFound: false);
-        if (_nextHeroAction != null)
-            _nextHeroAction.performed += HandleNextHeroAction;
+        _selectNextHeroAction = _inputService.Actions.FindAction("SelectNextHero", throwIfNotFound: false);
+        if (_selectNextHeroAction != null)
+            _selectNextHeroAction.performed += HandleSelectNextHero;
         else
             Debug.LogWarning("Menu action 'Next' was not found for hero navigation", this);
     }
 
     private void UnsubscribeFromHeroNavigationInput()
     {
-        if (_previousHeroAction != null)
+        if (_selectPrevHeroAction != null)
         {
-            _previousHeroAction.performed -= HandlePreviousHeroAction;
-            _previousHeroAction = null;
+            _selectPrevHeroAction.performed -= HandleSelectPrevHero;
+            _selectPrevHeroAction = null;
         }
 
-        if (_nextHeroAction != null)
+        if (_selectNextHeroAction != null)
         {
-            _nextHeroAction.performed -= HandleNextHeroAction;
-            _nextHeroAction = null;
+            _selectNextHeroAction.performed -= HandleSelectNextHero;
+            _selectNextHeroAction = null;
         }
     }
 
-    private void HandlePreviousHeroAction(InputAction.CallbackContext _)
+    private void HandleSelectPrevHero(InputAction.CallbackContext _)
     {
         HandleHeroNavigation(-1);
     }
 
-    private void HandleNextHeroAction(InputAction.CallbackContext _)
+    private void HandleSelectNextHero(InputAction.CallbackContext _)
     {
         HandleHeroNavigation(1);
     }
@@ -862,49 +743,9 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
 
     private void HandleDiveIntoCaveClicked()
     {
-        _ = RequestDiveIntoCaveAsync();
-    }
-
-    private async Task RequestDiveIntoCaveAsync()
-    {
-        if (_isDiveRequested)
-        {
-            Debug.Log("Dive into cave request is already running", this);
-            return;
-        }
-
         UnitSO selectedHero = GetSelectedHero();
         List<SquadSelection> selectedSquads = GetSelectedSquads();
-
-        if (_diveIntoCaveButton != null)
-            _diveIntoCaveButton.SetEnabled(false);
-
-        _isDiveRequested = true;
-
-        try
-        {
-            if (OnDiveIntoCave != null)
-            {
-                Debug.Log("[PreparationMenuUI] Starting dive into cave", this);
-                await OnDiveIntoCave.Invoke(selectedHero, selectedSquads);
-                Debug.Log("[PreparationMenuUI] Dive into cave finished", this);
-            }
-            else
-            {
-                Debug.LogWarning("OnDiveIntoCave handler is not assigned", this);
-            }
-        }
-        catch (Exception exception)
-        {
-            Debug.LogError($"Failed to dive into cave: {exception}", this);
-        }
-        finally
-        {
-            _isDiveRequested = false;
-
-            if (_diveIntoCaveButton != null)
-                _diveIntoCaveButton.SetEnabled(true);
-        }
+        _sceneEventBusService.Publish(new RequestDiveIntoCave(selectedHero, selectedSquads));
     }
 
     private UnitSO GetSelectedHero()
@@ -932,6 +773,11 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
         }
 
         return selectedSquads;
+    }
+
+    private static void SetPanelActive(VisualElement panel, bool isActive)
+    {
+        panel.EnableInClassList("panel__active", isActive);
     }
 
     private static int WrapIndex(int index, int length)
@@ -1019,15 +865,15 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             _isHeroSlot = isHeroSlot;
 
             if (_root != null && _isHeroSlot)
-                _root.AddToClassList(SquadSlotHeroClassName);
+                _root.AddToClassList(PreparationSceneClassNames.SquadSlotHero);
 
             if (!_isHeroSlot && _root != null)
             {
-                _countLabel = _root.Q<Label>(className: SquadSlotCountClassName);
+                _countLabel = _root.Q<Label>(className: PreparationSceneClassNames.SquadSlotCount);
                 if (_countLabel == null)
                 {
                     _countLabel = new Label();
-                    _countLabel.AddToClassList(SquadSlotCountClassName);
+                    _countLabel.AddToClassList(PreparationSceneClassNames.SquadSlotCount);
                     _root.Add(_countLabel);
                 }
 
@@ -1096,7 +942,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
             if (_isHeroSlot)
                 return;
 
-            _root?.EnableInClassList(SquadSlotActiveClassName, isActive);
+            _root?.EnableInClassList(PreparationSceneClassNames.SquadSlotActive, isActive);
         }
 
         public void SetLocked(bool isLocked)
@@ -1108,7 +954,7 @@ public class PreparationSceneUIController : MonoBehaviour, ISceneUIController
                 return;
 
             _isLocked = isLocked;
-            _root?.EnableInClassList(SquadSlotLockedClassName, isLocked);
+            _root?.EnableInClassList(PreparationSceneClassNames.SquadSlotLocked, isLocked);
             _root?.SetEnabled(!isLocked);
             if (isLocked)
                 SetActive(false);

@@ -2,7 +2,7 @@
 }
 
 .top {
-    height: 150px;
+    height: 200px;
 }
 
 .queue-list {
@@ -127,10 +127,11 @@
 }
 
 .ability-item--cooldown .ability-item__icon {
-    opacity: 0.2;
+    opacity: 0.05;
 }
 
 .ability-item--selected {
+    scale: 1.2;
     border-top-color: rgb(245, 217, 107);
     border-right-color: rgb(245, 217, 107);
     border-bottom-color: rgb(245, 217, 107);

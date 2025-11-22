@@ -86,7 +86,7 @@
                 {
                     "name": "up",
                     "id": "08e3e74e-a359-4bdf-b517-5ffa824ff47d",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -97,7 +97,7 @@
                 {
                     "name": "down",
                     "id": "1fb43c08-4c7e-4fe5-adc2-4a3b21566f43",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -108,7 +108,7 @@
                 {
                     "name": "left",
                     "id": "cea29105-8994-4d6b-b728-8d138247dc27",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -119,7 +119,7 @@
                 {
                     "name": "right",
                     "id": "f6e9bbe2-300b-4900-a96e-df56ccf082dc",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -162,7 +162,7 @@
             "id": "53c8f333-ca3e-4501-be34-7759f017b8a9",
             "actions": [
                 {
-                    "name": "Pre",
+                    "name": "SelectPrevHero",
                     "type": "Button",
                     "id": "3fddfaab-7fd0-4c96-a1b9-70ed8579939d",
                     "expectedControlType": "",
@@ -171,7 +171,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Next",
+                    "name": "SelectNextHero",
                     "type": "Button",
                     "id": "c96979e7-5e8c-46c3-af20-d1e39b5cf930",
                     "expectedControlType": "",
@@ -188,7 +188,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pre",
+                    "action": "SelectPrevHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -199,7 +199,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pre",
+                    "action": "SelectPrevHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -210,7 +210,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next",
+                    "action": "SelectNextHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -221,7 +221,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Next",
+                    "action": "SelectNextHero",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

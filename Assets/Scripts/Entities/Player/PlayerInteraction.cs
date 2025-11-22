@@ -14,23 +14,25 @@ public sealed class PlayerInteraction : MonoBehaviour
     [Inject] private readonly SceneLoader _sceneLoader;
     [Inject] private readonly InputService _inputService;
     [Inject] private readonly DialogManager _dialogManager;
-    [Inject] private readonly BattleResultHandler _battleResultHandler;
     [Inject] private readonly BattleSetupHandler _battleSetupHandler;
+    [Inject] private readonly BattleResultHandler _battleResultHandler;
 
     private GameObject _actor;
     private Collider2D[] _hits;
     private ContactFilter2D _overlapFilter;
-    private readonly HashSet<InteractionController> _currentInteractables = new();
-    private readonly HashSet<InteractionController> _frameInteractables = new();
     private readonly List<InteractionController> _pendingRemoval = new();
+    private readonly HashSet<InteractionController> _frameInteractables = new();
+    private readonly HashSet<InteractionController> _currentInteractables = new();
     private InputAction _interactAction;
     private Collider2D _lastWarnedCollider;
     private InteractionController _currentTarget;
 
-    public float InteractRadius => _interactRadius;
-    public IReadOnlyCollection<InteractionController> InteractablesInRange => _currentInteractables;
-    public event Action<InteractionController> InteractableEnteredRange;
     public event Action<InteractionController> InteractableExitedRange;
+    public event Action<InteractionController> InteractableEnteredRange;
+
+    public float InteractRadius => _interactRadius;
+
+    public IReadOnlyCollection<InteractionController> InteractablesInRange => _currentInteractables;
 
     private void Awake()
     {
@@ -150,9 +152,9 @@ public sealed class PlayerInteraction : MonoBehaviour
             SceneLoader = _sceneLoader,
             InputService = _inputService,
             DialogManager = _dialogManager,
-            BattleResultHandler = _battleResultHandler,
-            BattleSetupHandler = _battleSetupHandler,
             Target = _currentTarget.gameObject,
+            BattleSetupHandler = _battleSetupHandler,
+            BattleResultHandler = _battleResultHandler,
         };
 
         await _currentTarget.TryInteract(ctxData);

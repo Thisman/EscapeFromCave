@@ -2,21 +2,21 @@ using UnityEngine;
 
 public sealed class InteractionContext
 {
+    public float Time;
+    
     public GameObject Actor;
 
     public GameObject Target;
 
-    public Vector3 Point;
-
-    public float Time;
-
     public SceneLoader SceneLoader;
-
-    public DialogManager DialogManager;
 
     public InputService InputService;
 
-    public BattleResultHandler BattleResultHandler;
+    public DialogManager DialogManager;
 
     public BattleSetupHandler BattleSetupHandler;
+    
+    public BattleResultHandler BattleResultHandler;
+
+    public GameEventBusService SceneEventBusService;
 }

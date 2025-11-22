@@ -5,19 +5,14 @@ using UnityEngine;
 public sealed class DialogManager : MonoBehaviour
 {
     [SerializeField] private DungeonSceneUIController _uiController;
-    [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
-    [SerializeField, Min(0f)] private float _typingStartDelaySeconds = 0.1f;
-    [SerializeField, Min(0f)] private float _typingEndDelaySeconds = 0.5f;
     [SerializeField, Min(0f)] private float _delayBetweenShow = 0f;
+    [SerializeField, Min(0f)] private float _typingEndDelaySeconds = 0.5f;
+    [SerializeField, Min(0f)] private float _typingStartDelaySeconds = 0.1f;
+    [SerializeField, Min(0f)] private float _defaultSecondsPerCharacter = 0.05f;
 
     private Coroutine _displayRoutine;
-    private TaskCompletionSource<bool> _displayCompletion;
     private float _activeSecondsPerCharacter;
-
-    private void Awake()
-    {
-        Hide();
-    }
+    private TaskCompletionSource<bool> _displayCompletion;
 
     public void Show(string message)
     {

@@ -5,5 +5,6 @@ public class MainMenuLifetimeScope : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
+        builder.Register<GameEventBusService>(Lifetime.Singleton);
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Stateless;
 using UnityEngine;
 
@@ -8,18 +7,20 @@ public sealed class BattleRoundsMachine
 {
     private bool _battleFinished;
     private bool _playerRequestedFlee;
+    private int _currentRound;
+    private int _currentActionId;
     private BattleResult _battleResult;
     private readonly BattleContext _ctx;
     private readonly StateMachine<BattleRoundStates, BattleRoundsTrigger> _sm;
 
     private readonly HashSet<IReadOnlySquadModel> _enemySquadSet = new();
     private readonly List<IReadOnlySquadModel> _enemySquadHistory = new();
-    private readonly List<BattleSquadModel> _subscribedSquadModels = new();
     private readonly HashSet<IReadOnlySquadModel> _friendlySquadSet = new();
     private readonly List<IReadOnlySquadModel> _friendlySquadHistory = new();
     private readonly Dictionary<IReadOnlySquadModel, int> _initialSquadCounts = new();
-    private readonly PlayerBattleActionController _playerTurnController;
+
     private readonly AIBattleActionController _enemyTurnController;
+    private readonly PlayerBattleActionController _playerTurnController;
     private readonly ProviderForBattleActionController _actionControllerResolver;
 
     public event Action<BattleResult> OnBattleRoundsFinished;
@@ -69,14 +70,13 @@ public sealed class BattleRoundsMachine
 
     public void Reset()
     {
-        UnsubscribeFromSquadEvents();
         _battleFinished = false;
         _playerRequestedFlee = false;
         _battleResult = null;
-        _ctx.BattleSceneUIController.OnLeaveCombat += HandleLeaveCombat;
+        _currentRound = 0;
+        _currentActionId = 0;
         InitializeSquadHistory();
-        UpdateTargetValidity(null, null);
-        SubscribeToSquadEvents();
+        SubscribeToGameEvents();
     }
 
     public void BeginRounds() => OnRoundStart();
@@ -84,17 +84,10 @@ public sealed class BattleRoundsMachine
     private void OnRoundStart()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundStart);
-        TriggerEffects(BattleEffectTrigger.OnRoundStart);
-        _ctx.DefendedUnitsThisRound?.Clear();
+        _ctx.ActiveUnit = null;
+        _currentRound++;
 
-        var unitModels = _ctx.BattleUnits
-                .Where(unit => unit != null)
-                .Select(unit => unit.GetSquadModel())
-                .Where(model => model != null);
-
-        _ctx.BattleQueueController.Build(unitModels);
-        _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
-        _ctx.BattleAbilitiesManager.OnTick();
+        _ctx.SceneEventBusService.Publish(new RoundStartedEvent(_currentRound));
         _sm.Fire(BattleRoundsTrigger.InitTurn);
     }
 
@@ -109,18 +102,15 @@ public sealed class BattleRoundsMachine
             return;
         }
 
-        _ctx.BattleSceneUIController.RenderQueue(_ctx.BattleQueueController);
+        _ctx.ActiveUnit = queue[0];
+        _currentActionId++;
+        _ctx.SceneEventBusService.Publish(new TurnPreparedEvent(_ctx.ActiveUnit, _currentActionId));
         _sm.Fire(BattleRoundsTrigger.NextTurn);
     }
 
     private void OnTurnStart()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnStart);
-        TriggerEffects(BattleEffectTrigger.OnTurnStart);
-
-        var queue = _ctx.BattleQueueController.GetQueue();
-        _ctx.ActiveUnit = queue[0];
-        HighlightActiveUnitSlot();
         BattleLogger.LogActiveUnit(_ctx.ActiveUnit);
 
         _ctx.BattleSceneUIController.RenderAbilityList(
@@ -169,51 +159,16 @@ public sealed class BattleRoundsMachine
     private void OnTurnEnd()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnEnd);
-        TriggerEffects(BattleEffectTrigger.OnTurnEnd, _ctx.ActiveUnit);
-
-        ClearActionSlotHighlights();
-        ClearActiveUnitSlotHighlight();
-
-        _ctx.BattleQueueController.NextTurn();
+        _ctx.SceneEventBusService.Publish(new TurnEndedEvent(_ctx.ActiveUnit, _currentActionId));
         _ctx.ActiveUnit = null;
-
-        RemoveDefeatedUnits(_ctx.BattleQueueController, _ctx.BattleGridController);
 
         if (BattleResult.CheckForBattleCompletion(_battleFinished, _ctx.BattleUnits))
         {
-            TriggerBattleFinish();
+            FinishBattle();
             return;
         }
 
         _sm.Fire(BattleRoundsTrigger.NextTurn);
-    }
-
-    // TODO: перенести в BattleGridController
-    private void HighlightActiveUnitSlot()
-    {
-        var activeUnitModel = _ctx.ActiveUnit;
-        if (activeUnitModel == null)
-            return;
-
-        if (!_ctx.TryGetSquadController(activeUnitModel, out var controller) || controller == null)
-            return;
-
-        var gridController = _ctx.BattleGridController;
-        if (gridController == null)
-            return;
-
-        gridController.ClearActiveSlot();
-
-        if (!gridController.TryGetSlotForOccupant(controller.transform, out var slot) || slot == null)
-            return;
-
-        gridController.SetActiveSlot(slot);
-    }
-
-    // TODO: перенести в BattleGridController
-    private void ClearActiveUnitSlotHighlight()
-    {
-        _ctx.BattleGridController.ClearActiveSlot();
     }
 
     private void OnRoundEnd()
@@ -221,8 +176,6 @@ public sealed class BattleRoundsMachine
         BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundEnd);
         if (_battleFinished)
             return;
-
-        TriggerEffects(BattleEffectTrigger.OnRoundEnd);
         _sm.Fire(BattleRoundsTrigger.StartNewRound);
     }
 
@@ -234,16 +187,7 @@ public sealed class BattleRoundsMachine
         action.OnResolve += OnActionResolved;
         action.OnCancel += OnActionCancelled;
 
-        if (action is BattleActionAbility abilityAction)
-        {
-            _ctx.BattleSceneUIController.HighlightAbility(abilityAction.Ability);
-        }
-        else
-        {
-            _ctx.BattleSceneUIController.ResetAbilityHighlight();
-        }
-
-        ApplyActionSlotHighlights(action);
+        _ctx.SceneEventBusService.Publish(new ActionSelectedEvent(action, _ctx.ActiveUnit, _currentActionId));
     }
 
     private void DetachCurrentAction()
@@ -259,10 +203,6 @@ public sealed class BattleRoundsMachine
             disposable.Dispose();
         }
 
-        _ctx.BattleSceneUIController.ResetAbilityHighlight();
-        ClearActionSlotHighlights();
-        UpdateTargetValidity(null, null);
-
         _ctx.CurrentAction = null;
     }
 
@@ -271,6 +211,7 @@ public sealed class BattleRoundsMachine
         var resolvedAction = _ctx.CurrentAction;
         var activeUnit = _ctx.ActiveUnit;
 
+        _ctx.SceneEventBusService.Publish(new ActionResolvedEvent(resolvedAction, activeUnit, _currentActionId));
         DetachCurrentAction();
 
         if (resolvedAction != null && activeUnit != null)
@@ -281,23 +222,15 @@ public sealed class BattleRoundsMachine
         switch (resolvedAction)
         {
             case BattleActionDefend:
-                TriggerEffects(BattleEffectTrigger.OnDefend, activeUnit);
-                _ctx.DefendedUnitsThisRound.Add(_ctx.ActiveUnit);
-                _ctx.BattleQueueController.AddLast(_ctx.ActiveUnit);
                 _sm.Fire(BattleRoundsTrigger.SkipTurn);
                 break;
             case BattleActionSkipTurn:
-                TriggerEffects(BattleEffectTrigger.OnSkip, activeUnit);
                 _sm.Fire(BattleRoundsTrigger.SkipTurn);
                 break;
             case BattleActionAttack:
-                TriggerEffects(BattleEffectTrigger.OnAttack, activeUnit);
-                TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
                 _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             case BattleActionAbility:
-                TriggerEffects(BattleEffectTrigger.OnAbility, activeUnit);
-                TriggerEffects(BattleEffectTrigger.OnAction, activeUnit);
                 _sm.Fire(BattleRoundsTrigger.ActionDone);
                 break;
             default:
@@ -308,28 +241,24 @@ public sealed class BattleRoundsMachine
 
     private void OnActionCancelled()
     {
-        ClearActionSlotHighlights();
-        UpdateTargetValidity(null, null);
+        var activeUnit = _ctx.ActiveUnit;
+        _ctx.SceneEventBusService.Publish(new ActionCancelledEvent(activeUnit, _currentActionId));
+        DetachCurrentAction();
 
-        if (!_ctx.ActiveUnit.IsFriendly())
+        if (activeUnit == null || !activeUnit.IsFriendly())
             return;
-
-        _ctx.BattleSceneUIController.ResetAbilityHighlight();
 
         OnWaitTurnAction();
     }
 
-    private void TriggerBattleFinish()
+    private void FinishBattle()
     {
         if (_battleFinished)
             return;
 
         _battleFinished = true;
 
-        UnsubscribeFromSquadEvents();
-
-        _ctx.BattleSceneUIController.OnLeaveCombat -= HandleLeaveCombat;
-        _ctx.BattleQueueController.Build(Array.Empty<IReadOnlySquadModel>());
+        UnsubscribeFromGameEvents();
 
         if (_sm.CanFire(BattleRoundsTrigger.EndRound))
         {
@@ -343,233 +272,24 @@ public sealed class BattleRoundsMachine
             _enemySquadHistory,
             _initialSquadCounts);
 
+        _ctx.SceneEventBusService.Publish(new BattleFinishedEvent(_battleResult));
         OnBattleRoundsFinished?.Invoke(_battleResult);
     }
 
-    private void RemoveDefeatedUnits(BattleQueueController queueController, BattleGridController gridController)
+    private void SubscribeToGameEvents()
     {
-        TrackKnownSquads(_ctx.BattleUnits);
-
-        if (_ctx.BattleUnits.Count == 0)
-        {
-            _ctx.RegisterSquads(Array.Empty<BattleSquadController>());
-            return;
-        }
-
-        var aliveUnits = new List<BattleSquadController>(_ctx.BattleUnits.Count);
-        var defeatedUnits = new List<BattleSquadController>();
-
-        foreach (var unitController in _ctx.BattleUnits)
-        {
-            if (unitController == null)
-                continue;
-
-            var model = unitController.GetSquadModel();
-
-            if (model.Count > 0)
-            {
-                aliveUnits.Add(unitController);
-                continue;
-            }
-
-            defeatedUnits.Add(unitController);
-        }
-
-        if (defeatedUnits.Count == 0)
-            return;
-
-        _ctx.RegisterSquads(aliveUnits);
-
-        foreach (var defeatedUnit in defeatedUnits)
-        {
-            if (defeatedUnit == null)
-                continue;
-
-            var model = defeatedUnit.GetSquadModel();
-
-            while (queueController.Remove(model))
-            {
-                // Empty body, need refactoring later
-            }
-
-            var defeatedTransform = defeatedUnit.transform;
-            gridController.TryRemoveOccupant(defeatedTransform, out _);
-        }
+        _ctx.SceneEventBusService.Subscribe<RequestFleeCombat>(HandleLeaveCombat);
     }
 
-    // TODO: пеенести в BattleGridController
-    private void ApplyActionSlotHighlights(IBattleAction action)
+    private void UnsubscribeFromGameEvents()
     {
-        ClearActionSlotHighlights();
-        UpdateTargetValidity(null, null);
-
-        var activeUnit = _ctx.ActiveUnit;
-        if (action == null || activeUnit == null)
-            return;
-
-        if (!activeUnit.IsFriendly())
-            return;
-
-        if (action is not IBattleActionTargetResolverProvider resolverProvider)
-            return;
-
-        var targetResolver = resolverProvider.TargetResolver;
-        if (targetResolver == null)
-            return;
-
-        UpdateTargetValidity(targetResolver, activeUnit);
-
-        var gridController = _ctx.BattleGridController;
-        if (gridController == null)
-            return;
-
-        var units = _ctx.BattleUnits;
-        if (units == null)
-            return;
-
-        var availableSlots = new List<Transform>();
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null || !unitController.IsValidTarget())
-                continue;
-
-            if (!gridController.TryGetSlotForOccupant(unitController.transform, out var slot) || slot == null)
-                continue;
-
-            availableSlots.Add(slot);
-        }
-
-        gridController.HighlightSlots(availableSlots, BattleGridSlotHighlightMode.Available);
+        _ctx.SceneEventBusService.Unsubscribe<RequestFleeCombat>(HandleLeaveCombat);
     }
 
-    // TODO: пеенести в BattleGridController
-    private void ClearActionSlotHighlights()
-    {
-        var gridController = _ctx.BattleGridController;
-        if (gridController == null)
-            return;
-
-        gridController.ResetAllSlotHighlights(keepActiveHighlight: false);
-        HighlightActiveUnitSlot();
-    }
-
-    // TODO: перенести в BattleSquadController
-    private void UpdateTargetValidity(IBattleActionTargetResolver targetResolver, IReadOnlySquadModel actor)
-    {
-        var units = _ctx.BattleUnits;
-        if (units == null)
-            return;
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null)
-                continue;
-
-            bool isValid = false;
-
-            if (targetResolver != null && actor != null)
-            {
-                var targetModel = unitController.GetSquadModel();
-
-                if (targetModel != null)
-                {
-                    try
-                    {
-                        isValid = targetResolver.ResolveTarget(actor, targetModel);
-                    }
-                    catch (Exception exception)
-                    {
-                        Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(UpdateTargetValidity)}] Failed to resolve target: {exception}");
-                    }
-                }
-            }
-
-            unitController.SetTargetValidity(isValid);
-        }
-    }
-
-    // TODO: Перенести в менеджеры эффектов и способностей
-    private void SubscribeToSquadEvents()
-    {
-        var units = _ctx.BattleUnits;
-        if (units == null)
-            return;
-
-        foreach (var unitController in units)
-        {
-            if (unitController == null)
-                continue;
-
-            if (unitController.GetSquadModel() is not BattleSquadModel model)
-                continue;
-
-            if (_subscribedSquadModels.Contains(model))
-                continue;
-
-            model.OnEvent += HandleSquadEvent;
-            _subscribedSquadModels.Add(model);
-        }
-    }
-
-    // TODO: Перенести в менеджеры эффектов и способностей
-    private void UnsubscribeFromSquadEvents()
-    {
-        if (_subscribedSquadModels.Count == 0)
-            return;
-
-        foreach (var model in _subscribedSquadModels)
-        {
-            if (model != null)
-                model.OnEvent -= HandleSquadEvent;
-        }
-
-        _subscribedSquadModels.Clear();
-    }
-
-    // TODO: Перенести в менеджеры эффектов и способностей
-    private void HandleSquadEvent(BattleSquadEvent squadEvent)
-    {
-        if (squadEvent.Type != BattleSquadEventType.ApplyDamage)
-            return;
-
-        if (squadEvent.Squad == null || squadEvent.AppliedDamage <= 0)
-            return;
-
-        TriggerEffects(BattleEffectTrigger.OnApplyDamage, squadEvent.Squad);
-
-        var actingUnit = _ctx.ActiveUnit;
-        if (actingUnit != null)
-        {
-            TriggerEffects(BattleEffectTrigger.OnDealDamage, actingUnit);
-        }
-    }
-
-    // TODO: Перенести в менеджеры эффектов и способностей
-    private async void TriggerEffects(BattleEffectTrigger trigger)
-    {
-        await _ctx.BattleEffectsManager.Trigger(trigger);
-    }
-
-    // TODO: Перенести в менеджеры эффектов и способностей
-    private async void TriggerEffects(BattleEffectTrigger trigger, IReadOnlySquadModel unit)
-    {
-        if (unit == null)
-            return;
-
-        if (!_ctx.TryGetSquadController(unit, out var controller) || controller == null)
-            return;
-
-        if (!controller.TryGetComponent<BattleSquadEffectsController>(out var effectsController))
-            return;
-
-        await _ctx.BattleEffectsManager.Trigger(trigger, effectsController);
-    }
-
-    private void HandleLeaveCombat()
+    private void HandleLeaveCombat(RequestFleeCombat evt)
     {
         _playerRequestedFlee = true;
-        TriggerBattleFinish();
+        FinishBattle();
     }
 
     private void InitializeSquadHistory()

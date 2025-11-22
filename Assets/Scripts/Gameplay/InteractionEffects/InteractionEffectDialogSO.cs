@@ -11,6 +11,7 @@ public sealed class InteractionEffectDialogSO : InteractionEffectSO
     {
         ctx.InputService.EnterDialog();
 
+        // TODO: реализовать показ сообщений через событие RequestDialogShow
         try
         {
             await ctx.DialogManager.ShowForDurationAsync(Message);

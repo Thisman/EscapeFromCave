@@ -15,24 +15,26 @@ public sealed class BattleContext : IDisposable
         BattleGridDragAndDropController battleGridDragAndDropController,
 
         BattleAbilitiesManager battleAbilityManager,
-        BattleEffectsManager battleEffectsManager
+        BattleEffectsManager battleEffectsManager,
+        GameEventBusService sceneEventBusService
     )
     {
         DefendedUnitsThisRound = new HashSet<IReadOnlySquadModel>();
 
-        InputService = inputService ?? throw new ArgumentNullException(nameof(inputService));
-        BattleEffectsManager = battleEffectsManager ?? throw new ArgumentNullException(nameof(battleEffectsManager));
-        BattleAbilitiesManager = battleAbilityManager ?? throw new ArgumentNullException(nameof(battleAbilityManager));
-        BattleQueueController = battleQueueController ?? throw new ArgumentNullException(nameof(battleQueueController));
+        InputService = inputService;
+        BattleEffectsManager = battleEffectsManager;
+        SceneEventBusService = sceneEventBusService;
+        BattleAbilitiesManager = battleAbilityManager;
+        BattleQueueController = battleQueueController;
 
-        BattleSceneUIController = battleSceneUIController != null ? battleSceneUIController : throw new ArgumentNullException(nameof(battleSceneUIController));
-        BattleGridController = battleGridController != null ? battleGridController : throw new ArgumentNullException(nameof(battleGridController));
-        BattleGridDragAndDropController = battleGridDragAndDropController != null ? battleGridDragAndDropController : throw new ArgumentNullException(nameof(battleGridDragAndDropController));
+        BattleGridController = battleGridController;
+        BattleSceneUIController = battleSceneUIController;
+        BattleGridDragAndDropController = battleGridDragAndDropController;
     }
 
     public InputService InputService { get; }
 
-    public BattleSceneUIController BattleSceneUIController { get; }
+    public GameEventBusService SceneEventBusService { get; }
 
     public BattleEffectsManager BattleEffectsManager { get; }
 
@@ -42,6 +44,8 @@ public sealed class BattleContext : IDisposable
 
     public BattleAbilitiesManager BattleAbilitiesManager { get; }
 
+    public BattleSceneUIController BattleSceneUIController { get; }
+    
     public BattleGridDragAndDropController BattleGridDragAndDropController { get; }
 
     public bool IsFinished { get; set; }
