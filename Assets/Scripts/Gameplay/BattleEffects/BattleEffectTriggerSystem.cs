@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-public sealed class EffectTriggerSystem : IDisposable
+public sealed class BattleEffectTriggerSystem : IDisposable
 {
     private readonly BattleContext _ctx;
     private readonly List<IDisposable> _subscriptions = new();
     private readonly List<BattleSquadModel> _subscribedSquadModels = new();
 
-    public EffectTriggerSystem(BattleContext ctx)
+    public BattleEffectTriggerSystem(BattleContext ctx)
     {
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));

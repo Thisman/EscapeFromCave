@@ -22,8 +22,8 @@ public class BattleSceneManager : MonoBehaviour
     private BattleRoundsMachine _battleRoundMachine;
     private QueueSystem _queueSystem;
     private TargetHighlightSystem _targetHighlightSystem;
-    private EffectTriggerSystem _effectTriggerSystem;
-    private AbilityCooldownSystem _abilityCooldownSystem;
+    private BattleEffectTriggerSystem _effectTriggerSystem;
+    private BattleAbilityCooldownSystem _abilityCooldownSystem;
 
     private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
@@ -109,8 +109,8 @@ public class BattleSceneManager : MonoBehaviour
     {
         _queueSystem = new QueueSystem(_battleContext);
         _targetHighlightSystem = new TargetHighlightSystem(_battleContext);
-        _effectTriggerSystem = new EffectTriggerSystem(_battleContext);
-        _abilityCooldownSystem = new AbilityCooldownSystem(_battleContext);
+        _effectTriggerSystem = new BattleEffectTriggerSystem(_battleContext);
+        _abilityCooldownSystem = new BattleAbilityCooldownSystem(_battleContext);
     }
 
     private void InitializeStateMachines()

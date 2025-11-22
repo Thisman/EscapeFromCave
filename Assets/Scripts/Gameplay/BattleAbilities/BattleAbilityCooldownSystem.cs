@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-public sealed class AbilityCooldownSystem : IDisposable
+public sealed class BattleAbilityCooldownSystem : IDisposable
 {
     private readonly List<IDisposable> _subscriptions = new();
     private readonly BattleContext _ctx;
 
-    public AbilityCooldownSystem(BattleContext ctx)
+    public BattleAbilityCooldownSystem(BattleContext ctx)
     {
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
