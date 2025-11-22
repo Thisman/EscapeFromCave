@@ -266,10 +266,28 @@
             "id": "95ed3f77-2586-4f97-b7eb-0809c4963eed",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Cancel",
                     "type": "Button",
-                    "id": "11fbed33-e4ac-433b-a997-23c9a2bae3aa",
-                    "expectedControlType": "",
+                    "id": "c82bd06b-98d7-40b7-acfd-e0a499d67622",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectPrevUpgrade",
+                    "type": "Button",
+                    "id": "2049ddf6-3813-4137-a22c-d7517fdbff2f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectNextUpgrades",
+                    "type": "Button",
+                    "id": "69244265-1d84-4700-8400-6f4b55446fdb",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -278,12 +296,56 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "74d851fb-c4ea-4059-8218-90ab4855b645",
-                    "path": "",
+                    "id": "b141455a-d9d3-4511-a4b3-46e04753b89d",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2df796c-1182-4d3c-9df8-59e4b33ec042",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPrevUpgrade",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26aaaa2d-99d4-4692-bdcb-d8062537911a",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPrevUpgrade",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74d851fb-c4ea-4059-8218-90ab4855b645",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNextUpgrades",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11fbed33-e4ac-433b-a997-23c9a2bae3aa",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNextUpgrades",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

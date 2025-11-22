@@ -32,7 +32,7 @@ public class DungeonSceneManager : MonoBehaviour
         InitializeArmy();
 
         _upgradeSystem = new UpgradeSystem(_playerController, _playerArmyController);
-        _upgradesUIController.Initialize(_sceneEventBusService);
+        _upgradesUIController.Initialize(_sceneEventBusService, _inputService);
     }
 
     private void OnEnable()
@@ -106,8 +106,10 @@ public class DungeonSceneManager : MonoBehaviour
         _inputService.EnterUpgrades();
 
         var upgrades = _upgradeSystem.GenerateRandomUpgrades();
-        _upgradesUIController.RenderUpgrades(upgrades);
         _upgradesUIController.Show();
+
+        int level = Mathf.Max(1, _playerController?.GetPlayer()?.Level ?? 1);
+        _upgradesUIController.RenderUpgrades(upgrades, level);
     }
 
     private void HandleSelectUpgrade(SelectSquadUpgrade evt) {

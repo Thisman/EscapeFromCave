@@ -1,8 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Scripts/UICommon/Global.uss?fileID=7433441132597879392&amp;guid=ec38b6e1f23cf5d4c988e791ea4c2972&amp;type=3#Global" />
     <Style src="project://database/Assets/Scripts/UICommon/Upgrades/Upgrades.uss?fileID=7433441132597879392&amp;guid=9ab3c8e26756d2249a07c16dcd754d1e&amp;type=3#Upgrades" />
-    <ui:VisualElement name="Body" style="flex-grow: 1;">
-        <ui:VisualElement name="UpgradesPanel" class="upgrades-panel panel panel__active" style="flex-direction: row; align-items: center; justify-content: center;">
+    <ui:VisualElement name="Body" class="upgrades-body">
+        <ui:Label name="LevelReached" class="upgrades-level" text="Достигнут 1 уровень!" />
+        <ui:VisualElement name="UpgradesPanel" class="upgrades-panel panel panel__active">
             <ui:VisualElement name="UpgradeCard" class="upgrade-card">
                 <ui:Label text="Улучшение" class="upgrade-card__title" />
                 <ui:VisualElement name="UpgradeIcons" class="upgrade-card__icons-container">
