@@ -113,8 +113,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
     private Sequence _resultSquadAnimationSequence;
     private VisualElement _abilityTooltipTarget;
 
-    public event Action OnDefend;
-    public event Action OnSkipTurn;
     public event Action<BattleAbilitySO> OnSelectAbility;
 
     private void Update()
@@ -670,12 +668,12 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
 
     private void HandleDefendClicked(ClickEvent evt)
     {
-        OnDefend?.Invoke();
+        _sceneEventBusService.Publish<RequestDefend>(new RequestDefend());
     }
 
     private void HandleSkipTurnClicked(ClickEvent evt)
     {
-        OnSkipTurn?.Invoke();
+        _sceneEventBusService.Publish<RequestSkipTurn>(new RequestSkipTurn());
     }
 
     private VisualElement CreateQueueItem(IReadOnlySquadModel unit)
