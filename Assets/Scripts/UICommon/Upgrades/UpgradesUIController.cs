@@ -13,6 +13,25 @@ public enum UpgradesUIElements
     LevelReachedLabel
 }
 
+public static class UpgradesUIClassNames
+{
+    public const string UpgradesPanel = "upgrades-panel";
+    public const string PanelActive = "panel__active";
+
+    public const string UpgradeCard = "upgrade-card";
+    public const string UpgradeCardIcon = "upgrade-card__icon";
+    public const string UpgradeCardInfoText = "upgrade-card__info-text";
+    public const string UpgradeCardVisible = "upgrade-card--visible";
+
+    public const string LevelReachedVisible = "upgrades-level--visible";
+}
+
+public static class UpgradesUIElementNames
+{
+    public const string Body = "Body";
+    public const string LevelReachedLabel = "LevelLabel";
+}
+
 public class UpgradesUIController : BaseUIController<UpgradesUIElements>
 {
     private Label _levelReachedLabel;
@@ -22,8 +41,6 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
     private Sequence _revealSequence;
     private InputAction _cancelAction;
 
-    private const string LevelReachedVisibleClass = "upgrades-level--visible";
-    private const string UpgradeCardVisibleClass = "upgrade-card--visible";
     private const float LevelRevealDurationSeconds = 1.5f;
     private const float CardRevealDelaySeconds = 0.3f;
 
@@ -67,15 +84,15 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
 
         _uiElements[UpgradesUIElements.Root] = root;
 
-        var body = root.Q<VisualElement>("Body");
+        var body = root.Q<VisualElement>(UpgradesUIElementNames.Body);
         _uiElements[UpgradesUIElements.Body] = body;
         _body = body;
 
-        var upgradePanel = root.Q<VisualElement>(className: "upgrades-panel");
+        var upgradePanel = root.Q<VisualElement>(className: UpgradesUIClassNames.UpgradesPanel);
         _uiElements[UpgradesUIElements.UpgradePanel] = upgradePanel;
         _upgradePanel = upgradePanel;
 
-        var levelReachedLabel = root.Q<Label>("LevelLabel");
+        var levelReachedLabel = root.Q<Label>(UpgradesUIElementNames.LevelReachedLabel);
         _uiElements[UpgradesUIElements.LevelReachedLabel] = levelReachedLabel;
         _levelReachedLabel = levelReachedLabel;
     }
@@ -175,7 +192,7 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
         if (panel == null)
             return;
 
-        panel.EnableInClassList("panel__active", isActive);
+        panel.EnableInClassList(UpgradesUIClassNames.PanelActive, isActive);
     }
 
     private void PlayRevealAnimation()
@@ -222,7 +239,7 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
             if (cardRoot == null)
                 continue;
 
-            cardSequence.AppendCallback(() => cardRoot.AddToClassList(UpgradeCardVisibleClass));
+            cardSequence.AppendCallback(() => cardRoot.AddToClassList(UpgradesUIClassNames.UpgradeCardVisible));
             if (i < _upgradeCards.Count - 1)
             {
                 cardSequence.AppendInterval(CardRevealDelaySeconds);
@@ -234,12 +251,12 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
 
     private void ShowLevelReachedLabel()
     {
-        _levelReachedLabel?.AddToClassList(LevelReachedVisibleClass);
+        _levelReachedLabel?.AddToClassList(UpgradesUIClassNames.LevelReachedVisible);
     }
 
     private void HideLevelReachedLabel()
     {
-        _levelReachedLabel?.RemoveFromClassList(LevelReachedVisibleClass);
+        _levelReachedLabel?.RemoveFromClassList(UpgradesUIClassNames.LevelReachedVisible);
     }
 
     private void ResetAnimationState()
@@ -298,7 +315,7 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
         DisposeUpgradeCards();
 
         var root = GetElement<VisualElement>(UpgradesUIElements.Root);
-        root?.Query<VisualElement>(className: "upgrade-card").ForEach(cardElement =>
+        root?.Query<VisualElement>(className: UpgradesUIClassNames.UpgradeCard).ForEach(cardElement =>
         {
             if (cardElement == null)
                 return;
@@ -320,8 +337,8 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
         {
             _controller = controller;
             _card = card;
-            _icons = card.Query<VisualElement>(className: "upgrade-card__icon").ToList().ToArray();
-            _cardInfoText = card.Q<Label>(className: "upgrade-card__info-text");
+            _icons = card.Query<VisualElement>(className: UpgradesUIClassNames.UpgradeCardIcon).ToList().ToArray();
+            _cardInfoText = card.Q<Label>(className: UpgradesUIClassNames.UpgradeCardInfoText);
 
 
             _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade(_upgradeModel));
@@ -347,7 +364,7 @@ public class UpgradesUIController : BaseUIController<UpgradesUIElements>
 
         public void SetVisible(bool isVisible)
         {
-            _card.EnableInClassList(UpgradeCardVisibleClass, isVisible);
+            _card.EnableInClassList(UpgradesUIClassNames.UpgradeCardVisible, isVisible);
         }
     }
 }
