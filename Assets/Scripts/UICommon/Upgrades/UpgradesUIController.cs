@@ -1,17 +1,21 @@
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class UpgradesUIController : MonoBehaviour, ISceneUIController
+public enum UpgradesUIElements
 {
-    [SerializeField] private UIDocument _uiDocument;
+    Root,
+    Body,
+    UpgradePanel,
+    LevelReachedLabel
+}
 
-    private GameEventBusService _sceneEventBusService;
-    private bool _isAttached = false;
+public class UpgradesUIController : BaseUIController<UpgradesUIElements>
+{
     private Label _levelReachedLabel;
-    private VisualElement _root;
     private VisualElement _body;
     private VisualElement _upgradePanel;
     private readonly List<UpgradeCard> _upgradeCards = new();
@@ -26,67 +30,110 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
     private static int MinimumLevel => 1;
     private const string CancelActionPath = "UpgradesSelection/Cancel";
 
-    private void Awake()
+    protected override void AttachToPanel(UIDocument document)
     {
-        TryRegisterLifecycleCallbacks();
-    }
+        base.AttachToPanel(document);
 
-    private void OnEnable()
-    {
-        TryRegisterLifecycleCallbacks();
-    }
-
-    private void OnDestroy()
-    {
-        DetachFromPanel();
-        UnsubscribeFromInput();
-    }
-
-    public void AttachToPanel(UIDocument document)
-    {
-        _root = document.rootVisualElement;
-        _body = _root.Q<VisualElement>("Body");
-        _upgradePanel = _root.Q<VisualElement>(className: "upgrades-panel");
-        _levelReachedLabel = _root.Q<Label>("LevelLabel");
+        if (!_isAttached)
+            return;
 
         Hide();
         InitializeUpgradeCard();
-
-        _isAttached = true;
     }
 
-    public void DetachFromPanel()
+    protected override void DetachFromPanel()
     {
+        if (!_isAttached)
+            return;
+
         StopRevealAnimation();
-        _isAttached = false;
-        _upgradeCards.Clear();
+        ResetAnimationState();
+
+        base.DetachFromPanel();
+
+        _body = null;
+        _upgradePanel = null;
+        _levelReachedLabel = null;
+    }
+
+    protected override void RegisterUIElements()
+    {
+        var root = _uiDocument != null ? _uiDocument.rootVisualElement : null;
+        if (root == null)
+        {
+            Debug.LogWarning($"{nameof(UpgradesUIController)}: UIDocument or rootVisualElement is missing.");
+            return;
+        }
+
+        _uiElements[UpgradesUIElements.Root] = root;
+
+        var body = root.Q<VisualElement>("Body");
+        _uiElements[UpgradesUIElements.Body] = body;
+        _body = body;
+
+        var upgradePanel = root.Q<VisualElement>(className: "upgrades-panel");
+        _uiElements[UpgradesUIElements.UpgradePanel] = upgradePanel;
+        _upgradePanel = upgradePanel;
+
+        var levelReachedLabel = root.Q<Label>("LevelLabel");
+        _uiElements[UpgradesUIElements.LevelReachedLabel] = levelReachedLabel;
+        _levelReachedLabel = levelReachedLabel;
+    }
+
+    protected override void SubcribeToUIEvents() { }
+
+    protected override void UnsubscriveFromUIEvents()
+    {
+        DisposeUpgradeCards();
+    }
+
+    protected override void SubscriveToGameEvents()
+    {
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed -= HandleCancelPerformed;
+        _cancelAction.performed += HandleCancelPerformed;
+    }
+
+    protected override void UnsubscribeFromGameEvents()
+    {
+        if (_cancelAction == null)
+            return;
+
+        _cancelAction.performed -= HandleCancelPerformed;
     }
 
     public void Initialize(GameEventBusService sceneEventBusService, InputService inputService)
     {
-        _sceneEventBusService = sceneEventBusService;
         _cancelAction = inputService?.Actions?.FindAction(CancelActionPath, false);
-
-        if (_cancelAction != null)
-        {
-            _cancelAction.performed -= HandleCancelPerformed;
-            _cancelAction.performed += HandleCancelPerformed;
-        }
+        base.Initialize(sceneEventBusService);
     }
 
     public void Show() {
-        _body.pickingMode = PickingMode.Position;
+        if (!_isAttached)
+            return;
+
+        if (_body != null)
+            _body.pickingMode = PickingMode.Position;
         SetPanelActive(_upgradePanel, true);
     }
 
     public void Hide() {
+        if (!_isAttached)
+            return;
+
         StopRevealAnimation();
-        _body.pickingMode = PickingMode.Ignore;
+        if (_body != null)
+            _body.pickingMode = PickingMode.Ignore;
         SetPanelActive(_upgradePanel, false);
     }
 
     public void ShowWithAnimation(IReadOnlyList<UpgradeModel> upgradeModels, int level)
     {
+        if (!_isAttached)
+            return;
+
         RenderUpgrades(upgradeModels);
         UpdateLevelText(level);
         Show();
@@ -103,6 +150,9 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
 
     public void RenderUpgrades(IReadOnlyList<UpgradeModel> upgradeModels)
     {
+        if (!_isAttached)
+            return;
+
         int count = Mathf.Min(_upgradeCards.Count, upgradeModels?.Count ?? 0);
         for (int i = 0; i < _upgradeCards.Count; i++)
         {
@@ -126,31 +176,6 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
             return;
 
         panel.EnableInClassList("panel__active", isActive);
-    }
-
-    private void TryRegisterLifecycleCallbacks()
-    {
-        if (_uiDocument.rootVisualElement is { } root)
-        {
-            root.UnregisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.UnregisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-            root.RegisterCallback<AttachToPanelEvent>(HandleAttachToPanel);
-            root.RegisterCallback<DetachFromPanelEvent>(HandleDetachFromPanel);
-
-            if (!_isAttached && root.panel != null)
-                AttachToPanel(_uiDocument);
-        }
-    }
-
-    private void HandleAttachToPanel(AttachToPanelEvent evt)
-    {
-        if (!_isAttached)
-            AttachToPanel(_uiDocument);
-    }
-
-    private void HandleDetachFromPanel(DetachFromPanelEvent evt)
-    {
-        DetachFromPanel();
     }
 
     private void PlayRevealAnimation()
@@ -258,18 +283,22 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         SkipRevealAnimation();
     }
 
-    private void UnsubscribeFromInput()
+    private void DisposeUpgradeCards()
     {
-        if (_cancelAction == null)
-            return;
+        foreach (var card in _upgradeCards)
+        {
+            card.Dispose();
+        }
 
-        _cancelAction.performed -= HandleCancelPerformed;
-        _cancelAction = null;
+        _upgradeCards.Clear();
     }
 
     private void InitializeUpgradeCard()
     {
-        _root.Query<VisualElement>(className: "upgrade-card").ForEach(cardElement =>
+        DisposeUpgradeCards();
+
+        var root = GetElement<VisualElement>(UpgradesUIElements.Root);
+        root?.Query<VisualElement>(className: "upgrade-card").ForEach(cardElement =>
         {
             if (cardElement == null)
                 return;
