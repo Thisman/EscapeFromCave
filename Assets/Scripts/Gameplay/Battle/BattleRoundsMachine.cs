@@ -23,8 +23,6 @@ public sealed class BattleRoundsMachine
     private readonly PlayerBattleActionController _playerTurnController;
     private readonly ProviderForBattleActionController _actionControllerResolver;
 
-    public event Action<BattleResult> OnBattleRoundsFinished;
-
     public BattleRoundsMachine(BattleContext ctx)
     {
         _ctx = ctx;
@@ -273,7 +271,6 @@ public sealed class BattleRoundsMachine
             _initialSquadCounts);
 
         _ctx.SceneEventBusService.Publish(new BattleFinished(_battleResult));
-        OnBattleRoundsFinished?.Invoke(_battleResult);
     }
 
     private void SubscribeToGameEvents()

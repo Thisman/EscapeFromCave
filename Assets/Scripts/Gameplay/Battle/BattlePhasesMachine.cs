@@ -16,8 +16,6 @@ public sealed class BattlePhasesMachine
         _battleRoundsMachine = battleRoundsMachine;
         _sm = new StateMachine<BattlePhaseStates, BattlePhasesTrigger>(BattlePhaseStates.Loading);
 
-        _battleRoundsMachine.OnBattleRoundsFinished += HandleBattleFinished;
-
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Loading);
 
         _sm.Configure(BattlePhaseStates.Loading)
@@ -91,16 +89,18 @@ public sealed class BattlePhasesMachine
     private void SubscribeToGameEvents()
     {
         _ctx.SceneEventBusService.Subscribe<RequestStartCombat>(HandleStartCombat);
+        _ctx.SceneEventBusService.Subscribe<BattleFinished>(HandleFinishBattle);
     }
 
     private void UnsubscribeFromGameEvents()
     {
         _ctx.SceneEventBusService.Unsubscribe<RequestStartCombat>(HandleStartCombat);
+        _ctx.SceneEventBusService.Unsubscribe<BattleFinished>(HandleFinishBattle);
     }
 
-    private void HandleBattleFinished(BattleResult result)
+    private void HandleFinishBattle(BattleFinished evt)
     {
-        _battleResult = result;
+        _battleResult = evt.Result;
         Fire(BattlePhasesTrigger.ShowBattleResults);
     }
 
