@@ -32,11 +32,7 @@ public class DungeonSceneManager : MonoBehaviour
         InitializeArmy();
 
         _upgradeSystem = new UpgradeSystem(_playerController, _playerArmyController);
-        _upgradesUIController.OnSelectUpgrade = upgrade =>
-        {
-            if (upgrade != null)
-                _sceneEventBusService.Publish(new SelectSquadUpgrade(upgrade));
-        };
+        _upgradesUIController.Initialize(_sceneEventBusService);
     }
 
     private void OnEnable()

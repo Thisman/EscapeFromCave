@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,13 +6,12 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
 
+    private GameEventBusService _sceneEventBusService;
     private bool _isAttached = false;
     private VisualElement _root;
     private VisualElement _body;
     private VisualElement _upgradePanel;
     private readonly List<UpgradeCard> _upgradeCards = new();
-
-    public Action<UpgradeModel> OnSelectUpgrade;
 
     private void Awake()
     {
@@ -49,6 +46,11 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         _upgradeCards.Clear();
     }
 
+    public void Initialize(GameEventBusService sceneEventBusService)
+    {
+        _sceneEventBusService = sceneEventBusService;
+    }
+
     public void Show() {
         _body.pickingMode = PickingMode.Position;
         SetPanelActive(_upgradePanel, true);
@@ -61,7 +63,10 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
 
     public void SelectUpgrade(UpgradeModel upgradeModel)
     {
-        OnSelectUpgrade?.Invoke(upgradeModel);
+        if (upgradeModel == null)
+            return;
+
+        _sceneEventBusService?.Publish(new SelectSquadUpgrade(upgradeModel));
     }
 
     public void RenderUpgrades(IReadOnlyList<UpgradeModel> upgradeModels)
