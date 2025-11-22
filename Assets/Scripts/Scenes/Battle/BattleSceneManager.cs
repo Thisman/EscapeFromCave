@@ -38,6 +38,8 @@ public class BattleSceneManager : MonoBehaviour
         InitializeStateMachines();
         InitializeUI();
 
+        await ApplyPassiveAbilitiesAsync();
+
         _battlePhaseMachine.Fire(BattlePhasesTrigger.StartBattle);
         await _audioManager.PlayClipAsync("BackgroundMusic", "JumanjiDrums");
     }
@@ -117,6 +119,122 @@ public class BattleSceneManager : MonoBehaviour
     {
         _battleRoundMachine = new BattleRoundsMachine(_battleContext);
         _battlePhaseMachine = new BattlePhasesMachine(_battleContext, _battleRoundMachine);
+    }
+
+    private async System.Threading.Tasks.Task ApplyPassiveAbilitiesAsync()
+    {
+        if (_battleContext == null)
+            return;
+
+        foreach (var squadController in _battleContext.BattleUnits)
+        {
+            if (squadController == null)
+                continue;
+
+            var squadModel = squadController.GetSquadModel();
+            var abilities = squadModel?.Abilities;
+
+            if (abilities == null || abilities.Length == 0)
+                continue;
+
+            foreach (var ability in abilities)
+            {
+                if (ability == null || ability.AbilityType != BattleAbilityType.Passive)
+                    continue;
+
+                foreach (var target in ResolvePassiveTargets(ability, squadController))
+                {
+                    if (target == null)
+                        continue;
+
+                    await ability.Apply(_battleContext, target);
+                }
+            }
+        }
+    }
+
+    private IEnumerable<BattleSquadController> ResolvePassiveTargets(BattleAbilitySO ability, BattleSquadController owner)
+    {
+        var ownerModel = owner?.GetSquadModel();
+
+        if (ownerModel == null)
+            yield break;
+
+        switch (ability.AbilityTargetType)
+        {
+            case BattleAbilityTargetType.Self:
+            case BattleAbilityTargetType.SingleAlly:
+                yield return owner;
+                break;
+
+            case BattleAbilityTargetType.AllAllies:
+                foreach (var target in FilterUnitsBySide(ownerModel, true))
+                    yield return target;
+                break;
+
+            case BattleAbilityTargetType.SingleEnemy:
+            case BattleAbilityTargetType.AllEnemies:
+                foreach (var target in FilterUnitsBySide(ownerModel, false))
+                    yield return target;
+                break;
+
+            default:
+                yield return owner;
+                break;
+        }
+    }
+
+    private IEnumerable<BattleSquadController> FilterUnitsBySide(IReadOnlySquadModel owner, bool sameSide)
+    {
+        var units = _battleContext?.BattleUnits;
+        if (units == null)
+            yield break;
+
+        foreach (var unit in units)
+        {
+            var unitModel = unit?.GetSquadModel();
+            if (unitModel == null)
+                continue;
+
+            bool isSameSide = IsSameSide(owner, unitModel);
+
+            if (sameSide && isSameSide)
+            {
+                yield return unit;
+            }
+            else if (!sameSide && IsEnemies(owner, unitModel))
+            {
+                yield return unit;
+            }
+        }
+    }
+
+    private static bool IsSameSide(IReadOnlySquadModel actor, IReadOnlySquadModel target)
+    {
+        if (actor == null || target == null)
+            return false;
+
+        if (actor.IsFriendly() || actor.IsAlly() || actor.IsHero())
+            return target.IsFriendly() || target.IsAlly() || target.IsHero();
+
+        if (actor.IsEnemy())
+            return target.IsEnemy();
+
+        return actor.IsNeutral() && target.IsNeutral();
+    }
+
+    private static bool IsEnemies(IReadOnlySquadModel actor, IReadOnlySquadModel target)
+    {
+        if (actor == null || target == null)
+            return false;
+
+        if (actor.IsFriendly() || actor.IsAlly() || actor.IsHero())
+            return target.IsEnemy();
+
+        if (actor.IsEnemy())
+            return target.IsFriendly() || target.IsAlly() || target.IsHero();
+
+        return false;
     }
 
     private void SubscribeToGameEvents()
