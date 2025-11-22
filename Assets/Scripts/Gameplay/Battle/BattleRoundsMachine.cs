@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Stateless;
 using UnityEngine;
@@ -125,27 +124,7 @@ public sealed class BattleRoundsMachine
         BattleLogger.LogRoundStateEntered(BattleRoundStates.TurnWaitAction);
         IBattleActionController controller = _actionControllerResolver.ResolveFor(_ctx.ActiveUnit);
 
-        controller.RequestAction(_ctx, action =>
-        {
-            if (action == null)
-            {
-                Debug.LogWarning($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Battle action controller returned no action. Skipping turn.");
-                _sm.Fire(BattleRoundsTrigger.SkipTurn);
-                return;
-            }
-
-            try
-            {
-                AttachAction(action);
-                action.Resolve();
-            }
-            catch (Exception exception)
-            {
-                Debug.LogError($"[{nameof(BattleRoundsMachine)}.{nameof(OnWaitTurnAction)}] Unexpected exception while resolving action: {exception}");
-                DetachCurrentAction();
-                _sm.Fire(BattleRoundsTrigger.SkipTurn);
-            }
-        });
+        controller.RequestAction(_ctx, _currentActionId);
     }
 
     private void OnTurnSkip()
@@ -177,47 +156,33 @@ public sealed class BattleRoundsMachine
         _sm.Fire(BattleRoundsTrigger.StartNewRound);
     }
 
-    private void AttachAction(IBattleAction action)
+    private void HandleBattleActionSelected(BattleActionSelected evt)
     {
-        DetachCurrentAction();
-
-        _ctx.CurrentAction = action ?? throw new ArgumentNullException(nameof(action));
-        action.OnResolve += OnActionResolved;
-        action.OnCancel += OnActionCancelled;
-
-        _ctx.SceneEventBusService.Publish(new BattleActionSelected(action, _ctx.ActiveUnit, _currentActionId));
-    }
-
-    private void DetachCurrentAction()
-    {
-        if (_ctx.CurrentAction == null)
+        if (!IsEventRelevant(evt.Actor, evt.ActionId))
             return;
 
-        _ctx.CurrentAction.OnResolve -= OnActionResolved;
-        _ctx.CurrentAction.OnCancel -= OnActionCancelled;
+        _ctx.CurrentAction = evt.Action;
 
-        if (_ctx.CurrentAction is IDisposable disposable)
+        if (evt.Action == null)
         {
-            disposable.Dispose();
+            Debug.LogWarning($"[{nameof(BattleRoundsMachine)}.{nameof(HandleBattleActionSelected)}] Battle action controller returned no action. Skipping turn.");
+            _sm.Fire(BattleRoundsTrigger.SkipTurn);
         }
-
-        _ctx.CurrentAction = null;
     }
 
-    private void OnActionResolved()
+    private void HandleBattleActionResolved(BattleActionResolved evt)
     {
-        var resolvedAction = _ctx.CurrentAction;
-        var activeUnit = _ctx.ActiveUnit;
+        if (!IsEventRelevant(evt.Actor, evt.ActionId))
+            return;
 
-        _ctx.SceneEventBusService.Publish(new BattleActionResolved(resolvedAction, activeUnit, _currentActionId));
-        DetachCurrentAction();
+        _ctx.CurrentAction = null;
 
-        if (resolvedAction != null && activeUnit != null)
+        if (evt.Action != null && evt.Actor != null)
         {
-            BattleLogger.LogUnitAction(activeUnit, BattleLogger.ResolveActionName(resolvedAction));
+            BattleLogger.LogUnitAction(evt.Actor, BattleLogger.ResolveActionName(evt.Action));
         }
 
-        switch (resolvedAction)
+        switch (evt.Action)
         {
             case BattleActionDefend:
                 _sm.Fire(BattleRoundsTrigger.SkipTurn);
@@ -237,13 +202,14 @@ public sealed class BattleRoundsMachine
         }
     }
 
-    private void OnActionCancelled()
+    private void HandleBattleActionCancelled(BattleActionCancelled evt)
     {
-        var activeUnit = _ctx.ActiveUnit;
-        _ctx.SceneEventBusService.Publish(new BattleActionCancelled(activeUnit, _currentActionId));
-        DetachCurrentAction();
+        if (!IsEventRelevant(evt.Actor, evt.ActionId))
+            return;
 
-        if (activeUnit == null || !activeUnit.IsFriendly())
+        _ctx.CurrentAction = null;
+
+        if (evt.Actor == null || !evt.Actor.IsFriendly())
             return;
 
         OnWaitTurnAction();
@@ -276,11 +242,22 @@ public sealed class BattleRoundsMachine
     private void SubscribeToGameEvents()
     {
         _ctx.SceneEventBusService.Subscribe<RequestFleeCombat>(HandleLeaveCombat);
+        _ctx.SceneEventBusService.Subscribe<BattleActionSelected>(HandleBattleActionSelected);
+        _ctx.SceneEventBusService.Subscribe<BattleActionCancelled>(HandleBattleActionCancelled);
+        _ctx.SceneEventBusService.Subscribe<BattleActionResolved>(HandleBattleActionResolved);
     }
 
     private void UnsubscribeFromGameEvents()
     {
         _ctx.SceneEventBusService.Unsubscribe<RequestFleeCombat>(HandleLeaveCombat);
+        _ctx.SceneEventBusService.Unsubscribe<BattleActionSelected>(HandleBattleActionSelected);
+        _ctx.SceneEventBusService.Unsubscribe<BattleActionCancelled>(HandleBattleActionCancelled);
+        _ctx.SceneEventBusService.Unsubscribe<BattleActionResolved>(HandleBattleActionResolved);
+    }
+
+    private bool IsEventRelevant(IReadOnlySquadModel actor, int actionId)
+    {
+        return !_battleFinished && actor == _ctx.ActiveUnit && actionId == _currentActionId;
     }
 
     private void HandleLeaveCombat(RequestFleeCombat evt)

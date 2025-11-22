@@ -5,13 +5,13 @@ public class PlayerBattleActionController : IBattleActionController
 {
     private BattleContext _ctx;
     private InputAction _cancelAction;
+    private IBattleAction _currentAction;
+    private int _currentActionId;
 
-    private Action<IBattleAction> _onActionReady;
-
-    public void RequestAction(BattleContext ctx, Action<IBattleAction> onActionReady)
+    public void RequestAction(BattleContext ctx, int actionId)
     {
         _ctx = ctx;
-        _onActionReady = onActionReady;
+        _currentActionId = actionId;
 
         // Unsubscribe prev handlers
         UnsubscribeGameEvents();
@@ -24,7 +24,7 @@ public class PlayerBattleActionController : IBattleActionController
         var damageResolver = new BattleDamageResolverByDefault();
         var targetPicker = new BattleActionTargetPickerForPlayer(ctx, targetResolver);
 
-        onActionReady.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
+        SelectAction(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
     }
 
     private void HandleDefend()
@@ -39,7 +39,7 @@ public class PlayerBattleActionController : IBattleActionController
         UnsubscribeUIEvents();
         _ctx.BattleSceneUIController?.SetDefendButtonInteractable(false);
         var defendAction = new BattleActionDefend();
-        _onActionReady.Invoke(defendAction);
+        SelectAction(defendAction);
     }
 
     private void HandleSkipTurn()
@@ -48,7 +48,7 @@ public class PlayerBattleActionController : IBattleActionController
         UnsubscribeUIEvents();
         _ctx.BattleSceneUIController?.SetDefendButtonInteractable(false);
         var skipTurnAction = new BattleActionSkipTurn();
-        _onActionReady.Invoke(skipTurnAction);
+        SelectAction(skipTurnAction);
     }
 
     private void HandleDefendRequest(RequestDefend evt)
@@ -64,7 +64,7 @@ public class PlayerBattleActionController : IBattleActionController
     private void HandleAbilitySelected(RequestSelectAbility request)
     {
         var ability = request?.Ability;
-        if (ability == null || _ctx == null || _onActionReady == null)
+        if (ability == null || _ctx == null)
             return;
 
         var abilityManager = _ctx.BattleAbilitiesManager;
@@ -86,7 +86,7 @@ public class PlayerBattleActionController : IBattleActionController
 
         var targetPicker = new BattleActionTargetPickerForPlayer(_ctx, targetResolver);
         var abilityAction = new BattleActionAbility(_ctx, ability, targetResolver, targetPicker);
-        _onActionReady.Invoke(abilityAction);
+        SelectAction(abilityAction);
     }
 
     private bool CanActiveUnitDefend()
@@ -169,5 +169,72 @@ public class PlayerBattleActionController : IBattleActionController
         {
             abilityAction.Dispose();
         }
+    }
+
+    private void SelectAction(IBattleAction action)
+    {
+        if (action == null || _ctx == null)
+            return;
+
+        ClearCurrentAction();
+        _currentAction = action;
+        SubscribeToActionLifecycle(_currentAction);
+        _ctx.SceneEventBusService?.Publish(new BattleActionSelected(_currentAction, _ctx.ActiveUnit, _currentActionId));
+        _currentAction.Resolve();
+    }
+
+    private void SubscribeToActionLifecycle(IBattleAction action)
+    {
+        action.OnResolve += HandleActionResolved;
+        action.OnCancel += HandleActionCancelled;
+    }
+
+    private void UnsubscribeFromActionLifecycle(IBattleAction action)
+    {
+        action.OnResolve -= HandleActionResolved;
+        action.OnCancel -= HandleActionCancelled;
+    }
+
+    private void ClearCurrentAction()
+    {
+        if (_currentAction == null)
+            return;
+
+        UnsubscribeFromActionLifecycle(_currentAction);
+
+        if (_currentAction is IDisposable disposable)
+        {
+            disposable.Dispose();
+        }
+
+        _currentAction = null;
+    }
+
+    private void HandleActionResolved()
+    {
+        if (_ctx == null)
+            return;
+
+        if (_currentAction != null)
+        {
+            UnsubscribeFromActionLifecycle(_currentAction);
+        }
+
+        _ctx.SceneEventBusService?.Publish(new BattleActionResolved(_currentAction, _ctx.ActiveUnit, _currentActionId));
+        _currentAction = null;
+    }
+
+    private void HandleActionCancelled()
+    {
+        if (_ctx == null)
+            return;
+
+        if (_currentAction != null)
+        {
+            UnsubscribeFromActionLifecycle(_currentAction);
+        }
+
+        _ctx.SceneEventBusService?.Publish(new BattleActionCancelled(_ctx.ActiveUnit, _currentActionId));
+        _currentAction = null;
     }
 }
