@@ -61,8 +61,9 @@ public class PlayerBattleActionController : IBattleActionController
         HandleSkipTurn();
     }
 
-    private void HandleAbilitySelected(BattleAbilitySO ability)
+    private void HandleAbilitySelected(RequestSelectAbility request)
     {
+        var ability = request?.Ability;
         if (ability == null || _ctx == null || _onActionReady == null)
             return;
 
@@ -104,21 +105,11 @@ public class PlayerBattleActionController : IBattleActionController
 
     private void SubscribeUIEvents()
     {
-        if (_ctx?.BattleSceneUIController != null)
-        {
-            _ctx.BattleSceneUIController.OnSelectAbility += HandleAbilitySelected;
-        }
-
         SubscribeToCancelAction();
     }
 
     private void UnsubscribeUIEvents()
     {
-        if (_ctx?.BattleSceneUIController != null)
-        {
-            _ctx.BattleSceneUIController.OnSelectAbility -= HandleAbilitySelected;
-        }
-
         UnsubscribeFromCancelAction();
     }
 
@@ -130,6 +121,7 @@ public class PlayerBattleActionController : IBattleActionController
 
         sceneEventBus.Subscribe<RequestDefend>(HandleDefendRequest);
         sceneEventBus.Subscribe<RequestSkipTurn>(HandleSkipTurnRequest);
+        sceneEventBus.Subscribe<RequestSelectAbility>(HandleAbilitySelected);
     }
 
     private void UnsubscribeGameEvents()
@@ -140,6 +132,7 @@ public class PlayerBattleActionController : IBattleActionController
 
         sceneEventBus.Unsubscribe<RequestDefend>(HandleDefendRequest);
         sceneEventBus.Unsubscribe<RequestSkipTurn>(HandleSkipTurnRequest);
+        sceneEventBus.Unsubscribe<RequestSelectAbility>(HandleAbilitySelected);
     }
 
     private void SubscribeToCancelAction()

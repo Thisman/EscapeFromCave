@@ -113,8 +113,6 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
     private Sequence _resultSquadAnimationSequence;
     private VisualElement _abilityTooltipTarget;
 
-    public event Action<BattleAbilitySO> OnSelectAbility;
-
     private void Update()
     {
         if (!_isAttached)
@@ -824,7 +822,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
         if (!IsAbilityReady(ability))
             return;
 
-        OnSelectAbility?.Invoke(ability);
+        _sceneEventBusService.Publish<RequestSelectAbility>(new RequestSelectAbility(ability));
     }
 
     private void ShowAbilityTooltip(BattleAbilitySO ability, VisualElement target)

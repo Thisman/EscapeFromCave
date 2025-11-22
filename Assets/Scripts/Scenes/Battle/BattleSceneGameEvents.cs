@@ -9,3 +9,5 @@ public record RequestReturnToDungeon();
 public record RequestDefend();
 
 public record RequestSkipTurn();
+
+public record RequestSelectAbility(BattleAbilitySO Ability);
