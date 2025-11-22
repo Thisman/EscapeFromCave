@@ -5,6 +5,7 @@ using DG.Tweening;
 using UICommon.Widgets;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public enum BattleSceneElements
 {
@@ -118,7 +119,7 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
         if (!_isAttached)
             return;
 
-        UpdateSquadInfoCardFromPointer();
+        HandleSquadInfoCardInput();
     }
 
     protected override void AttachToPanel(UIDocument document)
@@ -907,21 +908,26 @@ public sealed class BattleSceneUIController : BaseUIController<BattleSceneElemen
         return string.IsNullOrWhiteSpace(formatted) ? string.Empty : formatted;
     }
 
-    private void UpdateSquadInfoCardFromPointer()
+    private void HandleSquadInfoCardInput()
     {
-        var squadInfoCard = GetElement<VisualElement>(BattleSceneElements.SquadInfoCard);
-        if (squadInfoCard == null || _squadInfoCardWidget == null)
-            return;
-
-        BattleSquadController squadController = FindSquadUnderPointer();
-        if (squadController == null)
+        if (Mouse.current != null && Mouse.current.rightButton.wasReleasedThisFrame)
         {
-            if (_displayedSquadModel != null)
+            BattleSquadController squadController = FindSquadUnderPointer();
+
+            if (squadController == null)
+            {
                 HideSquadInfoCardInternal();
+                return;
+            }
+
+            ShowSquadInfoCardInternal(squadController);
             return;
         }
 
-        ShowSquadInfoCardInternal(squadController);
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasReleasedThisFrame)
+        {
+            HideSquadInfoCardInternal();
+        }
     }
 
     private void ShowSquadInfoCardInternal(BattleSquadController controller)
