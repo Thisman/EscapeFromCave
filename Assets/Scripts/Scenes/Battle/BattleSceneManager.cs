@@ -20,6 +20,10 @@ public class BattleSceneManager : MonoBehaviour
     private BattleContext _battleContext;
     private BattlePhasesMachine _battlePhaseMachine;
     private BattleRoundsMachine _battleRoundMachine;
+    private QueueSystem _queueSystem;
+    private TargetHighlightSystem _targetHighlightSystem;
+    private EffectTriggerSystem _effectTriggerSystem;
+    private AbilityCooldownSystem _abilityCooldownSystem;
 
     private string _originSceneName;
     private const string BattleSceneName = "BattleScene";
@@ -30,6 +34,7 @@ public class BattleSceneManager : MonoBehaviour
         InitializeBattleData();
         InitializeBattleContext();
         InitializeBattleUnits();
+        InitializeBattleSystems();
         InitializeStateMachines();
         InitializeUI();
 
@@ -40,6 +45,10 @@ public class BattleSceneManager : MonoBehaviour
     private async void OnDestroy()
     {
         UnsubscribeFromGameEvents();
+        _abilityCooldownSystem?.Dispose();
+        _effectTriggerSystem?.Dispose();
+        _targetHighlightSystem?.Dispose();
+        _queueSystem?.Dispose();
         _battleContext.Dispose();
         await _audioManager.PlayClipAsync("BackgroundMusic", "TheHumOfCave");
     }
@@ -94,6 +103,14 @@ public class BattleSceneManager : MonoBehaviour
             battleEffectsManager,
             _sceneEventBusService
         );
+    }
+
+    private void InitializeBattleSystems()
+    {
+        _queueSystem = new QueueSystem(_battleContext);
+        _targetHighlightSystem = new TargetHighlightSystem(_battleContext);
+        _effectTriggerSystem = new EffectTriggerSystem(_battleContext);
+        _abilityCooldownSystem = new AbilityCooldownSystem(_battleContext);
     }
 
     private void InitializeStateMachines()
