@@ -13,7 +13,7 @@
     font-size: 56px;
     color: rgb(255, 255, 255);
     opacity: 0;
-    translate: 0 12px;
+    translate: 0 36px;
     transition-property: opacity, translate;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
@@ -32,8 +32,8 @@
 }
 
 .upgrade-card {
-    width: 350px;
-    height: 450px;
+    width: 250px;
+    height: 350px;
     flex-grow: 0;
     background-color: rgb(0, 0, 0);
     border-left-color: rgb(255, 255, 255);
@@ -53,8 +53,8 @@
     transition-property: scale, opacity, translate;
     transition-duration: 0.3s, 0.15s, 0.15s;
     transition-timing-function: ease-out;
-    margin-right: 64px;
-    margin-left: 64px;
+    margin-right: 16px;
+    margin-left: 16px;
 }
 
 .upgrade-card--visible {
@@ -63,7 +63,7 @@
 }
 
 .upgrade-card:hover {
-    scale: 1.2 1.2;
+    scale: 1.1;
 }
 
 .upgrade-card__title {
@@ -80,8 +80,8 @@
 }
 
 .upgrade-card__icon {
-    width: 128px;
-    height: 128px;
+    width: 64px;
+    height: 64px;
     background-size: 96% 96%;
 }
 
@@ -102,6 +102,6 @@
 
 .upgrade-card__info-text {
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 15px;
     white-space: normal;
 }

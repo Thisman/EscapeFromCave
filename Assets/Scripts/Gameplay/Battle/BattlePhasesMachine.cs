@@ -48,10 +48,7 @@ public sealed class BattlePhasesMachine
         BattleLogger.LogPhaseEntered(BattlePhaseStates.Tactics);
         SubscribeToGameEvents();
         _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.TacticPanel);
-        if (!_ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits))
-        {
-            Debug.LogWarning($"[{nameof(BattlePhasesMachine)}.{nameof(OnEnterTactics)}] Failed to place battle units on the grid.");
-        }
+        _ctx.BattleGridController.TryPlaceUnits(_ctx.BattleUnits);
         _ctx.BattleGridDragAndDropController.enabled = true;
     }
 
@@ -70,13 +67,8 @@ public sealed class BattlePhasesMachine
         _ctx.BattleSceneUIController.ShowPanel(BattleSceneUIController.PanelName.ResultPanel);
         _ctx.BattleSceneUIController.ShowResult(_battleResult);
 
-        if (_ctx.BattleUnits != null)
-        {
-            foreach (var unit in _ctx.BattleUnits)
-            {
-                unit.SetInteractionEnabled(false);
-            }
-        }
+        foreach (var unit in _ctx.BattleUnits)
+            unit.SetInteractionEnabled(false);
     }
 
     private void OnExitTactics()
