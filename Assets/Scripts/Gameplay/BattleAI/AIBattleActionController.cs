@@ -13,7 +13,7 @@ public class AIBattleActionController : IBattleActionController
         await Task.Delay(delay);
 
         var targetResolver = new BattleActionTargetResolverForAttack(ctx);
-        var damageResolver = new BattleDamageDefaultResolver();
+        var damageResolver = new BattleDamageResolverByDefault();
         var targetPicker = new BattlActionTargetPickerForAI(ctx);
         onActionReady?.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));
     }

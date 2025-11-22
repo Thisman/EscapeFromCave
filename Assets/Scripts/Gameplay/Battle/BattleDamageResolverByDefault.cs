@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-public sealed class BattleDamageDefaultResolver
+public sealed class BattleDamageResolverByDefault
 {
     public async Task ResolveDamage(IBattleDamageProvider actor, IBattleDamageReceiver target)
     {

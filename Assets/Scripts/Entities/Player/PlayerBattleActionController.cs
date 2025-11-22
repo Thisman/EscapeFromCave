@@ -21,7 +21,7 @@ public class PlayerBattleActionController : IBattleActionController
         UpdateDefendAvailability();
 
         var targetResolver = new BattleActionTargetResolverForAttack(ctx);
-        var damageResolver = new BattleDamageDefaultResolver();
+        var damageResolver = new BattleDamageResolverByDefault();
         var targetPicker = new BattleActionTargetPickerForPlayer(ctx, targetResolver);
 
         onActionReady.Invoke(new BattleActionAttack(ctx, targetResolver, damageResolver, targetPicker));

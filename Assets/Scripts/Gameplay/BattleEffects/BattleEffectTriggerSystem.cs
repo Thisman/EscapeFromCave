@@ -13,7 +13,7 @@ public sealed class BattleEffectTriggerSystem : IDisposable
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
 
         _subscriptions.Add(bus.Subscribe<BattleRoundStarted>(HandleRoundStarted));
-        _subscriptions.Add(bus.Subscribe<BattleTurnInited>(HandleTurnPrepared));
+        _subscriptions.Add(bus.Subscribe<BattleTurnInited>(HandleTurnInited));
         _subscriptions.Add(bus.Subscribe<BattleTurnEnded>(HandleTurnEnded));
         _subscriptions.Add(bus.Subscribe<BattleActionResolved>(HandleActionResolved));
         _subscriptions.Add(bus.Subscribe<BattleFinished>(_ => UnsubscribeFromSquadEvents()));
@@ -39,7 +39,7 @@ public sealed class BattleEffectTriggerSystem : IDisposable
         TriggerEffects(BattleEffectTrigger.OnRoundStart);
     }
 
-    private void HandleTurnPrepared(BattleTurnInited evt)
+    private void HandleTurnInited(BattleTurnInited evt)
     {
         TriggerEffects(BattleEffectTrigger.OnTurnStart, evt.ActiveUnit);
     }

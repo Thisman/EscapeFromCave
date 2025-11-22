@@ -17,7 +17,7 @@ public sealed class BattleEffectDamageSO : BattleEffectSO, IBattleDamageProvider
             return;
 
         Debug.Log($"[{nameof(BattleEffectDamageSO)}.{nameof(Apply)}] '{name}' deals {Damage} {_effectDamageType} damage to '{target.name}'.");
-        await new BattleDamageDefaultResolver().ResolveDamage(this, squadController);
+        await new BattleDamageResolverByDefault().ResolveDamage(this, squadController);
     }
 
     public BattleDamageData CreateDamageData()
