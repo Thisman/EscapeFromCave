@@ -3,7 +3,7 @@ using UnityEngine;
 
 public record RequestPlayerUpgrade();
 
-public record SelectSquadUpgrade();
+public record SelectSquadUpgrade(UpgradeModel Upgrade);
 
 public record PlayerSquadsChanged(IReadOnlyList<IReadOnlySquadModel> Squads);
 

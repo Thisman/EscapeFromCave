@@ -1,25 +1,17 @@
-using Mono.Cecil.Cil;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 using UnityEngine.UIElements;
 
 public class UpgradesUIController : MonoBehaviour, ISceneUIController
 {
     [SerializeField] private UIDocument _uiDocument;
 
+    private GameEventBusService _sceneEventBusService;
     private bool _isAttached = false;
     private VisualElement _root;
     private VisualElement _body;
     private VisualElement _upgradePanel;
     private readonly List<UpgradeCard> _upgradeCards = new();
-
-    private Clickable _selectUpgradeClickable;
-
-    public Action OnSelectUpgrade;
 
     private void Awake()
     {
@@ -54,6 +46,11 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         _upgradeCards.Clear();
     }
 
+    public void Initialize(GameEventBusService sceneEventBusService)
+    {
+        _sceneEventBusService = sceneEventBusService;
+    }
+
     public void Show() {
         _body.pickingMode = PickingMode.Position;
         SetPanelActive(_upgradePanel, true);
@@ -64,9 +61,22 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         SetPanelActive(_upgradePanel, false);
     }
 
-    public void SelectUpgrade()
+    public void SelectUpgrade(UpgradeModel upgradeModel)
     {
-        OnSelectUpgrade?.Invoke();
+        if (upgradeModel == null)
+            return;
+
+        _sceneEventBusService?.Publish(new SelectSquadUpgrade(upgradeModel));
+    }
+
+    public void RenderUpgrades(IReadOnlyList<UpgradeModel> upgradeModels)
+    {
+        int count = Mathf.Min(_upgradeCards.Count, upgradeModels?.Count ?? 0);
+        for (int i = 0; i < _upgradeCards.Count; i++)
+        {
+            var upgrade = i < count ? upgradeModels[i] : null;
+            _upgradeCards[i].Bind(upgrade);
+        }
     }
 
     private static void SetPanelActive(VisualElement panel, bool isActive)
@@ -119,6 +129,7 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
         private readonly VisualElement _card;
         private readonly VisualElement[] _icons;
         private readonly Label _cardInfoText;
+        private UpgradeModel _upgradeModel;
         private Clickable _selectUpgradeClickable;
 
         public UpgradeCard(UpgradesUIController controller, VisualElement card)
@@ -126,18 +137,21 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
             _controller = controller;
             _card = card;
             _icons = card.Query<VisualElement>(className: "upgrade-card__icon").ToList().ToArray();
-            _cardInfoText = card.Q<Label>("upgrade-card__info-text");
+            _cardInfoText = card.Q<Label>(className: "upgrade-card__info-text");
 
 
-            _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade());
+            _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade(_upgradeModel));
             _card.AddManipulator(_selectUpgradeClickable);
         }
 
-        public void UpdateContenxt(UnitSO squad, Sprite updateIcon, string description)
+        public void Bind(UpgradeModel upgrade)
         {
-            _icons[0].style.backgroundImage = new StyleBackground(squad.Icon);
-            _icons[1].style.backgroundImage = new StyleBackground(updateIcon);
-            _cardInfoText.text = description;
+            _upgradeModel = upgrade;
+
+            if (upgrade?.Target != null)
+                _icons[0].style.backgroundImage = new StyleBackground(upgrade.Target.Icon);
+
+            _cardInfoText.text = upgrade?.Description ?? string.Empty;
         }
         
         public void Dispose()

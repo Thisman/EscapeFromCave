@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -8,6 +9,8 @@ public class SquadModel : IReadOnlySquadModel
     [SerializeField, Min(0)] private int _count;
     [SerializeField, Min(1)] private int _level = 1;
     [SerializeField, Min(0f)] private float _experience;
+
+    private readonly Dictionary<SquadUpgradeStat, float> _statBonuses = new();
 
     public event Action<IReadOnlySquadModel> Changed;
 
@@ -51,30 +54,30 @@ public class SquadModel : IReadOnlySquadModel
 
     public DamageType DamageType => _unitDefinition != null ? _unitDefinition.DamageType : DamageType.Physical;
 
-    public float Health => CalculateProgressiveStat(_unitDefinition?.BaseHealth ?? 0f, template => template.BaseHealth);
+    public float Health => ApplyBonus(SquadUpgradeStat.Health, CalculateProgressiveStat(_unitDefinition?.BaseHealth ?? 0f, template => template.BaseHealth));
 
-    public float PhysicalDefense => CalculateProgressiveStat(_unitDefinition?.BasePhysicalDefense ?? 0f, template => template.BasePhysicalDefense);
+    public float PhysicalDefense => ApplyBonus(SquadUpgradeStat.PhysicalDefense, CalculateProgressiveStat(_unitDefinition?.BasePhysicalDefense ?? 0f, template => template.BasePhysicalDefense));
 
-    public float MagicDefense => CalculateProgressiveStat(_unitDefinition?.BaseMagicDefense ?? 0f, template => template.BaseMagicDefense);
+    public float MagicDefense => ApplyBonus(SquadUpgradeStat.MagicDefense, CalculateProgressiveStat(_unitDefinition?.BaseMagicDefense ?? 0f, template => template.BaseMagicDefense));
 
-    public float AbsoluteDefense => CalculateProgressiveStat(_unitDefinition?.BaseAbsoluteDefense ?? 0f, template => template.BaseAbsoluteDefense);
+    public float AbsoluteDefense => ApplyBonus(SquadUpgradeStat.AbsoluteDefense, CalculateProgressiveStat(_unitDefinition?.BaseAbsoluteDefense ?? 0f, template => template.BaseAbsoluteDefense));
 
     public (float min, float max) GetBaseDamageRange()
     {
-        float minDamage = CalculateProgressiveStat(_unitDefinition?.MinDamage ?? 0f, template => template.MinDamage);
-        float maxDamage = CalculateProgressiveStat(_unitDefinition?.MaxDamage ?? 0f, template => template.MaxDamage);
+        float minDamage = ApplyBonus(SquadUpgradeStat.MinDamage, CalculateProgressiveStat(_unitDefinition?.MinDamage ?? 0f, template => template.MinDamage));
+        float maxDamage = ApplyBonus(SquadUpgradeStat.MaxDamage, CalculateProgressiveStat(_unitDefinition?.MaxDamage ?? 0f, template => template.MaxDamage));
         return (minDamage, maxDamage);
     }
 
-    public float Speed => CalculateProgressiveStat(_unitDefinition?.Speed ?? 0f, template => template.Speed);
+    public float Speed => ApplyBonus(SquadUpgradeStat.Speed, CalculateProgressiveStat(_unitDefinition?.Speed ?? 0f, template => template.Speed));
 
     public float Initiative => Speed;
 
-    public float CritChance => CalculateProgressiveStat(_unitDefinition?.BaseCritChance ?? 0f, template => template.BaseCritChance);
+    public float CritChance => ApplyBonus(SquadUpgradeStat.CritChance, CalculateProgressiveStat(_unitDefinition?.BaseCritChance ?? 0f, template => template.BaseCritChance));
 
-    public float CritMultiplier => CalculateProgressiveStat(_unitDefinition?.BaseCritMultiplier ?? 0f, template => template.BaseCritMultiplier);
+    public float CritMultiplier => ApplyBonus(SquadUpgradeStat.CritMultiplier, CalculateProgressiveStat(_unitDefinition?.BaseCritMultiplier ?? 0f, template => template.BaseCritMultiplier));
 
-    public float MissChance => CalculateProgressiveStat(_unitDefinition?.BaseMissChance ?? 0f, template => template.BaseMissChance);
+    public float MissChance => ApplyBonus(SquadUpgradeStat.MissChance, CalculateProgressiveStat(_unitDefinition?.BaseMissChance ?? 0f, template => template.BaseMissChance));
 
     public BattleAbilitySO[] Abilities => _unitDefinition != null ? _unitDefinition.Abilities : Array.Empty<BattleAbilitySO>();
 
@@ -129,6 +132,30 @@ public class SquadModel : IReadOnlySquadModel
         NotifyChanged();
     }
 
+    public void ApplyUpgrade(UpgradeModel upgrade)
+    {
+        if (upgrade == null)
+            throw new ArgumentNullException(nameof(upgrade));
+
+        ApplyUpgradeModifiers(upgrade.Modifiers);
+    }
+
+    public void ApplyUpgradeModifiers(IEnumerable<SquadUpgradeModifier> modifiers)
+    {
+        if (modifiers == null)
+            return;
+
+        foreach (var modifier in modifiers)
+        {
+            if (_statBonuses.TryGetValue(modifier.Stat, out float currentValue))
+                _statBonuses[modifier.Stat] = currentValue + modifier.Value;
+            else
+                _statBonuses.Add(modifier.Stat, modifier.Value);
+        }
+
+        NotifyChanged();
+    }
+
     private float CalculateProgressiveStat(float baseValue, Func<UnitProgressionTemplateSO, float> progressionSelector)
     {
         if (_unitDefinition == null)
@@ -171,6 +198,14 @@ public class SquadModel : IReadOnlySquadModel
         _level = newLevel;
         NotifyLevelChanged();
         return true;
+    }
+
+    private float ApplyBonus(SquadUpgradeStat stat, float baseValue)
+    {
+        if (_statBonuses.TryGetValue(stat, out float bonus))
+            return baseValue + bonus;
+
+        return baseValue;
     }
 
     private void NotifyLevelChanged()
