@@ -48,6 +48,7 @@
 .upgrade-card__icon {
     width: 128px;
     height: 128px;
+    background-size: 96% 96%;
 }
 
 .upgrade-card__icon-connector {

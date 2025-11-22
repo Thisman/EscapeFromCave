@@ -260,6 +260,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UpgradesSelection",
+            "id": "95ed3f77-2586-4f97-b7eb-0809c4963eed",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "11fbed33-e4ac-433b-a997-23c9a2bae3aa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "74d851fb-c4ea-4059-8218-90ab4855b645",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

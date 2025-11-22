@@ -8,7 +8,7 @@
                 <ui:VisualElement name="UpgradeIcons" class="upgrade-card__icons-container">
                     <ui:VisualElement name="Icon" class="upgrade-card__icon" />
                     <ui:Label text="+" class="upgrade-card__icon-connector" />
-                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc12&apos;);" />
+                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc15&apos;);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="UpgradeInfo" class="upgrade-card__info" style="flex-grow: 1;">
                     <ui:Label class="upgrade-card__info-text" />
@@ -19,7 +19,7 @@
                 <ui:VisualElement name="UpgradeIcons" class="upgrade-card__icons-container">
                     <ui:VisualElement name="Icon" class="upgrade-card__icon" />
                     <ui:Label text="+" class="upgrade-card__icon-connector" />
-                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc12&apos;);" />
+                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc15&apos;);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="UpgradeInfo" class="upgrade-card__info" style="flex-grow: 1;">
                     <ui:Label class="upgrade-card__info-text" />
@@ -30,7 +30,7 @@
                 <ui:VisualElement name="UpgradeIcons" class="upgrade-card__icons-container">
                     <ui:VisualElement name="Icon" class="upgrade-card__icon" />
                     <ui:Label text="+" class="upgrade-card__icon-connector" />
-                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc12&apos;);" />
+                    <ui:VisualElement name="Icon" class="upgrade-card__icon" style="background-image: resource(&apos;Art/Packs/Free - Raven Fantasy Icons/Free - Raven Fantasy Icons/Separated Files/64x64/fc15&apos;);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="UpgradeInfo" class="upgrade-card__info" style="flex-grow: 1;">
                     <ui:Label class="upgrade-card__info-text" />

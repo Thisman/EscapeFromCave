@@ -15,13 +15,6 @@ public class InputService
             _actions.FindActionMap(name, throwIfNotFound: true).Enable();
     }
 
-    public void SetBindingMask(string bindingGroupOrNull)
-    {
-        _actions.bindingMask = string.IsNullOrEmpty(bindingGroupOrNull)
-            ? (InputBinding?)null
-            : InputBinding.MaskByGroup(bindingGroupOrNull);
-    }
-
     public void ClearBindingMask() => _actions.bindingMask = null;
 
     public void EnterBattle() => SetMode(GameMode.Battle);
@@ -31,6 +24,8 @@ public class InputService
     public void EnterMenu() => SetMode(GameMode.Menu);
 
     public void EnterDialog() => SetMode(GameMode.Dialog);
+
+    public void EnterUpgrades() => SetMode(GameMode.SelectUpgrades);
 
     private void SetMode(GameMode mode)
     {
@@ -49,6 +44,9 @@ public class InputService
                 break;
             case GameMode.Dialog:
                 EnableOnly("Dialog");
+                break;
+            case GameMode.SelectUpgrades:
+                EnableOnly("UpgradesSelection");
                 break;
         }
     }

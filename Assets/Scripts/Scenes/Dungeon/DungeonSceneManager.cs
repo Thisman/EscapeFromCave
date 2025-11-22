@@ -102,8 +102,9 @@ public class DungeonSceneManager : MonoBehaviour
         _sceneEventBusService.Unsubscribe<SelectSquadUpgrade>(HandleSelectUpgrade);
     }
 
-    // TODO: вынести подписку в UI контроллер апгрейдов
     private void HandleRequestPlayerUpgrade(RequestPlayerUpgrade evt) {
+        _inputService.EnterUpgrades();
+
         var upgrades = _upgradeSystem.GenerateRandomUpgrades();
         _upgradesUIController.RenderUpgrades(upgrades);
         _upgradesUIController.Show();
@@ -111,6 +112,7 @@ public class DungeonSceneManager : MonoBehaviour
 
     private void HandleSelectUpgrade(SelectSquadUpgrade evt) {
         _upgradesUIController.Hide();
+        _inputService.EnterGameplay();
     }
 
     private void UpdateSquadsWithHero(IReadOnlyArmyModel army)
