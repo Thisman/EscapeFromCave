@@ -132,7 +132,7 @@ public class UpgradesUIController : MonoBehaviour, ISceneUIController
             _controller = controller;
             _card = card;
             _icons = card.Query<VisualElement>(className: "upgrade-card__icon").ToList().ToArray();
-            _cardInfoText = card.Q<Label>("upgrade-card__info-text");
+            _cardInfoText = card.Q<Label>(className: "upgrade-card__info-text");
 
 
             _selectUpgradeClickable = new Clickable(() => controller.SelectUpgrade(_upgradeModel));
