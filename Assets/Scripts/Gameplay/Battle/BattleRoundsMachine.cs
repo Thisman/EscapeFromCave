@@ -84,7 +84,6 @@ public sealed class BattleRoundsMachine
     private void OnRoundStart()
     {
         BattleLogger.LogRoundStateEntered(BattleRoundStates.RoundStart);
-        _ctx.DefendedUnitsThisRound?.Clear();
         _ctx.ActiveUnit = null;
         _currentRound++;
 

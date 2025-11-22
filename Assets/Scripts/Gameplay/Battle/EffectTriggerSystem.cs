@@ -12,7 +12,7 @@ public sealed class EffectTriggerSystem : IDisposable
         _ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         var bus = _ctx.SceneEventBusService ?? throw new ArgumentNullException(nameof(_ctx.SceneEventBusService));
 
-        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(_ => TriggerEffects(BattleEffectTrigger.OnRoundStart)));
+        _subscriptions.Add(bus.Subscribe<RoundStartedEvent>(HandleRoundStarted));
         _subscriptions.Add(bus.Subscribe<TurnPreparedEvent>(HandleTurnPrepared));
         _subscriptions.Add(bus.Subscribe<TurnEndedEvent>(HandleTurnEnded));
         _subscriptions.Add(bus.Subscribe<ActionResolvedEvent>(HandleActionResolved));
@@ -31,6 +31,12 @@ public sealed class EffectTriggerSystem : IDisposable
         }
 
         _subscriptions.Clear();
+    }
+
+    private void HandleRoundStarted(RoundStartedEvent evt)
+    {
+        _ctx.DefendedUnitsThisRound?.Clear();
+        TriggerEffects(BattleEffectTrigger.OnRoundStart);
     }
 
     private void HandleTurnPrepared(TurnPreparedEvent evt)
